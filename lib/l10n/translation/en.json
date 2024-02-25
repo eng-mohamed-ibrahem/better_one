@@ -1,0 +1,17 @@
+{
+    "app": {
+        "name": "Better One"
+    },
+    "create_task": "Create Task",
+    "no_task": "No tasks found",
+    "add_task": "Add Task",
+    "edit_task": "Edit Task",
+    "title": "Title",
+    "description": "Description",
+    "create": "Create",
+    "update": "Update",
+    "delete": "Delete",
+    "save": "Save",
+    "cancel": "Cancel",
+    "lets_go": "Let's go"
+}

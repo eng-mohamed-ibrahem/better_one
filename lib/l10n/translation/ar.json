@@ -1,0 +1,17 @@
+{
+    "app": {
+        "name": "Better One"
+    },
+    "create_task": "انشاء مهمة",
+    "no_task": "لا توجد مهمات",
+    "add_task": "اضافة مهمة",
+    "edit_task": "تعديل مهمة",
+    "title": "العنوان",
+    "description": "الوصف",
+    "create": "انشاء",
+    "update": "تحديث",
+    "delete": "حذف",
+    "save": "حفظ",
+    "cancel": "الغاء",
+    "lets_go": "لنذهب"
+}

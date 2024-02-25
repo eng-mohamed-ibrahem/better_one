@@ -1,0 +1,49 @@
+name: better_one
+description: "A new Flutter project."
+publish_to: 'none'
+version: 0.1.0
+
+environment:
+  sdk: '>=3.2.6 <4.0.0'
+
+dependencies:
+  dio: ^5.4.1
+  easy_localization: ^3.0.4
+  flutter:
+    sdk: flutter
+  flutter_bloc: ^8.1.4
+  flutter_local_notifications: ^16.3.2
+  flutter_screenutil: ^5.9.0
+  flutter_timezone: ^1.0.8
+  freezed_annotation: ^2.4.1
+  get_it: ^7.6.7
+  hive_flutter: ^1.1.0
+  intl: ^0.18.1
+  json_annotation: ^4.8.1
+  shared_preferences: ^2.2.2
+  timezone: ^0.9.2
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^3.0.1
+  build_runner: ^2.4.8
+  freezed: ^2.4.7
+  json_serializable: ^6.7.1
+
+flutter:
+  uses-material-design: true
+
+  assets:
+    - lib/l10n/translation/
+
+  fonts:
+    - family: Tajawal
+      fonts:
+        - asset: assets/fonts/Tajawal/Tajawal-Regular.ttf
+        - asset: assets/fonts/Tajawal/Tajawal-Black.ttf
+        - asset: assets/fonts/Tajawal/Tajawal-Medium.ttf
+    - family: Grandstander
+      fonts:
+        - asset: assets/fonts/Grandstander/Grandstander-VariableFont_wght.ttf
+        - asset: assets/fonts/Grandstander/Grandstander-Italic-VariableFont_wght.ttf
