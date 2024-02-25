@@ -37,7 +37,7 @@ class _NoteScreenState extends State<NoteScreen> {
 
   @override
   Widget build(BuildContext context) {
-    log('building note screen');
+    log('building note screen'); // rebuild every time i scroll
     log('${MediaQuery.sizeOf(GetIt.I.get<BuildContext>()).height}');
     log('${(120 / MediaQuery.sizeOf(GetIt.I.get<BuildContext>()).height) * 100}');
     log('${MediaQuery.devicePixelRatioOf(context)}');

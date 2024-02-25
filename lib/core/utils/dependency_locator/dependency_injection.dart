@@ -2,7 +2,7 @@ import 'package:better_one/core/utils/api_consumer/api_consumer.dart';
 import 'package:better_one/core/utils/api_consumer/dio_consumer.dart';
 import 'package:better_one/core/utils/cache_service/cache_interface.dart';
 import 'package:better_one/core/utils/cache_service/hive_cache.dart';
-import 'package:better_one/core/utils/notification_service/notification_repo_interface.dart';
+import 'package:better_one/core/utils/notification_service/notification_interface.dart';
 import 'package:better_one/data_source/note_data_source/local_note_data_source.dart';
 import 'package:better_one/data_source/note_data_source/note_source_interface.dart';
 import 'package:better_one/data_source/quote_data_source/quote_source_interface.dart';
@@ -13,13 +13,13 @@ import 'package:better_one/repositories/quote_repo/quote_interface.dart';
 import 'package:better_one/repositories/quote_repo/quote_repo.dart';
 import 'package:get_it/get_it.dart';
 
-import '../notification_service/flutter_local_notification_repo.dart';
+import '../notification_service/flutter_local_notification.dart';
 
 GetIt _getIt = GetIt.instance;
 
 Future<void> initDependency() async {
   localNotification = _getIt.registerSingleton<NotificationRepoInterface>(
-    FlutterLocalNotificationRepo(),
+    FlutterLocalNotification(),
   );
   await localNotification.init();
 

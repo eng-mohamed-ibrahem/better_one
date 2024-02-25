@@ -3,14 +3,14 @@ import 'dart:developer';
 import 'dart:io';
 
 import 'package:better_one/core/enum/notification_interval.dart';
-import 'package:better_one/core/utils/notification_service/notification_repo_interface.dart';
+import 'package:better_one/core/utils/notification_service/notification_interface.dart';
 import 'package:better_one/model/notification_model/notification_model.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:flutter_timezone/flutter_timezone.dart';
 import 'package:timezone/data/latest_all.dart' as tz;
 import 'package:timezone/timezone.dart' as tz;
 
-class FlutterLocalNotificationRepo implements NotificationRepoInterface {
+class FlutterLocalNotification implements NotificationRepoInterface {
   final FlutterLocalNotificationsPlugin _flutterNotificationsPlugin =
       FlutterLocalNotificationsPlugin();
 
