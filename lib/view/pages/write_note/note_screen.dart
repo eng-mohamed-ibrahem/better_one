@@ -1,15 +1,19 @@
-import 'dart:developer';
-
-import 'package:better_one/core/constants/app_colors.dart';
-import 'package:better_one/core/constants/app_metrices.dart';
+import 'package:better_one/config/generate_router.dart';
+import 'package:better_one/core/utils/dependency_locator/dependency_injection.dart';
+import 'package:better_one/core/utils/shared_widgets/failed.dart';
+import 'package:better_one/core/utils/shared_widgets/lottie_indicator.dart';
+import 'package:better_one/core/utils/shared_widgets/note_field.dart';
 import 'package:better_one/model/note_model/note_model.dart';
+import 'package:better_one/model/notification_model/notification_model.dart';
 import 'package:better_one/view_models/home_viewmodel/home_viewmodel.dart';
-import 'package:better_one/view_models/quote_viewmodel/quote_viewmodel_state.dart';
+import 'package:better_one/view_models/quote_viewmodel/quote_viewmodel.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:get_it/get_it.dart';
+import 'package:logger/logger.dart';
+
+import '../../../core/constants/constants.dart';
 
 class NoteScreen extends StatefulWidget {
   const NoteScreen({super.key});
@@ -18,170 +22,236 @@ class NoteScreen extends StatefulWidget {
   State<NoteScreen> createState() => _NoteScreenState();
 }
 
-class _NoteScreenState extends State<NoteScreen> {
-  late TextEditingController titleController;
-  late TextEditingController descriptionController;
+class _NoteScreenState extends State<NoteScreen> with RouteAware {
+  final TextEditingController titleController = TextEditingController();
+  final TextEditingController descriptionController = TextEditingController();
   final GlobalKey<FormState> formKey = GlobalKey<FormState>();
+  NoteModel? note;
+  String? noteId;
 
-  late NoteModel? note;
+  @override
+  void didPopNext() {
+    GenerateRouter.activeRoute = GenerateRouter.noteScreen;
+  }
+
+  @override
+  void initState() {
+    super.initState();
+  }
 
   @override
   void didChangeDependencies() {
-    note = ModalRoute.of(context)?.settings.arguments as NoteModel?;
-    titleController = TextEditingController(text: note?.title);
-    descriptionController = TextEditingController(text: note?.body);
-
+    noteId = ModalRoute.of(context)!.settings.arguments as String?;
+    if (noteId != null) {
+      HomeViewmodel.get(context).getNoteById(noteId!);
+    }
     QuoteViewmode.get(context).getRandomQuote();
+    routeObserver.subscribe(this, ModalRoute.of(context)!);
     super.didChangeDependencies();
   }
 
   @override
+  void dispose() {
+    routeObserver.unsubscribe(this);
+    super.dispose();
+  }
+
+  @override
+  void deactivate() {
+    HomeViewmodel.get(context).release();
+    super.deactivate();
+  }
+
+  @override
   Widget build(BuildContext context) {
-    log('building note screen'); // rebuild every time i scroll
-    log('${MediaQuery.sizeOf(GetIt.I.get<BuildContext>()).height}');
-    log('${(120 / MediaQuery.sizeOf(GetIt.I.get<BuildContext>()).height) * 100}');
-    log('${MediaQuery.devicePixelRatioOf(context)}');
     return Scaffold(
-      appBar: AppBar(
-        leading: IconButton(
-          icon: const Icon(Icons.keyboard_double_arrow_left_rounded),
-          onPressed: () {
-            Navigator.pop(context);
-          },
-        ),
-        title: Text(note?.title ?? 'Thats My Task'),
-        bottom: note != null
-            ? PreferredSize(
-                preferredSize: Size.fromHeight(
-                  AppMetrices.heightSpace.h,
-                ),
-                child: Text(
-                  DateFormat('EEEE, MMMM d, yyyy,  hh:mm a',
-                          context.locale.languageCode)
-                      .format(note!.updatedAt ?? note!.createdAt),
-                ),
-              )
-            : null,
-      ),
-      body: Form(
-        key: formKey,
-        child: SingleChildScrollView(
-          child: Column(
-            children: [
-              SizedBox(height: AppMetrices.heightSpace.h),
-              BlocBuilder<QuoteViewmode, QuoteViewmodelState>(
-                builder: (context, state) {
-                  if (state.quote == null) {
-                    return const SizedBox();
-                  }
-                  return AnimatedSize(
-                    duration: const Duration(milliseconds: 300),
-                    child: Container(
-                      color: AppColors.coolPrimary,
-                      padding: EdgeInsets.all(10.w),
-                      width: double.infinity,
-                      child: Text(
-                        state.quote!.content!,
-                        textAlign: TextAlign.center,
-                        style:
-                            Theme.of(context).textTheme.titleMedium!.copyWith(
-                                  color: Colors.white,
-                                  fontWeight: FontWeight.w300,
-                                  fontStyle: FontStyle.italic,
-                                  fontFamily: "Tajawal",
-                                ),
-                      ),
+      body: SafeArea(
+        bottom: false,
+        top: true,
+        left: false,
+        right: false,
+        child: Stack(
+          alignment: Alignment.topLeft,
+          children: [
+            SizedBox(height: AppMetrices.heightSpace.h),
+            BlocConsumer<HomeViewmodel, HomeViewmodelState>(
+              listener: (context, state) {
+                if (state.isGetNoteByIdCompleted) {
+                  note = state.noteById;
+                  titleController.text = state.noteById!.title!;
+                  descriptionController.text = state.noteById!.body;
+                }
+                String? id;
+                if (state.isNoteUpdateCompleted) {
+                  id = state.updatedNote!.id;
+                }
+                if (state.isNoteAddCompleted) {
+                  id = state.addedNote!.id;
+                }
+                if (id != null) {
+                  localNotification.display(
+                    notification: NotificationModel(
+                      id: DateTime.now().microsecond,
+                      title: 'note_motive'.tr(),
+                      body: titleController.text,
+                      payload: id,
                     ),
                   );
-                },
-              ),
-              SizedBox(height: AppMetrices.heightSpace.h),
-              Padding(
-                padding: EdgeInsets.symmetric(
-                  horizontal: AppMetrices.widthSpace2.w,
-                ),
-                child: TextFormField(
-                  controller: titleController,
-                  obscureText: false,
-                  minLines: 1,
-                  maxLines: null,
-                  decoration: InputDecoration(
-                    labelText:
-                        'your task which you will achieve', // مهمتك التي سوف تحققها
-                    filled: true,
-                    fillColor:
-                        Colors.grey[200], // Adjust for desired background color
-                    border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(10.0),
-                      borderSide:
-                          const BorderSide(color: Colors.grey, width: 1.0),
+                  Navigator.pop(context);
+                }
+              },
+              builder: (context, state) {
+                if (state.isGetNoteByIdLoading) {
+                  return const Center(
+                    child: LottieIndicator(
+                      statusAssets: LottieAssets.searchForNote,
                     ),
-                    prefixIcon: const Icon(Icons.task,
-                        color: Colors.blue), // Optional icon
-                  ),
-                  style: Theme.of(context).textTheme.titleLarge,
-                ),
-              ),
-              const Divider(
-                height: 10,
-                thickness: 1,
-                color: AppColors.coolPrimary,
-              ),
-              Padding(
-                padding: EdgeInsets.symmetric(
-                  horizontal: AppMetrices.widthSpace2.w,
-                ),
-                child: TextFormField(
-                  controller: descriptionController,
-                  maxLines: null,
-                  minLines: 3,
-                  decoration: InputDecoration(
-                    labelText:
-                        'feel free to say what you want to achieve', // لا تتردد في قول ما تريد تحقيقه
-                    hintText: 'feel free to say what you want to achieve',
-                    filled: true,
-                    fillColor:
-                        Colors.grey[200], // Adjust for desired background color
-                    border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(10.0),
-                      borderSide:
-                          const BorderSide(color: Colors.grey, width: 1.0),
+                  );
+                }
+                if (state.isGetNoteByIdFailed) {
+                  Logger().e(state.errorMessage);
+                  return Center(
+                    child: Failed(
+                      failedAsset: LottieAssets.searchForNoteFailed,
+                      retry: () {
+                        HomeViewmodel.get(context).getNoteById(noteId!);
+                      },
+                    ),
+                  );
+                }
+                return SingleChildScrollView(
+                  child: Container(
+                    decoration: const BoxDecoration(
+                      image: DecorationImage(
+                        fit: BoxFit.fill,
+                        image: AssetImage(
+                          AppImages.homeBackground,
+                        ),
+                      ),
+                    ),
+                    child: Form(
+                      key: formKey,
+                      child: Column(
+                        children: [
+                          SizedBox(height: AppMetrices.heightSpace2.h),
+                          BlocBuilder<QuoteViewmode, QuoteViewmodelState>(
+                            builder: (context, state) {
+                              if (state.quote == null) {
+                                return const SizedBox();
+                              }
+                              return AnimatedSize(
+                                duration: const Duration(milliseconds: 300),
+                                child: Container(
+                                  color: AppColors.coolPrimary,
+                                  padding: EdgeInsets.all(10.w),
+                                  width: double.infinity,
+                                  child: Text(
+                                    state.quote!.content!,
+                                    textAlign: TextAlign.center,
+                                    style: Theme.of(context)
+                                        .textTheme
+                                        .titleMedium!
+                                        .copyWith(
+                                          color: Colors.white,
+                                          fontWeight: FontWeight.w300,
+                                          fontStyle: FontStyle.italic,
+                                          fontFamily: "Tajawal",
+                                        ),
+                                  ),
+                                ),
+                              );
+                            },
+                          ),
+                          SizedBox(height: AppMetrices.heightSpace2.h),
+                          NoteField(
+                            controller: titleController,
+                            hintText: 'note_title'.tr(),
+                            labelText: 'note_title'.tr(),
+                            validator: (text) {
+                              if (text!.isEmpty) {
+                                return 'note_title'.tr();
+                              }
+                              return null;
+                            },
+                            textFieldHeight: 1,
+                            maxLines: null,
+                            minLines: 1,
+                            prefixIcon:
+                                const Icon(Icons.task, color: Colors.blue),
+                          ),
+                          SizedBox(height: AppMetrices.heightSpace.h),
+                          Divider(
+                            color: AppColors.white,
+                            thickness: 2,
+                            height: 10,
+                            indent: AppMetrices.widthSpace2.w,
+                          ),
+                          SizedBox(height: AppMetrices.heightSpace.h),
+                          NoteField(
+                            controller: descriptionController,
+                            hintText: 'note_description'.tr(),
+                            labelText: 'note_description'.tr(),
+                            validator: (text) {
+                              if (text!.isEmpty) {
+                                return 'note_description'.tr();
+                              }
+                              return null;
+                            },
+                            textFieldHeight: 2,
+                            maxLines: null,
+                            minLines: 25,
+                          ),
+                        ],
+                      ),
                     ),
                   ),
-                  style: Theme.of(context).textTheme.titleLarge,
-                ),
+                );
+              },
+            ),
+            IconButton(
+              icon: const Icon(
+                Icons.keyboard_double_arrow_left_rounded,
+                color: AppColors.white,
+                size: 30,
               ),
-            ],
-          ),
+              onPressed: () {
+                Navigator.pop(context);
+              },
+            ),
+          ],
         ),
       ),
-      floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
-      floatingActionButton: FloatingActionButton.large(
-        onPressed: () {
-          // SamplingClock().stopwatch();
-          var newNote = note == null
-              ? NoteModel(
-                  id: DateTime.now().millisecond,
-                  title: titleController.text,
-                  body: descriptionController.text,
-                  createdAt: DateTime.now(),
-                )
-              : note!.copyWith(
-                  title: titleController.text,
-                  body: descriptionController.text,
-                  updatedAt: DateTime.now(),
-                );
-          note == null
-              ? HomeViewmodel.get(context).addNote(newNote)
-              : HomeViewmodel.get(context).updateNote(
-                  HomeViewmodel.get(context).state.notes.indexOf(note!),
-                  newNote);
-
-          Navigator.pop(context);
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+      floatingActionButton: BlocBuilder<HomeViewmodel, HomeViewmodelState>(
+        builder: (context, state) {
+          if (state.isGetNoteByIdLoading || state.isGetNoteByIdFailed) {
+            return const SizedBox();
+          }
+          return ElevatedButton(
+            onPressed: () {
+              if (formKey.currentState!.validate()) {
+                var newNote = note == null
+                    ? NoteModel(
+                        id: DateTime.now().millisecondsSinceEpoch.toString(),
+                        title: titleController.text,
+                        body: descriptionController.text,
+                        createdAt: DateTime.now(),
+                      )
+                    : note!.copyWith(
+                        title: titleController.text,
+                        body: descriptionController.text,
+                        updatedAt: DateTime.now(),
+                      );
+                note == null
+                    ? HomeViewmodel.get(context).addNote(newNote)
+                    : HomeViewmodel.get(context).updateNote(note!, newNote);
+              }
+            },
+            child: Text(
+              'do_it'.tr(),
+            ),
+          );
         },
-        child: Text(
-          'lets_go'.tr(),
-        ),
       ),
     );
   }

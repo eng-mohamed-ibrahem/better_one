@@ -1,5 +1,3 @@
-
-
 import 'package:better_one/core/enum/notification_interval.dart';
 import 'package:better_one/model/notification_model/notification_model.dart';
 
@@ -30,6 +28,8 @@ abstract class NotificationRepoInterface {
 
   /// get notification app launch details
   Future get getNotificationAppLaunchDetails;
+
+  Future<List<int>> getActiveNotificationsIds();
 
   /// cancel notification by id
   Future<void> cancel({required int id});

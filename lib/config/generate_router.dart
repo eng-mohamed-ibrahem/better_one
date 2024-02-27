@@ -15,18 +15,21 @@ class GenerateRouter {
     switch (settings.name) {
       case splash:
         {
+          activeRoute = splash;
           return MaterialPageRoute(
             builder: (context) => const SplashScreen(),
           );
         }
       case home:
         {
+          activeRoute = home;
           return MaterialPageRoute(
             builder: (context) => const HomeScreen(),
           );
         }
       case noteScreen:
         {
+          activeRoute = noteScreen;
           return MaterialPageRoute(
             settings: settings,
             builder: (context) => const NoteScreen(),

@@ -12,4 +12,5 @@ class AppColors {
   static const coolTertiary = Color(0xFF98ff98); // Mint Green
 
   static const remove = Colors.red;
+  static const white = Colors.white;
 }

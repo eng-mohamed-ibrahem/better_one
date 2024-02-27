@@ -7,9 +7,10 @@ class NotificationModel {
   NotificationModel({
     required this.title,
     required this.body,
-    int? id,
+    required this.id,
     this.payload,
-  }) : id = id ?? DateTime.now().millisecond;
+  });
+
   @override
   String toString() {
     return 'NotificationModel(id: $id, title: $title, body: $body, payload: $payload)';

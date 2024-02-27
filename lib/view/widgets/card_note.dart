@@ -25,8 +25,8 @@ class CardNote extends StatelessWidget {
             padding: EdgeInsets.all(5.r),
             decoration: const BoxDecoration(
               borderRadius: BorderRadius.only(
-                topLeft: Radius.circular(AppMetrices.borderRadius1),
                 topRight: Radius.circular(AppMetrices.borderRadius1),
+                topLeft: Radius.circular(AppMetrices.borderRadius1),
               ),
               color: AppColors.coolPrimary,
             ),
@@ -46,6 +46,8 @@ class CardNote extends StatelessWidget {
             decoration: const BoxDecoration(
               borderRadius: BorderRadius.only(
                 topRight: Radius.circular(AppMetrices.borderRadius1),
+                bottomLeft: Radius.circular(AppMetrices.borderRadius1),
+                bottomRight: Radius.circular(AppMetrices.borderRadius1),
               ),
               color: AppColors.warmSecondary,
             ),

@@ -1,8 +1,4 @@
-import 'dart:convert';
-import 'dart:developer';
-
-import 'package:better_one/core/constants/cache_keys.dart';
-import 'package:better_one/core/errors/failer.dart';
+import 'package:better_one/core/errors/failure.dart';
 import 'package:better_one/core/request_result/request_result.dart';
 import 'package:better_one/core/utils/cache_service/cache_interface.dart';
 import 'package:better_one/data_source/note_data_source/note_source_interface.dart';
@@ -13,68 +9,52 @@ class LocalNoteDataSource implements NoteSource {
 
   /// this method which i use to execute my local data source
   final CacheMethodInterface cacheRepo;
+
+  /// for adding note to list and return the added note
   @override
-  Future<Result<dynamic, Failure>> addNote(NoteModel note) async {
+  Future<Result<NoteModel, Failure>> addNote(NoteModel newNote) async {
     try {
-      List<NoteModel> list = _convertToNoteList(cacheRepo.get(CacheKeys.notes));
-      list.add(note);
-      await cacheRepo.save(CacheKeys.notes, _convertToJson(list));
-      return const Result.success(data: true);
+      return await cacheRepo.addNote(newNote);
     } catch (e) {
-      log(e.toString());
-      return Result.failure(error: CacheFailure(message: e.toString()));
+      return Result.failure(error: OtherFailure(message: e.toString()));
     }
   }
 
   @override
   Future<Result<List<NoteModel>, Failure>> getNotes() async {
     try {
-      return Result.success(
-        data: _convertToNoteList(cacheRepo.get(CacheKeys.notes) ??
-            []), // take list of string convert it list of NoteModel
-      );
+      var result = await cacheRepo.getAllNotes();
+      return result;
     } catch (e) {
-      return Result.failure(error: CacheFailure(message: e.toString()));
+      return Result.failure(error: OtherFailure(message: e.toString()));
     }
   }
 
   @override
-  Future<Result<dynamic, Failure>> removeNote(int index) async {
+  Future<Result<NoteModel, Failure>> removeNote(NoteModel removedNote) async {
     try {
-      List<NoteModel> list =
-          _convertToNoteList(cacheRepo.get(CacheKeys.notes) ?? []);
-      if (list.isNotEmpty) {
-        list.removeAt(index);
-        await cacheRepo.save(CacheKeys.notes, _convertToJson(list));
-      }
-      return const Result.success(data: true);
+      return await cacheRepo.removeNote(removedNote);
     } catch (e) {
-      return Result.failure(error: CacheFailure(message: e.toString()));
+      return Result.failure(error: OtherFailure(message: e.toString()));
     }
   }
 
   @override
-  Future<Result<dynamic, Failure>> updateNote(
-      int index, NoteModel newNote) async {
+  Future<Result<NoteModel, Failure>> updateNote(
+      NoteModel oldNote, NoteModel newNote) async {
     try {
-      List<NoteModel> list = _convertToNoteList(cacheRepo.get(CacheKeys.notes));
-      list[index] = newNote;
-      await cacheRepo.save(CacheKeys.notes, _convertToJson(list));
-      return const Result.success(data: true);
+      return await cacheRepo.updateNote(oldNote, newNote);
     } catch (e) {
-      log(e.toString());
-
-      return Result.failure(error: CacheFailure(message: e.toString()));
+      return Result.failure(error: OtherFailure(message: e.toString()));
     }
   }
 
-  List<NoteModel> _convertToNoteList(List<dynamic>? list) {
-    return list == null
-        ? []
-        : list.map((e) => NoteModel.fromJson(jsonDecode(e))).toList();
-  }
-
-  List<String> _convertToJson(List<NoteModel> list) {
-    return list.map((e) => jsonEncode(e.toJson())).toList();
+  @override
+  Future<Result<NoteModel, Failure>> getNoteById(String id) async {
+    try {
+      return cacheRepo.getNoteById(id);
+    } catch (e) {
+      return Result.failure(error: OtherFailure(message: e.toString()));
+    }
   }
 }

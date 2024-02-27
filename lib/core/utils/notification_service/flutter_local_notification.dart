@@ -51,17 +51,17 @@ class FlutterLocalNotification implements NotificationRepoInterface {
         );
   }
 
-  NotificationDetails notificationDetails = NotificationDetails(
+  NotificationDetails notificationDetails = const NotificationDetails(
     android: AndroidNotificationDetails(
       'channel_id',
       'channel_name',
       priority: Priority.high,
       importance: Importance.max,
-      sound: RawResourceAndroidNotificationSound(
-        'mixkit_bubble_pop_up_alert_notification.wav'.split('.').first,
-      ),
+      // sound: RawResourceAndroidNotificationSound(
+      //   'mixkit_bubble_pop_up_alert_notification.wav'.split('.').first,
+      // ),
     ),
-    iOS: const DarwinNotificationDetails(
+    iOS: DarwinNotificationDetails(
       presentAlert: true,
       presentBadge: true,
       presentSound: true,
@@ -168,5 +168,12 @@ class FlutterLocalNotification implements NotificationRepoInterface {
           );
     }
     return null;
+  }
+
+  @override
+  Future<List<int>> getActiveNotificationsIds() async {
+    return await _flutterNotificationsPlugin
+        .getActiveNotifications()
+        .then((value) => value.map((e) => e.id!).toList());
   }
 }

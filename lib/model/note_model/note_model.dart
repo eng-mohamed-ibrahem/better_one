@@ -9,9 +9,10 @@ class NoteModel with _$NoteModel {
   const factory NoteModel({
     String? title,
     required String body,
-    required int id,
+    required String id,
     required DateTime createdAt,
     DateTime? updatedAt,
+    @Default(Duration.zero) Duration elapsedTime,
     @Default(NoteStatus.progress) NoteStatus status,
   }) = _NoteModel;
 

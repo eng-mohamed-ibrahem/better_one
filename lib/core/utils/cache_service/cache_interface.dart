@@ -1,19 +1,24 @@
+import 'package:better_one/core/errors/failure.dart';
+import 'package:better_one/core/request_result/request_result.dart';
+import 'package:better_one/model/note_model/note_model.dart';
+
 abstract class CacheMethodInterface {
   /// init cache method
   Future<void> init();
 
-  /// save data in local storage of key
-  Future<void> save(String key, dynamic data);
+  /// get all notes
+  Future<Result<List<NoteModel>, CacheFailure>> getAllNotes();
 
-  /// get data corresponding to the key
-  dynamic get(String key);
+  /// get note by id
+  Future<Result<NoteModel, CacheFailure>> getNoteById(String id);
 
-  /// delete data corresponding to the key
-  void delete(String key);
+  /// add new note
+  Future<Result<NoteModel, CacheFailure>> addNote(NoteModel note);
 
-  /// delete all data
-  void deleteAllData();
+  /// update note
+  Future<Result<NoteModel, CacheFailure>> updateNote(
+      NoteModel oldNote, NoteModel newNote);
 
-  /// delete the cached file
-  void removeTheDatabaseFile();
+  /// remove note
+  Future<Result<NoteModel, CacheFailure>> removeNote(NoteModel removedNote);
 }

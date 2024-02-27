@@ -22,9 +22,10 @@ NoteModel _$NoteModelFromJson(Map<String, dynamic> json) {
 mixin _$NoteModel {
   String? get title => throw _privateConstructorUsedError;
   String get body => throw _privateConstructorUsedError;
-  int get id => throw _privateConstructorUsedError;
+  String get id => throw _privateConstructorUsedError;
   DateTime get createdAt => throw _privateConstructorUsedError;
   DateTime? get updatedAt => throw _privateConstructorUsedError;
+  Duration get elapsedTime => throw _privateConstructorUsedError;
   NoteStatus get status => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -41,9 +42,10 @@ abstract class $NoteModelCopyWith<$Res> {
   $Res call(
       {String? title,
       String body,
-      int id,
+      String id,
       DateTime createdAt,
       DateTime? updatedAt,
+      Duration elapsedTime,
       NoteStatus status});
 }
 
@@ -65,6 +67,7 @@ class _$NoteModelCopyWithImpl<$Res, $Val extends NoteModel>
     Object? id = null,
     Object? createdAt = null,
     Object? updatedAt = freezed,
+    Object? elapsedTime = null,
     Object? status = null,
   }) {
     return _then(_value.copyWith(
@@ -79,7 +82,7 @@ class _$NoteModelCopyWithImpl<$Res, $Val extends NoteModel>
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
-              as int,
+              as String,
       createdAt: null == createdAt
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
@@ -88,6 +91,10 @@ class _$NoteModelCopyWithImpl<$Res, $Val extends NoteModel>
           ? _value.updatedAt
           : updatedAt // ignore: cast_nullable_to_non_nullable
               as DateTime?,
+      elapsedTime: null == elapsedTime
+          ? _value.elapsedTime
+          : elapsedTime // ignore: cast_nullable_to_non_nullable
+              as Duration,
       status: null == status
           ? _value.status
           : status // ignore: cast_nullable_to_non_nullable
@@ -107,9 +114,10 @@ abstract class _$$NoteModelImplCopyWith<$Res>
   $Res call(
       {String? title,
       String body,
-      int id,
+      String id,
       DateTime createdAt,
       DateTime? updatedAt,
+      Duration elapsedTime,
       NoteStatus status});
 }
 
@@ -129,6 +137,7 @@ class __$$NoteModelImplCopyWithImpl<$Res>
     Object? id = null,
     Object? createdAt = null,
     Object? updatedAt = freezed,
+    Object? elapsedTime = null,
     Object? status = null,
   }) {
     return _then(_$NoteModelImpl(
@@ -143,7 +152,7 @@ class __$$NoteModelImplCopyWithImpl<$Res>
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
-              as int,
+              as String,
       createdAt: null == createdAt
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
@@ -152,6 +161,10 @@ class __$$NoteModelImplCopyWithImpl<$Res>
           ? _value.updatedAt
           : updatedAt // ignore: cast_nullable_to_non_nullable
               as DateTime?,
+      elapsedTime: null == elapsedTime
+          ? _value.elapsedTime
+          : elapsedTime // ignore: cast_nullable_to_non_nullable
+              as Duration,
       status: null == status
           ? _value.status
           : status // ignore: cast_nullable_to_non_nullable
@@ -169,6 +182,7 @@ class _$NoteModelImpl implements _NoteModel {
       required this.id,
       required this.createdAt,
       this.updatedAt,
+      this.elapsedTime = Duration.zero,
       this.status = NoteStatus.progress});
 
   factory _$NoteModelImpl.fromJson(Map<String, dynamic> json) =>
@@ -179,18 +193,21 @@ class _$NoteModelImpl implements _NoteModel {
   @override
   final String body;
   @override
-  final int id;
+  final String id;
   @override
   final DateTime createdAt;
   @override
   final DateTime? updatedAt;
   @override
   @JsonKey()
+  final Duration elapsedTime;
+  @override
+  @JsonKey()
   final NoteStatus status;
 
   @override
   String toString() {
-    return 'NoteModel(title: $title, body: $body, id: $id, createdAt: $createdAt, updatedAt: $updatedAt, status: $status)';
+    return 'NoteModel(title: $title, body: $body, id: $id, createdAt: $createdAt, updatedAt: $updatedAt, elapsedTime: $elapsedTime, status: $status)';
   }
 
   @override
@@ -205,13 +222,15 @@ class _$NoteModelImpl implements _NoteModel {
                 other.createdAt == createdAt) &&
             (identical(other.updatedAt, updatedAt) ||
                 other.updatedAt == updatedAt) &&
+            (identical(other.elapsedTime, elapsedTime) ||
+                other.elapsedTime == elapsedTime) &&
             (identical(other.status, status) || other.status == status));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, title, body, id, createdAt, updatedAt, status);
+  int get hashCode => Object.hash(
+      runtimeType, title, body, id, createdAt, updatedAt, elapsedTime, status);
 
   @JsonKey(ignore: true)
   @override
@@ -231,9 +250,10 @@ abstract class _NoteModel implements NoteModel {
   const factory _NoteModel(
       {final String? title,
       required final String body,
-      required final int id,
+      required final String id,
       required final DateTime createdAt,
       final DateTime? updatedAt,
+      final Duration elapsedTime,
       final NoteStatus status}) = _$NoteModelImpl;
 
   factory _NoteModel.fromJson(Map<String, dynamic> json) =
@@ -244,11 +264,13 @@ abstract class _NoteModel implements NoteModel {
   @override
   String get body;
   @override
-  int get id;
+  String get id;
   @override
   DateTime get createdAt;
   @override
   DateTime? get updatedAt;
+  @override
+  Duration get elapsedTime;
   @override
   NoteStatus get status;
   @override

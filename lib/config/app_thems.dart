@@ -4,10 +4,8 @@ import 'package:flutter/material.dart';
 class AppThemes {
   static ThemeData lightTheme = ThemeData(
     primaryColor: AppColors.coolPrimary,
-
     brightness: Brightness.light,
-    // scaffoldBackgroundColor: AppColors.coolSecondary.withOpacity(0.9),
-    fontFamily: 'Grandstander', // Grandstander,Tajawal
+
     buttonTheme: const ButtonThemeData(
       textTheme: ButtonTextTheme.primary,
     ),
@@ -16,6 +14,7 @@ class AppThemes {
     ),
     colorScheme:
         ColorScheme.fromSwatch().copyWith(secondary: AppColors.coolSecondary),
+    fontFamily: 'Tajawal', // Grandstander,Tajawal
     textTheme: textTheme(),
   );
 

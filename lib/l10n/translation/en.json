@@ -13,5 +13,8 @@
     "delete": "Delete",
     "save": "Save",
     "cancel": "Cancel",
-    "lets_go": "Let's go"
+    "do_it": "Let's do it",
+    "note_title": "your task which you will achieve",
+    "note_description": "feel free to say what you want to achieve",
+    "note_motive": "Let's Finish What We Start"
 }

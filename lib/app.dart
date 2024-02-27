@@ -1,15 +1,12 @@
-import 'dart:developer';
-
 import 'package:better_one/config/app_thems.dart';
 import 'package:better_one/config/generate_router.dart';
 import 'package:better_one/core/utils/dependency_locator/dependency_injection.dart';
 import 'package:better_one/view_models/home_viewmodel/home_viewmodel.dart';
-import 'package:better_one/view_models/quote_viewmodel/quote_viewmodel_state.dart';
+import 'package:better_one/view_models/quote_viewmodel/quote_viewmodel.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:get_it/get_it.dart';
 
 class RootApp extends StatelessWidget {
   const RootApp({
@@ -18,13 +15,6 @@ class RootApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    if (!GetIt.I.isRegistered<BuildContext>()) {
-      GetIt.I.registerSingleton<BuildContext>(
-        context,
-      );
-    }
-
-    log('building app');
     return EasyLocalization(
       supportedLocales: const [
         Locale('en'),
@@ -47,14 +37,23 @@ class RootApp extends StatelessWidget {
           ],
           child: MaterialApp(
             title: 'Better One',
+            builder: (context, child) {
+              return MediaQuery(
+                data: MediaQuery.of(context)
+                    .copyWith(textScaler: const TextScaler.linear(1)),
+                child: child!,
+              );
+            },
             debugShowCheckedModeBanner: false,
             initialRoute: GenerateRouter.home,
             onGenerateRoute: GenerateRouter.routeGenerator,
             localizationsDelegates: context.localizationDelegates,
             supportedLocales: context.supportedLocales,
             locale: context.locale,
+            navigatorObservers: [routeObserver],
             themeMode: ThemeMode.light,
             theme: AppThemes.lightTheme,
+            darkTheme: AppThemes.darkTheme,
           ),
         ),
       ),

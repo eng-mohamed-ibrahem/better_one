@@ -1,4 +1,4 @@
-import 'package:better_one/core/errors/failer.dart';
+import 'package:better_one/core/errors/failure.dart';
 import 'package:better_one/core/request_result/request_result.dart';
 import 'package:better_one/core/utils/api_consumer/api_consumer.dart';
 import 'package:dio/dio.dart';

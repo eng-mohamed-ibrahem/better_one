@@ -31,11 +31,6 @@ class _ModifiyCardNoteState extends State<ModifiyCardNote>
       duration: const Duration(milliseconds: 300),
       reverseDuration: const Duration(milliseconds: 200),
     );
-    // Tween<double> tween = Tween(
-    //   begin: 0,
-    //   end: 1,
-    // );
-    // tween.animate(_animationController);
 
     super.initState();
   }
@@ -63,7 +58,6 @@ class _ModifiyCardNoteState extends State<ModifiyCardNote>
           Align(
             alignment: Alignment.topRight,
             child: SlideTransition(
-              // sizeFactor: _animationController,
               position: _animationController.drive(
                 Tween<Offset>(
                   begin: const Offset(-1.7, 0),
@@ -76,9 +70,12 @@ class _ModifiyCardNoteState extends State<ModifiyCardNote>
                     top: MediaQuery.sizeOf(context).height * .015),
                 height: MediaQuery.sizeOf(context).height * .04,
                 width: MediaQuery.sizeOf(context).width * .35,
-                decoration: BoxDecoration(
-                  borderRadius:
-                      BorderRadius.circular(AppMetrices.borderRadius1),
+                decoration: const BoxDecoration(
+                  borderRadius: BorderRadius.only(
+                    topRight: Radius.circular(AppMetrices.borderRadius1),
+                    topLeft: Radius.circular(AppMetrices.borderRadius1),
+                    bottomRight: Radius.circular(AppMetrices.borderRadius1),
+                  ),
                   color: AppColors.warmPrimary,
                 ),
                 child: Row(
@@ -105,7 +102,7 @@ class _ModifiyCardNoteState extends State<ModifiyCardNote>
                         Navigator.pushNamed(
                           context,
                           GenerateRouter.noteScreen,
-                          arguments: widget.note,
+                          arguments: widget.note.id,
                         );
                       },
                       icon: const Icon(
