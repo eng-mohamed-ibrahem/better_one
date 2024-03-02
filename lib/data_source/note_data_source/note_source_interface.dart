@@ -9,4 +9,6 @@ abstract class NoteSource {
       NoteModel oldNote, NoteModel newNote);
   Future<Result<List<NoteModel>, Failure>> getNotes();
   Future<Result<NoteModel, Failure>> getNoteById(String id);
+  Future<Result<int, Failure>> getTotoalEstimatedTime();
+  Future<Result<int, Failure>> updateTotalEstimatedTime(int updatedTime, bool isAdding);
 }

@@ -5,9 +5,15 @@ import 'package:lottie/lottie.dart';
 import '../../constants/constants.dart';
 
 class Failed extends StatelessWidget {
-  const Failed({super.key, required this.failedAsset, required this.retry});
+  const Failed({
+    super.key,
+    required this.failedAsset,
+    required this.retry,
+    this.errorMessage,
+  });
   final VoidCallback retry;
   final String failedAsset;
+  final String? errorMessage;
 
   @override
   Widget build(BuildContext context) {
@@ -21,6 +27,10 @@ class Failed extends StatelessWidget {
         ),
         SizedBox(
           height: AppMetrices.heightSpace.h,
+        ),
+        Text(
+          errorMessage ?? '',
+          textAlign: TextAlign.center,
         ),
         IconButton(onPressed: retry, icon: const Icon(Icons.refresh)),
       ],

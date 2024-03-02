@@ -16,5 +16,12 @@
     "do_it": "لنفعلها",
     "note_title": "مهمتك التي سوف تحققها",
     "note_description": "لا تتردد في قول ما تريد تحقيقه",
-    "note_motive": "لننهي ما بدأناه"
+    "note_motive": "لننهي ما بدأناه",
+    "language": "لغة",
+    "note_title_and_description": "يرجى تقديم عنوان ووصف للملاحظة",
+    "note_updated": "تم تحديث الملاحظة بنجاح",
+    "note_deleted": "تم حذف الملاحظة بنجاح",
+    "hour": "ساعة",
+    "minute": "دقيقة",
+    "second": "ثانية"
 }

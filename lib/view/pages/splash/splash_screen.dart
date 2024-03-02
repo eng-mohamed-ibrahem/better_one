@@ -8,6 +8,7 @@ class SplashScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     HomeViewmodel.get(context).getNotes();
+    HomeViewmodel.get(context).getTotalEstimatedTime();
     WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
       Navigator.of(context)
           .pushNamedAndRemoveUntil(GenerateRouter.home, (route) => false);

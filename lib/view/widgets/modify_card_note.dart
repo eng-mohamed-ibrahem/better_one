@@ -38,6 +38,7 @@ class _ModifiyCardNoteState extends State<ModifiyCardNote>
   @override
   void dispose() {
     _animationController.dispose();
+
     super.dispose();
   }
 
@@ -53,14 +54,14 @@ class _ModifiyCardNoteState extends State<ModifiyCardNote>
         });
       },
       child: Stack(
-        alignment: Alignment.topLeft,
+        alignment: AlignmentDirectional.topStart,
         children: [
           Align(
             alignment: Alignment.topRight,
             child: SlideTransition(
               position: _animationController.drive(
                 Tween<Offset>(
-                  begin: const Offset(-1.7, 0),
+                  begin: const Offset(1.0, 0),
                   end: const Offset(-0.1, 0),
                 ),
               ),
@@ -69,14 +70,17 @@ class _ModifiyCardNoteState extends State<ModifiyCardNote>
                 margin: EdgeInsets.only(
                     top: MediaQuery.sizeOf(context).height * .015),
                 height: MediaQuery.sizeOf(context).height * .04,
-                width: MediaQuery.sizeOf(context).width * .35,
+                // width: MediaQuery.sizeOf(context).width * .35,
+                constraints: BoxConstraints(
+                  maxWidth: MediaQuery.sizeOf(context).width * .25,
+                ),
                 decoration: const BoxDecoration(
                   borderRadius: BorderRadius.only(
                     topRight: Radius.circular(AppMetrices.borderRadius1),
                     topLeft: Radius.circular(AppMetrices.borderRadius1),
                     bottomRight: Radius.circular(AppMetrices.borderRadius1),
                   ),
-                  color: AppColors.warmPrimary,
+                  color: AppColors.secondColor,
                 ),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.end,
@@ -90,7 +94,7 @@ class _ModifiyCardNoteState extends State<ModifiyCardNote>
                       ),
                       icon: const Icon(
                         Icons.delete_forever,
-                        color: AppColors.remove,
+                        color: AppColors.hightlightColor,
                       ),
                     ),
                     IconButton(
@@ -107,9 +111,51 @@ class _ModifiyCardNoteState extends State<ModifiyCardNote>
                       },
                       icon: const Icon(
                         Icons.edit_note_rounded,
-                        color: AppColors.coolSecondary,
                       ),
                     ),
+
+                    // widget.note.status == NoteStatus.none ||
+                    //         widget.note.status == NoteStatus.paused
+                    //     ? IconButton(
+                    //         iconSize: 25,
+                    //         style: IconButton.styleFrom(
+                    //           padding: EdgeInsets.zero,
+                    //         ),
+                    //         onPressed: () {
+                    //           // start stopwatch
+                    //           // 1: update note with note status progrss
+                    //           // 1: update note with note status progrss
+                    //           HomeViewmodel.get(context).controlStopwatchOfNote(
+                    //               widget.note, NoteStatus.inprogress);
+
+                    //           // 2: start stopwatch
+                    //           HomeViewmodel.get(context)
+                    //               .state
+                    //               .stopwatch!
+                    //               .start();
+                    //         },
+                    //         icon: const Icon(
+                    //           Icons.play_circle_outlined,
+                    //         ),
+                    //       )
+                    //     : IconButton(
+                    //         iconSize: 25,
+                    //         style: IconButton.styleFrom(
+                    //           padding: EdgeInsets.zero,
+                    //         ),
+                    //         onPressed: () {
+                    //           // 1: update note with note status progrss
+                    //           HomeViewmodel.get(context).controlStopwatchOfNote(
+                    //               widget.note, NoteStatus.paused);
+                    //           HomeViewmodel.get(context)
+                    //               .state
+                    //               .stopwatch!
+                    //               .stop();
+                    //         },
+                    //         icon: const Icon(
+                    //           Icons.pause_circle_outline,
+                    //         ),
+                    //       ),
                   ],
                 ),
               ),

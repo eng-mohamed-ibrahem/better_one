@@ -1,5 +1,6 @@
 enum NoteStatus {
   done,
-  progress,
+  inprogress,
   paused,
+  none,
 }

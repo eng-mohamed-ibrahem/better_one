@@ -21,4 +21,11 @@ abstract class CacheMethodInterface {
 
   /// remove note
   Future<Result<NoteModel, CacheFailure>> removeNote(NoteModel removedNote);
+
+  /// get total estimated time
+  Future<Result<int, CacheFailure>> getTotoalEstimatedTime();
+
+  /// update total estimated time
+  Future<Result<int, CacheFailure>> updateTotalEstimatedTime(
+      int updatedTime, bool isAdding);
 }

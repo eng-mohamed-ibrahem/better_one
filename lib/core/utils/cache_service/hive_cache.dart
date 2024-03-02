@@ -6,6 +6,7 @@ import 'package:better_one/core/request_result/request_result.dart';
 import 'package:better_one/core/utils/cache_service/cache_interface.dart';
 import 'package:better_one/model/note_model/note_model.dart';
 import 'package:hive_flutter/hive_flutter.dart';
+import 'package:logger/logger.dart';
 
 class HiveImpl implements CacheMethodInterface {
   static const String _userdata = 'user_data';
@@ -15,6 +16,8 @@ class HiveImpl implements CacheMethodInterface {
   Future<void> init() async {
     await Hive.initFlutter();
     _appBox = await Hive.openBox(_userdata);
+    // _appBox.delete(CacheKeys.notes);
+    // _appBox.delete(CacheKeys.totalEstimatedTime);
   }
 
   @override
@@ -95,6 +98,7 @@ class HiveImpl implements CacheMethodInterface {
       return result.when(
         success: (notes) async {
           int index = notes.indexOf(oldNote);
+          Logger().i('from hive index $index');
           notes[index] = newNote;
           await _appBox.put(CacheKeys.notes, _convertToJson(notes));
           return Result.success(data: newNote);
@@ -116,5 +120,38 @@ class HiveImpl implements CacheMethodInterface {
 
   List<String> _convertToJson(List<NoteModel> list) {
     return list.map((e) => jsonEncode(e.toJson())).toList();
+  }
+
+  @override
+  Future<Result<int, CacheFailure>> getTotoalEstimatedTime() async {
+    try {
+      return Result.success(
+          data: _appBox.get(CacheKeys.totalEstimatedTime, defaultValue: 0));
+    } catch (e) {
+      return Result.failure(error: CacheFailure(message: e.toString()));
+    }
+  }
+
+  @override
+  Future<Result<int, CacheFailure>> updateTotalEstimatedTime(
+      int updatedTime, bool isAdding) async {
+    try {
+      var result = await getTotoalEstimatedTime();
+      return result.when(
+        success: (totalTime) async {
+          totalTime =
+              isAdding ? totalTime + updatedTime : totalTime - updatedTime;
+          return Result.success(
+              data: await _appBox
+                  .put(CacheKeys.totalEstimatedTime, totalTime)
+                  .then((_) => totalTime));
+        },
+        failure: (failure) {
+          return Result.failure(error: failure);
+        },
+      );
+    } catch (e) {
+      return Result.failure(error: CacheFailure(message: e.toString()));
+    }
   }
 }

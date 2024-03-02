@@ -33,4 +33,15 @@ class RemoteNoteDataSource implements NoteSource {
       NoteModel oldNote, NoteModel newNote) {
     throw UnimplementedError();
   }
+
+  @override
+  Future<Result<int, Failure>> getTotoalEstimatedTime() {
+    throw UnimplementedError();
+  }
+
+  @override
+  Future<Result<int, Failure>> updateTotalEstimatedTime(
+      int updatedTime, bool isAdding) {
+    throw UnimplementedError();
+  }
 }

@@ -18,4 +18,11 @@ abstract class NoteRepoInterface {
 
   /// remove note
   Future<Result<NoteModel, Failure>> removeNote(NoteModel removedNote);
+
+  /// get total estimated time
+  Future<Result<int, Failure>> getTotoalEstimatedTime();
+
+  /// update total estimated time
+  Future<Result<int, Failure>> updateTotalEstimatedTime(
+      int updatedTime, bool isAdding);
 }

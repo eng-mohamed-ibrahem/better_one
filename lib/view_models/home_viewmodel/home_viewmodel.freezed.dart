@@ -40,7 +40,26 @@ mixin _$HomeViewmodelState {
   bool get isGetNoteByIdFailed => throw _privateConstructorUsedError;
   NoteModel? get noteById =>
       throw _privateConstructorUsedError; //* error message
-  String? get errorMessage => throw _privateConstructorUsedError;
+  String? get errorMessage => throw _privateConstructorUsedError; //* search
+  bool get isSearchLoading => throw _privateConstructorUsedError;
+  bool get isSearchCompleted => throw _privateConstructorUsedError;
+  bool get isSearchFailed => throw _privateConstructorUsedError;
+  List<NoteModel>? get searchedNotes =>
+      throw _privateConstructorUsedError; // * get total estimated time
+  bool get isGetTotalEstimatedTimeLoading => throw _privateConstructorUsedError;
+  bool get isGetTotalEstimatedTimeCompleted =>
+      throw _privateConstructorUsedError;
+  bool get isGetTotalEstimatedTimeFailed =>
+      throw _privateConstructorUsedError; // * update total estimated time
+  bool get isUpdateTotalEstimatedTimeLoading =>
+      throw _privateConstructorUsedError;
+  bool get isUpdateTotalEstimatedTimeCompleted =>
+      throw _privateConstructorUsedError;
+  bool get isUpdateTotalEstimatedTimeFailed =>
+      throw _privateConstructorUsedError;
+  Duration get totalEstimatedTime =>
+      throw _privateConstructorUsedError; //* scroll controller
+  ScrollController? get scrollController => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $HomeViewmodelStateCopyWith<HomeViewmodelState> get copyWith =>
@@ -75,7 +94,19 @@ abstract class $HomeViewmodelStateCopyWith<$Res> {
       bool isGetNoteByIdCompleted,
       bool isGetNoteByIdFailed,
       NoteModel? noteById,
-      String? errorMessage});
+      String? errorMessage,
+      bool isSearchLoading,
+      bool isSearchCompleted,
+      bool isSearchFailed,
+      List<NoteModel>? searchedNotes,
+      bool isGetTotalEstimatedTimeLoading,
+      bool isGetTotalEstimatedTimeCompleted,
+      bool isGetTotalEstimatedTimeFailed,
+      bool isUpdateTotalEstimatedTimeLoading,
+      bool isUpdateTotalEstimatedTimeCompleted,
+      bool isUpdateTotalEstimatedTimeFailed,
+      Duration totalEstimatedTime,
+      ScrollController? scrollController});
 
   $NoteModelCopyWith<$Res>? get updatedNote;
   $NoteModelCopyWith<$Res>? get removedNote;
@@ -118,6 +149,18 @@ class _$HomeViewmodelStateCopyWithImpl<$Res, $Val extends HomeViewmodelState>
     Object? isGetNoteByIdFailed = null,
     Object? noteById = freezed,
     Object? errorMessage = freezed,
+    Object? isSearchLoading = null,
+    Object? isSearchCompleted = null,
+    Object? isSearchFailed = null,
+    Object? searchedNotes = freezed,
+    Object? isGetTotalEstimatedTimeLoading = null,
+    Object? isGetTotalEstimatedTimeCompleted = null,
+    Object? isGetTotalEstimatedTimeFailed = null,
+    Object? isUpdateTotalEstimatedTimeLoading = null,
+    Object? isUpdateTotalEstimatedTimeCompleted = null,
+    Object? isUpdateTotalEstimatedTimeFailed = null,
+    Object? totalEstimatedTime = null,
+    Object? scrollController = freezed,
   }) {
     return _then(_value.copyWith(
       isInitial: null == isInitial
@@ -208,6 +251,56 @@ class _$HomeViewmodelStateCopyWithImpl<$Res, $Val extends HomeViewmodelState>
           ? _value.errorMessage
           : errorMessage // ignore: cast_nullable_to_non_nullable
               as String?,
+      isSearchLoading: null == isSearchLoading
+          ? _value.isSearchLoading
+          : isSearchLoading // ignore: cast_nullable_to_non_nullable
+              as bool,
+      isSearchCompleted: null == isSearchCompleted
+          ? _value.isSearchCompleted
+          : isSearchCompleted // ignore: cast_nullable_to_non_nullable
+              as bool,
+      isSearchFailed: null == isSearchFailed
+          ? _value.isSearchFailed
+          : isSearchFailed // ignore: cast_nullable_to_non_nullable
+              as bool,
+      searchedNotes: freezed == searchedNotes
+          ? _value.searchedNotes
+          : searchedNotes // ignore: cast_nullable_to_non_nullable
+              as List<NoteModel>?,
+      isGetTotalEstimatedTimeLoading: null == isGetTotalEstimatedTimeLoading
+          ? _value.isGetTotalEstimatedTimeLoading
+          : isGetTotalEstimatedTimeLoading // ignore: cast_nullable_to_non_nullable
+              as bool,
+      isGetTotalEstimatedTimeCompleted: null == isGetTotalEstimatedTimeCompleted
+          ? _value.isGetTotalEstimatedTimeCompleted
+          : isGetTotalEstimatedTimeCompleted // ignore: cast_nullable_to_non_nullable
+              as bool,
+      isGetTotalEstimatedTimeFailed: null == isGetTotalEstimatedTimeFailed
+          ? _value.isGetTotalEstimatedTimeFailed
+          : isGetTotalEstimatedTimeFailed // ignore: cast_nullable_to_non_nullable
+              as bool,
+      isUpdateTotalEstimatedTimeLoading: null ==
+              isUpdateTotalEstimatedTimeLoading
+          ? _value.isUpdateTotalEstimatedTimeLoading
+          : isUpdateTotalEstimatedTimeLoading // ignore: cast_nullable_to_non_nullable
+              as bool,
+      isUpdateTotalEstimatedTimeCompleted: null ==
+              isUpdateTotalEstimatedTimeCompleted
+          ? _value.isUpdateTotalEstimatedTimeCompleted
+          : isUpdateTotalEstimatedTimeCompleted // ignore: cast_nullable_to_non_nullable
+              as bool,
+      isUpdateTotalEstimatedTimeFailed: null == isUpdateTotalEstimatedTimeFailed
+          ? _value.isUpdateTotalEstimatedTimeFailed
+          : isUpdateTotalEstimatedTimeFailed // ignore: cast_nullable_to_non_nullable
+              as bool,
+      totalEstimatedTime: null == totalEstimatedTime
+          ? _value.totalEstimatedTime
+          : totalEstimatedTime // ignore: cast_nullable_to_non_nullable
+              as Duration,
+      scrollController: freezed == scrollController
+          ? _value.scrollController
+          : scrollController // ignore: cast_nullable_to_non_nullable
+              as ScrollController?,
     ) as $Val);
   }
 
@@ -290,7 +383,19 @@ abstract class _$$HomeViewmodelStateImplCopyWith<$Res>
       bool isGetNoteByIdCompleted,
       bool isGetNoteByIdFailed,
       NoteModel? noteById,
-      String? errorMessage});
+      String? errorMessage,
+      bool isSearchLoading,
+      bool isSearchCompleted,
+      bool isSearchFailed,
+      List<NoteModel>? searchedNotes,
+      bool isGetTotalEstimatedTimeLoading,
+      bool isGetTotalEstimatedTimeCompleted,
+      bool isGetTotalEstimatedTimeFailed,
+      bool isUpdateTotalEstimatedTimeLoading,
+      bool isUpdateTotalEstimatedTimeCompleted,
+      bool isUpdateTotalEstimatedTimeFailed,
+      Duration totalEstimatedTime,
+      ScrollController? scrollController});
 
   @override
   $NoteModelCopyWith<$Res>? get updatedNote;
@@ -335,6 +440,18 @@ class __$$HomeViewmodelStateImplCopyWithImpl<$Res>
     Object? isGetNoteByIdFailed = null,
     Object? noteById = freezed,
     Object? errorMessage = freezed,
+    Object? isSearchLoading = null,
+    Object? isSearchCompleted = null,
+    Object? isSearchFailed = null,
+    Object? searchedNotes = freezed,
+    Object? isGetTotalEstimatedTimeLoading = null,
+    Object? isGetTotalEstimatedTimeCompleted = null,
+    Object? isGetTotalEstimatedTimeFailed = null,
+    Object? isUpdateTotalEstimatedTimeLoading = null,
+    Object? isUpdateTotalEstimatedTimeCompleted = null,
+    Object? isUpdateTotalEstimatedTimeFailed = null,
+    Object? totalEstimatedTime = null,
+    Object? scrollController = freezed,
   }) {
     return _then(_$HomeViewmodelStateImpl(
       isInitial: null == isInitial
@@ -425,6 +542,56 @@ class __$$HomeViewmodelStateImplCopyWithImpl<$Res>
           ? _value.errorMessage
           : errorMessage // ignore: cast_nullable_to_non_nullable
               as String?,
+      isSearchLoading: null == isSearchLoading
+          ? _value.isSearchLoading
+          : isSearchLoading // ignore: cast_nullable_to_non_nullable
+              as bool,
+      isSearchCompleted: null == isSearchCompleted
+          ? _value.isSearchCompleted
+          : isSearchCompleted // ignore: cast_nullable_to_non_nullable
+              as bool,
+      isSearchFailed: null == isSearchFailed
+          ? _value.isSearchFailed
+          : isSearchFailed // ignore: cast_nullable_to_non_nullable
+              as bool,
+      searchedNotes: freezed == searchedNotes
+          ? _value.searchedNotes
+          : searchedNotes // ignore: cast_nullable_to_non_nullable
+              as List<NoteModel>?,
+      isGetTotalEstimatedTimeLoading: null == isGetTotalEstimatedTimeLoading
+          ? _value.isGetTotalEstimatedTimeLoading
+          : isGetTotalEstimatedTimeLoading // ignore: cast_nullable_to_non_nullable
+              as bool,
+      isGetTotalEstimatedTimeCompleted: null == isGetTotalEstimatedTimeCompleted
+          ? _value.isGetTotalEstimatedTimeCompleted
+          : isGetTotalEstimatedTimeCompleted // ignore: cast_nullable_to_non_nullable
+              as bool,
+      isGetTotalEstimatedTimeFailed: null == isGetTotalEstimatedTimeFailed
+          ? _value.isGetTotalEstimatedTimeFailed
+          : isGetTotalEstimatedTimeFailed // ignore: cast_nullable_to_non_nullable
+              as bool,
+      isUpdateTotalEstimatedTimeLoading: null ==
+              isUpdateTotalEstimatedTimeLoading
+          ? _value.isUpdateTotalEstimatedTimeLoading
+          : isUpdateTotalEstimatedTimeLoading // ignore: cast_nullable_to_non_nullable
+              as bool,
+      isUpdateTotalEstimatedTimeCompleted: null ==
+              isUpdateTotalEstimatedTimeCompleted
+          ? _value.isUpdateTotalEstimatedTimeCompleted
+          : isUpdateTotalEstimatedTimeCompleted // ignore: cast_nullable_to_non_nullable
+              as bool,
+      isUpdateTotalEstimatedTimeFailed: null == isUpdateTotalEstimatedTimeFailed
+          ? _value.isUpdateTotalEstimatedTimeFailed
+          : isUpdateTotalEstimatedTimeFailed // ignore: cast_nullable_to_non_nullable
+              as bool,
+      totalEstimatedTime: null == totalEstimatedTime
+          ? _value.totalEstimatedTime
+          : totalEstimatedTime // ignore: cast_nullable_to_non_nullable
+              as Duration,
+      scrollController: freezed == scrollController
+          ? _value.scrollController
+          : scrollController // ignore: cast_nullable_to_non_nullable
+              as ScrollController?,
     ));
   }
 }
@@ -454,7 +621,19 @@ class _$HomeViewmodelStateImpl implements _HomeViewmodelState {
       this.isGetNoteByIdCompleted = false,
       this.isGetNoteByIdFailed = false,
       this.noteById = null,
-      this.errorMessage = null});
+      this.errorMessage = null,
+      this.isSearchLoading = false,
+      this.isSearchCompleted = false,
+      this.isSearchFailed = false,
+      this.searchedNotes = null,
+      this.isGetTotalEstimatedTimeLoading = false,
+      this.isGetTotalEstimatedTimeCompleted = false,
+      this.isGetTotalEstimatedTimeFailed = false,
+      this.isUpdateTotalEstimatedTimeLoading = false,
+      this.isUpdateTotalEstimatedTimeCompleted = false,
+      this.isUpdateTotalEstimatedTimeFailed = false,
+      this.totalEstimatedTime = Duration.zero,
+      this.scrollController = null});
 
   @override
   @JsonKey()
@@ -528,10 +707,50 @@ class _$HomeViewmodelStateImpl implements _HomeViewmodelState {
   @override
   @JsonKey()
   final String? errorMessage;
+//* search
+  @override
+  @JsonKey()
+  final bool isSearchLoading;
+  @override
+  @JsonKey()
+  final bool isSearchCompleted;
+  @override
+  @JsonKey()
+  final bool isSearchFailed;
+  @override
+  @JsonKey()
+  final List<NoteModel>? searchedNotes;
+// * get total estimated time
+  @override
+  @JsonKey()
+  final bool isGetTotalEstimatedTimeLoading;
+  @override
+  @JsonKey()
+  final bool isGetTotalEstimatedTimeCompleted;
+  @override
+  @JsonKey()
+  final bool isGetTotalEstimatedTimeFailed;
+// * update total estimated time
+  @override
+  @JsonKey()
+  final bool isUpdateTotalEstimatedTimeLoading;
+  @override
+  @JsonKey()
+  final bool isUpdateTotalEstimatedTimeCompleted;
+  @override
+  @JsonKey()
+  final bool isUpdateTotalEstimatedTimeFailed;
+  @override
+  @JsonKey()
+  final Duration totalEstimatedTime;
+//* scroll controller
+  @override
+  @JsonKey()
+  final ScrollController? scrollController;
 
   @override
   String toString() {
-    return 'HomeViewmodelState(isInitial: $isInitial, isGetAllNotesLoading: $isGetAllNotesLoading, isGetAllNotesCompleted: $isGetAllNotesCompleted, isGetAllNotesFailed: $isGetAllNotesFailed, allNotes: $allNotes, isNoteUpdateLoading: $isNoteUpdateLoading, isNoteUpdateCompleted: $isNoteUpdateCompleted, isNoteUpdateFailed: $isNoteUpdateFailed, updatedNote: $updatedNote, isNoteRemoveLoading: $isNoteRemoveLoading, isNoteRemoveCompleted: $isNoteRemoveCompleted, isNoteRemoveFailed: $isNoteRemoveFailed, removedNote: $removedNote, isNoteAddLoading: $isNoteAddLoading, isNoteAddCompleted: $isNoteAddCompleted, isNoteAddFailed: $isNoteAddFailed, addedNote: $addedNote, isGetNoteByIdLoading: $isGetNoteByIdLoading, isGetNoteByIdCompleted: $isGetNoteByIdCompleted, isGetNoteByIdFailed: $isGetNoteByIdFailed, noteById: $noteById, errorMessage: $errorMessage)';
+    return 'HomeViewmodelState(isInitial: $isInitial, isGetAllNotesLoading: $isGetAllNotesLoading, isGetAllNotesCompleted: $isGetAllNotesCompleted, isGetAllNotesFailed: $isGetAllNotesFailed, allNotes: $allNotes, isNoteUpdateLoading: $isNoteUpdateLoading, isNoteUpdateCompleted: $isNoteUpdateCompleted, isNoteUpdateFailed: $isNoteUpdateFailed, updatedNote: $updatedNote, isNoteRemoveLoading: $isNoteRemoveLoading, isNoteRemoveCompleted: $isNoteRemoveCompleted, isNoteRemoveFailed: $isNoteRemoveFailed, removedNote: $removedNote, isNoteAddLoading: $isNoteAddLoading, isNoteAddCompleted: $isNoteAddCompleted, isNoteAddFailed: $isNoteAddFailed, addedNote: $addedNote, isGetNoteByIdLoading: $isGetNoteByIdLoading, isGetNoteByIdCompleted: $isGetNoteByIdCompleted, isGetNoteByIdFailed: $isGetNoteByIdFailed, noteById: $noteById, errorMessage: $errorMessage, isSearchLoading: $isSearchLoading, isSearchCompleted: $isSearchCompleted, isSearchFailed: $isSearchFailed, searchedNotes: $searchedNotes, isGetTotalEstimatedTimeLoading: $isGetTotalEstimatedTimeLoading, isGetTotalEstimatedTimeCompleted: $isGetTotalEstimatedTimeCompleted, isGetTotalEstimatedTimeFailed: $isGetTotalEstimatedTimeFailed, isUpdateTotalEstimatedTimeLoading: $isUpdateTotalEstimatedTimeLoading, isUpdateTotalEstimatedTimeCompleted: $isUpdateTotalEstimatedTimeCompleted, isUpdateTotalEstimatedTimeFailed: $isUpdateTotalEstimatedTimeFailed, totalEstimatedTime: $totalEstimatedTime, scrollController: $scrollController)';
   }
 
   @override
@@ -581,7 +800,37 @@ class _$HomeViewmodelStateImpl implements _HomeViewmodelState {
             (identical(other.noteById, noteById) ||
                 other.noteById == noteById) &&
             (identical(other.errorMessage, errorMessage) ||
-                other.errorMessage == errorMessage));
+                other.errorMessage == errorMessage) &&
+            (identical(other.isSearchLoading, isSearchLoading) ||
+                other.isSearchLoading == isSearchLoading) &&
+            (identical(other.isSearchCompleted, isSearchCompleted) ||
+                other.isSearchCompleted == isSearchCompleted) &&
+            (identical(other.isSearchFailed, isSearchFailed) ||
+                other.isSearchFailed == isSearchFailed) &&
+            const DeepCollectionEquality()
+                .equals(other.searchedNotes, searchedNotes) &&
+            (identical(other.isGetTotalEstimatedTimeLoading, isGetTotalEstimatedTimeLoading) ||
+                other.isGetTotalEstimatedTimeLoading ==
+                    isGetTotalEstimatedTimeLoading) &&
+            (identical(other.isGetTotalEstimatedTimeCompleted, isGetTotalEstimatedTimeCompleted) ||
+                other.isGetTotalEstimatedTimeCompleted ==
+                    isGetTotalEstimatedTimeCompleted) &&
+            (identical(other.isGetTotalEstimatedTimeFailed, isGetTotalEstimatedTimeFailed) ||
+                other.isGetTotalEstimatedTimeFailed ==
+                    isGetTotalEstimatedTimeFailed) &&
+            (identical(other.isUpdateTotalEstimatedTimeLoading, isUpdateTotalEstimatedTimeLoading) ||
+                other.isUpdateTotalEstimatedTimeLoading ==
+                    isUpdateTotalEstimatedTimeLoading) &&
+            (identical(other.isUpdateTotalEstimatedTimeCompleted, isUpdateTotalEstimatedTimeCompleted) ||
+                other.isUpdateTotalEstimatedTimeCompleted ==
+                    isUpdateTotalEstimatedTimeCompleted) &&
+            (identical(other.isUpdateTotalEstimatedTimeFailed, isUpdateTotalEstimatedTimeFailed) ||
+                other.isUpdateTotalEstimatedTimeFailed ==
+                    isUpdateTotalEstimatedTimeFailed) &&
+            (identical(other.totalEstimatedTime, totalEstimatedTime) ||
+                other.totalEstimatedTime == totalEstimatedTime) &&
+            (identical(other.scrollController, scrollController) ||
+                other.scrollController == scrollController));
   }
 
   @override
@@ -608,7 +857,19 @@ class _$HomeViewmodelStateImpl implements _HomeViewmodelState {
         isGetNoteByIdCompleted,
         isGetNoteByIdFailed,
         noteById,
-        errorMessage
+        errorMessage,
+        isSearchLoading,
+        isSearchCompleted,
+        isSearchFailed,
+        const DeepCollectionEquality().hash(searchedNotes),
+        isGetTotalEstimatedTimeLoading,
+        isGetTotalEstimatedTimeCompleted,
+        isGetTotalEstimatedTimeFailed,
+        isUpdateTotalEstimatedTimeLoading,
+        isUpdateTotalEstimatedTimeCompleted,
+        isUpdateTotalEstimatedTimeFailed,
+        totalEstimatedTime,
+        scrollController
       ]);
 
   @JsonKey(ignore: true)
@@ -642,7 +903,19 @@ abstract class _HomeViewmodelState implements HomeViewmodelState {
       final bool isGetNoteByIdCompleted,
       final bool isGetNoteByIdFailed,
       final NoteModel? noteById,
-      final String? errorMessage}) = _$HomeViewmodelStateImpl;
+      final String? errorMessage,
+      final bool isSearchLoading,
+      final bool isSearchCompleted,
+      final bool isSearchFailed,
+      final List<NoteModel>? searchedNotes,
+      final bool isGetTotalEstimatedTimeLoading,
+      final bool isGetTotalEstimatedTimeCompleted,
+      final bool isGetTotalEstimatedTimeFailed,
+      final bool isUpdateTotalEstimatedTimeLoading,
+      final bool isUpdateTotalEstimatedTimeCompleted,
+      final bool isUpdateTotalEstimatedTimeFailed,
+      final Duration totalEstimatedTime,
+      final ScrollController? scrollController}) = _$HomeViewmodelStateImpl;
 
   @override
   bool get isInitial;
@@ -688,6 +961,30 @@ abstract class _HomeViewmodelState implements HomeViewmodelState {
   NoteModel? get noteById;
   @override //* error message
   String? get errorMessage;
+  @override //* search
+  bool get isSearchLoading;
+  @override
+  bool get isSearchCompleted;
+  @override
+  bool get isSearchFailed;
+  @override
+  List<NoteModel>? get searchedNotes;
+  @override // * get total estimated time
+  bool get isGetTotalEstimatedTimeLoading;
+  @override
+  bool get isGetTotalEstimatedTimeCompleted;
+  @override
+  bool get isGetTotalEstimatedTimeFailed;
+  @override // * update total estimated time
+  bool get isUpdateTotalEstimatedTimeLoading;
+  @override
+  bool get isUpdateTotalEstimatedTimeCompleted;
+  @override
+  bool get isUpdateTotalEstimatedTimeFailed;
+  @override
+  Duration get totalEstimatedTime;
+  @override //* scroll controller
+  ScrollController? get scrollController;
   @override
   @JsonKey(ignore: true)
   _$$HomeViewmodelStateImplCopyWith<_$HomeViewmodelStateImpl> get copyWith =>

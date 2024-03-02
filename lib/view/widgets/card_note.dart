@@ -15,6 +15,7 @@ class CardNote extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var runningTime = note.elapsedTime;
     return Container(
       padding: EdgeInsets.all(10.r),
       child: Column(
@@ -28,28 +29,29 @@ class CardNote extends StatelessWidget {
                 topRight: Radius.circular(AppMetrices.borderRadius1),
                 topLeft: Radius.circular(AppMetrices.borderRadius1),
               ),
-              color: AppColors.coolPrimary,
+              color: AppColors.secondColor,
             ),
             child: Text(
-              note.title ?? '',
+              note.title,
               textAlign: TextAlign.left,
-              style: Theme.of(context)
-                  .textTheme
-                  .titleLarge!
-                  .copyWith(color: Colors.white),
+              style: Theme.of(context).textTheme.titleMedium,
               overflow: TextOverflow.ellipsis,
               maxLines: 1,
             ),
           ),
           Container(
-            padding: EdgeInsets.all(5.r),
-            decoration: const BoxDecoration(
-              borderRadius: BorderRadius.only(
+            padding: EdgeInsets.all(10.r),
+            decoration: BoxDecoration(
+              borderRadius: const BorderRadius.only(
                 topRight: Radius.circular(AppMetrices.borderRadius1),
                 bottomLeft: Radius.circular(AppMetrices.borderRadius1),
                 bottomRight: Radius.circular(AppMetrices.borderRadius1),
               ),
-              color: AppColors.warmSecondary,
+              border: Border.all(
+                width: 2,
+                color: AppColors.secondColor,
+              ),
+              color: AppColors.primaryColor,
             ),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.start,
@@ -58,9 +60,7 @@ class CardNote extends StatelessWidget {
                 Text(
                   note.body,
                   textAlign: TextAlign.left,
-                  style: Theme.of(context).textTheme.bodyMedium!.copyWith(
-                        color: AppColors.coolTertiary,
-                      ),
+                  style: Theme.of(context).textTheme.bodyMedium,
                   overflow: TextOverflow.fade,
                   maxLines: 5,
                 ),
@@ -70,16 +70,16 @@ class CardNote extends StatelessWidget {
                 const Divider(
                   height: 10,
                   thickness: 1,
-                  color: AppColors.coolPrimary,
+                  color: AppColors.hightlightColor,
+                ),
+                SizedBox(
+                  height: 10.h,
                 ),
                 Text(
                   DateFormat('EEEE, MMMM d, yyyy,  hh:mm a',
                           context.locale.languageCode)
                       .format(note.createdAt),
-                  style: Theme.of(context)
-                      .textTheme
-                      .bodySmall!
-                      .copyWith(color: AppColors.coolTertiary),
+                  style: Theme.of(context).textTheme.bodySmall,
                 ),
                 SizedBox(
                   height: 10.h,
@@ -88,11 +88,7 @@ class CardNote extends StatelessWidget {
                   children: [
                     Text(
                       note.status.name,
-                      style: Theme.of(context).textTheme.bodySmall!.copyWith(
-                            color: note.status == NoteStatus.done
-                                ? AppColors.coolTertiary
-                                : AppColors.warmTertiary,
-                          ),
+                      style: Theme.of(context).textTheme.bodySmall,
                     ),
                     SizedBox(
                       width: 10.w,
@@ -100,12 +96,20 @@ class CardNote extends StatelessWidget {
                     note.status == NoteStatus.done
                         ? const Icon(
                             Icons.celebration_rounded,
-                            color: AppColors.coolTertiary,
                           )
-                        : const Icon(
-                            Icons.monitor_heart_outlined,
-                            color: AppColors.warmTertiary,
-                          ),
+                        : note.status == NoteStatus.inprogress ||
+                                note.status == NoteStatus.paused
+                            ? const Icon(
+                                Icons.monitor_heart_outlined,
+                              )
+                            : const Icon(
+                                Icons.not_interested_rounded,
+                              ),
+                    const Spacer(),
+                    Text(
+                      '${runningTime.inHours} : ${runningTime.inMinutes.remainder(60)} : ${runningTime.inSeconds.remainder(60)}',
+                      style: Theme.of(context).textTheme.titleLarge,
+                    ),
                   ],
                 ),
               ],

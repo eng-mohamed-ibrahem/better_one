@@ -3,41 +3,70 @@ import 'package:flutter/material.dart';
 
 class AppThemes {
   static ThemeData lightTheme = ThemeData(
-    primaryColor: AppColors.coolPrimary,
+    primaryColor: AppColors.primaryColor,
     brightness: Brightness.light,
-
     buttonTheme: const ButtonThemeData(
       textTheme: ButtonTextTheme.primary,
+      buttonColor: AppColors.secondColor,
     ),
     appBarTheme: const AppBarTheme(
-      backgroundColor: AppColors.coolPrimary,
+      backgroundColor: AppColors.primaryColor,
     ),
     colorScheme:
-        ColorScheme.fromSwatch().copyWith(secondary: AppColors.coolSecondary),
+        ColorScheme.fromSwatch().copyWith(secondary: AppColors.primaryColor),
     fontFamily: 'Tajawal', // Grandstander,Tajawal
     textTheme: textTheme(),
+    iconTheme: const IconThemeData(color: AppColors.textButtonColor),
+    textSelectionTheme: const TextSelectionThemeData(
+      cursorColor: AppColors.textButtonColor,
+      selectionColor: AppColors.textButtonColor,
+      selectionHandleColor: AppColors.textButtonColor,
+    ),
+
+    iconButtonTheme: const IconButtonThemeData(
+      style: ButtonStyle(
+        iconColor: MaterialStatePropertyAll(AppColors.white),
+        backgroundColor: MaterialStatePropertyAll(AppColors.secondColor),
+      ),
+    ),
+    scaffoldBackgroundColor: AppColors.primaryColor,
+    filledButtonTheme: FilledButtonThemeData(
+      style: ButtonStyle(
+        backgroundColor: MaterialStateProperty.all(AppColors.secondColor),
+        textStyle: const MaterialStatePropertyAll<TextStyle>(
+          TextStyle(
+            color: AppColors.textButtonColor,
+          ),
+        ),
+      ),
+    ),
   );
 
   static TextTheme textTheme() {
     return const TextTheme(
       titleLarge: TextStyle(
-        color: AppColors.coolPrimary,
+        color: AppColors.white,
         fontSize: 20,
         fontWeight: FontWeight.bold,
       ),
       titleSmall: TextStyle(
-        color: AppColors.coolPrimary,
+        color: AppColors.white,
         fontSize: 16,
-        fontWeight: FontWeight.normal,
+        fontWeight: FontWeight.bold,
+      ),
+      titleMedium: TextStyle(
+        color: AppColors.white,
+        fontSize: 18,
+        fontWeight: FontWeight.bold,
       ),
       bodyMedium: TextStyle(
-        color: AppColors.warmSecondary,
-        fontSize: 16,
+        color: AppColors.white,
+        fontSize: 18,
         fontWeight: FontWeight.normal,
         height: 1.2,
       ),
       bodySmall: TextStyle(
-        color: AppColors.warmSecondary,
+        color: AppColors.white,
         fontSize: 16,
         fontWeight: FontWeight.normal,
         height: 1.2,

@@ -15,3 +15,4 @@ extension Sizes on BuildContext {
   double get height => MediaQuery.sizeOf(this).height;
   double get widgth => MediaQuery.sizeOf(this).width;
 }
+

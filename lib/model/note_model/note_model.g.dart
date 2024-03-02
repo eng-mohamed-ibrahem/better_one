@@ -8,7 +8,7 @@ part of 'note_model.dart';
 
 _$NoteModelImpl _$$NoteModelImplFromJson(Map<String, dynamic> json) =>
     _$NoteModelImpl(
-      title: json['title'] as String?,
+      title: json['title'] as String,
       body: json['body'] as String,
       id: json['id'] as String,
       createdAt: DateTime.parse(json['createdAt'] as String),
@@ -19,7 +19,7 @@ _$NoteModelImpl _$$NoteModelImplFromJson(Map<String, dynamic> json) =>
           ? Duration.zero
           : Duration(microseconds: json['elapsedTime'] as int),
       status: $enumDecodeNullable(_$NoteStatusEnumMap, json['status']) ??
-          NoteStatus.progress,
+          NoteStatus.none,
     );
 
 Map<String, dynamic> _$$NoteModelImplToJson(_$NoteModelImpl instance) =>
@@ -35,6 +35,7 @@ Map<String, dynamic> _$$NoteModelImplToJson(_$NoteModelImpl instance) =>
 
 const _$NoteStatusEnumMap = {
   NoteStatus.done: 'done',
-  NoteStatus.progress: 'progress',
+  NoteStatus.inprogress: 'inprogress',
   NoteStatus.paused: 'paused',
+  NoteStatus.none: 'none',
 };

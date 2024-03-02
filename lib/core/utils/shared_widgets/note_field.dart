@@ -1,6 +1,7 @@
-import 'package:better_one/core/constants/app_metrices.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+
+import '../../constants/constants.dart';
 
 class NoteField extends StatelessWidget {
   const NoteField({
@@ -13,6 +14,7 @@ class NoteField extends StatelessWidget {
     this.textFieldHeight,
     this.prefixIcon,
     this.validator,
+    this.onChanged,
   });
   final TextEditingController controller;
   final int? minLines;
@@ -22,6 +24,7 @@ class NoteField extends StatelessWidget {
   final double? textFieldHeight;
   final Widget? prefixIcon;
   final String? Function(String?)? validator;
+  final Function(String)? onChanged;
 
   @override
   Widget build(BuildContext context) {
@@ -32,16 +35,22 @@ class NoteField extends StatelessWidget {
       child: TextFormField(
         controller: controller,
         validator: validator,
+        onChanged: onChanged,
         maxLines: maxLines,
         minLines: minLines,
+        autovalidateMode: AutovalidateMode.onUserInteraction,
         decoration: InputDecoration(
           labelText: labelText,
           hintText: hintText,
+          hintStyle: Theme.of(context).textTheme.bodySmall,
+          labelStyle: Theme.of(context).textTheme.bodySmall,
+          prefixIconColor: AppColors.textButtonColor,
           border: OutlineInputBorder(
             borderRadius: BorderRadius.circular(10.0),
             borderSide: BorderSide.none,
           ),
-          prefixIcon: prefixIcon,
+          iconColor: AppColors.textButtonColor,
+          icon: prefixIcon,
         ),
         style: Theme.of(context).textTheme.titleMedium!.copyWith(
               height: textFieldHeight,

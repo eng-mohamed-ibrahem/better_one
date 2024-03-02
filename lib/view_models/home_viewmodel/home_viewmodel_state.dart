@@ -31,5 +31,21 @@ class HomeViewmodelState with _$HomeViewmodelState {
     @Default(null) NoteModel? noteById,
     //* error message
     @Default(null) String? errorMessage,
+    //* search
+    @Default(false) bool isSearchLoading,
+    @Default(false) bool isSearchCompleted,
+    @Default(false) bool isSearchFailed,
+    @Default(null) List<NoteModel>? searchedNotes,
+    // * get total estimated time
+    @Default(false) bool isGetTotalEstimatedTimeLoading,
+    @Default(false) bool isGetTotalEstimatedTimeCompleted,
+    @Default(false) bool isGetTotalEstimatedTimeFailed,
+    // * update total estimated time
+    @Default(false) bool isUpdateTotalEstimatedTimeLoading,
+    @Default(false) bool isUpdateTotalEstimatedTimeCompleted,
+    @Default(false) bool isUpdateTotalEstimatedTimeFailed,
+    @Default(Duration.zero) Duration totalEstimatedTime,
+    //* scroll controller
+    @Default(null) ScrollController? scrollController,
   }) = _HomeViewmodelState;
 }

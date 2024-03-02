@@ -33,4 +33,15 @@ class NoteRepoImpl implements NoteRepoInterface {
   Future<Result<NoteModel?, Failure>> getNoteById(String id) async {
     return await dataSource.getNoteById(id);
   }
+
+  @override
+  Future<Result<int, Failure>> getTotoalEstimatedTime() async {
+    return await dataSource.getTotoalEstimatedTime();
+  }
+
+  @override
+  Future<Result<int, Failure>> updateTotalEstimatedTime(
+      int updatedTime, bool isAdding) async {
+    return await dataSource.updateTotalEstimatedTime(updatedTime, isAdding);
+  }
 }

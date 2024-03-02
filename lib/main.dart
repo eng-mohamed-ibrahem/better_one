@@ -19,7 +19,7 @@ void main() async {
     const SystemUiOverlayStyle(
       statusBarBrightness: Brightness.light,
       statusBarColor: Colors.transparent,
-      systemNavigationBarColor: AppColors.coolPrimary,
+      systemNavigationBarColor: AppColors.secondColor,
     ),
   );
   initializeDateFormatting(

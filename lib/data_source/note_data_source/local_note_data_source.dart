@@ -57,4 +57,23 @@ class LocalNoteDataSource implements NoteSource {
       return Result.failure(error: OtherFailure(message: e.toString()));
     }
   }
+
+  @override
+  Future<Result<int, Failure>> getTotoalEstimatedTime() async {
+    try {
+      return await cacheRepo.getTotoalEstimatedTime();
+    } catch (e) {
+      return Result.failure(error: OtherFailure(message: e.toString()));
+    }
+  }
+
+  @override
+  Future<Result<int, Failure>> updateTotalEstimatedTime(
+      int time, bool isAdding) async {
+    try {
+      return await cacheRepo.updateTotalEstimatedTime(time, isAdding);
+    } catch (e) {
+      return Result.failure(error: OtherFailure(message: e.toString()));
+    }
+  }
 }

@@ -20,7 +20,7 @@ NoteModel _$NoteModelFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$NoteModel {
-  String? get title => throw _privateConstructorUsedError;
+  String get title => throw _privateConstructorUsedError;
   String get body => throw _privateConstructorUsedError;
   String get id => throw _privateConstructorUsedError;
   DateTime get createdAt => throw _privateConstructorUsedError;
@@ -40,7 +40,7 @@ abstract class $NoteModelCopyWith<$Res> {
       _$NoteModelCopyWithImpl<$Res, NoteModel>;
   @useResult
   $Res call(
-      {String? title,
+      {String title,
       String body,
       String id,
       DateTime createdAt,
@@ -62,7 +62,7 @@ class _$NoteModelCopyWithImpl<$Res, $Val extends NoteModel>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? title = freezed,
+    Object? title = null,
     Object? body = null,
     Object? id = null,
     Object? createdAt = null,
@@ -71,10 +71,10 @@ class _$NoteModelCopyWithImpl<$Res, $Val extends NoteModel>
     Object? status = null,
   }) {
     return _then(_value.copyWith(
-      title: freezed == title
+      title: null == title
           ? _value.title
           : title // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as String,
       body: null == body
           ? _value.body
           : body // ignore: cast_nullable_to_non_nullable
@@ -112,7 +112,7 @@ abstract class _$$NoteModelImplCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {String? title,
+      {String title,
       String body,
       String id,
       DateTime createdAt,
@@ -132,7 +132,7 @@ class __$$NoteModelImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? title = freezed,
+    Object? title = null,
     Object? body = null,
     Object? id = null,
     Object? createdAt = null,
@@ -141,10 +141,10 @@ class __$$NoteModelImplCopyWithImpl<$Res>
     Object? status = null,
   }) {
     return _then(_$NoteModelImpl(
-      title: freezed == title
+      title: null == title
           ? _value.title
           : title // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as String,
       body: null == body
           ? _value.body
           : body // ignore: cast_nullable_to_non_nullable
@@ -177,19 +177,19 @@ class __$$NoteModelImplCopyWithImpl<$Res>
 @JsonSerializable()
 class _$NoteModelImpl implements _NoteModel {
   const _$NoteModelImpl(
-      {this.title,
+      {required this.title,
       required this.body,
       required this.id,
       required this.createdAt,
       this.updatedAt,
       this.elapsedTime = Duration.zero,
-      this.status = NoteStatus.progress});
+      this.status = NoteStatus.none});
 
   factory _$NoteModelImpl.fromJson(Map<String, dynamic> json) =>
       _$$NoteModelImplFromJson(json);
 
   @override
-  final String? title;
+  final String title;
   @override
   final String body;
   @override
@@ -248,7 +248,7 @@ class _$NoteModelImpl implements _NoteModel {
 
 abstract class _NoteModel implements NoteModel {
   const factory _NoteModel(
-      {final String? title,
+      {required final String title,
       required final String body,
       required final String id,
       required final DateTime createdAt,
@@ -260,7 +260,7 @@ abstract class _NoteModel implements NoteModel {
       _$NoteModelImpl.fromJson;
 
   @override
-  String? get title;
+  String get title;
   @override
   String get body;
   @override

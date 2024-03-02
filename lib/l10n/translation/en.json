@@ -16,5 +16,12 @@
     "do_it": "Let's do it",
     "note_title": "your task which you will achieve",
     "note_description": "feel free to say what you want to achieve",
-    "note_motive": "Let's Finish What We Start"
+    "note_motive": "Let's Finish What We Start",
+    "language": "Language",
+    "note_title_and_description": "Please provide a title and description for the note",
+    "note_updated": "Note updated successfully",
+    "note_deleted": "Note deleted successfully",
+    "hour": "hour",
+    "minute": "minute",
+    "second": "second"
 }
