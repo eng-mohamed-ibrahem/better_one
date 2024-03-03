@@ -1,13 +1,13 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'note_model.dart';
+part of 'task_model.dart';
 
 // **************************************************************************
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$NoteModelImpl _$$NoteModelImplFromJson(Map<String, dynamic> json) =>
-    _$NoteModelImpl(
+_$TaskModelImpl _$$TaskModelImplFromJson(Map<String, dynamic> json) =>
+    _$TaskModelImpl(
       title: json['title'] as String,
       body: json['body'] as String,
       id: json['id'] as String,
@@ -18,11 +18,11 @@ _$NoteModelImpl _$$NoteModelImplFromJson(Map<String, dynamic> json) =>
       elapsedTime: json['elapsedTime'] == null
           ? Duration.zero
           : Duration(microseconds: json['elapsedTime'] as int),
-      status: $enumDecodeNullable(_$NoteStatusEnumMap, json['status']) ??
-          NoteStatus.none,
+      status: $enumDecodeNullable(_$TaskStatusEnumMap, json['status']) ??
+          TaskStatus.none,
     );
 
-Map<String, dynamic> _$$NoteModelImplToJson(_$NoteModelImpl instance) =>
+Map<String, dynamic> _$$TaskModelImplToJson(_$TaskModelImpl instance) =>
     <String, dynamic>{
       'title': instance.title,
       'body': instance.body,
@@ -30,12 +30,12 @@ Map<String, dynamic> _$$NoteModelImplToJson(_$NoteModelImpl instance) =>
       'createdAt': instance.createdAt.toIso8601String(),
       'updatedAt': instance.updatedAt?.toIso8601String(),
       'elapsedTime': instance.elapsedTime.inMicroseconds,
-      'status': _$NoteStatusEnumMap[instance.status]!,
+      'status': _$TaskStatusEnumMap[instance.status]!,
     };
 
-const _$NoteStatusEnumMap = {
-  NoteStatus.done: 'done',
-  NoteStatus.inprogress: 'inprogress',
-  NoteStatus.paused: 'paused',
-  NoteStatus.none: 'none',
+const _$TaskStatusEnumMap = {
+  TaskStatus.done: 'done',
+  TaskStatus.inprogress: 'inprogress',
+  TaskStatus.paused: 'paused',
+  TaskStatus.none: 'none',
 };

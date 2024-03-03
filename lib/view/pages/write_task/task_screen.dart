@@ -1,14 +1,14 @@
 import 'dart:async';
 
 import 'package:better_one/config/generate_router.dart';
-import 'package:better_one/core/enum/note_status.dart';
+import 'package:better_one/core/enum/task_status.dart';
 import 'package:better_one/core/utils/dependency_locator/dependency_injection.dart';
 import 'package:better_one/core/utils/shared_widgets/failed.dart';
 import 'package:better_one/core/utils/shared_widgets/lottie_indicator.dart';
-import 'package:better_one/core/utils/shared_widgets/note_field.dart';
+import 'package:better_one/core/utils/shared_widgets/task_field.dart';
 import 'package:better_one/core/utils/snack_bar/snack_bar.dart';
-import 'package:better_one/model/note_model/note_model.dart';
 import 'package:better_one/model/notification_model/notification_model.dart';
+import 'package:better_one/model/task_model/task_model.dart';
 import 'package:better_one/view/widgets/duration_widget.dart';
 import 'package:better_one/view_models/home_viewmodel/home_viewmodel.dart';
 import 'package:better_one/view_models/quote_viewmodel/quote_viewmodel.dart';
@@ -19,34 +19,34 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../core/constants/constants.dart';
 
-///* Note Screen
+///* Task Screen
 ///
-/// This screen is used to write note and edit note
-/// display estimate time for note
+/// This screen is used to write task and edit task
+/// display estimate time for task
 /// display quote
-/// control note status and save note
-/// update estimated time of note and add this time to total time
+/// control task status and save task
+/// update estimated time of task and add this time to total time
 ///*
-class NoteScreen extends StatefulWidget {
-  const NoteScreen({super.key});
+class TaskScreen extends StatefulWidget {
+  const TaskScreen({super.key});
 
   @override
-  State<NoteScreen> createState() => _NoteScreenState();
+  State<TaskScreen> createState() => _TaskScreenState();
 }
 
-class _NoteScreenState extends State<NoteScreen> with RouteAware {
+class _TaskScreenState extends State<TaskScreen> with RouteAware {
   final TextEditingController titleController = TextEditingController();
   final TextEditingController descriptionController = TextEditingController();
   final GlobalKey<FormState> formKey = GlobalKey<FormState>();
-  NoteModel? note;
-  String? noteId;
-  bool isNoteModified = false;
+  TaskModel? task;
+  String? taskId;
+  bool isTaskModified = false;
   Duration runningTime = Duration.zero;
   Timer? timer;
 
   @override
   void didPopNext() {
-    GenerateRouter.activeRoute = GenerateRouter.noteScreen;
+    GenerateRouter.activeRoute = GenerateRouter.taskScreen;
   }
 
   @override
@@ -56,9 +56,9 @@ class _NoteScreenState extends State<NoteScreen> with RouteAware {
 
   @override
   void didChangeDependencies() {
-    noteId = ModalRoute.of(context)!.settings.arguments as String?;
-    if (noteId != null) {
-      HomeViewmodel.get(context).getNoteById(noteId!);
+    taskId = ModalRoute.of(context)!.settings.arguments as String?;
+    if (taskId != null) {
+      HomeViewmodel.get(context).getTaskById(taskId!);
     }
     QuoteViewmode.get(context).getRandomQuote();
     routeObserver.subscribe(this, ModalRoute.of(context)!);
@@ -73,15 +73,15 @@ class _NoteScreenState extends State<NoteScreen> with RouteAware {
   }
 
   /// save the estimated time on navigate back
-  /// if navigate back while the note is inprogress then pause the note
+  /// if navigate back while the task is inprogress then pause the task
   @override
   void deactivate() {
-    note != null
-        ? HomeViewmodel.get(context).updateNoteAndTotalEstimatedTime(
-            note!,
-            note!.status == NoteStatus.inprogress
-                ? NoteStatus.paused
-                : note!.status,
+    task != null
+        ? HomeViewmodel.get(context).updateTaskAndTotalEstimatedTime(
+            task!,
+            task!.status == TaskStatus.inprogress
+                ? TaskStatus.paused
+                : task!.status,
             runningTime,
           )
         : null;
@@ -98,36 +98,36 @@ class _NoteScreenState extends State<NoteScreen> with RouteAware {
         right: false,
         child: BlocConsumer<HomeViewmodel, HomeViewmodelState>(
           listener: (context, state) {
-            if (state.isGetNoteByIdCompleted) {
-              note = state.noteById;
-              titleController.text = note!.title;
-              descriptionController.text = note!.body;
+            if (state.isGetTaskByIdCompleted) {
+              task = state.taskById;
+              titleController.text = task!.title;
+              descriptionController.text = task!.body;
             }
 
-            if (state.isNoteUpdateCompleted) {
-              note = state.updatedNote;
-              if (isNoteModified) {
+            if (state.isTaskUpdateCompleted) {
+              task = state.updatedTask;
+              if (isTaskModified) {
                 showSnackBar(
                   context,
-                  message: 'note_updated'.tr(),
+                  message: 'task.updated'.tr(),
                 );
               }
             }
-            if (state.isNoteAddCompleted) {
-              note = state.addedNote;
+            if (state.isTaskAddCompleted) {
+              task = state.addedTask;
               localNotification.display(
                 notification: NotificationModel(
                   id: DateTime.now().microsecond,
-                  title: 'note_motive'.tr(),
+                  title: 'task.motive'.tr(),
                   body: titleController.text,
-                  payload: note!.id,
+                  payload: task!.id,
                 ),
               );
             }
             timer?.cancel();
             timer = Timer.periodic(const Duration(seconds: 1), (timer) {
               // 1: update the running time
-              note!.status == NoteStatus.inprogress
+              task!.status == TaskStatus.inprogress
                   ? setState(
                       () {
                         runningTime = Duration(seconds: timer.tick);
@@ -137,20 +137,20 @@ class _NoteScreenState extends State<NoteScreen> with RouteAware {
             });
           },
           builder: (context, state) {
-            if (state.isGetNoteByIdLoading) {
+            if (state.isGetTaskByIdLoading) {
               return const Center(
                 child: LottieIndicator(
-                  statusAssets: LottieAssets.searchForNote,
+                  statusAssets: LottieAssets.searchForTask,
                 ),
               );
             }
-            if (state.isGetNoteByIdFailed) {
+            if (state.isGetTaskByIdFailed) {
               return Center(
                 child: Failed(
-                  failedAsset: LottieAssets.searchForNoteFailed,
+                  failedAsset: LottieAssets.searchForTaskFailed,
                   errorMessage: state.errorMessage,
                   retry: () {
-                    HomeViewmodel.get(context).getNoteById(noteId!);
+                    HomeViewmodel.get(context).getTaskById(taskId!);
                   },
                 ),
               );
@@ -192,10 +192,10 @@ class _NoteScreenState extends State<NoteScreen> with RouteAware {
                           },
                         ),
                         SizedBox(height: AppMetrices.heightSpace2.h),
-                        NoteField(
+                        TaskField(
                           controller: titleController,
-                          onChanged: (p0) => isNoteModified = true,
-                          labelText: 'note_title'.tr(),
+                          onChanged: (p0) => isTaskModified = true,
+                          labelText: 'task.title'.tr(),
                           textFieldHeight: 1,
                           maxLines: null,
                           minLines: 1,
@@ -210,13 +210,13 @@ class _NoteScreenState extends State<NoteScreen> with RouteAware {
                           endIndent: AppMetrices.widthSpace2.w,
                         ),
                         SizedBox(height: AppMetrices.heightSpace.h),
-                        NoteField(
+                        TaskField(
                           controller: descriptionController,
-                          onChanged: (p0) => isNoteModified = true,
-                          labelText: 'note_description'.tr(),
+                          onChanged: (p0) => isTaskModified = true,
+                          labelText: 'task.description'.tr(),
                           textFieldHeight: 2,
                           maxLines: null,
-                          minLines: 1,
+                          minLines: 2,
                         ),
                       ],
                     ),
@@ -239,7 +239,7 @@ class _NoteScreenState extends State<NoteScreen> with RouteAware {
                       padding: EdgeInsetsDirectional.only(top: 5.h, end: 15.w),
                       child: DurationTime(
                         duration: runningTime +
-                            (note == null ? Duration.zero : note!.elapsedTime),
+                            (task == null ? Duration.zero : task!.elapsedTime),
                       ),
                     ),
                   ],
@@ -252,20 +252,20 @@ class _NoteScreenState extends State<NoteScreen> with RouteAware {
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       floatingActionButton: BlocBuilder<HomeViewmodel, HomeViewmodelState>(
         builder: (context, state) {
-          if (state.isGetNoteByIdLoading || state.isGetNoteByIdFailed) {
+          if (state.isGetTaskByIdLoading || state.isGetTaskByIdFailed) {
             return const SizedBox();
           }
           return Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              /// if note is [null] this mean first time create the note
-              /// else this mean update note
-              note == null
+              /// if task is [null] this mean the first time create the task
+              /// else this mean update task
+              task == null
                   ? FilledButton(
                       onPressed: () {
                         if (titleController.text.isNotEmpty &&
                             descriptionController.text.isNotEmpty) {
-                          var newNote = NoteModel(
+                          var newTask = TaskModel(
                             id: DateTime.now()
                                 .millisecondsSinceEpoch
                                 .toString(),
@@ -273,52 +273,53 @@ class _NoteScreenState extends State<NoteScreen> with RouteAware {
                             body: descriptionController.text,
                             createdAt: DateTime.now(),
                           );
-                          HomeViewmodel.get(context).addNote(newNote);
-                          isNoteModified = false;
+                          HomeViewmodel.get(context).addTask(newTask);
+                          isTaskModified = false;
                         } else {
                           showSnackBar(
                             context,
-                            message: 'note_title_and_description'.tr(),
+                            message: 'task.title_and_description_required'.tr(),
                           );
                         }
                       },
                       child: Text(
-                        'add_task'.tr(),
+                        'task.add'.tr(),
                         style: Theme.of(context).textTheme.titleSmall,
                       ),
                     )
-                  : isNoteModified
+                  : isTaskModified
                       ? FilledButton(
                           onPressed: () {
                             if (titleController.text.isNotEmpty &&
                                 descriptionController.text.isNotEmpty) {
-                              var newNote = note!.copyWith(
+                              var newTask = task!.copyWith(
                                 title: titleController.text,
                                 body: descriptionController.text,
                                 updatedAt: DateTime.now(),
-                                elapsedTime: runningTime + note!.elapsedTime,
-                                status: note!.status,
+                                elapsedTime: runningTime + task!.elapsedTime,
+                                status: task!.status,
                               );
                               HomeViewmodel.get(context)
-                                  .updateNote(note!, newNote);
-                              isNoteModified = false;
+                                  .updateTask(task!, newTask);
+                              isTaskModified = false;
                             } else {
                               showSnackBar(
                                 context,
-                                message: 'note_title_and_description'.tr(),
+                                message:
+                                    'task.title_and_description_required'.tr(),
                               );
                             }
                           },
                           child: Text(
-                            'update'.tr(),
+                            'task.update'.tr(),
                             style: Theme.of(context).textTheme.titleSmall,
                           ),
                         )
                       : const SizedBox(),
               SizedBox(width: AppMetrices.widthSpace.h),
-              note != null
-                  ? note!.status == NoteStatus.none ||
-                          note!.status == NoteStatus.paused
+              task != null
+                  ? task!.status == TaskStatus.none ||
+                          task!.status == TaskStatus.paused
                       ? IconButton(
                           iconSize: 25,
                           style: IconButton.styleFrom(
@@ -326,9 +327,9 @@ class _NoteScreenState extends State<NoteScreen> with RouteAware {
                           ),
                           onPressed: () {
                             HomeViewmodel.get(context)
-                                .updateNoteAndTotalEstimatedTime(
-                              note!,
-                              NoteStatus.inprogress,
+                                .updateTaskAndTotalEstimatedTime(
+                              task!,
+                              TaskStatus.inprogress,
                               runningTime,
                             );
                             // 2: reset running time
@@ -345,9 +346,9 @@ class _NoteScreenState extends State<NoteScreen> with RouteAware {
                           ),
                           onPressed: () {
                             HomeViewmodel.get(context)
-                                .updateNoteAndTotalEstimatedTime(
-                              note!,
-                              NoteStatus.paused,
+                                .updateTaskAndTotalEstimatedTime(
+                              task!,
+                              TaskStatus.paused,
                               runningTime,
                             );
                             // 2: reset running time

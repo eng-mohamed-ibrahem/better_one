@@ -3,14 +3,14 @@ import 'package:better_one/core/utils/api_consumer/dio_consumer.dart';
 import 'package:better_one/core/utils/cache_service/cache_interface.dart';
 import 'package:better_one/core/utils/cache_service/hive_cache.dart';
 import 'package:better_one/core/utils/notification_service/notification_interface.dart';
-import 'package:better_one/data_source/note_data_source/local_note_data_source.dart';
-import 'package:better_one/data_source/note_data_source/note_source_interface.dart';
 import 'package:better_one/data_source/quote_data_source/quote_source_interface.dart';
 import 'package:better_one/data_source/quote_data_source/remote_quote_data_source.dart';
-import 'package:better_one/repositories/note_repo/note_repo_impl.dart';
-import 'package:better_one/repositories/note_repo/note_repo_interface.dart';
+import 'package:better_one/data_source/task_data_source/local_task_data_source.dart';
+import 'package:better_one/data_source/task_data_source/task_source_interface.dart';
 import 'package:better_one/repositories/quote_repo/quote_interface.dart';
 import 'package:better_one/repositories/quote_repo/quote_repo.dart';
+import 'package:better_one/repositories/task_repo/task_repo_impl.dart';
+import 'package:better_one/repositories/task_repo/task_repo_interface.dart';
 import 'package:flutter/material.dart';
 import 'package:get_it/get_it.dart';
 
@@ -35,9 +35,9 @@ Future<void> initDependency() async {
   );
   await storageCache.init();
 
-  /// [Note] data source, Options [remote || local]
-  noteSource = _getIt.registerSingleton<NoteSource>(
-    LocalNoteDataSource(storageCache),
+  /// [Task] data source, Options [remote || local]
+  taskSource = _getIt.registerSingleton<TaskSource>(
+    LocalTaskDataSource(storageCache),
   );
 
   /// remote method i used in my app [DioConsumer || HttpConsumer]
@@ -45,9 +45,9 @@ Future<void> initDependency() async {
     DioConsumer(),
   );
 
-  /// [Note] repository
-  noteRepo = _getIt.registerSingleton<NoteRepoInterface>(
-    NoteRepoImpl(noteSource),
+  /// [Task] repository
+  taskRepo = _getIt.registerSingleton<TaskRepoInterface>(
+    TaskRepoImpl(taskSource),
   );
 
   /// [Quote] data source, Options [remote || local]
@@ -64,8 +64,8 @@ Future<void> initDependency() async {
 late NotificationRepoInterface localNotification;
 late CacheMethodInterface storageCache;
 late ApiConsumer apiConsumer;
-late NoteRepoInterface noteRepo;
-late NoteSource noteSource;
+late TaskRepoInterface taskRepo;
+late TaskSource taskSource;
 late QuoteSource quoteSource;
 late QuoteInterface quoteRepo;
 late RouteObserver<ModalRoute> routeObserver;

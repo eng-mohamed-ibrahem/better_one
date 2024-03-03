@@ -1,8 +1,8 @@
-import 'package:better_one/model/note_model/note_model.dart';
+import 'package:better_one/model/task_model/task_model.dart';
 
 class ArgumentPassPage {
-  int? noteId;
-  NoteModel? note;
+  int? taskId;
+  TaskModel? task;
 
-  ArgumentPassPage({this.noteId, this.note});
+  ArgumentPassPage({this.taskId, this.task});
 }

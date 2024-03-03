@@ -1,27 +1,32 @@
 {
     "app": {
-        "name": "Better One"
+        "name": "شخص افضل"
     },
-    "create_task": "انشاء مهمة",
-    "no_task": "لا توجد مهمات",
-    "add_task": "اضافة مهمة",
-    "edit_task": "تعديل مهمة",
-    "title": "العنوان",
-    "description": "الوصف",
-    "create": "انشاء",
-    "update": "تحديث",
-    "delete": "حذف",
-    "save": "حفظ",
-    "cancel": "الغاء",
-    "do_it": "لنفعلها",
-    "note_title": "مهمتك التي سوف تحققها",
-    "note_description": "لا تتردد في قول ما تريد تحقيقه",
-    "note_motive": "لننهي ما بدأناه",
-    "language": "لغة",
-    "note_title_and_description": "يرجى تقديم عنوان ووصف للملاحظة",
-    "note_updated": "تم تحديث الملاحظة بنجاح",
-    "note_deleted": "تم حذف الملاحظة بنجاح",
-    "hour": "ساعة",
-    "minute": "دقيقة",
-    "second": "ثانية"
+    "task": {
+        "create": "انشاء مهمة",
+        "empty": "لا توجد مهمات",
+        "add": "اضافة مهمة",
+        "title_and_description_required": "يرجى تقديم عنوان ووصف للملاحظة",
+        "updated": "تم تحديث الملاحظة بنجاح",
+        "deleted": "تم حذف الملاحظة بنجاح",
+        "update": "تحديث",
+        "delete": "حذف",
+        "title": "مهمتك التي سوف تحققها",
+        "description": "لا تتردد في قول ما تريد تحقيقه",
+        "motive": "لننهي ما بدأناه",
+        "status": {
+            "none": "تم الانشاء",
+            "inprogress": "يتم العمل...",
+            "paused": "متوقف",
+            "done": "مكتمل"
+        }
+    },
+    "setting": {
+        "language": "اللغة"
+    },
+    "time": {
+        "hour": "ساعة",
+        "minute": "دقيقة",
+        "second": "ثانية"
+    }
 }

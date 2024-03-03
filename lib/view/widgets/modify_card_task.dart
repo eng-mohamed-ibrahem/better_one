@@ -1,24 +1,24 @@
 import 'package:better_one/config/generate_router.dart';
 import 'package:better_one/core/constants/app_colors.dart';
 import 'package:better_one/core/constants/app_metrices.dart';
-import 'package:better_one/model/note_model/note_model.dart';
-import 'package:better_one/view/widgets/card_note.dart';
+import 'package:better_one/model/task_model/task_model.dart';
+import 'package:better_one/view/widgets/card_task.dart';
 import 'package:flutter/material.dart';
 
-class ModifiyCardNote extends StatefulWidget {
-  const ModifiyCardNote({
+class ModifiyCardTask extends StatefulWidget {
+  const ModifiyCardTask({
     super.key,
-    required this.note,
+    required this.task,
     required this.onRemove,
   });
-  final NoteModel note;
+  final TaskModel task;
   final VoidCallback onRemove;
 
   @override
-  State<ModifiyCardNote> createState() => _ModifiyCardNoteState();
+  State<ModifiyCardTask> createState() => _ModifiyCardTaskState();
 }
 
-class _ModifiyCardNoteState extends State<ModifiyCardNote>
+class _ModifiyCardTaskState extends State<ModifiyCardTask>
     with TickerProviderStateMixin {
   bool isOpened = false;
   late final AnimationController _animationController;
@@ -105,8 +105,8 @@ class _ModifiyCardNoteState extends State<ModifiyCardNote>
                       onPressed: () {
                         Navigator.pushNamed(
                           context,
-                          GenerateRouter.noteScreen,
-                          arguments: widget.note.id,
+                          GenerateRouter.taskScreen,
+                          arguments: widget.task.id,
                         );
                       },
                       icon: const Icon(
@@ -114,8 +114,8 @@ class _ModifiyCardNoteState extends State<ModifiyCardNote>
                       ),
                     ),
 
-                    // widget.note.status == NoteStatus.none ||
-                    //         widget.note.status == NoteStatus.paused
+                    // widget.task.status == TaskStatus.none ||
+                    //         widget.task.status == TaskStatus.paused
                     //     ? IconButton(
                     //         iconSize: 25,
                     //         style: IconButton.styleFrom(
@@ -123,10 +123,10 @@ class _ModifiyCardNoteState extends State<ModifiyCardNote>
                     //         ),
                     //         onPressed: () {
                     //           // start stopwatch
-                    //           // 1: update note with note status progrss
-                    //           // 1: update note with note status progrss
-                    //           HomeViewmodel.get(context).controlStopwatchOfNote(
-                    //               widget.note, NoteStatus.inprogress);
+                    //           // 1: update task with task status progrss
+                    //           // 1: update task with task status progrss
+                    //           HomeViewmodel.get(context).controlStopwatchOfTask(
+                    //               widget.task, TaskStatus.inprogress);
 
                     //           // 2: start stopwatch
                     //           HomeViewmodel.get(context)
@@ -144,9 +144,9 @@ class _ModifiyCardNoteState extends State<ModifiyCardNote>
                     //           padding: EdgeInsets.zero,
                     //         ),
                     //         onPressed: () {
-                    //           // 1: update note with note status progrss
-                    //           HomeViewmodel.get(context).controlStopwatchOfNote(
-                    //               widget.note, NoteStatus.paused);
+                    //           // 1: update task with task status progrss
+                    //           HomeViewmodel.get(context).controlStopwatchOfTask(
+                    //               widget.task, TaskStatus.paused);
                     //           HomeViewmodel.get(context)
                     //               .state
                     //               .stopwatch!
@@ -161,7 +161,7 @@ class _ModifiyCardNoteState extends State<ModifiyCardNote>
               ),
             ),
           ),
-          CardNote(note: widget.note),
+          CardTask(task: widget.task),
         ],
       ),
     );

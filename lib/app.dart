@@ -29,7 +29,7 @@ class RootApp extends StatelessWidget {
         builder: (context, child) => MultiBlocProvider(
           providers: [
             BlocProvider(
-              create: (context) => HomeViewmodel(noteRepoInterface: noteRepo),
+              create: (context) => HomeViewmodel(taskRepoInterface: taskRepo),
             ),
             BlocProvider(
               create: (context) => QuoteViewmode(quoteRepo: quoteRepo),

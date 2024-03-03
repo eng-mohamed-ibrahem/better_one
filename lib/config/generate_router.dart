@@ -1,6 +1,6 @@
 import 'package:better_one/view/pages/home/home_screen.dart';
 import 'package:better_one/view/pages/splash/splash_screen.dart';
-import 'package:better_one/view/pages/write_note/note_screen.dart';
+import 'package:better_one/view/pages/write_task/task_screen.dart';
 import 'package:flutter/material.dart';
 
 class GenerateRouter {
@@ -8,7 +8,7 @@ class GenerateRouter {
 
   static const String splash = '/';
   static const String home = '/home';
-  static const String noteScreen = '/note_screen';
+  static const String taskScreen = '/task_screen';
   static String activeRoute = '/';
 
   static Route routeGenerator(RouteSettings settings) {
@@ -27,12 +27,12 @@ class GenerateRouter {
             builder: (context) => const HomeScreen(),
           );
         }
-      case noteScreen:
+      case taskScreen:
         {
-          activeRoute = noteScreen;
+          activeRoute = taskScreen;
           return MaterialPageRoute(
             settings: settings,
-            builder: (context) => const NoteScreen(),
+            builder: (context) => const TaskScreen(),
           );
         }
 

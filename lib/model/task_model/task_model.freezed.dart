@@ -3,7 +3,7 @@
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
-part of 'note_model.dart';
+part of 'task_model.dart';
 
 // **************************************************************************
 // FreezedGenerator
@@ -14,30 +14,30 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
-NoteModel _$NoteModelFromJson(Map<String, dynamic> json) {
-  return _NoteModel.fromJson(json);
+TaskModel _$TaskModelFromJson(Map<String, dynamic> json) {
+  return _TaskModel.fromJson(json);
 }
 
 /// @nodoc
-mixin _$NoteModel {
+mixin _$TaskModel {
   String get title => throw _privateConstructorUsedError;
   String get body => throw _privateConstructorUsedError;
   String get id => throw _privateConstructorUsedError;
   DateTime get createdAt => throw _privateConstructorUsedError;
   DateTime? get updatedAt => throw _privateConstructorUsedError;
   Duration get elapsedTime => throw _privateConstructorUsedError;
-  NoteStatus get status => throw _privateConstructorUsedError;
+  TaskStatus get status => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  $NoteModelCopyWith<NoteModel> get copyWith =>
+  $TaskModelCopyWith<TaskModel> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $NoteModelCopyWith<$Res> {
-  factory $NoteModelCopyWith(NoteModel value, $Res Function(NoteModel) then) =
-      _$NoteModelCopyWithImpl<$Res, NoteModel>;
+abstract class $TaskModelCopyWith<$Res> {
+  factory $TaskModelCopyWith(TaskModel value, $Res Function(TaskModel) then) =
+      _$TaskModelCopyWithImpl<$Res, TaskModel>;
   @useResult
   $Res call(
       {String title,
@@ -46,13 +46,13 @@ abstract class $NoteModelCopyWith<$Res> {
       DateTime createdAt,
       DateTime? updatedAt,
       Duration elapsedTime,
-      NoteStatus status});
+      TaskStatus status});
 }
 
 /// @nodoc
-class _$NoteModelCopyWithImpl<$Res, $Val extends NoteModel>
-    implements $NoteModelCopyWith<$Res> {
-  _$NoteModelCopyWithImpl(this._value, this._then);
+class _$TaskModelCopyWithImpl<$Res, $Val extends TaskModel>
+    implements $TaskModelCopyWith<$Res> {
+  _$TaskModelCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
@@ -98,17 +98,17 @@ class _$NoteModelCopyWithImpl<$Res, $Val extends NoteModel>
       status: null == status
           ? _value.status
           : status // ignore: cast_nullable_to_non_nullable
-              as NoteStatus,
+              as TaskStatus,
     ) as $Val);
   }
 }
 
 /// @nodoc
-abstract class _$$NoteModelImplCopyWith<$Res>
-    implements $NoteModelCopyWith<$Res> {
-  factory _$$NoteModelImplCopyWith(
-          _$NoteModelImpl value, $Res Function(_$NoteModelImpl) then) =
-      __$$NoteModelImplCopyWithImpl<$Res>;
+abstract class _$$TaskModelImplCopyWith<$Res>
+    implements $TaskModelCopyWith<$Res> {
+  factory _$$TaskModelImplCopyWith(
+          _$TaskModelImpl value, $Res Function(_$TaskModelImpl) then) =
+      __$$TaskModelImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -118,15 +118,15 @@ abstract class _$$NoteModelImplCopyWith<$Res>
       DateTime createdAt,
       DateTime? updatedAt,
       Duration elapsedTime,
-      NoteStatus status});
+      TaskStatus status});
 }
 
 /// @nodoc
-class __$$NoteModelImplCopyWithImpl<$Res>
-    extends _$NoteModelCopyWithImpl<$Res, _$NoteModelImpl>
-    implements _$$NoteModelImplCopyWith<$Res> {
-  __$$NoteModelImplCopyWithImpl(
-      _$NoteModelImpl _value, $Res Function(_$NoteModelImpl) _then)
+class __$$TaskModelImplCopyWithImpl<$Res>
+    extends _$TaskModelCopyWithImpl<$Res, _$TaskModelImpl>
+    implements _$$TaskModelImplCopyWith<$Res> {
+  __$$TaskModelImplCopyWithImpl(
+      _$TaskModelImpl _value, $Res Function(_$TaskModelImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -140,7 +140,7 @@ class __$$NoteModelImplCopyWithImpl<$Res>
     Object? elapsedTime = null,
     Object? status = null,
   }) {
-    return _then(_$NoteModelImpl(
+    return _then(_$TaskModelImpl(
       title: null == title
           ? _value.title
           : title // ignore: cast_nullable_to_non_nullable
@@ -168,25 +168,25 @@ class __$$NoteModelImplCopyWithImpl<$Res>
       status: null == status
           ? _value.status
           : status // ignore: cast_nullable_to_non_nullable
-              as NoteStatus,
+              as TaskStatus,
     ));
   }
 }
 
 /// @nodoc
 @JsonSerializable()
-class _$NoteModelImpl implements _NoteModel {
-  const _$NoteModelImpl(
+class _$TaskModelImpl implements _TaskModel {
+  const _$TaskModelImpl(
       {required this.title,
       required this.body,
       required this.id,
       required this.createdAt,
       this.updatedAt,
       this.elapsedTime = Duration.zero,
-      this.status = NoteStatus.none});
+      this.status = TaskStatus.none});
 
-  factory _$NoteModelImpl.fromJson(Map<String, dynamic> json) =>
-      _$$NoteModelImplFromJson(json);
+  factory _$TaskModelImpl.fromJson(Map<String, dynamic> json) =>
+      _$$TaskModelImplFromJson(json);
 
   @override
   final String title;
@@ -203,18 +203,18 @@ class _$NoteModelImpl implements _NoteModel {
   final Duration elapsedTime;
   @override
   @JsonKey()
-  final NoteStatus status;
+  final TaskStatus status;
 
   @override
   String toString() {
-    return 'NoteModel(title: $title, body: $body, id: $id, createdAt: $createdAt, updatedAt: $updatedAt, elapsedTime: $elapsedTime, status: $status)';
+    return 'TaskModel(title: $title, body: $body, id: $id, createdAt: $createdAt, updatedAt: $updatedAt, elapsedTime: $elapsedTime, status: $status)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$NoteModelImpl &&
+            other is _$TaskModelImpl &&
             (identical(other.title, title) || other.title == title) &&
             (identical(other.body, body) || other.body == body) &&
             (identical(other.id, id) || other.id == id) &&
@@ -235,29 +235,29 @@ class _$NoteModelImpl implements _NoteModel {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$NoteModelImplCopyWith<_$NoteModelImpl> get copyWith =>
-      __$$NoteModelImplCopyWithImpl<_$NoteModelImpl>(this, _$identity);
+  _$$TaskModelImplCopyWith<_$TaskModelImpl> get copyWith =>
+      __$$TaskModelImplCopyWithImpl<_$TaskModelImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$NoteModelImplToJson(
+    return _$$TaskModelImplToJson(
       this,
     );
   }
 }
 
-abstract class _NoteModel implements NoteModel {
-  const factory _NoteModel(
+abstract class _TaskModel implements TaskModel {
+  const factory _TaskModel(
       {required final String title,
       required final String body,
       required final String id,
       required final DateTime createdAt,
       final DateTime? updatedAt,
       final Duration elapsedTime,
-      final NoteStatus status}) = _$NoteModelImpl;
+      final TaskStatus status}) = _$TaskModelImpl;
 
-  factory _NoteModel.fromJson(Map<String, dynamic> json) =
-      _$NoteModelImpl.fromJson;
+  factory _TaskModel.fromJson(Map<String, dynamic> json) =
+      _$TaskModelImpl.fromJson;
 
   @override
   String get title;
@@ -272,9 +272,9 @@ abstract class _NoteModel implements NoteModel {
   @override
   Duration get elapsedTime;
   @override
-  NoteStatus get status;
+  TaskStatus get status;
   @override
   @JsonKey(ignore: true)
-  _$$NoteModelImplCopyWith<_$NoteModelImpl> get copyWith =>
+  _$$TaskModelImplCopyWith<_$TaskModelImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

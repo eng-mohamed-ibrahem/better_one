@@ -1,8 +1,8 @@
-import 'package:better_one/core/enum/note_status.dart';
+import 'package:better_one/core/enum/task_status.dart';
 import 'package:better_one/core/utils/dependency_locator/dependency_injection.dart';
-import 'package:better_one/model/note_model/note_model.dart';
 import 'package:better_one/model/notification_model/notification_model.dart';
-import 'package:better_one/repositories/note_repo/note_repo_interface.dart';
+import 'package:better_one/model/task_model/task_model.dart';
+import 'package:better_one/repositories/task_repo/task_repo_interface.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
@@ -14,35 +14,35 @@ part 'home_viewmodel.freezed.dart';
 part 'home_viewmodel_state.dart';
 
 class HomeViewmodel extends Cubit<HomeViewmodelState> {
-  HomeViewmodel({required this.noteRepoInterface})
+  HomeViewmodel({required this.taskRepoInterface})
       : super(const HomeViewmodelState());
-  final NoteRepoInterface noteRepoInterface;
+  final TaskRepoInterface taskRepoInterface;
 
   static HomeViewmodel get(context) => BlocProvider.of<HomeViewmodel>(context);
 
-  void getNotes() async {
+  void getTasks() async {
     release();
     emit(state.copyWith(
-      isGetAllNotesLoading: true,
+      isGetAllTasksLoading: true,
       isInitial: false,
     ));
-    var result = await noteRepoInterface.getNotes();
+    var result = await taskRepoInterface.getTasks();
     result.when(
-      success: (notes) {
+      success: (tasks) {
         emit(
           state.copyWith(
-            isGetAllNotesLoading: false,
-            isGetAllNotesCompleted: true,
-            allNotes: notes,
+            isGetAllTasksLoading: false,
+            isGetAllTasksCompleted: true,
+            allTasks: tasks,
           ),
         );
       },
       failure: (error) {
         emit(
           state.copyWith(
-            isGetAllNotesLoading: false,
-            isGetAllNotesCompleted: false,
-            isGetAllNotesFailed: true,
+            isGetAllTasksLoading: false,
+            isGetAllTasksCompleted: false,
+            isGetAllTasksFailed: true,
             errorMessage: error.message,
           ),
         );
@@ -50,27 +50,27 @@ class HomeViewmodel extends Cubit<HomeViewmodelState> {
     );
   }
 
-  void addNote(NoteModel note) async {
+  void addTask(TaskModel task) async {
     release();
-    emit(state.copyWith(isNoteAddLoading: true));
-    var result = await noteRepoInterface.addNote(note);
+    emit(state.copyWith(isTaskAddLoading: true));
+    var result = await taskRepoInterface.addTask(task);
     result.when(
-      success: (note) {
+      success: (task) {
         emit(
           state.copyWith(
-            isNoteAddLoading: false,
-            isNoteAddCompleted: true,
-            addedNote: note,
-            allNotes: state.allNotes..add(note),
+            isTaskAddLoading: false,
+            isTaskAddCompleted: true,
+            addedTask: task,
+            allTasks: state.allTasks..add(task),
           ),
         );
       },
       failure: (error) {
         emit(
           state.copyWith(
-            isNoteAddLoading: false,
-            isNoteAddCompleted: false,
-            isNoteAddFailed: true,
+            isTaskAddLoading: false,
+            isTaskAddCompleted: false,
+            isTaskAddFailed: true,
             errorMessage: error.message,
           ),
         );
@@ -78,19 +78,19 @@ class HomeViewmodel extends Cubit<HomeViewmodelState> {
     );
   }
 
-  void updateNote(NoteModel oldNote, NoteModel newNote) async {
+  void updateTask(TaskModel oldTask, TaskModel newTask) async {
     release();
-    emit(state.copyWith(isNoteUpdateLoading: true));
-    int index = state.allNotes.indexOf(oldNote);
-    var result = await noteRepoInterface.updateNote(oldNote, newNote);
+    emit(state.copyWith(isTaskUpdateLoading: true));
+    int index = state.allTasks.indexOf(oldTask);
+    var result = await taskRepoInterface.updateTask(oldTask, newTask);
     result.when(
-      success: (updatedNote) {
+      success: (updatedTask) {
         emit(
           state.copyWith(
-            isNoteUpdateLoading: false,
-            isNoteUpdateCompleted: true,
-            updatedNote: updatedNote,
-            allNotes: state.allNotes..[index] = updatedNote,
+            isTaskUpdateLoading: false,
+            isTaskUpdateCompleted: true,
+            updatedTask: updatedTask,
+            allTasks: state.allTasks..[index] = updatedTask,
           ),
         );
       },
@@ -98,9 +98,9 @@ class HomeViewmodel extends Cubit<HomeViewmodelState> {
         Logger().e(error.message);
         emit(
           state.copyWith(
-            isNoteUpdateLoading: false,
-            isNoteUpdateCompleted: false,
-            isNoteUpdateFailed: true,
+            isTaskUpdateLoading: false,
+            isTaskUpdateCompleted: false,
+            isTaskUpdateFailed: true,
             errorMessage: error.message,
           ),
         );
@@ -108,28 +108,28 @@ class HomeViewmodel extends Cubit<HomeViewmodelState> {
     );
   }
 
-  void removeNote(NoteModel removedNote) async {
+  void removeTask(TaskModel removedTask) async {
     release();
-    emit(state.copyWith(isNoteRemoveLoading: true));
-    var result = await noteRepoInterface.removeNote(removedNote);
+    emit(state.copyWith(isTaskRemoveLoading: true));
+    var result = await taskRepoInterface.removeTask(removedTask);
     result.when(
       success: (value) {
-        updateTotalEstimatedTime(removedNote.elapsedTime, isAdding: false);
+        updateTotalEstimatedTime(removedTask.elapsedTime, isAdding: false);
         emit(
           state.copyWith(
-            isNoteRemoveLoading: false,
-            isNoteRemoveCompleted: true,
-            removedNote: removedNote,
-            allNotes: state.allNotes..remove(removedNote),
+            isTaskRemoveLoading: false,
+            isTaskRemoveCompleted: true,
+            removedTask: removedTask,
+            allTasks: state.allTasks..remove(removedTask),
           ),
         );
       },
       failure: (error) {
         emit(
           state.copyWith(
-            isNoteRemoveLoading: false,
-            isNoteRemoveCompleted: false,
-            isNoteRemoveFailed: true,
+            isTaskRemoveLoading: false,
+            isTaskRemoveCompleted: false,
+            isTaskRemoveFailed: true,
             errorMessage: error.message,
           ),
         );
@@ -137,26 +137,26 @@ class HomeViewmodel extends Cubit<HomeViewmodelState> {
     );
   }
 
-  void getNoteById(String id) async {
+  void getTaskById(String id) async {
     release();
-    emit(state.copyWith(isGetNoteByIdLoading: true, noteById: null));
-    var result = await noteRepoInterface.getNoteById(id);
+    emit(state.copyWith(isGetTaskByIdLoading: true, taskById: null));
+    var result = await taskRepoInterface.getTaskById(id);
     result.when(
-      success: (note) {
+      success: (task) {
         emit(
           state.copyWith(
-            isGetNoteByIdLoading: false,
-            isGetNoteByIdCompleted: true,
-            noteById: note,
+            isGetTaskByIdLoading: false,
+            isGetTaskByIdCompleted: true,
+            taskById: task,
           ),
         );
       },
       failure: (error) {
         emit(
           state.copyWith(
-            isGetNoteByIdLoading: false,
-            isGetNoteByIdCompleted: false,
-            isGetNoteByIdFailed: true,
+            isGetTaskByIdLoading: false,
+            isGetTaskByIdCompleted: false,
+            isGetTaskByIdFailed: true,
             errorMessage: error.message,
           ),
         );
@@ -164,15 +164,15 @@ class HomeViewmodel extends Cubit<HomeViewmodelState> {
     );
   }
 
-  /// update note and total estimated time on exit
-  /// [plusTime] is added to note and total estimated time
-  /// this happen if exit while note is in progress
-  void updateNoteAndTotalEstimatedTime(
-      NoteModel note, NoteStatus status, Duration plusTime) {
-    updateNote(
-      note,
-      note.copyWith(
-        elapsedTime: note.elapsedTime + plusTime,
+  /// update task and total estimated time on exit
+  /// [plusTime] is added to task and total estimated time
+  /// this happen if exit while task is in progress
+  void updateTaskAndTotalEstimatedTime(
+      TaskModel task, TaskStatus status, Duration plusTime) {
+    updateTask(
+      task,
+      task.copyWith(
+        elapsedTime: task.elapsedTime + plusTime,
         status: status,
       ),
     );
@@ -182,7 +182,7 @@ class HomeViewmodel extends Cubit<HomeViewmodelState> {
   void getTotalEstimatedTime() async {
     release();
     // emit(state.copyWith(isGetTotalEstimatedTimeLoading: true));
-    var result = await noteRepoInterface.getTotoalEstimatedTime();
+    var result = await taskRepoInterface.getTotoalEstimatedTime();
     result.when(
         success: (totalTime) => emit(
               state.copyWith(
@@ -207,7 +207,7 @@ class HomeViewmodel extends Cubit<HomeViewmodelState> {
       {bool isAdding = true}) async {
     release();
     // emit(state.copyWith(isUpdateTotalEstimatedTimeLoading: true));
-    var result = await noteRepoInterface.updateTotalEstimatedTime(
+    var result = await taskRepoInterface.updateTotalEstimatedTime(
         updatedTime.inMicroseconds, isAdding);
     result.when(
       success: (totalTime) => emit(
@@ -253,28 +253,28 @@ class HomeViewmodel extends Cubit<HomeViewmodelState> {
           );
   }
 
-  /// release all states to initial state except [allNotes] and [totalEstimatedTime]
-  /// i use this when navigate back from [NoteScreen] to release all states corresponding to this screen
+  /// release all states to initial state except [allTasks] and [totalEstimatedTime]
+  /// i use this when navigate back from [TaskScreen] to release all states corresponding to this screen
   void release() {
     emit(
       state.copyWith(
-        isNoteAddLoading: false,
-        isNoteAddCompleted: false,
-        isNoteAddFailed: false,
-        isNoteUpdateLoading: false,
-        isNoteUpdateCompleted: false,
-        isNoteUpdateFailed: false,
-        isNoteRemoveLoading: false,
-        isNoteRemoveCompleted: false,
-        isNoteRemoveFailed: false,
-        isGetNoteByIdLoading: false,
-        isGetNoteByIdCompleted: false,
-        isGetNoteByIdFailed: false,
+        isTaskAddLoading: false,
+        isTaskAddCompleted: false,
+        isTaskAddFailed: false,
+        isTaskUpdateLoading: false,
+        isTaskUpdateCompleted: false,
+        isTaskUpdateFailed: false,
+        isTaskRemoveLoading: false,
+        isTaskRemoveCompleted: false,
+        isTaskRemoveFailed: false,
+        isGetTaskByIdLoading: false,
+        isGetTaskByIdCompleted: false,
+        isGetTaskByIdFailed: false,
         errorMessage: null,
-        addedNote: null,
-        updatedNote: null,
-        removedNote: null,
-        noteById: null,
+        addedTask: null,
+        updatedTask: null,
+        removedTask: null,
+        taskById: null,
       ),
     );
   }

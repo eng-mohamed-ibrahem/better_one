@@ -1,4 +1,4 @@
-enum NoteStatus {
+enum TaskStatus {
   done,
   inprogress,
   paused,

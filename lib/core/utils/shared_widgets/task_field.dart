@@ -3,8 +3,8 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../constants/constants.dart';
 
-class NoteField extends StatelessWidget {
-  const NoteField({
+class TaskField extends StatelessWidget {
+  const TaskField({
     super.key,
     required this.controller,
     this.minLines,

@@ -1,21 +1,21 @@
 import 'package:better_one/core/constants/app_colors.dart';
 import 'package:better_one/core/constants/app_metrices.dart';
-import 'package:better_one/core/enum/note_status.dart';
-import 'package:better_one/model/note_model/note_model.dart';
+import 'package:better_one/core/enum/task_status.dart';
+import 'package:better_one/model/task_model/task_model.dart';
+import 'package:better_one/view/widgets/duration_widget.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-class CardNote extends StatelessWidget {
-  const CardNote({
+class CardTask extends StatelessWidget {
+  const CardTask({
     super.key,
-    required this.note,
+    required this.task,
   });
-  final NoteModel note;
+  final TaskModel task;
 
   @override
   Widget build(BuildContext context) {
-    var runningTime = note.elapsedTime;
     return Container(
       padding: EdgeInsets.all(10.r),
       child: Column(
@@ -32,7 +32,7 @@ class CardNote extends StatelessWidget {
               color: AppColors.secondColor,
             ),
             child: Text(
-              note.title,
+              task.title,
               textAlign: TextAlign.left,
               style: Theme.of(context).textTheme.titleMedium,
               overflow: TextOverflow.ellipsis,
@@ -58,7 +58,7 @@ class CardNote extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  note.body,
+                  task.body,
                   textAlign: TextAlign.left,
                   style: Theme.of(context).textTheme.bodyMedium,
                   overflow: TextOverflow.fade,
@@ -78,7 +78,7 @@ class CardNote extends StatelessWidget {
                 Text(
                   DateFormat('EEEE, MMMM d, yyyy,  hh:mm a',
                           context.locale.languageCode)
-                      .format(note.createdAt),
+                      .format(task.createdAt),
                   style: Theme.of(context).textTheme.bodySmall,
                 ),
                 SizedBox(
@@ -87,18 +87,18 @@ class CardNote extends StatelessWidget {
                 Row(
                   children: [
                     Text(
-                      note.status.name,
+                      "task.status.${task.status.name}".tr(),
                       style: Theme.of(context).textTheme.bodySmall,
                     ),
                     SizedBox(
                       width: 10.w,
                     ),
-                    note.status == NoteStatus.done
+                    task.status == TaskStatus.done
                         ? const Icon(
                             Icons.celebration_rounded,
                           )
-                        : note.status == NoteStatus.inprogress ||
-                                note.status == NoteStatus.paused
+                        : task.status == TaskStatus.inprogress ||
+                                task.status == TaskStatus.paused
                             ? const Icon(
                                 Icons.monitor_heart_outlined,
                               )
@@ -106,10 +106,7 @@ class CardNote extends StatelessWidget {
                                 Icons.not_interested_rounded,
                               ),
                     const Spacer(),
-                    Text(
-                      '${runningTime.inHours} : ${runningTime.inMinutes.remainder(60)} : ${runningTime.inSeconds.remainder(60)}',
-                      style: Theme.of(context).textTheme.titleLarge,
-                    ),
+                    DurationTime(duration: task.elapsedTime),
                   ],
                 ),
               ],

@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 
 class DurationTime extends StatelessWidget {
@@ -16,21 +17,21 @@ class DurationTime extends StatelessWidget {
         Column(
           children: [
             Text(duration.inHours.toString().padLeft(2, '0')),
-            const Text('hour'),
+            Text('time.hour'.tr()),
           ],
         ),
         const SizedBox(width: 10),
         Column(
           children: [
             Text(duration.inMinutes.remainder(60).toString().padLeft(2, '0')),
-            const Text('minute'),
+            Text('time.minute'.tr()),
           ],
         ),
         const SizedBox(width: 10),
         Column(
           children: [
             Text(duration.inSeconds.remainder(60).toString().padLeft(2, '0')),
-            const Text('second'),
+            Text('time.second'.tr()),
           ],
         ),
       ],

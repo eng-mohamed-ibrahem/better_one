@@ -16,35 +16,35 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$HomeViewmodelState {
-  bool get isInitial => throw _privateConstructorUsedError; //* get all notes
-  bool get isGetAllNotesLoading => throw _privateConstructorUsedError;
-  bool get isGetAllNotesCompleted => throw _privateConstructorUsedError;
-  bool get isGetAllNotesFailed => throw _privateConstructorUsedError;
-  List<NoteModel> get allNotes =>
-      throw _privateConstructorUsedError; //* update note
-  bool get isNoteUpdateLoading => throw _privateConstructorUsedError;
-  bool get isNoteUpdateCompleted => throw _privateConstructorUsedError;
-  bool get isNoteUpdateFailed => throw _privateConstructorUsedError;
-  NoteModel? get updatedNote =>
-      throw _privateConstructorUsedError; //* remove note
-  bool get isNoteRemoveLoading => throw _privateConstructorUsedError;
-  bool get isNoteRemoveCompleted => throw _privateConstructorUsedError;
-  bool get isNoteRemoveFailed => throw _privateConstructorUsedError;
-  NoteModel? get removedNote => throw _privateConstructorUsedError; //* add note
-  bool get isNoteAddLoading => throw _privateConstructorUsedError;
-  bool get isNoteAddCompleted => throw _privateConstructorUsedError;
-  bool get isNoteAddFailed => throw _privateConstructorUsedError;
-  NoteModel? get addedNote => throw _privateConstructorUsedError; //* note by id
-  bool get isGetNoteByIdLoading => throw _privateConstructorUsedError;
-  bool get isGetNoteByIdCompleted => throw _privateConstructorUsedError;
-  bool get isGetNoteByIdFailed => throw _privateConstructorUsedError;
-  NoteModel? get noteById =>
+  bool get isInitial => throw _privateConstructorUsedError; //* get all tasks
+  bool get isGetAllTasksLoading => throw _privateConstructorUsedError;
+  bool get isGetAllTasksCompleted => throw _privateConstructorUsedError;
+  bool get isGetAllTasksFailed => throw _privateConstructorUsedError;
+  List<TaskModel> get allTasks =>
+      throw _privateConstructorUsedError; //* update task
+  bool get isTaskUpdateLoading => throw _privateConstructorUsedError;
+  bool get isTaskUpdateCompleted => throw _privateConstructorUsedError;
+  bool get isTaskUpdateFailed => throw _privateConstructorUsedError;
+  TaskModel? get updatedTask =>
+      throw _privateConstructorUsedError; //* remove task
+  bool get isTaskRemoveLoading => throw _privateConstructorUsedError;
+  bool get isTaskRemoveCompleted => throw _privateConstructorUsedError;
+  bool get isTaskRemoveFailed => throw _privateConstructorUsedError;
+  TaskModel? get removedTask => throw _privateConstructorUsedError; //* add task
+  bool get isTaskAddLoading => throw _privateConstructorUsedError;
+  bool get isTaskAddCompleted => throw _privateConstructorUsedError;
+  bool get isTaskAddFailed => throw _privateConstructorUsedError;
+  TaskModel? get addedTask => throw _privateConstructorUsedError; //* task by id
+  bool get isGetTaskByIdLoading => throw _privateConstructorUsedError;
+  bool get isGetTaskByIdCompleted => throw _privateConstructorUsedError;
+  bool get isGetTaskByIdFailed => throw _privateConstructorUsedError;
+  TaskModel? get taskById =>
       throw _privateConstructorUsedError; //* error message
   String? get errorMessage => throw _privateConstructorUsedError; //* search
   bool get isSearchLoading => throw _privateConstructorUsedError;
   bool get isSearchCompleted => throw _privateConstructorUsedError;
   bool get isSearchFailed => throw _privateConstructorUsedError;
-  List<NoteModel>? get searchedNotes =>
+  List<TaskModel>? get searchedTasks =>
       throw _privateConstructorUsedError; // * get total estimated time
   bool get isGetTotalEstimatedTimeLoading => throw _privateConstructorUsedError;
   bool get isGetTotalEstimatedTimeCompleted =>
@@ -74,31 +74,31 @@ abstract class $HomeViewmodelStateCopyWith<$Res> {
   @useResult
   $Res call(
       {bool isInitial,
-      bool isGetAllNotesLoading,
-      bool isGetAllNotesCompleted,
-      bool isGetAllNotesFailed,
-      List<NoteModel> allNotes,
-      bool isNoteUpdateLoading,
-      bool isNoteUpdateCompleted,
-      bool isNoteUpdateFailed,
-      NoteModel? updatedNote,
-      bool isNoteRemoveLoading,
-      bool isNoteRemoveCompleted,
-      bool isNoteRemoveFailed,
-      NoteModel? removedNote,
-      bool isNoteAddLoading,
-      bool isNoteAddCompleted,
-      bool isNoteAddFailed,
-      NoteModel? addedNote,
-      bool isGetNoteByIdLoading,
-      bool isGetNoteByIdCompleted,
-      bool isGetNoteByIdFailed,
-      NoteModel? noteById,
+      bool isGetAllTasksLoading,
+      bool isGetAllTasksCompleted,
+      bool isGetAllTasksFailed,
+      List<TaskModel> allTasks,
+      bool isTaskUpdateLoading,
+      bool isTaskUpdateCompleted,
+      bool isTaskUpdateFailed,
+      TaskModel? updatedTask,
+      bool isTaskRemoveLoading,
+      bool isTaskRemoveCompleted,
+      bool isTaskRemoveFailed,
+      TaskModel? removedTask,
+      bool isTaskAddLoading,
+      bool isTaskAddCompleted,
+      bool isTaskAddFailed,
+      TaskModel? addedTask,
+      bool isGetTaskByIdLoading,
+      bool isGetTaskByIdCompleted,
+      bool isGetTaskByIdFailed,
+      TaskModel? taskById,
       String? errorMessage,
       bool isSearchLoading,
       bool isSearchCompleted,
       bool isSearchFailed,
-      List<NoteModel>? searchedNotes,
+      List<TaskModel>? searchedTasks,
       bool isGetTotalEstimatedTimeLoading,
       bool isGetTotalEstimatedTimeCompleted,
       bool isGetTotalEstimatedTimeFailed,
@@ -108,10 +108,10 @@ abstract class $HomeViewmodelStateCopyWith<$Res> {
       Duration totalEstimatedTime,
       ScrollController? scrollController});
 
-  $NoteModelCopyWith<$Res>? get updatedNote;
-  $NoteModelCopyWith<$Res>? get removedNote;
-  $NoteModelCopyWith<$Res>? get addedNote;
-  $NoteModelCopyWith<$Res>? get noteById;
+  $TaskModelCopyWith<$Res>? get updatedTask;
+  $TaskModelCopyWith<$Res>? get removedTask;
+  $TaskModelCopyWith<$Res>? get addedTask;
+  $TaskModelCopyWith<$Res>? get taskById;
 }
 
 /// @nodoc
@@ -128,31 +128,31 @@ class _$HomeViewmodelStateCopyWithImpl<$Res, $Val extends HomeViewmodelState>
   @override
   $Res call({
     Object? isInitial = null,
-    Object? isGetAllNotesLoading = null,
-    Object? isGetAllNotesCompleted = null,
-    Object? isGetAllNotesFailed = null,
-    Object? allNotes = null,
-    Object? isNoteUpdateLoading = null,
-    Object? isNoteUpdateCompleted = null,
-    Object? isNoteUpdateFailed = null,
-    Object? updatedNote = freezed,
-    Object? isNoteRemoveLoading = null,
-    Object? isNoteRemoveCompleted = null,
-    Object? isNoteRemoveFailed = null,
-    Object? removedNote = freezed,
-    Object? isNoteAddLoading = null,
-    Object? isNoteAddCompleted = null,
-    Object? isNoteAddFailed = null,
-    Object? addedNote = freezed,
-    Object? isGetNoteByIdLoading = null,
-    Object? isGetNoteByIdCompleted = null,
-    Object? isGetNoteByIdFailed = null,
-    Object? noteById = freezed,
+    Object? isGetAllTasksLoading = null,
+    Object? isGetAllTasksCompleted = null,
+    Object? isGetAllTasksFailed = null,
+    Object? allTasks = null,
+    Object? isTaskUpdateLoading = null,
+    Object? isTaskUpdateCompleted = null,
+    Object? isTaskUpdateFailed = null,
+    Object? updatedTask = freezed,
+    Object? isTaskRemoveLoading = null,
+    Object? isTaskRemoveCompleted = null,
+    Object? isTaskRemoveFailed = null,
+    Object? removedTask = freezed,
+    Object? isTaskAddLoading = null,
+    Object? isTaskAddCompleted = null,
+    Object? isTaskAddFailed = null,
+    Object? addedTask = freezed,
+    Object? isGetTaskByIdLoading = null,
+    Object? isGetTaskByIdCompleted = null,
+    Object? isGetTaskByIdFailed = null,
+    Object? taskById = freezed,
     Object? errorMessage = freezed,
     Object? isSearchLoading = null,
     Object? isSearchCompleted = null,
     Object? isSearchFailed = null,
-    Object? searchedNotes = freezed,
+    Object? searchedTasks = freezed,
     Object? isGetTotalEstimatedTimeLoading = null,
     Object? isGetTotalEstimatedTimeCompleted = null,
     Object? isGetTotalEstimatedTimeFailed = null,
@@ -167,86 +167,86 @@ class _$HomeViewmodelStateCopyWithImpl<$Res, $Val extends HomeViewmodelState>
           ? _value.isInitial
           : isInitial // ignore: cast_nullable_to_non_nullable
               as bool,
-      isGetAllNotesLoading: null == isGetAllNotesLoading
-          ? _value.isGetAllNotesLoading
-          : isGetAllNotesLoading // ignore: cast_nullable_to_non_nullable
+      isGetAllTasksLoading: null == isGetAllTasksLoading
+          ? _value.isGetAllTasksLoading
+          : isGetAllTasksLoading // ignore: cast_nullable_to_non_nullable
               as bool,
-      isGetAllNotesCompleted: null == isGetAllNotesCompleted
-          ? _value.isGetAllNotesCompleted
-          : isGetAllNotesCompleted // ignore: cast_nullable_to_non_nullable
+      isGetAllTasksCompleted: null == isGetAllTasksCompleted
+          ? _value.isGetAllTasksCompleted
+          : isGetAllTasksCompleted // ignore: cast_nullable_to_non_nullable
               as bool,
-      isGetAllNotesFailed: null == isGetAllNotesFailed
-          ? _value.isGetAllNotesFailed
-          : isGetAllNotesFailed // ignore: cast_nullable_to_non_nullable
+      isGetAllTasksFailed: null == isGetAllTasksFailed
+          ? _value.isGetAllTasksFailed
+          : isGetAllTasksFailed // ignore: cast_nullable_to_non_nullable
               as bool,
-      allNotes: null == allNotes
-          ? _value.allNotes
-          : allNotes // ignore: cast_nullable_to_non_nullable
-              as List<NoteModel>,
-      isNoteUpdateLoading: null == isNoteUpdateLoading
-          ? _value.isNoteUpdateLoading
-          : isNoteUpdateLoading // ignore: cast_nullable_to_non_nullable
+      allTasks: null == allTasks
+          ? _value.allTasks
+          : allTasks // ignore: cast_nullable_to_non_nullable
+              as List<TaskModel>,
+      isTaskUpdateLoading: null == isTaskUpdateLoading
+          ? _value.isTaskUpdateLoading
+          : isTaskUpdateLoading // ignore: cast_nullable_to_non_nullable
               as bool,
-      isNoteUpdateCompleted: null == isNoteUpdateCompleted
-          ? _value.isNoteUpdateCompleted
-          : isNoteUpdateCompleted // ignore: cast_nullable_to_non_nullable
+      isTaskUpdateCompleted: null == isTaskUpdateCompleted
+          ? _value.isTaskUpdateCompleted
+          : isTaskUpdateCompleted // ignore: cast_nullable_to_non_nullable
               as bool,
-      isNoteUpdateFailed: null == isNoteUpdateFailed
-          ? _value.isNoteUpdateFailed
-          : isNoteUpdateFailed // ignore: cast_nullable_to_non_nullable
+      isTaskUpdateFailed: null == isTaskUpdateFailed
+          ? _value.isTaskUpdateFailed
+          : isTaskUpdateFailed // ignore: cast_nullable_to_non_nullable
               as bool,
-      updatedNote: freezed == updatedNote
-          ? _value.updatedNote
-          : updatedNote // ignore: cast_nullable_to_non_nullable
-              as NoteModel?,
-      isNoteRemoveLoading: null == isNoteRemoveLoading
-          ? _value.isNoteRemoveLoading
-          : isNoteRemoveLoading // ignore: cast_nullable_to_non_nullable
+      updatedTask: freezed == updatedTask
+          ? _value.updatedTask
+          : updatedTask // ignore: cast_nullable_to_non_nullable
+              as TaskModel?,
+      isTaskRemoveLoading: null == isTaskRemoveLoading
+          ? _value.isTaskRemoveLoading
+          : isTaskRemoveLoading // ignore: cast_nullable_to_non_nullable
               as bool,
-      isNoteRemoveCompleted: null == isNoteRemoveCompleted
-          ? _value.isNoteRemoveCompleted
-          : isNoteRemoveCompleted // ignore: cast_nullable_to_non_nullable
+      isTaskRemoveCompleted: null == isTaskRemoveCompleted
+          ? _value.isTaskRemoveCompleted
+          : isTaskRemoveCompleted // ignore: cast_nullable_to_non_nullable
               as bool,
-      isNoteRemoveFailed: null == isNoteRemoveFailed
-          ? _value.isNoteRemoveFailed
-          : isNoteRemoveFailed // ignore: cast_nullable_to_non_nullable
+      isTaskRemoveFailed: null == isTaskRemoveFailed
+          ? _value.isTaskRemoveFailed
+          : isTaskRemoveFailed // ignore: cast_nullable_to_non_nullable
               as bool,
-      removedNote: freezed == removedNote
-          ? _value.removedNote
-          : removedNote // ignore: cast_nullable_to_non_nullable
-              as NoteModel?,
-      isNoteAddLoading: null == isNoteAddLoading
-          ? _value.isNoteAddLoading
-          : isNoteAddLoading // ignore: cast_nullable_to_non_nullable
+      removedTask: freezed == removedTask
+          ? _value.removedTask
+          : removedTask // ignore: cast_nullable_to_non_nullable
+              as TaskModel?,
+      isTaskAddLoading: null == isTaskAddLoading
+          ? _value.isTaskAddLoading
+          : isTaskAddLoading // ignore: cast_nullable_to_non_nullable
               as bool,
-      isNoteAddCompleted: null == isNoteAddCompleted
-          ? _value.isNoteAddCompleted
-          : isNoteAddCompleted // ignore: cast_nullable_to_non_nullable
+      isTaskAddCompleted: null == isTaskAddCompleted
+          ? _value.isTaskAddCompleted
+          : isTaskAddCompleted // ignore: cast_nullable_to_non_nullable
               as bool,
-      isNoteAddFailed: null == isNoteAddFailed
-          ? _value.isNoteAddFailed
-          : isNoteAddFailed // ignore: cast_nullable_to_non_nullable
+      isTaskAddFailed: null == isTaskAddFailed
+          ? _value.isTaskAddFailed
+          : isTaskAddFailed // ignore: cast_nullable_to_non_nullable
               as bool,
-      addedNote: freezed == addedNote
-          ? _value.addedNote
-          : addedNote // ignore: cast_nullable_to_non_nullable
-              as NoteModel?,
-      isGetNoteByIdLoading: null == isGetNoteByIdLoading
-          ? _value.isGetNoteByIdLoading
-          : isGetNoteByIdLoading // ignore: cast_nullable_to_non_nullable
+      addedTask: freezed == addedTask
+          ? _value.addedTask
+          : addedTask // ignore: cast_nullable_to_non_nullable
+              as TaskModel?,
+      isGetTaskByIdLoading: null == isGetTaskByIdLoading
+          ? _value.isGetTaskByIdLoading
+          : isGetTaskByIdLoading // ignore: cast_nullable_to_non_nullable
               as bool,
-      isGetNoteByIdCompleted: null == isGetNoteByIdCompleted
-          ? _value.isGetNoteByIdCompleted
-          : isGetNoteByIdCompleted // ignore: cast_nullable_to_non_nullable
+      isGetTaskByIdCompleted: null == isGetTaskByIdCompleted
+          ? _value.isGetTaskByIdCompleted
+          : isGetTaskByIdCompleted // ignore: cast_nullable_to_non_nullable
               as bool,
-      isGetNoteByIdFailed: null == isGetNoteByIdFailed
-          ? _value.isGetNoteByIdFailed
-          : isGetNoteByIdFailed // ignore: cast_nullable_to_non_nullable
+      isGetTaskByIdFailed: null == isGetTaskByIdFailed
+          ? _value.isGetTaskByIdFailed
+          : isGetTaskByIdFailed // ignore: cast_nullable_to_non_nullable
               as bool,
-      noteById: freezed == noteById
-          ? _value.noteById
-          : noteById // ignore: cast_nullable_to_non_nullable
-              as NoteModel?,
+      taskById: freezed == taskById
+          ? _value.taskById
+          : taskById // ignore: cast_nullable_to_non_nullable
+              as TaskModel?,
       errorMessage: freezed == errorMessage
           ? _value.errorMessage
           : errorMessage // ignore: cast_nullable_to_non_nullable
@@ -263,10 +263,10 @@ class _$HomeViewmodelStateCopyWithImpl<$Res, $Val extends HomeViewmodelState>
           ? _value.isSearchFailed
           : isSearchFailed // ignore: cast_nullable_to_non_nullable
               as bool,
-      searchedNotes: freezed == searchedNotes
-          ? _value.searchedNotes
-          : searchedNotes // ignore: cast_nullable_to_non_nullable
-              as List<NoteModel>?,
+      searchedTasks: freezed == searchedTasks
+          ? _value.searchedTasks
+          : searchedTasks // ignore: cast_nullable_to_non_nullable
+              as List<TaskModel>?,
       isGetTotalEstimatedTimeLoading: null == isGetTotalEstimatedTimeLoading
           ? _value.isGetTotalEstimatedTimeLoading
           : isGetTotalEstimatedTimeLoading // ignore: cast_nullable_to_non_nullable
@@ -306,49 +306,49 @@ class _$HomeViewmodelStateCopyWithImpl<$Res, $Val extends HomeViewmodelState>
 
   @override
   @pragma('vm:prefer-inline')
-  $NoteModelCopyWith<$Res>? get updatedNote {
-    if (_value.updatedNote == null) {
+  $TaskModelCopyWith<$Res>? get updatedTask {
+    if (_value.updatedTask == null) {
       return null;
     }
 
-    return $NoteModelCopyWith<$Res>(_value.updatedNote!, (value) {
-      return _then(_value.copyWith(updatedNote: value) as $Val);
+    return $TaskModelCopyWith<$Res>(_value.updatedTask!, (value) {
+      return _then(_value.copyWith(updatedTask: value) as $Val);
     });
   }
 
   @override
   @pragma('vm:prefer-inline')
-  $NoteModelCopyWith<$Res>? get removedNote {
-    if (_value.removedNote == null) {
+  $TaskModelCopyWith<$Res>? get removedTask {
+    if (_value.removedTask == null) {
       return null;
     }
 
-    return $NoteModelCopyWith<$Res>(_value.removedNote!, (value) {
-      return _then(_value.copyWith(removedNote: value) as $Val);
+    return $TaskModelCopyWith<$Res>(_value.removedTask!, (value) {
+      return _then(_value.copyWith(removedTask: value) as $Val);
     });
   }
 
   @override
   @pragma('vm:prefer-inline')
-  $NoteModelCopyWith<$Res>? get addedNote {
-    if (_value.addedNote == null) {
+  $TaskModelCopyWith<$Res>? get addedTask {
+    if (_value.addedTask == null) {
       return null;
     }
 
-    return $NoteModelCopyWith<$Res>(_value.addedNote!, (value) {
-      return _then(_value.copyWith(addedNote: value) as $Val);
+    return $TaskModelCopyWith<$Res>(_value.addedTask!, (value) {
+      return _then(_value.copyWith(addedTask: value) as $Val);
     });
   }
 
   @override
   @pragma('vm:prefer-inline')
-  $NoteModelCopyWith<$Res>? get noteById {
-    if (_value.noteById == null) {
+  $TaskModelCopyWith<$Res>? get taskById {
+    if (_value.taskById == null) {
       return null;
     }
 
-    return $NoteModelCopyWith<$Res>(_value.noteById!, (value) {
-      return _then(_value.copyWith(noteById: value) as $Val);
+    return $TaskModelCopyWith<$Res>(_value.taskById!, (value) {
+      return _then(_value.copyWith(taskById: value) as $Val);
     });
   }
 }
@@ -363,31 +363,31 @@ abstract class _$$HomeViewmodelStateImplCopyWith<$Res>
   @useResult
   $Res call(
       {bool isInitial,
-      bool isGetAllNotesLoading,
-      bool isGetAllNotesCompleted,
-      bool isGetAllNotesFailed,
-      List<NoteModel> allNotes,
-      bool isNoteUpdateLoading,
-      bool isNoteUpdateCompleted,
-      bool isNoteUpdateFailed,
-      NoteModel? updatedNote,
-      bool isNoteRemoveLoading,
-      bool isNoteRemoveCompleted,
-      bool isNoteRemoveFailed,
-      NoteModel? removedNote,
-      bool isNoteAddLoading,
-      bool isNoteAddCompleted,
-      bool isNoteAddFailed,
-      NoteModel? addedNote,
-      bool isGetNoteByIdLoading,
-      bool isGetNoteByIdCompleted,
-      bool isGetNoteByIdFailed,
-      NoteModel? noteById,
+      bool isGetAllTasksLoading,
+      bool isGetAllTasksCompleted,
+      bool isGetAllTasksFailed,
+      List<TaskModel> allTasks,
+      bool isTaskUpdateLoading,
+      bool isTaskUpdateCompleted,
+      bool isTaskUpdateFailed,
+      TaskModel? updatedTask,
+      bool isTaskRemoveLoading,
+      bool isTaskRemoveCompleted,
+      bool isTaskRemoveFailed,
+      TaskModel? removedTask,
+      bool isTaskAddLoading,
+      bool isTaskAddCompleted,
+      bool isTaskAddFailed,
+      TaskModel? addedTask,
+      bool isGetTaskByIdLoading,
+      bool isGetTaskByIdCompleted,
+      bool isGetTaskByIdFailed,
+      TaskModel? taskById,
       String? errorMessage,
       bool isSearchLoading,
       bool isSearchCompleted,
       bool isSearchFailed,
-      List<NoteModel>? searchedNotes,
+      List<TaskModel>? searchedTasks,
       bool isGetTotalEstimatedTimeLoading,
       bool isGetTotalEstimatedTimeCompleted,
       bool isGetTotalEstimatedTimeFailed,
@@ -398,13 +398,13 @@ abstract class _$$HomeViewmodelStateImplCopyWith<$Res>
       ScrollController? scrollController});
 
   @override
-  $NoteModelCopyWith<$Res>? get updatedNote;
+  $TaskModelCopyWith<$Res>? get updatedTask;
   @override
-  $NoteModelCopyWith<$Res>? get removedNote;
+  $TaskModelCopyWith<$Res>? get removedTask;
   @override
-  $NoteModelCopyWith<$Res>? get addedNote;
+  $TaskModelCopyWith<$Res>? get addedTask;
   @override
-  $NoteModelCopyWith<$Res>? get noteById;
+  $TaskModelCopyWith<$Res>? get taskById;
 }
 
 /// @nodoc
@@ -419,31 +419,31 @@ class __$$HomeViewmodelStateImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? isInitial = null,
-    Object? isGetAllNotesLoading = null,
-    Object? isGetAllNotesCompleted = null,
-    Object? isGetAllNotesFailed = null,
-    Object? allNotes = null,
-    Object? isNoteUpdateLoading = null,
-    Object? isNoteUpdateCompleted = null,
-    Object? isNoteUpdateFailed = null,
-    Object? updatedNote = freezed,
-    Object? isNoteRemoveLoading = null,
-    Object? isNoteRemoveCompleted = null,
-    Object? isNoteRemoveFailed = null,
-    Object? removedNote = freezed,
-    Object? isNoteAddLoading = null,
-    Object? isNoteAddCompleted = null,
-    Object? isNoteAddFailed = null,
-    Object? addedNote = freezed,
-    Object? isGetNoteByIdLoading = null,
-    Object? isGetNoteByIdCompleted = null,
-    Object? isGetNoteByIdFailed = null,
-    Object? noteById = freezed,
+    Object? isGetAllTasksLoading = null,
+    Object? isGetAllTasksCompleted = null,
+    Object? isGetAllTasksFailed = null,
+    Object? allTasks = null,
+    Object? isTaskUpdateLoading = null,
+    Object? isTaskUpdateCompleted = null,
+    Object? isTaskUpdateFailed = null,
+    Object? updatedTask = freezed,
+    Object? isTaskRemoveLoading = null,
+    Object? isTaskRemoveCompleted = null,
+    Object? isTaskRemoveFailed = null,
+    Object? removedTask = freezed,
+    Object? isTaskAddLoading = null,
+    Object? isTaskAddCompleted = null,
+    Object? isTaskAddFailed = null,
+    Object? addedTask = freezed,
+    Object? isGetTaskByIdLoading = null,
+    Object? isGetTaskByIdCompleted = null,
+    Object? isGetTaskByIdFailed = null,
+    Object? taskById = freezed,
     Object? errorMessage = freezed,
     Object? isSearchLoading = null,
     Object? isSearchCompleted = null,
     Object? isSearchFailed = null,
-    Object? searchedNotes = freezed,
+    Object? searchedTasks = freezed,
     Object? isGetTotalEstimatedTimeLoading = null,
     Object? isGetTotalEstimatedTimeCompleted = null,
     Object? isGetTotalEstimatedTimeFailed = null,
@@ -458,86 +458,86 @@ class __$$HomeViewmodelStateImplCopyWithImpl<$Res>
           ? _value.isInitial
           : isInitial // ignore: cast_nullable_to_non_nullable
               as bool,
-      isGetAllNotesLoading: null == isGetAllNotesLoading
-          ? _value.isGetAllNotesLoading
-          : isGetAllNotesLoading // ignore: cast_nullable_to_non_nullable
+      isGetAllTasksLoading: null == isGetAllTasksLoading
+          ? _value.isGetAllTasksLoading
+          : isGetAllTasksLoading // ignore: cast_nullable_to_non_nullable
               as bool,
-      isGetAllNotesCompleted: null == isGetAllNotesCompleted
-          ? _value.isGetAllNotesCompleted
-          : isGetAllNotesCompleted // ignore: cast_nullable_to_non_nullable
+      isGetAllTasksCompleted: null == isGetAllTasksCompleted
+          ? _value.isGetAllTasksCompleted
+          : isGetAllTasksCompleted // ignore: cast_nullable_to_non_nullable
               as bool,
-      isGetAllNotesFailed: null == isGetAllNotesFailed
-          ? _value.isGetAllNotesFailed
-          : isGetAllNotesFailed // ignore: cast_nullable_to_non_nullable
+      isGetAllTasksFailed: null == isGetAllTasksFailed
+          ? _value.isGetAllTasksFailed
+          : isGetAllTasksFailed // ignore: cast_nullable_to_non_nullable
               as bool,
-      allNotes: null == allNotes
-          ? _value.allNotes
-          : allNotes // ignore: cast_nullable_to_non_nullable
-              as List<NoteModel>,
-      isNoteUpdateLoading: null == isNoteUpdateLoading
-          ? _value.isNoteUpdateLoading
-          : isNoteUpdateLoading // ignore: cast_nullable_to_non_nullable
+      allTasks: null == allTasks
+          ? _value.allTasks
+          : allTasks // ignore: cast_nullable_to_non_nullable
+              as List<TaskModel>,
+      isTaskUpdateLoading: null == isTaskUpdateLoading
+          ? _value.isTaskUpdateLoading
+          : isTaskUpdateLoading // ignore: cast_nullable_to_non_nullable
               as bool,
-      isNoteUpdateCompleted: null == isNoteUpdateCompleted
-          ? _value.isNoteUpdateCompleted
-          : isNoteUpdateCompleted // ignore: cast_nullable_to_non_nullable
+      isTaskUpdateCompleted: null == isTaskUpdateCompleted
+          ? _value.isTaskUpdateCompleted
+          : isTaskUpdateCompleted // ignore: cast_nullable_to_non_nullable
               as bool,
-      isNoteUpdateFailed: null == isNoteUpdateFailed
-          ? _value.isNoteUpdateFailed
-          : isNoteUpdateFailed // ignore: cast_nullable_to_non_nullable
+      isTaskUpdateFailed: null == isTaskUpdateFailed
+          ? _value.isTaskUpdateFailed
+          : isTaskUpdateFailed // ignore: cast_nullable_to_non_nullable
               as bool,
-      updatedNote: freezed == updatedNote
-          ? _value.updatedNote
-          : updatedNote // ignore: cast_nullable_to_non_nullable
-              as NoteModel?,
-      isNoteRemoveLoading: null == isNoteRemoveLoading
-          ? _value.isNoteRemoveLoading
-          : isNoteRemoveLoading // ignore: cast_nullable_to_non_nullable
+      updatedTask: freezed == updatedTask
+          ? _value.updatedTask
+          : updatedTask // ignore: cast_nullable_to_non_nullable
+              as TaskModel?,
+      isTaskRemoveLoading: null == isTaskRemoveLoading
+          ? _value.isTaskRemoveLoading
+          : isTaskRemoveLoading // ignore: cast_nullable_to_non_nullable
               as bool,
-      isNoteRemoveCompleted: null == isNoteRemoveCompleted
-          ? _value.isNoteRemoveCompleted
-          : isNoteRemoveCompleted // ignore: cast_nullable_to_non_nullable
+      isTaskRemoveCompleted: null == isTaskRemoveCompleted
+          ? _value.isTaskRemoveCompleted
+          : isTaskRemoveCompleted // ignore: cast_nullable_to_non_nullable
               as bool,
-      isNoteRemoveFailed: null == isNoteRemoveFailed
-          ? _value.isNoteRemoveFailed
-          : isNoteRemoveFailed // ignore: cast_nullable_to_non_nullable
+      isTaskRemoveFailed: null == isTaskRemoveFailed
+          ? _value.isTaskRemoveFailed
+          : isTaskRemoveFailed // ignore: cast_nullable_to_non_nullable
               as bool,
-      removedNote: freezed == removedNote
-          ? _value.removedNote
-          : removedNote // ignore: cast_nullable_to_non_nullable
-              as NoteModel?,
-      isNoteAddLoading: null == isNoteAddLoading
-          ? _value.isNoteAddLoading
-          : isNoteAddLoading // ignore: cast_nullable_to_non_nullable
+      removedTask: freezed == removedTask
+          ? _value.removedTask
+          : removedTask // ignore: cast_nullable_to_non_nullable
+              as TaskModel?,
+      isTaskAddLoading: null == isTaskAddLoading
+          ? _value.isTaskAddLoading
+          : isTaskAddLoading // ignore: cast_nullable_to_non_nullable
               as bool,
-      isNoteAddCompleted: null == isNoteAddCompleted
-          ? _value.isNoteAddCompleted
-          : isNoteAddCompleted // ignore: cast_nullable_to_non_nullable
+      isTaskAddCompleted: null == isTaskAddCompleted
+          ? _value.isTaskAddCompleted
+          : isTaskAddCompleted // ignore: cast_nullable_to_non_nullable
               as bool,
-      isNoteAddFailed: null == isNoteAddFailed
-          ? _value.isNoteAddFailed
-          : isNoteAddFailed // ignore: cast_nullable_to_non_nullable
+      isTaskAddFailed: null == isTaskAddFailed
+          ? _value.isTaskAddFailed
+          : isTaskAddFailed // ignore: cast_nullable_to_non_nullable
               as bool,
-      addedNote: freezed == addedNote
-          ? _value.addedNote
-          : addedNote // ignore: cast_nullable_to_non_nullable
-              as NoteModel?,
-      isGetNoteByIdLoading: null == isGetNoteByIdLoading
-          ? _value.isGetNoteByIdLoading
-          : isGetNoteByIdLoading // ignore: cast_nullable_to_non_nullable
+      addedTask: freezed == addedTask
+          ? _value.addedTask
+          : addedTask // ignore: cast_nullable_to_non_nullable
+              as TaskModel?,
+      isGetTaskByIdLoading: null == isGetTaskByIdLoading
+          ? _value.isGetTaskByIdLoading
+          : isGetTaskByIdLoading // ignore: cast_nullable_to_non_nullable
               as bool,
-      isGetNoteByIdCompleted: null == isGetNoteByIdCompleted
-          ? _value.isGetNoteByIdCompleted
-          : isGetNoteByIdCompleted // ignore: cast_nullable_to_non_nullable
+      isGetTaskByIdCompleted: null == isGetTaskByIdCompleted
+          ? _value.isGetTaskByIdCompleted
+          : isGetTaskByIdCompleted // ignore: cast_nullable_to_non_nullable
               as bool,
-      isGetNoteByIdFailed: null == isGetNoteByIdFailed
-          ? _value.isGetNoteByIdFailed
-          : isGetNoteByIdFailed // ignore: cast_nullable_to_non_nullable
+      isGetTaskByIdFailed: null == isGetTaskByIdFailed
+          ? _value.isGetTaskByIdFailed
+          : isGetTaskByIdFailed // ignore: cast_nullable_to_non_nullable
               as bool,
-      noteById: freezed == noteById
-          ? _value.noteById
-          : noteById // ignore: cast_nullable_to_non_nullable
-              as NoteModel?,
+      taskById: freezed == taskById
+          ? _value.taskById
+          : taskById // ignore: cast_nullable_to_non_nullable
+              as TaskModel?,
       errorMessage: freezed == errorMessage
           ? _value.errorMessage
           : errorMessage // ignore: cast_nullable_to_non_nullable
@@ -554,10 +554,10 @@ class __$$HomeViewmodelStateImplCopyWithImpl<$Res>
           ? _value.isSearchFailed
           : isSearchFailed // ignore: cast_nullable_to_non_nullable
               as bool,
-      searchedNotes: freezed == searchedNotes
-          ? _value.searchedNotes
-          : searchedNotes // ignore: cast_nullable_to_non_nullable
-              as List<NoteModel>?,
+      searchedTasks: freezed == searchedTasks
+          ? _value.searchedTasks
+          : searchedTasks // ignore: cast_nullable_to_non_nullable
+              as List<TaskModel>?,
       isGetTotalEstimatedTimeLoading: null == isGetTotalEstimatedTimeLoading
           ? _value.isGetTotalEstimatedTimeLoading
           : isGetTotalEstimatedTimeLoading // ignore: cast_nullable_to_non_nullable
@@ -601,31 +601,31 @@ class __$$HomeViewmodelStateImplCopyWithImpl<$Res>
 class _$HomeViewmodelStateImpl implements _HomeViewmodelState {
   const _$HomeViewmodelStateImpl(
       {this.isInitial = true,
-      this.isGetAllNotesLoading = false,
-      this.isGetAllNotesCompleted = false,
-      this.isGetAllNotesFailed = false,
-      this.allNotes = const [],
-      this.isNoteUpdateLoading = false,
-      this.isNoteUpdateCompleted = false,
-      this.isNoteUpdateFailed = false,
-      this.updatedNote = null,
-      this.isNoteRemoveLoading = false,
-      this.isNoteRemoveCompleted = false,
-      this.isNoteRemoveFailed = false,
-      this.removedNote = null,
-      this.isNoteAddLoading = false,
-      this.isNoteAddCompleted = false,
-      this.isNoteAddFailed = false,
-      this.addedNote = null,
-      this.isGetNoteByIdLoading = false,
-      this.isGetNoteByIdCompleted = false,
-      this.isGetNoteByIdFailed = false,
-      this.noteById = null,
+      this.isGetAllTasksLoading = false,
+      this.isGetAllTasksCompleted = false,
+      this.isGetAllTasksFailed = false,
+      this.allTasks = const [],
+      this.isTaskUpdateLoading = false,
+      this.isTaskUpdateCompleted = false,
+      this.isTaskUpdateFailed = false,
+      this.updatedTask = null,
+      this.isTaskRemoveLoading = false,
+      this.isTaskRemoveCompleted = false,
+      this.isTaskRemoveFailed = false,
+      this.removedTask = null,
+      this.isTaskAddLoading = false,
+      this.isTaskAddCompleted = false,
+      this.isTaskAddFailed = false,
+      this.addedTask = null,
+      this.isGetTaskByIdLoading = false,
+      this.isGetTaskByIdCompleted = false,
+      this.isGetTaskByIdFailed = false,
+      this.taskById = null,
       this.errorMessage = null,
       this.isSearchLoading = false,
       this.isSearchCompleted = false,
       this.isSearchFailed = false,
-      this.searchedNotes = null,
+      this.searchedTasks = null,
       this.isGetTotalEstimatedTimeLoading = false,
       this.isGetTotalEstimatedTimeCompleted = false,
       this.isGetTotalEstimatedTimeFailed = false,
@@ -638,71 +638,71 @@ class _$HomeViewmodelStateImpl implements _HomeViewmodelState {
   @override
   @JsonKey()
   final bool isInitial;
-//* get all notes
+//* get all tasks
   @override
   @JsonKey()
-  final bool isGetAllNotesLoading;
+  final bool isGetAllTasksLoading;
   @override
   @JsonKey()
-  final bool isGetAllNotesCompleted;
+  final bool isGetAllTasksCompleted;
   @override
   @JsonKey()
-  final bool isGetAllNotesFailed;
+  final bool isGetAllTasksFailed;
   @override
   @JsonKey()
-  final List<NoteModel> allNotes;
-//* update note
+  final List<TaskModel> allTasks;
+//* update task
   @override
   @JsonKey()
-  final bool isNoteUpdateLoading;
+  final bool isTaskUpdateLoading;
   @override
   @JsonKey()
-  final bool isNoteUpdateCompleted;
+  final bool isTaskUpdateCompleted;
   @override
   @JsonKey()
-  final bool isNoteUpdateFailed;
+  final bool isTaskUpdateFailed;
   @override
   @JsonKey()
-  final NoteModel? updatedNote;
-//* remove note
+  final TaskModel? updatedTask;
+//* remove task
   @override
   @JsonKey()
-  final bool isNoteRemoveLoading;
+  final bool isTaskRemoveLoading;
   @override
   @JsonKey()
-  final bool isNoteRemoveCompleted;
+  final bool isTaskRemoveCompleted;
   @override
   @JsonKey()
-  final bool isNoteRemoveFailed;
+  final bool isTaskRemoveFailed;
   @override
   @JsonKey()
-  final NoteModel? removedNote;
-//* add note
+  final TaskModel? removedTask;
+//* add task
   @override
   @JsonKey()
-  final bool isNoteAddLoading;
+  final bool isTaskAddLoading;
   @override
   @JsonKey()
-  final bool isNoteAddCompleted;
+  final bool isTaskAddCompleted;
   @override
   @JsonKey()
-  final bool isNoteAddFailed;
+  final bool isTaskAddFailed;
   @override
   @JsonKey()
-  final NoteModel? addedNote;
-//* note by id
+  final TaskModel? addedTask;
+//* task by id
   @override
   @JsonKey()
-  final bool isGetNoteByIdLoading;
+  final bool isGetTaskByIdLoading;
   @override
   @JsonKey()
-  final bool isGetNoteByIdCompleted;
+  final bool isGetTaskByIdCompleted;
   @override
   @JsonKey()
-  final bool isGetNoteByIdFailed;
+  final bool isGetTaskByIdFailed;
   @override
   @JsonKey()
-  final NoteModel? noteById;
+  final TaskModel? taskById;
 //* error message
   @override
   @JsonKey()
@@ -719,7 +719,7 @@ class _$HomeViewmodelStateImpl implements _HomeViewmodelState {
   final bool isSearchFailed;
   @override
   @JsonKey()
-  final List<NoteModel>? searchedNotes;
+  final List<TaskModel>? searchedTasks;
 // * get total estimated time
   @override
   @JsonKey()
@@ -750,7 +750,7 @@ class _$HomeViewmodelStateImpl implements _HomeViewmodelState {
 
   @override
   String toString() {
-    return 'HomeViewmodelState(isInitial: $isInitial, isGetAllNotesLoading: $isGetAllNotesLoading, isGetAllNotesCompleted: $isGetAllNotesCompleted, isGetAllNotesFailed: $isGetAllNotesFailed, allNotes: $allNotes, isNoteUpdateLoading: $isNoteUpdateLoading, isNoteUpdateCompleted: $isNoteUpdateCompleted, isNoteUpdateFailed: $isNoteUpdateFailed, updatedNote: $updatedNote, isNoteRemoveLoading: $isNoteRemoveLoading, isNoteRemoveCompleted: $isNoteRemoveCompleted, isNoteRemoveFailed: $isNoteRemoveFailed, removedNote: $removedNote, isNoteAddLoading: $isNoteAddLoading, isNoteAddCompleted: $isNoteAddCompleted, isNoteAddFailed: $isNoteAddFailed, addedNote: $addedNote, isGetNoteByIdLoading: $isGetNoteByIdLoading, isGetNoteByIdCompleted: $isGetNoteByIdCompleted, isGetNoteByIdFailed: $isGetNoteByIdFailed, noteById: $noteById, errorMessage: $errorMessage, isSearchLoading: $isSearchLoading, isSearchCompleted: $isSearchCompleted, isSearchFailed: $isSearchFailed, searchedNotes: $searchedNotes, isGetTotalEstimatedTimeLoading: $isGetTotalEstimatedTimeLoading, isGetTotalEstimatedTimeCompleted: $isGetTotalEstimatedTimeCompleted, isGetTotalEstimatedTimeFailed: $isGetTotalEstimatedTimeFailed, isUpdateTotalEstimatedTimeLoading: $isUpdateTotalEstimatedTimeLoading, isUpdateTotalEstimatedTimeCompleted: $isUpdateTotalEstimatedTimeCompleted, isUpdateTotalEstimatedTimeFailed: $isUpdateTotalEstimatedTimeFailed, totalEstimatedTime: $totalEstimatedTime, scrollController: $scrollController)';
+    return 'HomeViewmodelState(isInitial: $isInitial, isGetAllTasksLoading: $isGetAllTasksLoading, isGetAllTasksCompleted: $isGetAllTasksCompleted, isGetAllTasksFailed: $isGetAllTasksFailed, allTasks: $allTasks, isTaskUpdateLoading: $isTaskUpdateLoading, isTaskUpdateCompleted: $isTaskUpdateCompleted, isTaskUpdateFailed: $isTaskUpdateFailed, updatedTask: $updatedTask, isTaskRemoveLoading: $isTaskRemoveLoading, isTaskRemoveCompleted: $isTaskRemoveCompleted, isTaskRemoveFailed: $isTaskRemoveFailed, removedTask: $removedTask, isTaskAddLoading: $isTaskAddLoading, isTaskAddCompleted: $isTaskAddCompleted, isTaskAddFailed: $isTaskAddFailed, addedTask: $addedTask, isGetTaskByIdLoading: $isGetTaskByIdLoading, isGetTaskByIdCompleted: $isGetTaskByIdCompleted, isGetTaskByIdFailed: $isGetTaskByIdFailed, taskById: $taskById, errorMessage: $errorMessage, isSearchLoading: $isSearchLoading, isSearchCompleted: $isSearchCompleted, isSearchFailed: $isSearchFailed, searchedTasks: $searchedTasks, isGetTotalEstimatedTimeLoading: $isGetTotalEstimatedTimeLoading, isGetTotalEstimatedTimeCompleted: $isGetTotalEstimatedTimeCompleted, isGetTotalEstimatedTimeFailed: $isGetTotalEstimatedTimeFailed, isUpdateTotalEstimatedTimeLoading: $isUpdateTotalEstimatedTimeLoading, isUpdateTotalEstimatedTimeCompleted: $isUpdateTotalEstimatedTimeCompleted, isUpdateTotalEstimatedTimeFailed: $isUpdateTotalEstimatedTimeFailed, totalEstimatedTime: $totalEstimatedTime, scrollController: $scrollController)';
   }
 
   @override
@@ -760,45 +760,45 @@ class _$HomeViewmodelStateImpl implements _HomeViewmodelState {
             other is _$HomeViewmodelStateImpl &&
             (identical(other.isInitial, isInitial) ||
                 other.isInitial == isInitial) &&
-            (identical(other.isGetAllNotesLoading, isGetAllNotesLoading) ||
-                other.isGetAllNotesLoading == isGetAllNotesLoading) &&
-            (identical(other.isGetAllNotesCompleted, isGetAllNotesCompleted) ||
-                other.isGetAllNotesCompleted == isGetAllNotesCompleted) &&
-            (identical(other.isGetAllNotesFailed, isGetAllNotesFailed) ||
-                other.isGetAllNotesFailed == isGetAllNotesFailed) &&
-            const DeepCollectionEquality().equals(other.allNotes, allNotes) &&
-            (identical(other.isNoteUpdateLoading, isNoteUpdateLoading) ||
-                other.isNoteUpdateLoading == isNoteUpdateLoading) &&
-            (identical(other.isNoteUpdateCompleted, isNoteUpdateCompleted) ||
-                other.isNoteUpdateCompleted == isNoteUpdateCompleted) &&
-            (identical(other.isNoteUpdateFailed, isNoteUpdateFailed) ||
-                other.isNoteUpdateFailed == isNoteUpdateFailed) &&
-            (identical(other.updatedNote, updatedNote) ||
-                other.updatedNote == updatedNote) &&
-            (identical(other.isNoteRemoveLoading, isNoteRemoveLoading) ||
-                other.isNoteRemoveLoading == isNoteRemoveLoading) &&
-            (identical(other.isNoteRemoveCompleted, isNoteRemoveCompleted) ||
-                other.isNoteRemoveCompleted == isNoteRemoveCompleted) &&
-            (identical(other.isNoteRemoveFailed, isNoteRemoveFailed) ||
-                other.isNoteRemoveFailed == isNoteRemoveFailed) &&
-            (identical(other.removedNote, removedNote) ||
-                other.removedNote == removedNote) &&
-            (identical(other.isNoteAddLoading, isNoteAddLoading) ||
-                other.isNoteAddLoading == isNoteAddLoading) &&
-            (identical(other.isNoteAddCompleted, isNoteAddCompleted) ||
-                other.isNoteAddCompleted == isNoteAddCompleted) &&
-            (identical(other.isNoteAddFailed, isNoteAddFailed) ||
-                other.isNoteAddFailed == isNoteAddFailed) &&
-            (identical(other.addedNote, addedNote) ||
-                other.addedNote == addedNote) &&
-            (identical(other.isGetNoteByIdLoading, isGetNoteByIdLoading) ||
-                other.isGetNoteByIdLoading == isGetNoteByIdLoading) &&
-            (identical(other.isGetNoteByIdCompleted, isGetNoteByIdCompleted) ||
-                other.isGetNoteByIdCompleted == isGetNoteByIdCompleted) &&
-            (identical(other.isGetNoteByIdFailed, isGetNoteByIdFailed) ||
-                other.isGetNoteByIdFailed == isGetNoteByIdFailed) &&
-            (identical(other.noteById, noteById) ||
-                other.noteById == noteById) &&
+            (identical(other.isGetAllTasksLoading, isGetAllTasksLoading) ||
+                other.isGetAllTasksLoading == isGetAllTasksLoading) &&
+            (identical(other.isGetAllTasksCompleted, isGetAllTasksCompleted) ||
+                other.isGetAllTasksCompleted == isGetAllTasksCompleted) &&
+            (identical(other.isGetAllTasksFailed, isGetAllTasksFailed) ||
+                other.isGetAllTasksFailed == isGetAllTasksFailed) &&
+            const DeepCollectionEquality().equals(other.allTasks, allTasks) &&
+            (identical(other.isTaskUpdateLoading, isTaskUpdateLoading) ||
+                other.isTaskUpdateLoading == isTaskUpdateLoading) &&
+            (identical(other.isTaskUpdateCompleted, isTaskUpdateCompleted) ||
+                other.isTaskUpdateCompleted == isTaskUpdateCompleted) &&
+            (identical(other.isTaskUpdateFailed, isTaskUpdateFailed) ||
+                other.isTaskUpdateFailed == isTaskUpdateFailed) &&
+            (identical(other.updatedTask, updatedTask) ||
+                other.updatedTask == updatedTask) &&
+            (identical(other.isTaskRemoveLoading, isTaskRemoveLoading) ||
+                other.isTaskRemoveLoading == isTaskRemoveLoading) &&
+            (identical(other.isTaskRemoveCompleted, isTaskRemoveCompleted) ||
+                other.isTaskRemoveCompleted == isTaskRemoveCompleted) &&
+            (identical(other.isTaskRemoveFailed, isTaskRemoveFailed) ||
+                other.isTaskRemoveFailed == isTaskRemoveFailed) &&
+            (identical(other.removedTask, removedTask) ||
+                other.removedTask == removedTask) &&
+            (identical(other.isTaskAddLoading, isTaskAddLoading) ||
+                other.isTaskAddLoading == isTaskAddLoading) &&
+            (identical(other.isTaskAddCompleted, isTaskAddCompleted) ||
+                other.isTaskAddCompleted == isTaskAddCompleted) &&
+            (identical(other.isTaskAddFailed, isTaskAddFailed) ||
+                other.isTaskAddFailed == isTaskAddFailed) &&
+            (identical(other.addedTask, addedTask) ||
+                other.addedTask == addedTask) &&
+            (identical(other.isGetTaskByIdLoading, isGetTaskByIdLoading) ||
+                other.isGetTaskByIdLoading == isGetTaskByIdLoading) &&
+            (identical(other.isGetTaskByIdCompleted, isGetTaskByIdCompleted) ||
+                other.isGetTaskByIdCompleted == isGetTaskByIdCompleted) &&
+            (identical(other.isGetTaskByIdFailed, isGetTaskByIdFailed) ||
+                other.isGetTaskByIdFailed == isGetTaskByIdFailed) &&
+            (identical(other.taskById, taskById) ||
+                other.taskById == taskById) &&
             (identical(other.errorMessage, errorMessage) ||
                 other.errorMessage == errorMessage) &&
             (identical(other.isSearchLoading, isSearchLoading) ||
@@ -808,7 +808,7 @@ class _$HomeViewmodelStateImpl implements _HomeViewmodelState {
             (identical(other.isSearchFailed, isSearchFailed) ||
                 other.isSearchFailed == isSearchFailed) &&
             const DeepCollectionEquality()
-                .equals(other.searchedNotes, searchedNotes) &&
+                .equals(other.searchedTasks, searchedTasks) &&
             (identical(other.isGetTotalEstimatedTimeLoading, isGetTotalEstimatedTimeLoading) ||
                 other.isGetTotalEstimatedTimeLoading ==
                     isGetTotalEstimatedTimeLoading) &&
@@ -837,31 +837,31 @@ class _$HomeViewmodelStateImpl implements _HomeViewmodelState {
   int get hashCode => Object.hashAll([
         runtimeType,
         isInitial,
-        isGetAllNotesLoading,
-        isGetAllNotesCompleted,
-        isGetAllNotesFailed,
-        const DeepCollectionEquality().hash(allNotes),
-        isNoteUpdateLoading,
-        isNoteUpdateCompleted,
-        isNoteUpdateFailed,
-        updatedNote,
-        isNoteRemoveLoading,
-        isNoteRemoveCompleted,
-        isNoteRemoveFailed,
-        removedNote,
-        isNoteAddLoading,
-        isNoteAddCompleted,
-        isNoteAddFailed,
-        addedNote,
-        isGetNoteByIdLoading,
-        isGetNoteByIdCompleted,
-        isGetNoteByIdFailed,
-        noteById,
+        isGetAllTasksLoading,
+        isGetAllTasksCompleted,
+        isGetAllTasksFailed,
+        const DeepCollectionEquality().hash(allTasks),
+        isTaskUpdateLoading,
+        isTaskUpdateCompleted,
+        isTaskUpdateFailed,
+        updatedTask,
+        isTaskRemoveLoading,
+        isTaskRemoveCompleted,
+        isTaskRemoveFailed,
+        removedTask,
+        isTaskAddLoading,
+        isTaskAddCompleted,
+        isTaskAddFailed,
+        addedTask,
+        isGetTaskByIdLoading,
+        isGetTaskByIdCompleted,
+        isGetTaskByIdFailed,
+        taskById,
         errorMessage,
         isSearchLoading,
         isSearchCompleted,
         isSearchFailed,
-        const DeepCollectionEquality().hash(searchedNotes),
+        const DeepCollectionEquality().hash(searchedTasks),
         isGetTotalEstimatedTimeLoading,
         isGetTotalEstimatedTimeCompleted,
         isGetTotalEstimatedTimeFailed,
@@ -883,31 +883,31 @@ class _$HomeViewmodelStateImpl implements _HomeViewmodelState {
 abstract class _HomeViewmodelState implements HomeViewmodelState {
   const factory _HomeViewmodelState(
       {final bool isInitial,
-      final bool isGetAllNotesLoading,
-      final bool isGetAllNotesCompleted,
-      final bool isGetAllNotesFailed,
-      final List<NoteModel> allNotes,
-      final bool isNoteUpdateLoading,
-      final bool isNoteUpdateCompleted,
-      final bool isNoteUpdateFailed,
-      final NoteModel? updatedNote,
-      final bool isNoteRemoveLoading,
-      final bool isNoteRemoveCompleted,
-      final bool isNoteRemoveFailed,
-      final NoteModel? removedNote,
-      final bool isNoteAddLoading,
-      final bool isNoteAddCompleted,
-      final bool isNoteAddFailed,
-      final NoteModel? addedNote,
-      final bool isGetNoteByIdLoading,
-      final bool isGetNoteByIdCompleted,
-      final bool isGetNoteByIdFailed,
-      final NoteModel? noteById,
+      final bool isGetAllTasksLoading,
+      final bool isGetAllTasksCompleted,
+      final bool isGetAllTasksFailed,
+      final List<TaskModel> allTasks,
+      final bool isTaskUpdateLoading,
+      final bool isTaskUpdateCompleted,
+      final bool isTaskUpdateFailed,
+      final TaskModel? updatedTask,
+      final bool isTaskRemoveLoading,
+      final bool isTaskRemoveCompleted,
+      final bool isTaskRemoveFailed,
+      final TaskModel? removedTask,
+      final bool isTaskAddLoading,
+      final bool isTaskAddCompleted,
+      final bool isTaskAddFailed,
+      final TaskModel? addedTask,
+      final bool isGetTaskByIdLoading,
+      final bool isGetTaskByIdCompleted,
+      final bool isGetTaskByIdFailed,
+      final TaskModel? taskById,
       final String? errorMessage,
       final bool isSearchLoading,
       final bool isSearchCompleted,
       final bool isSearchFailed,
-      final List<NoteModel>? searchedNotes,
+      final List<TaskModel>? searchedTasks,
       final bool isGetTotalEstimatedTimeLoading,
       final bool isGetTotalEstimatedTimeCompleted,
       final bool isGetTotalEstimatedTimeFailed,
@@ -919,46 +919,46 @@ abstract class _HomeViewmodelState implements HomeViewmodelState {
 
   @override
   bool get isInitial;
-  @override //* get all notes
-  bool get isGetAllNotesLoading;
+  @override //* get all tasks
+  bool get isGetAllTasksLoading;
   @override
-  bool get isGetAllNotesCompleted;
+  bool get isGetAllTasksCompleted;
   @override
-  bool get isGetAllNotesFailed;
+  bool get isGetAllTasksFailed;
   @override
-  List<NoteModel> get allNotes;
-  @override //* update note
-  bool get isNoteUpdateLoading;
+  List<TaskModel> get allTasks;
+  @override //* update task
+  bool get isTaskUpdateLoading;
   @override
-  bool get isNoteUpdateCompleted;
+  bool get isTaskUpdateCompleted;
   @override
-  bool get isNoteUpdateFailed;
+  bool get isTaskUpdateFailed;
   @override
-  NoteModel? get updatedNote;
-  @override //* remove note
-  bool get isNoteRemoveLoading;
+  TaskModel? get updatedTask;
+  @override //* remove task
+  bool get isTaskRemoveLoading;
   @override
-  bool get isNoteRemoveCompleted;
+  bool get isTaskRemoveCompleted;
   @override
-  bool get isNoteRemoveFailed;
+  bool get isTaskRemoveFailed;
   @override
-  NoteModel? get removedNote;
-  @override //* add note
-  bool get isNoteAddLoading;
+  TaskModel? get removedTask;
+  @override //* add task
+  bool get isTaskAddLoading;
   @override
-  bool get isNoteAddCompleted;
+  bool get isTaskAddCompleted;
   @override
-  bool get isNoteAddFailed;
+  bool get isTaskAddFailed;
   @override
-  NoteModel? get addedNote;
-  @override //* note by id
-  bool get isGetNoteByIdLoading;
+  TaskModel? get addedTask;
+  @override //* task by id
+  bool get isGetTaskByIdLoading;
   @override
-  bool get isGetNoteByIdCompleted;
+  bool get isGetTaskByIdCompleted;
   @override
-  bool get isGetNoteByIdFailed;
+  bool get isGetTaskByIdFailed;
   @override
-  NoteModel? get noteById;
+  TaskModel? get taskById;
   @override //* error message
   String? get errorMessage;
   @override //* search
@@ -968,7 +968,7 @@ abstract class _HomeViewmodelState implements HomeViewmodelState {
   @override
   bool get isSearchFailed;
   @override
-  List<NoteModel>? get searchedNotes;
+  List<TaskModel>? get searchedTasks;
   @override // * get total estimated time
   bool get isGetTotalEstimatedTimeLoading;
   @override

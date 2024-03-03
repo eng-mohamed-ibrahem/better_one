@@ -1,26 +1,26 @@
 import 'package:better_one/core/errors/failure.dart';
 import 'package:better_one/core/request_result/request_result.dart';
-import 'package:better_one/model/note_model/note_model.dart';
+import 'package:better_one/model/task_model/task_model.dart';
 
 abstract class CacheMethodInterface {
   /// init cache method
   Future<void> init();
 
-  /// get all notes
-  Future<Result<List<NoteModel>, CacheFailure>> getAllNotes();
+  /// get all tasks
+  Future<Result<List<TaskModel>, CacheFailure>> getAllTasks();
 
-  /// get note by id
-  Future<Result<NoteModel, CacheFailure>> getNoteById(String id);
+  /// get task by id
+  Future<Result<TaskModel, CacheFailure>> getTaskById(String id);
 
-  /// add new note
-  Future<Result<NoteModel, CacheFailure>> addNote(NoteModel note);
+  /// add new task
+  Future<Result<TaskModel, CacheFailure>> addTask(TaskModel task);
 
-  /// update note
-  Future<Result<NoteModel, CacheFailure>> updateNote(
-      NoteModel oldNote, NoteModel newNote);
+  /// update task
+  Future<Result<TaskModel, CacheFailure>> updateTask(
+      TaskModel oldTask, TaskModel newTask);
 
-  /// remove note
-  Future<Result<NoteModel, CacheFailure>> removeNote(NoteModel removedNote);
+  /// remove task
+  Future<Result<TaskModel, CacheFailure>> removeTask(TaskModel removedTask);
 
   /// get total estimated time
   Future<Result<int, CacheFailure>> getTotoalEstimatedTime();
