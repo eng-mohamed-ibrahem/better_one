@@ -15,7 +15,9 @@ part 'home_viewmodel_state.dart';
 
 class HomeViewmodel extends Cubit<HomeViewmodelState> {
   HomeViewmodel({required this.taskRepoInterface})
-      : super(const HomeViewmodelState());
+      : super(HomeViewmodelState(
+          scrollController: ScrollController(),
+        ));
   final TaskRepoInterface taskRepoInterface;
 
   static HomeViewmodel get(context) => BlocProvider.of<HomeViewmodel>(context);

@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 class AppThemes {
   static ThemeData lightTheme = ThemeData(
     primaryColor: AppColors.primaryColor,
+    secondaryHeaderColor: AppColors.secondColor,
     brightness: Brightness.light,
     buttonTheme: const ButtonThemeData(
       textTheme: ButtonTextTheme.primary,
@@ -22,7 +23,6 @@ class AppThemes {
       selectionColor: AppColors.textButtonColor,
       selectionHandleColor: AppColors.textButtonColor,
     ),
-
     iconButtonTheme: const IconButtonThemeData(
       style: ButtonStyle(
         iconColor: MaterialStatePropertyAll(AppColors.white),
@@ -38,6 +38,15 @@ class AppThemes {
             color: AppColors.textButtonColor,
           ),
         ),
+      ),
+    ),
+    dialogTheme: const DialogTheme(
+      backgroundColor: AppColors.primaryColor,
+      titleTextStyle: TextStyle(
+        color: AppColors.white,
+      ),
+      contentTextStyle: TextStyle(
+        color: AppColors.white,
       ),
     ),
   );

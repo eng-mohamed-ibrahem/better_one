@@ -30,12 +30,23 @@ class GenerateRouter {
       case taskScreen:
         {
           activeRoute = taskScreen;
-          return MaterialPageRoute(
+          return PageRouteBuilder(
             settings: settings,
-            builder: (context) => const TaskScreen(),
+            pageBuilder: (context, animation, secondaryAnimation) {
+              return const TaskScreen();
+            },
+            transitionsBuilder:
+                (context, animation, secondaryAnimation, child) {
+              return SlideTransition(
+                position: Tween<Offset>(
+                  begin: const Offset(1.0, 0),
+                  end: Offset.zero,
+                ).animate(animation),
+                child: child,
+              );
+            },
           );
         }
-
       default:
         {
           return MaterialPageRoute(

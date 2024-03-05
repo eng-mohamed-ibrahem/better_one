@@ -43,7 +43,6 @@ class CardTask extends StatelessWidget {
             padding: EdgeInsets.all(10.r),
             decoration: BoxDecoration(
               borderRadius: const BorderRadius.only(
-                topRight: Radius.circular(AppMetrices.borderRadius1),
                 bottomLeft: Radius.circular(AppMetrices.borderRadius1),
                 bottomRight: Radius.circular(AppMetrices.borderRadius1),
               ),
@@ -96,6 +95,7 @@ class CardTask extends StatelessWidget {
                     task.status == TaskStatus.done
                         ? const Icon(
                             Icons.celebration_rounded,
+                            color: AppColors.hightlightColor,
                           )
                         : task.status == TaskStatus.inprogress ||
                                 task.status == TaskStatus.paused

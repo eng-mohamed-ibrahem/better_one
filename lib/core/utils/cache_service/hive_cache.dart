@@ -16,6 +16,7 @@ class HiveImpl implements CacheMethodInterface {
   Future<void> init() async {
     await Hive.initFlutter();
     _appBox = await Hive.openBox(_userdata);
+    // _appBox.clear();
   }
 
   @override

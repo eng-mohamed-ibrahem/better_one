@@ -14,7 +14,6 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:logger/logger.dart';
 
 import '../../../core/constants/constants.dart';
-import '../../../core/utils/snack_bar/snack_bar.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -122,25 +121,21 @@ class _HomeScreenState extends State<HomeScreen> with RouteAware {
                                     padding: EdgeInsets.symmetric(
                                         horizontal: AppMetrices.widthSpace2.w),
                                     child: DurationTime(
-                                        duration: state.totalEstimatedTime),
+                                      duration: state.totalEstimatedTime,
+                                      style: Theme.of(context)
+                                          .textTheme
+                                          .titleLarge,
+                                    ),
                                   )
                                 : const SizedBox(),
                             Expanded(
                               child: ListView.builder(
-                                key: listKey,
+                                physics: const BouncingScrollPhysics(),
+                                controller: state.scrollController,
                                 itemCount: state.allTasks.length,
                                 itemBuilder: (context, index) {
-                                  Logger().i(state.allTasks[index]);
                                   return ModifiyCardTask(
                                     key: ValueKey(state.allTasks[index].id),
-                                    onRemove: () {
-                                      HomeViewmodel.get(context)
-                                          .removeTask(state.allTasks[index]);
-                                      showSnackBar(
-                                        context,
-                                        message: 'task.remove'.tr(),
-                                      );
-                                    },
                                     task: state.allTasks[index],
                                   );
                                 },
@@ -151,18 +146,31 @@ class _HomeScreenState extends State<HomeScreen> with RouteAware {
                 }
               },
             ),
-            FilledButton.icon(
-              onPressed: () {
-                Navigator.pushNamed(
-                  context,
-                  GenerateRouter.taskScreen,
-                );
-              },
-              icon: const Icon(Icons.add),
-              label: Text(
-                'task.create'.tr(),
-                textAlign: TextAlign.center,
-                // style: Theme.of(context).textTheme.titleSmall,
+            Padding(
+              padding: EdgeInsets.only(bottom: 10.h),
+              child: Align(
+                alignment: AlignmentDirectional.bottomEnd,
+                child: FilledButton.icon(
+                  style: FilledButton.styleFrom(
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.only(
+                        topLeft: Radius.circular(15.r),
+                        bottomLeft: Radius.circular(15.r),
+                      ),
+                    ),
+                  ),
+                  onPressed: () {
+                    Navigator.pushNamed(
+                      context,
+                      GenerateRouter.taskScreen,
+                    );
+                  },
+                  icon: const Icon(Icons.add),
+                  label: Text(
+                    'task.create'.tr(),
+                    textAlign: TextAlign.center,
+                  ),
+                ),
               ),
             ),
           ],
