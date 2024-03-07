@@ -4,7 +4,8 @@
     },
     "core": {
         "cancel": "Cancel",
-        "delete": "Delete"
+        "delete": "Delete",
+        "total_time": "The Total Time"
     },
     "task": {
         "create": "Create Task",

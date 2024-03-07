@@ -120,17 +120,47 @@ class _HomeScreenState extends State<HomeScreen> with RouteAware {
                                 ? Padding(
                                     padding: EdgeInsets.symmetric(
                                         horizontal: AppMetrices.widthSpace2.w),
-                                    child: DurationTime(
-                                      duration: state.totalEstimatedTime,
-                                      style: Theme.of(context)
-                                          .textTheme
-                                          .titleLarge,
+                                    child: Row(
+                                      children: [
+                                        Column(
+                                          children: [
+                                            DurationTime(
+                                              duration:
+                                                  state.totalEstimatedTime,
+                                              style: Theme.of(context)
+                                                  .textTheme
+                                                  .titleLarge,
+                                            ),
+                                            Text(
+                                              'core.total_time'.tr(),
+                                              style: Theme.of(context)
+                                                  .textTheme
+                                                  .titleLarge,
+                                            ),
+                                          ],
+                                        ),
+                                        const Spacer(),
+                                        Hero(
+                                          tag: 'app_settings',
+                                          child: IconButton(
+                                            onPressed: () {
+                                              Navigator.pushNamed(
+                                                context,
+                                                GenerateRouter.settingScreen,
+                                              );
+                                            },
+                                            icon: const Icon(
+                                                Icons.settings_outlined),
+                                          ),
+                                        )
+                                      ],
                                     ),
                                   )
                                 : const SizedBox(),
                             Expanded(
                               child: ListView.builder(
                                 physics: const BouncingScrollPhysics(),
+                                key: listKey,
                                 controller: state.scrollController,
                                 itemCount: state.allTasks.length,
                                 itemBuilder: (context, index) {

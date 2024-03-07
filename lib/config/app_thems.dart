@@ -1,4 +1,5 @@
 import 'package:better_one/core/constants/app_colors.dart';
+import 'package:better_one/core/constants/app_metrices.dart';
 import 'package:flutter/material.dart';
 
 class AppThemes {
@@ -48,6 +49,13 @@ class AppThemes {
       contentTextStyle: TextStyle(
         color: AppColors.white,
       ),
+    ),
+    listTileTheme: const ListTileThemeData(
+      iconColor: AppColors.textButtonColor,
+      textColor: AppColors.white,
+      tileColor: AppColors.primaryColor,
+      contentPadding: EdgeInsets.all(AppMetrices.widthSpace),
+      style: ListTileStyle.drawer,
     ),
   );
 

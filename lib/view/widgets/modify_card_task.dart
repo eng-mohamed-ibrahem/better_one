@@ -22,9 +22,7 @@ class ModifiyCardTask extends StatefulWidget {
 
 class _ModifiyCardTaskState extends State<ModifiyCardTask>
     with TickerProviderStateMixin {
-  bool isOpened = false;
   late final AnimationController _animationController;
-  bool isAboutToBeDeleted = false;
 
   @override
   void initState() {

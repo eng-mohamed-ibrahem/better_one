@@ -4,7 +4,8 @@
     },
     "core": {
         "cancel": "الغاء",
-        "delete": "حذف"
+        "delete": "حذف",
+        "total_time": "الوقت الكلى"
     },
     "task": {
         "create": "انشاء مهمة",

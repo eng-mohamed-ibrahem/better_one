@@ -2,10 +2,7 @@ import 'package:better_one/core/errors/failure.dart';
 import 'package:better_one/core/request_result/request_result.dart';
 import 'package:better_one/model/task_model/task_model.dart';
 
-abstract class CacheMethodInterface {
-  /// init cache method
-  Future<void> init();
-
+abstract class TaskCacheInterface {
   /// get all tasks
   Future<Result<List<TaskModel>, CacheFailure>> getAllTasks();
 

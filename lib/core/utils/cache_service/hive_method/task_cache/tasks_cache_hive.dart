@@ -3,22 +3,14 @@ import 'dart:convert';
 import 'package:better_one/core/constants/constants.dart';
 import 'package:better_one/core/errors/failure.dart';
 import 'package:better_one/core/request_result/request_result.dart';
-import 'package:better_one/core/utils/cache_service/cache_interface.dart';
 import 'package:better_one/model/task_model/task_model.dart';
-import 'package:hive_flutter/hive_flutter.dart';
 import 'package:logger/logger.dart';
 
-class HiveImpl implements CacheMethodInterface {
-  static const String _userdata = 'user_data';
-  late final Box _appBox;
+import '../../cache_service.dart';
 
-  @override
-  Future<void> init() async {
-    await Hive.initFlutter();
-    _appBox = await Hive.openBox(_userdata);
-    // _appBox.clear();
-  }
-
+class TaskCacheHive implements TaskCacheInterface {
+  TaskCacheHive({required this.cacheInit});
+  final HiveInitImpl cacheInit;
   @override
   Future<Result<TaskModel, CacheFailure>> addTask(TaskModel task) async {
     try {
@@ -26,7 +18,7 @@ class HiveImpl implements CacheMethodInterface {
       return result.when(
         success: (tasks) async {
           tasks.add(task);
-          await _appBox.put(CacheKeys.tasks, _convertToJson(tasks));
+          await cacheInit.appBox.put(CacheKeys.tasks, _convertToJson(tasks));
           return Result.success(data: task);
         },
         failure: (failure) {
@@ -42,7 +34,7 @@ class HiveImpl implements CacheMethodInterface {
   Future<Result<List<TaskModel>, CacheFailure>> getAllTasks() async {
     try {
       return Result.success(
-          data: _convertToTaskList(_appBox.get(CacheKeys.tasks)));
+          data: _convertToTaskList(cacheInit.appBox.get(CacheKeys.tasks)));
     } catch (e) {
       return Result.failure(error: CacheFailure(message: e.toString()));
     }
@@ -77,7 +69,7 @@ class HiveImpl implements CacheMethodInterface {
       return result.when(
         success: (tasks) async {
           tasks.remove(removedTask);
-          await _appBox.put(CacheKeys.tasks, _convertToJson(tasks));
+          await cacheInit.appBox.put(CacheKeys.tasks, _convertToJson(tasks));
           return Result.success(data: removedTask);
         },
         failure: (failure) {
@@ -99,7 +91,7 @@ class HiveImpl implements CacheMethodInterface {
           int index = tasks.indexOf(oldTask);
           Logger().i('from hive index $index');
           tasks[index] = newTask;
-          await _appBox.put(CacheKeys.tasks, _convertToJson(tasks));
+          await cacheInit.appBox.put(CacheKeys.tasks, _convertToJson(tasks));
           return Result.success(data: newTask);
         },
         failure: (failure) {
@@ -125,7 +117,8 @@ class HiveImpl implements CacheMethodInterface {
   Future<Result<int, CacheFailure>> getTotoalEstimatedTime() async {
     try {
       return Result.success(
-          data: _appBox.get(CacheKeys.totalEstimatedTime, defaultValue: 0));
+          data: cacheInit.appBox
+              .get(CacheKeys.totalEstimatedTime, defaultValue: 0));
     } catch (e) {
       return Result.failure(error: CacheFailure(message: e.toString()));
     }
@@ -141,7 +134,7 @@ class HiveImpl implements CacheMethodInterface {
           totalTime =
               isAdding ? totalTime + updatedTime : totalTime - updatedTime;
           return Result.success(
-              data: await _appBox
+              data: await cacheInit.appBox
                   .put(CacheKeys.totalEstimatedTime, totalTime)
                   .then((_) => totalTime));
         },

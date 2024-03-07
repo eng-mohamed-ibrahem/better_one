@@ -494,19 +494,14 @@ class _TaskScreenState extends State<TaskScreen>
                     ),
                   ),
                 ),
-                Row(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    IconButton(
-                      icon: const Icon(
-                        Icons.keyboard_double_arrow_left_rounded,
-                        size: 25,
-                      ),
-                      onPressed: () {
-                        Navigator.pop(context);
-                      },
-                    ),
-                  ],
+                IconButton(
+                  icon: const Icon(
+                    Icons.keyboard_double_arrow_left_rounded,
+                    size: 25,
+                  ),
+                  onPressed: () {
+                    Navigator.pop(context);
+                  },
                 ),
               ],
             );

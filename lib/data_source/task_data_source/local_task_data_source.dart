@@ -1,6 +1,6 @@
 import 'package:better_one/core/errors/failure.dart';
 import 'package:better_one/core/request_result/request_result.dart';
-import 'package:better_one/core/utils/cache_service/cache_interface.dart';
+import 'package:better_one/core/utils/cache_service/cache_service.dart';
 import 'package:better_one/data_source/task_data_source/task_source_interface.dart';
 import 'package:better_one/model/task_model/task_model.dart';
 
@@ -8,7 +8,7 @@ class LocalTaskDataSource implements TaskSource {
   LocalTaskDataSource(this.cacheRepo);
 
   /// this method which i use to execute my local data source
-  final CacheMethodInterface cacheRepo;
+  final TaskCacheInterface cacheRepo;
 
   @override
   Future<Result<TaskModel, Failure>> addTask(TaskModel newTask) async {
