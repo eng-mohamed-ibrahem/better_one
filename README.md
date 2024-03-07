@@ -3,13 +3,13 @@
 A simple app for managing tasks with the ability to create, edit, delete and complete tasks, as well as sending notifications when tasks are created.
 The app also records the elapsed time for each task and the total elapsed time in all tasks, and saves the tasks in the local storage device.
 
-"Don't watch the clock; do what it does. Keep going." - Sam Levenson
+## Some of the quotes will be generated while working in task to motiviate the user:
 
-"The greatest glory in living lies not in never falling, but in rising every time we fall." - Nelson Mandela
+  "Don't watch the clock; do what it does. Keep going." - Sam Levenson
 
-"The only way to do great work is to love what you do. If you haven't found it yet, keep looking. Don't settle." - Steve Jobs
+  "The greatest glory in living lies not in never falling, but in rising every time we fall." - Nelson Mandela
 
-Some of the quotes will be generated while working in task to motiviate the user:
+  "The only way to do great work is to love what you do. If you haven't found it yet, keep looking. Don't settle." - Steve Jobs
 
 Features:
 
