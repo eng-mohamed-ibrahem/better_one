@@ -6,6 +6,12 @@ abstract class SettingsRepoInterface {
   // change language, return new language
   Future<Result<Locale, Failure>> changeLanguage(Locale language);
 
+  // get current language
+  Future<Result<Locale, Failure>> getLanguage();
+
   // toggle theme between light and dark and return new theme
   Future<Result<ThemeData, Failure>> toggleTheme();
+
+  // get current theme
+  Future<Result<ThemeData, Failure>> getTheme();
 }

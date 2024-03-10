@@ -6,6 +6,7 @@ import 'package:better_one/core/utils/shared_widgets/failed.dart';
 import 'package:better_one/core/utils/shared_widgets/lottie_indicator.dart';
 import 'package:better_one/view/widgets/duration_widget.dart';
 import 'package:better_one/view/widgets/modify_card_task.dart';
+import 'package:better_one/view/widgets/sliver_header.dart';
 import 'package:better_one/view_models/home_viewmodel/home_viewmodel.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
@@ -40,29 +41,32 @@ class _HomeScreenState extends State<HomeScreen> with RouteAware {
 
   void _handleNotification() {
     localNotification.getNotificationAppLaunchDetails;
-    localNotification.onTapNotificationStream.listen((payload) {
-      /// 1: chech if in the same route of [task screen]
-      /// 2: if yes, pushReplacement
-      /// 3: if not, pushNamedTR
-      log(GenerateRouter.activeRoute);
-      Logger().i('payload: $payload');
-      GenerateRouter.activeRoute == GenerateRouter.taskScreen
-          ? Navigator.pushReplacementNamed(
-              context,
-              GenerateRouter.taskScreen,
-              arguments: payload!,
-            )
-          : Navigator.pushNamed(
-              context,
-              GenerateRouter.taskScreen,
-              arguments: payload!,
-            );
-    });
+    localNotification.onTapNotificationStream.listen(
+      (payload) {
+        /// 1: chech if in the same route of [task screen]
+        /// 2: if yes, pushReplacement
+        /// 3: if not, pushNamed
+        log(GenerateRouter.activeRoute);
+        Logger().i('payload: $payload');
+        GenerateRouter.activeRoute == GenerateRouter.taskScreen
+            ? Navigator.pushReplacementNamed(
+                context,
+                GenerateRouter.taskScreen,
+                arguments: payload!,
+              )
+            : Navigator.pushNamed(
+                context,
+                GenerateRouter.taskScreen,
+                arguments: payload!,
+              );
+      },
+    );
   }
 
   @override
   void didPopNext() {
     GenerateRouter.activeRoute = GenerateRouter.home;
+    
   }
 
   @override
@@ -73,11 +77,12 @@ class _HomeScreenState extends State<HomeScreen> with RouteAware {
 
   @override
   Widget build(BuildContext context) {
+    Logger().d('home screen');
     return Scaffold(
       body: Container(
-        padding: EdgeInsets.only(top: 25.h, bottom: 5.h),
+        padding: EdgeInsets.only(top: 35.h, bottom: 5.h),
         child: Stack(
-          alignment: Alignment.bottomCenter,
+          alignment: AlignmentDirectional.bottomCenter,
           children: [
             BlocBuilder<HomeViewmodel, HomeViewmodelState>(
               builder: (context, state) {
@@ -112,58 +117,48 @@ class _HomeScreenState extends State<HomeScreen> with RouteAware {
                             ],
                           ),
                         )
-                      : Column(
-                          children: [
-                            SizedBox(height: AppMetrices.heightSpace2.h),
-                            state.isGetTotalEstimatedTimeCompleted ||
-                                    state.isUpdateTotalEstimatedTimeCompleted
-                                ? Padding(
-                                    padding: EdgeInsets.symmetric(
-                                        horizontal: AppMetrices.widthSpace2.w),
-                                    child: Row(
-                                      children: [
-                                        Column(
-                                          children: [
-                                            DurationTime(
-                                              duration:
-                                                  state.totalEstimatedTime,
-                                              style: Theme.of(context)
-                                                  .textTheme
-                                                  .titleLarge,
-                                            ),
-                                            Text(
-                                              'core.total_time'.tr(),
-                                              style: Theme.of(context)
-                                                  .textTheme
-                                                  .titleLarge,
-                                            ),
-                                          ],
-                                        ),
-                                        const Spacer(),
-                                        Hero(
-                                          tag: 'app_settings',
-                                          child: IconButton(
-                                            onPressed: () {
-                                              Navigator.pushNamed(
-                                                context,
-                                                GenerateRouter.settingScreen,
-                                              );
-                                            },
-                                            icon: const Icon(
-                                                Icons.settings_outlined),
+                      : CustomScrollView(
+                          physics: const BouncingScrollPhysics(),
+                          key: listKey,
+                          controller: state.scrollController,
+                          slivers: [
+                            SliverPersistentHeader(
+                              floating: true,
+                              pinned: true,
+                              delegate: SliverHeaderDelegate(
+                                maxHeight:
+                                    MediaQuery.of(context).size.height * 0.1,
+                                minHeight:
+                                    MediaQuery.of(context).size.height * 0.1,
+                                child: state.isGetTotalEstimatedTimeCompleted ||
+                                        state
+                                            .isUpdateTotalEstimatedTimeCompleted
+                                    ? FittedBox(
+                                      fit: BoxFit.scaleDown,
+                                      child: Material(
+                                        shape: RoundedRectangleBorder(
+                                          borderRadius:
+                                              BorderRadius.circular(
+                                            AppMetrices.borderRadius1.w,
                                           ),
-                                        )
-                                      ],
-                                    ),
-                                  )
-                                : const SizedBox(),
-                            Expanded(
-                              child: ListView.builder(
-                                physics: const BouncingScrollPhysics(),
-                                key: listKey,
-                                controller: state.scrollController,
-                                itemCount: state.allTasks.length,
-                                itemBuilder: (context, index) {
+                                        ),
+                                        color: AppColors.primaryColor,
+                                        child: DurationTime(
+                                          duration:
+                                              state.totalEstimatedTime,
+                                          style: Theme.of(context)
+                                              .textTheme
+                                              .titleLarge,
+                                        ),
+                                      ),
+                                    )
+                                    : const SizedBox(),
+                              ),
+                            ),
+                            SliverList(
+                              delegate: SliverChildBuilderDelegate(
+                                childCount: state.allTasks.length,
+                                (context, index) {
                                   return ModifiyCardTask(
                                     key: ValueKey(state.allTasks[index].id),
                                     task: state.allTasks[index],
@@ -176,6 +171,21 @@ class _HomeScreenState extends State<HomeScreen> with RouteAware {
                 }
               },
             ),
+            Align(
+              alignment: AlignmentDirectional.topEnd,
+              child: Hero(
+                tag: 'app_settings',
+                child: IconButton(
+                  onPressed: () {
+                    Navigator.pushNamed(
+                      context,
+                      GenerateRouter.settingScreen,
+                    );
+                  },
+                  icon: const Icon(Icons.settings_outlined),
+                ),
+              ),
+            ),
             Padding(
               padding: EdgeInsets.only(bottom: 10.h),
               child: Align(
@@ -183,9 +193,9 @@ class _HomeScreenState extends State<HomeScreen> with RouteAware {
                 child: FilledButton.icon(
                   style: FilledButton.styleFrom(
                     shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.only(
-                        topLeft: Radius.circular(15.r),
-                        bottomLeft: Radius.circular(15.r),
+                      borderRadius: BorderRadiusDirectional.only(
+                        topStart: Radius.circular(15.r),
+                        bottomStart: Radius.circular(15.r),
                       ),
                     ),
                   ),

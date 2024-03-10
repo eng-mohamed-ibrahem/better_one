@@ -5,7 +5,7 @@ import 'package:better_one/model/task_model/task_model.dart';
 import 'package:better_one/repositories/task_repo/task_repo_interface.dart';
 
 class TaskRepoImpl implements TaskRepoInterface {
-  TaskRepoImpl(this.dataSource);
+  TaskRepoImpl({required this.dataSource});
   final TaskSource dataSource;
 
   @override

@@ -6,12 +6,12 @@ import 'package:better_one/data_source/quote_data_source/quote_source_interface.
 import 'package:better_one/model/quote_model/quote_model.dart';
 
 class RemoteQuoteDataSource implements QuoteSource {
-  RemoteQuoteDataSource(this._apiConsumer);
-  final ApiConsumer _apiConsumer;
+  RemoteQuoteDataSource({required this.apiConsumer});
+  final ApiConsumer apiConsumer;
   @override
   Future<Result<QuoteModel, Failure>> getRandomQuote() async {
     try {
-      var response = await _apiConsumer.get(
+      var response = await apiConsumer.get(
         EndPoints.random,
         query: {
           'tags':

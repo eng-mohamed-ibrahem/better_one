@@ -22,8 +22,18 @@ void main() async {
       systemNavigationBarColor: AppColors.secondColor,
     ),
   );
-  initializeDateFormatting(
-    'en',
-  );
+  settingRepo.getLanguage().then((value) {
+    value.when(
+      success: (language) {
+        initializeDateFormatting(
+          language.languageCode,
+        );
+      },
+      failure: (error) {
+        initializeDateFormatting('en');
+      },
+    );
+  });
+
   runApp(const RootApp());
 }

@@ -8,8 +8,8 @@ import 'package:logger/logger.dart';
 
 import '../../cache_service.dart';
 
-class TaskCacheHive implements TaskCacheInterface {
-  TaskCacheHive({required this.cacheInit});
+class TaskCacheByHive implements TaskCacheInterface {
+  TaskCacheByHive({required this.cacheInit});
   final HiveInitImpl cacheInit;
   @override
   Future<Result<TaskModel, CacheFailure>> addTask(TaskModel task) async {

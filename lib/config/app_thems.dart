@@ -3,35 +3,30 @@ import 'package:better_one/core/constants/app_metrices.dart';
 import 'package:flutter/material.dart';
 
 class AppThemes {
-  static ThemeData lightTheme = ThemeData(
+  static ThemeData darkTheme = ThemeData(
     primaryColor: AppColors.primaryColor,
     secondaryHeaderColor: AppColors.secondColor,
-    brightness: Brightness.light,
-    buttonTheme: const ButtonThemeData(
-      textTheme: ButtonTextTheme.primary,
-      buttonColor: AppColors.secondColor,
-    ),
-    appBarTheme: const AppBarTheme(
-      backgroundColor: AppColors.primaryColor,
-    ),
+    scaffoldBackgroundColor: AppColors.primaryColor,
     colorScheme:
         ColorScheme.fromSwatch().copyWith(secondary: AppColors.primaryColor),
-    fontFamily: 'Tajawal', // Grandstander,Tajawal
+    fontFamily: 'Tajawal',
+    buttonTheme: buttonTheme(),
+    appBarTheme: appBarTheme(),
     textTheme: textTheme(),
-    iconTheme: const IconThemeData(color: AppColors.textButtonColor),
-    textSelectionTheme: const TextSelectionThemeData(
-      cursorColor: AppColors.textButtonColor,
-      selectionColor: AppColors.textButtonColor,
-      selectionHandleColor: AppColors.textButtonColor,
-    ),
-    iconButtonTheme: const IconButtonThemeData(
-      style: ButtonStyle(
-        iconColor: MaterialStatePropertyAll(AppColors.white),
-        backgroundColor: MaterialStatePropertyAll(AppColors.secondColor),
-      ),
-    ),
-    scaffoldBackgroundColor: AppColors.primaryColor,
-    filledButtonTheme: FilledButtonThemeData(
+    textSelectionTheme: textFieldSelectionTheme(),
+    iconTheme: iconTheme(),
+    iconButtonTheme: iconButtonTheme(),
+    filledButtonTheme: filledButtonTheme(),
+    dialogTheme: dialogTheme(),
+    listTileTheme: listTileTheme(),
+    dropdownMenuTheme: dropdownMenuTheme(),
+  );
+
+  static IconThemeData iconTheme() =>
+      const IconThemeData(color: AppColors.textButtonColor, size: 25);
+
+  static FilledButtonThemeData filledButtonTheme() {
+    return FilledButtonThemeData(
       style: ButtonStyle(
         backgroundColor: MaterialStateProperty.all(AppColors.secondColor),
         textStyle: const MaterialStatePropertyAll<TextStyle>(
@@ -40,8 +35,52 @@ class AppThemes {
           ),
         ),
       ),
-    ),
-    dialogTheme: const DialogTheme(
+    );
+  }
+
+  static IconButtonThemeData iconButtonTheme() {
+    return const IconButtonThemeData(
+      style: ButtonStyle(
+        iconColor: MaterialStatePropertyAll(AppColors.white),
+        backgroundColor: MaterialStatePropertyAll(AppColors.secondColor),
+      ),
+    );
+  }
+
+  static TextSelectionThemeData textFieldSelectionTheme() {
+    return const TextSelectionThemeData(
+      cursorColor: AppColors.textButtonColor,
+      selectionColor: AppColors.textButtonColor,
+      selectionHandleColor: AppColors.textButtonColor,
+    );
+  }
+
+  static AppBarTheme appBarTheme() {
+    return AppBarTheme(
+      backgroundColor: AppColors.primaryColor,
+      iconTheme: iconTheme(),
+    );
+  }
+
+  static ButtonThemeData buttonTheme() {
+    return const ButtonThemeData(
+      textTheme: ButtonTextTheme.primary,
+      buttonColor: AppColors.secondColor,
+    );
+  }
+
+  static ListTileThemeData listTileTheme() {
+    return const ListTileThemeData(
+      iconColor: AppColors.textButtonColor,
+      textColor: AppColors.white,
+      tileColor: AppColors.primaryColor,
+      contentPadding: EdgeInsets.all(AppMetrices.widthSpace),
+      style: ListTileStyle.drawer,
+    );
+  }
+
+  static DialogTheme dialogTheme() {
+    return const DialogTheme(
       backgroundColor: AppColors.primaryColor,
       titleTextStyle: TextStyle(
         color: AppColors.white,
@@ -49,15 +88,51 @@ class AppThemes {
       contentTextStyle: TextStyle(
         color: AppColors.white,
       ),
-    ),
-    listTileTheme: const ListTileThemeData(
-      iconColor: AppColors.textButtonColor,
-      textColor: AppColors.white,
-      tileColor: AppColors.primaryColor,
-      contentPadding: EdgeInsets.all(AppMetrices.widthSpace),
-      style: ListTileStyle.drawer,
-    ),
-  );
+    );
+  }
+
+  static DropdownMenuThemeData dropdownMenuTheme() {
+    return const DropdownMenuThemeData(
+      menuStyle: MenuStyle(
+        backgroundColor: MaterialStatePropertyAll(AppColors.primaryColor),
+        surfaceTintColor: MaterialStatePropertyAll(AppColors.primaryColor),
+        maximumSize: MaterialStatePropertyAll(Size.fromHeight(200)),
+        shape: MaterialStatePropertyAll(
+          RoundedRectangleBorder(
+            borderRadius:
+                BorderRadius.all(Radius.circular(AppMetrices.borderRadius1)),
+          ),
+        ),
+      ),
+      textStyle: TextStyle(
+        color: AppColors.white,
+      ),
+      inputDecorationTheme: InputDecorationTheme(
+        fillColor: AppColors.primaryColor,
+        filled: true,
+        border: InputBorder.none,
+        labelStyle: TextStyle(color: AppColors.textButtonColor),
+        contentPadding: EdgeInsets.all(AppMetrices.widthSpace),
+        isDense: true,
+        iconColor: AppColors.textButtonColor,
+        suffixIconColor: AppColors.textButtonColor,
+        focusedBorder: OutlineInputBorder(
+          borderSide: BorderSide(
+            color: AppColors.textButtonColor,
+          ),
+        ),
+        constraints: BoxConstraints(
+          maxHeight: 35,
+        ),
+        hintStyle: TextStyle(color: AppColors.textButtonColor),
+        enabledBorder: OutlineInputBorder(
+          borderSide: BorderSide(
+            color: AppColors.textButtonColor,
+          ),
+        ),
+      ),
+    );
+  }
 
   static TextTheme textTheme() {
     return const TextTheme(
@@ -91,5 +166,12 @@ class AppThemes {
     );
   }
 
-  static ThemeData darkTheme = ThemeData.dark();
+  static ThemeData lightTheme = ThemeData(
+    colorScheme: const ColorScheme.light(),
+    fontFamily: 'Tajawal',
+    buttonTheme: buttonTheme(),
+    iconTheme: iconTheme(),
+    iconButtonTheme: iconButtonTheme(),
+    dropdownMenuTheme: dropdownMenuTheme(),
+  );
 }

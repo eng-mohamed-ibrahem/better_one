@@ -5,7 +5,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 class CubitObserver extends BlocObserver {
   @override
   void onChange(BlocBase bloc, Change change) {
-    log("${bloc.runtimeType}: ${change.toString()}");
+    log("${bloc.runtimeType}:\n ${change.currentState} => ${change.nextState}");
     super.onChange(bloc, change);
   }
 

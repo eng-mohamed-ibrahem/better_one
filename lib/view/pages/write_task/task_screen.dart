@@ -1,9 +1,11 @@
 import 'dart:async';
+import 'dart:ui' as ui;
 
 import 'package:better_one/config/generate_router.dart';
 import 'package:better_one/core/enum/task_status.dart';
 import 'package:better_one/core/utils/dependency_locator/dependency_injection.dart';
 import 'package:better_one/core/utils/dialog/helper_dialog.dart';
+import 'package:better_one/core/utils/shared_widgets/back_button_l10n.dart';
 import 'package:better_one/core/utils/shared_widgets/failed.dart';
 import 'package:better_one/core/utils/shared_widgets/lottie_indicator.dart';
 import 'package:better_one/core/utils/shared_widgets/task_field.dart';
@@ -187,7 +189,7 @@ class _TaskScreenState extends State<TaskScreen>
               );
             }
             return Stack(
-              alignment: Alignment.topLeft,
+              alignment: AlignmentDirectional.topStart,
               children: [
                 SizedBox(height: AppMetrices.heightSpace.h),
                 SingleChildScrollView(
@@ -219,16 +221,20 @@ class _TaskScreenState extends State<TaskScreen>
                                 color: AppColors.secondColor,
                                 padding: EdgeInsets.all(10.w),
                                 width: double.infinity,
-                                child: Text(
-                                  state.quote!.content!,
-                                  textAlign: TextAlign.center,
-                                  style: Theme.of(context)
-                                      .textTheme
-                                      .titleMedium!
-                                      .copyWith(
-                                        fontWeight: FontWeight.w300,
-                                        fontStyle: FontStyle.italic,
-                                      ),
+                                // set direction from left to right
+                                child: Directionality(
+                                  textDirection: ui.TextDirection.ltr,
+                                  child: Text(
+                                    state.quote!.content!,
+                                    textAlign: TextAlign.center,
+                                    style: Theme.of(context)
+                                        .textTheme
+                                        .titleMedium!
+                                        .copyWith(
+                                          fontWeight: FontWeight.w300,
+                                          fontStyle: FontStyle.italic,
+                                        ),
+                                  ),
                                 ),
                               ),
                             );
@@ -494,15 +500,7 @@ class _TaskScreenState extends State<TaskScreen>
                     ),
                   ),
                 ),
-                IconButton(
-                  icon: const Icon(
-                    Icons.keyboard_double_arrow_left_rounded,
-                    size: 25,
-                  ),
-                  onPressed: () {
-                    Navigator.pop(context);
-                  },
-                ),
+                const BackButtonLl10n()
               ],
             );
           },

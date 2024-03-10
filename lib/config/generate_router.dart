@@ -2,6 +2,7 @@ import 'package:better_one/view/pages/home/home_screen.dart';
 import 'package:better_one/view/pages/settings/settings_screen.dart';
 import 'package:better_one/view/pages/splash/splash_screen.dart';
 import 'package:better_one/view/pages/write_task/task_screen.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 
 class GenerateRouter {
@@ -42,7 +43,9 @@ class GenerateRouter {
                 (context, animation, secondaryAnimation, child) {
               return SlideTransition(
                 position: Tween<Offset>(
-                  begin: const Offset(1.0, 0),
+                  begin: context.locale.languageCode == 'en'
+                      ? const Offset(1.0, 0)
+                      : const Offset(-1.0, 0),
                   end: Offset.zero,
                 ).animate(animation),
                 child: child,

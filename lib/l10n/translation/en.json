@@ -28,7 +28,29 @@
         }
     },
     "setting": {
-        "language": "Language"
+        "name": "App Settings",
+        "theme": {
+            "title": "Theme",
+            "subtitle": "Toggle between light and dark theme",
+            "light": "Light",
+            "dark": "Dark"
+        },
+        "language": {
+            "title": "Language",
+            "subtitle": "Change your app language"
+        },
+        "notification": {
+            "title": "Notification",
+            "subtitle": "Manage notification preferences"
+        },
+        "search": {
+            "title": "Search",
+            "subtitle": "Determine how search results will be on"
+        },
+        "account":{
+            "title": "Account",
+            "subtitle": "Manage your account"
+        }
     },
     "time": {
         "hour": "hour",

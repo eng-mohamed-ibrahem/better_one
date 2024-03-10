@@ -5,15 +5,15 @@ import 'package:better_one/data_source/task_data_source/task_source_interface.da
 import 'package:better_one/model/task_model/task_model.dart';
 
 class LocalTaskDataSource implements TaskSource {
-  LocalTaskDataSource(this.cacheRepo);
+  LocalTaskDataSource({required this.cache});
 
   /// this method which i use to execute my local data source
-  final TaskCacheInterface cacheRepo;
+  final TaskCacheInterface cache;
 
   @override
   Future<Result<TaskModel, Failure>> addTask(TaskModel newTask) async {
     try {
-      return await cacheRepo.addTask(newTask);
+      return await cache.addTask(newTask);
     } catch (e) {
       return Result.failure(error: OtherFailure(message: e.toString()));
     }
@@ -22,7 +22,7 @@ class LocalTaskDataSource implements TaskSource {
   @override
   Future<Result<List<TaskModel>, Failure>> getTasks() async {
     try {
-      var result = await cacheRepo.getAllTasks();
+      var result = await cache.getAllTasks();
       return result;
     } catch (e) {
       return Result.failure(error: OtherFailure(message: e.toString()));
@@ -32,7 +32,7 @@ class LocalTaskDataSource implements TaskSource {
   @override
   Future<Result<TaskModel, Failure>> removeTask(TaskModel removedTask) async {
     try {
-      return await cacheRepo.removeTask(removedTask);
+      return await cache.removeTask(removedTask);
     } catch (e) {
       return Result.failure(error: OtherFailure(message: e.toString()));
     }
@@ -42,7 +42,7 @@ class LocalTaskDataSource implements TaskSource {
   Future<Result<TaskModel, Failure>> updateTask(
       TaskModel oldTask, TaskModel newTask) async {
     try {
-      return await cacheRepo.updateTask(oldTask, newTask);
+      return await cache.updateTask(oldTask, newTask);
     } catch (e) {
       return Result.failure(error: OtherFailure(message: e.toString()));
     }
@@ -51,7 +51,7 @@ class LocalTaskDataSource implements TaskSource {
   @override
   Future<Result<TaskModel, Failure>> getTaskById(String id) async {
     try {
-      return cacheRepo.getTaskById(id);
+      return cache.getTaskById(id);
     } catch (e) {
       return Result.failure(error: OtherFailure(message: e.toString()));
     }
@@ -60,7 +60,7 @@ class LocalTaskDataSource implements TaskSource {
   @override
   Future<Result<int, Failure>> getTotoalEstimatedTime() async {
     try {
-      return await cacheRepo.getTotoalEstimatedTime();
+      return await cache.getTotoalEstimatedTime();
     } catch (e) {
       return Result.failure(error: OtherFailure(message: e.toString()));
     }
@@ -70,7 +70,7 @@ class LocalTaskDataSource implements TaskSource {
   Future<Result<int, Failure>> updateTotalEstimatedTime(
       int time, bool isAdding) async {
     try {
-      return await cacheRepo.updateTotalEstimatedTime(time, isAdding);
+      return await cache.updateTotalEstimatedTime(time, isAdding);
     } catch (e) {
       return Result.failure(error: OtherFailure(message: e.toString()));
     }

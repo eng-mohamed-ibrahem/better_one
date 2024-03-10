@@ -5,10 +5,10 @@ import 'package:better_one/model/quote_model/quote_model.dart';
 import 'package:better_one/repositories/quote_repo/quote_interface.dart';
 
 class QuoteRepo implements QuoteInterface {
-  QuoteRepo(this._quoteSource);
-  final QuoteSource _quoteSource;
+  QuoteRepo({required this.quoteSource});
+  final QuoteSource quoteSource;
   @override
   Future<Result<QuoteModel, Failure>> getRandomQuote() {
-    return _quoteSource.getRandomQuote();
+    return quoteSource.getRandomQuote();
   }
 }

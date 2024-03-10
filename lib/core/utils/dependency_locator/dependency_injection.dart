@@ -26,9 +26,7 @@ Future<void> initDependency() async {
   routeObserver = _getIt.registerSingleton<RouteObserver<ModalRoute>>(
     RouteObserver(),
   );
-
   await notificationDependency();
-
   await cacheInitDependency();
   taskDependency();
   quoteDependency();
@@ -53,26 +51,26 @@ Future<void> notificationDependency() async {
 void taskDependency() {
   /// task cache [Hive || SQLite]
   var taskCache = _getIt.registerSingleton<TaskCacheInterface>(
-    TaskCacheHive(
+    TaskCacheByHive(
       cacheInit: _getIt<HiveInitImpl>(),
     ),
   );
 
   /// [Task] data source, Options [remote || local]
   taskSource = _getIt.registerSingleton<TaskSource>(
-    LocalTaskDataSource(taskCache),
+    LocalTaskDataSource(cache: taskCache),
   );
 
   /// [Task] repository
   taskRepo = _getIt.registerSingleton<TaskRepoInterface>(
-    TaskRepoImpl(taskSource),
+    TaskRepoImpl(dataSource: taskSource),
   );
 }
 
 void settingsDependency() {
   /// setting cache [Hive || SQLite]
   var settingCache = _getIt.registerSingleton<SettingsCacheInterface>(
-    SettingsCacheHive(
+    SettingsCacheByHive(
       cacheInit: _getIt<HiveInitImpl>(),
     ),
   );
@@ -80,10 +78,14 @@ void settingsDependency() {
   /// [setting] data source, Options [remote || local]
   settingSource = _getIt.registerSingleton<SettingsSource>(
     LocalSettingsDataSource(
-      settingCache,
+      settingsCache: settingCache,
     ),
   );
-  settingRepo = _getIt.registerSingleton<SettingsRepoInterface>(SettingRepo());
+  settingRepo = _getIt.registerSingleton<SettingsRepoInterface>(
+    SettingRepo(
+      settingsSource: settingSource,
+    ),
+  );
 }
 
 void quoteDependency() {
@@ -94,12 +96,12 @@ void quoteDependency() {
 
   /// [Quote] data source, Options [remote || local]
   quoteSource = _getIt.registerSingleton<QuoteSource>(
-    RemoteQuoteDataSource(apiConsumer),
+    RemoteQuoteDataSource(apiConsumer: apiConsumer),
   );
 
   /// [Quote] repository
   quoteRepo = _getIt.registerSingleton<QuoteInterface>(
-    QuoteRepo(quoteSource),
+    QuoteRepo(quoteSource: quoteSource),
   );
 }
 

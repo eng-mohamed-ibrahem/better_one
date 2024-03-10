@@ -33,7 +33,6 @@ class CardTask extends StatelessWidget {
             ),
             child: Text(
               task.title,
-              textAlign: TextAlign.left,
               style: Theme.of(context).textTheme.titleMedium,
               overflow: TextOverflow.ellipsis,
               maxLines: 1,
@@ -58,7 +57,6 @@ class CardTask extends StatelessWidget {
               children: [
                 Text(
                   task.body,
-                  textAlign: TextAlign.left,
                   style: Theme.of(context).textTheme.bodyMedium,
                   overflow: TextOverflow.fade,
                   maxLines: 5,
