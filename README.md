@@ -43,15 +43,20 @@ Send notifications to other users when tasks are completed.
 
 ### Screenshots
 
-<img src="https://drive.google.com/uc?export=view&id=1vr4RdfEACEfUMHsHZuQ_JxbCtXjKm2aa" alt="Empty Task" width="300" height="300">
+<img src="https://github.com/eng-mohamed-ibrahem/better_one/assets/83507142/bb931530-5cb4-4d21-b6bb-cc30e034bbfc" alt="Empty Task" width="400" height="600">
 
-![Empty Task](https://drive.google.com/uc?export=view&id=1vr4RdfEACEfUMHsHZuQ_JxbCtXjKm2aa)
-![Create Task](https://drive.google.com/uc?export=view&id=1v4Q-ZYzHstcXg9FxA8DpK-CDYEICrjuy)
-![Delete Task](https://drive.google.com/uc?export=view&id=1TitmfUc9BVMSMV9KkdDSJqHfTFCYHA8H)
-![Home Screen](https://drive.google.com/uc?export=view&id=11Cbe_vHCSDmx_nNe1o3qOn_t7DgXsMwD)
-![Record Time of Task](https://drive.google.com/uc?export=view&id=1H8-ef4hXBw6EjnH8lL5gYJgVV93h7lBY)
-![App Setting](https://drive.google.com/uc?export=view&id=1IwxVG6r_CGskWsqzFcf37PM4BbMndyRL)
-![Update Task](https://drive.google.com/uc?export=view&id=1IwxVG6r_CGskWsqzFcf37PM4BbMndyRL)
+<img src="https://github.com/eng-mohamed-ibrahem/better_one/assets/83507142/c94c5645-69b1-40d5-9656-89250b8b6592" alt="Create Task" width="400" height="600">
+
+<img src="https://github.com/eng-mohamed-ibrahem/better_one/assets/83507142/1035c4c4-6320-44a9-9149-b46e4cb781ee" alt="Delete Task" width="400" height="600">
+
+<img src="https://github.com/eng-mohamed-ibrahem/better_one/assets/83507142/2af3dfc9-84f4-44f1-86d8-acb6572677e0" alt="Record Time of Task" width="400" height="600">
+
+<img src="https://github.com/eng-mohamed-ibrahem/better_one/assets/83507142/cf745b91-92ca-451c-9e4b-7f4c8f8e7af7" alt="App Setting" width="400" height="600">
+
+<img src="https://github.com/eng-mohamed-ibrahem/better_one/assets/83507142/5e9e252a-d262-4098-86be-d44da464ca2d" alt="Update Task" width="400" height="600">
+
+<img src="https://github.com/eng-mohamed-ibrahem/better_one/assets/83507142/a2b43632-e4b9-4ab6-9616-adb8620f1678" alt="home screen" width="400" height="600">
+
 
 ## Next steps
 
