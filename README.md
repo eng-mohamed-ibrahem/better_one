@@ -57,7 +57,6 @@ Send notifications to other users when tasks are completed.
 
 <img src="https://github.com/eng-mohamed-ibrahem/better_one/assets/83507142/a2b43632-e4b9-4ab6-9616-adb8620f1678" alt="home screen" width="400" height="600">
 
-
 ## Next steps
 
 * Handle app while no internet connection
