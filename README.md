@@ -43,13 +43,13 @@ Send notifications to other users when tasks are completed.
 
 ### Screenshots
 
-![Empty Task(small)(small)](https://drive.google.com/uc?export=view&id=1vr4RdfEACEfUMHsHZuQ_JxbCtXjKm2aa)
-![Create Task(small)](https://drive.google.com/uc?export=view&id=1v4Q-ZYzHstcXg9FxA8DpK-CDYEICrjuy)
-![Delete Task(small)](https://drive.google.com/uc?export=view&id=1TitmfUc9BVMSMV9KkdDSJqHfTFCYHA8H)
-![Home Screen(small)](https://drive.google.com/uc?export=view&id=11Cbe_vHCSDmx_nNe1o3qOn_t7DgXsMwD)
-![Record Time of Task(small)](https://drive.google.com/uc?export=view&id=1H8-ef4hXBw6EjnH8lL5gYJgVV93h7lBY)
-![App Setting(small)](https://drive.google.com/uc?export=view&id=1IwxVG6r_CGskWsqzFcf37PM4BbMndyRL)
-![Update Task(small)](https://drive.google.com/uc?export=view&id=1IwxVG6r_CGskWsqzFcf37PM4BbMndyRL)
+![Empty Task(small)(small)](https://drive.google.com/uc?export=view&id=1vr4RdfEACEfUMHsHZuQ_JxbCtXjKm2aa=200)
+![Create Task(small)](https://drive.google.com/uc?export=view&id=1v4Q-ZYzHstcXg9FxA8DpK-CDYEICrjuy=200)
+![Delete Task(small)](https://drive.google.com/uc?export=view&id=1TitmfUc9BVMSMV9KkdDSJqHfTFCYHA8H=200)
+![Home Screen(small)](https://drive.google.com/uc?export=view&id=11Cbe_vHCSDmx_nNe1o3qOn_t7DgXsMwD=200)
+![Record Time of Task(small)](https://drive.google.com/uc?export=view&id=1H8-ef4hXBw6EjnH8lL5gYJgVV93h7lBY=200)
+![App Setting(small)](https://drive.google.com/uc?export=view&id=1IwxVG6r_CGskWsqzFcf37PM4BbMndyRL=200)
+![Update Task(small)](https://drive.google.com/uc?export=view&id=1IwxVG6r_CGskWsqzFcf37PM4BbMndyRL=200)
 
 ## Next steps
 
