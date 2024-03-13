@@ -11,7 +11,7 @@ Send notifications to other users when tasks are completed.
 * Receive notifications for task updates and completion.
 * Integrated random quotes for tasks to help users focus and improve motivation.
 * Track elapsed time for each task and total elapsed time across all tasks.
-* Save tasks locally for easy access and reference.
+* Save tasks locally for easy access.
 * Integrated notification functionality to send notifications to other users when tasks are completed.
 * Support for multiple languages including English and Arabic.
 * Implemented animation for completed tasks to enhance user experience.
@@ -21,7 +21,7 @@ Send notifications to other users when tasks are completed.
 * Login with Google account.
 * Save user data in Cloud Firestore.
 * Supported Firebase Authentication.
-* Integrated search functionality to help users find tasks by status, date, time, priority, title, or description.
+* Integrated search functionality to help users find tasks by status, date, title, or description.
 * Login using Firebase.
 
 ## Completed Steps
@@ -35,6 +35,21 @@ Send notifications to other users when tasks are completed.
 * Supported multiple languages[English, Arabic].
 * Added support for Dark Mode.
 * Handled splash screen.
+* Settings for Search:
+  * Search for tasks by status
+  * Search for tasks by date
+  * Search for tasks by description
+  * Search for tasks by title
+
+## App Images
+
+![alt text](https://drive.google.com/file/d/1vr4RdfEACEfUMHsHZuQ_JxbCtXjKm2aa/view?usp=drive_link "Empty Task")
+![alt text](https://drive.google.com/file/d/1v4Q-ZYzHstcXg9FxA8DpK-CDYEICrjuy/view?usp=drive_link "Create Task")
+![alt text](https://drive.google.com/file/d/1TitmfUc9BVMSMV9KkdDSJqHfTFCYHA8H/view?usp=drive_link "Delete Task")
+![alt text](https://drive.google.com/file/d/11Cbe_vHCSDmx_nNe1o3qOn_t7DgXsMwD/view?usp=drive_link "Home Screen")
+![alt text](https://drive.google.com/file/d/11IIIqLznEV1RWqk_D_oQrGtGGSsWY-U8/view?usp=drive_link "Record Time of Task")
+![alt text](https://drive.google.com/file/d/1H8-ef4hXBw6EjnH8lL5gYJgVV93h7lBY/view?usp=drive_link "App Setting")
+![alt text](https://drive.google.com/file/d/1IwxVG6r_CGskWsqzFcf37PM4BbMndyRL/view?usp=drive_link "Update Task")
 
 ## Next steps
 
@@ -42,11 +57,7 @@ Send notifications to other users when tasks are completed.
 * Settings for notification:
   * Turn on/off notifications when tasks are created
   * Customize the notification schedule for your tasks
-* Settings for Search:
-  * Search for tasks by status
-  * Search for tasks by date
-  * Search for tasks by time
-  * Search for tasks by title or description
+* Apply Search functionality i have done above
 * Settings for theme:
   * Change to light, dark theme
 * Login using Firebase:
