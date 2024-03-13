@@ -43,7 +43,7 @@ Send notifications to other users when tasks are completed.
 
 ### Screenshots
 
-<img src="https://drive.google.com/uc?export=view&id=1vr4RdfEACEfUMHsHZuQ_JxbCtXjKm2aa" alt="Empty Task" width="400" height="650">
+<img src="[https://drive.google.com/uc?export=view&id=1vr4RdfEACEfUMHsHZuQ_JxbCtXjKm2aa](https://drive.google.com/file/d/1vr4RdfEACEfUMHsHZuQ_JxbCtXjKm2aa/view?usp=drive_link)" alt="Empty Task" width="400" height="650">
 
 ![Empty Task](https://drive.google.com/uc?export=view&id=1vr4RdfEACEfUMHsHZuQ_JxbCtXjKm2aa)
 ![Create Task](https://drive.google.com/uc?export=view&id=1v4Q-ZYzHstcXg9FxA8DpK-CDYEICrjuy)
