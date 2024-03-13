@@ -53,9 +53,11 @@ class AppThemes {
   static IconButtonThemeData iconButtonTheme() {
     return const IconButtonThemeData(
       style: ButtonStyle(
-        iconColor: MaterialStatePropertyAll(AppColors.white),
-        backgroundColor: MaterialStatePropertyAll(AppColors.secondColor),
-      ),
+          iconColor: MaterialStatePropertyAll(AppColors.white),
+          backgroundColor: MaterialStatePropertyAll(AppColors.secondColor),
+          padding: MaterialStatePropertyAll(
+            EdgeInsets.zero,
+          )),
     );
   }
 
@@ -216,8 +218,12 @@ class AppThemes {
     ),
     iconButtonTheme: const IconButtonThemeData(
       style: ButtonStyle(
+        iconSize: MaterialStatePropertyAll(25.0),
         iconColor: MaterialStatePropertyAll(AppColors.lightWhite),
         backgroundColor: MaterialStatePropertyAll(AppColors.lightSecondColor),
+        padding: MaterialStatePropertyAll(
+          EdgeInsets.zero,
+        ),
       ),
     ),
     filledButtonTheme: FilledButtonThemeData(

@@ -293,209 +293,175 @@ class _TaskScreenState extends State<TaskScreen>
                             ),
                           ),
                         ),
-                        Padding(
-                          padding: const EdgeInsets.only(bottom: 10),
-                          child: Row(
+
+                        /// if task is [null] this mean the first time create the task
+                        /// if else update task
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            task == null
+                                ? FilledButton(
+                                    onPressed: () {
+                                      if (titleController.text.isNotEmpty &&
+                                          descriptionController
+                                              .text.isNotEmpty) {
+                                        var newTask = TaskModel(
+                                          id: DateTime.now()
+                                              .millisecondsSinceEpoch
+                                              .toString(),
+                                          title: titleController.text,
+                                          body: descriptionController.text,
+                                          createdAt: DateTime.now(),
+                                        );
+                                        HomeViewmodel.get(context)
+                                            .addTask(newTask);
+                                      } else {
+                                        showSnackBar(
+                                          context,
+                                          message:
+                                              'task.title_and_description_required'
+                                                  .tr(),
+                                        );
+                                      }
+                                    },
+                                    child: Text(
+                                      'task.add'.tr(),
+                                      style: Theme.of(context)
+                                          .textTheme
+                                          .titleSmall,
+                                    ),
+                                  )
+                                : isTaskModified
+                                    ? FilledButton(
+                                        onPressed: () {
+                                          if (titleController.text.isNotEmpty &&
+                                              descriptionController
+                                                  .text.isNotEmpty) {
+                                            var newTask = task!.copyWith(
+                                              title: titleController.text,
+                                              body: descriptionController.text,
+                                              updatedAt: DateTime.now(),
+                                              elapsedTime: runningTime +
+                                                  task!.elapsedTime,
+                                              status: task!.status ==
+                                                      TaskStatus.done
+                                                  ? TaskStatus.paused
+                                                  : task!.status,
+                                            );
+                                            HomeViewmodel.get(context)
+                                                .updateTask(task!, newTask);
+                                            HomeViewmodel.get(context)
+                                                .updateTotalEstimatedTime(
+                                                    runningTime);
+                                            runningTime = Duration.zero;
+                                          } else {
+                                            showSnackBar(
+                                              context,
+                                              message:
+                                                  'task.title_and_description_required'
+                                                      .tr(),
+                                            );
+                                          }
+                                        },
+                                        child: Text(
+                                          'task.update'.tr(),
+                                          style: Theme.of(context)
+                                              .textTheme
+                                              .titleSmall,
+                                        ),
+                                      )
+                                    : const SizedBox(),
+                            SizedBox(width: AppMetrices.widthSpace2.w),
+                            task != null && task!.status != TaskStatus.done
+                                ? task!.status == TaskStatus.inprogress
+                                    ? FilledButton.icon(
+                                        label: Text('task.pause'.tr()),
+                                        onPressed: () {
+                                          HomeViewmodel.get(context)
+                                              .updateTaskAndTotalEstimatedTime(
+                                            task!,
+                                            TaskStatus.paused,
+                                            runningTime,
+                                          );
+                                          // 2: reset running time
+                                          runningTime = Duration.zero;
+                                        },
+                                        icon: const Icon(
+                                          Icons.pause_circle_outline,
+                                        ),
+                                      )
+                                    : FilledButton.icon(
+                                        label: Text('task.start'.tr()),
+                                        onPressed: () {
+                                          HomeViewmodel.get(context)
+                                              .updateTaskAndTotalEstimatedTime(
+                                            task!,
+                                            TaskStatus.inprogress,
+                                            runningTime,
+                                          );
+                                          // 2: reset running time
+                                          runningTime = Duration.zero;
+                                        },
+                                        icon: const Icon(
+                                          Icons.play_circle_outlined,
+                                        ),
+                                      )
+                                : const SizedBox(),
+                          ],
+                        ),
+                        SizedBox(height: AppMetrices.heightSpace.h),
+                        if (task != null)
+                          Row(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
-                              /// if task is [null] this mean the first time create the task
-                              /// else this mean update task
-                              task == null
-                                  ? FilledButton(
-                                      onPressed: () {
-                                        if (titleController.text.isNotEmpty &&
-                                            descriptionController
-                                                .text.isNotEmpty) {
-                                          var newTask = TaskModel(
-                                            id: DateTime.now()
-                                                .millisecondsSinceEpoch
-                                                .toString(),
-                                            title: titleController.text,
-                                            body: descriptionController.text,
-                                            createdAt: DateTime.now(),
-                                          );
-                                          HomeViewmodel.get(context)
-                                              .addTask(newTask);
-                                        } else {
-                                          showSnackBar(
-                                            context,
-                                            message:
-                                                'task.title_and_description_required'
-                                                    .tr(),
-                                          );
-                                        }
-                                      },
-                                      child: Text(
-                                        'task.add'.tr(),
-                                        style: Theme.of(context)
-                                            .textTheme
-                                            .titleSmall,
-                                      ),
-                                    )
-                                  : isTaskModified
-                                      ? FilledButton(
-                                          onPressed: () {
-                                            if (titleController
-                                                    .text.isNotEmpty &&
-                                                descriptionController
-                                                    .text.isNotEmpty) {
-                                              var newTask = task!.copyWith(
-                                                title: titleController.text,
-                                                body:
-                                                    descriptionController.text,
-                                                updatedAt: DateTime.now(),
-                                                elapsedTime: runningTime +
-                                                    task!.elapsedTime,
-                                                status: task!.status ==
-                                                        TaskStatus.done
-                                                    ? TaskStatus.paused
-                                                    : task!.status,
-                                              );
-                                              HomeViewmodel.get(context)
-                                                  .updateTask(task!, newTask);
-                                              HomeViewmodel.get(context)
-                                                  .updateTotalEstimatedTime(
-                                                      runningTime);
-                                              runningTime = Duration.zero;
-                                            } else {
-                                              showSnackBar(
-                                                context,
-                                                message:
-                                                    'task.title_and_description_required'
-                                                        .tr(),
-                                              );
-                                            }
-                                          },
-                                          child: Text(
-                                            'task.update'.tr(),
-                                            style: Theme.of(context)
-                                                .textTheme
-                                                .titleSmall,
-                                          ),
-                                        )
-                                      : const SizedBox(),
-                              SizedBox(width: AppMetrices.widthSpace.h),
-                              task != null
-                                  ? SingleChildScrollView(
-                                      scrollDirection: Axis.horizontal,
-                                      child: Row(
-                                        children: [
-                                          task!.status != TaskStatus.done
-                                              ? task!.status ==
-                                                      TaskStatus.inprogress
-                                                  ? IconButton(
-                                                      iconSize: 25,
-                                                      style:
-                                                          IconButton.styleFrom(
-                                                        padding:
-                                                            EdgeInsets.zero,
-                                                      ),
-                                                      onPressed: () {
-                                                        HomeViewmodel.get(
-                                                                context)
-                                                            .updateTaskAndTotalEstimatedTime(
-                                                          task!,
-                                                          TaskStatus.paused,
-                                                          runningTime,
-                                                        );
-                                                        // 2: reset running time
-                                                        runningTime =
-                                                            Duration.zero;
-                                                      },
-                                                      icon: const Icon(
-                                                        Icons
-                                                            .pause_circle_outline,
-                                                      ),
-                                                    )
-                                                  : IconButton(
-                                                      iconSize: 25,
-                                                      style:
-                                                          IconButton.styleFrom(
-                                                        padding:
-                                                            EdgeInsets.zero,
-                                                      ),
-                                                      onPressed: () {
-                                                        HomeViewmodel.get(
-                                                                context)
-                                                            .updateTaskAndTotalEstimatedTime(
-                                                          task!,
-                                                          TaskStatus.inprogress,
-                                                          runningTime,
-                                                        );
-                                                        // 2: reset running time
-                                                        runningTime =
-                                                            Duration.zero;
-                                                      },
-                                                      icon: const Icon(
-                                                        Icons
-                                                            .play_circle_outlined,
-                                                      ),
-                                                    )
-                                              : const SizedBox(),
-                                          SizedBox(
-                                              width: AppMetrices.widthSpace.h),
-                                          ChoiceChip(
-                                            selectedColor:
-                                                AppColors.primaryColor,
-                                            backgroundColor:
-                                                AppColors.primaryColor,
-                                            showCheckmark: true,
-                                            padding: EdgeInsets.zero,
-                                            checkmarkColor:
-                                                AppColors.hightlightColor,
-                                            labelStyle: Theme.of(context)
-                                                .textTheme
-                                                .titleSmall,
-                                            label:
-                                                Text('task.status.done'.tr()),
-                                            selected:
-                                                task?.status == TaskStatus.done,
-                                            onSelected: (value) {
-                                              HomeViewmodel.get(context)
-                                                  .updateTask(
-                                                task!,
-                                                task!.copyWith(
-                                                  status: value
-                                                      ? TaskStatus.done
-                                                      : TaskStatus.paused,
-                                                ),
-                                              );
-                                            },
-                                          ),
-                                          SizedBox(
-                                            width: AppMetrices.widthSpace.h,
-                                          ),
-                                          FilledButton.icon(
-                                            onPressed: () {
-                                              showDeleteTaskDialog(
-                                                context,
-                                                message: task!.title,
-                                                onConfirm: () {
-                                                  HomeViewmodel.get(context)
-                                                      .removeTask(task!);
-                                                  showSnackBar(
-                                                    context,
-                                                    message: 'task.remove'.tr(),
-                                                  );
-                                                  Navigator.pop(context);
-                                                },
-                                              );
-                                            },
-                                            icon: const Icon(
-                                              Icons.delete_forever,
-                                              color: AppColors.hightlightColor,
-                                            ),
-                                            label: Text(
-                                              'core.delete'.tr(),
-                                            ),
-                                          ),
-                                        ],
-                                      ),
-                                    )
-                                  : const SizedBox(),
+                              ChoiceChip(
+                                selectedColor: AppColors.primaryColor,
+                                backgroundColor: AppColors.primaryColor,
+                                showCheckmark: true,
+                                padding: EdgeInsets.zero,
+                                checkmarkColor: AppColors.hightlightColor,
+                                labelStyle:
+                                    Theme.of(context).textTheme.titleSmall,
+                                label: Text('task.status.done'.tr()),
+                                selected: task?.status == TaskStatus.done,
+                                onSelected: (value) {
+                                  HomeViewmodel.get(context).updateTask(
+                                    task!,
+                                    task!.copyWith(
+                                      status: value
+                                          ? TaskStatus.done
+                                          : TaskStatus.paused,
+                                    ),
+                                  );
+                                },
+                              ),
+                              SizedBox(width: AppMetrices.widthSpace2.w),
+                              FilledButton.icon(
+                                onPressed: () {
+                                  showDeleteTaskDialog(
+                                    context,
+                                    message: task!.title,
+                                    onConfirm: () {
+                                      HomeViewmodel.get(context)
+                                          .removeTask(task!);
+                                      showSnackBar(
+                                        context,
+                                        message: 'task.remove'.tr(),
+                                      );
+                                      Navigator.pop(context);
+                                    },
+                                  );
+                                },
+                                icon: const Icon(
+                                  Icons.delete_forever,
+                                  color: AppColors.hightlightColor,
+                                ),
+                                label: Text(
+                                  'core.delete'.tr(),
+                                ),
+                              ),
                             ],
                           ),
-                        ),
                       ],
                     ),
                   ),

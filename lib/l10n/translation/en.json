@@ -20,6 +20,8 @@
         "title_and_description_required": "Please provide a title and description for the task",
         "updated": "Task updated successfully",
         "remove": "Task removed successfully",
+        "pause": "Pause",
+        "start": "Start",
         "status": {
             "none": "Just Created",
             "inprogress": "Working...",

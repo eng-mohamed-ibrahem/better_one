@@ -71,7 +71,6 @@ class SettingViewModel extends Cubit<SettingViewModelState> {
     bool? isSearchByDate,
     bool? isSearchByStatus,
   }) async {
-    emit(release().copyWith(isSetSearchSettingsLoading: true));
     var result = await settingRepo.setSearchSettings(
       isSearchByTitle: isSearchByTitle,
       isSearchByBody: isSearchByBody,
@@ -82,7 +81,6 @@ class SettingViewModel extends Cubit<SettingViewModelState> {
       success: (value) {
         emit(
           release().copyWith(
-            isSetSearchSettingsLoading: false,
             isSetSearchSettingsCompleted: true,
             isSearchByTitle: isSearchByTitle ?? state.isSearchByTitle,
             isSearchByBody: isSearchByBody ?? state.isSearchByBody,
@@ -105,12 +103,10 @@ class SettingViewModel extends Cubit<SettingViewModelState> {
   }
 
   void getSearchSettings() async {
-    emit(release().copyWith(isGetSearchSettingsLoading: true));
     var result = await settingRepo.getSearchSettings();
     result.when(
       success: (searchSettings) {
         emit(release().copyWith(
-          isGetSearchSettingsLoading: false,
           isGetSearchSettingsCompleted: true,
           isSearchByTitle: searchSettings['isSearchByTitle']!,
           isSearchByBody: searchSettings['isSearchByBody']!,
