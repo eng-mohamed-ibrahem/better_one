@@ -43,13 +43,21 @@ Send notifications to other users when tasks are completed.
 
 ## App Images
 
-![alt text](https://drive.google.com/file/d/1vr4RdfEACEfUMHsHZuQ_JxbCtXjKm2aa/view?usp=drive_link "Empty Task")
-![alt text](https://drive.google.com/file/d/1v4Q-ZYzHstcXg9FxA8DpK-CDYEICrjuy/view?usp=drive_link "Create Task")
-![alt text](https://drive.google.com/file/d/1TitmfUc9BVMSMV9KkdDSJqHfTFCYHA8H/view?usp=drive_link "Delete Task")
-![alt text](https://drive.google.com/file/d/11Cbe_vHCSDmx_nNe1o3qOn_t7DgXsMwD/view?usp=drive_link "Home Screen")
-![alt text](https://drive.google.com/file/d/11IIIqLznEV1RWqk_D_oQrGtGGSsWY-U8/view?usp=drive_link "Record Time of Task")
-![alt text](https://drive.google.com/file/d/1H8-ef4hXBw6EjnH8lL5gYJgVV93h7lBY/view?usp=drive_link "App Setting")
-![alt text](https://drive.google.com/file/d/1IwxVG6r_CGskWsqzFcf37PM4BbMndyRL/view?usp=drive_link "Update Task")
+(<https://drive.google.com/file/d/1vr4RdfEACEfUMHsHZuQ_JxbCtXjKm2aa/view?usp=drive_link> "Empty Task")
+(<https://drive.google.com/file/d/1v4Q-ZYzHstcXg9FxA8DpK-CDYEICrjuy/view?usp=drive_link> "Create Task")
+(<https://drive.google.com/file/d/1TitmfUc9BVMSMV9KkdDSJqHfTFCYHA8H/view?usp=drive_link> "Delete Task")
+(<https://drive.google.com/file/d/11Cbe_vHCSDmx_nNe1o3qOn_t7DgXsMwD/view?usp=drive_link> "Home Screen")
+(<https://drive.google.com/file/d/11IIIqLznEV1RWqk_D_oQrGtGGSsWY-U8/view?usp=drive_link> "Record Time of Task")
+(<https://drive.google.com/file/d/1H8-ef4hXBw6EjnH8lL5gYJgVV93h7lBY/view?usp=drive_link> "App Setting")
+(<https://drive.google.com/file/d/1IwxVG6r_CGskWsqzFcf37PM4BbMndyRL/view?usp=drive_link> "Update Task")
+
+![Empty Task](https://drive.google.com/uc?export=view&id=1vr4RdfEACEfUMHsHZuQ_JxbCtXjKm2aa)
+![Create Task](https://drive.google.com/uc?export=view&id=1v4Q-ZYzHstcXg9FxA8DpK-CDYEICrjuy)
+![Delete Task](https://drive.google.com/uc?export=view&id=1TitmfUc9BVMSMV9KkdDSJqHfTFCYHA8H)
+![Home Screen](https://drive.google.com/uc?export=view&id=11Cbe_vHCSDmx_nNe1o3qOn_t7DgXsMwD)
+![Record Time of Task](https://drive.google.com/uc?export=view&id=1H8-ef4hXBw6EjnH8lL5gYJgVV93h7lBY)
+![App Setting](https://drive.google.com/uc?export=view&id=1IwxVG6r_CGskWsqzFcf37PM4BbMndyRL)
+![Update Task](https://drive.google.com/uc?export=view&id=1IwxVG6r_CGskWsqzFcf37PM4BbMndyRL)
 
 ## Next steps
 
