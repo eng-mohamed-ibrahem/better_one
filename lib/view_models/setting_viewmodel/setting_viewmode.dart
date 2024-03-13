@@ -1,3 +1,4 @@
+import 'package:better_one/core/utils/dependency_locator/dependency_injection.dart';
 import 'package:better_one/repositories/setting_repo/settings_interface.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -64,25 +65,38 @@ class SettingViewModel extends Cubit<SettingViewModelState> {
     );
   }
 
-  void toggleTheme() async {
-    emit(release().copyWith(isToggleThemeLoading: true));
-    var result = await settingsRepo.toggleTheme();
+  void searchOn({
+    bool? isSearchByTitle,
+    bool? isSearchByBody,
+    bool? isSearchByDate,
+    bool? isSearchByStatus,
+  }) async {
+    emit(release().copyWith(isSetSearchSettingsLoading: true));
+    var result = await settingRepo.setSearchSettings(
+      isSearchByTitle: isSearchByTitle,
+      isSearchByBody: isSearchByBody,
+      isSearchByDate: isSearchByDate,
+      isSearchByStatus: isSearchByStatus,
+    );
     result.when(
-      success: (theme) {
+      success: (value) {
         emit(
-          state.copyWith(
-            isToggleThemeLoading: false,
-            isToggleThemeCompleted: true,
-            currentTheme: theme,
+          release().copyWith(
+            isSetSearchSettingsLoading: false,
+            isSetSearchSettingsCompleted: true,
+            isSearchByTitle: isSearchByTitle ?? state.isSearchByTitle,
+            isSearchByBody: isSearchByBody ?? state.isSearchByBody,
+            isSearchByDate: isSearchByDate ?? state.isSearchByDate,
+            isSearchByStatus: isSearchByStatus ?? state.isSearchByStatus,
           ),
         );
       },
       failure: (failure) {
         emit(
-          state.copyWith(
-            isToggleThemeLoading: false,
-            isToggleThemeCompleted: false,
-            isToggleThemeFailed: true,
+          release().copyWith(
+            isSetSearchSettingsLoading: false,
+            isSetSearchSettingsCompleted: false,
+            isSetSearchSettingsFailed: true,
             errorMessage: failure.message,
           ),
         );
@@ -90,25 +104,26 @@ class SettingViewModel extends Cubit<SettingViewModelState> {
     );
   }
 
-  void getTheme() async {
-    emit(release().copyWith(isGetThemeLoading: true));
-    var result = await settingsRepo.getTheme();
+  void getSearchSettings() async {
+    emit(release().copyWith(isGetSearchSettingsLoading: true));
+    var result = await settingRepo.getSearchSettings();
     result.when(
-      success: (theme) {
-        emit(
-          state.copyWith(
-            isGetThemeLoading: false,
-            isGetThemeCompleted: true,
-            currentTheme: theme,
-          ),
-        );
+      success: (searchSettings) {
+        emit(release().copyWith(
+          isGetSearchSettingsLoading: false,
+          isGetSearchSettingsCompleted: true,
+          isSearchByTitle: searchSettings['isSearchByTitle']!,
+          isSearchByBody: searchSettings['isSearchByBody']!,
+          isSearchByDate: searchSettings['isSearchByDate']!,
+          isSearchByStatus: searchSettings['isSearchByStatus']!,
+        ));
       },
       failure: (failure) {
         emit(
-          state.copyWith(
-            isGetThemeLoading: false,
-            isGetThemeCompleted: false,
-            isGetThemeFailed: true,
+          release().copyWith(
+            isGetSearchSettingsLoading: false,
+            isGetSearchSettingsCompleted: false,
+            isGetSearchSettingsFailed: true,
             errorMessage: failure.message,
           ),
         );
@@ -127,14 +142,8 @@ class SettingViewModel extends Cubit<SettingViewModelState> {
       isChangeLanguageFailed: false,
       isGetLanguageLoading: false,
       isGetLanguageFailed: false,
-      isToggleThemeCompleted: false,
       isChangeLanguageCompleted: false,
       isGetLanguageCompleted: false,
-      isGetThemeCompleted: false,
-      isToggleThemeLoading: false,
-      isToggleThemeFailed: false,
-      isGetThemeLoading: false,
-      isGetThemeFailed: false,
       errorMessage: null,
     );
   }

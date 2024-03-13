@@ -13,7 +13,7 @@ class SettingRepo implements SettingsRepoInterface {
   }
 
   @override
-  Future<Result<ThemeData, Failure>> toggleTheme() {
+  Future<Result<ThemeMode, Failure>> toggleTheme() {
     return settingsSource.toggleTheme();
   }
 
@@ -23,7 +23,27 @@ class SettingRepo implements SettingsRepoInterface {
   }
 
   @override
-  Future<Result<ThemeData, Failure>> getTheme() {
+  Future<Result<ThemeMode, Failure>> getTheme() {
     return settingsSource.getTheme();
+  }
+
+  @override
+  Future<Result<bool, Failure>> setSearchSettings({
+    bool? isSearchByTitle,
+    bool? isSearchByBody,
+    bool? isSearchByDate,
+    bool? isSearchByStatus,
+  }) {
+    return settingsSource.setSearchSettings(
+      isSearchByTitle: isSearchByTitle,
+      isSearchByBody: isSearchByBody,
+      isSearchByDate: isSearchByDate,
+      isSearchByStatus: isSearchByStatus,
+    );
+  }
+
+  @override
+  Future<Result<Map<String, bool>, Failure>> getSearchSettings() {
+    return settingsSource.getSearchSettings();
   }
 }

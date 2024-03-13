@@ -13,4 +13,15 @@ abstract class SettingsCacheInterface {
 
   /// get current language
   Future<Result<String, CacheFailure>> getLanguage();
+
+  // set search settings
+  Future<Result<bool, CacheFailure>> setSearchSettings({
+    bool? isSearchByTitle,
+    bool? isSearchByBody,
+    bool? isSearchByDate,
+    bool? isSearchByStatus,
+  });
+
+  // get search settings
+  Future<Result<Map<String, bool>, CacheFailure>> getSearchSettings();
 }

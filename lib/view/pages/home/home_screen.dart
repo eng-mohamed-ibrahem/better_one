@@ -65,8 +65,11 @@ class _HomeScreenState extends State<HomeScreen> with RouteAware {
 
   @override
   void didPopNext() {
+    // to rebuild [home screen] after pop from [setting screen] to reflect changes as [language, theme, ... etc]
+    if (GenerateRouter.activeRoute == GenerateRouter.settingScreen) {
+      setState(() {});
+    }
     GenerateRouter.activeRoute = GenerateRouter.home;
-    
   }
 
   @override
@@ -77,7 +80,6 @@ class _HomeScreenState extends State<HomeScreen> with RouteAware {
 
   @override
   Widget build(BuildContext context) {
-    Logger().d('home screen');
     return Scaffold(
       body: Container(
         padding: EdgeInsets.only(top: 35.h, bottom: 5.h),
@@ -134,24 +136,26 @@ class _HomeScreenState extends State<HomeScreen> with RouteAware {
                                         state
                                             .isUpdateTotalEstimatedTimeCompleted
                                     ? FittedBox(
-                                      fit: BoxFit.scaleDown,
-                                      child: Material(
-                                        shape: RoundedRectangleBorder(
-                                          borderRadius:
-                                              BorderRadius.circular(
-                                            AppMetrices.borderRadius1.w,
+                                        fit: BoxFit.scaleDown,
+                                        child: Material(
+                                          shape: RoundedRectangleBorder(
+                                            borderRadius: BorderRadius.circular(
+                                              AppMetrices.borderRadius1.w,
+                                            ),
+                                          ),
+                                          color: AppColors.primaryColor,
+                                          child: Padding(
+                                            padding: const EdgeInsets.all(10),
+                                            child: DurationTime(
+                                              duration:
+                                                  state.totalEstimatedTime,
+                                              style: Theme.of(context)
+                                                  .textTheme
+                                                  .titleLarge,
+                                            ),
                                           ),
                                         ),
-                                        color: AppColors.primaryColor,
-                                        child: DurationTime(
-                                          duration:
-                                              state.totalEstimatedTime,
-                                          style: Theme.of(context)
-                                              .textTheme
-                                              .titleLarge,
-                                        ),
-                                      ),
-                                    )
+                                      )
                                     : const SizedBox(),
                               ),
                             ),

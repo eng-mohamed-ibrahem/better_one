@@ -1,6 +1,5 @@
 import 'package:better_one/core/constants/app_colors.dart';
 import 'package:better_one/core/constants/app_metrices.dart';
-import 'package:better_one/core/enum/task_status.dart';
 import 'package:better_one/model/task_model/task_model.dart';
 import 'package:better_one/view/widgets/duration_widget.dart';
 import 'package:easy_localization/easy_localization.dart';
@@ -87,22 +86,6 @@ class CardTask extends StatelessWidget {
                       "task.status.${task.status.name}".tr(),
                       style: Theme.of(context).textTheme.bodySmall,
                     ),
-                    SizedBox(
-                      width: 10.w,
-                    ),
-                    task.status == TaskStatus.done
-                        ? const Icon(
-                            Icons.celebration_rounded,
-                            color: AppColors.hightlightColor,
-                          )
-                        : task.status == TaskStatus.inprogress ||
-                                task.status == TaskStatus.paused
-                            ? const Icon(
-                                Icons.monitor_heart_outlined,
-                              )
-                            : const Icon(
-                                Icons.not_interested_rounded,
-                              ),
                     const Spacer(),
                     DurationTime(duration: task.elapsedTime),
                   ],

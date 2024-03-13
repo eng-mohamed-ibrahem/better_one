@@ -25,15 +25,20 @@ mixin _$SettingViewModelState {
   bool get isGetLanguageCompleted => throw _privateConstructorUsedError;
   bool get isGetLanguageFailed => throw _privateConstructorUsedError;
   Locale? get currentLanguage =>
-      throw _privateConstructorUsedError; //* toggle theme
-  bool get isToggleThemeLoading => throw _privateConstructorUsedError;
-  bool get isToggleThemeCompleted => throw _privateConstructorUsedError;
-  bool get isToggleThemeFailed =>
-      throw _privateConstructorUsedError; //* get current theme
-  bool get isGetThemeLoading => throw _privateConstructorUsedError;
-  bool get isGetThemeCompleted => throw _privateConstructorUsedError;
-  bool get isGetThemeFailed => throw _privateConstructorUsedError;
-  ThemeData? get currentTheme => throw _privateConstructorUsedError;
+      throw _privateConstructorUsedError; //* search settings
+  bool get isSearchByTitle => throw _privateConstructorUsedError;
+  bool get isSearchByBody => throw _privateConstructorUsedError;
+  bool get isSearchByDate => throw _privateConstructorUsedError;
+  bool get isSearchByStatus =>
+      throw _privateConstructorUsedError; //* set search settings
+  bool get isSetSearchSettingsLoading => throw _privateConstructorUsedError;
+  bool get isSetSearchSettingsCompleted => throw _privateConstructorUsedError;
+  bool get isSetSearchSettingsFailed =>
+      throw _privateConstructorUsedError; //* get search settings
+  bool get isGetSearchSettingsLoading => throw _privateConstructorUsedError;
+  bool get isGetSearchSettingsCompleted => throw _privateConstructorUsedError;
+  bool get isGetSearchSettingsFailed =>
+      throw _privateConstructorUsedError; //* error message
   String? get errorMessage =>
       throw _privateConstructorUsedError; // * current tapped item
   int get currentTappedItemIndex => throw _privateConstructorUsedError;
@@ -58,13 +63,16 @@ abstract class $SettingViewModelStateCopyWith<$Res> {
       bool isGetLanguageCompleted,
       bool isGetLanguageFailed,
       Locale? currentLanguage,
-      bool isToggleThemeLoading,
-      bool isToggleThemeCompleted,
-      bool isToggleThemeFailed,
-      bool isGetThemeLoading,
-      bool isGetThemeCompleted,
-      bool isGetThemeFailed,
-      ThemeData? currentTheme,
+      bool isSearchByTitle,
+      bool isSearchByBody,
+      bool isSearchByDate,
+      bool isSearchByStatus,
+      bool isSetSearchSettingsLoading,
+      bool isSetSearchSettingsCompleted,
+      bool isSetSearchSettingsFailed,
+      bool isGetSearchSettingsLoading,
+      bool isGetSearchSettingsCompleted,
+      bool isGetSearchSettingsFailed,
       String? errorMessage,
       int currentTappedItemIndex});
 }
@@ -91,13 +99,16 @@ class _$SettingViewModelStateCopyWithImpl<$Res,
     Object? isGetLanguageCompleted = null,
     Object? isGetLanguageFailed = null,
     Object? currentLanguage = freezed,
-    Object? isToggleThemeLoading = null,
-    Object? isToggleThemeCompleted = null,
-    Object? isToggleThemeFailed = null,
-    Object? isGetThemeLoading = null,
-    Object? isGetThemeCompleted = null,
-    Object? isGetThemeFailed = null,
-    Object? currentTheme = freezed,
+    Object? isSearchByTitle = null,
+    Object? isSearchByBody = null,
+    Object? isSearchByDate = null,
+    Object? isSearchByStatus = null,
+    Object? isSetSearchSettingsLoading = null,
+    Object? isSetSearchSettingsCompleted = null,
+    Object? isSetSearchSettingsFailed = null,
+    Object? isGetSearchSettingsLoading = null,
+    Object? isGetSearchSettingsCompleted = null,
+    Object? isGetSearchSettingsFailed = null,
     Object? errorMessage = freezed,
     Object? currentTappedItemIndex = null,
   }) {
@@ -134,34 +145,46 @@ class _$SettingViewModelStateCopyWithImpl<$Res,
           ? _value.currentLanguage
           : currentLanguage // ignore: cast_nullable_to_non_nullable
               as Locale?,
-      isToggleThemeLoading: null == isToggleThemeLoading
-          ? _value.isToggleThemeLoading
-          : isToggleThemeLoading // ignore: cast_nullable_to_non_nullable
+      isSearchByTitle: null == isSearchByTitle
+          ? _value.isSearchByTitle
+          : isSearchByTitle // ignore: cast_nullable_to_non_nullable
               as bool,
-      isToggleThemeCompleted: null == isToggleThemeCompleted
-          ? _value.isToggleThemeCompleted
-          : isToggleThemeCompleted // ignore: cast_nullable_to_non_nullable
+      isSearchByBody: null == isSearchByBody
+          ? _value.isSearchByBody
+          : isSearchByBody // ignore: cast_nullable_to_non_nullable
               as bool,
-      isToggleThemeFailed: null == isToggleThemeFailed
-          ? _value.isToggleThemeFailed
-          : isToggleThemeFailed // ignore: cast_nullable_to_non_nullable
+      isSearchByDate: null == isSearchByDate
+          ? _value.isSearchByDate
+          : isSearchByDate // ignore: cast_nullable_to_non_nullable
               as bool,
-      isGetThemeLoading: null == isGetThemeLoading
-          ? _value.isGetThemeLoading
-          : isGetThemeLoading // ignore: cast_nullable_to_non_nullable
+      isSearchByStatus: null == isSearchByStatus
+          ? _value.isSearchByStatus
+          : isSearchByStatus // ignore: cast_nullable_to_non_nullable
               as bool,
-      isGetThemeCompleted: null == isGetThemeCompleted
-          ? _value.isGetThemeCompleted
-          : isGetThemeCompleted // ignore: cast_nullable_to_non_nullable
+      isSetSearchSettingsLoading: null == isSetSearchSettingsLoading
+          ? _value.isSetSearchSettingsLoading
+          : isSetSearchSettingsLoading // ignore: cast_nullable_to_non_nullable
               as bool,
-      isGetThemeFailed: null == isGetThemeFailed
-          ? _value.isGetThemeFailed
-          : isGetThemeFailed // ignore: cast_nullable_to_non_nullable
+      isSetSearchSettingsCompleted: null == isSetSearchSettingsCompleted
+          ? _value.isSetSearchSettingsCompleted
+          : isSetSearchSettingsCompleted // ignore: cast_nullable_to_non_nullable
               as bool,
-      currentTheme: freezed == currentTheme
-          ? _value.currentTheme
-          : currentTheme // ignore: cast_nullable_to_non_nullable
-              as ThemeData?,
+      isSetSearchSettingsFailed: null == isSetSearchSettingsFailed
+          ? _value.isSetSearchSettingsFailed
+          : isSetSearchSettingsFailed // ignore: cast_nullable_to_non_nullable
+              as bool,
+      isGetSearchSettingsLoading: null == isGetSearchSettingsLoading
+          ? _value.isGetSearchSettingsLoading
+          : isGetSearchSettingsLoading // ignore: cast_nullable_to_non_nullable
+              as bool,
+      isGetSearchSettingsCompleted: null == isGetSearchSettingsCompleted
+          ? _value.isGetSearchSettingsCompleted
+          : isGetSearchSettingsCompleted // ignore: cast_nullable_to_non_nullable
+              as bool,
+      isGetSearchSettingsFailed: null == isGetSearchSettingsFailed
+          ? _value.isGetSearchSettingsFailed
+          : isGetSearchSettingsFailed // ignore: cast_nullable_to_non_nullable
+              as bool,
       errorMessage: freezed == errorMessage
           ? _value.errorMessage
           : errorMessage // ignore: cast_nullable_to_non_nullable
@@ -192,13 +215,16 @@ abstract class _$$SettingViewModelStateImplCopyWith<$Res>
       bool isGetLanguageCompleted,
       bool isGetLanguageFailed,
       Locale? currentLanguage,
-      bool isToggleThemeLoading,
-      bool isToggleThemeCompleted,
-      bool isToggleThemeFailed,
-      bool isGetThemeLoading,
-      bool isGetThemeCompleted,
-      bool isGetThemeFailed,
-      ThemeData? currentTheme,
+      bool isSearchByTitle,
+      bool isSearchByBody,
+      bool isSearchByDate,
+      bool isSearchByStatus,
+      bool isSetSearchSettingsLoading,
+      bool isSetSearchSettingsCompleted,
+      bool isSetSearchSettingsFailed,
+      bool isGetSearchSettingsLoading,
+      bool isGetSearchSettingsCompleted,
+      bool isGetSearchSettingsFailed,
       String? errorMessage,
       int currentTappedItemIndex});
 }
@@ -223,13 +249,16 @@ class __$$SettingViewModelStateImplCopyWithImpl<$Res>
     Object? isGetLanguageCompleted = null,
     Object? isGetLanguageFailed = null,
     Object? currentLanguage = freezed,
-    Object? isToggleThemeLoading = null,
-    Object? isToggleThemeCompleted = null,
-    Object? isToggleThemeFailed = null,
-    Object? isGetThemeLoading = null,
-    Object? isGetThemeCompleted = null,
-    Object? isGetThemeFailed = null,
-    Object? currentTheme = freezed,
+    Object? isSearchByTitle = null,
+    Object? isSearchByBody = null,
+    Object? isSearchByDate = null,
+    Object? isSearchByStatus = null,
+    Object? isSetSearchSettingsLoading = null,
+    Object? isSetSearchSettingsCompleted = null,
+    Object? isSetSearchSettingsFailed = null,
+    Object? isGetSearchSettingsLoading = null,
+    Object? isGetSearchSettingsCompleted = null,
+    Object? isGetSearchSettingsFailed = null,
     Object? errorMessage = freezed,
     Object? currentTappedItemIndex = null,
   }) {
@@ -266,34 +295,46 @@ class __$$SettingViewModelStateImplCopyWithImpl<$Res>
           ? _value.currentLanguage
           : currentLanguage // ignore: cast_nullable_to_non_nullable
               as Locale?,
-      isToggleThemeLoading: null == isToggleThemeLoading
-          ? _value.isToggleThemeLoading
-          : isToggleThemeLoading // ignore: cast_nullable_to_non_nullable
+      isSearchByTitle: null == isSearchByTitle
+          ? _value.isSearchByTitle
+          : isSearchByTitle // ignore: cast_nullable_to_non_nullable
               as bool,
-      isToggleThemeCompleted: null == isToggleThemeCompleted
-          ? _value.isToggleThemeCompleted
-          : isToggleThemeCompleted // ignore: cast_nullable_to_non_nullable
+      isSearchByBody: null == isSearchByBody
+          ? _value.isSearchByBody
+          : isSearchByBody // ignore: cast_nullable_to_non_nullable
               as bool,
-      isToggleThemeFailed: null == isToggleThemeFailed
-          ? _value.isToggleThemeFailed
-          : isToggleThemeFailed // ignore: cast_nullable_to_non_nullable
+      isSearchByDate: null == isSearchByDate
+          ? _value.isSearchByDate
+          : isSearchByDate // ignore: cast_nullable_to_non_nullable
               as bool,
-      isGetThemeLoading: null == isGetThemeLoading
-          ? _value.isGetThemeLoading
-          : isGetThemeLoading // ignore: cast_nullable_to_non_nullable
+      isSearchByStatus: null == isSearchByStatus
+          ? _value.isSearchByStatus
+          : isSearchByStatus // ignore: cast_nullable_to_non_nullable
               as bool,
-      isGetThemeCompleted: null == isGetThemeCompleted
-          ? _value.isGetThemeCompleted
-          : isGetThemeCompleted // ignore: cast_nullable_to_non_nullable
+      isSetSearchSettingsLoading: null == isSetSearchSettingsLoading
+          ? _value.isSetSearchSettingsLoading
+          : isSetSearchSettingsLoading // ignore: cast_nullable_to_non_nullable
               as bool,
-      isGetThemeFailed: null == isGetThemeFailed
-          ? _value.isGetThemeFailed
-          : isGetThemeFailed // ignore: cast_nullable_to_non_nullable
+      isSetSearchSettingsCompleted: null == isSetSearchSettingsCompleted
+          ? _value.isSetSearchSettingsCompleted
+          : isSetSearchSettingsCompleted // ignore: cast_nullable_to_non_nullable
               as bool,
-      currentTheme: freezed == currentTheme
-          ? _value.currentTheme
-          : currentTheme // ignore: cast_nullable_to_non_nullable
-              as ThemeData?,
+      isSetSearchSettingsFailed: null == isSetSearchSettingsFailed
+          ? _value.isSetSearchSettingsFailed
+          : isSetSearchSettingsFailed // ignore: cast_nullable_to_non_nullable
+              as bool,
+      isGetSearchSettingsLoading: null == isGetSearchSettingsLoading
+          ? _value.isGetSearchSettingsLoading
+          : isGetSearchSettingsLoading // ignore: cast_nullable_to_non_nullable
+              as bool,
+      isGetSearchSettingsCompleted: null == isGetSearchSettingsCompleted
+          ? _value.isGetSearchSettingsCompleted
+          : isGetSearchSettingsCompleted // ignore: cast_nullable_to_non_nullable
+              as bool,
+      isGetSearchSettingsFailed: null == isGetSearchSettingsFailed
+          ? _value.isGetSearchSettingsFailed
+          : isGetSearchSettingsFailed // ignore: cast_nullable_to_non_nullable
+              as bool,
       errorMessage: freezed == errorMessage
           ? _value.errorMessage
           : errorMessage // ignore: cast_nullable_to_non_nullable
@@ -318,13 +359,16 @@ class _$SettingViewModelStateImpl implements _SettingViewModelState {
       this.isGetLanguageCompleted = false,
       this.isGetLanguageFailed = false,
       this.currentLanguage = null,
-      this.isToggleThemeLoading = false,
-      this.isToggleThemeCompleted = false,
-      this.isToggleThemeFailed = false,
-      this.isGetThemeLoading = false,
-      this.isGetThemeCompleted = false,
-      this.isGetThemeFailed = false,
-      this.currentTheme = null,
+      this.isSearchByTitle = true,
+      this.isSearchByBody = false,
+      this.isSearchByDate = false,
+      this.isSearchByStatus = false,
+      this.isSetSearchSettingsLoading = false,
+      this.isSetSearchSettingsCompleted = false,
+      this.isSetSearchSettingsFailed = false,
+      this.isGetSearchSettingsLoading = false,
+      this.isGetSearchSettingsCompleted = false,
+      this.isGetSearchSettingsFailed = false,
       this.errorMessage = null,
       this.currentTappedItemIndex = -1});
 
@@ -354,29 +398,40 @@ class _$SettingViewModelStateImpl implements _SettingViewModelState {
   @override
   @JsonKey()
   final Locale? currentLanguage;
-//* toggle theme
+//* search settings
   @override
   @JsonKey()
-  final bool isToggleThemeLoading;
+  final bool isSearchByTitle;
   @override
   @JsonKey()
-  final bool isToggleThemeCompleted;
+  final bool isSearchByBody;
   @override
   @JsonKey()
-  final bool isToggleThemeFailed;
-//* get current theme
+  final bool isSearchByDate;
   @override
   @JsonKey()
-  final bool isGetThemeLoading;
+  final bool isSearchByStatus;
+//* set search settings
   @override
   @JsonKey()
-  final bool isGetThemeCompleted;
+  final bool isSetSearchSettingsLoading;
   @override
   @JsonKey()
-  final bool isGetThemeFailed;
+  final bool isSetSearchSettingsCompleted;
   @override
   @JsonKey()
-  final ThemeData? currentTheme;
+  final bool isSetSearchSettingsFailed;
+//* get search settings
+  @override
+  @JsonKey()
+  final bool isGetSearchSettingsLoading;
+  @override
+  @JsonKey()
+  final bool isGetSearchSettingsCompleted;
+  @override
+  @JsonKey()
+  final bool isGetSearchSettingsFailed;
+//* error message
   @override
   @JsonKey()
   final String? errorMessage;
@@ -387,7 +442,7 @@ class _$SettingViewModelStateImpl implements _SettingViewModelState {
 
   @override
   String toString() {
-    return 'SettingViewModelState(isInitial: $isInitial, isChangeLanguageLoading: $isChangeLanguageLoading, isChangeLanguageCompleted: $isChangeLanguageCompleted, isChangeLanguageFailed: $isChangeLanguageFailed, isGetLanguageLoading: $isGetLanguageLoading, isGetLanguageCompleted: $isGetLanguageCompleted, isGetLanguageFailed: $isGetLanguageFailed, currentLanguage: $currentLanguage, isToggleThemeLoading: $isToggleThemeLoading, isToggleThemeCompleted: $isToggleThemeCompleted, isToggleThemeFailed: $isToggleThemeFailed, isGetThemeLoading: $isGetThemeLoading, isGetThemeCompleted: $isGetThemeCompleted, isGetThemeFailed: $isGetThemeFailed, currentTheme: $currentTheme, errorMessage: $errorMessage, currentTappedItemIndex: $currentTappedItemIndex)';
+    return 'SettingViewModelState(isInitial: $isInitial, isChangeLanguageLoading: $isChangeLanguageLoading, isChangeLanguageCompleted: $isChangeLanguageCompleted, isChangeLanguageFailed: $isChangeLanguageFailed, isGetLanguageLoading: $isGetLanguageLoading, isGetLanguageCompleted: $isGetLanguageCompleted, isGetLanguageFailed: $isGetLanguageFailed, currentLanguage: $currentLanguage, isSearchByTitle: $isSearchByTitle, isSearchByBody: $isSearchByBody, isSearchByDate: $isSearchByDate, isSearchByStatus: $isSearchByStatus, isSetSearchSettingsLoading: $isSetSearchSettingsLoading, isSetSearchSettingsCompleted: $isSetSearchSettingsCompleted, isSetSearchSettingsFailed: $isSetSearchSettingsFailed, isGetSearchSettingsLoading: $isGetSearchSettingsLoading, isGetSearchSettingsCompleted: $isGetSearchSettingsCompleted, isGetSearchSettingsFailed: $isGetSearchSettingsFailed, errorMessage: $errorMessage, currentTappedItemIndex: $currentTappedItemIndex)';
   }
 
   @override
@@ -400,8 +455,7 @@ class _$SettingViewModelStateImpl implements _SettingViewModelState {
             (identical(
                     other.isChangeLanguageLoading, isChangeLanguageLoading) ||
                 other.isChangeLanguageLoading == isChangeLanguageLoading) &&
-            (identical(other.isChangeLanguageCompleted,
-                    isChangeLanguageCompleted) ||
+            (identical(other.isChangeLanguageCompleted, isChangeLanguageCompleted) ||
                 other.isChangeLanguageCompleted == isChangeLanguageCompleted) &&
             (identical(other.isChangeLanguageFailed, isChangeLanguageFailed) ||
                 other.isChangeLanguageFailed == isChangeLanguageFailed) &&
@@ -413,20 +467,30 @@ class _$SettingViewModelStateImpl implements _SettingViewModelState {
                 other.isGetLanguageFailed == isGetLanguageFailed) &&
             (identical(other.currentLanguage, currentLanguage) ||
                 other.currentLanguage == currentLanguage) &&
-            (identical(other.isToggleThemeLoading, isToggleThemeLoading) ||
-                other.isToggleThemeLoading == isToggleThemeLoading) &&
-            (identical(other.isToggleThemeCompleted, isToggleThemeCompleted) ||
-                other.isToggleThemeCompleted == isToggleThemeCompleted) &&
-            (identical(other.isToggleThemeFailed, isToggleThemeFailed) ||
-                other.isToggleThemeFailed == isToggleThemeFailed) &&
-            (identical(other.isGetThemeLoading, isGetThemeLoading) ||
-                other.isGetThemeLoading == isGetThemeLoading) &&
-            (identical(other.isGetThemeCompleted, isGetThemeCompleted) ||
-                other.isGetThemeCompleted == isGetThemeCompleted) &&
-            (identical(other.isGetThemeFailed, isGetThemeFailed) ||
-                other.isGetThemeFailed == isGetThemeFailed) &&
-            (identical(other.currentTheme, currentTheme) ||
-                other.currentTheme == currentTheme) &&
+            (identical(other.isSearchByTitle, isSearchByTitle) ||
+                other.isSearchByTitle == isSearchByTitle) &&
+            (identical(other.isSearchByBody, isSearchByBody) ||
+                other.isSearchByBody == isSearchByBody) &&
+            (identical(other.isSearchByDate, isSearchByDate) ||
+                other.isSearchByDate == isSearchByDate) &&
+            (identical(other.isSearchByStatus, isSearchByStatus) ||
+                other.isSearchByStatus == isSearchByStatus) &&
+            (identical(other.isSetSearchSettingsLoading, isSetSearchSettingsLoading) ||
+                other.isSetSearchSettingsLoading ==
+                    isSetSearchSettingsLoading) &&
+            (identical(other.isSetSearchSettingsCompleted, isSetSearchSettingsCompleted) ||
+                other.isSetSearchSettingsCompleted ==
+                    isSetSearchSettingsCompleted) &&
+            (identical(other.isSetSearchSettingsFailed, isSetSearchSettingsFailed) ||
+                other.isSetSearchSettingsFailed == isSetSearchSettingsFailed) &&
+            (identical(other.isGetSearchSettingsLoading, isGetSearchSettingsLoading) ||
+                other.isGetSearchSettingsLoading ==
+                    isGetSearchSettingsLoading) &&
+            (identical(other.isGetSearchSettingsCompleted, isGetSearchSettingsCompleted) ||
+                other.isGetSearchSettingsCompleted ==
+                    isGetSearchSettingsCompleted) &&
+            (identical(other.isGetSearchSettingsFailed, isGetSearchSettingsFailed) ||
+                other.isGetSearchSettingsFailed == isGetSearchSettingsFailed) &&
             (identical(other.errorMessage, errorMessage) ||
                 other.errorMessage == errorMessage) &&
             (identical(other.currentTappedItemIndex, currentTappedItemIndex) ||
@@ -434,25 +498,29 @@ class _$SettingViewModelStateImpl implements _SettingViewModelState {
   }
 
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      isInitial,
-      isChangeLanguageLoading,
-      isChangeLanguageCompleted,
-      isChangeLanguageFailed,
-      isGetLanguageLoading,
-      isGetLanguageCompleted,
-      isGetLanguageFailed,
-      currentLanguage,
-      isToggleThemeLoading,
-      isToggleThemeCompleted,
-      isToggleThemeFailed,
-      isGetThemeLoading,
-      isGetThemeCompleted,
-      isGetThemeFailed,
-      currentTheme,
-      errorMessage,
-      currentTappedItemIndex);
+  int get hashCode => Object.hashAll([
+        runtimeType,
+        isInitial,
+        isChangeLanguageLoading,
+        isChangeLanguageCompleted,
+        isChangeLanguageFailed,
+        isGetLanguageLoading,
+        isGetLanguageCompleted,
+        isGetLanguageFailed,
+        currentLanguage,
+        isSearchByTitle,
+        isSearchByBody,
+        isSearchByDate,
+        isSearchByStatus,
+        isSetSearchSettingsLoading,
+        isSetSearchSettingsCompleted,
+        isSetSearchSettingsFailed,
+        isGetSearchSettingsLoading,
+        isGetSearchSettingsCompleted,
+        isGetSearchSettingsFailed,
+        errorMessage,
+        currentTappedItemIndex
+      ]);
 
   @JsonKey(ignore: true)
   @override
@@ -472,13 +540,16 @@ abstract class _SettingViewModelState implements SettingViewModelState {
       final bool isGetLanguageCompleted,
       final bool isGetLanguageFailed,
       final Locale? currentLanguage,
-      final bool isToggleThemeLoading,
-      final bool isToggleThemeCompleted,
-      final bool isToggleThemeFailed,
-      final bool isGetThemeLoading,
-      final bool isGetThemeCompleted,
-      final bool isGetThemeFailed,
-      final ThemeData? currentTheme,
+      final bool isSearchByTitle,
+      final bool isSearchByBody,
+      final bool isSearchByDate,
+      final bool isSearchByStatus,
+      final bool isSetSearchSettingsLoading,
+      final bool isSetSearchSettingsCompleted,
+      final bool isSetSearchSettingsFailed,
+      final bool isGetSearchSettingsLoading,
+      final bool isGetSearchSettingsCompleted,
+      final bool isGetSearchSettingsFailed,
       final String? errorMessage,
       final int currentTappedItemIndex}) = _$SettingViewModelStateImpl;
 
@@ -498,21 +569,27 @@ abstract class _SettingViewModelState implements SettingViewModelState {
   bool get isGetLanguageFailed;
   @override
   Locale? get currentLanguage;
-  @override //* toggle theme
-  bool get isToggleThemeLoading;
+  @override //* search settings
+  bool get isSearchByTitle;
   @override
-  bool get isToggleThemeCompleted;
+  bool get isSearchByBody;
   @override
-  bool get isToggleThemeFailed;
-  @override //* get current theme
-  bool get isGetThemeLoading;
+  bool get isSearchByDate;
   @override
-  bool get isGetThemeCompleted;
+  bool get isSearchByStatus;
+  @override //* set search settings
+  bool get isSetSearchSettingsLoading;
   @override
-  bool get isGetThemeFailed;
+  bool get isSetSearchSettingsCompleted;
   @override
-  ThemeData? get currentTheme;
+  bool get isSetSearchSettingsFailed;
+  @override //* get search settings
+  bool get isGetSearchSettingsLoading;
   @override
+  bool get isGetSearchSettingsCompleted;
+  @override
+  bool get isGetSearchSettingsFailed;
+  @override //* error message
   String? get errorMessage;
   @override // * current tapped item
   int get currentTappedItemIndex;

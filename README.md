@@ -46,12 +46,9 @@ Send notifications to other users when tasks are completed.
   * Search for tasks by status
   * Search for tasks by date
   * Search for tasks by time
-  * Search for tasks by priority
   * Search for tasks by title or description
 * Settings for theme:
-  * Change to light, dark or system theme
-* Settings for language:
-  * Change to English or Arabic
+  * Change to light, dark theme
 * Login using Firebase:
   * Login with Google account
   * Save user data in Cloud Firestore

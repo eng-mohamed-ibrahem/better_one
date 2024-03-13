@@ -1,14 +1,10 @@
 import 'package:flutter/material.dart';
 
 class SliverHeaderDelegate extends SliverPersistentHeaderDelegate {
-  final String? header;
-  final TextStyle? headerStyle;
   final double maxHeight;
   final double minHeight;
   final Widget child;
   const SliverHeaderDelegate({
-    this.header,
-    this.headerStyle,
     required this.maxHeight,
     required this.minHeight,
     required this.child,
@@ -28,6 +24,7 @@ class SliverHeaderDelegate extends SliverPersistentHeaderDelegate {
 
   @override
   bool shouldRebuild(covariant SliverPersistentHeaderDelegate oldDelegate) {
-    return false;
+    // rebuild every time is displayed on [HomeScreen]
+    return true;
   }
 }

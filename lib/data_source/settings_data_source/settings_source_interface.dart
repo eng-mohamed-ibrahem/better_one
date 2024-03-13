@@ -10,8 +10,19 @@ abstract class SettingsSource {
   Future<Result<Locale, Failure>> getLanguage();
 
   // toggle theme between light and dark and return new theme
-  Future<Result<ThemeData, Failure>> toggleTheme();
+  Future<Result<ThemeMode, Failure>> toggleTheme();
 
   // get current theme
-  Future<Result<ThemeData, Failure>> getTheme();
+  Future<Result<ThemeMode, Failure>> getTheme();
+
+  // set search settings
+  Future<Result<bool, Failure>> setSearchSettings({
+     bool? isSearchByTitle,
+     bool? isSearchByBody,
+     bool? isSearchByDate,
+     bool? isSearchByStatus,
+  });
+
+  // get search settings
+  Future<Result<Map<String, bool>, Failure>> getSearchSettings();
 }

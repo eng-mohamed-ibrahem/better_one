@@ -20,7 +20,19 @@ class AppThemes {
     dialogTheme: dialogTheme(),
     listTileTheme: listTileTheme(),
     dropdownMenuTheme: dropdownMenuTheme(),
+    chipTheme: chipTheme(),
   );
+
+  static ChipThemeData chipTheme() {
+    return ChipThemeData(
+      backgroundColor: AppColors.primaryColor,
+      selectedColor: AppColors.primaryColor,
+      labelStyle: textTheme().bodySmall,
+      padding: EdgeInsets.zero,
+      showCheckmark: true,
+      checkmarkColor: AppColors.hightlightColor,
+    );
+  }
 
   static IconThemeData iconTheme() =>
       const IconThemeData(color: AppColors.textButtonColor, size: 25);
@@ -167,11 +179,105 @@ class AppThemes {
   }
 
   static ThemeData lightTheme = ThemeData(
-    colorScheme: const ColorScheme.light(),
+    primaryColor: AppColors.lightPrimaryColor,
+    secondaryHeaderColor: AppColors.lightSecondColor,
+    scaffoldBackgroundColor: AppColors.lightPrimaryColor,
+    colorScheme: ColorScheme.fromSwatch()
+        .copyWith(secondary: AppColors.lightPrimaryColor),
     fontFamily: 'Tajawal',
-    buttonTheme: buttonTheme(),
-    iconTheme: iconTheme(),
-    iconButtonTheme: iconButtonTheme(),
-    dropdownMenuTheme: dropdownMenuTheme(),
+    buttonTheme: buttonTheme().copyWith(
+      buttonColor: AppColors.lightSecondColor,
+    ),
+    appBarTheme: appBarTheme().copyWith(
+      backgroundColor: AppColors.lightPrimaryColor,
+    ),
+    textTheme: textTheme().copyWith(
+      titleLarge: textTheme().titleLarge!.copyWith(
+            color: AppColors.lightWhite,
+          ),
+      titleSmall: textTheme().titleSmall!.copyWith(
+            color: AppColors.lightWhite,
+          ),
+      titleMedium: textTheme().titleMedium!.copyWith(
+            color: AppColors.lightWhite,
+          ),
+      bodyMedium: textTheme().bodyMedium!.copyWith(
+            color: AppColors.lightWhite,
+          ),
+      bodySmall: textTheme().bodySmall!.copyWith(
+            color: AppColors.lightWhite,
+          ),
+    ),
+    textSelectionTheme: textFieldSelectionTheme().copyWith(
+      cursorColor: AppColors.lightTextButtonColor,
+    ),
+    iconTheme: iconTheme().copyWith(
+      color: AppColors.lightTextButtonColor,
+    ),
+    iconButtonTheme: const IconButtonThemeData(
+      style: ButtonStyle(
+        iconColor: MaterialStatePropertyAll(AppColors.lightWhite),
+        backgroundColor: MaterialStatePropertyAll(AppColors.lightSecondColor),
+      ),
+    ),
+    filledButtonTheme: FilledButtonThemeData(
+      style: ButtonStyle(
+        backgroundColor: MaterialStateProperty.all(AppColors.lightSecondColor),
+        textStyle: const MaterialStatePropertyAll<TextStyle>(
+          TextStyle(
+            color: AppColors.lightTextButtonColor,
+          ),
+        ),
+      ),
+    ),
+    dialogTheme: dialogTheme().copyWith(
+      backgroundColor: AppColors.lightPrimaryColor,
+      titleTextStyle: textTheme().titleLarge!.copyWith(
+            color: AppColors.lightWhite,
+          ),
+      contentTextStyle: textTheme().bodyMedium!.copyWith(
+            color: AppColors.lightWhite,
+          ),
+    ),
+    listTileTheme: listTileTheme().copyWith(
+      iconColor: AppColors.lightTextButtonColor,
+      textColor: AppColors.lightWhite,
+      tileColor: AppColors.lightPrimaryColor,
+      contentPadding: const EdgeInsets.all(AppMetrices.widthSpace),
+      style: ListTileStyle.drawer,
+    ),
+    dropdownMenuTheme: dropdownMenuTheme().copyWith(
+      menuStyle: const MenuStyle(
+        backgroundColor: MaterialStatePropertyAll(AppColors.lightPrimaryColor),
+        surfaceTintColor: MaterialStatePropertyAll(AppColors.lightPrimaryColor),
+      ),
+      textStyle: const TextStyle(
+        color: AppColors.lightWhite,
+      ),
+      inputDecorationTheme: const InputDecorationTheme(
+        fillColor: AppColors.lightPrimaryColor,
+        filled: true,
+        border: InputBorder.none,
+        labelStyle: TextStyle(color: AppColors.lightTextButtonColor),
+        contentPadding: EdgeInsets.all(AppMetrices.widthSpace),
+        isDense: true,
+        iconColor: AppColors.lightTextButtonColor,
+        suffixIconColor: AppColors.lightTextButtonColor,
+        focusedBorder: OutlineInputBorder(
+            borderSide: BorderSide(
+          color: AppColors.lightTextButtonColor,
+        )),
+        constraints: BoxConstraints(
+          maxHeight: 35,
+        ),
+        hintStyle: TextStyle(color: AppColors.lightTextButtonColor),
+        enabledBorder: OutlineInputBorder(
+          borderSide: BorderSide(
+            color: AppColors.lightTextButtonColor,
+          ),
+        ),
+      ),
+    ),
+    chipTheme: chipTheme(),
   );
 }

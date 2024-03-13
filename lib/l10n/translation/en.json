@@ -45,9 +45,16 @@
         },
         "search": {
             "title": "Search",
-            "subtitle": "Determine how search results will be on"
+            "subtitle": "Determine how search will be on",
+            "on": {
+                "title": "Search on Title",
+                "body": "Search on Body",
+                "date": "Search on Date",
+                "time": "Search on Time",
+                "status": "Search on Status"
+            }
         },
-        "account":{
+        "account": {
             "title": "Account",
             "subtitle": "Manage your account"
         }

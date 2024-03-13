@@ -25,18 +25,21 @@ class LocalSettingsDataSource implements SettingsSource {
   }
 
   @override
-  Future<Result<ThemeData, Failure>> toggleTheme() async {
+  Future<Result<ThemeMode, Failure>> toggleTheme() async {
     try {
       var result = await settingsCache.toggleTheme();
-      return result.when(success: (currentTheme) {
-        return Result.success(
-          data: currentTheme == CacheKeys.lightTheme
-              ? ThemeData.light()
-              : ThemeData.dark(),
-        );
-      }, failure: (error) {
-        return Result.failure(error: error);
-      });
+      return result.when(
+        success: (currentTheme) {
+          return Result.success(
+            data: currentTheme == CacheKeys.lightTheme
+                ? ThemeMode.light
+                : ThemeMode.dark,
+          );
+        },
+        failure: (error) {
+          return Result.failure(error: error);
+        },
+      );
     } catch (e) {
       return Result.failure(error: OtherFailure(message: e.toString()));
     }
@@ -60,21 +63,48 @@ class LocalSettingsDataSource implements SettingsSource {
   }
 
   @override
-  Future<Result<ThemeData, Failure>> getTheme() async {
+  Future<Result<ThemeMode, Failure>> getTheme() async {
     try {
       var result = await settingsCache.getTheme();
       return result.when(
         success: (data) {
           return Result.success(
-            data: data == CacheKeys.lightTheme
-                ? ThemeData.light()
-                : ThemeData.dark(),
+            data:
+                data == CacheKeys.lightTheme ? ThemeMode.light : ThemeMode.dark,
           );
         },
         failure: (error) {
           return Result.failure(error: error);
         },
       );
+    } catch (e) {
+      return Result.failure(error: OtherFailure(message: e.toString()));
+    }
+  }
+
+  @override
+  Future<Result<bool, Failure>> setSearchSettings({
+    bool? isSearchByTitle,
+    bool? isSearchByBody,
+    bool? isSearchByDate,
+    bool? isSearchByStatus,
+  }) async {
+    try {
+      return settingsCache.setSearchSettings(
+        isSearchByTitle: isSearchByTitle,
+        isSearchByBody: isSearchByBody,
+        isSearchByDate: isSearchByDate,
+        isSearchByStatus: isSearchByStatus,
+      );
+    } catch (e) {
+      return Result.failure(error: OtherFailure(message: e.toString()));
+    }
+  }
+
+  @override
+  Future<Result<Map<String, bool>, Failure>> getSearchSettings() async {
+    try {
+      return settingsCache.getSearchSettings();
     } catch (e) {
       return Result.failure(error: OtherFailure(message: e.toString()));
     }

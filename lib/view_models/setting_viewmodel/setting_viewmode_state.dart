@@ -13,15 +13,20 @@ class SettingViewModelState with _$SettingViewModelState {
     @Default(false) bool isGetLanguageCompleted,
     @Default(false) bool isGetLanguageFailed,
     @Default(null) Locale? currentLanguage,
-    //* toggle theme
-    @Default(false) bool isToggleThemeLoading,
-    @Default(false) bool isToggleThemeCompleted,
-    @Default(false) bool isToggleThemeFailed,
-    //* get current theme
-    @Default(false) bool isGetThemeLoading,
-    @Default(false) bool isGetThemeCompleted,
-    @Default(false) bool isGetThemeFailed,
-    @Default(null) ThemeData? currentTheme,
+    //* search settings
+    @Default(true) bool isSearchByTitle,
+    @Default(false) bool isSearchByBody,
+    @Default(false) bool isSearchByDate,
+    @Default(false) bool isSearchByStatus,
+    //* set search settings
+    @Default(false) bool isSetSearchSettingsLoading,
+    @Default(false) bool isSetSearchSettingsCompleted,
+    @Default(false) bool isSetSearchSettingsFailed,
+    //* get search settings
+    @Default(false) bool isGetSearchSettingsLoading,
+    @Default(false) bool isGetSearchSettingsCompleted,
+    @Default(false) bool isGetSearchSettingsFailed,
+    //* error message
     @Default(null) String? errorMessage,
     // * current tapped item
     @Default(-1) int currentTappedItemIndex,

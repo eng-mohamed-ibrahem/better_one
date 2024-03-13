@@ -1,4 +1,4 @@
-import 'package:better_one/view_models/setting_viewmodel/setting_viewmode.dart';
+import 'package:better_one/view_models/theme_viewmodel/theme_viewmodel.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -10,26 +10,26 @@ class ThemeWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<SettingViewModel, SettingViewModelState>(
+    return BlocBuilder<ThemeViewModel, ThemeViewModelState>(
       builder: (context, state) {
-        var currentTheme = state.currentTheme;
+        var currentTheme = state.currentThemeMode;
         return Row(
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            currentTheme == ThemeData.dark()
+            currentTheme == ThemeMode.dark
                 ? const Icon(FontAwesomeIcons.moon)
                 : const Icon(Icons.light_mode),
             const SizedBox(width: AppMetrices.widthSpace),
             IconButton(
               onPressed: () {
-                SettingViewModel.get(context).toggleTheme();
+                ThemeViewModel.get(context).toggleTheme();
               },
               icon: const Icon(Icons.compare_arrows_rounded,
                   color: AppColors.hightlightColor),
             ),
             const SizedBox(width: AppMetrices.widthSpace),
-            currentTheme == ThemeData.dark()
+            currentTheme == ThemeMode.dark
                 ? const Icon(Icons.light_mode)
                 : const Icon(
                     FontAwesomeIcons.moon,

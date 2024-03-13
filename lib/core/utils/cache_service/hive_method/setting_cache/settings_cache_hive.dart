@@ -65,4 +65,52 @@ class SettingsCacheByHive implements SettingsCacheInterface {
       return Result.failure(error: CacheFailure(message: e.toString()));
     }
   }
+
+  @override
+  Future<Result<bool, CacheFailure>> setSearchSettings({
+    bool? isSearchByTitle,
+    bool? isSearchByBody,
+    bool? isSearchByDate,
+    bool? isSearchByStatus,
+  }) async {
+    try {
+      var result = await getSearchSettings();
+      return result.when(
+        success: (settings) {
+          cacheInit.appBox.put(CacheKeys.isSearchByTitle,
+              isSearchByTitle ?? settings['isSearchByTitle']);
+          cacheInit.appBox.put(CacheKeys.isSearchByBody,
+              isSearchByBody ?? settings['isSearchByBody']);
+          cacheInit.appBox.put(CacheKeys.isSearchByDate,
+              isSearchByDate ?? settings['isSearchByDate']);
+          cacheInit.appBox.put(CacheKeys.isSearchByStatus,
+              isSearchByStatus ?? settings['isSearchByStatus']);
+          return const Result.success(data: true);
+        },
+        failure: (failure) {
+          return Result.failure(error: failure);
+        },
+      );
+    } catch (e) {
+      return Result.failure(error: CacheFailure(message: e.toString()));
+    }
+  }
+
+  @override
+  Future<Result<Map<String, bool>, CacheFailure>> getSearchSettings() async {
+    try {
+      Map<String, bool> data = {};
+      data['isSearchByTitle'] =
+          cacheInit.appBox.get(CacheKeys.isSearchByTitle, defaultValue: true);
+      data['isSearchByBody'] =
+          cacheInit.appBox.get(CacheKeys.isSearchByBody, defaultValue: false);
+      data['isSearchByDate'] =
+          cacheInit.appBox.get(CacheKeys.isSearchByDate, defaultValue: false);
+      data['isSearchByStatus'] =
+          cacheInit.appBox.get(CacheKeys.isSearchByStatus, defaultValue: false);
+      return Result.success(data: data);
+    } catch (e) {
+      return Result.failure(error: CacheFailure(message: e.toString()));
+    }
+  }
 }
