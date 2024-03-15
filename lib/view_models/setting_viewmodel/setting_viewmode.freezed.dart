@@ -31,13 +31,21 @@ mixin _$SettingViewModelState {
   bool get isSearchByDate => throw _privateConstructorUsedError;
   bool get isSearchByStatus =>
       throw _privateConstructorUsedError; //* set search settings
-  bool get isSetSearchSettingsLoading => throw _privateConstructorUsedError;
   bool get isSetSearchSettingsCompleted => throw _privateConstructorUsedError;
   bool get isSetSearchSettingsFailed =>
       throw _privateConstructorUsedError; //* get search settings
-  bool get isGetSearchSettingsLoading => throw _privateConstructorUsedError;
   bool get isGetSearchSettingsCompleted => throw _privateConstructorUsedError;
   bool get isGetSearchSettingsFailed =>
+      throw _privateConstructorUsedError; //* notification settings
+  bool get isNotificationOnAdd => throw _privateConstructorUsedError;
+  bool get isNotificationOnUpdate => throw _privateConstructorUsedError;
+  bool get isNotificationOnDelete => throw _privateConstructorUsedError;
+  bool get isNotificationOnComplete => throw _privateConstructorUsedError;
+  bool get isNotificationOnReminder => throw _privateConstructorUsedError;
+  DateTime? get reminderDateTime => throw _privateConstructorUsedError;
+  bool get isNotificationSettingsCompleted =>
+      throw _privateConstructorUsedError;
+  bool get isNotificationSettingsFailed =>
       throw _privateConstructorUsedError; //* error message
   String? get errorMessage =>
       throw _privateConstructorUsedError; // * current tapped item
@@ -67,12 +75,18 @@ abstract class $SettingViewModelStateCopyWith<$Res> {
       bool isSearchByBody,
       bool isSearchByDate,
       bool isSearchByStatus,
-      bool isSetSearchSettingsLoading,
       bool isSetSearchSettingsCompleted,
       bool isSetSearchSettingsFailed,
-      bool isGetSearchSettingsLoading,
       bool isGetSearchSettingsCompleted,
       bool isGetSearchSettingsFailed,
+      bool isNotificationOnAdd,
+      bool isNotificationOnUpdate,
+      bool isNotificationOnDelete,
+      bool isNotificationOnComplete,
+      bool isNotificationOnReminder,
+      DateTime? reminderDateTime,
+      bool isNotificationSettingsCompleted,
+      bool isNotificationSettingsFailed,
       String? errorMessage,
       int currentTappedItemIndex});
 }
@@ -103,12 +117,18 @@ class _$SettingViewModelStateCopyWithImpl<$Res,
     Object? isSearchByBody = null,
     Object? isSearchByDate = null,
     Object? isSearchByStatus = null,
-    Object? isSetSearchSettingsLoading = null,
     Object? isSetSearchSettingsCompleted = null,
     Object? isSetSearchSettingsFailed = null,
-    Object? isGetSearchSettingsLoading = null,
     Object? isGetSearchSettingsCompleted = null,
     Object? isGetSearchSettingsFailed = null,
+    Object? isNotificationOnAdd = null,
+    Object? isNotificationOnUpdate = null,
+    Object? isNotificationOnDelete = null,
+    Object? isNotificationOnComplete = null,
+    Object? isNotificationOnReminder = null,
+    Object? reminderDateTime = freezed,
+    Object? isNotificationSettingsCompleted = null,
+    Object? isNotificationSettingsFailed = null,
     Object? errorMessage = freezed,
     Object? currentTappedItemIndex = null,
   }) {
@@ -161,10 +181,6 @@ class _$SettingViewModelStateCopyWithImpl<$Res,
           ? _value.isSearchByStatus
           : isSearchByStatus // ignore: cast_nullable_to_non_nullable
               as bool,
-      isSetSearchSettingsLoading: null == isSetSearchSettingsLoading
-          ? _value.isSetSearchSettingsLoading
-          : isSetSearchSettingsLoading // ignore: cast_nullable_to_non_nullable
-              as bool,
       isSetSearchSettingsCompleted: null == isSetSearchSettingsCompleted
           ? _value.isSetSearchSettingsCompleted
           : isSetSearchSettingsCompleted // ignore: cast_nullable_to_non_nullable
@@ -173,10 +189,6 @@ class _$SettingViewModelStateCopyWithImpl<$Res,
           ? _value.isSetSearchSettingsFailed
           : isSetSearchSettingsFailed // ignore: cast_nullable_to_non_nullable
               as bool,
-      isGetSearchSettingsLoading: null == isGetSearchSettingsLoading
-          ? _value.isGetSearchSettingsLoading
-          : isGetSearchSettingsLoading // ignore: cast_nullable_to_non_nullable
-              as bool,
       isGetSearchSettingsCompleted: null == isGetSearchSettingsCompleted
           ? _value.isGetSearchSettingsCompleted
           : isGetSearchSettingsCompleted // ignore: cast_nullable_to_non_nullable
@@ -184,6 +196,38 @@ class _$SettingViewModelStateCopyWithImpl<$Res,
       isGetSearchSettingsFailed: null == isGetSearchSettingsFailed
           ? _value.isGetSearchSettingsFailed
           : isGetSearchSettingsFailed // ignore: cast_nullable_to_non_nullable
+              as bool,
+      isNotificationOnAdd: null == isNotificationOnAdd
+          ? _value.isNotificationOnAdd
+          : isNotificationOnAdd // ignore: cast_nullable_to_non_nullable
+              as bool,
+      isNotificationOnUpdate: null == isNotificationOnUpdate
+          ? _value.isNotificationOnUpdate
+          : isNotificationOnUpdate // ignore: cast_nullable_to_non_nullable
+              as bool,
+      isNotificationOnDelete: null == isNotificationOnDelete
+          ? _value.isNotificationOnDelete
+          : isNotificationOnDelete // ignore: cast_nullable_to_non_nullable
+              as bool,
+      isNotificationOnComplete: null == isNotificationOnComplete
+          ? _value.isNotificationOnComplete
+          : isNotificationOnComplete // ignore: cast_nullable_to_non_nullable
+              as bool,
+      isNotificationOnReminder: null == isNotificationOnReminder
+          ? _value.isNotificationOnReminder
+          : isNotificationOnReminder // ignore: cast_nullable_to_non_nullable
+              as bool,
+      reminderDateTime: freezed == reminderDateTime
+          ? _value.reminderDateTime
+          : reminderDateTime // ignore: cast_nullable_to_non_nullable
+              as DateTime?,
+      isNotificationSettingsCompleted: null == isNotificationSettingsCompleted
+          ? _value.isNotificationSettingsCompleted
+          : isNotificationSettingsCompleted // ignore: cast_nullable_to_non_nullable
+              as bool,
+      isNotificationSettingsFailed: null == isNotificationSettingsFailed
+          ? _value.isNotificationSettingsFailed
+          : isNotificationSettingsFailed // ignore: cast_nullable_to_non_nullable
               as bool,
       errorMessage: freezed == errorMessage
           ? _value.errorMessage
@@ -219,12 +263,18 @@ abstract class _$$SettingViewModelStateImplCopyWith<$Res>
       bool isSearchByBody,
       bool isSearchByDate,
       bool isSearchByStatus,
-      bool isSetSearchSettingsLoading,
       bool isSetSearchSettingsCompleted,
       bool isSetSearchSettingsFailed,
-      bool isGetSearchSettingsLoading,
       bool isGetSearchSettingsCompleted,
       bool isGetSearchSettingsFailed,
+      bool isNotificationOnAdd,
+      bool isNotificationOnUpdate,
+      bool isNotificationOnDelete,
+      bool isNotificationOnComplete,
+      bool isNotificationOnReminder,
+      DateTime? reminderDateTime,
+      bool isNotificationSettingsCompleted,
+      bool isNotificationSettingsFailed,
       String? errorMessage,
       int currentTappedItemIndex});
 }
@@ -253,12 +303,18 @@ class __$$SettingViewModelStateImplCopyWithImpl<$Res>
     Object? isSearchByBody = null,
     Object? isSearchByDate = null,
     Object? isSearchByStatus = null,
-    Object? isSetSearchSettingsLoading = null,
     Object? isSetSearchSettingsCompleted = null,
     Object? isSetSearchSettingsFailed = null,
-    Object? isGetSearchSettingsLoading = null,
     Object? isGetSearchSettingsCompleted = null,
     Object? isGetSearchSettingsFailed = null,
+    Object? isNotificationOnAdd = null,
+    Object? isNotificationOnUpdate = null,
+    Object? isNotificationOnDelete = null,
+    Object? isNotificationOnComplete = null,
+    Object? isNotificationOnReminder = null,
+    Object? reminderDateTime = freezed,
+    Object? isNotificationSettingsCompleted = null,
+    Object? isNotificationSettingsFailed = null,
     Object? errorMessage = freezed,
     Object? currentTappedItemIndex = null,
   }) {
@@ -311,10 +367,6 @@ class __$$SettingViewModelStateImplCopyWithImpl<$Res>
           ? _value.isSearchByStatus
           : isSearchByStatus // ignore: cast_nullable_to_non_nullable
               as bool,
-      isSetSearchSettingsLoading: null == isSetSearchSettingsLoading
-          ? _value.isSetSearchSettingsLoading
-          : isSetSearchSettingsLoading // ignore: cast_nullable_to_non_nullable
-              as bool,
       isSetSearchSettingsCompleted: null == isSetSearchSettingsCompleted
           ? _value.isSetSearchSettingsCompleted
           : isSetSearchSettingsCompleted // ignore: cast_nullable_to_non_nullable
@@ -323,10 +375,6 @@ class __$$SettingViewModelStateImplCopyWithImpl<$Res>
           ? _value.isSetSearchSettingsFailed
           : isSetSearchSettingsFailed // ignore: cast_nullable_to_non_nullable
               as bool,
-      isGetSearchSettingsLoading: null == isGetSearchSettingsLoading
-          ? _value.isGetSearchSettingsLoading
-          : isGetSearchSettingsLoading // ignore: cast_nullable_to_non_nullable
-              as bool,
       isGetSearchSettingsCompleted: null == isGetSearchSettingsCompleted
           ? _value.isGetSearchSettingsCompleted
           : isGetSearchSettingsCompleted // ignore: cast_nullable_to_non_nullable
@@ -334,6 +382,38 @@ class __$$SettingViewModelStateImplCopyWithImpl<$Res>
       isGetSearchSettingsFailed: null == isGetSearchSettingsFailed
           ? _value.isGetSearchSettingsFailed
           : isGetSearchSettingsFailed // ignore: cast_nullable_to_non_nullable
+              as bool,
+      isNotificationOnAdd: null == isNotificationOnAdd
+          ? _value.isNotificationOnAdd
+          : isNotificationOnAdd // ignore: cast_nullable_to_non_nullable
+              as bool,
+      isNotificationOnUpdate: null == isNotificationOnUpdate
+          ? _value.isNotificationOnUpdate
+          : isNotificationOnUpdate // ignore: cast_nullable_to_non_nullable
+              as bool,
+      isNotificationOnDelete: null == isNotificationOnDelete
+          ? _value.isNotificationOnDelete
+          : isNotificationOnDelete // ignore: cast_nullable_to_non_nullable
+              as bool,
+      isNotificationOnComplete: null == isNotificationOnComplete
+          ? _value.isNotificationOnComplete
+          : isNotificationOnComplete // ignore: cast_nullable_to_non_nullable
+              as bool,
+      isNotificationOnReminder: null == isNotificationOnReminder
+          ? _value.isNotificationOnReminder
+          : isNotificationOnReminder // ignore: cast_nullable_to_non_nullable
+              as bool,
+      reminderDateTime: freezed == reminderDateTime
+          ? _value.reminderDateTime
+          : reminderDateTime // ignore: cast_nullable_to_non_nullable
+              as DateTime?,
+      isNotificationSettingsCompleted: null == isNotificationSettingsCompleted
+          ? _value.isNotificationSettingsCompleted
+          : isNotificationSettingsCompleted // ignore: cast_nullable_to_non_nullable
+              as bool,
+      isNotificationSettingsFailed: null == isNotificationSettingsFailed
+          ? _value.isNotificationSettingsFailed
+          : isNotificationSettingsFailed // ignore: cast_nullable_to_non_nullable
               as bool,
       errorMessage: freezed == errorMessage
           ? _value.errorMessage
@@ -363,12 +443,18 @@ class _$SettingViewModelStateImpl implements _SettingViewModelState {
       this.isSearchByBody = false,
       this.isSearchByDate = false,
       this.isSearchByStatus = false,
-      this.isSetSearchSettingsLoading = false,
       this.isSetSearchSettingsCompleted = false,
       this.isSetSearchSettingsFailed = false,
-      this.isGetSearchSettingsLoading = false,
       this.isGetSearchSettingsCompleted = false,
       this.isGetSearchSettingsFailed = false,
+      this.isNotificationOnAdd = true,
+      this.isNotificationOnUpdate = false,
+      this.isNotificationOnDelete = false,
+      this.isNotificationOnComplete = false,
+      this.isNotificationOnReminder = false,
+      this.reminderDateTime = null,
+      this.isNotificationSettingsCompleted = false,
+      this.isNotificationSettingsFailed = false,
       this.errorMessage = null,
       this.currentTappedItemIndex = -1});
 
@@ -414,9 +500,6 @@ class _$SettingViewModelStateImpl implements _SettingViewModelState {
 //* set search settings
   @override
   @JsonKey()
-  final bool isSetSearchSettingsLoading;
-  @override
-  @JsonKey()
   final bool isSetSearchSettingsCompleted;
   @override
   @JsonKey()
@@ -424,13 +507,35 @@ class _$SettingViewModelStateImpl implements _SettingViewModelState {
 //* get search settings
   @override
   @JsonKey()
-  final bool isGetSearchSettingsLoading;
-  @override
-  @JsonKey()
   final bool isGetSearchSettingsCompleted;
   @override
   @JsonKey()
   final bool isGetSearchSettingsFailed;
+//* notification settings
+  @override
+  @JsonKey()
+  final bool isNotificationOnAdd;
+  @override
+  @JsonKey()
+  final bool isNotificationOnUpdate;
+  @override
+  @JsonKey()
+  final bool isNotificationOnDelete;
+  @override
+  @JsonKey()
+  final bool isNotificationOnComplete;
+  @override
+  @JsonKey()
+  final bool isNotificationOnReminder;
+  @override
+  @JsonKey()
+  final DateTime? reminderDateTime;
+  @override
+  @JsonKey()
+  final bool isNotificationSettingsCompleted;
+  @override
+  @JsonKey()
+  final bool isNotificationSettingsFailed;
 //* error message
   @override
   @JsonKey()
@@ -442,7 +547,7 @@ class _$SettingViewModelStateImpl implements _SettingViewModelState {
 
   @override
   String toString() {
-    return 'SettingViewModelState(isInitial: $isInitial, isChangeLanguageLoading: $isChangeLanguageLoading, isChangeLanguageCompleted: $isChangeLanguageCompleted, isChangeLanguageFailed: $isChangeLanguageFailed, isGetLanguageLoading: $isGetLanguageLoading, isGetLanguageCompleted: $isGetLanguageCompleted, isGetLanguageFailed: $isGetLanguageFailed, currentLanguage: $currentLanguage, isSearchByTitle: $isSearchByTitle, isSearchByBody: $isSearchByBody, isSearchByDate: $isSearchByDate, isSearchByStatus: $isSearchByStatus, isSetSearchSettingsLoading: $isSetSearchSettingsLoading, isSetSearchSettingsCompleted: $isSetSearchSettingsCompleted, isSetSearchSettingsFailed: $isSetSearchSettingsFailed, isGetSearchSettingsLoading: $isGetSearchSettingsLoading, isGetSearchSettingsCompleted: $isGetSearchSettingsCompleted, isGetSearchSettingsFailed: $isGetSearchSettingsFailed, errorMessage: $errorMessage, currentTappedItemIndex: $currentTappedItemIndex)';
+    return 'SettingViewModelState(isInitial: $isInitial, isChangeLanguageLoading: $isChangeLanguageLoading, isChangeLanguageCompleted: $isChangeLanguageCompleted, isChangeLanguageFailed: $isChangeLanguageFailed, isGetLanguageLoading: $isGetLanguageLoading, isGetLanguageCompleted: $isGetLanguageCompleted, isGetLanguageFailed: $isGetLanguageFailed, currentLanguage: $currentLanguage, isSearchByTitle: $isSearchByTitle, isSearchByBody: $isSearchByBody, isSearchByDate: $isSearchByDate, isSearchByStatus: $isSearchByStatus, isSetSearchSettingsCompleted: $isSetSearchSettingsCompleted, isSetSearchSettingsFailed: $isSetSearchSettingsFailed, isGetSearchSettingsCompleted: $isGetSearchSettingsCompleted, isGetSearchSettingsFailed: $isGetSearchSettingsFailed, isNotificationOnAdd: $isNotificationOnAdd, isNotificationOnUpdate: $isNotificationOnUpdate, isNotificationOnDelete: $isNotificationOnDelete, isNotificationOnComplete: $isNotificationOnComplete, isNotificationOnReminder: $isNotificationOnReminder, reminderDateTime: $reminderDateTime, isNotificationSettingsCompleted: $isNotificationSettingsCompleted, isNotificationSettingsFailed: $isNotificationSettingsFailed, errorMessage: $errorMessage, currentTappedItemIndex: $currentTappedItemIndex)';
   }
 
   @override
@@ -452,8 +557,7 @@ class _$SettingViewModelStateImpl implements _SettingViewModelState {
             other is _$SettingViewModelStateImpl &&
             (identical(other.isInitial, isInitial) ||
                 other.isInitial == isInitial) &&
-            (identical(
-                    other.isChangeLanguageLoading, isChangeLanguageLoading) ||
+            (identical(other.isChangeLanguageLoading, isChangeLanguageLoading) ||
                 other.isChangeLanguageLoading == isChangeLanguageLoading) &&
             (identical(other.isChangeLanguageCompleted, isChangeLanguageCompleted) ||
                 other.isChangeLanguageCompleted == isChangeLanguageCompleted) &&
@@ -475,26 +579,33 @@ class _$SettingViewModelStateImpl implements _SettingViewModelState {
                 other.isSearchByDate == isSearchByDate) &&
             (identical(other.isSearchByStatus, isSearchByStatus) ||
                 other.isSearchByStatus == isSearchByStatus) &&
-            (identical(other.isSetSearchSettingsLoading, isSetSearchSettingsLoading) ||
-                other.isSetSearchSettingsLoading ==
-                    isSetSearchSettingsLoading) &&
             (identical(other.isSetSearchSettingsCompleted, isSetSearchSettingsCompleted) ||
                 other.isSetSearchSettingsCompleted ==
                     isSetSearchSettingsCompleted) &&
             (identical(other.isSetSearchSettingsFailed, isSetSearchSettingsFailed) ||
                 other.isSetSearchSettingsFailed == isSetSearchSettingsFailed) &&
-            (identical(other.isGetSearchSettingsLoading, isGetSearchSettingsLoading) ||
-                other.isGetSearchSettingsLoading ==
-                    isGetSearchSettingsLoading) &&
             (identical(other.isGetSearchSettingsCompleted, isGetSearchSettingsCompleted) ||
                 other.isGetSearchSettingsCompleted ==
                     isGetSearchSettingsCompleted) &&
             (identical(other.isGetSearchSettingsFailed, isGetSearchSettingsFailed) ||
                 other.isGetSearchSettingsFailed == isGetSearchSettingsFailed) &&
-            (identical(other.errorMessage, errorMessage) ||
-                other.errorMessage == errorMessage) &&
-            (identical(other.currentTappedItemIndex, currentTappedItemIndex) ||
-                other.currentTappedItemIndex == currentTappedItemIndex));
+            (identical(other.isNotificationOnAdd, isNotificationOnAdd) ||
+                other.isNotificationOnAdd == isNotificationOnAdd) &&
+            (identical(other.isNotificationOnUpdate, isNotificationOnUpdate) ||
+                other.isNotificationOnUpdate == isNotificationOnUpdate) &&
+            (identical(other.isNotificationOnDelete, isNotificationOnDelete) ||
+                other.isNotificationOnDelete == isNotificationOnDelete) &&
+            (identical(other.isNotificationOnComplete, isNotificationOnComplete) ||
+                other.isNotificationOnComplete == isNotificationOnComplete) &&
+            (identical(other.isNotificationOnReminder, isNotificationOnReminder) ||
+                other.isNotificationOnReminder == isNotificationOnReminder) &&
+            (identical(other.reminderDateTime, reminderDateTime) ||
+                other.reminderDateTime == reminderDateTime) &&
+            (identical(other.isNotificationSettingsCompleted, isNotificationSettingsCompleted) ||
+                other.isNotificationSettingsCompleted == isNotificationSettingsCompleted) &&
+            (identical(other.isNotificationSettingsFailed, isNotificationSettingsFailed) || other.isNotificationSettingsFailed == isNotificationSettingsFailed) &&
+            (identical(other.errorMessage, errorMessage) || other.errorMessage == errorMessage) &&
+            (identical(other.currentTappedItemIndex, currentTappedItemIndex) || other.currentTappedItemIndex == currentTappedItemIndex));
   }
 
   @override
@@ -512,12 +623,18 @@ class _$SettingViewModelStateImpl implements _SettingViewModelState {
         isSearchByBody,
         isSearchByDate,
         isSearchByStatus,
-        isSetSearchSettingsLoading,
         isSetSearchSettingsCompleted,
         isSetSearchSettingsFailed,
-        isGetSearchSettingsLoading,
         isGetSearchSettingsCompleted,
         isGetSearchSettingsFailed,
+        isNotificationOnAdd,
+        isNotificationOnUpdate,
+        isNotificationOnDelete,
+        isNotificationOnComplete,
+        isNotificationOnReminder,
+        reminderDateTime,
+        isNotificationSettingsCompleted,
+        isNotificationSettingsFailed,
         errorMessage,
         currentTappedItemIndex
       ]);
@@ -544,12 +661,18 @@ abstract class _SettingViewModelState implements SettingViewModelState {
       final bool isSearchByBody,
       final bool isSearchByDate,
       final bool isSearchByStatus,
-      final bool isSetSearchSettingsLoading,
       final bool isSetSearchSettingsCompleted,
       final bool isSetSearchSettingsFailed,
-      final bool isGetSearchSettingsLoading,
       final bool isGetSearchSettingsCompleted,
       final bool isGetSearchSettingsFailed,
+      final bool isNotificationOnAdd,
+      final bool isNotificationOnUpdate,
+      final bool isNotificationOnDelete,
+      final bool isNotificationOnComplete,
+      final bool isNotificationOnReminder,
+      final DateTime? reminderDateTime,
+      final bool isNotificationSettingsCompleted,
+      final bool isNotificationSettingsFailed,
       final String? errorMessage,
       final int currentTappedItemIndex}) = _$SettingViewModelStateImpl;
 
@@ -578,17 +701,29 @@ abstract class _SettingViewModelState implements SettingViewModelState {
   @override
   bool get isSearchByStatus;
   @override //* set search settings
-  bool get isSetSearchSettingsLoading;
-  @override
   bool get isSetSearchSettingsCompleted;
   @override
   bool get isSetSearchSettingsFailed;
   @override //* get search settings
-  bool get isGetSearchSettingsLoading;
-  @override
   bool get isGetSearchSettingsCompleted;
   @override
   bool get isGetSearchSettingsFailed;
+  @override //* notification settings
+  bool get isNotificationOnAdd;
+  @override
+  bool get isNotificationOnUpdate;
+  @override
+  bool get isNotificationOnDelete;
+  @override
+  bool get isNotificationOnComplete;
+  @override
+  bool get isNotificationOnReminder;
+  @override
+  DateTime? get reminderDateTime;
+  @override
+  bool get isNotificationSettingsCompleted;
+  @override
+  bool get isNotificationSettingsFailed;
   @override //* error message
   String? get errorMessage;
   @override // * current tapped item

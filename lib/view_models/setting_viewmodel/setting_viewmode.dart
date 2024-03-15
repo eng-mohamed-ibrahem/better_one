@@ -1,4 +1,3 @@
-import 'package:better_one/core/utils/dependency_locator/dependency_injection.dart';
 import 'package:better_one/repositories/setting_repo/settings_interface.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -71,7 +70,7 @@ class SettingViewModel extends Cubit<SettingViewModelState> {
     bool? isSearchByDate,
     bool? isSearchByStatus,
   }) async {
-    var result = await settingRepo.setSearchSettings(
+    var result = await settingsRepo.setSearchSettings(
       isSearchByTitle: isSearchByTitle,
       isSearchByBody: isSearchByBody,
       isSearchByDate: isSearchByDate,
@@ -92,7 +91,6 @@ class SettingViewModel extends Cubit<SettingViewModelState> {
       failure: (failure) {
         emit(
           release().copyWith(
-            isSetSearchSettingsLoading: false,
             isSetSearchSettingsCompleted: false,
             isSetSearchSettingsFailed: true,
             errorMessage: failure.message,
@@ -103,7 +101,7 @@ class SettingViewModel extends Cubit<SettingViewModelState> {
   }
 
   void getSearchSettings() async {
-    var result = await settingRepo.getSearchSettings();
+    var result = await settingsRepo.getSearchSettings();
     result.when(
       success: (searchSettings) {
         emit(release().copyWith(
@@ -117,7 +115,6 @@ class SettingViewModel extends Cubit<SettingViewModelState> {
       failure: (failure) {
         emit(
           release().copyWith(
-            isGetSearchSettingsLoading: false,
             isGetSearchSettingsCompleted: false,
             isGetSearchSettingsFailed: true,
             errorMessage: failure.message,
@@ -126,6 +123,17 @@ class SettingViewModel extends Cubit<SettingViewModelState> {
       },
     );
   }
+
+  void setNotificationSettings({
+    bool? isNotificationOnAdd,
+    bool? isNotificationOnUpdate,
+    bool? isNotificationOnDelete,
+    bool? isNotificationOnComplete,
+    bool? isNotificationOnReminder,
+    DateTime? reminderDateTime,
+  }) async {}
+
+  void getNotificationSettings() async {}
 
   void setCurrentTappedItemIndex(int index) {
     emit(release().copyWith(currentTappedItemIndex: index));
@@ -140,6 +148,12 @@ class SettingViewModel extends Cubit<SettingViewModelState> {
       isGetLanguageFailed: false,
       isChangeLanguageCompleted: false,
       isGetLanguageCompleted: false,
+      isGetSearchSettingsCompleted: false,
+      isGetSearchSettingsFailed: false,
+      isSetSearchSettingsCompleted: false,
+      isSetSearchSettingsFailed: false,
+      isNotificationSettingsCompleted: false,
+      isNotificationSettingsFailed: false,
       errorMessage: null,
     );
   }

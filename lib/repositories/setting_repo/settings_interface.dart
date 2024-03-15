@@ -25,4 +25,16 @@ abstract class SettingsRepoInterface {
 
   // get search settings
   Future<Result<Map<String, bool>, Failure>> getSearchSettings();
+
+  // get notification settings
+  Future<Result<Map<String, dynamic>, Failure>> getNotificationSettings();
+
+  // set notification settings
+  Future<Result<bool, Failure>> setNotificationSettings({
+    bool? isNotificationOnAdd,
+    bool? isNotificationOnUpdate,
+    bool? isNotificationOnComplete,
+    bool? isNotificationOnReminder,
+    DateTime? reminderDateTime,
+  });
 }

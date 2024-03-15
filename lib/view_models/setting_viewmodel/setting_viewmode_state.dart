@@ -19,13 +19,19 @@ class SettingViewModelState with _$SettingViewModelState {
     @Default(false) bool isSearchByDate,
     @Default(false) bool isSearchByStatus,
     //* set search settings
-    @Default(false) bool isSetSearchSettingsLoading,
     @Default(false) bool isSetSearchSettingsCompleted,
     @Default(false) bool isSetSearchSettingsFailed,
     //* get search settings
-    @Default(false) bool isGetSearchSettingsLoading,
     @Default(false) bool isGetSearchSettingsCompleted,
     @Default(false) bool isGetSearchSettingsFailed,
+    //* notification settings
+    @Default(true) bool isNotificationOnAdd,
+    @Default(false) bool isNotificationOnUpdate,
+    @Default(false) bool isNotificationOnComplete,
+    @Default(false) bool isNotificationOnReminder,
+    @Default(null) DateTime? reminderDateTime,
+    @Default(false) bool isNotificationSettingsCompleted,
+    @Default(false) bool isNotificationSettingsFailed,
     //* error message
     @Default(null) String? errorMessage,
     // * current tapped item

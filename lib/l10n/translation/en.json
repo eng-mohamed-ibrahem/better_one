@@ -43,7 +43,13 @@
         },
         "notification": {
             "title": "Notification",
-            "subtitle": "Manage notification preferences"
+            "subtitle": "Manage notification preferences",
+            "on": {
+                "add": "Notify On Add",
+                "update": "Notify On Update",
+                "complete": "Notify On Complete",
+                "reminder": "Set On Reminder"
+            }
         },
         "search": {
             "title": "Search",
@@ -52,7 +58,6 @@
                 "title": "Search on Title",
                 "body": "Search on Body",
                 "date": "Search on Date",
-                "time": "Search on Time",
                 "status": "Search on Status"
             }
         },

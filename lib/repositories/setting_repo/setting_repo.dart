@@ -46,4 +46,19 @@ class SettingRepo implements SettingsRepoInterface {
   Future<Result<Map<String, bool>, Failure>> getSearchSettings() {
     return settingsSource.getSearchSettings();
   }
+
+  @override
+  Future<Result<Map<String, dynamic>, Failure>> getNotificationSettings() {
+    throw UnimplementedError();
+  }
+
+  @override
+  Future<Result<bool, Failure>> setNotificationSettings(
+      {bool? isNotificationOnAdd,
+      bool? isNotificationOnUpdate,
+      bool? isNotificationOnComplete,
+      bool? isNotificationOnReminder,
+      DateTime? reminderDateTime}) {
+    throw UnimplementedError();
+  }
 }

@@ -1,36 +1,39 @@
+import 'package:better_one/core/constants/constants.dart';
 import 'package:better_one/view_models/setting_viewmodel/setting_viewmode.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-class SearchSettingWidget extends StatelessWidget {
-  const SearchSettingWidget({super.key});
+class NotificationWidget extends StatelessWidget {
+  const NotificationWidget({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.all(10),
+      alignment: Alignment.center,
+      padding: EdgeInsets.symmetric(
+          horizontal: MediaQuery.of(context).size.width * 0.07, vertical: 5),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(10),
       ),
       child: BlocBuilder<SettingViewModel, SettingViewModelState>(
         builder: (context, state) {
-          return GridView(
+          return ListView(
             shrinkWrap: true,
-            gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
-              maxCrossAxisExtent: MediaQuery.sizeOf(context).width * .45,
-              childAspectRatio: 4 / 1,
-              crossAxisSpacing: 5,
-            ),
+            primary: true,
+            padding: EdgeInsets.symmetric(
+                horizontal: MediaQuery.of(context).size.width * 0.07,
+                vertical: 5),
             children: [
               CheckboxListTile(
                 shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(15.r),
+                  borderRadius:
+                      BorderRadius.circular(AppMetrices.borderRadius1.r),
                 ),
-                title: Text('setting.search.on.title'.tr()),
+                title: Text('setting.notification.on.add'.tr()),
                 contentPadding: EdgeInsets.zero,
-                value: state.isSearchByTitle,
+                value: state.isNotificationOnAdd,
                 onChanged: (isSelected) {
                   SettingViewModel.get(context)
                       .searchOn(isSearchByTitle: isSelected);
@@ -40,9 +43,9 @@ class SearchSettingWidget extends StatelessWidget {
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(15.r),
                 ),
-                title: Text('setting.search.on.body'.tr()),
+                title: Text('setting.notification.on.update'.tr()),
                 contentPadding: EdgeInsets.zero,
-                value: state.isSearchByBody,
+                value: state.isNotificationOnUpdate,
                 onChanged: (isSelected) {
                   SettingViewModel.get(context)
                       .searchOn(isSearchByBody: isSelected);
@@ -52,21 +55,26 @@ class SearchSettingWidget extends StatelessWidget {
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(15.r),
                 ),
-                title: Text('setting.search.on.date'.tr()),
+                title: Text('setting.notification.on.complete'.tr()),
                 contentPadding: EdgeInsets.zero,
-                value: state.isSearchByDate,
+                value: state.isNotificationOnComplete,
                 onChanged: (isSelected) {
                   SettingViewModel.get(context)
-                      .searchOn(isSearchByDate: isSelected);
+                      .searchOn(isSearchByStatus: isSelected);
                 },
+              ),
+              Divider(
+                thickness: 1.5,
+                color: AppColors.secondColor,
+                height: 20.h,
               ),
               CheckboxListTile(
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(15.r),
                 ),
-                title: Text('setting.search.on.status'.tr()),
+                title: Text('setting.notification.on.reminder'.tr()),
                 contentPadding: EdgeInsets.zero,
-                value: state.isSearchByStatus,
+                value: state.isNotificationOnReminder,
                 onChanged: (isSelected) {
                   SettingViewModel.get(context)
                       .searchOn(isSearchByStatus: isSelected);

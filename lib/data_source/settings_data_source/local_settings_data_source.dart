@@ -109,4 +109,19 @@ class LocalSettingsDataSource implements SettingsSource {
       return Result.failure(error: OtherFailure(message: e.toString()));
     }
   }
+
+  @override
+  Future<Result<Map<String, dynamic>, Failure>> getNotificationSettings() {
+    throw UnimplementedError();
+  }
+
+  @override
+  Future<Result<bool, Failure>> setNotificationSettings(
+      {bool? isNotificationOnAdd,
+      bool? isNotificationOnUpdate,
+      bool? isNotificationOnComplete,
+      bool? isNotificationOnReminder,
+      DateTime? reminderDateTime}) {
+    throw UnimplementedError();
+  }
 }

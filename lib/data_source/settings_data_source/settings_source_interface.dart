@@ -17,12 +17,24 @@ abstract class SettingsSource {
 
   // set search settings
   Future<Result<bool, Failure>> setSearchSettings({
-     bool? isSearchByTitle,
-     bool? isSearchByBody,
-     bool? isSearchByDate,
-     bool? isSearchByStatus,
+    bool? isSearchByTitle,
+    bool? isSearchByBody,
+    bool? isSearchByDate,
+    bool? isSearchByStatus,
   });
 
   // get search settings
   Future<Result<Map<String, bool>, Failure>> getSearchSettings();
+
+  // set notification settings
+  Future<Result<bool, Failure>> setNotificationSettings({
+    bool? isNotificationOnAdd,
+    bool? isNotificationOnUpdate,
+    bool? isNotificationOnComplete,
+    bool? isNotificationOnReminder,
+    DateTime? reminderDateTime,
+  });
+
+  // get notification settings
+  Future<Result<Map<String, dynamic>, Failure>> getNotificationSettings();
 }

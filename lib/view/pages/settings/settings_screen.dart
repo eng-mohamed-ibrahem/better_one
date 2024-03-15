@@ -1,6 +1,7 @@
 import 'package:better_one/core/utils/shared_widgets/back_button_l10n.dart';
 import 'package:better_one/model/settings_item_model/setting_item_model.dart';
 import 'package:better_one/view/widgets/setting_widgets/language_widget.dart';
+import 'package:better_one/view/widgets/setting_widgets/notification_widget.dart';
 import 'package:better_one/view/widgets/setting_widgets/search_settings_widget.dart';
 import 'package:better_one/view/widgets/setting_widgets/setting_item_widget.dart';
 import 'package:better_one/view/widgets/setting_widgets/theme_widget.dart';
@@ -47,6 +48,7 @@ class SettingScreen extends StatelessWidget {
               itemCount: settingItems.length,
               itemBuilder: (context, index) {
                 return Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     SettingItem(
                       title: settingItems[index].title,
@@ -64,9 +66,12 @@ class SettingScreen extends StatelessWidget {
                           ? const LanguageWidget()
                           : state.currentTappedItemIndex == 1 && index == 1
                               ? const ThemeWidget()
-                              : state.currentTappedItemIndex == 3 && index == 3
-                                  ? const SearchSettingWidget()
-                                  : const SizedBox(),
+                              : state.currentTappedItemIndex == 2 && index == 2
+                                  ? const NotificationWidget()
+                                  : state.currentTappedItemIndex == 3 &&
+                                          index == 3
+                                      ? const SearchSettingWidget()
+                                      : const SizedBox(),
                     )
                   ],
                 );

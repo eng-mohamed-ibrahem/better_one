@@ -113,4 +113,19 @@ class SettingsCacheByHive implements SettingsCacheInterface {
       return Result.failure(error: CacheFailure(message: e.toString()));
     }
   }
+
+  @override
+  Future<Result<Map<String, dynamic>, CacheFailure>> getNotificationSettings() {
+    throw UnimplementedError();
+  }
+
+  @override
+  Future<Result<bool, CacheFailure>> setNotificationSettings(
+      {bool? isNotificationOnAdd,
+      bool? isNotificationOnUpdate,
+      bool? isNotificationOnComplete,
+      bool? isNotificationOnReminder,
+      int? reminderDateTime}) {
+    throw UnimplementedError();
+  }
 }

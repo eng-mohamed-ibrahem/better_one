@@ -10,7 +10,6 @@ import 'package:better_one/core/utils/shared_widgets/failed.dart';
 import 'package:better_one/core/utils/shared_widgets/lottie_indicator.dart';
 import 'package:better_one/core/utils/shared_widgets/task_field.dart';
 import 'package:better_one/core/utils/snack_bar/snack_bar.dart';
-import 'package:better_one/model/notification_model/notification_model.dart';
 import 'package:better_one/model/task_model/task_model.dart';
 import 'package:better_one/view/widgets/duration_widget.dart';
 import 'package:better_one/view_models/home_viewmodel/home_viewmodel.dart';
@@ -131,22 +130,6 @@ class _TaskScreenState extends State<TaskScreen>
             if (state.isTaskAddCompleted) {
               task = state.addedTask;
               isTaskModified = false;
-              localNotification.display(
-                notification: NotificationModel(
-                  id: DateTime.now().microsecond,
-                  title: 'task.motive'.tr(),
-                  body: titleController.text,
-                  payload: task!.id,
-                ),
-              );
-              // navigate to last position in list
-              state.scrollController!.hasClients
-                  ? state.scrollController!.animateTo(
-                      state.scrollController!.position.maxScrollExtent,
-                      duration: const Duration(milliseconds: 500),
-                      curve: Curves.easeInOut,
-                    )
-                  : null;
             }
             timer?.cancel();
             timer = Timer.periodic(const Duration(seconds: 1), (timer) {
@@ -415,13 +398,6 @@ class _TaskScreenState extends State<TaskScreen>
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
                               ChoiceChip(
-                                selectedColor: AppColors.primaryColor,
-                                backgroundColor: AppColors.primaryColor,
-                                showCheckmark: true,
-                                padding: EdgeInsets.zero,
-                                checkmarkColor: AppColors.hightlightColor,
-                                labelStyle:
-                                    Theme.of(context).textTheme.titleSmall,
                                 label: Text('task.status.done'.tr()),
                                 selected: task?.status == TaskStatus.done,
                                 onSelected: (value) {

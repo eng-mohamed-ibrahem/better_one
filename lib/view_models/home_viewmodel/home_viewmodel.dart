@@ -3,6 +3,7 @@ import 'package:better_one/core/utils/dependency_locator/dependency_injection.da
 import 'package:better_one/model/notification_model/notification_model.dart';
 import 'package:better_one/model/task_model/task_model.dart';
 import 'package:better_one/repositories/task_repo/task_repo_interface.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
@@ -66,6 +67,22 @@ class HomeViewmodel extends Cubit<HomeViewmodelState> {
             allTasks: state.allTasks..add(task),
           ),
         );
+        // todo check if user want to show notification when task added
+        localNotification.display(
+          notification: NotificationModel(
+            id: DateTime.now().microsecond,
+            title: 'task.motive'.tr(),
+            body: task.title,
+            payload: task.id,
+          ),
+        );
+        state.scrollController!.hasClients
+            ? state.scrollController!.animateTo(
+                state.scrollController!.position.maxScrollExtent,
+                duration: const Duration(milliseconds: 500),
+                curve: Curves.easeInOut,
+              )
+            : null;
       },
       failure: (error) {
         emit(
@@ -183,12 +200,10 @@ class HomeViewmodel extends Cubit<HomeViewmodelState> {
 
   void getTotalEstimatedTime() async {
     release();
-    // emit(state.copyWith(isGetTotalEstimatedTimeLoading: true));
     var result = await taskRepoInterface.getTotoalEstimatedTime();
     result.when(
         success: (totalTime) => emit(
               state.copyWith(
-                isGetTotalEstimatedTimeLoading: false,
                 isGetTotalEstimatedTimeCompleted: true,
                 totalEstimatedTime: Duration(microseconds: totalTime),
               ),
@@ -196,7 +211,6 @@ class HomeViewmodel extends Cubit<HomeViewmodelState> {
         failure: (error) {
           emit(
             state.copyWith(
-              isGetTotalEstimatedTimeLoading: false,
               isGetTotalEstimatedTimeCompleted: false,
               isGetTotalEstimatedTimeFailed: true,
               errorMessage: error.message,
@@ -208,13 +222,11 @@ class HomeViewmodel extends Cubit<HomeViewmodelState> {
   void updateTotalEstimatedTime(Duration updatedTime,
       {bool isAdding = true}) async {
     release();
-    // emit(state.copyWith(isUpdateTotalEstimatedTimeLoading: true));
     var result = await taskRepoInterface.updateTotalEstimatedTime(
         updatedTime.inMicroseconds, isAdding);
     result.when(
       success: (totalTime) => emit(
         state.copyWith(
-          isUpdateTotalEstimatedTimeLoading: false,
           isUpdateTotalEstimatedTimeCompleted: true,
           totalEstimatedTime: Duration(microseconds: totalTime),
         ),
@@ -222,7 +234,6 @@ class HomeViewmodel extends Cubit<HomeViewmodelState> {
       failure: (error) {
         emit(
           state.copyWith(
-            isUpdateTotalEstimatedTimeLoading: false,
             isUpdateTotalEstimatedTimeCompleted: false,
             isUpdateTotalEstimatedTimeFailed: true,
             errorMessage: error.message,
@@ -273,10 +284,10 @@ class HomeViewmodel extends Cubit<HomeViewmodelState> {
         isGetTaskByIdCompleted: false,
         isGetTaskByIdFailed: false,
         errorMessage: null,
-        addedTask: null,
-        updatedTask: null,
-        removedTask: null,
-        taskById: null,
+        // addedTask: null,
+        // updatedTask: null,
+        // removedTask: null,
+        // taskById: null,
       ),
     );
   }

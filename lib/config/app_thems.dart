@@ -21,7 +21,19 @@ class AppThemes {
     listTileTheme: listTileTheme(),
     dropdownMenuTheme: dropdownMenuTheme(),
     chipTheme: chipTheme(),
+    checkboxTheme: checkboxTheme(),
   );
+
+  static CheckboxThemeData checkboxTheme() {
+    return CheckboxThemeData(
+      fillColor: MaterialStateProperty.all(AppColors.primaryColor),
+      checkColor: MaterialStateProperty.all(AppColors.hightlightColor),
+      side: const BorderSide(
+        color: AppColors.secondColor,
+        width: 2,
+      ),
+    );
+  }
 
   static ChipThemeData chipTheme() {
     return ChipThemeData(
@@ -29,7 +41,17 @@ class AppThemes {
       selectedColor: AppColors.primaryColor,
       labelStyle: textTheme().bodySmall,
       padding: EdgeInsets.zero,
+      shape: const RoundedRectangleBorder(
+        borderRadius: BorderRadius.all(
+          Radius.circular(AppMetrices.borderRadius1),
+        ),
+        side: BorderSide(
+          color: AppColors.secondColor,
+          width: 1,
+        ),
+      ),
       showCheckmark: true,
+      disabledColor: AppColors.primaryColor,
       checkmarkColor: AppColors.hightlightColor,
     );
   }
@@ -285,5 +307,6 @@ class AppThemes {
       ),
     ),
     chipTheme: chipTheme(),
+    checkboxTheme: checkboxTheme(),
   );
 }

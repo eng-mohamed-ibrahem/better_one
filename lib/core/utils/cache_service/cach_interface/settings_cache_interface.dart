@@ -24,4 +24,16 @@ abstract class SettingsCacheInterface {
 
   // get search settings
   Future<Result<Map<String, bool>, CacheFailure>> getSearchSettings();
+
+  // get notification settings
+  Future<Result<Map<String, dynamic>, CacheFailure>> getNotificationSettings();
+
+  // set notification settings
+  Future<Result<bool, CacheFailure>> setNotificationSettings({
+    bool? isNotificationOnAdd,
+    bool? isNotificationOnUpdate,
+    bool? isNotificationOnComplete,
+    bool? isNotificationOnReminder,
+    int? reminderDateTime,
+  });
 }
