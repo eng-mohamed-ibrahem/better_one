@@ -1,4 +1,7 @@
+import 'package:better_one/core/utils/dependency_locator/dependency_injection.dart';
+import 'package:better_one/model/notification_model/notification_model.dart';
 import 'package:better_one/repositories/setting_repo/settings_interface.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
@@ -135,6 +138,9 @@ class SettingViewModel extends Cubit<SettingViewModelState> {
     bool? isNotificationOnReminder,
     DateTime? reminderDateTime,
   }) async {
+    emit(release().copyWith(
+      isNotificationSettingsLoading: true,
+    ));
     var result = await settingsRepo.setNotificationSettings(
       isNotificationOnAdd: isNotificationOnAdd,
       isNotificationOnUpdate: isNotificationOnUpdate,
@@ -146,6 +152,7 @@ class SettingViewModel extends Cubit<SettingViewModelState> {
       success: (value) {
         emit(
           release().copyWith(
+            isNotificationSettingsLoading: false,
             isNotificationSettingsCompleted: true,
             isNotificationOnAdd:
                 isNotificationOnAdd ?? state.isNotificationOnAdd,
@@ -158,10 +165,12 @@ class SettingViewModel extends Cubit<SettingViewModelState> {
             reminderDateTime: reminderDateTime ?? state.reminderDateTime,
           ),
         );
+        scheduleNotification();
       },
       failure: (failure) {
         emit(
           release().copyWith(
+            isNotificationSettingsLoading: false,
             isNotificationSettingsCompleted: false,
             isNotificationSettingsFailed: true,
             errorMessage: failure.message,
@@ -174,7 +183,7 @@ class SettingViewModel extends Cubit<SettingViewModelState> {
   void getNotificationSettings() async {
     var result = await settingsRepo.getNotificationSettings();
     result.when(
-      success: (notificationSettings) {
+      success: (notificationSettings) async {
         emit(
           release().copyWith(
             isNotificationSettingsCompleted: true,
@@ -202,6 +211,23 @@ class SettingViewModel extends Cubit<SettingViewModelState> {
     );
   }
 
+  /// schedule notification
+  void scheduleNotification() async {
+    state.isNotificationOnReminder
+        ? await localNotification.displaySchedule(
+            // repeatDaysWithSameTime: true,
+            scheduleTime: state.reminderDateTime!,
+            notification: NotificationModel(
+              id: NotificaitonConstants.scheduleNotificationId,
+              title: 'task.motive_reminder'.tr(),
+              body: 'task.motive_reminder_body'.tr(),
+              payload: NotificaitonConstants.scheduleNotificationId.toString(),
+            ),
+          )
+        : localNotification.cancel(
+            id: NotificaitonConstants.scheduleNotificationId);
+  }
+
   void setCurrentTappedItemIndex(int index) {
     emit(release().copyWith(currentTappedItemIndex: index));
   }
@@ -219,6 +245,7 @@ class SettingViewModel extends Cubit<SettingViewModelState> {
       isGetSearchSettingsFailed: false,
       isSetSearchSettingsCompleted: false,
       isSetSearchSettingsFailed: false,
+      isNotificationSettingsLoading: false,
       isNotificationSettingsCompleted: false,
       isNotificationSettingsFailed: false,
       errorMessage: null,

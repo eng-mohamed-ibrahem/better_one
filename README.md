@@ -60,6 +60,7 @@ Send notifications to other users when tasks are completed.
 ## Next steps
 
 * Handle app while no internet connection
+* Handle app while loading data
 * Settings for notification:
   * Turn on/off notifications when tasks are created
   * Customize the notification schedule for your tasks

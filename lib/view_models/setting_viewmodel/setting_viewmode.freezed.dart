@@ -39,10 +39,10 @@ mixin _$SettingViewModelState {
       throw _privateConstructorUsedError; //* notification settings
   bool get isNotificationOnAdd => throw _privateConstructorUsedError;
   bool get isNotificationOnUpdate => throw _privateConstructorUsedError;
-  bool get isNotificationOnDelete => throw _privateConstructorUsedError;
   bool get isNotificationOnComplete => throw _privateConstructorUsedError;
   bool get isNotificationOnReminder => throw _privateConstructorUsedError;
   DateTime? get reminderDateTime => throw _privateConstructorUsedError;
+  bool get isNotificationSettingsLoading => throw _privateConstructorUsedError;
   bool get isNotificationSettingsCompleted =>
       throw _privateConstructorUsedError;
   bool get isNotificationSettingsFailed =>
@@ -81,10 +81,10 @@ abstract class $SettingViewModelStateCopyWith<$Res> {
       bool isGetSearchSettingsFailed,
       bool isNotificationOnAdd,
       bool isNotificationOnUpdate,
-      bool isNotificationOnDelete,
       bool isNotificationOnComplete,
       bool isNotificationOnReminder,
       DateTime? reminderDateTime,
+      bool isNotificationSettingsLoading,
       bool isNotificationSettingsCompleted,
       bool isNotificationSettingsFailed,
       String? errorMessage,
@@ -123,10 +123,10 @@ class _$SettingViewModelStateCopyWithImpl<$Res,
     Object? isGetSearchSettingsFailed = null,
     Object? isNotificationOnAdd = null,
     Object? isNotificationOnUpdate = null,
-    Object? isNotificationOnDelete = null,
     Object? isNotificationOnComplete = null,
     Object? isNotificationOnReminder = null,
     Object? reminderDateTime = freezed,
+    Object? isNotificationSettingsLoading = null,
     Object? isNotificationSettingsCompleted = null,
     Object? isNotificationSettingsFailed = null,
     Object? errorMessage = freezed,
@@ -205,10 +205,6 @@ class _$SettingViewModelStateCopyWithImpl<$Res,
           ? _value.isNotificationOnUpdate
           : isNotificationOnUpdate // ignore: cast_nullable_to_non_nullable
               as bool,
-      isNotificationOnDelete: null == isNotificationOnDelete
-          ? _value.isNotificationOnDelete
-          : isNotificationOnDelete // ignore: cast_nullable_to_non_nullable
-              as bool,
       isNotificationOnComplete: null == isNotificationOnComplete
           ? _value.isNotificationOnComplete
           : isNotificationOnComplete // ignore: cast_nullable_to_non_nullable
@@ -221,6 +217,10 @@ class _$SettingViewModelStateCopyWithImpl<$Res,
           ? _value.reminderDateTime
           : reminderDateTime // ignore: cast_nullable_to_non_nullable
               as DateTime?,
+      isNotificationSettingsLoading: null == isNotificationSettingsLoading
+          ? _value.isNotificationSettingsLoading
+          : isNotificationSettingsLoading // ignore: cast_nullable_to_non_nullable
+              as bool,
       isNotificationSettingsCompleted: null == isNotificationSettingsCompleted
           ? _value.isNotificationSettingsCompleted
           : isNotificationSettingsCompleted // ignore: cast_nullable_to_non_nullable
@@ -269,10 +269,10 @@ abstract class _$$SettingViewModelStateImplCopyWith<$Res>
       bool isGetSearchSettingsFailed,
       bool isNotificationOnAdd,
       bool isNotificationOnUpdate,
-      bool isNotificationOnDelete,
       bool isNotificationOnComplete,
       bool isNotificationOnReminder,
       DateTime? reminderDateTime,
+      bool isNotificationSettingsLoading,
       bool isNotificationSettingsCompleted,
       bool isNotificationSettingsFailed,
       String? errorMessage,
@@ -309,10 +309,10 @@ class __$$SettingViewModelStateImplCopyWithImpl<$Res>
     Object? isGetSearchSettingsFailed = null,
     Object? isNotificationOnAdd = null,
     Object? isNotificationOnUpdate = null,
-    Object? isNotificationOnDelete = null,
     Object? isNotificationOnComplete = null,
     Object? isNotificationOnReminder = null,
     Object? reminderDateTime = freezed,
+    Object? isNotificationSettingsLoading = null,
     Object? isNotificationSettingsCompleted = null,
     Object? isNotificationSettingsFailed = null,
     Object? errorMessage = freezed,
@@ -391,10 +391,6 @@ class __$$SettingViewModelStateImplCopyWithImpl<$Res>
           ? _value.isNotificationOnUpdate
           : isNotificationOnUpdate // ignore: cast_nullable_to_non_nullable
               as bool,
-      isNotificationOnDelete: null == isNotificationOnDelete
-          ? _value.isNotificationOnDelete
-          : isNotificationOnDelete // ignore: cast_nullable_to_non_nullable
-              as bool,
       isNotificationOnComplete: null == isNotificationOnComplete
           ? _value.isNotificationOnComplete
           : isNotificationOnComplete // ignore: cast_nullable_to_non_nullable
@@ -407,6 +403,10 @@ class __$$SettingViewModelStateImplCopyWithImpl<$Res>
           ? _value.reminderDateTime
           : reminderDateTime // ignore: cast_nullable_to_non_nullable
               as DateTime?,
+      isNotificationSettingsLoading: null == isNotificationSettingsLoading
+          ? _value.isNotificationSettingsLoading
+          : isNotificationSettingsLoading // ignore: cast_nullable_to_non_nullable
+              as bool,
       isNotificationSettingsCompleted: null == isNotificationSettingsCompleted
           ? _value.isNotificationSettingsCompleted
           : isNotificationSettingsCompleted // ignore: cast_nullable_to_non_nullable
@@ -449,10 +449,10 @@ class _$SettingViewModelStateImpl implements _SettingViewModelState {
       this.isGetSearchSettingsFailed = false,
       this.isNotificationOnAdd = true,
       this.isNotificationOnUpdate = false,
-      this.isNotificationOnDelete = false,
       this.isNotificationOnComplete = false,
       this.isNotificationOnReminder = false,
       this.reminderDateTime = null,
+      this.isNotificationSettingsLoading = false,
       this.isNotificationSettingsCompleted = false,
       this.isNotificationSettingsFailed = false,
       this.errorMessage = null,
@@ -520,9 +520,6 @@ class _$SettingViewModelStateImpl implements _SettingViewModelState {
   final bool isNotificationOnUpdate;
   @override
   @JsonKey()
-  final bool isNotificationOnDelete;
-  @override
-  @JsonKey()
   final bool isNotificationOnComplete;
   @override
   @JsonKey()
@@ -530,6 +527,9 @@ class _$SettingViewModelStateImpl implements _SettingViewModelState {
   @override
   @JsonKey()
   final DateTime? reminderDateTime;
+  @override
+  @JsonKey()
+  final bool isNotificationSettingsLoading;
   @override
   @JsonKey()
   final bool isNotificationSettingsCompleted;
@@ -547,7 +547,7 @@ class _$SettingViewModelStateImpl implements _SettingViewModelState {
 
   @override
   String toString() {
-    return 'SettingViewModelState(isInitial: $isInitial, isChangeLanguageLoading: $isChangeLanguageLoading, isChangeLanguageCompleted: $isChangeLanguageCompleted, isChangeLanguageFailed: $isChangeLanguageFailed, isGetLanguageLoading: $isGetLanguageLoading, isGetLanguageCompleted: $isGetLanguageCompleted, isGetLanguageFailed: $isGetLanguageFailed, currentLanguage: $currentLanguage, isSearchByTitle: $isSearchByTitle, isSearchByBody: $isSearchByBody, isSearchByDate: $isSearchByDate, isSearchByStatus: $isSearchByStatus, isSetSearchSettingsCompleted: $isSetSearchSettingsCompleted, isSetSearchSettingsFailed: $isSetSearchSettingsFailed, isGetSearchSettingsCompleted: $isGetSearchSettingsCompleted, isGetSearchSettingsFailed: $isGetSearchSettingsFailed, isNotificationOnAdd: $isNotificationOnAdd, isNotificationOnUpdate: $isNotificationOnUpdate, isNotificationOnDelete: $isNotificationOnDelete, isNotificationOnComplete: $isNotificationOnComplete, isNotificationOnReminder: $isNotificationOnReminder, reminderDateTime: $reminderDateTime, isNotificationSettingsCompleted: $isNotificationSettingsCompleted, isNotificationSettingsFailed: $isNotificationSettingsFailed, errorMessage: $errorMessage, currentTappedItemIndex: $currentTappedItemIndex)';
+    return 'SettingViewModelState(isInitial: $isInitial, isChangeLanguageLoading: $isChangeLanguageLoading, isChangeLanguageCompleted: $isChangeLanguageCompleted, isChangeLanguageFailed: $isChangeLanguageFailed, isGetLanguageLoading: $isGetLanguageLoading, isGetLanguageCompleted: $isGetLanguageCompleted, isGetLanguageFailed: $isGetLanguageFailed, currentLanguage: $currentLanguage, isSearchByTitle: $isSearchByTitle, isSearchByBody: $isSearchByBody, isSearchByDate: $isSearchByDate, isSearchByStatus: $isSearchByStatus, isSetSearchSettingsCompleted: $isSetSearchSettingsCompleted, isSetSearchSettingsFailed: $isSetSearchSettingsFailed, isGetSearchSettingsCompleted: $isGetSearchSettingsCompleted, isGetSearchSettingsFailed: $isGetSearchSettingsFailed, isNotificationOnAdd: $isNotificationOnAdd, isNotificationOnUpdate: $isNotificationOnUpdate, isNotificationOnComplete: $isNotificationOnComplete, isNotificationOnReminder: $isNotificationOnReminder, reminderDateTime: $reminderDateTime, isNotificationSettingsLoading: $isNotificationSettingsLoading, isNotificationSettingsCompleted: $isNotificationSettingsCompleted, isNotificationSettingsFailed: $isNotificationSettingsFailed, errorMessage: $errorMessage, currentTappedItemIndex: $currentTappedItemIndex)';
   }
 
   @override
@@ -593,16 +593,16 @@ class _$SettingViewModelStateImpl implements _SettingViewModelState {
                 other.isNotificationOnAdd == isNotificationOnAdd) &&
             (identical(other.isNotificationOnUpdate, isNotificationOnUpdate) ||
                 other.isNotificationOnUpdate == isNotificationOnUpdate) &&
-            (identical(other.isNotificationOnDelete, isNotificationOnDelete) ||
-                other.isNotificationOnDelete == isNotificationOnDelete) &&
             (identical(other.isNotificationOnComplete, isNotificationOnComplete) ||
                 other.isNotificationOnComplete == isNotificationOnComplete) &&
             (identical(other.isNotificationOnReminder, isNotificationOnReminder) ||
                 other.isNotificationOnReminder == isNotificationOnReminder) &&
             (identical(other.reminderDateTime, reminderDateTime) ||
                 other.reminderDateTime == reminderDateTime) &&
-            (identical(other.isNotificationSettingsCompleted, isNotificationSettingsCompleted) ||
-                other.isNotificationSettingsCompleted == isNotificationSettingsCompleted) &&
+            (identical(other.isNotificationSettingsLoading, isNotificationSettingsLoading) ||
+                other.isNotificationSettingsLoading ==
+                    isNotificationSettingsLoading) &&
+            (identical(other.isNotificationSettingsCompleted, isNotificationSettingsCompleted) || other.isNotificationSettingsCompleted == isNotificationSettingsCompleted) &&
             (identical(other.isNotificationSettingsFailed, isNotificationSettingsFailed) || other.isNotificationSettingsFailed == isNotificationSettingsFailed) &&
             (identical(other.errorMessage, errorMessage) || other.errorMessage == errorMessage) &&
             (identical(other.currentTappedItemIndex, currentTappedItemIndex) || other.currentTappedItemIndex == currentTappedItemIndex));
@@ -629,10 +629,10 @@ class _$SettingViewModelStateImpl implements _SettingViewModelState {
         isGetSearchSettingsFailed,
         isNotificationOnAdd,
         isNotificationOnUpdate,
-        isNotificationOnDelete,
         isNotificationOnComplete,
         isNotificationOnReminder,
         reminderDateTime,
+        isNotificationSettingsLoading,
         isNotificationSettingsCompleted,
         isNotificationSettingsFailed,
         errorMessage,
@@ -667,10 +667,10 @@ abstract class _SettingViewModelState implements SettingViewModelState {
       final bool isGetSearchSettingsFailed,
       final bool isNotificationOnAdd,
       final bool isNotificationOnUpdate,
-      final bool isNotificationOnDelete,
       final bool isNotificationOnComplete,
       final bool isNotificationOnReminder,
       final DateTime? reminderDateTime,
+      final bool isNotificationSettingsLoading,
       final bool isNotificationSettingsCompleted,
       final bool isNotificationSettingsFailed,
       final String? errorMessage,
@@ -713,13 +713,13 @@ abstract class _SettingViewModelState implements SettingViewModelState {
   @override
   bool get isNotificationOnUpdate;
   @override
-  bool get isNotificationOnDelete;
-  @override
   bool get isNotificationOnComplete;
   @override
   bool get isNotificationOnReminder;
   @override
   DateTime? get reminderDateTime;
+  @override
+  bool get isNotificationSettingsLoading;
   @override
   bool get isNotificationSettingsCompleted;
   @override

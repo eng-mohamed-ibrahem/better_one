@@ -10,10 +10,12 @@ import 'package:better_one/core/utils/shared_widgets/failed.dart';
 import 'package:better_one/core/utils/shared_widgets/lottie_indicator.dart';
 import 'package:better_one/core/utils/shared_widgets/task_field.dart';
 import 'package:better_one/core/utils/snack_bar/snack_bar.dart';
+import 'package:better_one/model/notification_model/notification_model.dart';
 import 'package:better_one/model/task_model/task_model.dart';
 import 'package:better_one/view/widgets/duration_widget.dart';
 import 'package:better_one/view_models/home_viewmodel/home_viewmodel.dart';
 import 'package:better_one/view_models/quote_viewmodel/quote_viewmodel.dart';
+import 'package:better_one/view_models/setting_viewmodel/setting_viewmode.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -94,6 +96,7 @@ class _TaskScreenState extends State<TaskScreen>
 
   @override
   Widget build(BuildContext context) {
+    var settingState = SettingViewModel.get(context).state;
     return Scaffold(
       body: SafeArea(
         bottom: false,
@@ -116,41 +119,68 @@ class _TaskScreenState extends State<TaskScreen>
               titleController.text = task!.title;
               descriptionController.text = task!.body;
             }
-
             if (state.isTaskUpdateCompleted) {
               task = state.updatedTask;
               if (isTaskModified) {
-                showSnackBar(
-                  context,
-                  message: 'task.updated'.tr(),
-                );
+                settingState.isNotificationOnUpdate
+                    ? localNotification.display(
+                        notification: NotificationModel(
+                          id: DateTime.now().microsecond,
+                          title: 'task.motive_update'.tr(),
+                          body: task!.title,
+                          payload: task!.id,
+                        ),
+                      )
+                    : null;
                 isTaskModified = false;
+              }
+              if (task!.status == TaskStatus.done) {
+                showCompleteTaskDialog(
+                  context,
+                  AnimationController(
+                    vsync: this,
+                    duration: const Duration(seconds: 3, milliseconds: 500),
+                  )..forward(),
+                );
+                settingState.isNotificationOnComplete
+                    ? localNotification.display(
+                        notification: NotificationModel(
+                          id: DateTime.now().microsecond,
+                          title: 'task.motive_complete'.tr(),
+                          body: task!.title,
+                          payload: task!.id,
+                        ),
+                      )
+                    : null;
               }
             }
             if (state.isTaskAddCompleted) {
               task = state.addedTask;
               isTaskModified = false;
+              settingState.isNotificationOnAdd
+                  ? localNotification.display(
+                      notification: NotificationModel(
+                        id: DateTime.now().microsecond,
+                        title: 'task.motive_add'.tr(),
+                        body: task!.title,
+                        payload: task!.id,
+                      ),
+                    )
+                  : null;
             }
             timer?.cancel();
-            timer = Timer.periodic(const Duration(seconds: 1), (timer) {
-              task!.status == TaskStatus.inprogress
-                  ? setState(
-                      () {
-                        runningTime = Duration(seconds: timer.tick);
-                      },
-                    )
-                  : timer.cancel();
-            });
-
-            if (task!.status == TaskStatus.done) {
-              showCompleteTaskDialog(
-                context,
-                AnimationController(
-                  vsync: this,
-                  duration: const Duration(seconds: 3, milliseconds: 500),
-                )..forward(),
-              );
-            }
+            timer = Timer.periodic(
+              const Duration(seconds: 1),
+              (timer) {
+                task!.status == TaskStatus.inprogress
+                    ? setState(
+                        () {
+                          runningTime = Duration(seconds: timer.tick);
+                        },
+                      )
+                    : timer.cancel();
+              },
+            );
           },
           builder: (context, state) {
             if (state.isGetTaskByIdLoading) {

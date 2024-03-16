@@ -31,6 +31,8 @@ abstract class NotificationRepoInterface {
 
   Future<List<int>> getActiveNotificationsIds();
 
+  Future<List<int>> getPendingNotificationsIds();
+
   /// cancel notification by id
   Future<void> cancel({required int id});
 

@@ -176,4 +176,11 @@ class FlutterLocalNotification implements NotificationRepoInterface {
         .getActiveNotifications()
         .then((value) => value.map((e) => e.id!).toList());
   }
+
+  @override
+  Future<List<int>> getPendingNotificationsIds() async {
+    return await _flutterNotificationsPlugin
+        .pendingNotificationRequests()
+        .then((value) => value.map((e) => e.id).toList());
+  }
 }

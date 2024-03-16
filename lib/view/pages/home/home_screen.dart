@@ -1,5 +1,3 @@
-import 'dart:developer';
-
 import 'package:better_one/config/generate_router.dart';
 import 'package:better_one/core/utils/dependency_locator/dependency_injection.dart';
 import 'package:better_one/core/utils/shared_widgets/failed.dart';
@@ -12,7 +10,6 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:logger/logger.dart';
 
 import '../../../core/constants/constants.dart';
 
@@ -46,19 +43,20 @@ class _HomeScreenState extends State<HomeScreen> with RouteAware {
         /// 1: chech if in the same route of [task screen]
         /// 2: if yes, pushReplacement
         /// 3: if not, pushNamed
-        log(GenerateRouter.activeRoute);
-        Logger().i('payload: $payload');
-        GenerateRouter.activeRoute == GenerateRouter.taskScreen
-            ? Navigator.pushReplacementNamed(
-                context,
-                GenerateRouter.taskScreen,
-                arguments: payload!,
-              )
-            : Navigator.pushNamed(
-                context,
-                GenerateRouter.taskScreen,
-                arguments: payload!,
-              );
+        if (NotificaitonConstants.scheduleNotificationId.toString() !=
+            payload) {
+          GenerateRouter.activeRoute == GenerateRouter.taskScreen
+              ? Navigator.pushReplacementNamed(
+                  context,
+                  GenerateRouter.taskScreen,
+                  arguments: payload!,
+                )
+              : Navigator.pushNamed(
+                  context,
+                  GenerateRouter.taskScreen,
+                  arguments: payload!,
+                );
+        }
       },
     );
   }

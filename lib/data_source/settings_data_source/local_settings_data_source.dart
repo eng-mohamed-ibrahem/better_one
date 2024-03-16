@@ -2,7 +2,6 @@ import 'package:better_one/core/errors/failure.dart';
 import 'package:better_one/core/request_result/request_result.dart';
 import 'package:better_one/data_source/settings_data_source/settings_source_interface.dart';
 import 'package:flutter/material.dart';
-import 'package:logger/logger.dart';
 
 import '../../core/constants/constants.dart';
 import '../../core/utils/cache_service/cache_service.dart';
@@ -143,7 +142,6 @@ class LocalSettingsDataSource implements SettingsSource {
     DateTime? reminderDateTime,
   }) async {
     try {
-      Logger().d(reminderDateTime);
       return await settingsCache.setNotificationSettings(
         isNotificationOnAdd: isNotificationOnAdd,
         isNotificationOnUpdate: isNotificationOnUpdate,

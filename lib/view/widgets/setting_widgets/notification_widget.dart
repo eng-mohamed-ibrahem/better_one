@@ -1,12 +1,34 @@
 import 'package:better_one/core/constants/constants.dart';
+import 'package:better_one/core/utils/dependency_locator/dependency_injection.dart';
 import 'package:better_one/view_models/setting_viewmodel/setting_viewmode.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-class NotificationWidget extends StatelessWidget {
+class NotificationWidget extends StatefulWidget {
   const NotificationWidget({super.key});
+
+  @override
+  State<NotificationWidget> createState() => _NotificationWidgetState();
+}
+
+class _NotificationWidgetState extends State<NotificationWidget> {
+  @override
+  void initState() {
+    // to check if notification is on or not
+    localNotification.getPendingNotificationsIds().then(
+      (list) {
+        if (!list.contains(NotificaitonConstants.scheduleNotificationId)) {
+          SettingViewModel.get(context).setNotificationSettings(
+            isNotificationOnReminder: false,
+            reminderDateTime: null,
+          );
+        }
+      },
+    );
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -21,6 +43,9 @@ class NotificationWidget extends StatelessWidget {
       ),
       child: BlocBuilder<SettingViewModel, SettingViewModelState>(
         builder: (context, state) {
+          if (state.isNotificationSettingsLoading) {
+            return const Center(child: CircularProgressIndicator());
+          }
           return ListView(
             shrinkWrap: true,
             primary: true,
@@ -71,14 +96,8 @@ class NotificationWidget extends StatelessWidget {
                 color: AppColors.secondColor,
                 height: 20.h,
               ),
-              CheckboxListTile(
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(15.r),
-                ),
-                title: Text('setting.notification.on.reminder'.tr()),
-                contentPadding: EdgeInsets.zero,
-                value: state.isNotificationOnReminder,
-                onChanged: (isSelected) async {
+              TextButton(
+                onPressed: () async {
                   await showDatePicker(
                     context: context,
                     currentDate: DateTime.now(),
@@ -86,23 +105,22 @@ class NotificationWidget extends StatelessWidget {
                     firstDate: DateTime.now(),
                     lastDate: DateTime(2100),
                   ).then(
-                    (dateTimePicked) async {
-                      if (dateTimePicked != null) {
+                    (pickedDateTime) async {
+                      if (pickedDateTime != null) {
                         await showTimePicker(
-                                context: context,
-                                initialTime:
-                                    TimeOfDay.fromDateTime(dateTimePicked))
-                            .then(
-                          (timePicked) {
+                          context: context,
+                          initialTime: TimeOfDay.now(),
+                        ).then(
+                          (pickedTime) {
                             SettingViewModel.get(context)
                                 .setNotificationSettings(
                               isNotificationOnReminder:
-                                  timePicked != null ? true : false,
-                              reminderDateTime: timePicked != null
-                                  ? dateTimePicked.add(
+                                  pickedTime != null ? true : false,
+                              reminderDateTime: pickedTime != null
+                                  ? pickedDateTime.add(
                                       Duration(
-                                        hours: timePicked.hour,
-                                        minutes: timePicked.minute,
+                                        hours: pickedTime.hour,
+                                        minutes: pickedTime.minute,
                                       ),
                                     )
                                   : null,
@@ -111,14 +129,14 @@ class NotificationWidget extends StatelessWidget {
                         );
                       } else {
                         SettingViewModel.get(context).setNotificationSettings(
-                          isNotificationOnReminder:
-                              dateTimePicked != null ? true : false,
-                          reminderDateTime: dateTimePicked,
+                          isNotificationOnReminder: false,
+                          reminderDateTime: pickedDateTime,
                         );
                       }
                     },
                   );
                 },
+                child: Text('setting.notification.on.reminder'.tr()),
               ),
               if (state.isNotificationOnReminder &&
                   state.reminderDateTime != null)

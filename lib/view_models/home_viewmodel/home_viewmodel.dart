@@ -1,15 +1,10 @@
 import 'package:better_one/core/enum/task_status.dart';
-import 'package:better_one/core/utils/dependency_locator/dependency_injection.dart';
-import 'package:better_one/model/notification_model/notification_model.dart';
 import 'package:better_one/model/task_model/task_model.dart';
 import 'package:better_one/repositories/task_repo/task_repo_interface.dart';
-import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:logger/logger.dart';
-
-import '../../core/constants/constants.dart';
 
 part 'home_viewmodel.freezed.dart';
 part 'home_viewmodel_state.dart';
@@ -65,15 +60,6 @@ class HomeViewmodel extends Cubit<HomeViewmodelState> {
             isTaskAddCompleted: true,
             addedTask: task,
             allTasks: state.allTasks..add(task),
-          ),
-        );
-        // todo check if user want to show notification when task added
-        localNotification.display(
-          notification: NotificationModel(
-            id: DateTime.now().microsecond,
-            title: 'task.motive'.tr(),
-            body: task.title,
-            payload: task.id,
           ),
         );
         state.scrollController!.hasClients
@@ -241,29 +227,6 @@ class HomeViewmodel extends Cubit<HomeViewmodelState> {
         );
       },
     );
-  }
-
-  /// make in notification settings page
-  void scheduleNotification(String title, String body) async {
-    List<int> ids = await localNotification.getActiveNotificationsIds();
-    bool isScheduled =
-        ids.contains(NotificaitonConstants.scheduleNotificationId);
-    isScheduled
-        ? null
-        : await localNotification.displaySchedule(
-            repeatDaysWithSameTime: true,
-            scheduleTime: DateTime(
-              DateTime.now().year,
-              DateTime.now().month,
-              DateTime.now().day,
-              NotificaitonConstants.scheduleNotificationInHour,
-            ),
-            notification: NotificationModel(
-              id: NotificaitonConstants.scheduleNotificationId,
-              title: title,
-              body: body,
-            ),
-          );
   }
 
   /// release all states to initial state except [allTasks] and [totalEstimatedTime]
