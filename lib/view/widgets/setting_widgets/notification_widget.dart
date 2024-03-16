@@ -13,7 +13,9 @@ class NotificationWidget extends StatelessWidget {
     return Container(
       alignment: Alignment.center,
       padding: EdgeInsets.symmetric(
-          horizontal: MediaQuery.of(context).size.width * 0.07, vertical: 5),
+        horizontal: MediaQuery.of(context).size.width * 0.07,
+        vertical: 5,
+      ),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(10),
       ),
@@ -23,8 +25,9 @@ class NotificationWidget extends StatelessWidget {
             shrinkWrap: true,
             primary: true,
             padding: EdgeInsets.symmetric(
-                horizontal: MediaQuery.of(context).size.width * 0.07,
-                vertical: 5),
+              horizontal: MediaQuery.of(context).size.width * 0.07,
+              vertical: 5,
+            ),
             children: [
               CheckboxListTile(
                 shape: RoundedRectangleBorder(
@@ -36,7 +39,7 @@ class NotificationWidget extends StatelessWidget {
                 value: state.isNotificationOnAdd,
                 onChanged: (isSelected) {
                   SettingViewModel.get(context)
-                      .searchOn(isSearchByTitle: isSelected);
+                      .setNotificationSettings(isNotificationOnAdd: isSelected);
                 },
               ),
               CheckboxListTile(
@@ -47,8 +50,8 @@ class NotificationWidget extends StatelessWidget {
                 contentPadding: EdgeInsets.zero,
                 value: state.isNotificationOnUpdate,
                 onChanged: (isSelected) {
-                  SettingViewModel.get(context)
-                      .searchOn(isSearchByBody: isSelected);
+                  SettingViewModel.get(context).setNotificationSettings(
+                      isNotificationOnUpdate: isSelected);
                 },
               ),
               CheckboxListTile(
@@ -59,8 +62,8 @@ class NotificationWidget extends StatelessWidget {
                 contentPadding: EdgeInsets.zero,
                 value: state.isNotificationOnComplete,
                 onChanged: (isSelected) {
-                  SettingViewModel.get(context)
-                      .searchOn(isSearchByStatus: isSelected);
+                  SettingViewModel.get(context).setNotificationSettings(
+                      isNotificationOnComplete: isSelected);
                 },
               ),
               Divider(
@@ -75,11 +78,55 @@ class NotificationWidget extends StatelessWidget {
                 title: Text('setting.notification.on.reminder'.tr()),
                 contentPadding: EdgeInsets.zero,
                 value: state.isNotificationOnReminder,
-                onChanged: (isSelected) {
-                  SettingViewModel.get(context)
-                      .searchOn(isSearchByStatus: isSelected);
+                onChanged: (isSelected) async {
+                  await showDatePicker(
+                    context: context,
+                    currentDate: DateTime.now(),
+                    initialDate: DateTime.now(),
+                    firstDate: DateTime.now(),
+                    lastDate: DateTime(2100),
+                  ).then(
+                    (dateTimePicked) async {
+                      if (dateTimePicked != null) {
+                        await showTimePicker(
+                                context: context,
+                                initialTime:
+                                    TimeOfDay.fromDateTime(dateTimePicked))
+                            .then(
+                          (timePicked) {
+                            SettingViewModel.get(context)
+                                .setNotificationSettings(
+                              isNotificationOnReminder:
+                                  timePicked != null ? true : false,
+                              reminderDateTime: timePicked != null
+                                  ? dateTimePicked.add(
+                                      Duration(
+                                        hours: timePicked.hour,
+                                        minutes: timePicked.minute,
+                                      ),
+                                    )
+                                  : null,
+                            );
+                          },
+                        );
+                      } else {
+                        SettingViewModel.get(context).setNotificationSettings(
+                          isNotificationOnReminder:
+                              dateTimePicked != null ? true : false,
+                          reminderDateTime: dateTimePicked,
+                        );
+                      }
+                    },
+                  );
                 },
               ),
+              if (state.isNotificationOnReminder &&
+                  state.reminderDateTime != null)
+                Text(
+                  DateFormat('EEEE, MMMM d, yyyy,  hh:mm a',
+                          state.currentLanguage!.languageCode)
+                      .format(state.reminderDateTime!),
+                )
             ],
           );
         },

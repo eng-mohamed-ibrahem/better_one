@@ -10,18 +10,20 @@ class SearchSettingWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.all(10),
+      padding: EdgeInsets.symmetric(
+        horizontal: MediaQuery.of(context).size.width * 0.07,
+        vertical: 5,
+      ),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(10),
       ),
       child: BlocBuilder<SettingViewModel, SettingViewModelState>(
         builder: (context, state) {
-          return GridView(
+          return ListView(
             shrinkWrap: true,
-            gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
-              maxCrossAxisExtent: MediaQuery.sizeOf(context).width * .45,
-              childAspectRatio: 4 / 1,
-              crossAxisSpacing: 5,
+            padding: EdgeInsets.symmetric(
+              horizontal: MediaQuery.of(context).size.width * 0.07,
+              vertical: 5,
             ),
             children: [
               CheckboxListTile(

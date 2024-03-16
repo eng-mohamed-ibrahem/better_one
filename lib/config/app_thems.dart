@@ -22,6 +22,11 @@ class AppThemes {
     dropdownMenuTheme: dropdownMenuTheme(),
     chipTheme: chipTheme(),
     checkboxTheme: checkboxTheme(),
+    // datePickerTheme: DatePickerThemeData(
+    //   backgroundColor: AppColors.secondColor,
+    //   dayStyle: textTheme().bodySmall,
+    //   dayForegroundColor: const MaterialStatePropertyAll(AppColors.white),
+    // ),
   );
 
   static CheckboxThemeData checkboxTheme() {

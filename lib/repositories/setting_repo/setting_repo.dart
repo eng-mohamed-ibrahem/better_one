@@ -8,23 +8,23 @@ class SettingRepo implements SettingsRepoInterface {
   SettingRepo({required this.settingsSource});
   final SettingsSource settingsSource;
   @override
-  Future<Result<Locale, Failure>> changeLanguage(Locale language) {
-    return settingsSource.changeLanguage(language);
+  Future<Result<Locale, Failure>> changeLanguage(Locale language) async {
+    return await settingsSource.changeLanguage(language);
   }
 
   @override
-  Future<Result<ThemeMode, Failure>> toggleTheme() {
-    return settingsSource.toggleTheme();
+  Future<Result<ThemeMode, Failure>> toggleTheme() async {
+    return await settingsSource.toggleTheme();
   }
 
   @override
-  Future<Result<Locale, Failure>> getLanguage() {
-    return settingsSource.getLanguage();
+  Future<Result<Locale, Failure>> getLanguage() async {
+    return await settingsSource.getLanguage();
   }
 
   @override
-  Future<Result<ThemeMode, Failure>> getTheme() {
-    return settingsSource.getTheme();
+  Future<Result<ThemeMode, Failure>> getTheme() async {
+    return await settingsSource.getTheme();
   }
 
   @override
@@ -33,8 +33,8 @@ class SettingRepo implements SettingsRepoInterface {
     bool? isSearchByBody,
     bool? isSearchByDate,
     bool? isSearchByStatus,
-  }) {
-    return settingsSource.setSearchSettings(
+  }) async {
+    return await settingsSource.setSearchSettings(
       isSearchByTitle: isSearchByTitle,
       isSearchByBody: isSearchByBody,
       isSearchByDate: isSearchByDate,
@@ -43,22 +43,30 @@ class SettingRepo implements SettingsRepoInterface {
   }
 
   @override
-  Future<Result<Map<String, bool>, Failure>> getSearchSettings() {
-    return settingsSource.getSearchSettings();
+  Future<Result<Map<String, bool>, Failure>> getSearchSettings() async {
+    return await settingsSource.getSearchSettings();
   }
 
   @override
-  Future<Result<Map<String, dynamic>, Failure>> getNotificationSettings() {
-    throw UnimplementedError();
+  Future<Result<Map<String, dynamic>, Failure>>
+      getNotificationSettings() async {
+    return await settingsSource.getNotificationSettings();
   }
 
   @override
-  Future<Result<bool, Failure>> setNotificationSettings(
-      {bool? isNotificationOnAdd,
-      bool? isNotificationOnUpdate,
-      bool? isNotificationOnComplete,
-      bool? isNotificationOnReminder,
-      DateTime? reminderDateTime}) {
-    throw UnimplementedError();
+  Future<Result<bool, Failure>> setNotificationSettings({
+    bool? isNotificationOnAdd,
+    bool? isNotificationOnUpdate,
+    bool? isNotificationOnComplete,
+    bool? isNotificationOnReminder,
+    DateTime? reminderDateTime,
+  }) async {
+    return await settingsSource.setNotificationSettings(
+      isNotificationOnAdd: isNotificationOnAdd,
+      isNotificationOnUpdate: isNotificationOnUpdate,
+      isNotificationOnComplete: isNotificationOnComplete,
+      isNotificationOnReminder: isNotificationOnReminder,
+      reminderDateTime: reminderDateTime,
+    );
   }
 }

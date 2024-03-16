@@ -78,13 +78,13 @@ class SettingsCacheByHive implements SettingsCacheInterface {
       return result.when(
         success: (settings) {
           cacheInit.appBox.put(CacheKeys.isSearchByTitle,
-              isSearchByTitle ?? settings['isSearchByTitle']);
+              isSearchByTitle ?? settings[CacheKeys.isSearchByTitle]);
           cacheInit.appBox.put(CacheKeys.isSearchByBody,
-              isSearchByBody ?? settings['isSearchByBody']);
+              isSearchByBody ?? settings[CacheKeys.isSearchByBody]);
           cacheInit.appBox.put(CacheKeys.isSearchByDate,
-              isSearchByDate ?? settings['isSearchByDate']);
+              isSearchByDate ?? settings[CacheKeys.isSearchByDate]);
           cacheInit.appBox.put(CacheKeys.isSearchByStatus,
-              isSearchByStatus ?? settings['isSearchByStatus']);
+              isSearchByStatus ?? settings[CacheKeys.isSearchByStatus]);
           return const Result.success(data: true);
         },
         failure: (failure) {
@@ -100,13 +100,13 @@ class SettingsCacheByHive implements SettingsCacheInterface {
   Future<Result<Map<String, bool>, CacheFailure>> getSearchSettings() async {
     try {
       Map<String, bool> data = {};
-      data['isSearchByTitle'] =
+      data[CacheKeys.isSearchByTitle] =
           cacheInit.appBox.get(CacheKeys.isSearchByTitle, defaultValue: true);
-      data['isSearchByBody'] =
+      data[CacheKeys.isSearchByBody] =
           cacheInit.appBox.get(CacheKeys.isSearchByBody, defaultValue: false);
-      data['isSearchByDate'] =
+      data[CacheKeys.isSearchByDate] =
           cacheInit.appBox.get(CacheKeys.isSearchByDate, defaultValue: false);
-      data['isSearchByStatus'] =
+      data[CacheKeys.isSearchByStatus] =
           cacheInit.appBox.get(CacheKeys.isSearchByStatus, defaultValue: false);
       return Result.success(data: data);
     } catch (e) {
@@ -115,17 +115,62 @@ class SettingsCacheByHive implements SettingsCacheInterface {
   }
 
   @override
-  Future<Result<Map<String, dynamic>, CacheFailure>> getNotificationSettings() {
-    throw UnimplementedError();
+  Future<Result<Map<String, dynamic>, CacheFailure>>
+      getNotificationSettings() async {
+    try {
+      Map<String, dynamic> data = {};
+      data[CacheKeys.isNotificationOnAdd] = cacheInit.appBox
+          .get(CacheKeys.isNotificationOnAdd, defaultValue: true);
+      data[CacheKeys.isNotificationOnUpdate] = cacheInit.appBox
+          .get(CacheKeys.isNotificationOnUpdate, defaultValue: false);
+      data[CacheKeys.isNotificationOnComplete] = cacheInit.appBox
+          .get(CacheKeys.isNotificationOnComplete, defaultValue: false);
+      data[CacheKeys.isNotificationOnReminder] = cacheInit.appBox
+          .get(CacheKeys.isNotificationOnReminder, defaultValue: false);
+      data[CacheKeys.reminderDateTime] =
+          cacheInit.appBox.get(CacheKeys.reminderDateTime, defaultValue: 0);
+      return Result.success(data: data);
+    } catch (e) {
+      return Result.failure(error: CacheFailure(message: e.toString()));
+    }
   }
 
   @override
-  Future<Result<bool, CacheFailure>> setNotificationSettings(
-      {bool? isNotificationOnAdd,
-      bool? isNotificationOnUpdate,
-      bool? isNotificationOnComplete,
-      bool? isNotificationOnReminder,
-      int? reminderDateTime}) {
-    throw UnimplementedError();
+  Future<Result<bool, CacheFailure>> setNotificationSettings({
+    bool? isNotificationOnAdd,
+    bool? isNotificationOnUpdate,
+    bool? isNotificationOnComplete,
+    bool? isNotificationOnReminder,
+    int? reminderDateTime,
+  }) async {
+    try {
+      var result = await getNotificationSettings();
+      return result.when(
+        success: (settings) {
+          cacheInit.appBox.put(CacheKeys.isNotificationOnAdd,
+              isNotificationOnAdd ?? settings[CacheKeys.isNotificationOnAdd]);
+          cacheInit.appBox.put(
+              CacheKeys.isNotificationOnUpdate,
+              isNotificationOnUpdate ??
+                  settings[CacheKeys.isNotificationOnUpdate]);
+          cacheInit.appBox.put(
+              CacheKeys.isNotificationOnComplete,
+              isNotificationOnComplete ??
+                  settings[CacheKeys.isNotificationOnComplete]);
+          cacheInit.appBox.put(
+              CacheKeys.isNotificationOnReminder,
+              isNotificationOnReminder ??
+                  settings[CacheKeys.isNotificationOnReminder]);
+          cacheInit.appBox.put(CacheKeys.reminderDateTime,
+              reminderDateTime ?? settings[CacheKeys.reminderDateTime]);
+          return const Result.success(data: true);
+        },
+        failure: (failure) {
+          return Result.failure(error: failure);
+        },
+      );
+    } catch (e) {
+      return Result.failure(error: CacheFailure(message: e.toString()));
+    }
   }
 }

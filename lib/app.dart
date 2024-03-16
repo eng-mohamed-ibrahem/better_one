@@ -39,7 +39,8 @@ class RootApp extends StatelessWidget {
             BlocProvider(
               create: (context) => SettingViewModel(settingsRepo: settingRepo)
                 ..getLanguage()
-                ..getSearchSettings(),
+                ..getSearchSettings()
+                ..getNotificationSettings(),
             ),
             BlocProvider(
               create: (context) =>
