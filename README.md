@@ -43,6 +43,8 @@ Send notifications to other users when tasks are completed.
 * Settings for notification:
   * Turn on/off notifications when tasks are created
   * Customize the notification schedule for your tasks
+* Settings for theme:
+  * Change to light, dark theme
 
 ### Screenshots
 
@@ -63,9 +65,7 @@ Send notifications to other users when tasks are completed.
 ## Next steps
 
 * Handle app while no internet connection
-* Apply Search functionality i have done above
-* Settings for theme:
-  * Change to light, dark theme
+* Apply Search functionality i have done above to search for tasks by status, date, title, or description
 * Login using Firebase:
   * Login with Google account
   * Save user data in Cloud Firestore

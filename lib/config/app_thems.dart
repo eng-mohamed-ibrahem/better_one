@@ -22,12 +22,32 @@ class AppThemes {
     dropdownMenuTheme: dropdownMenuTheme(),
     chipTheme: chipTheme(),
     checkboxTheme: checkboxTheme(),
+    dividerTheme: dividerTheme(),
+    cardTheme: cardTheme(),
     // datePickerTheme: DatePickerThemeData(
     //   backgroundColor: AppColors.secondColor,
     //   dayStyle: textTheme().bodySmall,
     //   dayForegroundColor: const MaterialStatePropertyAll(AppColors.white),
     // ),
   );
+
+  static CardTheme cardTheme() {
+    return CardTheme(
+      color: AppColors.primaryColor,
+      margin: EdgeInsets.zero,
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(AppMetrices.borderRadius1),
+      ),
+    );
+  }
+
+  static DividerThemeData dividerTheme() {
+    return const DividerThemeData(
+      space: 10,
+      thickness: 1,
+      color: AppColors.hightlightColor,
+    );
+  }
 
   static CheckboxThemeData checkboxTheme() {
     return CheckboxThemeData(
@@ -45,14 +65,13 @@ class AppThemes {
       backgroundColor: AppColors.primaryColor,
       selectedColor: AppColors.primaryColor,
       labelStyle: textTheme().bodySmall,
-      padding: EdgeInsets.zero,
       shape: const RoundedRectangleBorder(
         borderRadius: BorderRadius.all(
           Radius.circular(AppMetrices.borderRadius1),
         ),
         side: BorderSide(
           color: AppColors.secondColor,
-          width: 1,
+          width: 2,
         ),
       ),
       showCheckmark: true,
@@ -212,74 +231,71 @@ class AppThemes {
     secondaryHeaderColor: AppColors.lightSecondColor,
     scaffoldBackgroundColor: AppColors.lightPrimaryColor,
     colorScheme: ColorScheme.fromSwatch()
-        .copyWith(secondary: AppColors.lightPrimaryColor),
+        .copyWith(secondary: AppColors.lightSecondColor),
     fontFamily: 'Tajawal',
-    buttonTheme: buttonTheme().copyWith(
-      buttonColor: AppColors.lightSecondColor,
-    ),
-    appBarTheme: appBarTheme().copyWith(
+    buttonTheme: lightButtonTheme(),
+    appBarTheme: lightAppBarTheme(),
+    textTheme: lightTextTheme(),
+    textSelectionTheme: lightTextSelectionTheme(),
+    iconTheme: lightIconTheme(),
+    iconButtonTheme: lightIconButtonTheme(),
+    filledButtonTheme: lightFilledButtonTheme(),
+    dialogTheme: lightDialogTheme(),
+    listTileTheme: lightListtileTheme(),
+    dropdownMenuTheme: lightDropdownMenuTheme(),
+    chipTheme: lightChipTheme(),
+    checkboxTheme: lightCheckboxTheme(),
+    dividerTheme: lightDividerTheme(),
+    cardTheme: lightCardTheme(),
+  );
+
+  static CardTheme lightCardTheme() {
+    return cardTheme().copyWith(
+      color: AppColors.lightPrimaryColor,
+    );
+  }
+
+  static DividerThemeData lightDividerTheme() {
+    return dividerTheme().copyWith(
+      color: AppColors.lightHightlightColor,
+    );
+  }
+
+  static CheckboxThemeData lightCheckboxTheme() {
+    return checkboxTheme().copyWith(
+      fillColor: MaterialStateProperty.all(AppColors.lightPrimaryColor),
+      checkColor: MaterialStateProperty.all(AppColors.lightTextButtonColor),
+      side: const BorderSide(
+        color: AppColors.lightTextButtonColor,
+        width: 2,
+      ),
+    );
+  }
+
+  static ChipThemeData lightChipTheme() {
+    return chipTheme().copyWith(
       backgroundColor: AppColors.lightPrimaryColor,
-    ),
-    textTheme: textTheme().copyWith(
-      titleLarge: textTheme().titleLarge!.copyWith(
-            color: AppColors.lightWhite,
-          ),
-      titleSmall: textTheme().titleSmall!.copyWith(
-            color: AppColors.lightWhite,
-          ),
-      titleMedium: textTheme().titleMedium!.copyWith(
-            color: AppColors.lightWhite,
-          ),
-      bodyMedium: textTheme().bodyMedium!.copyWith(
-            color: AppColors.lightWhite,
-          ),
-      bodySmall: textTheme().bodySmall!.copyWith(
-            color: AppColors.lightWhite,
-          ),
-    ),
-    textSelectionTheme: textFieldSelectionTheme().copyWith(
-      cursorColor: AppColors.lightTextButtonColor,
-    ),
-    iconTheme: iconTheme().copyWith(
-      color: AppColors.lightTextButtonColor,
-    ),
-    iconButtonTheme: const IconButtonThemeData(
-      style: ButtonStyle(
-        iconSize: MaterialStatePropertyAll(25.0),
-        iconColor: MaterialStatePropertyAll(AppColors.lightWhite),
-        backgroundColor: MaterialStatePropertyAll(AppColors.lightSecondColor),
-        padding: MaterialStatePropertyAll(
-          EdgeInsets.zero,
+      color: const MaterialStatePropertyAll(AppColors.lightSecondColor),
+      selectedColor: AppColors.lightPrimaryColor,
+      secondarySelectedColor: AppColors.lightPrimaryColor,
+      labelStyle: textTheme().bodySmall!.copyWith(color: AppColors.lightWhite),
+      shape: const RoundedRectangleBorder(
+        borderRadius: BorderRadius.all(
+          Radius.circular(AppMetrices.borderRadius1),
+        ),
+        side: BorderSide(
+          color: AppColors.lightSecondColor,
+          width: 1,
         ),
       ),
-    ),
-    filledButtonTheme: FilledButtonThemeData(
-      style: ButtonStyle(
-        backgroundColor: MaterialStateProperty.all(AppColors.lightSecondColor),
-        textStyle: const MaterialStatePropertyAll<TextStyle>(
-          TextStyle(
-            color: AppColors.lightTextButtonColor,
-          ),
-        ),
-      ),
-    ),
-    dialogTheme: dialogTheme().copyWith(
-      backgroundColor: AppColors.lightPrimaryColor,
-      titleTextStyle: textTheme().titleLarge!.copyWith(
-            color: AppColors.lightWhite,
-          ),
-      contentTextStyle: textTheme().bodyMedium!.copyWith(
-            color: AppColors.lightWhite,
-          ),
-    ),
-    listTileTheme: listTileTheme().copyWith(
-      iconColor: AppColors.lightTextButtonColor,
-      textColor: AppColors.lightWhite,
-      tileColor: AppColors.lightPrimaryColor,
-      contentPadding: const EdgeInsets.all(AppMetrices.widthSpace),
-      style: ListTileStyle.drawer,
-    ),
-    dropdownMenuTheme: dropdownMenuTheme().copyWith(
+      showCheckmark: true,
+      disabledColor: AppColors.lightPrimaryColor,
+      checkmarkColor: AppColors.lightHightlightColor,
+    );
+  }
+
+  static DropdownMenuThemeData lightDropdownMenuTheme() {
+    return dropdownMenuTheme().copyWith(
       menuStyle: const MenuStyle(
         backgroundColor: MaterialStatePropertyAll(AppColors.lightPrimaryColor),
         surfaceTintColor: MaterialStatePropertyAll(AppColors.lightPrimaryColor),
@@ -310,8 +326,101 @@ class AppThemes {
           ),
         ),
       ),
-    ),
-    chipTheme: chipTheme(),
-    checkboxTheme: checkboxTheme(),
-  );
+    );
+  }
+
+  static ListTileThemeData lightListtileTheme() {
+    return listTileTheme().copyWith(
+      iconColor: AppColors.lightTextButtonColor,
+      textColor: AppColors.lightWhite,
+      tileColor: AppColors.lightPrimaryColor,
+      contentPadding: const EdgeInsets.all(AppMetrices.widthSpace),
+      style: ListTileStyle.drawer,
+    );
+  }
+
+  static DialogTheme lightDialogTheme() {
+    return dialogTheme().copyWith(
+      backgroundColor: AppColors.lightPrimaryColor,
+      titleTextStyle: textTheme().titleLarge!.copyWith(
+            color: AppColors.lightWhite,
+          ),
+      contentTextStyle: textTheme().bodyMedium!.copyWith(
+            color: AppColors.lightWhite,
+          ),
+    );
+  }
+
+  static FilledButtonThemeData lightFilledButtonTheme() {
+    return FilledButtonThemeData(
+      style: ButtonStyle(
+        backgroundColor: MaterialStateProperty.all(AppColors.lightSecondColor),
+        foregroundColor: const MaterialStatePropertyAll(AppColors.lightWhite),
+        textStyle: const MaterialStatePropertyAll<TextStyle>(
+          TextStyle(
+            color: AppColors.lightTextButtonColor,
+          ),
+        ),
+      ),
+    );
+  }
+
+  static IconButtonThemeData lightIconButtonTheme() {
+    return const IconButtonThemeData(
+      style: ButtonStyle(
+        iconSize: MaterialStatePropertyAll(25.0),
+        iconColor: MaterialStatePropertyAll(AppColors.lightWhite),
+        backgroundColor: MaterialStatePropertyAll(AppColors.lightSecondColor),
+        padding: MaterialStatePropertyAll(
+          EdgeInsets.zero,
+        ),
+      ),
+    );
+  }
+
+  static IconThemeData lightIconTheme() {
+    return iconTheme().copyWith(
+      color: AppColors.lightTextButtonColor,
+    );
+  }
+
+  static TextSelectionThemeData lightTextSelectionTheme() {
+    return textFieldSelectionTheme().copyWith(
+      cursorColor: AppColors.lightTextButtonColor,
+      selectionColor: AppColors.lightTextButtonColor,
+      selectionHandleColor: AppColors.lightTextButtonColor,
+    );
+  }
+
+  static TextTheme lightTextTheme() {
+    return textTheme().copyWith(
+      titleLarge: textTheme().titleLarge!.copyWith(
+            color: AppColors.lightWhite,
+          ),
+      titleSmall: textTheme().titleSmall!.copyWith(
+            color: AppColors.lightWhite,
+          ),
+      titleMedium: textTheme().titleMedium!.copyWith(
+            color: AppColors.lightWhite,
+          ),
+      bodyMedium: textTheme().bodyMedium!.copyWith(
+            color: AppColors.lightWhite,
+          ),
+      bodySmall: textTheme().bodySmall!.copyWith(
+            color: AppColors.lightWhite,
+          ),
+    );
+  }
+
+  static AppBarTheme lightAppBarTheme() {
+    return appBarTheme().copyWith(
+      backgroundColor: AppColors.lightPrimaryColor,
+    );
+  }
+
+  static ButtonThemeData lightButtonTheme() {
+    return buttonTheme().copyWith(
+      buttonColor: AppColors.lightSecondColor,
+    );
+  }
 }

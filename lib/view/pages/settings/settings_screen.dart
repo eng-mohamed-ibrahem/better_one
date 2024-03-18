@@ -97,7 +97,6 @@ class SettingScreen extends StatelessWidget {
         subTitle: 'setting.language.subtitle'.tr(),
         leadingIcon: const Icon(
           Icons.language,
-          color: AppColors.hightlightColor,
         ),
       ),
       SettingItemModel(
@@ -105,7 +104,6 @@ class SettingScreen extends StatelessWidget {
         subTitle: 'setting.theme.subtitle'.tr(),
         leadingIcon: const Icon(
           Icons.brightness_6,
-          color: AppColors.hightlightColor,
         ),
       ),
       SettingItemModel(
@@ -113,7 +111,6 @@ class SettingScreen extends StatelessWidget {
         subTitle: 'setting.notification.subtitle'.tr(),
         leadingIcon: const Icon(
           Icons.notifications,
-          color: AppColors.hightlightColor,
         ),
       ),
       SettingItemModel(
@@ -121,7 +118,6 @@ class SettingScreen extends StatelessWidget {
         subTitle: 'setting.search.subtitle'.tr(),
         leadingIcon: const Icon(
           Icons.search,
-          color: AppColors.hightlightColor,
         ),
       ),
       SettingItemModel(
@@ -129,7 +125,6 @@ class SettingScreen extends StatelessWidget {
         subTitle: 'setting.account.subtitle'.tr(),
         leadingIcon: const Icon(
           Icons.person,
-          color: AppColors.hightlightColor,
         ),
       ),
     ];

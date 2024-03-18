@@ -231,10 +231,9 @@ class _TaskScreenState extends State<TaskScreen>
                             return AnimatedSize(
                               duration: const Duration(milliseconds: 300),
                               child: Container(
-                                color: AppColors.secondColor,
+                                color: Theme.of(context).secondaryHeaderColor,
                                 padding: EdgeInsets.all(10.w),
                                 width: double.infinity,
-                                // set direction from left to right
                                 child: Directionality(
                                   textDirection: ui.TextDirection.ltr,
                                   child: Text(
@@ -255,11 +254,6 @@ class _TaskScreenState extends State<TaskScreen>
                         ),
                         SizedBox(height: AppMetrices.heightSpace2.h),
                         Card(
-                          color: AppColors.secondColor,
-                          shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(
-                            AppMetrices.borderRadius1,
-                          )),
                           child: Padding(
                             padding:
                                 EdgeInsets.only(top: AppMetrices.heightSpace.h),
@@ -281,9 +275,6 @@ class _TaskScreenState extends State<TaskScreen>
                                   prefixIcon: const Icon(Icons.task),
                                 ),
                                 Divider(
-                                  color: AppColors.white,
-                                  thickness: 1,
-                                  height: 10,
                                   indent: AppMetrices.widthSpace2.w,
                                   endIndent: AppMetrices.widthSpace2.w,
                                 ),

@@ -44,12 +44,11 @@ class TaskField extends StatelessWidget {
           hintText: hintText,
           hintStyle: Theme.of(context).textTheme.bodySmall,
           labelStyle: Theme.of(context).textTheme.bodySmall,
-          prefixIconColor: AppColors.textButtonColor,
           border: OutlineInputBorder(
             borderRadius: BorderRadius.circular(10.0),
             borderSide: BorderSide.none,
           ),
-          iconColor: AppColors.textButtonColor,
+          iconColor: Theme.of(context).iconTheme.color,
           icon: prefixIcon,
         ),
         style: Theme.of(context).textTheme.titleMedium!.copyWith(

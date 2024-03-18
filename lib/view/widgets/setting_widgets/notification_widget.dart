@@ -146,6 +146,7 @@ class _NotificationWidgetState extends State<NotificationWidget> {
                           state.currentLanguage!.languageCode)
                       .format(state.reminderDateTime!),
                 ),
+                SizedBox(height: 10.h),
                 ChoiceChip(
                   label: Text('setting.notification.on.repeat_reminder'.tr()),
                   selected: state.repeatReminder,

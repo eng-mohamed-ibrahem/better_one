@@ -9,9 +9,9 @@ class AppColors {
   static const white = Color(0xffedeef4);
 
   // for light theme
-  static const lightPrimaryColor = Color(0xff212030);
-  static const lightSecondColor = Color(0xff312e43);
-  static const lightTextButtonColor = Color(0xff7b7a8d);
-  static const lightHightlightColor = Color(0xffea4226);
-  static const lightWhite = Color(0xffedeef4);
+  static const lightPrimaryColor = Color.fromRGBO(255, 255, 255, 1);
+  static const lightSecondColor = Color(0xffffc0cb);
+  static const lightTextButtonColor = Color(0xffad1457); // 3F3D64
+  static const lightHightlightColor = Color(0xffad1457);
+  static const lightWhite = Color(0xff12110b);
 }

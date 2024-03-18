@@ -2,8 +2,8 @@ import 'package:better_one/config/generate_router.dart';
 import 'package:better_one/core/utils/dependency_locator/dependency_injection.dart';
 import 'package:better_one/core/utils/shared_widgets/failed.dart';
 import 'package:better_one/core/utils/shared_widgets/lottie_indicator.dart';
+import 'package:better_one/view/widgets/card_task.dart';
 import 'package:better_one/view/widgets/duration_widget.dart';
-import 'package:better_one/view/widgets/modify_card_task.dart';
 import 'package:better_one/view/widgets/sliver_header.dart';
 import 'package:better_one/view_models/home_viewmodel/home_viewmodel.dart';
 import 'package:easy_localization/easy_localization.dart';
@@ -140,7 +140,7 @@ class _HomeScreenState extends State<HomeScreen> with RouteAware {
                                               AppMetrices.borderRadius1.w,
                                             ),
                                           ),
-                                          color: AppColors.primaryColor,
+                                          color: Theme.of(context).primaryColor,
                                           child: Padding(
                                             padding: const EdgeInsets.all(10),
                                             child: DurationTime(
@@ -160,7 +160,7 @@ class _HomeScreenState extends State<HomeScreen> with RouteAware {
                               delegate: SliverChildBuilderDelegate(
                                 childCount: state.allTasks.length,
                                 (context, index) {
-                                  return ModifiyCardTask(
+                                  return CardTask(
                                     key: ValueKey(state.allTasks[index].id),
                                     task: state.allTasks[index],
                                   );
