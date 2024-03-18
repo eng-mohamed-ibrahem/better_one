@@ -60,6 +60,7 @@ class SettingRepo implements SettingsRepoInterface {
     bool? isNotificationOnComplete,
     bool? isNotificationOnReminder,
     DateTime? reminderDateTime,
+    bool? repeatReminder,
   }) async {
     return await settingsSource.setNotificationSettings(
       isNotificationOnAdd: isNotificationOnAdd,
@@ -67,6 +68,7 @@ class SettingRepo implements SettingsRepoInterface {
       isNotificationOnComplete: isNotificationOnComplete,
       isNotificationOnReminder: isNotificationOnReminder,
       reminderDateTime: reminderDateTime,
+      repeatReminder: repeatReminder,
     );
   }
 }

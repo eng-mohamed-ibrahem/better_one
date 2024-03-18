@@ -36,5 +36,6 @@ abstract class SettingsRepoInterface {
     bool? isNotificationOnComplete,
     bool? isNotificationOnReminder,
     DateTime? reminderDateTime,
+    bool? repeatReminder,
   });
 }

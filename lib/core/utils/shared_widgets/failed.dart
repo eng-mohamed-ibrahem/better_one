@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:lottie/lottie.dart';
@@ -32,7 +33,13 @@ class Failed extends StatelessWidget {
           errorMessage ?? '',
           textAlign: TextAlign.center,
         ),
-        IconButton(onPressed: retry, icon: const Icon(Icons.refresh)),
+        TextButton.icon(
+          onPressed: retry,
+          icon: const Icon(Icons.refresh),
+          label: Text(
+            'retry'.tr(),
+          ),
+        ),
       ],
     );
   }

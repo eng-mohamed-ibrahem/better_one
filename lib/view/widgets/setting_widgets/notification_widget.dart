@@ -23,6 +23,7 @@ class _NotificationWidgetState extends State<NotificationWidget> {
           SettingViewModel.get(context).setNotificationSettings(
             isNotificationOnReminder: false,
             reminderDateTime: null,
+            repeatReminder: false,
           );
         }
       },
@@ -139,12 +140,21 @@ class _NotificationWidgetState extends State<NotificationWidget> {
                 child: Text('setting.notification.on.reminder'.tr()),
               ),
               if (state.isNotificationOnReminder &&
-                  state.reminderDateTime != null)
+                  state.reminderDateTime != null) ...[
                 Text(
                   DateFormat('EEEE, MMMM d, yyyy,  hh:mm a',
                           state.currentLanguage!.languageCode)
                       .format(state.reminderDateTime!),
-                )
+                ),
+                ChoiceChip(
+                  label: Text('setting.notification.on.repeat_reminder'.tr()),
+                  selected: state.repeatReminder,
+                  onSelected: (isSelected) {
+                    SettingViewModel.get(context)
+                        .setNotificationSettings(repeatReminder: isSelected);
+                  },
+                ),
+              ]
             ],
           );
         },

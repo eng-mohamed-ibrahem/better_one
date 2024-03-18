@@ -42,6 +42,7 @@ mixin _$SettingViewModelState {
   bool get isNotificationOnComplete => throw _privateConstructorUsedError;
   bool get isNotificationOnReminder => throw _privateConstructorUsedError;
   DateTime? get reminderDateTime => throw _privateConstructorUsedError;
+  bool get repeatReminder => throw _privateConstructorUsedError;
   bool get isNotificationSettingsLoading => throw _privateConstructorUsedError;
   bool get isNotificationSettingsCompleted =>
       throw _privateConstructorUsedError;
@@ -84,6 +85,7 @@ abstract class $SettingViewModelStateCopyWith<$Res> {
       bool isNotificationOnComplete,
       bool isNotificationOnReminder,
       DateTime? reminderDateTime,
+      bool repeatReminder,
       bool isNotificationSettingsLoading,
       bool isNotificationSettingsCompleted,
       bool isNotificationSettingsFailed,
@@ -126,6 +128,7 @@ class _$SettingViewModelStateCopyWithImpl<$Res,
     Object? isNotificationOnComplete = null,
     Object? isNotificationOnReminder = null,
     Object? reminderDateTime = freezed,
+    Object? repeatReminder = null,
     Object? isNotificationSettingsLoading = null,
     Object? isNotificationSettingsCompleted = null,
     Object? isNotificationSettingsFailed = null,
@@ -217,6 +220,10 @@ class _$SettingViewModelStateCopyWithImpl<$Res,
           ? _value.reminderDateTime
           : reminderDateTime // ignore: cast_nullable_to_non_nullable
               as DateTime?,
+      repeatReminder: null == repeatReminder
+          ? _value.repeatReminder
+          : repeatReminder // ignore: cast_nullable_to_non_nullable
+              as bool,
       isNotificationSettingsLoading: null == isNotificationSettingsLoading
           ? _value.isNotificationSettingsLoading
           : isNotificationSettingsLoading // ignore: cast_nullable_to_non_nullable
@@ -272,6 +279,7 @@ abstract class _$$SettingViewModelStateImplCopyWith<$Res>
       bool isNotificationOnComplete,
       bool isNotificationOnReminder,
       DateTime? reminderDateTime,
+      bool repeatReminder,
       bool isNotificationSettingsLoading,
       bool isNotificationSettingsCompleted,
       bool isNotificationSettingsFailed,
@@ -312,6 +320,7 @@ class __$$SettingViewModelStateImplCopyWithImpl<$Res>
     Object? isNotificationOnComplete = null,
     Object? isNotificationOnReminder = null,
     Object? reminderDateTime = freezed,
+    Object? repeatReminder = null,
     Object? isNotificationSettingsLoading = null,
     Object? isNotificationSettingsCompleted = null,
     Object? isNotificationSettingsFailed = null,
@@ -403,6 +412,10 @@ class __$$SettingViewModelStateImplCopyWithImpl<$Res>
           ? _value.reminderDateTime
           : reminderDateTime // ignore: cast_nullable_to_non_nullable
               as DateTime?,
+      repeatReminder: null == repeatReminder
+          ? _value.repeatReminder
+          : repeatReminder // ignore: cast_nullable_to_non_nullable
+              as bool,
       isNotificationSettingsLoading: null == isNotificationSettingsLoading
           ? _value.isNotificationSettingsLoading
           : isNotificationSettingsLoading // ignore: cast_nullable_to_non_nullable
@@ -452,6 +465,7 @@ class _$SettingViewModelStateImpl implements _SettingViewModelState {
       this.isNotificationOnComplete = false,
       this.isNotificationOnReminder = false,
       this.reminderDateTime = null,
+      this.repeatReminder = false,
       this.isNotificationSettingsLoading = false,
       this.isNotificationSettingsCompleted = false,
       this.isNotificationSettingsFailed = false,
@@ -529,6 +543,9 @@ class _$SettingViewModelStateImpl implements _SettingViewModelState {
   final DateTime? reminderDateTime;
   @override
   @JsonKey()
+  final bool repeatReminder;
+  @override
+  @JsonKey()
   final bool isNotificationSettingsLoading;
   @override
   @JsonKey()
@@ -547,7 +564,7 @@ class _$SettingViewModelStateImpl implements _SettingViewModelState {
 
   @override
   String toString() {
-    return 'SettingViewModelState(isInitial: $isInitial, isChangeLanguageLoading: $isChangeLanguageLoading, isChangeLanguageCompleted: $isChangeLanguageCompleted, isChangeLanguageFailed: $isChangeLanguageFailed, isGetLanguageLoading: $isGetLanguageLoading, isGetLanguageCompleted: $isGetLanguageCompleted, isGetLanguageFailed: $isGetLanguageFailed, currentLanguage: $currentLanguage, isSearchByTitle: $isSearchByTitle, isSearchByBody: $isSearchByBody, isSearchByDate: $isSearchByDate, isSearchByStatus: $isSearchByStatus, isSetSearchSettingsCompleted: $isSetSearchSettingsCompleted, isSetSearchSettingsFailed: $isSetSearchSettingsFailed, isGetSearchSettingsCompleted: $isGetSearchSettingsCompleted, isGetSearchSettingsFailed: $isGetSearchSettingsFailed, isNotificationOnAdd: $isNotificationOnAdd, isNotificationOnUpdate: $isNotificationOnUpdate, isNotificationOnComplete: $isNotificationOnComplete, isNotificationOnReminder: $isNotificationOnReminder, reminderDateTime: $reminderDateTime, isNotificationSettingsLoading: $isNotificationSettingsLoading, isNotificationSettingsCompleted: $isNotificationSettingsCompleted, isNotificationSettingsFailed: $isNotificationSettingsFailed, errorMessage: $errorMessage, currentTappedItemIndex: $currentTappedItemIndex)';
+    return 'SettingViewModelState(isInitial: $isInitial, isChangeLanguageLoading: $isChangeLanguageLoading, isChangeLanguageCompleted: $isChangeLanguageCompleted, isChangeLanguageFailed: $isChangeLanguageFailed, isGetLanguageLoading: $isGetLanguageLoading, isGetLanguageCompleted: $isGetLanguageCompleted, isGetLanguageFailed: $isGetLanguageFailed, currentLanguage: $currentLanguage, isSearchByTitle: $isSearchByTitle, isSearchByBody: $isSearchByBody, isSearchByDate: $isSearchByDate, isSearchByStatus: $isSearchByStatus, isSetSearchSettingsCompleted: $isSetSearchSettingsCompleted, isSetSearchSettingsFailed: $isSetSearchSettingsFailed, isGetSearchSettingsCompleted: $isGetSearchSettingsCompleted, isGetSearchSettingsFailed: $isGetSearchSettingsFailed, isNotificationOnAdd: $isNotificationOnAdd, isNotificationOnUpdate: $isNotificationOnUpdate, isNotificationOnComplete: $isNotificationOnComplete, isNotificationOnReminder: $isNotificationOnReminder, reminderDateTime: $reminderDateTime, repeatReminder: $repeatReminder, isNotificationSettingsLoading: $isNotificationSettingsLoading, isNotificationSettingsCompleted: $isNotificationSettingsCompleted, isNotificationSettingsFailed: $isNotificationSettingsFailed, errorMessage: $errorMessage, currentTappedItemIndex: $currentTappedItemIndex)';
   }
 
   @override
@@ -599,9 +616,10 @@ class _$SettingViewModelStateImpl implements _SettingViewModelState {
                 other.isNotificationOnReminder == isNotificationOnReminder) &&
             (identical(other.reminderDateTime, reminderDateTime) ||
                 other.reminderDateTime == reminderDateTime) &&
+            (identical(other.repeatReminder, repeatReminder) ||
+                other.repeatReminder == repeatReminder) &&
             (identical(other.isNotificationSettingsLoading, isNotificationSettingsLoading) ||
-                other.isNotificationSettingsLoading ==
-                    isNotificationSettingsLoading) &&
+                other.isNotificationSettingsLoading == isNotificationSettingsLoading) &&
             (identical(other.isNotificationSettingsCompleted, isNotificationSettingsCompleted) || other.isNotificationSettingsCompleted == isNotificationSettingsCompleted) &&
             (identical(other.isNotificationSettingsFailed, isNotificationSettingsFailed) || other.isNotificationSettingsFailed == isNotificationSettingsFailed) &&
             (identical(other.errorMessage, errorMessage) || other.errorMessage == errorMessage) &&
@@ -632,6 +650,7 @@ class _$SettingViewModelStateImpl implements _SettingViewModelState {
         isNotificationOnComplete,
         isNotificationOnReminder,
         reminderDateTime,
+        repeatReminder,
         isNotificationSettingsLoading,
         isNotificationSettingsCompleted,
         isNotificationSettingsFailed,
@@ -670,6 +689,7 @@ abstract class _SettingViewModelState implements SettingViewModelState {
       final bool isNotificationOnComplete,
       final bool isNotificationOnReminder,
       final DateTime? reminderDateTime,
+      final bool repeatReminder,
       final bool isNotificationSettingsLoading,
       final bool isNotificationSettingsCompleted,
       final bool isNotificationSettingsFailed,
@@ -718,6 +738,8 @@ abstract class _SettingViewModelState implements SettingViewModelState {
   bool get isNotificationOnReminder;
   @override
   DateTime? get reminderDateTime;
+  @override
+  bool get repeatReminder;
   @override
   bool get isNotificationSettingsLoading;
   @override

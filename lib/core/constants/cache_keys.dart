@@ -20,4 +20,5 @@ class CacheKeys {
   static const isNotificationOnComplete = 'is_notification_on_complete';
   static const isNotificationOnReminder = 'is_notification_on_reminder';
   static const reminderDateTime = 'reminder_date_time';
+  static const repeatReminder = 'repeat_reminder';
 }

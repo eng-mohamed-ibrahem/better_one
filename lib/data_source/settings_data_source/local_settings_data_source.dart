@@ -140,6 +140,7 @@ class LocalSettingsDataSource implements SettingsSource {
     bool? isNotificationOnComplete,
     bool? isNotificationOnReminder,
     DateTime? reminderDateTime,
+    bool? repeatReminder,
   }) async {
     try {
       return await settingsCache.setNotificationSettings(
@@ -148,6 +149,7 @@ class LocalSettingsDataSource implements SettingsSource {
         isNotificationOnComplete: isNotificationOnComplete,
         isNotificationOnReminder: isNotificationOnReminder,
         reminderDateTime: reminderDateTime?.microsecondsSinceEpoch,
+        repeatReminder: repeatReminder,
       );
     } catch (e) {
       return Result.failure(error: OtherFailure(message: e.toString()));

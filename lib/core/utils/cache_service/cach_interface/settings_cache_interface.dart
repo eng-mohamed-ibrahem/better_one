@@ -35,5 +35,6 @@ abstract class SettingsCacheInterface {
     bool? isNotificationOnComplete,
     bool? isNotificationOnReminder,
     int? reminderDateTime,
+    bool? repeatReminder,
   });
 }

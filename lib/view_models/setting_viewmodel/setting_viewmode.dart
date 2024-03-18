@@ -137,6 +137,7 @@ class SettingViewModel extends Cubit<SettingViewModelState> {
     bool? isNotificationOnComplete,
     bool? isNotificationOnReminder,
     DateTime? reminderDateTime,
+    bool? repeatReminder,
   }) async {
     emit(release().copyWith(
       isNotificationSettingsLoading: true,
@@ -147,6 +148,7 @@ class SettingViewModel extends Cubit<SettingViewModelState> {
       isNotificationOnComplete: isNotificationOnComplete,
       isNotificationOnReminder: isNotificationOnReminder,
       reminderDateTime: reminderDateTime,
+      repeatReminder: repeatReminder,
     );
     result.when(
       success: (value) {
@@ -163,6 +165,7 @@ class SettingViewModel extends Cubit<SettingViewModelState> {
             isNotificationOnReminder:
                 isNotificationOnReminder ?? state.isNotificationOnReminder,
             reminderDateTime: reminderDateTime ?? state.reminderDateTime,
+            repeatReminder: repeatReminder ?? state.repeatReminder,
           ),
         );
         scheduleNotification();
@@ -196,6 +199,7 @@ class SettingViewModel extends Cubit<SettingViewModelState> {
             isNotificationOnReminder:
                 notificationSettings[CacheKeys.isNotificationOnReminder]!,
             reminderDateTime: notificationSettings[CacheKeys.reminderDateTime],
+            repeatReminder: notificationSettings[CacheKeys.repeatReminder],
           ),
         );
       },
@@ -215,13 +219,12 @@ class SettingViewModel extends Cubit<SettingViewModelState> {
   void scheduleNotification() async {
     state.isNotificationOnReminder
         ? await localNotification.displaySchedule(
-            // repeatDaysWithSameTime: true,
+            repeatDaysWithSameTime: state.repeatReminder,
             scheduleTime: state.reminderDateTime!,
             notification: NotificationModel(
               id: NotificaitonConstants.scheduleNotificationId,
               title: 'task.motive_reminder'.tr(),
               body: 'task.motive_reminder_body'.tr(),
-              payload: NotificaitonConstants.scheduleNotificationId.toString(),
             ),
           )
         : localNotification.cancel(

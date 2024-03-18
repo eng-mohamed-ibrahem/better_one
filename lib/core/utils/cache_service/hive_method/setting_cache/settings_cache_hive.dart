@@ -129,6 +129,8 @@ class SettingsCacheByHive implements SettingsCacheInterface {
           .get(CacheKeys.isNotificationOnReminder, defaultValue: false);
       data[CacheKeys.reminderDateTime] =
           cacheInit.appBox.get(CacheKeys.reminderDateTime, defaultValue: 0);
+      data[CacheKeys.repeatReminder] =
+          cacheInit.appBox.get(CacheKeys.repeatReminder, defaultValue: false);
       return Result.success(data: data);
     } catch (e) {
       return Result.failure(error: CacheFailure(message: e.toString()));
@@ -142,6 +144,7 @@ class SettingsCacheByHive implements SettingsCacheInterface {
     bool? isNotificationOnComplete,
     bool? isNotificationOnReminder,
     int? reminderDateTime,
+    bool? repeatReminder,
   }) async {
     try {
       var result = await getNotificationSettings();
@@ -163,6 +166,8 @@ class SettingsCacheByHive implements SettingsCacheInterface {
                   settings[CacheKeys.isNotificationOnReminder]);
           cacheInit.appBox.put(CacheKeys.reminderDateTime,
               reminderDateTime ?? settings[CacheKeys.reminderDateTime]);
+          cacheInit.appBox.put(CacheKeys.repeatReminder,
+              repeatReminder ?? settings[CacheKeys.repeatReminder]);
           return const Result.success(data: true);
         },
         failure: (failure) {

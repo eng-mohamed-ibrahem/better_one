@@ -40,6 +40,9 @@ Send notifications to other users when tasks are completed.
   * Search for tasks by date
   * Search for tasks by description
   * Search for tasks by title
+* Settings for notification:
+  * Turn on/off notifications when tasks are created
+  * Customize the notification schedule for your tasks
 
 ### Screenshots
 
@@ -60,10 +63,6 @@ Send notifications to other users when tasks are completed.
 ## Next steps
 
 * Handle app while no internet connection
-* Handle app while loading data
-* Settings for notification:
-  * Turn on/off notifications when tasks are created
-  * Customize the notification schedule for your tasks
 * Apply Search functionality i have done above
 * Settings for theme:
   * Change to light, dark theme

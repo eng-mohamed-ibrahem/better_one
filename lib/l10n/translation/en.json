@@ -5,7 +5,8 @@
     "core": {
         "cancel": "Cancel",
         "delete": "Delete",
-        "total_time": "The Total Time"
+        "total_time": "The Total Time",
+        "retry": "Retry again"
     },
     "task": {
         "create": "Create Task",
@@ -52,7 +53,8 @@
                 "add": "Notify On Add",
                 "update": "Notify On Update",
                 "complete": "Notify On Complete",
-                "reminder": "Set On Reminder"
+                "reminder": "Set On Reminder",
+                "repeat_reminder": "Repeat reminder every day"
             }
         },
         "search": {

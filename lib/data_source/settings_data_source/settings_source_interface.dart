@@ -33,6 +33,7 @@ abstract class SettingsSource {
     bool? isNotificationOnComplete,
     bool? isNotificationOnReminder,
     DateTime? reminderDateTime,
+    bool? repeatReminder,
   });
 
   // get notification settings
