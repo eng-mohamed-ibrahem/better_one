@@ -31,7 +31,9 @@ class RootApp extends StatelessWidget {
         builder: (context, child) => MultiBlocProvider(
           providers: [
             BlocProvider(
-              create: (context) => HomeViewmodel(taskRepoInterface: taskRepo),
+              create: (context) => HomeViewmodel(taskRepoInterface: taskRepo)
+                ..getTasks()
+                ..getTotalEstimatedTime(),
             ),
             BlocProvider(
               create: (context) => QuoteViewmode(quoteRepo: quoteRepo),

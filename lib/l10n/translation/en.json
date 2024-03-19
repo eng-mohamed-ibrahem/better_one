@@ -69,7 +69,8 @@
         },
         "account": {
             "title": "Account",
-            "subtitle": "Manage your account"
+            "subtitle": "Manage your account",
+            "later":"Will be added later"
         }
     },
     "time": {
