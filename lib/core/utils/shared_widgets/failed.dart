@@ -37,7 +37,7 @@ class Failed extends StatelessWidget {
           onPressed: retry,
           icon: const Icon(Icons.refresh),
           label: Text(
-            'retry'.tr(),
+            'core.retry'.tr(),
           ),
         ),
       ],

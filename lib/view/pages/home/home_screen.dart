@@ -43,7 +43,7 @@ class _HomeScreenState extends State<HomeScreen> with RouteAware {
         /// 1: chech if in the same route of [task screen]
         /// 2: if yes, pushReplacement
         /// 3: if not, pushNamed
-        if (payload != null) {
+        if (payload!.isNotEmpty) {
           GenerateRouter.activeRoute == GenerateRouter.taskScreen
               ? Navigator.pushReplacementNamed(
                   context,

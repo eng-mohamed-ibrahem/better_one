@@ -111,33 +111,35 @@ class FlutterLocalNotification implements NotificationRepoInterface {
     required DateTime scheduleTime,
     bool repeatDaysWithSameTime = false,
   }) async {
-    await _requestPermissions().then((status) async {
-      if (status == null || status == true) {
-        tz.initializeTimeZones();
-        var timezoneName = await FlutterTimezone.getLocalTimezone();
-        tz.setLocalLocation(tz.getLocation(timezoneName));
-        await _flutterNotificationsPlugin.zonedSchedule(
-          notification.id,
-          notification.title,
-          notification.body,
-          tz.TZDateTime(
-            tz.local,
-            scheduleTime.year,
-            scheduleTime.month,
-            scheduleTime.day,
-            scheduleTime.hour,
-            scheduleTime.minute,
-            scheduleTime.second,
-          ),
-          notificationDetails,
-          uiLocalNotificationDateInterpretation:
-              UILocalNotificationDateInterpretation.absoluteTime,
-          matchDateTimeComponents:
-              repeatDaysWithSameTime ? DateTimeComponents.time : null,
-          payload: notification.payload,
-        );
-      }
-    });
+    await _requestPermissions().then(
+      (status) async {
+        if (status == null || status == true) {
+          tz.initializeTimeZones();
+          var timezoneName = await FlutterTimezone.getLocalTimezone();
+          tz.setLocalLocation(tz.getLocation(timezoneName));
+          await _flutterNotificationsPlugin.zonedSchedule(
+            notification.id,
+            notification.title,
+            notification.body,
+            tz.TZDateTime(
+              tz.local,
+              scheduleTime.year,
+              scheduleTime.month,
+              scheduleTime.day,
+              scheduleTime.hour,
+              scheduleTime.minute,
+              scheduleTime.second,
+            ),
+            notificationDetails,
+            uiLocalNotificationDateInterpretation:
+                UILocalNotificationDateInterpretation.absoluteTime,
+            matchDateTimeComponents:
+                repeatDaysWithSameTime ? DateTimeComponents.time : null,
+            payload: notification.payload,
+          );
+        }
+      },
+    );
   }
 
   @override
