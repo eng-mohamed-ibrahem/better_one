@@ -47,9 +47,9 @@ Send notifications to other users when tasks are completed.
 * Settings for theme:
   * Change to light, dark theme
 
-### Video
+## Video
 
-[video link](https://drive.google.com/file/d/1Ultt5Jo3H5440-eYnXFc0jMSwbJlbedy/view?usp=drivesdk)
+[video demo](https://drive.google.com/file/d/1Ultt5Jo3H5440-eYnXFc0jMSwbJlbedy/view?usp=drivesdk)
 
 ## Next steps
 
