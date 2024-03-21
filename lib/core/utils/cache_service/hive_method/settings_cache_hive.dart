@@ -24,19 +24,24 @@ class SettingsCacheByHive implements SettingsCacheInterface {
   @override
   Future<Result<String, CacheFailure>> toggleTheme() async {
     try {
-      String theme = cacheInit.appBox
-          .get(CacheKeys.theme, defaultValue: CacheKeys.lightTheme);
-      if (theme == CacheKeys.darkTheme) {
-        theme = CacheKeys.lightTheme;
-      } else {
-        theme = CacheKeys.darkTheme;
-      }
-      return Result.success(
-        data: await cacheInit.appBox.put(CacheKeys.theme, theme).then(
-          (value) {
-            return theme;
-          },
-        ),
+      var result = await getTheme();
+      return result.when(
+        success: (currentTheme) async {
+          String newTheme = currentTheme == CacheKeys.lightTheme
+              ? CacheKeys.darkTheme
+              : CacheKeys.lightTheme;
+
+          return Result.success(
+            data: await cacheInit.appBox.put(CacheKeys.theme, newTheme).then(
+              (value) {
+                return newTheme;
+              },
+            ),
+          );
+        },
+        failure: (failure) {
+          return Result.failure(error: failure);
+        },
       );
     } catch (e) {
       return Result.failure(error: CacheFailure(message: e.toString()));
