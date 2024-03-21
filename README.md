@@ -47,9 +47,10 @@ Send notifications to other users when tasks are completed.
 * Settings for theme:
   * Change to light, dark theme
 
-### Video
+## Video
 
-[video link](https://drive.google.com/file/d/1Ultt5Jo3H5440-eYnXFc0jMSwbJlbedy/view?usp=drivesdk)
+   [video link](https://drive.google.com/file/d/1Ultt5Jo3H5440-eYnXFc0jMSwbJlbedy/view?usp=drivesdk)
+   
 
 ## Next steps
 
@@ -58,3 +59,21 @@ Send notifications to other users when tasks are completed.
 * Login using Firebase:
   * Login with Google account
   * Save user data in Cloud Firestore
+
+## Dependencies
+
+```bash
+  flutter_bloc: ^8.1.4
+  flutter_local_notifications: ^16.3.2
+  flutter_screenutil: ^5.9.0
+  flutter_svg: ^2.0.10+1
+  flutter_timezone: ^1.0.8
+  font_awesome_flutter: ^10.7.0
+  freezed_annotation: ^2.4.1
+  get_it: ^7.6.7
+  hive_flutter: ^1.1.0
+  intl: ^0.18.1
+  json_annotation: ^4.8.1
+  smooth_page_indicator: ^1.1.0
+  timezone: ^0.9.2
+```
