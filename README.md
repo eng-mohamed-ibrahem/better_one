@@ -49,7 +49,7 @@ Send notifications to other users when tasks are completed.
 
 ### Video
 
-[video](https://drive.google.com/file/d/1UwVjarS1UmeZPJKGvLfwQEYo0XjcyAjw/view?usp=drivesdk)
+[video link](https://drive.google.com/file/d/1Ultt5Jo3H5440-eYnXFc0jMSwbJlbedy/view?usp=drivesdk)
 
 ## Next steps
 
