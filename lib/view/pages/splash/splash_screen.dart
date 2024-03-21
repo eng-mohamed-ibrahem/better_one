@@ -1,4 +1,5 @@
 import 'package:better_one/config/generate_router.dart';
+import 'package:better_one/core/utils/dependency_locator/dependency_injection.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
@@ -10,10 +11,17 @@ class SplashScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     WidgetsBinding.instance.addPostFrameCallback(
-      (timeStamp) {
-        // will be here checking if user is logged in or OnBoardingScreen
-        Navigator.of(context)
-            .pushNamedAndRemoveUntil(GenerateRouter.home, (route) => false);
+      (timeStamp) async {
+        var result = await settingRepo.getOnBoardingSeen();
+        result.when(
+          success: (seen) {
+            Navigator.pushNamedAndRemoveUntil(
+                context,
+                seen ? GenerateRouter.home : GenerateRouter.onboarding,
+                (route) => false);
+          },
+          failure: (error) {},
+        );
       },
     );
     return SvgPicture.asset(

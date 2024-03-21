@@ -155,4 +155,22 @@ class LocalSettingsDataSource implements SettingsSource {
       return Result.failure(error: OtherFailure(message: e.toString()));
     }
   }
+
+  @override
+  Future<Result<void, Failure>> setOnBoardingSeen(bool seen) async {
+    try {
+      return await settingsCache.setOnBoardingSeen(seen);
+    } catch (e) {
+      return Result.failure(error: OtherFailure(message: e.toString()));
+    }
+  }
+
+  @override
+  Future<Result<bool, Failure>> getOnBoardingSeen() async {
+    try {
+      return await settingsCache.getOnBoardingSeen();
+    } catch (e) {
+      return Result.failure(error: OtherFailure(message: e.toString()));
+    }
+  }
 }

@@ -1,7 +1,7 @@
 import 'package:better_one/core/errors/failure.dart';
 import 'package:better_one/core/request_result/request_result.dart';
 import 'package:better_one/data_source/settings_data_source/settings_source_interface.dart';
-import 'package:better_one/repositories/setting_repo/settings_interface.dart';
+import 'package:better_one/repositories/setting_repo/settings_repo_interface.dart';
 import 'package:flutter/material.dart';
 
 class SettingRepo implements SettingsRepoInterface {
@@ -70,5 +70,15 @@ class SettingRepo implements SettingsRepoInterface {
       reminderDateTime: reminderDateTime,
       repeatReminder: repeatReminder,
     );
+  }
+
+  @override
+  Future<Result<void, Failure>> setOnBoardingSeen(bool seen) async {
+    return await settingsSource.setOnBoardingSeen(seen);
+  }
+
+  @override
+  Future<Result<bool, Failure>> getOnBoardingSeen() async {
+    return await settingsSource.getOnBoardingSeen();
   }
 }

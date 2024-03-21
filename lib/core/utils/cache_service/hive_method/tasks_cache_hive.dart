@@ -3,10 +3,9 @@ import 'dart:convert';
 import 'package:better_one/core/constants/constants.dart';
 import 'package:better_one/core/errors/failure.dart';
 import 'package:better_one/core/request_result/request_result.dart';
+import 'package:better_one/core/utils/cache_service/cache_service.dart';
 import 'package:better_one/model/task_model/task_model.dart';
 import 'package:logger/logger.dart';
-
-import '../../cache_service.dart';
 
 class TaskCacheByHive implements TaskCacheInterface {
   TaskCacheByHive({required this.cacheInit});

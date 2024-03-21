@@ -1,4 +1,5 @@
 import 'package:better_one/view/pages/home/home_screen.dart';
+import 'package:better_one/view/pages/onborading/onboarding_screen.dart';
 import 'package:better_one/view/pages/settings/settings_screen.dart';
 import 'package:better_one/view/pages/splash/splash_screen.dart';
 import 'package:better_one/view/pages/write_task/task_screen.dart';
@@ -9,6 +10,7 @@ class GenerateRouter {
   GenerateRouter._();
 
   static const String splash = '/';
+  static const String onboarding = '/onboarding';
   static const String home = '/home';
   static const String taskScreen = '/task_screen';
   static const String settingScreen = '/setting_screen';
@@ -22,6 +24,13 @@ class GenerateRouter {
           activeRoute = splash;
           return MaterialPageRoute(
             builder: (context) => const SplashScreen(),
+          );
+        }
+      case onboarding:
+        {
+          activeRoute = onboarding;
+          return MaterialPageRoute(
+            builder: (context) => OnboardingScreen(),
           );
         }
       case home:

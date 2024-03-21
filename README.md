@@ -64,6 +64,7 @@ Send notifications to other users when tasks are completed.
 
 ## Next steps
 
+* OnBoarding screen
 * Handle app while no internet connection
 * Apply Search functionality i have done above to search for tasks by status, date, title, or description
 * Login using Firebase:

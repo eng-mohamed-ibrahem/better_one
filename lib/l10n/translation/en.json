@@ -6,7 +6,30 @@
         "cancel": "Cancel",
         "delete": "Delete",
         "total_time": "The Total Time",
-        "retry": "Try again"
+        "retry": "Try again",
+        "get_started": "Ready to get started? Let's create your first task!"
+    },
+    "onboarding": {
+        "1": {
+            "title": "Welcome to Better One",
+            "body": "Plan your tasks and goals"
+        },
+        "2": {
+            "title": "Staying focused",
+            "body": "Create, edit, and delete tasks to stay organized and manage your workload."
+        },
+        "3": {
+            "title": "Tracking your progress",
+            "body": "We'll notify you about completed tasks, keeping you engaged and on track."
+        },
+        "4": {
+            "title": "Time tracking",
+            "body": "See how much time you've spent on each task and your overall progress."
+        },
+        "5": {
+            "title": "Sharing your journey",
+            "body": "Let your friends and family send you encouraging messages to boost your motivation."
+        }
     },
     "task": {
         "create": "Create Task",
@@ -70,7 +93,7 @@
         "account": {
             "title": "Account",
             "subtitle": "Manage your account",
-            "later":"Will be added later"
+            "later": "Will be added later"
         }
     },
     "time": {

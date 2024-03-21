@@ -1,8 +1,8 @@
+import 'package:better_one/core/constants/constants.dart';
 import 'package:better_one/core/errors/failure.dart';
 import 'package:better_one/core/request_result/request_result.dart';
 import 'package:better_one/core/utils/cache_service/cache_service.dart';
-
-import '../../../../constants/constants.dart';
+import 'package:flutter/material.dart';
 
 class SettingsCacheByHive implements SettingsCacheInterface {
   SettingsCacheByHive({required this.cacheInit});
@@ -57,8 +57,9 @@ class SettingsCacheByHive implements SettingsCacheInterface {
   @override
   Future<Result<String, CacheFailure>> getTheme() async {
     try {
-      String theme = cacheInit.appBox
-          .get(CacheKeys.theme, defaultValue: CacheKeys.lightTheme);
+      String theme = cacheInit.appBox.get(CacheKeys.theme,
+          defaultValue: WidgetsBinding
+              .instance.platformDispatcher.platformBrightness.name);
 
       return Result.success(data: theme);
     } catch (e) {
@@ -174,6 +175,28 @@ class SettingsCacheByHive implements SettingsCacheInterface {
           return Result.failure(error: failure);
         },
       );
+    } catch (e) {
+      return Result.failure(error: CacheFailure(message: e.toString()));
+    }
+  }
+
+  @override
+  Future<Result<bool, CacheFailure>> getOnBoardingSeen() async {
+    try {
+      return Result.success(
+        data:
+            cacheInit.appBox.get(CacheKeys.onboardingSeen, defaultValue: false),
+      );
+    } catch (e) {
+      return Result.failure(error: CacheFailure(message: e.toString()));
+    }
+  }
+
+  @override
+  Future<Result<void, CacheFailure>> setOnBoardingSeen(bool seen) async {
+    try {
+      await cacheInit.appBox.put(CacheKeys.onboardingSeen, seen);
+      return const Result.success(data: null);
     } catch (e) {
       return Result.failure(error: CacheFailure(message: e.toString()));
     }

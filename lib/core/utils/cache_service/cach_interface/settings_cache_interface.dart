@@ -37,4 +37,10 @@ abstract class SettingsCacheInterface {
     int? reminderDateTime,
     bool? repeatReminder,
   });
+
+  // set onborading seen
+  Future<Result<void, CacheFailure>> setOnBoardingSeen(bool seen);
+
+  // get onborading seen
+  Future<Result<bool, CacheFailure>> getOnBoardingSeen();
 }

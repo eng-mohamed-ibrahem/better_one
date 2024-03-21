@@ -7,15 +7,15 @@ import 'package:better_one/data_source/settings_data_source/local_settings_data_
 import 'package:better_one/data_source/settings_data_source/settings_source_interface.dart';
 import 'package:better_one/data_source/task_data_source/local_task_data_source.dart';
 import 'package:better_one/data_source/task_data_source/task_source_interface.dart';
-import 'package:better_one/repositories/quote_repo/quote_interface.dart';
 import 'package:better_one/repositories/quote_repo/quote_repo.dart';
+import 'package:better_one/repositories/quote_repo/quote_repo_interface.dart';
 import 'package:better_one/repositories/task_repo/task_repo_impl.dart';
 import 'package:better_one/repositories/task_repo/task_repo_interface.dart';
 import 'package:flutter/material.dart';
 import 'package:get_it/get_it.dart';
 
 import '../../../repositories/setting_repo/setting_repo.dart';
-import '../../../repositories/setting_repo/settings_interface.dart';
+import '../../../repositories/setting_repo/settings_repo_interface.dart';
 import '../cache_service/cache_service.dart';
 import '../notification_service/flutter_local_notification.dart';
 
@@ -100,7 +100,7 @@ void quoteDependency() {
   );
 
   /// [Quote] repository
-  quoteRepo = _getIt.registerSingleton<QuoteInterface>(
+  quoteRepo = _getIt.registerSingleton<QuoteRepoInterface>(
     QuoteRepo(quoteSource: quoteSource),
   );
 }
@@ -112,5 +112,5 @@ late TaskSource taskSource;
 late SettingsSource settingSource;
 late SettingsRepoInterface settingRepo;
 late QuoteSource quoteSource;
-late QuoteInterface quoteRepo;
+late QuoteRepoInterface quoteRepo;
 late RouteObserver<ModalRoute> routeObserver;

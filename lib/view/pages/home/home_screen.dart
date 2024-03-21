@@ -26,6 +26,9 @@ class _HomeScreenState extends State<HomeScreen> with RouteAware {
   @override
   void initState() {
     _handleNotification();
+    WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
+      settingRepo.setOnBoardingSeen(true);
+    });
     super.initState();
   }
 

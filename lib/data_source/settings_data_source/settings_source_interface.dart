@@ -38,4 +38,10 @@ abstract class SettingsSource {
 
   // get notification settings
   Future<Result<Map<String, dynamic>, Failure>> getNotificationSettings();
+
+  // set onborading seen
+  Future<Result<void, Failure>> setOnBoardingSeen(bool seen);
+
+  // get onborading seen
+  Future<Result<bool, Failure>> getOnBoardingSeen();
 }
