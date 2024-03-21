@@ -35,6 +35,7 @@ Send notifications to other users when tasks are completed.
 * Supported multiple languages[English, Arabic].
 * Added support for Dark Mode.
 * Handled splash screen.
+* OnBoarding screen.
 * Settings for Search:
   * Search for tasks by status
   * Search for tasks by date
@@ -64,7 +65,6 @@ Send notifications to other users when tasks are completed.
 
 ## Next steps
 
-* OnBoarding screen
 * Handle app while no internet connection
 * Apply Search functionality i have done above to search for tasks by status, date, title, or description
 * Login using Firebase:
