@@ -57,6 +57,7 @@ Send notifications to other users when tasks are completed.
 ## Next steps
 
 * Handle app while no internet connection
+* Apply Feedback submit
 * Apply Search functionality i have done above to search for tasks by status, date, title, or description
 * Login using Firebase:
   * Login with Google account
