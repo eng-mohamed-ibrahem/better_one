@@ -52,6 +52,7 @@ Send notifications to other users when tasks are completed.
 [video demo](https://drive.google.com/file/d/1Ultt5Jo3H5440-eYnXFc0jMSwbJlbedy/view?usp=drivesdk)
 
 ## App Structure
+
 ![app_structure](https://github.com/eng-mohamed-ibrahem/better_one/assets/83507142/765e7249-70cf-40a6-ba37-a499b1464002)
 
 ## Next steps
