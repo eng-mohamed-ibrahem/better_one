@@ -1,5 +1,6 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:lottie/lottie.dart';
 
 import '../../constants/constants.dart';
@@ -22,7 +23,7 @@ void showCompleteTaskDialog(
   controller.addListener(() {
     if (controller.isCompleted) {
       controller.stop();
-      Navigator.pop(context);
+      context.pop(context);
     }
   });
 }
@@ -40,14 +41,14 @@ void showDeleteTaskDialog(BuildContext context,
         actions: [
           TextButton(
             onPressed: () {
-              Navigator.pop(context);
+              context.pop(context);
             },
             child: Text('core.cancel'.tr()),
           ),
           TextButton(
             onPressed: () {
               onConfirm?.call();
-              Navigator.pop(context);
+              context.pop(context);
             },
             child: Text(
               'task.confirm_delete'.tr(),

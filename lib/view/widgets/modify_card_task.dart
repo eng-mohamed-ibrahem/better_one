@@ -1,4 +1,4 @@
-import 'package:better_one/config/generate_router.dart';
+import 'package:better_one/config/app_routes.dart';
 import 'package:better_one/core/constants/app_colors.dart';
 import 'package:better_one/core/utils/snack_bar/snack_bar.dart';
 import 'package:better_one/model/task_model/task_model.dart';
@@ -6,6 +6,7 @@ import 'package:better_one/view/widgets/card_task.dart';
 import 'package:better_one/view_models/home_viewmodel/home_viewmodel.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 import '../../core/utils/dialog/helper_dialog.dart';
 
@@ -90,11 +91,7 @@ class _ModifiyCardTaskState extends State<ModifiyCardTask>
                     padding: EdgeInsets.zero,
                   ),
                   onPressed: () {
-                    Navigator.pushNamed(
-                      context,
-                      GenerateRouter.taskScreen,
-                      arguments: widget.task.id,
-                    );
+                    context.go("${AppRoutes.taskScreen}/${widget.task.id}");
                   },
                   icon: const Icon(
                     Icons.edit_note_rounded,

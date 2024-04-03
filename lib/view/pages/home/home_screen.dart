@@ -1,4 +1,4 @@
-import 'package:better_one/config/generate_router.dart';
+import 'package:better_one/config/app_routes.dart';
 import 'package:better_one/core/utils/dependency_locator/dependency_injection.dart';
 import 'package:better_one/core/utils/shared_widgets/failed.dart';
 import 'package:better_one/core/utils/shared_widgets/lottie_indicator.dart';
@@ -10,6 +10,7 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:go_router/go_router.dart';
 
 import '../../../core/constants/constants.dart';
 
@@ -47,17 +48,18 @@ class _HomeScreenState extends State<HomeScreen> with RouteAware {
         /// 2: if yes, pushReplacement
         /// 3: if not, pushNamed
         if (payload!.isNotEmpty) {
-          GenerateRouter.activeRoute == GenerateRouter.taskScreen
-              ? Navigator.pushReplacementNamed(
-                  context,
-                  GenerateRouter.taskScreen,
-                  arguments: payload,
-                )
-              : Navigator.pushNamed(
-                  context,
-                  GenerateRouter.taskScreen,
-                  arguments: payload,
-                );
+          context.go("${AppRoutes.taskScreen}/$payload");
+          // AppRoutes.activeRoute == AppRoutes.taskScreen
+          //     ? Navigator.pushReplacementNamed(
+          //         context,
+          //         AppRoutes.taskScreen,
+          //         arguments: payload,
+          //       )
+          //     : Navigator.pushNamed(
+          //         context,
+          //         AppRoutes.taskScreen,
+          //         arguments: payload,
+          //       );
         }
       },
     );
@@ -66,10 +68,10 @@ class _HomeScreenState extends State<HomeScreen> with RouteAware {
   @override
   void didPopNext() {
     // to rebuild [home screen] after pop from [setting screen] to reflect changes as [language, theme, ... etc]
-    if (GenerateRouter.activeRoute == GenerateRouter.settingScreen) {
+    if (AppRoutes.activeRoute == AppRoutes.settingScreen) {
       setState(() {});
     }
-    GenerateRouter.activeRoute = GenerateRouter.home;
+    AppRoutes.activeRoute = AppRoutes.home;
   }
 
   @override
@@ -181,9 +183,12 @@ class _HomeScreenState extends State<HomeScreen> with RouteAware {
                 tag: 'app_settings',
                 child: IconButton(
                   onPressed: () {
-                    Navigator.pushNamed(
-                      context,
-                      GenerateRouter.settingScreen,
+                    // Navigator.pushNamed(
+                    //   context,
+                    //   AppRoutes.settingScreen,
+                    // );
+                    context.go(
+                      AppRoutes.settingScreen,
                     );
                   },
                   icon: const Icon(Icons.settings_outlined),
@@ -204,9 +209,12 @@ class _HomeScreenState extends State<HomeScreen> with RouteAware {
                     ),
                   ),
                   onPressed: () {
-                    Navigator.pushNamed(
-                      context,
-                      GenerateRouter.taskScreen,
+                    // Navigator.pushNamed(
+                    //   context,
+                    //   AppRoutes.taskScreen,
+                    // );
+                    context.go(
+                      AppRoutes.taskScreen,
                     );
                   },
                   icon: const Icon(Icons.add),

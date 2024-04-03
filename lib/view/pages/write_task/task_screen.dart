@@ -1,7 +1,7 @@
 import 'dart:async';
 import 'dart:ui' as ui;
 
-import 'package:better_one/config/generate_router.dart';
+import 'package:better_one/config/app_routes.dart';
 import 'package:better_one/core/enum/task_status.dart';
 import 'package:better_one/core/utils/dependency_locator/dependency_injection.dart';
 import 'package:better_one/core/utils/dialog/helper_dialog.dart';
@@ -20,6 +20,7 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:go_router/go_router.dart';
 
 import '../../../core/constants/constants.dart';
 
@@ -51,7 +52,7 @@ class _TaskScreenState extends State<TaskScreen>
 
   @override
   void didPopNext() {
-    GenerateRouter.activeRoute = GenerateRouter.taskScreen;
+    AppRoutes.activeRoute = AppRoutes.taskScreen;
   }
 
   @override
@@ -445,7 +446,7 @@ class _TaskScreenState extends State<TaskScreen>
                                         context,
                                         message: 'task.remove'.tr(),
                                       );
-                                      Navigator.pop(context);
+                                      context.pop(context);
                                     },
                                   );
                                 },
