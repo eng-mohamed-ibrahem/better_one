@@ -23,7 +23,7 @@ void showCompleteTaskDialog(
   controller.addListener(() {
     if (controller.isCompleted) {
       controller.stop();
-      context.pop(context);
+      Navigator.pop(context);
     }
   });
 }
@@ -41,7 +41,7 @@ void showDeleteTaskDialog(BuildContext context,
         actions: [
           TextButton(
             onPressed: () {
-              context.pop(context);
+              Navigator.pop(context);
             },
             child: Text('core.cancel'.tr()),
           ),

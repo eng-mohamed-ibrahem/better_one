@@ -48,18 +48,12 @@ class _HomeScreenState extends State<HomeScreen> with RouteAware {
         /// 2: if yes, pushReplacement
         /// 3: if not, pushNamed
         if (payload!.isNotEmpty) {
-          context.go("${AppRoutes.taskScreen}/$payload");
-          // AppRoutes.activeRoute == AppRoutes.taskScreen
-          //     ? Navigator.pushReplacementNamed(
-          //         context,
-          //         AppRoutes.taskScreen,
-          //         arguments: payload,
-          //       )
-          //     : Navigator.pushNamed(
-          //         context,
-          //         AppRoutes.taskScreen,
-          //         arguments: payload,
-          //       );
+          context.goNamed(
+            AppRoutes.taskDetailsScreen,
+            pathParameters: {
+              'task_id': payload,
+            },
+          );
         }
       },
     );
@@ -183,11 +177,7 @@ class _HomeScreenState extends State<HomeScreen> with RouteAware {
                 tag: 'app_settings',
                 child: IconButton(
                   onPressed: () {
-                    // Navigator.pushNamed(
-                    //   context,
-                    //   AppRoutes.settingScreen,
-                    // );
-                    context.go(
+                    context.goNamed(
                       AppRoutes.settingScreen,
                     );
                   },
@@ -209,13 +199,7 @@ class _HomeScreenState extends State<HomeScreen> with RouteAware {
                     ),
                   ),
                   onPressed: () {
-                    // Navigator.pushNamed(
-                    //   context,
-                    //   AppRoutes.taskScreen,
-                    // );
-                    context.go(
-                      AppRoutes.taskScreen,
-                    );
+                    context.goNamed(AppRoutes.createTaskScreen);
                   },
                   icon: const Icon(Icons.add),
                   label: Text(

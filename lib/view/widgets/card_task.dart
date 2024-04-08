@@ -19,13 +19,12 @@ class CardTask extends StatelessWidget {
   Widget build(BuildContext context) {
     return InkWell(
       onTap: () {
-        context.go('${AppRoutes.taskScreen}/${task.id}');
-        // context.pushNamed(
-        //   AppRoutes.taskScreen.split('/').last,
-        //   pathParameters: {
-        //     "task_id": task.id,
-        //   },
-        // );
+        context.pushNamed(
+          AppRoutes.taskDetailsScreen.split('/').last,
+          queryParameters: {
+            "task_id": task.id,
+          },
+        );
       },
       child: Container(
         padding: EdgeInsets.all(10.r),

@@ -16,9 +16,6 @@ class SplashScreen extends StatelessWidget {
         var result = await settingRepo.getOnBoardingSeen();
         result.when(
           success: (seen) {
-            // Navigator.pushNamedAndRemoveUntil(context,
-            //     seen ? AppRoutes.home : AppRoutes.onboarding, (route) => false);
-
             context.go(
               seen ? AppRoutes.home : AppRoutes.onboarding,
             );
