@@ -22,6 +22,7 @@ TaskModel _$TaskModelFromJson(Map<String, dynamic> json) {
 mixin _$TaskModel {
   String get title => throw _privateConstructorUsedError;
   String get body => throw _privateConstructorUsedError;
+  List<Subtask> get subtasks => throw _privateConstructorUsedError;
   String get id => throw _privateConstructorUsedError;
   DateTime get createdAt => throw _privateConstructorUsedError;
   DateTime? get updatedAt => throw _privateConstructorUsedError;
@@ -42,6 +43,7 @@ abstract class $TaskModelCopyWith<$Res> {
   $Res call(
       {String title,
       String body,
+      List<Subtask> subtasks,
       String id,
       DateTime createdAt,
       DateTime? updatedAt,
@@ -64,6 +66,7 @@ class _$TaskModelCopyWithImpl<$Res, $Val extends TaskModel>
   $Res call({
     Object? title = null,
     Object? body = null,
+    Object? subtasks = null,
     Object? id = null,
     Object? createdAt = null,
     Object? updatedAt = freezed,
@@ -79,6 +82,10 @@ class _$TaskModelCopyWithImpl<$Res, $Val extends TaskModel>
           ? _value.body
           : body // ignore: cast_nullable_to_non_nullable
               as String,
+      subtasks: null == subtasks
+          ? _value.subtasks
+          : subtasks // ignore: cast_nullable_to_non_nullable
+              as List<Subtask>,
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
@@ -114,6 +121,7 @@ abstract class _$$TaskModelImplCopyWith<$Res>
   $Res call(
       {String title,
       String body,
+      List<Subtask> subtasks,
       String id,
       DateTime createdAt,
       DateTime? updatedAt,
@@ -134,6 +142,7 @@ class __$$TaskModelImplCopyWithImpl<$Res>
   $Res call({
     Object? title = null,
     Object? body = null,
+    Object? subtasks = null,
     Object? id = null,
     Object? createdAt = null,
     Object? updatedAt = freezed,
@@ -149,6 +158,10 @@ class __$$TaskModelImplCopyWithImpl<$Res>
           ? _value.body
           : body // ignore: cast_nullable_to_non_nullable
               as String,
+      subtasks: null == subtasks
+          ? _value._subtasks
+          : subtasks // ignore: cast_nullable_to_non_nullable
+              as List<Subtask>,
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
@@ -179,11 +192,13 @@ class _$TaskModelImpl implements _TaskModel {
   const _$TaskModelImpl(
       {required this.title,
       required this.body,
+      final List<Subtask> subtasks = const [],
       required this.id,
       required this.createdAt,
       this.updatedAt,
       this.elapsedTime = Duration.zero,
-      this.status = TaskStatus.none});
+      this.status = TaskStatus.none})
+      : _subtasks = subtasks;
 
   factory _$TaskModelImpl.fromJson(Map<String, dynamic> json) =>
       _$$TaskModelImplFromJson(json);
@@ -192,6 +207,15 @@ class _$TaskModelImpl implements _TaskModel {
   final String title;
   @override
   final String body;
+  final List<Subtask> _subtasks;
+  @override
+  @JsonKey()
+  List<Subtask> get subtasks {
+    if (_subtasks is EqualUnmodifiableListView) return _subtasks;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_subtasks);
+  }
+
   @override
   final String id;
   @override
@@ -207,7 +231,7 @@ class _$TaskModelImpl implements _TaskModel {
 
   @override
   String toString() {
-    return 'TaskModel(title: $title, body: $body, id: $id, createdAt: $createdAt, updatedAt: $updatedAt, elapsedTime: $elapsedTime, status: $status)';
+    return 'TaskModel(title: $title, body: $body, subtasks: $subtasks, id: $id, createdAt: $createdAt, updatedAt: $updatedAt, elapsedTime: $elapsedTime, status: $status)';
   }
 
   @override
@@ -217,6 +241,7 @@ class _$TaskModelImpl implements _TaskModel {
             other is _$TaskModelImpl &&
             (identical(other.title, title) || other.title == title) &&
             (identical(other.body, body) || other.body == body) &&
+            const DeepCollectionEquality().equals(other._subtasks, _subtasks) &&
             (identical(other.id, id) || other.id == id) &&
             (identical(other.createdAt, createdAt) ||
                 other.createdAt == createdAt) &&
@@ -230,7 +255,15 @@ class _$TaskModelImpl implements _TaskModel {
   @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
-      runtimeType, title, body, id, createdAt, updatedAt, elapsedTime, status);
+      runtimeType,
+      title,
+      body,
+      const DeepCollectionEquality().hash(_subtasks),
+      id,
+      createdAt,
+      updatedAt,
+      elapsedTime,
+      status);
 
   @JsonKey(ignore: true)
   @override
@@ -250,6 +283,7 @@ abstract class _TaskModel implements TaskModel {
   const factory _TaskModel(
       {required final String title,
       required final String body,
+      final List<Subtask> subtasks,
       required final String id,
       required final DateTime createdAt,
       final DateTime? updatedAt,
@@ -264,6 +298,8 @@ abstract class _TaskModel implements TaskModel {
   @override
   String get body;
   @override
+  List<Subtask> get subtasks;
+  @override
   String get id;
   @override
   DateTime get createdAt;
@@ -276,5 +312,155 @@ abstract class _TaskModel implements TaskModel {
   @override
   @JsonKey(ignore: true)
   _$$TaskModelImplCopyWith<_$TaskModelImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+Subtask _$SubtaskFromJson(Map<String, dynamic> json) {
+  return _Subtask.fromJson(json);
+}
+
+/// @nodoc
+mixin _$Subtask {
+  String get content => throw _privateConstructorUsedError;
+  bool get isDone => throw _privateConstructorUsedError;
+
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  $SubtaskCopyWith<Subtask> get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $SubtaskCopyWith<$Res> {
+  factory $SubtaskCopyWith(Subtask value, $Res Function(Subtask) then) =
+      _$SubtaskCopyWithImpl<$Res, Subtask>;
+  @useResult
+  $Res call({String content, bool isDone});
+}
+
+/// @nodoc
+class _$SubtaskCopyWithImpl<$Res, $Val extends Subtask>
+    implements $SubtaskCopyWith<$Res> {
+  _$SubtaskCopyWithImpl(this._value, this._then);
+
+  // ignore: unused_field
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? content = null,
+    Object? isDone = null,
+  }) {
+    return _then(_value.copyWith(
+      content: null == content
+          ? _value.content
+          : content // ignore: cast_nullable_to_non_nullable
+              as String,
+      isDone: null == isDone
+          ? _value.isDone
+          : isDone // ignore: cast_nullable_to_non_nullable
+              as bool,
+    ) as $Val);
+  }
+}
+
+/// @nodoc
+abstract class _$$SubtaskImplCopyWith<$Res> implements $SubtaskCopyWith<$Res> {
+  factory _$$SubtaskImplCopyWith(
+          _$SubtaskImpl value, $Res Function(_$SubtaskImpl) then) =
+      __$$SubtaskImplCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call({String content, bool isDone});
+}
+
+/// @nodoc
+class __$$SubtaskImplCopyWithImpl<$Res>
+    extends _$SubtaskCopyWithImpl<$Res, _$SubtaskImpl>
+    implements _$$SubtaskImplCopyWith<$Res> {
+  __$$SubtaskImplCopyWithImpl(
+      _$SubtaskImpl _value, $Res Function(_$SubtaskImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? content = null,
+    Object? isDone = null,
+  }) {
+    return _then(_$SubtaskImpl(
+      content: null == content
+          ? _value.content
+          : content // ignore: cast_nullable_to_non_nullable
+              as String,
+      isDone: null == isDone
+          ? _value.isDone
+          : isDone // ignore: cast_nullable_to_non_nullable
+              as bool,
+    ));
+  }
+}
+
+/// @nodoc
+@JsonSerializable()
+class _$SubtaskImpl implements _Subtask {
+  const _$SubtaskImpl({required this.content, required this.isDone});
+
+  factory _$SubtaskImpl.fromJson(Map<String, dynamic> json) =>
+      _$$SubtaskImplFromJson(json);
+
+  @override
+  final String content;
+  @override
+  final bool isDone;
+
+  @override
+  String toString() {
+    return 'Subtask(content: $content, isDone: $isDone)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$SubtaskImpl &&
+            (identical(other.content, content) || other.content == content) &&
+            (identical(other.isDone, isDone) || other.isDone == isDone));
+  }
+
+  @JsonKey(ignore: true)
+  @override
+  int get hashCode => Object.hash(runtimeType, content, isDone);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$SubtaskImplCopyWith<_$SubtaskImpl> get copyWith =>
+      __$$SubtaskImplCopyWithImpl<_$SubtaskImpl>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$SubtaskImplToJson(
+      this,
+    );
+  }
+}
+
+abstract class _Subtask implements Subtask {
+  const factory _Subtask(
+      {required final String content,
+      required final bool isDone}) = _$SubtaskImpl;
+
+  factory _Subtask.fromJson(Map<String, dynamic> json) = _$SubtaskImpl.fromJson;
+
+  @override
+  String get content;
+  @override
+  bool get isDone;
+  @override
+  @JsonKey(ignore: true)
+  _$$SubtaskImplCopyWith<_$SubtaskImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
