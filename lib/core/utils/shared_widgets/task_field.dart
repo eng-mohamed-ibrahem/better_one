@@ -33,6 +33,7 @@ class TaskField extends StatelessWidget {
         horizontal: AppMetrices.widthSpace2.w,
       ),
       child: TextFormField(
+        key: key,
         controller: controller,
         validator: validator,
         onChanged: onChanged,

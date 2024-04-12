@@ -9,6 +9,7 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:logger/logger.dart';
 
 class RootApp extends StatelessWidget {
   const RootApp({
@@ -17,6 +18,7 @@ class RootApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    Logger().d('root app build');
     return EasyLocalization(
       supportedLocales: const [
         Locale('en'),
@@ -28,50 +30,54 @@ class RootApp extends StatelessWidget {
       child: ScreenUtilInit(
         designSize: const Size(375, 812),
         useInheritedMediaQuery: true,
-        builder: (context, child) => MultiBlocProvider(
-          providers: [
-            BlocProvider(
-              create: (context) => HomeViewmodel(taskRepoInterface: taskRepo)
-                ..getTasks()
-                ..getTotalEstimatedTime(),
+        builder: (context, child) {
+          Logger().d('screen util builder');
+          return MultiBlocProvider(
+            providers: [
+              BlocProvider(
+                create: (context) => HomeViewmodel(taskRepoInterface: taskRepo)
+                  ..getTasks()
+                  ..getTotalEstimatedTime(),
+              ),
+              BlocProvider(
+                create: (context) => QuoteViewmode(quoteRepo: quoteRepo),
+              ),
+              BlocProvider(
+                create: (context) => SettingViewModel(settingsRepo: settingRepo)
+                  ..getLanguage()
+                  ..getSearchSettings()
+                  ..getNotificationSettings(),
+              ),
+              BlocProvider(
+                create: (context) =>
+                    ThemeViewModel(settingsRepo: settingRepo)..getTheme(),
+              )
+            ],
+            child: BlocBuilder<ThemeViewModel, ThemeViewModelState>(
+              builder: (context, state) {
+                return MaterialApp.router(
+                  routerConfig: AppRoutes.routerConfig,
+                  title: 'Better One',
+                  builder: (context, child) {
+                    Logger().d('material app builder');
+                    return MediaQuery(
+                      data: MediaQuery.of(context)
+                          .copyWith(textScaler: const TextScaler.linear(1)),
+                      child: child!,
+                    );
+                  },
+                  debugShowCheckedModeBanner: false,
+                  localizationsDelegates: context.localizationDelegates,
+                  supportedLocales: context.supportedLocales,
+                  locale: context.locale,
+                  themeMode: state.currentThemeMode,
+                  theme: AppThemes.lightTheme,
+                  darkTheme: AppThemes.darkTheme,
+                );
+              },
             ),
-            BlocProvider(
-              create: (context) => QuoteViewmode(quoteRepo: quoteRepo),
-            ),
-            BlocProvider(
-              create: (context) => SettingViewModel(settingsRepo: settingRepo)
-                ..getLanguage()
-                ..getSearchSettings()
-                ..getNotificationSettings(),
-            ),
-            BlocProvider(
-              create: (context) =>
-                  ThemeViewModel(settingsRepo: settingRepo)..getTheme(),
-            )
-          ],
-          child: BlocBuilder<ThemeViewModel, ThemeViewModelState>(
-            builder: (context, state) {
-              return MaterialApp.router(
-                routerConfig: AppRoutes.routerConfig,
-                title: 'Better One',
-                builder: (context, child) {
-                  return MediaQuery(
-                    data: MediaQuery.of(context)
-                        .copyWith(textScaler: const TextScaler.linear(1)),
-                    child: child!,
-                  );
-                },
-                debugShowCheckedModeBanner: false,
-                localizationsDelegates: context.localizationDelegates,
-                supportedLocales: context.supportedLocales,
-                locale: context.locale,
-                themeMode: state.currentThemeMode,
-                theme: AppThemes.lightTheme,
-                darkTheme: AppThemes.darkTheme,
-              );
-            },
-          ),
-        ),
+          );
+        },
       ),
     );
   }

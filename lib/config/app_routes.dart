@@ -22,7 +22,6 @@ class AppRoutes {
     return GoRouter(
       initialLocation: splash,
       observers: [routeObserver],
-      debugLogDiagnostics: true,
       routes: [
         GoRoute(
           path: splash,
