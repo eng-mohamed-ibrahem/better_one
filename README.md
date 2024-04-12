@@ -67,6 +67,7 @@ Send notifications to other users when tasks are completed.
 ## Dependencies
 
 ```bash
+  go_router: ^13.2.2
   flutter_bloc: ^8.1.4
   flutter_local_notifications: ^16.3.2
   flutter_screenutil: ^5.9.0
