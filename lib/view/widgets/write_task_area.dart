@@ -26,7 +26,9 @@ class _WriteTaskAreaState extends State<WriteTaskArea> {
   Widget build(BuildContext context) {
     return Card(
       child: Padding(
-        padding: EdgeInsets.only(top: AppMetrices.heightSpace.h),
+        padding: EdgeInsets.symmetric(
+            vertical: AppMetrices.heightSpace.h,
+            horizontal: AppMetrices.widthSpace2.w),
         child: Form(
           key: _formKey,
           child: Column(

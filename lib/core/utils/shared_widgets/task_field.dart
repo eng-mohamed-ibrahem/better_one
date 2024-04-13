@@ -1,7 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
-
-import '../../constants/constants.dart';
 
 class TaskField extends StatelessWidget {
   const TaskField({
@@ -28,34 +25,29 @@ class TaskField extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: EdgeInsets.symmetric(
-        horizontal: AppMetrices.widthSpace2.w,
-      ),
-      child: TextFormField(
-        key: key,
-        controller: controller,
-        validator: validator,
-        onChanged: onChanged,
-        maxLines: maxLines,
-        minLines: minLines,
-        autovalidateMode: AutovalidateMode.onUserInteraction,
-        decoration: InputDecoration(
-          labelText: labelText,
-          hintText: hintText,
-          hintStyle: Theme.of(context).textTheme.bodySmall,
-          labelStyle: Theme.of(context).textTheme.bodySmall,
-          border: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(10.0),
-            borderSide: BorderSide.none,
-          ),
-          iconColor: Theme.of(context).iconTheme.color,
-          icon: prefixIcon,
+    return TextFormField(
+      key: key,
+      controller: controller,
+      validator: validator,
+      onChanged: onChanged,
+      maxLines: maxLines,
+      minLines: minLines,
+      autovalidateMode: AutovalidateMode.onUserInteraction,
+      decoration: InputDecoration(
+        labelText: labelText,
+        hintText: hintText,
+        hintStyle: Theme.of(context).textTheme.bodySmall,
+        labelStyle: Theme.of(context).textTheme.bodySmall,
+        border: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(10.0),
+          borderSide: BorderSide.none,
         ),
-        style: Theme.of(context).textTheme.titleMedium!.copyWith(
-              height: textFieldHeight,
-            ),
+        iconColor: Theme.of(context).iconTheme.color,
+        icon: prefixIcon,
       ),
+      style: Theme.of(context).textTheme.titleMedium!.copyWith(
+            height: textFieldHeight,
+          ),
     );
   }
 }
