@@ -8,6 +8,7 @@ import 'package:better_one/view/widgets/setting_widgets/setting_item_widget.dart
 import 'package:better_one/view/widgets/setting_widgets/theme_widget.dart';
 import 'package:better_one/view_models/setting_viewmodel/setting_viewmode.dart';
 import 'package:easy_localization/easy_localization.dart';
+import 'package:feedback/feedback.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -57,6 +58,9 @@ class SettingScreen extends StatelessWidget {
                       onTap: () {
                         SettingViewModel.get(context).setCurrentTappedItemIndex(
                             state.currentTappedItemIndex == index ? -1 : index);
+                        if (index == 4) {
+                          showFeedback(context);
+                        }
                       },
                       leadingIcon: settingItems[index].leadingIcon,
                     ),
@@ -72,8 +76,8 @@ class SettingScreen extends StatelessWidget {
                                   : state.currentTappedItemIndex == 3 &&
                                           index == 3
                                       ? const SearchSettingWidget()
-                                      : state.currentTappedItemIndex == 4 &&
-                                              index == 4
+                                      : state.currentTappedItemIndex == 5 &&
+                                              index == 5
                                           ? const AccountWidget()
                                           : const SizedBox(),
                     )
@@ -92,6 +96,17 @@ class SettingScreen extends StatelessWidget {
         ),
       ),
     );
+  }
+
+  void showFeedback(BuildContext context) {
+    BetterFeedback.of(context).show((userFeedback) {
+      // todo 
+      /// 1: screenshots
+      /// 2: text
+      /// 3: device info
+      /// 4: package info
+      debugPrint(userFeedback.text);
+    });
   }
 
   generateSettingItems() {
@@ -122,6 +137,13 @@ class SettingScreen extends StatelessWidget {
         subTitle: 'setting.search.subtitle'.tr(),
         leadingIcon: const Icon(
           Icons.search,
+        ),
+      ),
+      SettingItemModel(
+        title: 'setting.feedback.title'.tr(),
+        subTitle: 'setting.feedback.subtitle'.tr(),
+        leadingIcon: const Icon(
+          Icons.feedback,
         ),
       ),
       SettingItemModel(

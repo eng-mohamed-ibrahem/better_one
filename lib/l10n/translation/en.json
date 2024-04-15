@@ -90,6 +90,10 @@
                 "status": "Search on Status"
             }
         },
+        "feedback": {
+            "title": "Feedback",
+            "subtitle": "Send us your feedback"
+        },
         "account": {
             "title": "Account",
             "subtitle": "Manage your account",

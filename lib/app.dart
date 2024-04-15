@@ -1,11 +1,13 @@
 import 'package:better_one/config/app_thems.dart';
 import 'package:better_one/config/generate_router.dart';
+import 'package:better_one/core/constants/constants.dart';
 import 'package:better_one/core/utils/dependency_locator/dependency_injection.dart';
 import 'package:better_one/view_models/home_viewmodel/home_viewmodel.dart';
 import 'package:better_one/view_models/quote_viewmodel/quote_viewmodel.dart';
 import 'package:better_one/view_models/setting_viewmodel/setting_viewmode.dart';
 import 'package:better_one/view_models/theme_viewmodel/theme_viewmodel.dart';
 import 'package:easy_localization/easy_localization.dart';
+import 'package:feedback/feedback.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -51,25 +53,55 @@ class RootApp extends StatelessWidget {
           ],
           child: BlocBuilder<ThemeViewModel, ThemeViewModelState>(
             builder: (context, state) {
-              return MaterialApp(
-                title: 'Better One',
-                builder: (context, child) {
-                  return MediaQuery(
-                    data: MediaQuery.of(context)
-                        .copyWith(textScaler: const TextScaler.linear(1)),
-                    child: child!,
-                  );
-                },
-                debugShowCheckedModeBanner: false,
-                initialRoute: GenerateRouter.splash,
-                onGenerateRoute: GenerateRouter.routeGenerator,
+              return BetterFeedback(
+                mode: FeedbackMode.navigate,
+                localeOverride: context.locale,
                 localizationsDelegates: context.localizationDelegates,
-                supportedLocales: context.supportedLocales,
-                locale: context.locale,
-                navigatorObservers: [routeObserver],
                 themeMode: state.currentThemeMode,
-                theme: AppThemes.lightTheme,
-                darkTheme: AppThemes.darkTheme,
+                theme: FeedbackThemeData(
+                  feedbackSheetColor: AppColors.lightPrimaryColor,
+                  dragHandleColor: AppColors.primaryColor,
+                  bottomSheetDescriptionStyle: const TextStyle(
+                    color: AppColors.lightWhite,
+                    fontSize: 14,
+                  ),
+                  bottomSheetTextInputStyle: const TextStyle(
+                    color: AppColors.lightWhite,
+                    fontSize: 16,
+                  ),
+                ),
+                darkTheme: FeedbackThemeData(
+                  dragHandleColor: AppColors.lightPrimaryColor,
+                  feedbackSheetColor: AppColors.primaryColor,
+                  bottomSheetDescriptionStyle: const TextStyle(
+                    color: AppColors.white,
+                    fontSize: 14,
+                  ),
+                  bottomSheetTextInputStyle: const TextStyle(
+                    color: AppColors.white,
+                    fontSize: 16,
+                  ),
+                ),
+                child: MaterialApp(
+                  title: 'Better One',
+                  builder: (context, child) {
+                    return MediaQuery(
+                      data: MediaQuery.of(context)
+                          .copyWith(textScaler: const TextScaler.linear(1)),
+                      child: child!,
+                    );
+                  },
+                  debugShowCheckedModeBanner: false,
+                  initialRoute: GenerateRouter.splash,
+                  onGenerateRoute: GenerateRouter.routeGenerator,
+                  localizationsDelegates: context.localizationDelegates,
+                  supportedLocales: context.supportedLocales,
+                  locale: context.locale,
+                  navigatorObservers: [routeObserver],
+                  themeMode: state.currentThemeMode,
+                  theme: AppThemes.lightTheme,
+                  darkTheme: AppThemes.darkTheme,
+                ),
               );
             },
           ),

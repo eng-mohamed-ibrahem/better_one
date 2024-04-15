@@ -29,6 +29,9 @@ dependencies:
   lottie: ^3.1.0
   shared_preferences: ^2.2.2
   shimmer: ^3.0.0
+  feedback: ^3.0.1
+  device_info_plus: ^9.1.2
+  package_info_plus: ^5.0.1
 
 dev_dependencies:
   flutter_test:
