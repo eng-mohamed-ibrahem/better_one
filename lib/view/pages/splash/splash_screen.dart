@@ -17,7 +17,7 @@ class SplashScreen extends StatelessWidget {
         result.when(
           success: (seen) {
             context.go(
-              seen ? AppRoutes.home : AppRoutes.onboarding,
+              seen ? AppRoutes.homePath : AppRoutes.onboardingPath,
             );
           },
           failure: (error) {},

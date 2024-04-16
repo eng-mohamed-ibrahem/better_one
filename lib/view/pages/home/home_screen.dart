@@ -49,7 +49,7 @@ class _HomeScreenState extends State<HomeScreen> with RouteAware {
         /// 3: if not, pushNamed
         if (payload!.isNotEmpty) {
           context.goNamed(
-            AppRoutes.taskDetailsScreen,
+            AppRoutes.taskDetailsScreenName,
             pathParameters: {
               'task_id': payload,
             },
@@ -62,10 +62,10 @@ class _HomeScreenState extends State<HomeScreen> with RouteAware {
   @override
   void didPopNext() {
     // to rebuild [home screen] after pop from [setting screen] to reflect changes as [language, theme, ... etc]
-    if (AppRoutes.activeRoute == AppRoutes.settingScreen) {
+    if (AppRoutes.activeRoute == AppRoutes.settingScreenPath) {
       setState(() {});
     }
-    AppRoutes.activeRoute = AppRoutes.home;
+    AppRoutes.activeRoute = AppRoutes.homePath;
   }
 
   @override
@@ -178,7 +178,7 @@ class _HomeScreenState extends State<HomeScreen> with RouteAware {
                 child: IconButton(
                   onPressed: () {
                     context.goNamed(
-                      AppRoutes.settingScreen,
+                      AppRoutes.settingScreenName,
                     );
                   },
                   icon: const Icon(Icons.settings_outlined),
@@ -199,7 +199,7 @@ class _HomeScreenState extends State<HomeScreen> with RouteAware {
                     ),
                   ),
                   onPressed: () {
-                    context.goNamed(AppRoutes.createTaskScreen);
+                    context.goNamed(AppRoutes.createTaskScreenName);
                   },
                   icon: const Icon(Icons.add),
                   label: Text(

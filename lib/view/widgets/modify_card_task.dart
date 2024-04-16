@@ -91,7 +91,12 @@ class _ModifiyCardTaskState extends State<ModifiyCardTask>
                     padding: EdgeInsets.zero,
                   ),
                   onPressed: () {
-                    context.go("${AppRoutes.taskDetailsScreen}/${widget.task.id}");
+                    context.goNamed(
+                      AppRoutes.taskDetailsScreenName,
+                      pathParameters: {
+                        'task_id': widget.task.id,
+                      },
+                    );
                   },
                   icon: const Icon(
                     Icons.edit_note_rounded,

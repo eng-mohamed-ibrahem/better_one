@@ -20,7 +20,7 @@ class CardTask extends StatelessWidget {
     return InkWell(
       onTap: () {
         context.pushNamed(
-          AppRoutes.taskDetailsScreen.split('/').last,
+          AppRoutes.taskDetailsScreenName,
           queryParameters: {
             "task_id": task.id,
           },

@@ -10,48 +10,57 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
 class AppRoutes {
-  static const String splash = '/';
-  static const String onboarding = '/onboarding';
-  static const String home = '/home';
-  static const String taskDetailsScreen = 'task';
-  static const String createTaskScreen = 'create';
-  static const String settingScreen = 'setting';
-  static String activeRoute = splash;
+  static const String splashPath = '/';
+  static const String splashName = 'splash_name';
+  static const String onboardingPath = '/onboarding';
+  static const String onboardingName = 'onboarding_name';
+
+  static const String homePath = '/home';
+  static const String homeName = 'home_name';
+  static const String taskDetailsScreenPath = 'task';
+  static const String taskDetailsScreenName = 'task_name';
+
+  static const String createTaskScreenPath = 'create';
+  static const String createTaskScreenName = 'create_name';
+
+  static const String settingScreenPath = 'setting';
+  static const String settingScreenName = 'setting_name';
+  static String activeRoute = splashPath;
 
   static GoRouter get routerConfig {
     return GoRouter(
-      initialLocation: splash,
+      initialLocation: splashPath,
       observers: [routeObserver],
       routes: [
         GoRoute(
-          path: splash,
-          name: 'splash',
+          path: splashPath,
+          name: splashName,
           builder: (context, state) {
-            activeRoute = splash;
+            activeRoute = splashPath;
             return const SplashScreen();
           },
         ),
         GoRoute(
-          path: onboarding,
-          name: onboarding.split('/').last,
+          path: onboardingPath,
+          name: onboardingName,
           builder: (context, state) {
-            activeRoute = onboarding;
+            activeRoute = onboardingPath;
             return OnboardingScreen();
           },
         ),
         GoRoute(
-          path: home,
-          name: home.split('/').last,
+          path: homePath,
+          name: homeName,
           builder: (context, state) {
-            activeRoute = home;
+            activeRoute = homePath;
             return const HomeScreen();
           },
           routes: [
             GoRoute(
-              path: createTaskScreen,
-              name: createTaskScreen,
+              path: createTaskScreenPath,
+              name: createTaskScreenName,
               pageBuilder: (context, state) {
-                activeRoute = createTaskScreen;
+                activeRoute = createTaskScreenPath;
                 return CustomTransitionPage(
                   child: CreateTaskScreen(),
                   transitionsBuilder:
@@ -70,11 +79,11 @@ class AppRoutes {
               },
             ),
             GoRoute(
-              path: "$taskDetailsScreen/:task_id",
-              name: taskDetailsScreen,
+              path: "$taskDetailsScreenPath/:task_id",
+              name: taskDetailsScreenName,
               builder: (context, state) => const TaskDetailsScreen(),
               pageBuilder: (context, state) {
-                activeRoute = taskDetailsScreen;
+                activeRoute = taskDetailsScreenPath;
                 return CustomTransitionPage(
                   child: const TaskDetailsScreen(),
                   arguments: state.pathParameters['task_id'],
@@ -94,10 +103,10 @@ class AppRoutes {
               },
             ),
             GoRoute(
-              path: settingScreen,
-              name: settingScreen,
+              path: settingScreenPath,
+              name: settingScreenName,
               builder: (context, state) {
-                activeRoute = settingScreen;
+                activeRoute = settingScreenPath;
                 return const SettingScreen();
               },
             ),

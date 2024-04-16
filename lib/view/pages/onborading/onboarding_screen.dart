@@ -51,7 +51,7 @@ class OnboardingScreen extends StatelessWidget {
                           ? const Text('')
                           : TextButton(
                               onPressed: () {
-                                context.go(AppRoutes.home);
+                                context.go(AppRoutes.homePath);
                               },
                               child: Text('core.get_started'.tr()),
                             )

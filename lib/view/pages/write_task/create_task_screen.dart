@@ -47,7 +47,7 @@ class CreateTaskScreen extends StatelessWidget {
                   )
                 : null;
             context.goNamed(
-              AppRoutes.taskDetailsScreen,
+              AppRoutes.taskDetailsScreenName,
               pathParameters: {
                 'task_id': state.addedTask!.id,
               },

@@ -42,7 +42,7 @@ class _TaskScreenState extends State<TaskDetailsScreen>
 
   @override
   void didPopNext() {
-    AppRoutes.activeRoute = AppRoutes.taskDetailsScreen;
+    AppRoutes.activeRoute = AppRoutes.taskDetailsScreenPath;
   }
 
   @override
