@@ -8,7 +8,7 @@ import 'package:better_one/core/utils/dialog/helper_dialog.dart';
 import 'package:better_one/core/utils/shared_widgets/back_button_l10n.dart';
 import 'package:better_one/core/utils/shared_widgets/failed.dart';
 import 'package:better_one/core/utils/shared_widgets/lottie_indicator.dart';
-import 'package:better_one/core/utils/shared_widgets/task_field.dart';
+import 'package:better_one/view/widgets/input_field/task_field.dart';
 import 'package:better_one/core/utils/snack_bar/snack_bar.dart';
 import 'package:better_one/model/notification_model/notification_model.dart';
 import 'package:better_one/model/task_model/task_model.dart';
@@ -74,6 +74,8 @@ class _TaskScreenState extends State<TaskScreen>
   void dispose() {
     routeObserver.unsubscribe(this);
     timer?.cancel();
+    titleController.dispose();
+    descriptionController.dispose();
     super.dispose();
   }
 

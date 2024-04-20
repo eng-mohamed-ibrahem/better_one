@@ -7,7 +7,8 @@
         "delete": "حذف",
         "total_time": "الوقت الكلى",
         "retry": "اعادة المحاولة",
-        "get_started": "هل أنت جاهز للبدء؟ دعنا ننشئ أول مهمة لك!"
+        "get_started": "هل أنت جاهز للبدء؟ دعنا ننشئ أول مهمة لك!",
+        "no_intenet": "لا يوجد اتصال بالإنترنت, يرجى المحاولة مرة أخرى"
     },
     "onboarding": {
         "1": {
@@ -98,8 +99,19 @@
         "account": {
             "title": "الحساب",
             "subtitle": "الاعدادات الخاصة بحسابك",
-            "later": "سوف تتم الاضافة في المستقبل"
+            "cloud_upload": "Do you want to upload your tasks?",
+            "has_account": "Already has account?"
         }
+    },
+    "auth": {
+        "cr_account": "Create Account",
+        "access_account": "Login to your account",
+        "signup": "Sign Up",
+        "login": "Log In",
+        "u_name": "Name",
+        "u_email": "E-mail",
+        "u_pass": "Password",
+        "confirm_u_pass": "Confirm Password"
     },
     "time": {
         "hour": "ساعة",

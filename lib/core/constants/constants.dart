@@ -5,3 +5,4 @@ export 'cache_keys.dart';
 export 'end_points.dart';
 export 'app_images.dart';
 export 'notification_constants.dart';
+export 'supabase_strings.dart';

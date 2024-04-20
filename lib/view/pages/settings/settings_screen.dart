@@ -100,7 +100,10 @@ class SettingScreen extends StatelessWidget {
 
   void showFeedback(BuildContext context) {
     BetterFeedback.of(context).show((userFeedback) {
-      // todo 
+      // todo check if he has account or not
+      // if not, show dialog for register
+
+      ///#things to upload
       /// 1: screenshots
       /// 2: text
       /// 3: device info

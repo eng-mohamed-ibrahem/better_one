@@ -7,7 +7,8 @@
         "delete": "Delete",
         "total_time": "The Total Time",
         "retry": "Try again",
-        "get_started": "Ready to get started? Let's create your first task!"
+        "get_started": "Ready to get started? Let's create your first task!",
+        "no_intenet": "No Internet Connection, please try again"
     },
     "onboarding": {
         "1": {
@@ -97,7 +98,24 @@
         "account": {
             "title": "Account",
             "subtitle": "Manage your account",
-            "later": "Will be added later"
+            "cloud_upload": "Do you want to upload your tasks?",
+            "has_account": "Already has account?"
+        }
+    },
+    "auth": {
+        "cr_account": "Create Account",
+        "access_account": "Login to your account",
+        "signup": "Sign Up",
+        "login": "Log In",
+        "u_name": "Name",
+        "u_email": "E-mail",
+        "u_pass": "Password",
+        "confirm_u_pass": "Confirm Password",
+        "required": {
+            "name": "User Name Required",
+            "email": "Email Required",
+            "pass": "Password Required",
+            "confirm_pass": "Password dose not match"
         }
     },
     "time": {

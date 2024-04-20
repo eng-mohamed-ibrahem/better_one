@@ -1,3 +1,5 @@
+import 'package:better_one/view/pages/auth/login_page.dart';
+import 'package:better_one/view/pages/auth/signup_page.dart';
 import 'package:better_one/view/pages/home/home_screen.dart';
 import 'package:better_one/view/pages/onborading/onboarding_screen.dart';
 import 'package:better_one/view/pages/settings/settings_screen.dart';
@@ -14,6 +16,8 @@ class GenerateRouter {
   static const String home = '/home';
   static const String taskScreen = '/task_screen';
   static const String settingScreen = '/setting_screen';
+  static const String signup = '/signup_screen';
+  static const String login = '/login_screen';
 
   static String activeRoute = '/';
 
@@ -67,6 +71,20 @@ class GenerateRouter {
           activeRoute = settingScreen;
           return MaterialPageRoute(
             builder: (context) => const SettingScreen(),
+          );
+        }
+      case signup:
+        {
+          activeRoute = signup;
+          return MaterialPageRoute(
+            builder: (context) => const SignUp(),
+          );
+        }
+      case login:
+        {
+          activeRoute = login;
+          return MaterialPageRoute(
+            builder: (context) => const LogIn(),
           );
         }
       default:

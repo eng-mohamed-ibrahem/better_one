@@ -31,6 +31,7 @@ Future<void> initDependency() async {
   taskDependency();
   quoteDependency();
   settingsDependency();
+  // todo init auth settings
 }
 
 Future<void> cacheInitDependency() async {

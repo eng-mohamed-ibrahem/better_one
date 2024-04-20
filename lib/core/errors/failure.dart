@@ -47,6 +47,9 @@ class ApiFailure extends Failure {
         return const ApiFailure(message: 'Unknown error');
     }
   }
+  factory ApiFailure.fromSupabaseError({required String message}) {
+    return ApiFailure(message: message);
+  }
 }
 
 class CacheFailure extends Failure {

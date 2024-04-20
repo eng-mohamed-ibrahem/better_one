@@ -2,7 +2,7 @@ import 'package:better_one/config/generate_router.dart';
 import 'package:better_one/core/utils/dependency_locator/dependency_injection.dart';
 import 'package:better_one/core/utils/shared_widgets/failed.dart';
 import 'package:better_one/core/utils/shared_widgets/lottie_indicator.dart';
-import 'package:better_one/view/widgets/card_task.dart';
+import 'package:better_one/view/widgets/task/card_task.dart';
 import 'package:better_one/view/widgets/duration_widget.dart';
 import 'package:better_one/view/widgets/sliver_header.dart';
 import 'package:better_one/view_models/home_viewmodel/home_viewmodel.dart';
