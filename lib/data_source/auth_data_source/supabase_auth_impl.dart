@@ -1,0 +1,84 @@
+import 'package:better_one/core/constants/constants.dart';
+import 'package:better_one/core/errors/failure.dart';
+import 'package:better_one/core/request_result/request_result.dart';
+import 'package:better_one/data_source/auth_data_source/auth_interface.dart';
+import 'package:better_one/model/user_model/user_model.dart';
+import 'package:supabase_flutter/supabase_flutter.dart';
+
+class SupabaseAuthImpl implements AuthInterface {
+  late SupabaseClient client;
+  @override
+  void init() async {
+    await Supabase.initialize(
+      url: SupabaseStrings.url,
+      anonKey: SupabaseStrings.apiKey,
+    );
+    client = Supabase.instance.client;
+  }
+
+  @override
+  Future<Result<bool, ApiFailure>> isOnline() async {
+    try {
+      // if the [currentSession] is [null] so [isExpired] = true
+      return Result.success(
+          data: !(client.auth.currentSession?.isExpired ?? true));
+    } catch (e) {
+      return Result.failure(
+          error: ApiFailure.fromSupabaseError(message: e.toString()));
+    }
+  }
+
+  @override
+  Future<Result<bool, ApiFailure>> logOut() async {
+    try {
+      await client.auth.signOut();
+      return const Result.success(data: true);
+    } catch (e) {
+      return Result.failure(
+          error: ApiFailure.fromSupabaseError(message: e.toString()));
+    }
+  }
+
+  @override
+  Future<Result<UserModel, ApiFailure>> logIn(
+      {required String email, required String password}) async {
+    try {
+      var result = await client.auth
+          .signInWithPassword(email: email, password: password);
+      return Result.success(
+        data: UserModel.fromJson(
+          {
+            'id': result.user!.id,
+            'email': result.user!.email,
+            'createdAt': result.user!.createdAt,
+            'updatedAt': result.user!.updatedAt,
+          },
+        ),
+      );
+    } catch (e) {
+      return Result.failure(
+          error: ApiFailure.fromSupabaseError(message: e.toString()));
+    }
+  }
+
+  @override
+  Future<Result<UserModel, ApiFailure>> signUp(
+      {required String email, required String password}) async {
+    try {
+      var result = await client.auth.signUp(email: email, password: password);
+      return Result.success(
+        data: UserModel.fromJson(
+          {
+            'id': result.user!.id,
+            'email': result.user!.email,
+            'createdAt': result.user!.createdAt,
+            'updatedAt': result.user!.updatedAt,
+          },
+        ),
+      );
+    } catch (e) {
+      return Result.failure(
+          error: ApiFailure.fromSupabaseError(message: e.toString()));
+    }
+  }
+}
