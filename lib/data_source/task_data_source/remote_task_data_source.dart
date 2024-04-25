@@ -1,5 +1,5 @@
 import 'package:better_one/core/errors/failure.dart';
-import 'package:better_one/core/request_result/request_result.dart';
+import 'package:better_one/core/result_handler/result_handler.dart';
 import 'package:better_one/core/utils/api_consumer/api_consumer.dart';
 import 'package:better_one/data_source/task_data_source/task_source_interface.dart';
 import 'package:better_one/model/task_model/task_model.dart';
@@ -9,38 +9,38 @@ class RemoteTaskDataSource implements TaskSource {
   final ApiConsumer apiConsumer;
 
   @override
-  Future<Result<TaskModel, Failure>> addTask(TaskModel newTask) {
+  Future<ResultHandler<TaskModel, Failure>> addTask(TaskModel newTask) {
     throw UnimplementedError();
   }
 
   @override
-  Future<Result<TaskModel, Failure>> getTaskById(String id) {
+  Future<ResultHandler<TaskModel, Failure>> getTaskById(String id) {
     throw UnimplementedError();
   }
 
   @override
-  Future<Result<List<TaskModel>, Failure>> getTasks() {
+  Future<ResultHandler<List<TaskModel>, Failure>> getTasks() {
     throw UnimplementedError();
   }
 
   @override
-  Future<Result<TaskModel, Failure>> removeTask(TaskModel removedTask) {
+  Future<ResultHandler<TaskModel, Failure>> removeTask(TaskModel removedTask) {
     throw UnimplementedError();
   }
 
   @override
-  Future<Result<TaskModel, Failure>> updateTask(
+  Future<ResultHandler<TaskModel, Failure>> updateTask(
       TaskModel oldTask, TaskModel newTask) {
     throw UnimplementedError();
   }
 
   @override
-  Future<Result<int, Failure>> getTotoalEstimatedTime() {
+  Future<ResultHandler<int, Failure>> getTotoalEstimatedTime() {
     throw UnimplementedError();
   }
 
   @override
-  Future<Result<int, Failure>> updateTotalEstimatedTime(
+  Future<ResultHandler<int, Failure>> updateTotalEstimatedTime(
       int updatedTime, bool isAdding) {
     throw UnimplementedError();
   }

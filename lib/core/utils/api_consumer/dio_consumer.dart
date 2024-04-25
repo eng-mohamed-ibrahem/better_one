@@ -1,5 +1,5 @@
 import 'package:better_one/core/errors/failure.dart';
-import 'package:better_one/core/request_result/request_result.dart';
+import 'package:better_one/core/result_handler/result_handler.dart';
 import 'package:better_one/core/utils/api_consumer/api_consumer.dart';
 import 'package:dio/dio.dart';
 
@@ -17,7 +17,7 @@ class DioConsumer implements ApiConsumer {
   }
 
   @override
-  Future<Result<dynamic, ApiFailure>> delete(
+  Future<ResultHandler<dynamic, ApiFailure>> delete(
     String endPoint, {
     Map<String, dynamic>? query,
     Map<String, dynamic>? data,
@@ -29,7 +29,7 @@ class DioConsumer implements ApiConsumer {
         "Content-Type": isFormData ? "multipart/form-data" : "application/json",
         if (sendAuthToken) "Authorization": "Bearer token",
       };
-      return Result.success(
+      return ResultHandler.success(
         data: await dio
             .delete(endPoint,
                 queryParameters: query,
@@ -37,12 +37,12 @@ class DioConsumer implements ApiConsumer {
             .then((value) => value.data), // return data even it list or map
       );
     } on DioException catch (e) {
-      return Result.failure(error: ApiFailure.fromDioError(e));
+      return ResultHandler.failure(error: ApiFailure.fromDioError(e));
     }
   }
 
   @override
-  Future<Result<dynamic, ApiFailure>> get(
+  Future<ResultHandler<dynamic, ApiFailure>> get(
     String endPoint, {
     Map<String, dynamic>? query,
     Map<String, dynamic>? data,
@@ -54,7 +54,7 @@ class DioConsumer implements ApiConsumer {
         "Content-Type": isFormData ? "multipart/form-data" : "application/json",
         if (sendAuthToken) "Authorization": "Bearer token",
       };
-      return Result.success(
+      return ResultHandler.success(
         data: await dio
             .get(endPoint,
                 queryParameters: query,
@@ -62,12 +62,12 @@ class DioConsumer implements ApiConsumer {
             .then((value) => value.data),
       );
     } on DioException catch (e) {
-      return Result.failure(error: ApiFailure.fromDioError(e));
+      return ResultHandler.failure(error: ApiFailure.fromDioError(e));
     }
   }
 
   @override
-  Future<Result<dynamic, ApiFailure>> patch(
+  Future<ResultHandler<dynamic, ApiFailure>> patch(
     String endPoint, {
     Map<String, dynamic>? query,
     Map<String, dynamic>? data,
@@ -79,7 +79,7 @@ class DioConsumer implements ApiConsumer {
         "Content-Type": isFormData ? "multipart/form-data" : "application/json",
         if (sendAuthToken) "Authorization": "Bearer token",
       };
-      return Result.success(
+      return ResultHandler.success(
         data: await dio
             .patch(endPoint,
                 queryParameters: query,
@@ -87,12 +87,12 @@ class DioConsumer implements ApiConsumer {
             .then((value) => value.data),
       );
     } on DioException catch (e) {
-      return Result.failure(error: ApiFailure.fromDioError(e));
+      return ResultHandler.failure(error: ApiFailure.fromDioError(e));
     }
   }
 
   @override
-  Future<Result<dynamic, ApiFailure>> post(
+  Future<ResultHandler<dynamic, ApiFailure>> post(
     String endPoint, {
     Map<String, dynamic>? query,
     Map<String, dynamic>? data,
@@ -104,7 +104,7 @@ class DioConsumer implements ApiConsumer {
         "Content-Type": isFormData ? "multipart/form-data" : "application/json",
         if (sendAuthToken) "Authorization": "Bearer token",
       };
-      return Result.success(
+      return ResultHandler.success(
         data: await dio
             .post(endPoint,
                 queryParameters: query,
@@ -112,12 +112,12 @@ class DioConsumer implements ApiConsumer {
             .then((value) => value.data),
       );
     } on DioException catch (e) {
-      return Result.failure(error: ApiFailure.fromDioError(e));
+      return ResultHandler.failure(error: ApiFailure.fromDioError(e));
     }
   }
 
   @override
-  Future<Result<dynamic, ApiFailure>> put(String endPoint,
+  Future<ResultHandler<dynamic, ApiFailure>> put(String endPoint,
       {Map<String, dynamic>? query,
       Map<String, dynamic>? data,
       bool sendAuthToken = false,
@@ -127,7 +127,7 @@ class DioConsumer implements ApiConsumer {
         "Content-Type": isFormData ? "multipart/form-data" : "application/json",
         if (sendAuthToken) "Authorization": "Bearer token",
       };
-      return Result.success(
+      return ResultHandler.success(
         data: await dio
             .put(endPoint,
                 queryParameters: query,
@@ -135,7 +135,7 @@ class DioConsumer implements ApiConsumer {
             .then((value) => value.data),
       );
     } on DioException catch (e) {
-      return Result.failure(error: ApiFailure.fromDioError(e));
+      return ResultHandler.failure(error: ApiFailure.fromDioError(e));
     }
   }
 }

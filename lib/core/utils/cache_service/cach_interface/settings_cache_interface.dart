@@ -1,21 +1,22 @@
 import 'package:better_one/core/errors/failure.dart';
-import 'package:better_one/core/request_result/request_result.dart';
+import 'package:better_one/core/result_handler/result_handler.dart';
 
 abstract class SettingsCacheInterface {
   /// toggle theme light or dark
-  Future<Result<String, CacheFailure>> toggleTheme();
+  Future<ResultHandler<String, CacheFailure>> toggleTheme();
 
   /// get current theme
-  Future<Result<String, CacheFailure>> getTheme();
+  Future<ResultHandler<String, CacheFailure>> getTheme();
 
   /// change language in app
-  Future<Result<String, CacheFailure>> changeLanguage(String languageCode);
+  Future<ResultHandler<String, CacheFailure>> changeLanguage(
+      String languageCode);
 
   /// get current language
-  Future<Result<String, CacheFailure>> getLanguage();
+  Future<ResultHandler<String, CacheFailure>> getLanguage();
 
   // set search settings
-  Future<Result<bool, CacheFailure>> setSearchSettings({
+  Future<ResultHandler<bool, CacheFailure>> setSearchSettings({
     bool? isSearchByTitle,
     bool? isSearchByBody,
     bool? isSearchByDate,
@@ -23,13 +24,14 @@ abstract class SettingsCacheInterface {
   });
 
   // get search settings
-  Future<Result<Map<String, bool>, CacheFailure>> getSearchSettings();
+  Future<ResultHandler<Map<String, bool>, CacheFailure>> getSearchSettings();
 
   // get notification settings
-  Future<Result<Map<String, dynamic>, CacheFailure>> getNotificationSettings();
+  Future<ResultHandler<Map<String, dynamic>, CacheFailure>>
+      getNotificationSettings();
 
   // set notification settings
-  Future<Result<bool, CacheFailure>> setNotificationSettings({
+  Future<ResultHandler<bool, CacheFailure>> setNotificationSettings({
     bool? isNotificationOnAdd,
     bool? isNotificationOnUpdate,
     bool? isNotificationOnComplete,
@@ -39,8 +41,8 @@ abstract class SettingsCacheInterface {
   });
 
   // set onborading seen
-  Future<Result<void, CacheFailure>> setOnBoardingSeen(bool seen);
+  Future<ResultHandler<void, CacheFailure>> setOnBoardingSeen(bool seen);
 
   // get onborading seen
-  Future<Result<bool, CacheFailure>> getOnBoardingSeen();
+  Future<ResultHandler<bool, CacheFailure>> getOnBoardingSeen();
 }

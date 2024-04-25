@@ -1,8 +1,9 @@
 import 'package:better_one/core/errors/failure.dart';
-import 'package:better_one/core/request_result/request_result.dart';
+import 'package:better_one/core/result_handler/result_handler.dart';
 
 abstract class UserCacheInterface {
-  Future<Result<bool, CacheFailure>> setUserDataToLocal(
+  Future<ResultHandler<bool, CacheFailure>> setUserDataToLocal(
       {required Map<String, dynamic> user});
-  Future<Result<Map<String, dynamic>, CacheFailure>> getUserDataFromLocal();
+  Future<ResultHandler<Map<String, dynamic>, CacheFailure>>
+      getUserDataFromLocal();
 }

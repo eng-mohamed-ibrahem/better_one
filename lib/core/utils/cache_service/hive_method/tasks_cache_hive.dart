@@ -2,7 +2,7 @@ import 'dart:convert';
 
 import 'package:better_one/core/constants/constants.dart';
 import 'package:better_one/core/errors/failure.dart';
-import 'package:better_one/core/request_result/request_result.dart';
+import 'package:better_one/core/result_handler/result_handler.dart';
 import 'package:better_one/core/utils/cache_service/cache_service.dart';
 import 'package:better_one/model/task_model/task_model.dart';
 import 'package:logger/logger.dart';
@@ -11,57 +11,57 @@ class TaskCacheByHive implements TaskCacheInterface {
   TaskCacheByHive({required this.cacheInit});
   final HiveInitImpl cacheInit;
   @override
-  Future<Result<TaskModel, CacheFailure>> addTask(TaskModel task) async {
+  Future<ResultHandler<TaskModel, CacheFailure>> addTask(TaskModel task) async {
     try {
       var result = await getAllTasks();
       return result.when(
         success: (tasks) async {
           tasks.add(task);
           await cacheInit.appBox.put(CacheKeys.tasks, _convertToJson(tasks));
-          return Result.success(data: task);
+          return ResultHandler.success(data: task);
         },
         failure: (failure) {
-          return Result.failure(error: failure);
+          return ResultHandler.failure(error: failure);
         },
       );
     } catch (e) {
-      return Result.failure(error: CacheFailure(message: e.toString()));
+      return ResultHandler.failure(error: CacheFailure(message: e.toString()));
     }
   }
 
   @override
-  Future<Result<List<TaskModel>, CacheFailure>> getAllTasks() async {
+  Future<ResultHandler<List<TaskModel>, CacheFailure>> getAllTasks() async {
     try {
-      return Result.success(
+      return ResultHandler.success(
           data: _convertToTaskList(cacheInit.appBox.get(CacheKeys.tasks)));
     } catch (e) {
-      return Result.failure(error: CacheFailure(message: e.toString()));
+      return ResultHandler.failure(error: CacheFailure(message: e.toString()));
     }
   }
 
   @override
-  Future<Result<TaskModel, CacheFailure>> getTaskById(String id) async {
+  Future<ResultHandler<TaskModel, CacheFailure>> getTaskById(String id) async {
     try {
       var result = await getAllTasks();
       return result.when(
         success: (tasks) {
-          return Result.success(
+          return ResultHandler.success(
             data: tasks.firstWhere(
               (taskModel) => taskModel.id == id,
             ),
           );
         },
         failure: (error) {
-          return Result.failure(error: error);
+          return ResultHandler.failure(error: error);
         },
       );
     } catch (e) {
-      return Result.failure(error: CacheFailure(message: e.toString()));
+      return ResultHandler.failure(error: CacheFailure(message: e.toString()));
     }
   }
 
   @override
-  Future<Result<TaskModel, CacheFailure>> removeTask(
+  Future<ResultHandler<TaskModel, CacheFailure>> removeTask(
       TaskModel removedTask) async {
     try {
       var result = await getAllTasks();
@@ -69,19 +69,19 @@ class TaskCacheByHive implements TaskCacheInterface {
         success: (tasks) async {
           tasks.remove(removedTask);
           await cacheInit.appBox.put(CacheKeys.tasks, _convertToJson(tasks));
-          return Result.success(data: removedTask);
+          return ResultHandler.success(data: removedTask);
         },
         failure: (failure) {
-          return Result.failure(error: failure);
+          return ResultHandler.failure(error: failure);
         },
       );
     } catch (e) {
-      return Result.failure(error: CacheFailure(message: e.toString()));
+      return ResultHandler.failure(error: CacheFailure(message: e.toString()));
     }
   }
 
   @override
-  Future<Result<TaskModel, CacheFailure>> updateTask(
+  Future<ResultHandler<TaskModel, CacheFailure>> updateTask(
       TaskModel oldTask, TaskModel newTask) async {
     try {
       var result = await getAllTasks();
@@ -91,14 +91,14 @@ class TaskCacheByHive implements TaskCacheInterface {
           Logger().i('from hive index $index');
           tasks[index] = newTask;
           await cacheInit.appBox.put(CacheKeys.tasks, _convertToJson(tasks));
-          return Result.success(data: newTask);
+          return ResultHandler.success(data: newTask);
         },
         failure: (failure) {
-          return Result.failure(error: failure);
+          return ResultHandler.failure(error: failure);
         },
       );
     } catch (e) {
-      return Result.failure(error: CacheFailure(message: e.toString()));
+      return ResultHandler.failure(error: CacheFailure(message: e.toString()));
     }
   }
 
@@ -113,18 +113,18 @@ class TaskCacheByHive implements TaskCacheInterface {
   }
 
   @override
-  Future<Result<int, CacheFailure>> getTotoalEstimatedTime() async {
+  Future<ResultHandler<int, CacheFailure>> getTotoalEstimatedTime() async {
     try {
-      return Result.success(
+      return ResultHandler.success(
           data: cacheInit.appBox
               .get(CacheKeys.totalEstimatedTime, defaultValue: 0));
     } catch (e) {
-      return Result.failure(error: CacheFailure(message: e.toString()));
+      return ResultHandler.failure(error: CacheFailure(message: e.toString()));
     }
   }
 
   @override
-  Future<Result<int, CacheFailure>> updateTotalEstimatedTime(
+  Future<ResultHandler<int, CacheFailure>> updateTotalEstimatedTime(
       int updatedTime, bool isAdding) async {
     try {
       var result = await getTotoalEstimatedTime();
@@ -132,17 +132,17 @@ class TaskCacheByHive implements TaskCacheInterface {
         success: (totalTime) async {
           totalTime =
               isAdding ? totalTime + updatedTime : totalTime - updatedTime;
-          return Result.success(
+          return ResultHandler.success(
               data: await cacheInit.appBox
                   .put(CacheKeys.totalEstimatedTime, totalTime)
                   .then((_) => totalTime));
         },
         failure: (failure) {
-          return Result.failure(error: failure);
+          return ResultHandler.failure(error: failure);
         },
       );
     } catch (e) {
-      return Result.failure(error: CacheFailure(message: e.toString()));
+      return ResultHandler.failure(error: CacheFailure(message: e.toString()));
     }
   }
 }

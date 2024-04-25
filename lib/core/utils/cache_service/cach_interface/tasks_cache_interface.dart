@@ -1,28 +1,29 @@
 import 'package:better_one/core/errors/failure.dart';
-import 'package:better_one/core/request_result/request_result.dart';
+import 'package:better_one/core/result_handler/result_handler.dart';
 import 'package:better_one/model/task_model/task_model.dart';
 
 abstract class TaskCacheInterface {
   /// get all tasks
-  Future<Result<List<TaskModel>, CacheFailure>> getAllTasks();
+  Future<ResultHandler<List<TaskModel>, CacheFailure>> getAllTasks();
 
   /// get task by id
-  Future<Result<TaskModel, CacheFailure>> getTaskById(String id);
+  Future<ResultHandler<TaskModel, CacheFailure>> getTaskById(String id);
 
   /// add new task
-  Future<Result<TaskModel, CacheFailure>> addTask(TaskModel task);
+  Future<ResultHandler<TaskModel, CacheFailure>> addTask(TaskModel task);
 
   /// update task
-  Future<Result<TaskModel, CacheFailure>> updateTask(
+  Future<ResultHandler<TaskModel, CacheFailure>> updateTask(
       TaskModel oldTask, TaskModel newTask);
 
   /// remove task
-  Future<Result<TaskModel, CacheFailure>> removeTask(TaskModel removedTask);
+  Future<ResultHandler<TaskModel, CacheFailure>> removeTask(
+      TaskModel removedTask);
 
   /// get total estimated time
-  Future<Result<int, CacheFailure>> getTotoalEstimatedTime();
+  Future<ResultHandler<int, CacheFailure>> getTotoalEstimatedTime();
 
   /// update total estimated time
-  Future<Result<int, CacheFailure>> updateTotalEstimatedTime(
+  Future<ResultHandler<int, CacheFailure>> updateTotalEstimatedTime(
       int updatedTime, bool isAdding);
 }

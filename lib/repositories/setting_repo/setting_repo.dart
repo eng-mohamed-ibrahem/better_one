@@ -1,5 +1,5 @@
 import 'package:better_one/core/errors/failure.dart';
-import 'package:better_one/core/request_result/request_result.dart';
+import 'package:better_one/core/result_handler/result_handler.dart';
 import 'package:better_one/data_source/settings_data_source/settings_source_interface.dart';
 import 'package:better_one/repositories/setting_repo/settings_repo_interface.dart';
 import 'package:flutter/material.dart';
@@ -8,27 +8,27 @@ class SettingRepo implements SettingsRepoInterface {
   SettingRepo({required this.settingsSource});
   final SettingsSource settingsSource;
   @override
-  Future<Result<Locale, Failure>> changeLanguage(Locale language) async {
+  Future<ResultHandler<Locale, Failure>> changeLanguage(Locale language) async {
     return await settingsSource.changeLanguage(language);
   }
 
   @override
-  Future<Result<ThemeMode, Failure>> toggleTheme() async {
+  Future<ResultHandler<ThemeMode, Failure>> toggleTheme() async {
     return await settingsSource.toggleTheme();
   }
 
   @override
-  Future<Result<Locale, Failure>> getLanguage() async {
+  Future<ResultHandler<Locale, Failure>> getLanguage() async {
     return await settingsSource.getLanguage();
   }
 
   @override
-  Future<Result<ThemeMode, Failure>> getTheme() async {
+  Future<ResultHandler<ThemeMode, Failure>> getTheme() async {
     return await settingsSource.getTheme();
   }
 
   @override
-  Future<Result<bool, Failure>> setSearchSettings({
+  Future<ResultHandler<bool, Failure>> setSearchSettings({
     bool? isSearchByTitle,
     bool? isSearchByBody,
     bool? isSearchByDate,
@@ -43,18 +43,18 @@ class SettingRepo implements SettingsRepoInterface {
   }
 
   @override
-  Future<Result<Map<String, bool>, Failure>> getSearchSettings() async {
+  Future<ResultHandler<Map<String, bool>, Failure>> getSearchSettings() async {
     return await settingsSource.getSearchSettings();
   }
 
   @override
-  Future<Result<Map<String, dynamic>, Failure>>
+  Future<ResultHandler<Map<String, dynamic>, Failure>>
       getNotificationSettings() async {
     return await settingsSource.getNotificationSettings();
   }
 
   @override
-  Future<Result<bool, Failure>> setNotificationSettings({
+  Future<ResultHandler<bool, Failure>> setNotificationSettings({
     bool? isNotificationOnAdd,
     bool? isNotificationOnUpdate,
     bool? isNotificationOnComplete,
@@ -73,12 +73,12 @@ class SettingRepo implements SettingsRepoInterface {
   }
 
   @override
-  Future<Result<void, Failure>> setOnBoardingSeen(bool seen) async {
+  Future<ResultHandler<void, Failure>> setOnBoardingSeen(bool seen) async {
     return await settingsSource.setOnBoardingSeen(seen);
   }
 
   @override
-  Future<Result<bool, Failure>> getOnBoardingSeen() async {
+  Future<ResultHandler<bool, Failure>> getOnBoardingSeen() async {
     return await settingsSource.getOnBoardingSeen();
   }
 }

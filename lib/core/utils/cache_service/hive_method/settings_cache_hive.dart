@@ -1,6 +1,6 @@
 import 'package:better_one/core/constants/constants.dart';
 import 'package:better_one/core/errors/failure.dart';
-import 'package:better_one/core/request_result/request_result.dart';
+import 'package:better_one/core/result_handler/result_handler.dart';
 import 'package:better_one/core/utils/cache_service/cache_service.dart';
 import 'package:flutter/material.dart';
 
@@ -8,21 +8,21 @@ class SettingsCacheByHive implements SettingsCacheInterface {
   SettingsCacheByHive({required this.cacheInit});
   final HiveInitImpl cacheInit;
   @override
-  Future<Result<String, CacheFailure>> changeLanguage(
+  Future<ResultHandler<String, CacheFailure>> changeLanguage(
       String languageCode) async {
     try {
-      return Result.success(
+      return ResultHandler.success(
         data: await cacheInit.appBox
             .put(CacheKeys.lang, languageCode)
             .then((value) => languageCode),
       );
     } catch (e) {
-      return Result.failure(error: CacheFailure(message: e.toString()));
+      return ResultHandler.failure(error: CacheFailure(message: e.toString()));
     }
   }
 
   @override
-  Future<Result<String, CacheFailure>> toggleTheme() async {
+  Future<ResultHandler<String, CacheFailure>> toggleTheme() async {
     try {
       var result = await getTheme();
       return result.when(
@@ -31,7 +31,7 @@ class SettingsCacheByHive implements SettingsCacheInterface {
               ? CacheKeys.darkTheme
               : CacheKeys.lightTheme;
 
-          return Result.success(
+          return ResultHandler.success(
             data: await cacheInit.appBox.put(CacheKeys.theme, newTheme).then(
               (value) {
                 return newTheme;
@@ -40,40 +40,40 @@ class SettingsCacheByHive implements SettingsCacheInterface {
           );
         },
         failure: (failure) {
-          return Result.failure(error: failure);
+          return ResultHandler.failure(error: failure);
         },
       );
     } catch (e) {
-      return Result.failure(error: CacheFailure(message: e.toString()));
+      return ResultHandler.failure(error: CacheFailure(message: e.toString()));
     }
   }
 
   @override
-  Future<Result<String, CacheFailure>> getLanguage() async {
+  Future<ResultHandler<String, CacheFailure>> getLanguage() async {
     try {
-      return Result.success(
+      return ResultHandler.success(
         data: cacheInit.appBox.get(CacheKeys.lang, defaultValue: 'en'),
       );
     } catch (e) {
-      return Result.failure(error: CacheFailure(message: e.toString()));
+      return ResultHandler.failure(error: CacheFailure(message: e.toString()));
     }
   }
 
   @override
-  Future<Result<String, CacheFailure>> getTheme() async {
+  Future<ResultHandler<String, CacheFailure>> getTheme() async {
     try {
       String theme = cacheInit.appBox.get(CacheKeys.theme,
           defaultValue: WidgetsBinding
               .instance.platformDispatcher.platformBrightness.name);
 
-      return Result.success(data: theme);
+      return ResultHandler.success(data: theme);
     } catch (e) {
-      return Result.failure(error: CacheFailure(message: e.toString()));
+      return ResultHandler.failure(error: CacheFailure(message: e.toString()));
     }
   }
 
   @override
-  Future<Result<bool, CacheFailure>> setSearchSettings({
+  Future<ResultHandler<bool, CacheFailure>> setSearchSettings({
     bool? isSearchByTitle,
     bool? isSearchByBody,
     bool? isSearchByDate,
@@ -91,19 +91,20 @@ class SettingsCacheByHive implements SettingsCacheInterface {
               isSearchByDate ?? settings[CacheKeys.isSearchByDate]);
           cacheInit.appBox.put(CacheKeys.isSearchByStatus,
               isSearchByStatus ?? settings[CacheKeys.isSearchByStatus]);
-          return const Result.success(data: true);
+          return const ResultHandler.success(data: true);
         },
         failure: (failure) {
-          return Result.failure(error: failure);
+          return ResultHandler.failure(error: failure);
         },
       );
     } catch (e) {
-      return Result.failure(error: CacheFailure(message: e.toString()));
+      return ResultHandler.failure(error: CacheFailure(message: e.toString()));
     }
   }
 
   @override
-  Future<Result<Map<String, bool>, CacheFailure>> getSearchSettings() async {
+  Future<ResultHandler<Map<String, bool>, CacheFailure>>
+      getSearchSettings() async {
     try {
       Map<String, bool> data = {};
       data[CacheKeys.isSearchByTitle] =
@@ -114,14 +115,14 @@ class SettingsCacheByHive implements SettingsCacheInterface {
           cacheInit.appBox.get(CacheKeys.isSearchByDate, defaultValue: false);
       data[CacheKeys.isSearchByStatus] =
           cacheInit.appBox.get(CacheKeys.isSearchByStatus, defaultValue: false);
-      return Result.success(data: data);
+      return ResultHandler.success(data: data);
     } catch (e) {
-      return Result.failure(error: CacheFailure(message: e.toString()));
+      return ResultHandler.failure(error: CacheFailure(message: e.toString()));
     }
   }
 
   @override
-  Future<Result<Map<String, dynamic>, CacheFailure>>
+  Future<ResultHandler<Map<String, dynamic>, CacheFailure>>
       getNotificationSettings() async {
     try {
       Map<String, dynamic> data = {};
@@ -137,14 +138,14 @@ class SettingsCacheByHive implements SettingsCacheInterface {
           cacheInit.appBox.get(CacheKeys.reminderDateTime, defaultValue: 0);
       data[CacheKeys.repeatReminder] =
           cacheInit.appBox.get(CacheKeys.repeatReminder, defaultValue: false);
-      return Result.success(data: data);
+      return ResultHandler.success(data: data);
     } catch (e) {
-      return Result.failure(error: CacheFailure(message: e.toString()));
+      return ResultHandler.failure(error: CacheFailure(message: e.toString()));
     }
   }
 
   @override
-  Future<Result<bool, CacheFailure>> setNotificationSettings({
+  Future<ResultHandler<bool, CacheFailure>> setNotificationSettings({
     bool? isNotificationOnAdd,
     bool? isNotificationOnUpdate,
     bool? isNotificationOnComplete,
@@ -174,36 +175,36 @@ class SettingsCacheByHive implements SettingsCacheInterface {
               reminderDateTime ?? settings[CacheKeys.reminderDateTime]);
           cacheInit.appBox.put(CacheKeys.repeatReminder,
               repeatReminder ?? settings[CacheKeys.repeatReminder]);
-          return const Result.success(data: true);
+          return const ResultHandler.success(data: true);
         },
         failure: (failure) {
-          return Result.failure(error: failure);
+          return ResultHandler.failure(error: failure);
         },
       );
     } catch (e) {
-      return Result.failure(error: CacheFailure(message: e.toString()));
+      return ResultHandler.failure(error: CacheFailure(message: e.toString()));
     }
   }
 
   @override
-  Future<Result<bool, CacheFailure>> getOnBoardingSeen() async {
+  Future<ResultHandler<bool, CacheFailure>> getOnBoardingSeen() async {
     try {
-      return Result.success(
+      return ResultHandler.success(
         data:
             cacheInit.appBox.get(CacheKeys.onboardingSeen, defaultValue: false),
       );
     } catch (e) {
-      return Result.failure(error: CacheFailure(message: e.toString()));
+      return ResultHandler.failure(error: CacheFailure(message: e.toString()));
     }
   }
 
   @override
-  Future<Result<void, CacheFailure>> setOnBoardingSeen(bool seen) async {
+  Future<ResultHandler<void, CacheFailure>> setOnBoardingSeen(bool seen) async {
     try {
       await cacheInit.appBox.put(CacheKeys.onboardingSeen, seen);
-      return const Result.success(data: null);
+      return const ResultHandler.success(data: null);
     } catch (e) {
-      return Result.failure(error: CacheFailure(message: e.toString()));
+      return ResultHandler.failure(error: CacheFailure(message: e.toString()));
     }
   }
 }

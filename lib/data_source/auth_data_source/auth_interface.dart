@@ -1,13 +1,13 @@
 import 'package:better_one/core/errors/failure.dart';
-import 'package:better_one/core/request_result/request_result.dart';
+import 'package:better_one/core/result_handler/result_handler.dart';
 import 'package:better_one/model/user_model/user_model.dart';
 
 abstract class AuthInterface {
   void init();
-  Future<Result<UserModel, ApiFailure>> logIn(
+  Future<ResultHandler<UserModel, ApiFailure>> logIn(
       {required String email, required String password});
-  Future<Result<UserModel, ApiFailure>> signUp(
+  Future<ResultHandler<UserModel, ApiFailure>> signUp(
       {required String email, required String password});
-  Future<Result<bool, ApiFailure>> logOut();
-  Future<Result<bool, ApiFailure>> isOnline();
+  Future<ResultHandler<bool, ApiFailure>> logOut();
+  Future<ResultHandler<bool, ApiFailure>> isOnline();
 }

@@ -5,6 +5,57 @@ Users can create, edit, delete, and complete tasks, receive notifications, and v
 The app also tracks elapsed time for tasks and total elapsed time across all tasks, saving everything in local storage.
 Send notifications to other users when tasks are completed.
 
+## Documentation
+
+The app is a simple task management app. It helps users to stay motivated and focused while working on their tasks. The app provides the following functionalities:
+
+### Task Management
+
+* Users can create, edit, delete, and complete tasks.
+* Tasks can be saved locally for easy access.
+
+### Notifications
+
+* Users receive notifications when tasks are created.
+* Users can receive notifications when tasks are completed.
+
+### Motivation
+
+* The app integrated random quotes for tasks to help users focus and improve motivation.
+
+### Tracking
+
+* The app tracks elapsed time for each task and provides total elapsed time across all tasks.
+
+### Multi-Language Support
+
+* The app supports multiple languages including English and Arabic.
+
+### Theme
+
+* The app supports multiple themes including light, dark, and system theme.
+
+### Settings
+
+* Users can control notification settings, search settings, theme settings, and language settings.
+
+### Internet Connection
+
+* The app can handle scenarios without internet connection.
+
+### User Authentication
+
+* Users can login using their Google account.
+* User data is saved in Cloud Firestore.
+
+### Search Functionality
+
+* Users can search for tasks by status, date, title, or description.
+
+### Complete Implementation
+
+* The app supports Firebase Authentication for user authentication.
+
 ## Key Features of the App
 
 * Create, edit, delete, and complete tasks.
@@ -70,6 +121,10 @@ Send notifications to other users when tasks are completed.
   flutter_bloc: ^8.1.4
   flutter_local_notifications: ^16.3.2
   flutter_screenutil: ^5.9.0
+  feedback: ^3.0.1
+  device_info_plus: ^9.1.2
+  package_info_plus: ^5.0.1
+  supabase_flutter: ^2.5.1
   flutter_svg: ^2.0.10+1
   flutter_timezone: ^1.0.8
   font_awesome_flutter: ^10.7.0

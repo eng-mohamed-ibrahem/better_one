@@ -1,6 +1,6 @@
 import 'package:better_one/core/constants/constants.dart';
 import 'package:better_one/core/errors/failure.dart';
-import 'package:better_one/core/request_result/request_result.dart';
+import 'package:better_one/core/result_handler/result_handler.dart';
 import 'package:better_one/data_source/auth_data_source/auth_interface.dart';
 import 'package:better_one/model/user_model/user_model.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
@@ -17,35 +17,35 @@ class SupabaseAuthImpl implements AuthInterface {
   }
 
   @override
-  Future<Result<bool, ApiFailure>> isOnline() async {
+  Future<ResultHandler<bool, ApiFailure>> isOnline() async {
     try {
       // if the [currentSession] is [null] so [isExpired] = true
-      return Result.success(
+      return ResultHandler.success(
           data: !(client.auth.currentSession?.isExpired ?? true));
     } catch (e) {
-      return Result.failure(
+      return ResultHandler.failure(
           error: ApiFailure.fromSupabaseError(message: e.toString()));
     }
   }
 
   @override
-  Future<Result<bool, ApiFailure>> logOut() async {
+  Future<ResultHandler<bool, ApiFailure>> logOut() async {
     try {
       await client.auth.signOut();
-      return const Result.success(data: true);
+      return const ResultHandler.success(data: true);
     } catch (e) {
-      return Result.failure(
+      return ResultHandler.failure(
           error: ApiFailure.fromSupabaseError(message: e.toString()));
     }
   }
 
   @override
-  Future<Result<UserModel, ApiFailure>> logIn(
+  Future<ResultHandler<UserModel, ApiFailure>> logIn(
       {required String email, required String password}) async {
     try {
       var result = await client.auth
           .signInWithPassword(email: email, password: password);
-      return Result.success(
+      return ResultHandler.success(
         data: UserModel.fromJson(
           {
             'id': result.user!.id,
@@ -56,17 +56,17 @@ class SupabaseAuthImpl implements AuthInterface {
         ),
       );
     } catch (e) {
-      return Result.failure(
+      return ResultHandler.failure(
           error: ApiFailure.fromSupabaseError(message: e.toString()));
     }
   }
 
   @override
-  Future<Result<UserModel, ApiFailure>> signUp(
+  Future<ResultHandler<UserModel, ApiFailure>> signUp(
       {required String email, required String password}) async {
     try {
       var result = await client.auth.signUp(email: email, password: password);
-      return Result.success(
+      return ResultHandler.success(
         data: UserModel.fromJson(
           {
             'id': result.user!.id,
@@ -77,7 +77,7 @@ class SupabaseAuthImpl implements AuthInterface {
         ),
       );
     } catch (e) {
-      return Result.failure(
+      return ResultHandler.failure(
           error: ApiFailure.fromSupabaseError(message: e.toString()));
     }
   }

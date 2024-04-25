@@ -1,14 +1,14 @@
 import 'package:better_one/core/errors/failure.dart';
-import 'package:better_one/core/request_result/request_result.dart';
+import 'package:better_one/core/result_handler/result_handler.dart';
 import 'package:better_one/model/user_model/user_model.dart';
 
 abstract class AuthRepoInterface {
-  Future<Result<UserModel, Failure>> logIn(
+  Future<ResultHandler<UserModel, Failure>> logIn(
       {required String email, required String password});
 
-  Future<Result<UserModel, Failure>> signUp(
+  Future<ResultHandler<UserModel, Failure>> signUp(
       {required String email, required String password});
 
-  Future<Result<bool, Failure>> logOut();
-  Future<Result<bool, Failure>> isOnline();
+  Future<ResultHandler<bool, Failure>> logOut();
+  Future<ResultHandler<bool, Failure>> isOnline();
 }

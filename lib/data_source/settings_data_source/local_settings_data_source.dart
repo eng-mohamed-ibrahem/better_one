@@ -1,5 +1,5 @@
 import 'package:better_one/core/errors/failure.dart';
-import 'package:better_one/core/request_result/request_result.dart';
+import 'package:better_one/core/result_handler/result_handler.dart';
 import 'package:better_one/data_source/settings_data_source/settings_source_interface.dart';
 import 'package:flutter/material.dart';
 
@@ -11,79 +11,80 @@ class LocalSettingsDataSource implements SettingsSource {
   final SettingsCacheInterface settingsCache;
 
   @override
-  Future<Result<Locale, Failure>> changeLanguage(Locale newLanguage) async {
+  Future<ResultHandler<Locale, Failure>> changeLanguage(
+      Locale newLanguage) async {
     try {
       var result = await settingsCache.changeLanguage(newLanguage.languageCode);
       return result.when(success: (data) {
-        return Result.success(data: Locale(data));
+        return ResultHandler.success(data: Locale(data));
       }, failure: (error) {
-        return Result.failure(error: error);
+        return ResultHandler.failure(error: error);
       });
     } catch (e) {
-      return Result.failure(error: OtherFailure(message: e.toString()));
+      return ResultHandler.failure(error: OtherFailure(message: e.toString()));
     }
   }
 
   @override
-  Future<Result<ThemeMode, Failure>> toggleTheme() async {
+  Future<ResultHandler<ThemeMode, Failure>> toggleTheme() async {
     try {
       var result = await settingsCache.toggleTheme();
       return result.when(
         success: (currentTheme) {
-          return Result.success(
+          return ResultHandler.success(
             data: currentTheme == CacheKeys.lightTheme
                 ? ThemeMode.light
                 : ThemeMode.dark,
           );
         },
         failure: (error) {
-          return Result.failure(error: error);
+          return ResultHandler.failure(error: error);
         },
       );
     } catch (e) {
-      return Result.failure(error: OtherFailure(message: e.toString()));
+      return ResultHandler.failure(error: OtherFailure(message: e.toString()));
     }
   }
 
   @override
-  Future<Result<Locale, Failure>> getLanguage() async {
+  Future<ResultHandler<Locale, Failure>> getLanguage() async {
     try {
       var result = await settingsCache.getLanguage();
       return result.when(
         success: (data) {
-          return Result.success(data: Locale(data));
+          return ResultHandler.success(data: Locale(data));
         },
         failure: (error) {
-          return Result.failure(error: error);
+          return ResultHandler.failure(error: error);
         },
       );
     } catch (e) {
-      return Result.failure(error: OtherFailure(message: e.toString()));
+      return ResultHandler.failure(error: OtherFailure(message: e.toString()));
     }
   }
 
   @override
-  Future<Result<ThemeMode, Failure>> getTheme() async {
+  Future<ResultHandler<ThemeMode, Failure>> getTheme() async {
     try {
       var result = await settingsCache.getTheme();
       return result.when(
         success: (data) {
-          return Result.success(
+          return ResultHandler.success(
             data:
                 data == CacheKeys.lightTheme ? ThemeMode.light : ThemeMode.dark,
           );
         },
         failure: (error) {
-          return Result.failure(error: error);
+          return ResultHandler.failure(error: error);
         },
       );
     } catch (e) {
-      return Result.failure(error: OtherFailure(message: e.toString()));
+      return ResultHandler.failure(error: OtherFailure(message: e.toString()));
     }
   }
 
   @override
-  Future<Result<bool, Failure>> setSearchSettings({
+  Future<ResultHandler<bool, Failure>> setSearchSettings({
     bool? isSearchByTitle,
     bool? isSearchByBody,
     bool? isSearchByDate,
@@ -97,21 +98,21 @@ class LocalSettingsDataSource implements SettingsSource {
         isSearchByStatus: isSearchByStatus,
       );
     } catch (e) {
-      return Result.failure(error: OtherFailure(message: e.toString()));
+      return ResultHandler.failure(error: OtherFailure(message: e.toString()));
     }
   }
 
   @override
-  Future<Result<Map<String, bool>, Failure>> getSearchSettings() async {
+  Future<ResultHandler<Map<String, bool>, Failure>> getSearchSettings() async {
     try {
       return await settingsCache.getSearchSettings();
     } catch (e) {
-      return Result.failure(error: OtherFailure(message: e.toString()));
+      return ResultHandler.failure(error: OtherFailure(message: e.toString()));
     }
   }
 
   @override
-  Future<Result<Map<String, dynamic>, Failure>>
+  Future<ResultHandler<Map<String, dynamic>, Failure>>
       getNotificationSettings() async {
     try {
       var result = await settingsCache.getNotificationSettings();
@@ -122,19 +123,19 @@ class LocalSettingsDataSource implements SettingsSource {
                   ? null
                   : DateTime.fromMicrosecondsSinceEpoch(
                       data[CacheKeys.reminderDateTime]);
-          return Result.success(data: data);
+          return ResultHandler.success(data: data);
         },
         failure: (error) {
-          return Result.failure(error: error);
+          return ResultHandler.failure(error: error);
         },
       );
     } catch (e) {
-      return Result.failure(error: OtherFailure(message: e.toString()));
+      return ResultHandler.failure(error: OtherFailure(message: e.toString()));
     }
   }
 
   @override
-  Future<Result<bool, Failure>> setNotificationSettings({
+  Future<ResultHandler<bool, Failure>> setNotificationSettings({
     bool? isNotificationOnAdd,
     bool? isNotificationOnUpdate,
     bool? isNotificationOnComplete,
@@ -152,25 +153,25 @@ class LocalSettingsDataSource implements SettingsSource {
         repeatReminder: repeatReminder,
       );
     } catch (e) {
-      return Result.failure(error: OtherFailure(message: e.toString()));
+      return ResultHandler.failure(error: OtherFailure(message: e.toString()));
     }
   }
 
   @override
-  Future<Result<void, Failure>> setOnBoardingSeen(bool seen) async {
+  Future<ResultHandler<void, Failure>> setOnBoardingSeen(bool seen) async {
     try {
       return await settingsCache.setOnBoardingSeen(seen);
     } catch (e) {
-      return Result.failure(error: OtherFailure(message: e.toString()));
+      return ResultHandler.failure(error: OtherFailure(message: e.toString()));
     }
   }
 
   @override
-  Future<Result<bool, Failure>> getOnBoardingSeen() async {
+  Future<ResultHandler<bool, Failure>> getOnBoardingSeen() async {
     try {
       return await settingsCache.getOnBoardingSeen();
     } catch (e) {
-      return Result.failure(error: OtherFailure(message: e.toString()));
+      return ResultHandler.failure(error: OtherFailure(message: e.toString()));
     }
   }
 }

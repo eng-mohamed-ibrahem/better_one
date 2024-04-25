@@ -1,22 +1,22 @@
 import 'package:better_one/core/errors/failure.dart';
-import 'package:better_one/core/request_result/request_result.dart';
+import 'package:better_one/core/result_handler/result_handler.dart';
 import 'package:flutter/material.dart';
 
 abstract class SettingsSource {
   // change language, return new language
-  Future<Result<Locale, Failure>> changeLanguage(Locale newLanguage);
+  Future<ResultHandler<Locale, Failure>> changeLanguage(Locale newLanguage);
 
   // get current language
-  Future<Result<Locale, Failure>> getLanguage();
+  Future<ResultHandler<Locale, Failure>> getLanguage();
 
   // toggle theme between light and dark and return new theme
-  Future<Result<ThemeMode, Failure>> toggleTheme();
+  Future<ResultHandler<ThemeMode, Failure>> toggleTheme();
 
   // get current theme
-  Future<Result<ThemeMode, Failure>> getTheme();
+  Future<ResultHandler<ThemeMode, Failure>> getTheme();
 
   // set search settings
-  Future<Result<bool, Failure>> setSearchSettings({
+  Future<ResultHandler<bool, Failure>> setSearchSettings({
     bool? isSearchByTitle,
     bool? isSearchByBody,
     bool? isSearchByDate,
@@ -24,10 +24,10 @@ abstract class SettingsSource {
   });
 
   // get search settings
-  Future<Result<Map<String, bool>, Failure>> getSearchSettings();
+  Future<ResultHandler<Map<String, bool>, Failure>> getSearchSettings();
 
   // set notification settings
-  Future<Result<bool, Failure>> setNotificationSettings({
+  Future<ResultHandler<bool, Failure>> setNotificationSettings({
     bool? isNotificationOnAdd,
     bool? isNotificationOnUpdate,
     bool? isNotificationOnComplete,
@@ -37,11 +37,12 @@ abstract class SettingsSource {
   });
 
   // get notification settings
-  Future<Result<Map<String, dynamic>, Failure>> getNotificationSettings();
+  Future<ResultHandler<Map<String, dynamic>, Failure>>
+      getNotificationSettings();
 
   // set onborading seen
-  Future<Result<void, Failure>> setOnBoardingSeen(bool seen);
+  Future<ResultHandler<void, Failure>> setOnBoardingSeen(bool seen);
 
   // get onborading seen
-  Future<Result<bool, Failure>> getOnBoardingSeen();
+  Future<ResultHandler<bool, Failure>> getOnBoardingSeen();
 }

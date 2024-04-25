@@ -1,28 +1,28 @@
 import 'package:better_one/core/errors/failure.dart';
-import 'package:better_one/core/request_result/request_result.dart';
+import 'package:better_one/core/result_handler/result_handler.dart';
 import 'package:better_one/model/task_model/task_model.dart';
 
 abstract class TaskRepoInterface {
   /// to get all user tasks
-  Future<Result<List<TaskModel>, Failure>> getTasks();
+  Future<ResultHandler<List<TaskModel>, Failure>> getTasks();
 
   ///get task by id
-  Future<Result<TaskModel?, Failure>> getTaskById(String id);
+  Future<ResultHandler<TaskModel?, Failure>> getTaskById(String id);
 
   /// to add new task
-  Future<Result<TaskModel, Failure>> addTask(TaskModel task);
+  Future<ResultHandler<TaskModel, Failure>> addTask(TaskModel task);
 
   /// update task
-  Future<Result<TaskModel, Failure>> updateTask(
+  Future<ResultHandler<TaskModel, Failure>> updateTask(
       TaskModel oldTask, TaskModel newTask);
 
   /// remove task
-  Future<Result<TaskModel, Failure>> removeTask(TaskModel removedTask);
+  Future<ResultHandler<TaskModel, Failure>> removeTask(TaskModel removedTask);
 
   /// get total estimated time
-  Future<Result<int, Failure>> getTotoalEstimatedTime();
+  Future<ResultHandler<int, Failure>> getTotoalEstimatedTime();
 
   /// update total estimated time
-  Future<Result<int, Failure>> updateTotalEstimatedTime(
+  Future<ResultHandler<int, Failure>> updateTotalEstimatedTime(
       int updatedTime, bool isAdding);
 }
