@@ -1,6 +1,7 @@
-import 'package:better_one/core/utils/api_consumer/api_consumer.dart';
-import 'package:better_one/core/utils/api_consumer/dio_consumer.dart';
+import 'package:better_one/core/utils/remote_service/api_consumer/api_consumer.dart';
+import 'package:better_one/core/utils/remote_service/api_consumer/dio_consumer.dart';
 import 'package:better_one/core/utils/notification_service/notification_interface.dart';
+import 'package:better_one/core/utils/remote_service/supabase_service/supabase_service.dart';
 import 'package:better_one/data_source/quote_data_source/quote_source_interface.dart';
 import 'package:better_one/data_source/quote_data_source/remote_quote_data_source.dart';
 import 'package:better_one/data_source/settings_data_source/local_settings_data_source.dart';
@@ -26,12 +27,27 @@ Future<void> initDependency() async {
   routeObserver = _getIt.registerSingleton<RouteObserver<ModalRoute>>(
     RouteObserver(),
   );
+  await clientDependency();
   await notificationDependency();
   await cacheInitDependency();
   taskDependency();
   quoteDependency();
   settingsDependency();
+  userDependency();
   // todo init auth settings
+}
+
+Future<void> clientDependency() async {
+  client = _getIt.registerSingleton<SupabaseService>(
+    SupabaseService(),
+  );
+  await _getIt<SupabaseService>().init();
+}
+
+void userDependency() {
+  userLocalDatabse = _getIt.registerSingleton<UserCacheInterface>(
+    UserCacheByHive(cacheInit: _getIt<HiveInitImpl>()),
+  );
 }
 
 Future<void> cacheInitDependency() async {
@@ -115,3 +131,5 @@ late SettingsRepoInterface settingRepo;
 late QuoteSource quoteSource;
 late QuoteRepoInterface quoteRepo;
 late RouteObserver<ModalRoute> routeObserver;
+late UserCacheInterface userLocalDatabse;
+late SupabaseService client;

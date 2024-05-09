@@ -22,7 +22,9 @@ UserModel _$UserModelFromJson(Map<String, dynamic> json) {
 mixin _$UserModel {
   String get id => throw _privateConstructorUsedError;
   String get email => throw _privateConstructorUsedError;
+  @JsonKey(name: 'created_at')
   String get createdAt => throw _privateConstructorUsedError;
+  @JsonKey(name: 'updated_at')
   String? get updatedAt => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -36,7 +38,11 @@ abstract class $UserModelCopyWith<$Res> {
   factory $UserModelCopyWith(UserModel value, $Res Function(UserModel) then) =
       _$UserModelCopyWithImpl<$Res, UserModel>;
   @useResult
-  $Res call({String id, String email, String createdAt, String? updatedAt});
+  $Res call(
+      {String id,
+      String email,
+      @JsonKey(name: 'created_at') String createdAt,
+      @JsonKey(name: 'updated_at') String? updatedAt});
 }
 
 /// @nodoc
@@ -86,7 +92,11 @@ abstract class _$$UserModelImplCopyWith<$Res>
       __$$UserModelImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String id, String email, String createdAt, String? updatedAt});
+  $Res call(
+      {String id,
+      String email,
+      @JsonKey(name: 'created_at') String createdAt,
+      @JsonKey(name: 'updated_at') String? updatedAt});
 }
 
 /// @nodoc
@@ -132,8 +142,8 @@ class _$UserModelImpl implements _UserModel {
   const _$UserModelImpl(
       {required this.id,
       required this.email,
-      required this.createdAt,
-      this.updatedAt});
+      @JsonKey(name: 'created_at') required this.createdAt,
+      @JsonKey(name: 'updated_at') this.updatedAt});
 
   factory _$UserModelImpl.fromJson(Map<String, dynamic> json) =>
       _$$UserModelImplFromJson(json);
@@ -143,8 +153,10 @@ class _$UserModelImpl implements _UserModel {
   @override
   final String email;
   @override
+  @JsonKey(name: 'created_at')
   final String createdAt;
   @override
+  @JsonKey(name: 'updated_at')
   final String? updatedAt;
 
   @override
@@ -187,8 +199,8 @@ abstract class _UserModel implements UserModel {
   const factory _UserModel(
       {required final String id,
       required final String email,
-      required final String createdAt,
-      final String? updatedAt}) = _$UserModelImpl;
+      @JsonKey(name: 'created_at') required final String createdAt,
+      @JsonKey(name: 'updated_at') final String? updatedAt}) = _$UserModelImpl;
 
   factory _UserModel.fromJson(Map<String, dynamic> json) =
       _$UserModelImpl.fromJson;
@@ -198,8 +210,10 @@ abstract class _UserModel implements UserModel {
   @override
   String get email;
   @override
+  @JsonKey(name: 'created_at')
   String get createdAt;
   @override
+  @JsonKey(name: 'updated_at')
   String? get updatedAt;
   @override
   @JsonKey(ignore: true)

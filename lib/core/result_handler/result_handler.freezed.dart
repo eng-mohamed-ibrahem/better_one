@@ -57,17 +57,18 @@ mixin _$ResultHandler<Data, Error> {
 }
 
 /// @nodoc
-abstract class $ResultCopyWith<Data, Error, $Res> {
-  factory $ResultCopyWith(ResultHandler<Data, Error> value,
+abstract class $ResultHandlerCopyWith<Data, Error, $Res> {
+  factory $ResultHandlerCopyWith(ResultHandler<Data, Error> value,
           $Res Function(ResultHandler<Data, Error>) then) =
-      _$ResultCopyWithImpl<Data, Error, $Res, ResultHandler<Data, Error>>;
+      _$ResultHandlerCopyWithImpl<Data, Error, $Res,
+          ResultHandler<Data, Error>>;
 }
 
 /// @nodoc
-class _$ResultCopyWithImpl<Data, Error, $Res,
+class _$ResultHandlerCopyWithImpl<Data, Error, $Res,
         $Val extends ResultHandler<Data, Error>>
-    implements $ResultCopyWith<Data, Error, $Res> {
-  _$ResultCopyWithImpl(this._value, this._then);
+    implements $ResultHandlerCopyWith<Data, Error, $Res> {
+  _$ResultHandlerCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
@@ -86,7 +87,8 @@ abstract class _$$SuccessImplCopyWith<Data, Error, $Res> {
 
 /// @nodoc
 class __$$SuccessImplCopyWithImpl<Data, Error, $Res>
-    extends _$ResultCopyWithImpl<Data, Error, $Res, _$SuccessImpl<Data, Error>>
+    extends _$ResultHandlerCopyWithImpl<Data, Error, $Res,
+        _$SuccessImpl<Data, Error>>
     implements _$$SuccessImplCopyWith<Data, Error, $Res> {
   __$$SuccessImplCopyWithImpl(_$SuccessImpl<Data, Error> _value,
       $Res Function(_$SuccessImpl<Data, Error>) _then)
@@ -223,7 +225,8 @@ abstract class _$$FailureImplCopyWith<Data, Error, $Res> {
 
 /// @nodoc
 class __$$FailureImplCopyWithImpl<Data, Error, $Res>
-    extends _$ResultCopyWithImpl<Data, Error, $Res, _$FailureImpl<Data, Error>>
+    extends _$ResultHandlerCopyWithImpl<Data, Error, $Res,
+        _$FailureImpl<Data, Error>>
     implements _$$FailureImplCopyWith<Data, Error, $Res> {
   __$$FailureImplCopyWithImpl(_$FailureImpl<Data, Error> _value,
       $Res Function(_$FailureImpl<Data, Error>) _then)

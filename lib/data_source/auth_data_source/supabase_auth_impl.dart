@@ -1,49 +1,15 @@
-import 'package:better_one/core/constants/constants.dart';
 import 'package:better_one/core/errors/failure.dart';
 import 'package:better_one/core/result_handler/result_handler.dart';
+import 'package:better_one/core/utils/dependency_locator/dependency_injection.dart';
 import 'package:better_one/data_source/auth_data_source/auth_interface.dart';
 import 'package:better_one/model/user_model/user_model.dart';
-import 'package:supabase_flutter/supabase_flutter.dart';
 
 class SupabaseAuthImpl implements AuthInterface {
-  late SupabaseClient client;
-  @override
-  void init() async {
-    await Supabase.initialize(
-      url: SupabaseStrings.url,
-      anonKey: SupabaseStrings.apiKey,
-    );
-    client = Supabase.instance.client;
-  }
-
-  @override
-  Future<ResultHandler<bool, ApiFailure>> isOnline() async {
-    try {
-      // if the [currentSession] is [null] so [isExpired] = true
-      return ResultHandler.success(
-          data: !(client.auth.currentSession?.isExpired ?? true));
-    } catch (e) {
-      return ResultHandler.failure(
-          error: ApiFailure.fromSupabaseError(message: e.toString()));
-    }
-  }
-
-  @override
-  Future<ResultHandler<bool, ApiFailure>> logOut() async {
-    try {
-      await client.auth.signOut();
-      return const ResultHandler.success(data: true);
-    } catch (e) {
-      return ResultHandler.failure(
-          error: ApiFailure.fromSupabaseError(message: e.toString()));
-    }
-  }
-
   @override
   Future<ResultHandler<UserModel, ApiFailure>> logIn(
       {required String email, required String password}) async {
     try {
-      var result = await client.auth
+      var result = await client.userAccount.auth
           .signInWithPassword(email: email, password: password);
       return ResultHandler.success(
         data: UserModel.fromJson(
@@ -65,7 +31,8 @@ class SupabaseAuthImpl implements AuthInterface {
   Future<ResultHandler<UserModel, ApiFailure>> signUp(
       {required String email, required String password}) async {
     try {
-      var result = await client.auth.signUp(email: email, password: password);
+      var result = await client.userAccount.auth
+          .signUp(email: email, password: password);
       return ResultHandler.success(
         data: UserModel.fromJson(
           {

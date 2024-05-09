@@ -34,28 +34,4 @@ class AuthRepoImpl implements AuthRepoInterface {
           error: OtherFailure(message: 'core.no_intenet'.tr()));
     }
   }
-
-  @override
-  Future<ResultHandler<bool, Failure>> isOnline() async {
-    var status = await Connectivity().checkConnectivity();
-    if (status == ConnectivityResult.mobile ||
-        status == ConnectivityResult.wifi) {
-      return auth.isOnline();
-    } else {
-      return ResultHandler.failure(
-          error: OtherFailure(message: 'core.no_intenet'.tr()));
-    }
-  }
-
-  @override
-  Future<ResultHandler<bool, Failure>> logOut() async {
-    var status = await Connectivity().checkConnectivity();
-    if (status == ConnectivityResult.mobile ||
-        status == ConnectivityResult.wifi) {
-      return auth.logOut();
-    } else {
-      return ResultHandler.failure(
-          error: OtherFailure(message: 'core.no_intenet'.tr()));
-    }
-  }
 }

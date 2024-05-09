@@ -1,6 +1,6 @@
 import 'package:better_one/core/errors/failure.dart';
 import 'package:better_one/core/result_handler/result_handler.dart';
-import 'package:better_one/core/utils/api_consumer/api_consumer.dart';
+import 'package:better_one/core/utils/remote_service/api_consumer/api_consumer.dart';
 import 'package:dio/dio.dart';
 
 class DioConsumer implements ApiConsumer {

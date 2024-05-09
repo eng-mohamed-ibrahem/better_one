@@ -65,31 +65,6 @@ class AuthViewmodel extends Cubit<AuthViewmodelState> {
     );
   }
 
-  void logout() async {
-    emit(release().copyWith(isLogoutLoading: true));
-    var result = await authRepo.logOut();
-    result.when(
-      success: (loggedOut) {
-        emit(
-          state.copyWith(
-            isLogoutLoading: false,
-            isLogoutSuccess: loggedOut,
-          ),
-        );
-      },
-      failure: (failer) {
-        emit(
-          state.copyWith(
-            isLogoutLoading: false,
-            isLogoutSuccess: false,
-            isLogoutFailed: true,
-            errorMessage: failer.message,
-          ),
-        );
-      },
-    );
-  }
-
   AuthViewmodelState release() {
     return state.copyWith(
       isInitial: false,

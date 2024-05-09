@@ -9,6 +9,5 @@ abstract class AuthRepoInterface {
   Future<ResultHandler<UserModel, Failure>> signUp(
       {required String email, required String password});
 
-  Future<ResultHandler<bool, Failure>> logOut();
-  Future<ResultHandler<bool, Failure>> isOnline();
+
 }
