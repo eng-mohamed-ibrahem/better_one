@@ -5,5 +5,5 @@ import 'package:better_one/model/user_model/user_model.dart';
 abstract class UserRepoInterface {
   Future<ResultHandler<UserModel, Failure>> getUserData();
   Future<ResultHandler<bool, Failure>> logOut();
-  Future<ResultHandler<bool, Failure>> isOnline();
+  Future<ResultHandler<bool, Failure>> isActive();
 }

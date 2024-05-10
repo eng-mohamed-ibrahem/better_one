@@ -1,4 +1,5 @@
 import 'package:better_one/core/constants/app_metrices.dart';
+import 'package:better_one/core/utils/dependency_locator/dependency_injection.dart';
 import 'package:better_one/core/utils/shared_widgets/back_button_l10n.dart';
 import 'package:better_one/core/utils/snack_bar/snack_bar.dart';
 import 'package:better_one/view/widgets/input_field/auth_field.dart';
@@ -107,6 +108,12 @@ class _SignUpState extends State<SignUp> {
                     listener: (context, state) {
                       if (state.isSignupFailed) {
                         showSnackBar(context, message: state.errorMessage!);
+                      }
+                      if (state.isSignupSuccess) {
+                        showSnackBar(context, message: 'auth.signup_succ'.tr());
+                        userLocalDatabase.setUserDataToLocal(
+                          user: state.userModel!.toJson(),
+                        );
                       }
                     },
                     builder: (context, state) {

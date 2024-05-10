@@ -23,10 +23,10 @@ class UserRepoImpl implements UserRepoInterface {
   }
 
   @override
-  Future<ResultHandler<bool, Failure>> isOnline() async {
+  Future<ResultHandler<bool, Failure>> isActive() async {
     var connected = await NetworkConnection.isConnected();
     if (connected) {
-      return userSource.isOnline();
+      return userSource.isActive();
     } else {
       return ResultHandler.failure(
           error: OtherFailure(message: 'core.no_intenet'.tr()));

@@ -33,8 +33,7 @@ Future<void> initDependency() async {
   taskDependency();
   quoteDependency();
   settingsDependency();
-  userDependency();
-  // todo init auth settings
+  userLocaleDependency();
 }
 
 Future<void> clientDependency() async {
@@ -44,8 +43,8 @@ Future<void> clientDependency() async {
   await _getIt<SupabaseService>().init();
 }
 
-void userDependency() {
-  userLocalDatabse = _getIt.registerSingleton<UserCacheInterface>(
+void userLocaleDependency() {
+  userLocalDatabase = _getIt.registerSingleton<UserCacheInterface>(
     UserCacheByHive(cacheInit: _getIt<HiveInitImpl>()),
   );
 }
@@ -131,5 +130,5 @@ late SettingsRepoInterface settingRepo;
 late QuoteSource quoteSource;
 late QuoteRepoInterface quoteRepo;
 late RouteObserver<ModalRoute> routeObserver;
-late UserCacheInterface userLocalDatabse;
+late UserCacheInterface userLocalDatabase;
 late SupabaseService client;

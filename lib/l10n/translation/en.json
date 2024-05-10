@@ -8,7 +8,8 @@
         "total_time": "The Total Time",
         "retry": "Try again",
         "get_started": "Ready to get started? Let's create your first task!",
-        "no_intenet": "No Internet Connection, please try again"
+        "no_intenet": "No Internet Connection, please try again",
+        "ex_session":"Session is Expired"
     },
     "onboarding": {
         "1": {
@@ -116,7 +117,9 @@
             "email": "Email Required",
             "pass": "Password Required",
             "confirm_pass": "Password dose not match"
-        }
+        },
+        "signup_succ":"Signup Successfully",
+        "login_succ":"Login Successfully"
     },
     "time": {
         "hour": "hour",

@@ -1,4 +1,5 @@
 import 'package:better_one/core/constants/constants.dart';
+import 'package:better_one/core/utils/dependency_locator/dependency_injection.dart';
 import 'package:better_one/core/utils/shared_widgets/back_button_l10n.dart';
 import 'package:better_one/core/utils/snack_bar/snack_bar.dart';
 import 'package:better_one/view/widgets/input_field/auth_field.dart';
@@ -81,6 +82,12 @@ class _LoginState extends State<LogIn> {
                     listener: (context, state) {
                       if (state.isLoginFailed) {
                         showSnackBar(context, message: state.errorMessage!);
+                      }
+                      if (state.isLoginSuccess) {
+                        showSnackBar(context, message: 'auth.login_succ'.tr());
+                        userLocalDatabase.setUserDataToLocal(
+                          user: state.userModel!.toJson(),
+                        );
                       }
                     },
                     builder: (context, state) {

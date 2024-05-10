@@ -7,5 +7,5 @@ abstract class UserSourceInterface {
   Future<ResultHandler<UserModel, ApiFailure>> getUserData();
 
   Future<ResultHandler<bool, Failure>> logOut();
-  Future<ResultHandler<bool, Failure>> isOnline();
+  Future<ResultHandler<bool, Failure>> isActive();
 }

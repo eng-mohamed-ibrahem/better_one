@@ -8,7 +8,8 @@
         "total_time": "الوقت الكلى",
         "retry": "اعادة المحاولة",
         "get_started": "هل أنت جاهز للبدء؟ دعنا ننشئ أول مهمة لك!",
-        "no_intenet": "لا يوجد اتصال بالإنترنت, يرجى المحاولة مرة أخرى"
+        "no_intenet": "لا يوجد اتصال بالإنترنت, يرجى المحاولة مرة أخرى",
+        "ex_session": "الجلسه انتهت"
     },
     "onboarding": {
         "1": {
@@ -111,7 +112,15 @@
         "u_name": "Name",
         "u_email": "E-mail",
         "u_pass": "Password",
-        "confirm_u_pass": "Confirm Password"
+        "confirm_u_pass": "Confirm Password",
+        "required": {
+            "name": "User Name Required",
+            "email": "Email Required",
+            "pass": "Password Required",
+            "confirm_pass": "Password dose not match"
+        },
+        "signup_succ": "Signup successfully",
+        "login_succ": "Login Successfully"
     },
     "time": {
         "hour": "ساعة",
