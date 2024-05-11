@@ -85,7 +85,7 @@ class _LoginState extends State<LogIn> {
                       }
                       if (state.isLoginSuccess) {
                         showSnackBar(context, message: 'auth.login_succ'.tr());
-                        userLocalDatabase.setUserDataToLocal(
+                        userLocaleDatabase.setUserDataToLocale(
                           user: state.userModel!.toJson(),
                         );
                       }

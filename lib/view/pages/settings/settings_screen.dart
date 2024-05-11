@@ -1,16 +1,10 @@
+import 'package:better_one/config/generate_router.dart';
 import 'package:better_one/core/utils/shared_widgets/back_button_l10n.dart';
 import 'package:better_one/model/settings_item_model/setting_item_model.dart';
-import 'package:better_one/view/widgets/setting_widgets/account_widget.dart';
-import 'package:better_one/view/widgets/setting_widgets/language_widget.dart';
-import 'package:better_one/view/widgets/setting_widgets/notification_widget.dart';
-import 'package:better_one/view/widgets/setting_widgets/search_settings_widget.dart';
 import 'package:better_one/view/widgets/setting_widgets/setting_item_widget.dart';
-import 'package:better_one/view/widgets/setting_widgets/theme_widget.dart';
-import 'package:better_one/view_models/setting_viewmodel/setting_viewmode.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:feedback/feedback.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../core/constants/constants.dart';
 
@@ -19,80 +13,59 @@ class SettingScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return PopScope(
-      onPopInvoked: (value) {
-        SettingViewModel.get(context).setCurrentTappedItemIndex(-1);
-      },
-      child: Scaffold(
-        appBar: PreferredSize(
-          preferredSize:
-              Size.fromHeight(MediaQuery.of(context).size.height * 0.07),
-          child: Hero(
-            tag: 'app_settings',
-            transitionOnUserGestures: true,
-            child: AppBar(
-              centerTitle: true,
-              elevation: 0,
-              titleTextStyle: Theme.of(context).textTheme.titleMedium,
-              leading: const FittedBox(
-                fit: BoxFit.scaleDown,
-                child: BackButtonLl10n(),
-              ),
-              title: Text('setting.name'.tr()),
+    List<SettingItemModel> settingItems = generateSettingItems();
+    return Scaffold(
+      appBar: PreferredSize(
+        preferredSize:
+            Size.fromHeight(MediaQuery.of(context).size.height * 0.07),
+        child: Hero(
+          tag: 'app_settings',
+          transitionOnUserGestures: true,
+          child: AppBar(
+            centerTitle: true,
+            elevation: 0,
+            titleTextStyle: Theme.of(context).textTheme.titleMedium,
+            leading: const FittedBox(
+              fit: BoxFit.scaleDown,
+              child: BackButtonLl10n(),
             ),
+            title: Text('setting.name'.tr()),
           ),
         ),
-        body: BlocBuilder<SettingViewModel, SettingViewModelState>(
-          builder: (context, state) {
-            List<SettingItemModel> settingItems = generateSettingItems();
-            return ListView.separated(
-              padding: const EdgeInsets.all(AppMetrices.widthSpace),
-              itemCount: settingItems.length,
-              itemBuilder: (context, index) {
-                return Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    SettingItem(
-                      title: settingItems[index].title,
-                      subTitle: settingItems[index].subTitle,
-                      onTap: () {
-                        SettingViewModel.get(context).setCurrentTappedItemIndex(
-                            state.currentTappedItemIndex == index ? -1 : index);
-                        if (index == 4) {
-                          showFeedback(context);
-                        }
-                      },
-                      leadingIcon: settingItems[index].leadingIcon,
-                    ),
-                    const SizedBox(height: AppMetrices.heightSpace),
-                    AnimatedSize(
-                      duration: const Duration(milliseconds: 400),
-                      child: state.currentTappedItemIndex == 0 && index == 0
-                          ? const LanguageWidget()
-                          : state.currentTappedItemIndex == 1 && index == 1
-                              ? const ThemeWidget()
-                              : state.currentTappedItemIndex == 2 && index == 2
-                                  ? const NotificationWidget()
-                                  : state.currentTappedItemIndex == 3 &&
-                                          index == 3
-                                      ? const SearchSettingWidget()
-                                      : state.currentTappedItemIndex == 5 &&
-                                              index == 5
-                                          ? const AccountWidget()
-                                          : const SizedBox(),
-                    )
-                  ],
-                );
-              },
-              separatorBuilder: (context, index) => const Divider(
-                thickness: 2,
-                color: AppColors.secondColor,
-                height: 10,
-                indent: 20,
-                endIndent: 20,
+      ),
+      body: ListView.separated(
+        padding: const EdgeInsets.all(AppMetrices.widthSpace),
+        itemCount: settingItems.length,
+        itemBuilder: (context, index) {
+          return Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              SettingItem(
+                title: settingItems[index].title,
+                subTitle: settingItems[index].subTitle,
+                onTap: () {
+                  if (index == 4) {
+                    showFeedback(context);
+                  } else {
+                    Navigator.pushNamed(
+                      context,
+                      settingItems[index].path!,
+                      arguments: settingItems[index].title,
+                    );
+                  }
+                },
+                leadingIcon: settingItems[index].leadingIcon,
               ),
-            );
-          },
+              const SizedBox(height: AppMetrices.heightSpace),
+            ],
+          );
+        },
+        separatorBuilder: (context, index) => const Divider(
+          thickness: 2,
+          color: AppColors.secondColor,
+          height: 10,
+          indent: 20,
+          endIndent: 20,
         ),
       ),
     );
@@ -112,7 +85,7 @@ class SettingScreen extends StatelessWidget {
     });
   }
 
-  generateSettingItems() {
+  List<SettingItemModel> generateSettingItems() {
     return [
       SettingItemModel(
         title: 'setting.language.title'.tr(),
@@ -120,6 +93,7 @@ class SettingScreen extends StatelessWidget {
         leadingIcon: const Icon(
           Icons.language,
         ),
+        path: GenerateRouter.languageSettingScreen,
       ),
       SettingItemModel(
         title: 'setting.theme.title'.tr(),
@@ -127,6 +101,7 @@ class SettingScreen extends StatelessWidget {
         leadingIcon: const Icon(
           Icons.brightness_6,
         ),
+        path: GenerateRouter.themeSettingScreen,
       ),
       SettingItemModel(
         title: 'setting.notification.title'.tr(),
@@ -134,6 +109,7 @@ class SettingScreen extends StatelessWidget {
         leadingIcon: const Icon(
           Icons.notifications,
         ),
+        path: GenerateRouter.notificationSettingScreen,
       ),
       SettingItemModel(
         title: 'setting.search.title'.tr(),
@@ -141,6 +117,7 @@ class SettingScreen extends StatelessWidget {
         leadingIcon: const Icon(
           Icons.search,
         ),
+        path: GenerateRouter.searchSettingScreen,
       ),
       SettingItemModel(
         title: 'setting.feedback.title'.tr(),
@@ -155,6 +132,7 @@ class SettingScreen extends StatelessWidget {
         leadingIcon: const Icon(
           Icons.person,
         ),
+        path: GenerateRouter.accountSettingScreen,
       ),
     ];
   }

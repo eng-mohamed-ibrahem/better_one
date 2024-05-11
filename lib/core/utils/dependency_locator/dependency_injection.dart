@@ -8,10 +8,13 @@ import 'package:better_one/data_source/settings_data_source/local_settings_data_
 import 'package:better_one/data_source/settings_data_source/settings_source_interface.dart';
 import 'package:better_one/data_source/task_data_source/local_task_data_source.dart';
 import 'package:better_one/data_source/task_data_source/task_source_interface.dart';
+import 'package:better_one/data_source/user_data_source/remote_user_data_source.dart';
 import 'package:better_one/repositories/quote_repo/quote_repo.dart';
 import 'package:better_one/repositories/quote_repo/quote_repo_interface.dart';
 import 'package:better_one/repositories/task_repo/task_repo_impl.dart';
 import 'package:better_one/repositories/task_repo/task_repo_interface.dart';
+import 'package:better_one/repositories/user_repo/user_repo_impl.dart';
+import 'package:better_one/repositories/user_repo/user_repo_intefrace.dart';
 import 'package:flutter/material.dart';
 import 'package:get_it/get_it.dart';
 
@@ -23,7 +26,6 @@ import '../notification_service/flutter_local_notification.dart';
 GetIt _getIt = GetIt.instance;
 
 Future<void> initDependency() async {
-  /// route observer
   routeObserver = _getIt.registerSingleton<RouteObserver<ModalRoute>>(
     RouteObserver(),
   );
@@ -33,7 +35,7 @@ Future<void> initDependency() async {
   taskDependency();
   quoteDependency();
   settingsDependency();
-  userLocaleDependency();
+  userDependency();
 }
 
 Future<void> clientDependency() async {
@@ -43,9 +45,12 @@ Future<void> clientDependency() async {
   await _getIt<SupabaseService>().init();
 }
 
-void userLocaleDependency() {
-  userLocalDatabase = _getIt.registerSingleton<UserCacheInterface>(
+void userDependency() {
+  userLocaleDatabase = _getIt.registerSingleton<UserCacheInterface>(
     UserCacheByHive(cacheInit: _getIt<HiveInitImpl>()),
+  );
+  kUserRepo = _getIt.registerSingleton<UserRepoInterface>(
+    UserRepoImpl(userSource: RemoteUserDataSource()),
   );
 }
 
@@ -130,5 +135,6 @@ late SettingsRepoInterface settingRepo;
 late QuoteSource quoteSource;
 late QuoteRepoInterface quoteRepo;
 late RouteObserver<ModalRoute> routeObserver;
-late UserCacheInterface userLocalDatabase;
+late UserCacheInterface userLocaleDatabase;
 late SupabaseService client;
+late UserRepoInterface kUserRepo;

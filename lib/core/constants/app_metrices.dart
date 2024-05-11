@@ -5,4 +5,5 @@ class AppMetrices {
   static const double heightSpace = 10;
   static const double heightSpace2 = 20;
   static const double heightSpace3 = 45;
+  static const double padding = 10;
 }

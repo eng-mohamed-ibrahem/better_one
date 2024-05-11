@@ -2,7 +2,12 @@ import 'package:better_one/view/pages/auth/login_page.dart';
 import 'package:better_one/view/pages/auth/signup_page.dart';
 import 'package:better_one/view/pages/home/home_screen.dart';
 import 'package:better_one/view/pages/onborading/onboarding_screen.dart';
+import 'package:better_one/view/pages/settings/account_setting_screen.dart';
+import 'package:better_one/view/pages/settings/language_setting_screen.dart';
+import 'package:better_one/view/pages/settings/notification_setting_screen.dart';
+import 'package:better_one/view/pages/settings/search_setting_screen.dart';
 import 'package:better_one/view/pages/settings/settings_screen.dart';
+import 'package:better_one/view/pages/settings/theme_setting_screen.dart';
 import 'package:better_one/view/pages/splash/splash_screen.dart';
 import 'package:better_one/view/pages/write_task/task_screen.dart';
 import 'package:easy_localization/easy_localization.dart';
@@ -16,6 +21,11 @@ class GenerateRouter {
   static const String home = '/home';
   static const String taskScreen = '/task_screen';
   static const String settingScreen = '/setting_screen';
+  static const String languageSettingScreen = '/language_screen';
+  static const String themeSettingScreen = '/theme_screen';
+  static const String notificationSettingScreen = '/notification_screen';
+  static const String searchSettingScreen = '/search_screen';
+  static const String accountSettingScreen = '/account_screen';
   static const String signup = '/signup_screen';
   static const String login = '/login_screen';
 
@@ -71,6 +81,51 @@ class GenerateRouter {
           activeRoute = settingScreen;
           return MaterialPageRoute(
             builder: (context) => const SettingScreen(),
+          );
+        }
+      case languageSettingScreen:
+        {
+          activeRoute = languageSettingScreen;
+          return MaterialPageRoute(
+            builder: (context) => LanguageSettingScreen(
+              title: settings.arguments as String,
+            ),
+          );
+        }
+      case themeSettingScreen:
+        {
+          activeRoute = themeSettingScreen;
+          return MaterialPageRoute(
+            builder: (context) => ThemeSettingScreen(
+              title: settings.arguments as String,
+            ),
+          );
+        }
+      case searchSettingScreen:
+        {
+          activeRoute = searchSettingScreen;
+          return MaterialPageRoute(
+            builder: (context) => SearchSettingScreen(
+              title: settings.arguments as String,
+            ),
+          );
+        }
+      case notificationSettingScreen:
+        {
+          activeRoute = notificationSettingScreen;
+          return MaterialPageRoute(
+            builder: (context) => NotificationSettingScreen(
+              title: settings.arguments as String,
+            ),
+          );
+        }
+      case accountSettingScreen:
+        {
+          activeRoute = accountSettingScreen;
+          return MaterialPageRoute(
+            builder: (context) => AccountSettingScreen(
+              title: settings.arguments as String,
+            ),
           );
         }
       case signup:

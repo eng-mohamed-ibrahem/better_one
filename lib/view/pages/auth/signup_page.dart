@@ -111,7 +111,7 @@ class _SignUpState extends State<SignUp> {
                       }
                       if (state.isSignupSuccess) {
                         showSnackBar(context, message: 'auth.signup_succ'.tr());
-                        userLocalDatabase.setUserDataToLocal(
+                        userLocaleDatabase.setUserDataToLocale(
                           user: state.userModel!.toJson(),
                         );
                       }

@@ -105,22 +105,22 @@
         }
     },
     "auth": {
-        "cr_account": "Create Account",
-        "access_account": "Login to your account",
-        "signup": "Sign Up",
-        "login": "Log In",
-        "u_name": "Name",
-        "u_email": "E-mail",
-        "u_pass": "Password",
-        "confirm_u_pass": "Confirm Password",
+        "cr_account": "انشاء حساب",
+        "access_account": "تسجيل الدخول في حسابك",
+        "signup": "انشاء حساب",
+        "login": "تسجيل الدخول",
+        "u_name": "اسم المستخدم",
+        "u_email": "البريد الالكتروني",
+        "u_pass": "كلمة المرور",
+        "confirm_u_pass": "تاكيد كلمة المرور",
         "required": {
-            "name": "User Name Required",
-            "email": "Email Required",
-            "pass": "Password Required",
-            "confirm_pass": "Password dose not match"
+            "name": "اسم المستخدم مطلوب",
+            "email": "البريد الالكتروني مطلوب",
+            "pass": "كلمة المرور مطلوبة",
+            "confirm_pass": "كلمة المرور غير متطابقة"
         },
-        "signup_succ": "Signup successfully",
-        "login_succ": "Login Successfully"
+        "signup_succ": "تم التسجيل بنجاح",
+        "login_succ": "تم تسجيل الدخول بنجاح"
     },
     "time": {
         "hour": "ساعة",

@@ -6,12 +6,14 @@ class UserCacheByHive implements UserCacheInterface {
   UserCacheByHive({required this.cacheInit});
   final HiveInitImpl cacheInit;
   @override
-  Future<UserModel> getUserDataFromLocal() async {
-    return UserModel.fromJson(cacheInit.appBox.get(CacheKeys.user));
+  Future<UserModel?> getUserDataFromLocale() async {
+    return cacheInit.appBox.containsKey(CacheKeys.user)
+        ? UserModel.fromJson(cacheInit.appBox.get(CacheKeys.user))
+        : null;
   }
 
   @override
-  Future<bool> setUserDataToLocal({required Map<String, dynamic> user}) async {
+  Future<bool> setUserDataToLocale({required Map<String, dynamic> user}) async {
     await cacheInit.appBox.put(CacheKeys.user, user);
     return true;
   }

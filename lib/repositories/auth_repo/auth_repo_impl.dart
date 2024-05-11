@@ -7,15 +7,15 @@ import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:easy_localization/easy_localization.dart';
 
 class AuthRepoImpl implements AuthRepoInterface {
-  AuthRepoImpl({required this.auth});
-  final AuthInterface auth;
+  AuthRepoImpl({required this.authSource});
+  final AuthInterface authSource;
   @override
   Future<ResultHandler<UserModel, Failure>> logIn(
       {required String email, required String password}) async {
     var status = await Connectivity().checkConnectivity();
     if (status == ConnectivityResult.mobile ||
         status == ConnectivityResult.wifi) {
-      return auth.logIn(email: email, password: password);
+      return authSource.logIn(email: email, password: password);
     } else {
       return ResultHandler.failure(
           error: OtherFailure(message: 'core.no_intenet'.tr()));
@@ -28,7 +28,7 @@ class AuthRepoImpl implements AuthRepoInterface {
     var status = await Connectivity().checkConnectivity();
     if (status == ConnectivityResult.mobile ||
         status == ConnectivityResult.wifi) {
-      return auth.signUp(email: email, password: password);
+      return authSource.signUp(email: email, password: password);
     } else {
       return ResultHandler.failure(
           error: OtherFailure(message: 'core.no_intenet'.tr()));

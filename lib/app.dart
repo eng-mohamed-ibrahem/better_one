@@ -6,6 +6,7 @@ import 'package:better_one/view_models/home_viewmodel/home_viewmodel.dart';
 import 'package:better_one/view_models/quote_viewmodel/quote_viewmodel.dart';
 import 'package:better_one/view_models/setting_viewmodel/setting_viewmode.dart';
 import 'package:better_one/view_models/theme_viewmodel/theme_viewmodel.dart';
+import 'package:better_one/view_models/user_viewmodel/user_viewmodel.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:feedback/feedback.dart';
 import 'package:flutter/material.dart';
@@ -49,7 +50,10 @@ class RootApp extends StatelessWidget {
             BlocProvider(
               create: (context) =>
                   ThemeViewModel(settingsRepo: settingRepo)..getTheme(),
-            )
+            ),
+            BlocProvider(
+              create: (context) => UserViewmodel(userRepo: kUserRepo),
+            ),
           ],
           child: BlocBuilder<ThemeViewModel, ThemeViewModelState>(
             builder: (context, state) {
