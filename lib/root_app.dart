@@ -2,6 +2,9 @@ import 'package:better_one/config/app_thems.dart';
 import 'package:better_one/config/generate_router.dart';
 import 'package:better_one/core/constants/constants.dart';
 import 'package:better_one/core/utils/dependency_locator/dependency_injection.dart';
+import 'package:better_one/data_source/auth_data_source/supabase_auth_impl.dart';
+import 'package:better_one/repositories/auth_repo/auth_repo_impl.dart';
+import 'package:better_one/view_models/auth_viewmodel/auth_viewmodel.dart';
 import 'package:better_one/view_models/home_viewmodel/home_viewmodel.dart';
 import 'package:better_one/view_models/quote_viewmodel/quote_viewmodel.dart';
 import 'package:better_one/view_models/setting_viewmodel/setting_viewmode.dart';
@@ -20,42 +23,42 @@ class RootApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return EasyLocalization(
-      supportedLocales: const [
-        Locale('en'),
-        Locale('ar'),
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider(
+          create: (context) => HomeViewmodel(taskRepoInterface: taskRepo)
+            ..getTasks()
+            ..getTotalEstimatedTime(),
+        ),
+        BlocProvider(
+          create: (context) => QuoteViewmode(quoteRepo: quoteRepo),
+        ),
+        BlocProvider(
+          create: (context) => SettingViewModel(settingsRepo: settingRepo)
+            ..getLanguage()
+            ..getSearchSettings()
+            ..getNotificationSettings(),
+        ),
+        BlocProvider(
+          create: (context) =>
+              ThemeViewModel(settingsRepo: settingRepo)..getTheme(),
+        ),
+        BlocProvider(
+          create: (context) => UserViewmodel(userRepo: kUserRepo),
+        ),
+        BlocProvider(
+          create: (context) => AuthViewmodel(
+            authRepo: AuthRepoImpl(
+              authSource: SupabaseAuthImpl(),
+            ),
+          ),
+        ),
       ],
-      path: 'lib/l10n/translation',
-      saveLocale: true,
-      fallbackLocale: const Locale('en'),
       child: ScreenUtilInit(
         designSize: const Size(375, 812),
         useInheritedMediaQuery: true,
-        builder: (context, child) => MultiBlocProvider(
-          providers: [
-            BlocProvider(
-              create: (context) => HomeViewmodel(taskRepoInterface: taskRepo)
-                ..getTasks()
-                ..getTotalEstimatedTime(),
-            ),
-            BlocProvider(
-              create: (context) => QuoteViewmode(quoteRepo: quoteRepo),
-            ),
-            BlocProvider(
-              create: (context) => SettingViewModel(settingsRepo: settingRepo)
-                ..getLanguage()
-                ..getSearchSettings()
-                ..getNotificationSettings(),
-            ),
-            BlocProvider(
-              create: (context) =>
-                  ThemeViewModel(settingsRepo: settingRepo)..getTheme(),
-            ),
-            BlocProvider(
-              create: (context) => UserViewmodel(userRepo: kUserRepo),
-            ),
-          ],
-          child: BlocBuilder<ThemeViewModel, ThemeViewModelState>(
+        builder: (context, child) {
+          return BlocBuilder<ThemeViewModel, ThemeViewModelState>(
             builder: (context, state) {
               return BetterFeedback(
                 mode: FeedbackMode.navigate,
@@ -108,8 +111,8 @@ class RootApp extends StatelessWidget {
                 ),
               );
             },
-          ),
-        ),
+          );
+        },
       ),
     );
   }

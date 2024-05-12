@@ -38,16 +38,14 @@ class _NotificationScreenState extends State<NotificationSettingScreen> {
     return Scaffold(
       appBar: AppBar(
         title: Text(widget.title),
-        centerTitle: true,
         leading: const FittedBox(
           fit: BoxFit.scaleDown,
           child: BackButtonLl10n(),
         ),
       ),
       body: Container(
-        alignment: Alignment.center,
-        padding: EdgeInsets.symmetric(
-          horizontal: MediaQuery.of(context).size.width * 0.07,
+        padding: const EdgeInsets.symmetric(
+          horizontal: AppMetrices.padding,
           vertical: 5,
         ),
         decoration: BoxDecoration(

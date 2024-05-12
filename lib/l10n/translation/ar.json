@@ -63,8 +63,8 @@
     "setting": {
         "name": "اعدادات التطبيق",
         "theme": {
-            "title": "الوضع",
-            "subtitle": "تبديل بين الوضع الفاتح والمظلم",
+            "title": "المظهر",
+            "subtitle": "تبديل بين المظهر الفاتح والمظلم",
             "light": "فاتح",
             "dark": "مظلم"
         },
@@ -100,8 +100,8 @@
         "account": {
             "title": "الحساب",
             "subtitle": "الاعدادات الخاصة بحسابك",
-            "cloud_upload": "Do you want to upload your tasks?",
-            "has_account": "Already has account?"
+            "cloud_upload": "هل تريد تحميل المهام الخاصة بك؟",
+            "has_account": "لديك حساب بالفعل؟"
         }
     },
     "auth": {

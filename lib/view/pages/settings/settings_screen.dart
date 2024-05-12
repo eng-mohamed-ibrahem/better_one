@@ -1,19 +1,48 @@
 import 'package:better_one/config/generate_router.dart';
+import 'package:better_one/core/utils/dependency_locator/dependency_injection.dart';
 import 'package:better_one/core/utils/shared_widgets/back_button_l10n.dart';
+import 'package:better_one/core/utils/shared_widgets/loading_data.dart';
+import 'package:better_one/core/utils/shared_widgets/show_bottom_sheet.dart';
 import 'package:better_one/model/settings_item_model/setting_item_model.dart';
+import 'package:better_one/view/widgets/setting_widgets/language_setting_widget.dart';
 import 'package:better_one/view/widgets/setting_widgets/setting_item_widget.dart';
+import 'package:better_one/view/widgets/setting_widgets/theme_setting_widget.dart';
+import 'package:better_one/view_models/setting_viewmodel/setting_viewmode.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:feedback/feedback.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../core/constants/constants.dart';
 
-class SettingScreen extends StatelessWidget {
+class SettingScreen extends StatefulWidget {
   const SettingScreen({super.key});
 
   @override
+  State<SettingScreen> createState() => _SettingScreenState();
+}
+
+class _SettingScreenState extends State<SettingScreen> with RouteAware {
+  @override
+  void didChangeDependencies() {
+    routeObserver.subscribe(this, ModalRoute.of(context)!);
+    super.didChangeDependencies();
+  }
+
+  @override
+  void didPopNext() {
+    GenerateRouter.activeRoute = GenerateRouter.settingScreen;
+    super.didPop();
+  }
+
+  @override
+  void dispose() {
+    routeObserver.unsubscribe(this);
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
-    List<SettingItemModel> settingItems = generateSettingItems();
     return Scaffold(
       appBar: PreferredSize(
         preferredSize:
@@ -22,9 +51,7 @@ class SettingScreen extends StatelessWidget {
           tag: 'app_settings',
           transitionOnUserGestures: true,
           child: AppBar(
-            centerTitle: true,
             elevation: 0,
-            titleTextStyle: Theme.of(context).textTheme.titleMedium,
             leading: const FittedBox(
               fit: BoxFit.scaleDown,
               child: BackButtonLl10n(),
@@ -33,40 +60,54 @@ class SettingScreen extends StatelessWidget {
           ),
         ),
       ),
-      body: ListView.separated(
-        padding: const EdgeInsets.all(AppMetrices.widthSpace),
-        itemCount: settingItems.length,
-        itemBuilder: (context, index) {
-          return Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              SettingItem(
-                title: settingItems[index].title,
-                subTitle: settingItems[index].subTitle,
-                onTap: () {
-                  if (index == 4) {
-                    showFeedback(context);
-                  } else {
-                    Navigator.pushNamed(
-                      context,
-                      settingItems[index].path!,
-                      arguments: settingItems[index].title,
-                    );
-                  }
-                },
-                leadingIcon: settingItems[index].leadingIcon,
-              ),
-              const SizedBox(height: AppMetrices.heightSpace),
-            ],
+      body: BlocBuilder<SettingViewModel, SettingViewModelState>(
+        builder: (context, state) {
+          List<SettingItemModel> settingItems = generateSettingItems();
+          return ListView.separated(
+            padding: const EdgeInsets.all(AppMetrices.widthSpace),
+            itemCount: settingItems.length,
+            itemBuilder: (context, index) {
+              return Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  SettingItem(
+                    title: settingItems[index].title,
+                    subTitle: settingItems[index].subTitle,
+                    onTap: () {
+                      if (index == 0 || index == 1) {
+                        showSheet(
+                          context,
+                          content: index == 0
+                              ? state.isGetLanguageLoading
+                                  ? const LoadingDataShimmer()
+                                  : const LanguageSetting()
+                              : const ThemeSetting(),
+                        );
+                      } else if (index == 4) {
+                        showFeedback(context);
+                      } else {
+                        Navigator.pushNamed(
+                          context,
+                          settingItems[index].path!,
+                          arguments: settingItems[index].title,
+                        );
+                      }
+                    },
+                    leadingIcon: settingItems[index].leadingIcon,
+                  ),
+                  const SizedBox(height: AppMetrices.heightSpace),
+                ],
+              );
+            },
+            separatorBuilder: (context, index) => const Divider(
+              thickness: 2,
+              color: AppColors.secondColor,
+              height: 10,
+              indent: 20,
+              endIndent: 20,
+            ),
           );
         },
-        separatorBuilder: (context, index) => const Divider(
-          thickness: 2,
-          color: AppColors.secondColor,
-          height: 10,
-          indent: 20,
-          endIndent: 20,
-        ),
       ),
     );
   }

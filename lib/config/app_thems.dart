@@ -24,12 +24,24 @@ class AppThemes {
     checkboxTheme: checkboxTheme(),
     dividerTheme: dividerTheme(),
     cardTheme: cardTheme(),
+    bottomSheetTheme: bottomSheetTheme(),
     // datePickerTheme: DatePickerThemeData(
     //   backgroundColor: AppColors.secondColor,
     //   dayStyle: textTheme().bodySmall,
     //   dayForegroundColor: const MaterialStatePropertyAll(AppColors.white),
     // ),
   );
+
+  static BottomSheetThemeData bottomSheetTheme() {
+    return BottomSheetThemeData(
+      backgroundColor: AppColors.primaryColor,
+      dragHandleColor: AppColors.secondColor,
+      showDragHandle: true,
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(AppMetrices.borderRadius1),
+      ),
+    );
+  }
 
   static CardTheme cardTheme() {
     return CardTheme(
@@ -119,6 +131,8 @@ class AppThemes {
     return AppBarTheme(
       backgroundColor: AppColors.primaryColor,
       iconTheme: iconTheme(),
+      titleTextStyle: textTheme().titleMedium,
+      centerTitle: true,
     );
   }
 
@@ -247,6 +261,10 @@ class AppThemes {
     checkboxTheme: lightCheckboxTheme(),
     dividerTheme: lightDividerTheme(),
     cardTheme: lightCardTheme(),
+    bottomSheetTheme: bottomSheetTheme().copyWith(
+      dragHandleColor: AppColors.lightSecondColor,
+      backgroundColor: AppColors.lightPrimaryColor,
+    ),
   );
 
   static CardTheme lightCardTheme() {
@@ -415,6 +433,7 @@ class AppThemes {
   static AppBarTheme lightAppBarTheme() {
     return appBarTheme().copyWith(
       backgroundColor: AppColors.lightPrimaryColor,
+      titleTextStyle: lightTextTheme().titleMedium,
     );
   }
 

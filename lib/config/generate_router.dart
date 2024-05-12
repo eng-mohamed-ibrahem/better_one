@@ -3,11 +3,9 @@ import 'package:better_one/view/pages/auth/signup_page.dart';
 import 'package:better_one/view/pages/home/home_screen.dart';
 import 'package:better_one/view/pages/onborading/onboarding_screen.dart';
 import 'package:better_one/view/pages/settings/account_setting_screen.dart';
-import 'package:better_one/view/pages/settings/language_setting_screen.dart';
 import 'package:better_one/view/pages/settings/notification_setting_screen.dart';
 import 'package:better_one/view/pages/settings/search_setting_screen.dart';
 import 'package:better_one/view/pages/settings/settings_screen.dart';
-import 'package:better_one/view/pages/settings/theme_setting_screen.dart';
 import 'package:better_one/view/pages/splash/splash_screen.dart';
 import 'package:better_one/view/pages/write_task/task_screen.dart';
 import 'package:easy_localization/easy_localization.dart';
@@ -83,24 +81,7 @@ class GenerateRouter {
             builder: (context) => const SettingScreen(),
           );
         }
-      case languageSettingScreen:
-        {
-          activeRoute = languageSettingScreen;
-          return MaterialPageRoute(
-            builder: (context) => LanguageSettingScreen(
-              title: settings.arguments as String,
-            ),
-          );
-        }
-      case themeSettingScreen:
-        {
-          activeRoute = themeSettingScreen;
-          return MaterialPageRoute(
-            builder: (context) => ThemeSettingScreen(
-              title: settings.arguments as String,
-            ),
-          );
-        }
+
       case searchSettingScreen:
         {
           activeRoute = searchSettingScreen;

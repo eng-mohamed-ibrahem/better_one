@@ -32,7 +32,7 @@ class _AuthFieldState extends State<AuthField> {
       controller: widget.controller,
       validator: widget.validator,
       autovalidateMode: AutovalidateMode.onUserInteraction,
-      obscureText: isPasswordVisible,
+      obscureText: !isPasswordVisible,
       decoration: InputDecoration(
         labelText: widget.labelText,
         hintText: widget.hintText,

@@ -42,101 +42,116 @@ class _SignUpState extends State<SignUp> {
         ),
       ),
       body: SingleChildScrollView(
-        padding: const EdgeInsets.all(AppMetrices.borderRadius1),
-        child: Card(
-          child: Form(
-            key: _globalFormKey,
-            child: Column(
-              children: [
-                AuthField(
-                  controller: userName,
-                  validator: (value) {
-                    if (value!.isEmpty) {
-                      return 'auth.required.name'.tr();
-                    }
-                    return null;
-                  },
-                  hintText: 'auth.u_name'.tr(),
-                  labelText: 'auth.u_name'.tr(),
-                ),
-                const SizedBox(
-                  height: AppMetrices.heightSpace,
-                ),
-                AuthField(
-                  controller: email,
-                  validator: (value) {
-                    if (value!.isEmpty) {
-                      return 'auth.required.email'.tr();
-                    }
-                    return null;
-                  },
-                  hintText: 'auth.u_email'.tr(),
-                  labelText: 'auth.u_email'.tr(),
-                ),
-                const SizedBox(
-                  height: AppMetrices.heightSpace,
-                ),
-                AuthField(
-                  controller: password,
-                  isItPassword: true,
-                  validator: (value) {
-                    if (value!.isEmpty) {
-                      return 'auth.required.pass'.tr();
-                    }
-                    return null;
-                  },
-                  hintText: 'auth.u_pass'.tr(),
-                  labelText: 'auth.u_pass'.tr(),
-                ),
-                const SizedBox(
-                  height: AppMetrices.heightSpace,
-                ),
-                AuthField(
-                  controller: confirmPassword,
-                  isItPassword: true,
-                  validator: (value) {
-                    if (confirmPassword.text != password.text) {
-                      return 'auth.required.confirm_pass'.tr();
-                    }
-                    return null;
-                  },
-                  hintText: 'auth.confirm_u_pass'.tr(),
-                  labelText: 'auth.confirm_u_pass'.tr(),
-                ),
-                Expanded(
-                  child: BlocConsumer<AuthViewmodel, AuthViewmodelState>(
-                    listener: (context, state) {
-                      if (state.isSignupFailed) {
-                        showSnackBar(context, message: state.errorMessage!);
-                      }
-                      if (state.isSignupSuccess) {
-                        showSnackBar(context, message: 'auth.signup_succ'.tr());
-                        userLocaleDatabase.setUserDataToLocale(
-                          user: state.userModel!.toJson(),
-                        );
-                      }
-                    },
-                    builder: (context, state) {
-                      if (state.isSignupLoading) {
-                        return const CircularProgressIndicator();
-                      }
-                      return FilledButton(
-                        onPressed: () {
-                          if (_globalFormKey.currentState!.validate()) {
-                            AuthViewmodel.get(context).signup(
-                                email: email.text, password: password.text);
+        child: Column(
+          children: [
+            Card(
+              child: Form(
+                key: _globalFormKey,
+                child: Padding(
+                  padding: const EdgeInsets.all(AppMetrices.padding),
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      const SizedBox(
+                        height: AppMetrices.heightSpace,
+                      ),
+                      AuthField(
+                        controller: userName,
+                        validator: (value) {
+                          if (value!.isEmpty) {
+                            return 'auth.required.name'.tr();
                           }
+                          return null;
                         },
-                        child: Text(
-                          'auth.signup'.tr(),
-                        ),
-                      );
-                    },
+                        hintText: 'auth.u_name'.tr(),
+                        labelText: 'auth.u_name'.tr(),
+                      ),
+                      const SizedBox(
+                        height: AppMetrices.heightSpace2,
+                      ),
+                      AuthField(
+                        controller: email,
+                        validator: (value) {
+                          if (value!.isEmpty) {
+                            return 'auth.required.email'.tr();
+                          }
+                          return null;
+                        },
+                        hintText: 'auth.u_email'.tr(),
+                        labelText: 'auth.u_email'.tr(),
+                      ),
+                      const SizedBox(
+                        height: AppMetrices.heightSpace2,
+                      ),
+                      AuthField(
+                        controller: password,
+                        isItPassword: true,
+                        validator: (value) {
+                          if (value!.isEmpty) {
+                            return 'auth.required.pass'.tr();
+                          }
+                          return null;
+                        },
+                        hintText: 'auth.u_pass'.tr(),
+                        labelText: 'auth.u_pass'.tr(),
+                      ),
+                      const SizedBox(
+                        height: AppMetrices.heightSpace2,
+                      ),
+                      AuthField(
+                        controller: confirmPassword,
+                        isItPassword: true,
+                        validator: (value) {
+                          if (confirmPassword.text != password.text) {
+                            return 'auth.required.confirm_pass'.tr();
+                          }
+                          return null;
+                        },
+                        hintText: 'auth.confirm_u_pass'.tr(),
+                        labelText: 'auth.confirm_u_pass'.tr(),
+                      ),
+                      const SizedBox(
+                        height: AppMetrices.heightSpace,
+                      ),
+                    ],
                   ),
-                )
-              ],
+                ),
+              ),
             ),
-          ),
+            const SizedBox(
+              height: AppMetrices.heightSpace3,
+            ),
+            BlocConsumer<AuthViewmodel, AuthViewmodelState>(
+              listener: (context, state) {
+                if (state.isSignupFailed) {
+                  showSnackBar(context, message: state.errorMessage!);
+                }
+                if (state.isSignupSuccess) {
+                  showSnackBar(context, message: 'auth.signup_succ'.tr());
+                  userLocaleDatabase.setUserDataToLocale(
+                    user: state.userModel!.toJson(),
+                  );
+                  // set user data to userViewmodel
+                }
+              },
+              builder: (context, state) {
+                if (state.isSignupLoading) {
+                  return const CircularProgressIndicator();
+                }
+                return FilledButton(
+                  onPressed: () {
+                    if (_globalFormKey.currentState!.validate()) {
+                      AuthViewmodel.get(context)
+                          .signup(email: email.text, password: password.text);
+                    }
+                  },
+                  child: Text(
+                    'auth.signup'.tr(),
+                  ),
+                );
+              },
+            )
+          ],
         ),
       ),
     );

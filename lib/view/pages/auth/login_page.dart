@@ -38,79 +38,86 @@ class _LoginState extends State<LogIn> {
         ),
       ),
       body: SingleChildScrollView(
-        padding: const EdgeInsets.all(AppMetrices.borderRadius1),
-        child: Card(
-          child: Form(
-            key: _globalFormKey,
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                const SizedBox(
-                  height: AppMetrices.heightSpace,
-                ),
-                AuthField(
-                  controller: email,
-                  validator: (value) {
-                    if (value!.isEmpty) {
-                      return 'auth.required.email'.tr();
-                    }
-                    return null;
-                  },
-                  hintText: 'auth.u_email'.tr(),
-                  labelText: 'auth.u_email'.tr(),
-                ),
-                const SizedBox(
-                  height: AppMetrices.heightSpace,
-                ),
-                AuthField(
-                  controller: password,
-                  isItPassword: true,
-                  validator: (value) {
-                    if (value!.isEmpty) {
-                      return 'auth.required.pass'.tr();
-                    }
-                    return null;
-                  },
-                  hintText: 'auth.u_pass'.tr(),
-                  labelText: 'auth.u_pass'.tr(),
-                ),
-                const SizedBox(
-                  height: AppMetrices.heightSpace,
-                ),
-                Expanded(
-                  child: BlocConsumer<AuthViewmodel, AuthViewmodelState>(
-                    listener: (context, state) {
-                      if (state.isLoginFailed) {
-                        showSnackBar(context, message: state.errorMessage!);
-                      }
-                      if (state.isLoginSuccess) {
-                        showSnackBar(context, message: 'auth.login_succ'.tr());
-                        userLocaleDatabase.setUserDataToLocale(
-                          user: state.userModel!.toJson(),
-                        );
-                      }
-                    },
-                    builder: (context, state) {
-                      if (state.isSignupLoading) {
-                        return const CircularProgressIndicator();
-                      }
-                      return FilledButton(
-                        onPressed: () {
-                          if (_globalFormKey.currentState!.validate()) {
-                            AuthViewmodel.get(context).login(
-                                email: email.text, password: password.text);
+        child: Column(
+          children: [
+            Card(
+              child: Form(
+                key: _globalFormKey,
+                child: Padding(
+                  padding: const EdgeInsets.all(AppMetrices.padding),
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      const SizedBox(
+                        height: AppMetrices.heightSpace,
+                      ),
+                      AuthField(
+                        controller: email,
+                        validator: (value) {
+                          if (value!.isEmpty) {
+                            return 'auth.required.email'.tr();
                           }
+                          return null;
                         },
-                        child: Text(
-                          'auth.login'.tr(),
-                        ),
-                      );
-                    },
+                        hintText: 'auth.u_email'.tr(),
+                        labelText: 'auth.u_email'.tr(),
+                      ),
+                      const SizedBox(
+                        height: AppMetrices.heightSpace,
+                      ),
+                      AuthField(
+                        controller: password,
+                        isItPassword: true,
+                        validator: (value) {
+                          if (value!.isEmpty) {
+                            return 'auth.required.pass'.tr();
+                          }
+                          return null;
+                        },
+                        hintText: 'auth.u_pass'.tr(),
+                        labelText: 'auth.u_pass'.tr(),
+                      ),
+                      const SizedBox(
+                        height: AppMetrices.heightSpace,
+                      ),
+                    ],
                   ),
-                )
-              ],
+                ),
+              ),
             ),
-          ),
+            const SizedBox(
+              height: AppMetrices.heightSpace3,
+            ),
+            BlocConsumer<AuthViewmodel, AuthViewmodelState>(
+              listener: (context, state) {
+                if (state.isLoginFailed) {
+                  showSnackBar(context, message: state.errorMessage!);
+                }
+                if (state.isLoginSuccess) {
+                  showSnackBar(context, message: 'auth.login_succ'.tr());
+                  userLocaleDatabase.setUserDataToLocale(
+                    user: state.userModel!.toJson(),
+                  );
+                }
+              },
+              builder: (context, state) {
+                if (state.isSignupLoading) {
+                  return const CircularProgressIndicator();
+                }
+                return FilledButton(
+                  onPressed: () {
+                    if (_globalFormKey.currentState!.validate()) {
+                      AuthViewmodel.get(context)
+                          .login(email: email.text, password: password.text);
+                    }
+                  },
+                  child: Text(
+                    'auth.login'.tr(),
+                  ),
+                );
+              },
+            )
+          ],
         ),
       ),
     );
