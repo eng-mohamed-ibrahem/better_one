@@ -54,7 +54,7 @@ class _SettingScreenState extends State<SettingScreen> with RouteAware {
             elevation: 0,
             leading: const FittedBox(
               fit: BoxFit.scaleDown,
-              child: BackButtonLl10n(),
+              child: BackButtonl10n(),
             ),
             title: Text('setting.name'.tr()),
           ),
@@ -64,7 +64,7 @@ class _SettingScreenState extends State<SettingScreen> with RouteAware {
         builder: (context, state) {
           List<SettingItemModel> settingItems = generateSettingItems();
           return ListView.separated(
-            padding: const EdgeInsets.all(AppMetrices.widthSpace),
+            padding: const EdgeInsets.all(AppMetrices.horizontalGap),
             itemCount: settingItems.length,
             itemBuilder: (context, index) {
               return Column(
@@ -95,7 +95,7 @@ class _SettingScreenState extends State<SettingScreen> with RouteAware {
                     },
                     leadingIcon: settingItems[index].leadingIcon,
                   ),
-                  const SizedBox(height: AppMetrices.heightSpace),
+                  const SizedBox(height: AppMetrices.verticalGap),
                 ],
               );
             },

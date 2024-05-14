@@ -19,7 +19,7 @@ class ThemeSetting extends StatelessWidget {
             currentTheme == ThemeMode.dark
                 ? const Icon(FontAwesomeIcons.moon)
                 : const Icon(Icons.light_mode),
-            const SizedBox(width: AppMetrices.widthSpace),
+            const SizedBox(width: AppMetrices.horizontalGap),
             IconButton(
               onPressed: () {
                 ThemeViewModel.get(context).toggleTheme();
@@ -28,7 +28,7 @@ class ThemeSetting extends StatelessWidget {
               icon: const Icon(Icons.compare_arrows_rounded,
                   color: AppColors.hightlightColor),
             ),
-            const SizedBox(width: AppMetrices.widthSpace),
+            const SizedBox(width: AppMetrices.horizontalGap),
             currentTheme == ThemeMode.dark
                 ? const Icon(Icons.light_mode)
                 : const Icon(

@@ -21,13 +21,62 @@ class UserViewmodel extends Cubit<UserViewmodelState> {
           ),
         );
       },
-      failure: (failer) {
+      failure: (failure) {
         emit(
           state.copyWith(
             isLogoutLoading: false,
-            isLogoutSuccess: false,
             isLogoutFailed: true,
-            errorMessage: failer.message,
+            errorMessage: failure.message,
+          ),
+        );
+      },
+    );
+  }
+
+  void getUserDetails() async {
+    emit(release().copyWith(isGetUserDetailsLoading: true));
+    var userData = await userRepo.getUserDetails();
+    userData.when(
+      success: (user) {
+        emit(
+          state.copyWith(
+            isGetUserDetailsLoading: false,
+            isGetUserDetailsSuccess: true,
+            user: user,
+          ),
+        );
+      },
+      failure: (failure) {
+        emit(
+          state.copyWith(
+            isGetUserDetailsLoading: false,
+            isGetUserDetailsFailed: true,
+            errorMessage: failure.message,
+          ),
+        );
+      },
+    );
+  }
+
+  void isActive() async {
+    emit(release().copyWith(isUserActiveLoading: true));
+    var userActive = await userRepo.isActive();
+    userActive.when(
+      success: (isActive) {
+        emit(
+          state.copyWith(
+            isUserActiveLoading: false,
+            isUserActiveSuccess: true,
+            isActive: isActive,
+          ),
+        );
+      },
+      failure: (failure) {
+        emit(
+          state.copyWith(
+            isUserActiveLoading: false,
+            isUserActiveFailed: true,
+            errorMessage: failure.message,
           ),
         );
       },
@@ -39,6 +88,12 @@ class UserViewmodel extends Cubit<UserViewmodelState> {
       isLogoutLoading: false,
       isLogoutFailed: false,
       isLogoutSuccess: false,
+      isGetUserDetailsFailed: false,
+      isGetUserDetailsLoading: false,
+      isGetUserDetailsSuccess: false,
+      isUserActiveFailed: false,
+      isUserActiveLoading: false,
+      isUserActiveSuccess: false,
       errorMessage: null,
     );
   }

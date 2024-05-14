@@ -40,7 +40,7 @@ class _NotificationScreenState extends State<NotificationSettingScreen> {
         title: Text(widget.title),
         leading: const FittedBox(
           fit: BoxFit.scaleDown,
-          child: BackButtonLl10n(),
+          child: BackButtonl10n(),
         ),
       ),
       body: Container(

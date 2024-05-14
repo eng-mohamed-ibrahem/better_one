@@ -148,7 +148,7 @@ class AppThemes {
       iconColor: AppColors.textButtonColor,
       textColor: AppColors.white,
       tileColor: AppColors.primaryColor,
-      contentPadding: EdgeInsets.all(AppMetrices.widthSpace),
+      contentPadding: EdgeInsets.all(AppMetrices.horizontalGap),
       style: ListTileStyle.drawer,
     );
   }
@@ -186,7 +186,7 @@ class AppThemes {
         filled: true,
         border: InputBorder.none,
         labelStyle: TextStyle(color: AppColors.textButtonColor),
-        contentPadding: EdgeInsets.all(AppMetrices.widthSpace),
+        contentPadding: EdgeInsets.all(AppMetrices.horizontalGap),
         isDense: true,
         iconColor: AppColors.textButtonColor,
         suffixIconColor: AppColors.textButtonColor,
@@ -326,7 +326,7 @@ class AppThemes {
         filled: true,
         border: InputBorder.none,
         labelStyle: TextStyle(color: AppColors.lightTextButtonColor),
-        contentPadding: EdgeInsets.all(AppMetrices.widthSpace),
+        contentPadding: EdgeInsets.all(AppMetrices.horizontalGap),
         isDense: true,
         iconColor: AppColors.lightTextButtonColor,
         suffixIconColor: AppColors.lightTextButtonColor,
@@ -352,7 +352,7 @@ class AppThemes {
       iconColor: AppColors.lightTextButtonColor,
       textColor: AppColors.lightWhite,
       tileColor: AppColors.lightPrimaryColor,
-      contentPadding: const EdgeInsets.all(AppMetrices.widthSpace),
+      contentPadding: const EdgeInsets.all(AppMetrices.horizontalGap),
       style: ListTileStyle.drawer,
     );
   }

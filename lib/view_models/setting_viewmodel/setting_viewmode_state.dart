@@ -36,7 +36,5 @@ class SettingViewModelState with _$SettingViewModelState {
     @Default(false) bool isNotificationSettingsFailed,
     //* error message
     @Default(null) String? errorMessage,
-    // * current tapped item
-    @Default(-1) int currentTappedItemIndex,
   }) = _SettingViewModelState;
 }

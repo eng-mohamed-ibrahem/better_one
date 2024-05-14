@@ -33,13 +33,13 @@ class OnboardingScreen extends StatelessWidget {
                           fit: BoxFit.contain,
                         ),
                       ),
-                      const SizedBox(height: AppMetrices.heightSpace),
+                      const SizedBox(height: AppMetrices.verticalGap),
                       Text(
                         onboardingList[index].title,
                         style: Theme.of(context).textTheme.titleLarge,
                         textAlign: TextAlign.center,
                       ),
-                      const SizedBox(height: AppMetrices.heightSpace),
+                      const SizedBox(height: AppMetrices.verticalGap),
                       Text(
                         onboardingList[index].description,
                         style: Theme.of(context).textTheme.bodyMedium,

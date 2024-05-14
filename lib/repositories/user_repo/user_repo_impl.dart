@@ -12,10 +12,10 @@ class UserRepoImpl implements UserRepoInterface {
   final UserSourceInterface userSource;
 
   @override
-  Future<ResultHandler<UserModel, Failure>> getUserData() async {
+  Future<ResultHandler<UserModel, Failure>> getUserDetails() async {
     var connected = await NetworkConnection.isConnected();
     if (connected) {
-      return await userSource.getUserData();
+      return await userSource.getUserDetails();
     } else {
       return ResultHandler.failure(
           error: OtherFailure(message: 'core.no_intenet'.tr()));
@@ -26,7 +26,7 @@ class UserRepoImpl implements UserRepoInterface {
   Future<ResultHandler<bool, Failure>> isActive() async {
     var connected = await NetworkConnection.isConnected();
     if (connected) {
-      return userSource.isActive();
+      return await userSource.isActive();
     } else {
       return ResultHandler.failure(
           error: OtherFailure(message: 'core.no_intenet'.tr()));
@@ -37,7 +37,7 @@ class UserRepoImpl implements UserRepoInterface {
   Future<ResultHandler<bool, Failure>> logOut() async {
     var connected = await NetworkConnection.isConnected();
     if (connected) {
-      return userSource.logOut();
+      return await userSource.logOut();
     } else {
       return ResultHandler.failure(
           error: OtherFailure(message: 'core.no_intenet'.tr()));

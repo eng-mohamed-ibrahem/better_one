@@ -34,7 +34,7 @@ class _LoginState extends State<LogIn> {
         title: Text('auth.access_account'.tr()),
         leading: const FittedBox(
           fit: BoxFit.scaleDown,
-          child: BackButtonLl10n(),
+          child: BackButtonl10n(),
         ),
       ),
       body: SingleChildScrollView(
@@ -49,7 +49,7 @@ class _LoginState extends State<LogIn> {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       const SizedBox(
-                        height: AppMetrices.heightSpace,
+                        height: AppMetrices.verticalGap,
                       ),
                       AuthField(
                         controller: email,
@@ -63,7 +63,7 @@ class _LoginState extends State<LogIn> {
                         labelText: 'auth.u_email'.tr(),
                       ),
                       const SizedBox(
-                        height: AppMetrices.heightSpace,
+                        height: AppMetrices.verticalGap,
                       ),
                       AuthField(
                         controller: password,
@@ -78,7 +78,7 @@ class _LoginState extends State<LogIn> {
                         labelText: 'auth.u_pass'.tr(),
                       ),
                       const SizedBox(
-                        height: AppMetrices.heightSpace,
+                        height: AppMetrices.verticalGap,
                       ),
                     ],
                   ),
@@ -86,7 +86,7 @@ class _LoginState extends State<LogIn> {
               ),
             ),
             const SizedBox(
-              height: AppMetrices.heightSpace3,
+              height: AppMetrices.verticalGap3,
             ),
             BlocConsumer<AuthViewmodel, AuthViewmodelState>(
               listener: (context, state) {

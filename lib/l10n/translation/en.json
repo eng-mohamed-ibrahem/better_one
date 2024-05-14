@@ -100,7 +100,8 @@
             "title": "Account",
             "subtitle": "Manage your account",
             "cloud_upload": "Do you want to upload your tasks?",
-            "has_account": "Already have account?"
+            "has_account": "Already have account?",
+            "or":"Or"
         }
     },
     "auth": {

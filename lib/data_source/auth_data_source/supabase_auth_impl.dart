@@ -6,7 +6,7 @@ import 'package:better_one/model/user_model/user_model.dart';
 
 class SupabaseAuthImpl implements AuthInterface {
   @override
-  Future<ResultHandler<UserModel, ApiFailure>> logIn(
+  Future<ResultHandler<UserModel, SupabaseFailure>> logIn(
       {required String email, required String password}) async {
     try {
       var result = await client.userAccount.auth
@@ -23,12 +23,12 @@ class SupabaseAuthImpl implements AuthInterface {
       );
     } catch (e) {
       return ResultHandler.failure(
-          error: ApiFailure.fromSupabaseError(message: e.toString()));
+          error: SupabaseFailure(message: e.toString()));
     }
   }
 
   @override
-  Future<ResultHandler<UserModel, ApiFailure>> signUp(
+  Future<ResultHandler<UserModel, SupabaseFailure>> signUp(
       {required String email, required String password}) async {
     try {
       var result = await client.userAccount.auth
@@ -45,7 +45,7 @@ class SupabaseAuthImpl implements AuthInterface {
       );
     } catch (e) {
       return ResultHandler.failure(
-          error: ApiFailure.fromSupabaseError(message: e.toString()));
+          error: SupabaseFailure(message: e.toString()));
     }
   }
 }

@@ -48,9 +48,7 @@ mixin _$SettingViewModelState {
       throw _privateConstructorUsedError;
   bool get isNotificationSettingsFailed =>
       throw _privateConstructorUsedError; //* error message
-  String? get errorMessage =>
-      throw _privateConstructorUsedError; // * current tapped item
-  int get currentTappedItemIndex => throw _privateConstructorUsedError;
+  String? get errorMessage => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $SettingViewModelStateCopyWith<SettingViewModelState> get copyWith =>
@@ -89,8 +87,7 @@ abstract class $SettingViewModelStateCopyWith<$Res> {
       bool isNotificationSettingsLoading,
       bool isNotificationSettingsCompleted,
       bool isNotificationSettingsFailed,
-      String? errorMessage,
-      int currentTappedItemIndex});
+      String? errorMessage});
 }
 
 /// @nodoc
@@ -133,7 +130,6 @@ class _$SettingViewModelStateCopyWithImpl<$Res,
     Object? isNotificationSettingsCompleted = null,
     Object? isNotificationSettingsFailed = null,
     Object? errorMessage = freezed,
-    Object? currentTappedItemIndex = null,
   }) {
     return _then(_value.copyWith(
       isInitial: null == isInitial
@@ -240,10 +236,6 @@ class _$SettingViewModelStateCopyWithImpl<$Res,
           ? _value.errorMessage
           : errorMessage // ignore: cast_nullable_to_non_nullable
               as String?,
-      currentTappedItemIndex: null == currentTappedItemIndex
-          ? _value.currentTappedItemIndex
-          : currentTappedItemIndex // ignore: cast_nullable_to_non_nullable
-              as int,
     ) as $Val);
   }
 }
@@ -283,8 +275,7 @@ abstract class _$$SettingViewModelStateImplCopyWith<$Res>
       bool isNotificationSettingsLoading,
       bool isNotificationSettingsCompleted,
       bool isNotificationSettingsFailed,
-      String? errorMessage,
-      int currentTappedItemIndex});
+      String? errorMessage});
 }
 
 /// @nodoc
@@ -325,7 +316,6 @@ class __$$SettingViewModelStateImplCopyWithImpl<$Res>
     Object? isNotificationSettingsCompleted = null,
     Object? isNotificationSettingsFailed = null,
     Object? errorMessage = freezed,
-    Object? currentTappedItemIndex = null,
   }) {
     return _then(_$SettingViewModelStateImpl(
       isInitial: null == isInitial
@@ -432,10 +422,6 @@ class __$$SettingViewModelStateImplCopyWithImpl<$Res>
           ? _value.errorMessage
           : errorMessage // ignore: cast_nullable_to_non_nullable
               as String?,
-      currentTappedItemIndex: null == currentTappedItemIndex
-          ? _value.currentTappedItemIndex
-          : currentTappedItemIndex // ignore: cast_nullable_to_non_nullable
-              as int,
     ));
   }
 }
@@ -469,8 +455,7 @@ class _$SettingViewModelStateImpl implements _SettingViewModelState {
       this.isNotificationSettingsLoading = false,
       this.isNotificationSettingsCompleted = false,
       this.isNotificationSettingsFailed = false,
-      this.errorMessage = null,
-      this.currentTappedItemIndex = -1});
+      this.errorMessage = null});
 
   @override
   @JsonKey()
@@ -557,14 +542,10 @@ class _$SettingViewModelStateImpl implements _SettingViewModelState {
   @override
   @JsonKey()
   final String? errorMessage;
-// * current tapped item
-  @override
-  @JsonKey()
-  final int currentTappedItemIndex;
 
   @override
   String toString() {
-    return 'SettingViewModelState(isInitial: $isInitial, isChangeLanguageLoading: $isChangeLanguageLoading, isChangeLanguageCompleted: $isChangeLanguageCompleted, isChangeLanguageFailed: $isChangeLanguageFailed, isGetLanguageLoading: $isGetLanguageLoading, isGetLanguageCompleted: $isGetLanguageCompleted, isGetLanguageFailed: $isGetLanguageFailed, currentLanguage: $currentLanguage, isSearchByTitle: $isSearchByTitle, isSearchByBody: $isSearchByBody, isSearchByDate: $isSearchByDate, isSearchByStatus: $isSearchByStatus, isSetSearchSettingsCompleted: $isSetSearchSettingsCompleted, isSetSearchSettingsFailed: $isSetSearchSettingsFailed, isGetSearchSettingsCompleted: $isGetSearchSettingsCompleted, isGetSearchSettingsFailed: $isGetSearchSettingsFailed, isNotificationOnAdd: $isNotificationOnAdd, isNotificationOnUpdate: $isNotificationOnUpdate, isNotificationOnComplete: $isNotificationOnComplete, isNotificationOnReminder: $isNotificationOnReminder, reminderDateTime: $reminderDateTime, repeatReminder: $repeatReminder, isNotificationSettingsLoading: $isNotificationSettingsLoading, isNotificationSettingsCompleted: $isNotificationSettingsCompleted, isNotificationSettingsFailed: $isNotificationSettingsFailed, errorMessage: $errorMessage, currentTappedItemIndex: $currentTappedItemIndex)';
+    return 'SettingViewModelState(isInitial: $isInitial, isChangeLanguageLoading: $isChangeLanguageLoading, isChangeLanguageCompleted: $isChangeLanguageCompleted, isChangeLanguageFailed: $isChangeLanguageFailed, isGetLanguageLoading: $isGetLanguageLoading, isGetLanguageCompleted: $isGetLanguageCompleted, isGetLanguageFailed: $isGetLanguageFailed, currentLanguage: $currentLanguage, isSearchByTitle: $isSearchByTitle, isSearchByBody: $isSearchByBody, isSearchByDate: $isSearchByDate, isSearchByStatus: $isSearchByStatus, isSetSearchSettingsCompleted: $isSetSearchSettingsCompleted, isSetSearchSettingsFailed: $isSetSearchSettingsFailed, isGetSearchSettingsCompleted: $isGetSearchSettingsCompleted, isGetSearchSettingsFailed: $isGetSearchSettingsFailed, isNotificationOnAdd: $isNotificationOnAdd, isNotificationOnUpdate: $isNotificationOnUpdate, isNotificationOnComplete: $isNotificationOnComplete, isNotificationOnReminder: $isNotificationOnReminder, reminderDateTime: $reminderDateTime, repeatReminder: $repeatReminder, isNotificationSettingsLoading: $isNotificationSettingsLoading, isNotificationSettingsCompleted: $isNotificationSettingsCompleted, isNotificationSettingsFailed: $isNotificationSettingsFailed, errorMessage: $errorMessage)';
   }
 
   @override
@@ -622,8 +603,7 @@ class _$SettingViewModelStateImpl implements _SettingViewModelState {
                 other.isNotificationSettingsLoading == isNotificationSettingsLoading) &&
             (identical(other.isNotificationSettingsCompleted, isNotificationSettingsCompleted) || other.isNotificationSettingsCompleted == isNotificationSettingsCompleted) &&
             (identical(other.isNotificationSettingsFailed, isNotificationSettingsFailed) || other.isNotificationSettingsFailed == isNotificationSettingsFailed) &&
-            (identical(other.errorMessage, errorMessage) || other.errorMessage == errorMessage) &&
-            (identical(other.currentTappedItemIndex, currentTappedItemIndex) || other.currentTappedItemIndex == currentTappedItemIndex));
+            (identical(other.errorMessage, errorMessage) || other.errorMessage == errorMessage));
   }
 
   @override
@@ -654,8 +634,7 @@ class _$SettingViewModelStateImpl implements _SettingViewModelState {
         isNotificationSettingsLoading,
         isNotificationSettingsCompleted,
         isNotificationSettingsFailed,
-        errorMessage,
-        currentTappedItemIndex
+        errorMessage
       ]);
 
   @JsonKey(ignore: true)
@@ -693,8 +672,7 @@ abstract class _SettingViewModelState implements SettingViewModelState {
       final bool isNotificationSettingsLoading,
       final bool isNotificationSettingsCompleted,
       final bool isNotificationSettingsFailed,
-      final String? errorMessage,
-      final int currentTappedItemIndex}) = _$SettingViewModelStateImpl;
+      final String? errorMessage}) = _$SettingViewModelStateImpl;
 
   @override
   bool get isInitial;
@@ -748,8 +726,6 @@ abstract class _SettingViewModelState implements SettingViewModelState {
   bool get isNotificationSettingsFailed;
   @override //* error message
   String? get errorMessage;
-  @override // * current tapped item
-  int get currentTappedItemIndex;
   @override
   @JsonKey(ignore: true)
   _$$SettingViewModelStateImplCopyWith<_$SettingViewModelStateImpl>

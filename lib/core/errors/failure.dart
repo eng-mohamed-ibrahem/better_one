@@ -1,6 +1,6 @@
 import 'package:dio/dio.dart';
 
-sealed class Failure {
+class Failure {
   const Failure({required this.message});
   final String message;
 }
@@ -47,9 +47,10 @@ class ApiFailure extends Failure {
         return const ApiFailure(message: 'Unknown error');
     }
   }
-  factory ApiFailure.fromSupabaseError({required String message}) {
-    return ApiFailure(message: message);
-  }
+}
+
+class SupabaseFailure extends Failure {
+  SupabaseFailure({required super.message});
 }
 
 class CacheFailure extends Failure {

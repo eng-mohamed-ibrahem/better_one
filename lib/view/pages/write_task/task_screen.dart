@@ -8,11 +8,11 @@ import 'package:better_one/core/utils/dialog/helper_dialog.dart';
 import 'package:better_one/core/utils/shared_widgets/back_button_l10n.dart';
 import 'package:better_one/core/utils/shared_widgets/failed.dart';
 import 'package:better_one/core/utils/shared_widgets/lottie_indicator.dart';
-import 'package:better_one/view/widgets/input_field/task_field.dart';
 import 'package:better_one/core/utils/snack_bar/snack_bar.dart';
 import 'package:better_one/model/notification_model/notification_model.dart';
 import 'package:better_one/model/task_model/task_model.dart';
 import 'package:better_one/view/widgets/duration_widget.dart';
+import 'package:better_one/view/widgets/input_field/task_field.dart';
 import 'package:better_one/view_models/home_viewmodel/home_viewmodel.dart';
 import 'package:better_one/view_models/quote_viewmodel/quote_viewmodel.dart';
 import 'package:better_one/view_models/setting_viewmodel/setting_viewmode.dart';
@@ -206,14 +206,14 @@ class _TaskScreenState extends State<TaskScreen>
             return Stack(
               alignment: AlignmentDirectional.topStart,
               children: [
-                SizedBox(height: AppMetrices.heightSpace.h),
+                SizedBox(height: AppMetrices.verticalGap.h),
                 SingleChildScrollView(
                   child: Form(
                     key: formKey,
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        SizedBox(height: AppMetrices.heightSpace3.h),
+                        SizedBox(height: AppMetrices.verticalGap3.h),
                         Padding(
                           padding:
                               EdgeInsetsDirectional.only(top: 5.h, end: 15.w),
@@ -254,11 +254,11 @@ class _TaskScreenState extends State<TaskScreen>
                             );
                           },
                         ),
-                        SizedBox(height: AppMetrices.heightSpace2.h),
+                        SizedBox(height: AppMetrices.verticalGap2.h),
                         Card(
                           child: Padding(
                             padding:
-                                EdgeInsets.only(top: AppMetrices.heightSpace.h),
+                                EdgeInsets.only(top: AppMetrices.verticalGap.h),
                             child: Column(
                               children: [
                                 TaskField(
@@ -277,10 +277,10 @@ class _TaskScreenState extends State<TaskScreen>
                                   prefixIcon: const Icon(Icons.task),
                                 ),
                                 Divider(
-                                  indent: AppMetrices.widthSpace2.w,
-                                  endIndent: AppMetrices.widthSpace2.w,
+                                  indent: AppMetrices.horizontalGap2.w,
+                                  endIndent: AppMetrices.horizontalGap2.w,
                                 ),
-                                SizedBox(height: AppMetrices.heightSpace.h),
+                                SizedBox(height: AppMetrices.verticalGap.h),
                                 TaskField(
                                   controller: descriptionController,
                                   onChanged: (value) {
@@ -377,7 +377,7 @@ class _TaskScreenState extends State<TaskScreen>
                                         ),
                                       )
                                     : const SizedBox(),
-                            SizedBox(width: AppMetrices.widthSpace2.w),
+                            SizedBox(width: AppMetrices.horizontalGap2.w),
                             task != null && task!.status != TaskStatus.done
                                 ? task!.status == TaskStatus.inprogress
                                     ? FilledButton.icon(
@@ -415,7 +415,7 @@ class _TaskScreenState extends State<TaskScreen>
                                 : const SizedBox(),
                           ],
                         ),
-                        SizedBox(height: AppMetrices.heightSpace.h),
+                        SizedBox(height: AppMetrices.verticalGap.h),
                         if (task != null)
                           Row(
                             mainAxisAlignment: MainAxisAlignment.center,
@@ -434,7 +434,7 @@ class _TaskScreenState extends State<TaskScreen>
                                   );
                                 },
                               ),
-                              SizedBox(width: AppMetrices.widthSpace2.w),
+                              SizedBox(width: AppMetrices.horizontalGap2.w),
                               FilledButton.icon(
                                 onPressed: () {
                                   showDeleteTaskDialog(
@@ -465,7 +465,7 @@ class _TaskScreenState extends State<TaskScreen>
                     ),
                   ),
                 ),
-                const BackButtonLl10n()
+                const BackButtonl10n()
               ],
             );
           },

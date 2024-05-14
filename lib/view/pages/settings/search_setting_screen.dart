@@ -17,7 +17,7 @@ class SearchSettingScreen extends StatelessWidget {
         title: Text(title),
         leading: const FittedBox(
           fit: BoxFit.scaleDown,
-          child: BackButtonLl10n(),
+          child: BackButtonl10n(),
         ),
       ),
       body: Container(

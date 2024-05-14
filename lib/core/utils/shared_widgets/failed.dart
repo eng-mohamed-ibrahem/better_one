@@ -27,7 +27,7 @@ class Failed extends StatelessWidget {
           fit: BoxFit.fill,
         ),
         SizedBox(
-          height: AppMetrices.heightSpace.h,
+          height: AppMetrices.verticalGap.h,
         ),
         Text(
           errorMessage ?? '',

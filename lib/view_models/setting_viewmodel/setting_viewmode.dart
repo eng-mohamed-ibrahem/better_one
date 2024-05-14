@@ -231,10 +231,6 @@ class SettingViewModel extends Cubit<SettingViewModelState> {
             id: NotificaitonConstants.scheduleNotificationId);
   }
 
-  void setCurrentTappedItemIndex(int index) {
-    emit(release().copyWith(currentTappedItemIndex: index));
-  }
-
   SettingViewModelState release() {
     return state.copyWith(
       isInitial: false,

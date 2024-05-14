@@ -7,7 +7,7 @@ import 'package:easy_localization/easy_localization.dart';
 
 class RemoteUserDataSource implements UserSourceInterface {
   @override
-  Future<ResultHandler<UserModel, ApiFailure>> getUserData() async {
+  Future<ResultHandler<UserModel, SupabaseFailure>> getUserDetails() async {
     var online = await isActive();
     return online.when(
       success: (online) {
@@ -18,8 +18,7 @@ class RemoteUserDataSource implements UserSourceInterface {
           );
         } else {
           return ResultHandler.failure(
-            error:
-                ApiFailure.fromSupabaseError(message: 'core.ex_session'.tr()),
+            error: SupabaseFailure(message: 'core.ex_session'.tr()),
           );
         }
       },
@@ -30,26 +29,26 @@ class RemoteUserDataSource implements UserSourceInterface {
   }
 
   @override
-  Future<ResultHandler<bool, ApiFailure>> isActive() async {
+  Future<ResultHandler<bool, SupabaseFailure>> isActive() async {
     try {
       // if the [currentSession] is [null] so [isExpired] = true
       return ResultHandler.success(
           data: !(client.userAccount.auth.currentSession?.isExpired ?? true));
     } catch (e) {
       return ResultHandler.failure(
-        error: ApiFailure.fromSupabaseError(message: e.toString()),
+        error: SupabaseFailure(message: e.toString()),
       );
     }
   }
 
   @override
-  Future<ResultHandler<bool, ApiFailure>> logOut() async {
+  Future<ResultHandler<bool, SupabaseFailure>> logOut() async {
     try {
       await client.userAccount.auth.signOut();
       return const ResultHandler.success(data: true);
     } catch (e) {
       return ResultHandler.failure(
-          error: ApiFailure.fromSupabaseError(message: e.toString()));
+          error: SupabaseFailure(message: e.toString()));
     }
   }
 }

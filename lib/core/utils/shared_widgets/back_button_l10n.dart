@@ -1,8 +1,8 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 
-class BackButtonLl10n extends StatelessWidget {
-  const BackButtonLl10n({super.key});
+class BackButtonl10n extends StatelessWidget {
+  const BackButtonl10n({super.key});
 
   @override
   Widget build(BuildContext context) {

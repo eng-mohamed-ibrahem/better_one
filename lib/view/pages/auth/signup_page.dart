@@ -38,7 +38,7 @@ class _SignUpState extends State<SignUp> {
         title: Text('auth.cr_account'.tr()),
         leading: const FittedBox(
           fit: BoxFit.scaleDown,
-          child: BackButtonLl10n(),
+          child: BackButtonl10n(),
         ),
       ),
       body: SingleChildScrollView(
@@ -53,7 +53,7 @@ class _SignUpState extends State<SignUp> {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       const SizedBox(
-                        height: AppMetrices.heightSpace,
+                        height: AppMetrices.verticalGap,
                       ),
                       AuthField(
                         controller: userName,
@@ -67,7 +67,7 @@ class _SignUpState extends State<SignUp> {
                         labelText: 'auth.u_name'.tr(),
                       ),
                       const SizedBox(
-                        height: AppMetrices.heightSpace2,
+                        height: AppMetrices.verticalGap2,
                       ),
                       AuthField(
                         controller: email,
@@ -81,7 +81,7 @@ class _SignUpState extends State<SignUp> {
                         labelText: 'auth.u_email'.tr(),
                       ),
                       const SizedBox(
-                        height: AppMetrices.heightSpace2,
+                        height: AppMetrices.verticalGap2,
                       ),
                       AuthField(
                         controller: password,
@@ -96,7 +96,7 @@ class _SignUpState extends State<SignUp> {
                         labelText: 'auth.u_pass'.tr(),
                       ),
                       const SizedBox(
-                        height: AppMetrices.heightSpace2,
+                        height: AppMetrices.verticalGap2,
                       ),
                       AuthField(
                         controller: confirmPassword,
@@ -111,7 +111,7 @@ class _SignUpState extends State<SignUp> {
                         labelText: 'auth.confirm_u_pass'.tr(),
                       ),
                       const SizedBox(
-                        height: AppMetrices.heightSpace,
+                        height: AppMetrices.verticalGap,
                       ),
                     ],
                   ),
@@ -119,7 +119,7 @@ class _SignUpState extends State<SignUp> {
               ),
             ),
             const SizedBox(
-              height: AppMetrices.heightSpace3,
+              height: AppMetrices.verticalGap3,
             ),
             BlocConsumer<AuthViewmodel, AuthViewmodelState>(
               listener: (context, state) {

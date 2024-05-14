@@ -30,7 +30,7 @@ class TaskField extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: EdgeInsets.symmetric(
-        horizontal: AppMetrices.widthSpace2.w,
+        horizontal: AppMetrices.horizontalGap2.w,
       ),
       child: TextFormField(
         controller: controller,
