@@ -9,7 +9,8 @@
         "retry": "Try again",
         "get_started": "Ready to get started? Let's create your first task!",
         "no_intenet": "No Internet Connection, please try again",
-        "ex_session":"Session is Expired"
+        "ex_session": "Session is Expired",
+        "login_req": "Login is required firstly"
     },
     "onboarding": {
         "1": {
@@ -100,8 +101,10 @@
             "title": "Account",
             "subtitle": "Manage your account",
             "cloud_upload": "Do you want to upload your tasks?",
+            "no_account": "Do not have One?",
             "has_account": "Already have account?",
-            "or":"Or"
+            "or": "Or",
+            "email_backup": "Your tasks backed up at"
         }
     },
     "auth": {
@@ -119,8 +122,8 @@
             "pass": "Password Required",
             "confirm_pass": "Password dose not match"
         },
-        "signup_succ":"Signup Successfully",
-        "login_succ":"Login Successfully"
+        "signup_succ": "Signup Successfully",
+        "login_succ": "Login Successfully"
     },
     "time": {
         "hour": "hour",

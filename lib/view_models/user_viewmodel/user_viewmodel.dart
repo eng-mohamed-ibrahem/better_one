@@ -10,7 +10,7 @@ class UserViewmodel extends Cubit<UserViewmodelState> {
   UserViewmodel({required this.userRepo}) : super(const UserViewmodelState());
   final UserRepoInterface userRepo;
   void logout() async {
-    emit(release().copyWith(isLogoutLoading: true));
+    emit(state.copyWith(isLogoutLoading: true));
     var result = await userRepo.logOut();
     result.when(
       success: (loggedOut) {
@@ -34,7 +34,7 @@ class UserViewmodel extends Cubit<UserViewmodelState> {
   }
 
   void getUserDetails() async {
-    emit(release().copyWith(isGetUserDetailsLoading: true));
+    emit(state.copyWith(isGetUserDetailsLoading: true));
     var userData = await userRepo.getUserDetails();
     userData.when(
       success: (user) {
@@ -55,46 +55,6 @@ class UserViewmodel extends Cubit<UserViewmodelState> {
           ),
         );
       },
-    );
-  }
-
-  void isActive() async {
-    emit(release().copyWith(isUserActiveLoading: true));
-    var userActive = await userRepo.isActive();
-    userActive.when(
-      success: (isActive) {
-        emit(
-          state.copyWith(
-            isUserActiveLoading: false,
-            isUserActiveSuccess: true,
-            isActive: isActive,
-          ),
-        );
-      },
-      failure: (failure) {
-        emit(
-          state.copyWith(
-            isUserActiveLoading: false,
-            isUserActiveFailed: true,
-            errorMessage: failure.message,
-          ),
-        );
-      },
-    );
-  }
-
-  UserViewmodelState release() {
-    return state.copyWith(
-      isLogoutLoading: false,
-      isLogoutFailed: false,
-      isLogoutSuccess: false,
-      isGetUserDetailsFailed: false,
-      isGetUserDetailsLoading: false,
-      isGetUserDetailsSuccess: false,
-      isUserActiveFailed: false,
-      isUserActiveLoading: false,
-      isUserActiveSuccess: false,
-      errorMessage: null,
     );
   }
 }

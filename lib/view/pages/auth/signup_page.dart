@@ -1,10 +1,12 @@
+import 'package:better_one/config/generate_router.dart';
 import 'package:better_one/core/constants/app_metrices.dart';
 import 'package:better_one/core/utils/dependency_locator/dependency_injection.dart';
+import 'package:better_one/core/utils/methods/methods.dart';
 import 'package:better_one/core/utils/shared_widgets/back_button_l10n.dart';
-import 'package:better_one/core/utils/snack_bar/snack_bar.dart';
 import 'package:better_one/view/widgets/input_field/auth_field.dart';
 import 'package:better_one/view_models/auth_viewmodel/auth_viewmodel.dart';
 import 'package:easy_localization/easy_localization.dart';
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -150,7 +152,52 @@ class _SignUpState extends State<SignUp> {
                   ),
                 );
               },
-            )
+            ),
+            const SizedBox(
+              height: AppMetrices.verticalGap,
+            ),
+            Row(
+              children: [
+                const Expanded(
+                  child: Divider(
+                    indent: 5,
+                    endIndent: 5,
+                  ),
+                ),
+                Text('setting.account.or'.tr()),
+                const Expanded(
+                  child: Divider(
+                    indent: 5,
+                    endIndent: 5,
+                  ),
+                ),
+              ],
+            ),
+            const SizedBox(
+              height: AppMetrices.verticalGap,
+            ),
+            RichText(
+              text: TextSpan(
+                text: 'setting.account.has_account'.tr(),
+                style: Theme.of(context).textTheme.bodySmall,
+                recognizer: TapGestureRecognizer()
+                  ..onTap = () {
+                    Navigator.pushReplacementNamed(
+                        context, GenerateRouter.login);
+                  },
+                children: [
+                  TextSpan(
+                    text: ' ${'auth.login'.tr()}',
+                    style: Theme.of(context).textTheme.bodySmall!.copyWith(
+                          color: Colors.blue,
+                        ),
+                  ),
+                ],
+              ),
+            ),
+            const SizedBox(
+              height: AppMetrices.verticalGap3,
+            ),
           ],
         ),
       ),

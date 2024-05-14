@@ -17,15 +17,15 @@ class GenerateRouter {
   static const String splash = '/';
   static const String onboarding = '/onboarding';
   static const String home = '/home';
-  static const String taskScreen = '/task_screen';
-  static const String settingScreen = '/setting_screen';
-  static const String languageSettingScreen = '/language_screen';
-  static const String themeSettingScreen = '/theme_screen';
-  static const String notificationSettingScreen = '/notification_screen';
-  static const String searchSettingScreen = '/search_screen';
-  static const String accountSettingScreen = '/account_screen';
-  static const String signup = '/signup_screen';
-  static const String login = '/login_screen';
+  static const String taskScreen = '/task';
+  static const String settingScreen = '/setting';
+  static const String languageSettingScreen = '/language';
+  static const String themeSettingScreen = '/theme';
+  static const String notificationSettingScreen = '/notification';
+  static const String searchSettingScreen = '/search';
+  static const String accountSettingScreen = '/account_setting';
+  static const String signup = '/signup';
+  static const String login = '/login';
 
   static String activeRoute = '/';
 

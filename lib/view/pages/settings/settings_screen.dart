@@ -1,5 +1,6 @@
 import 'package:better_one/config/generate_router.dart';
 import 'package:better_one/core/utils/dependency_locator/dependency_injection.dart';
+import 'package:better_one/core/utils/methods/methods.dart';
 import 'package:better_one/core/utils/shared_widgets/back_button_l10n.dart';
 import 'package:better_one/core/utils/shared_widgets/loading_data.dart';
 import 'package:better_one/core/utils/shared_widgets/show_bottom_sheet.dart';
@@ -8,8 +9,8 @@ import 'package:better_one/view/widgets/setting_widgets/language_setting_widget.
 import 'package:better_one/view/widgets/setting_widgets/setting_item_widget.dart';
 import 'package:better_one/view/widgets/setting_widgets/theme_setting_widget.dart';
 import 'package:better_one/view_models/setting_viewmodel/setting_viewmode.dart';
+import 'package:better_one/view_models/theme_viewmodel/theme_viewmodel.dart';
 import 'package:easy_localization/easy_localization.dart';
-import 'package:feedback/feedback.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -81,10 +82,24 @@ class _SettingScreenState extends State<SettingScreen> with RouteAware {
                               ? state.isGetLanguageLoading
                                   ? const LoadingDataShimmer()
                                   : const LanguageSetting()
-                              : const ThemeSetting(),
+                              : context
+                                      .read<ThemeViewModel>()
+                                      .state
+                                      .isGetThemeLoading
+                                  ? const LoadingDataShimmer()
+                                  : const ThemeSetting(),
                         );
                       } else if (index == 4) {
-                        showFeedback(context);
+                        userLocaleDatabase.getUserDataFromLocale() != null
+                            ? showFeedback(context)
+                            : showSnackBar(context,
+                                message: 'core.login_req'.tr());
+                      } else if (index == 5) {
+                        userLocaleDatabase.getUserDataFromLocale() != null
+                            ? Navigator.pushNamed(
+                                context, GenerateRouter.accountSettingScreen)
+                            : Navigator.pushNamed(
+                                context, GenerateRouter.login);
                       } else {
                         Navigator.pushNamed(
                           context,
@@ -110,71 +125,5 @@ class _SettingScreenState extends State<SettingScreen> with RouteAware {
         },
       ),
     );
-  }
-
-  void showFeedback(BuildContext context) {
-    BetterFeedback.of(context).show((userFeedback) {
-      // todo check if he has account or not
-      // if not, show dialog for register
-
-      ///#things to upload
-      /// 1: screenshots
-      /// 2: text
-      /// 3: device info
-      /// 4: package info
-      debugPrint(userFeedback.text);
-    });
-  }
-
-  List<SettingItemModel> generateSettingItems() {
-    return [
-      SettingItemModel(
-        title: 'setting.language.title'.tr(),
-        subTitle: 'setting.language.subtitle'.tr(),
-        leadingIcon: const Icon(
-          Icons.language,
-        ),
-        path: GenerateRouter.languageSettingScreen,
-      ),
-      SettingItemModel(
-        title: 'setting.theme.title'.tr(),
-        subTitle: 'setting.theme.subtitle'.tr(),
-        leadingIcon: const Icon(
-          Icons.brightness_6,
-        ),
-        path: GenerateRouter.themeSettingScreen,
-      ),
-      SettingItemModel(
-        title: 'setting.notification.title'.tr(),
-        subTitle: 'setting.notification.subtitle'.tr(),
-        leadingIcon: const Icon(
-          Icons.notifications,
-        ),
-        path: GenerateRouter.notificationSettingScreen,
-      ),
-      SettingItemModel(
-        title: 'setting.search.title'.tr(),
-        subTitle: 'setting.search.subtitle'.tr(),
-        leadingIcon: const Icon(
-          Icons.search,
-        ),
-        path: GenerateRouter.searchSettingScreen,
-      ),
-      SettingItemModel(
-        title: 'setting.feedback.title'.tr(),
-        subTitle: 'setting.feedback.subtitle'.tr(),
-        leadingIcon: const Icon(
-          Icons.feedback,
-        ),
-      ),
-      SettingItemModel(
-        title: 'setting.account.title'.tr(),
-        subTitle: 'setting.account.subtitle'.tr(),
-        leadingIcon: const Icon(
-          Icons.person,
-        ),
-        path: GenerateRouter.accountSettingScreen,
-      ),
-    ];
   }
 }

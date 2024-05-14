@@ -12,21 +12,10 @@ class UserRepoImpl implements UserRepoInterface {
   final UserSourceInterface userSource;
 
   @override
-  Future<ResultHandler<UserModel, Failure>> getUserDetails() async {
+  Future<ResultHandler<UserModel?, Failure>> getUserDetails() async {
     var connected = await NetworkConnection.isConnected();
     if (connected) {
       return await userSource.getUserDetails();
-    } else {
-      return ResultHandler.failure(
-          error: OtherFailure(message: 'core.no_intenet'.tr()));
-    }
-  }
-
-  @override
-  Future<ResultHandler<bool, Failure>> isActive() async {
-    var connected = await NetworkConnection.isConnected();
-    if (connected) {
-      return await userSource.isActive();
     } else {
       return ResultHandler.failure(
           error: OtherFailure(message: 'core.no_intenet'.tr()));
