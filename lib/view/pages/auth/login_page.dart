@@ -6,7 +6,6 @@ import 'package:better_one/core/utils/shared_widgets/back_button_l10n.dart';
 import 'package:better_one/view/widgets/input_field/auth_field.dart';
 import 'package:better_one/view_models/auth_viewmodel/auth_viewmodel.dart';
 import 'package:easy_localization/easy_localization.dart';
-import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -100,10 +99,15 @@ class _LoginState extends State<LogIn> {
                   userLocaleDatabase.setUserDataToLocale(
                     user: state.userModel!.toJson(),
                   );
+                  Navigator.pushReplacementNamed(
+                    context,
+                    GenerateRouter.accountSettingScreen,
+                    arguments: 'setting.account.title'.tr(),
+                  );
                 }
               },
               builder: (context, state) {
-                if (state.isSignupLoading) {
+                if (state.isLoginLoading) {
                   return const CircularProgressIndicator();
                 }
                 return FilledButton(
@@ -122,24 +126,49 @@ class _LoginState extends State<LogIn> {
             const SizedBox(
               height: AppMetrices.verticalGap2,
             ),
-            RichText(
-              text: TextSpan(
-                text: 'setting.account.no_account'.tr(),
-                style: Theme.of(context).textTheme.bodySmall,
-                recognizer: TapGestureRecognizer()
-                  ..onTap = () {
+            const Divider(
+              indent: 5,
+              endIndent: 5,
+            ),
+            const SizedBox(
+              height: AppMetrices.verticalGap2,
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  'setting.account.no_account'.tr(),
+                  style: Theme.of(context).textTheme.bodySmall,
+                ),
+                const SizedBox(
+                  width: 4,
+                ),
+                GestureDetector(
+                  onTap: () {
                     Navigator.pushReplacementNamed(
                         context, GenerateRouter.signup);
                   },
-                children: [
-                  TextSpan(
-                    text: ' ${'auth.signup'.tr()}',
-                    style: Theme.of(context).textTheme.bodySmall!.copyWith(
+                  child: Container(
+                    alignment: Alignment.bottomCenter,
+                    decoration: const BoxDecoration(
+                      border: Border(
+                        bottom: BorderSide(
                           color: Colors.blue,
+                          width: 2.0,
                         ),
+                      ),
+                    ),
+                    // padding: const EdgeInsets.only(bottom: 3.0),
+                    child: Text(
+                      'auth.signup'.tr(),
+                      style: Theme.of(context).textTheme.bodySmall!.copyWith(
+                            color: Colors.blue,
+                          ),
+                    ),
                   ),
-                ],
-              ),
+                ),
+              ],
             ),
             const SizedBox(
               height: AppMetrices.verticalGap3,

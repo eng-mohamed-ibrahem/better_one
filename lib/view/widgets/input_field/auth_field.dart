@@ -11,6 +11,7 @@ class AuthField extends StatefulWidget {
     this.prefixIcon,
     this.validator,
     this.isItPassword = false,
+    this.textInputAction,
   });
   final TextEditingController controller;
   final String? hintText;
@@ -19,20 +20,22 @@ class AuthField extends StatefulWidget {
   final Widget? prefixIcon;
   final String? Function(String?)? validator;
   final bool isItPassword;
+  final TextInputAction? textInputAction;
 
   @override
   State<AuthField> createState() => _AuthFieldState();
 }
 
 class _AuthFieldState extends State<AuthField> {
-  bool isPasswordVisible = false;
+  bool isPasswordObsucred = true;
   @override
   Widget build(BuildContext context) {
     return TextFormField(
       controller: widget.controller,
       validator: widget.validator,
       autovalidateMode: AutovalidateMode.onUserInteraction,
-      obscureText: !isPasswordVisible,
+      textInputAction: widget.textInputAction,
+      obscureText: widget.isItPassword && isPasswordObsucred,
       decoration: InputDecoration(
         labelText: widget.labelText,
         hintText: widget.hintText,
@@ -40,12 +43,12 @@ class _AuthFieldState extends State<AuthField> {
             ? IconButton(
                 onPressed: () {
                   setState(() {
-                    isPasswordVisible = !isPasswordVisible;
+                    isPasswordObsucred = !isPasswordObsucred;
                   });
                 },
-                icon: isPasswordVisible
-                    ? const Icon(Icons.visibility_off_rounded)
-                    : const Icon(Icons.visibility_rounded),
+                icon: isPasswordObsucred
+                    ? const Icon(Icons.visibility_rounded)
+                    : const Icon(Icons.visibility_off_rounded),
               )
             : null,
         hintStyle: Theme.of(context).textTheme.bodySmall,

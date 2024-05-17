@@ -6,7 +6,6 @@ import 'package:better_one/core/utils/shared_widgets/back_button_l10n.dart';
 import 'package:better_one/view/widgets/input_field/auth_field.dart';
 import 'package:better_one/view_models/auth_viewmodel/auth_viewmodel.dart';
 import 'package:easy_localization/easy_localization.dart';
-import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -58,6 +57,7 @@ class _SignUpState extends State<SignUp> {
                         height: AppMetrices.verticalGap,
                       ),
                       AuthField(
+                        textInputAction: TextInputAction.next,
                         controller: userName,
                         validator: (value) {
                           if (value!.isEmpty) {
@@ -65,13 +65,13 @@ class _SignUpState extends State<SignUp> {
                           }
                           return null;
                         },
-                        hintText: 'auth.u_name'.tr(),
                         labelText: 'auth.u_name'.tr(),
                       ),
                       const SizedBox(
                         height: AppMetrices.verticalGap2,
                       ),
                       AuthField(
+                        textInputAction: TextInputAction.next,
                         controller: email,
                         validator: (value) {
                           if (value!.isEmpty) {
@@ -79,13 +79,13 @@ class _SignUpState extends State<SignUp> {
                           }
                           return null;
                         },
-                        hintText: 'auth.u_email'.tr(),
                         labelText: 'auth.u_email'.tr(),
                       ),
                       const SizedBox(
                         height: AppMetrices.verticalGap2,
                       ),
                       AuthField(
+                        textInputAction: TextInputAction.next,
                         controller: password,
                         isItPassword: true,
                         validator: (value) {
@@ -94,13 +94,13 @@ class _SignUpState extends State<SignUp> {
                           }
                           return null;
                         },
-                        hintText: 'auth.u_pass'.tr(),
                         labelText: 'auth.u_pass'.tr(),
                       ),
                       const SizedBox(
                         height: AppMetrices.verticalGap2,
                       ),
                       AuthField(
+                        textInputAction: TextInputAction.done,
                         controller: confirmPassword,
                         isItPassword: true,
                         validator: (value) {
@@ -109,7 +109,6 @@ class _SignUpState extends State<SignUp> {
                           }
                           return null;
                         },
-                        hintText: 'auth.confirm_u_pass'.tr(),
                         labelText: 'auth.confirm_u_pass'.tr(),
                       ),
                       const SizedBox(
@@ -133,7 +132,11 @@ class _SignUpState extends State<SignUp> {
                   userLocaleDatabase.setUserDataToLocale(
                     user: state.userModel!.toJson(),
                   );
-                  // set user data to userViewmodel
+                  Navigator.pushReplacementNamed(
+                    context,
+                    GenerateRouter.accountSettingScreen,
+                    arguments: 'setting.account.title'.tr(),
+                  );
                 }
               },
               builder: (context, state) {
@@ -154,7 +157,7 @@ class _SignUpState extends State<SignUp> {
               },
             ),
             const SizedBox(
-              height: AppMetrices.verticalGap,
+              height: AppMetrices.verticalGap2,
             ),
             Row(
               children: [
@@ -174,27 +177,66 @@ class _SignUpState extends State<SignUp> {
               ],
             ),
             const SizedBox(
-              height: AppMetrices.verticalGap,
+              height: AppMetrices.verticalGap3,
             ),
-            RichText(
-              text: TextSpan(
-                text: 'setting.account.has_account'.tr(),
-                style: Theme.of(context).textTheme.bodySmall,
-                recognizer: TapGestureRecognizer()
-                  ..onTap = () {
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  'setting.account.has_account'.tr(),
+                  style: Theme.of(context).textTheme.bodySmall,
+                ),
+                const SizedBox(
+                  width: 4,
+                ),
+                GestureDetector(
+                  onTap: () {
                     Navigator.pushReplacementNamed(
                         context, GenerateRouter.login);
                   },
-                children: [
-                  TextSpan(
-                    text: ' ${'auth.login'.tr()}',
-                    style: Theme.of(context).textTheme.bodySmall!.copyWith(
+                  child: Container(
+                    alignment: Alignment.bottomCenter,
+                    decoration: const BoxDecoration(
+                      border: Border(
+                        bottom: BorderSide(
                           color: Colors.blue,
+                          width: 2.0,
                         ),
+                      ),
+                    ),
+                    // padding: const EdgeInsets.only(bottom: 3.0),
+                    child: Text(
+                      'auth.login'.tr(),
+                      style: Theme.of(context).textTheme.bodySmall!.copyWith(
+                            color: Colors.blue,
+                          ),
+                    ),
                   ),
-                ],
-              ),
+                ),
+              ],
             ),
+
+            // RichText(
+            //   text: TextSpan(
+            //     text: 'setting.account.has_account'.tr(),
+            //     style: Theme.of(context).textTheme.bodySmall,
+            //     children: [
+            //       TextSpan(
+            //         text: ' ${'auth.login'.tr()}',
+            //         style: Theme.of(context).textTheme.bodySmall!.copyWith(
+            //               color: Colors.blue,
+            //             ),
+            //         recognizer: TapGestureRecognizer()
+            //           ..onTap = () {
+            //             Navigator.pushReplacementNamed(
+            //                 context, GenerateRouter.login);
+            //           },
+            //       ),
+            //     ],
+            //   ),
+            // ),
+
             const SizedBox(
               height: AppMetrices.verticalGap3,
             ),

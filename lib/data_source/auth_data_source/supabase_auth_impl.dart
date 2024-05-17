@@ -3,6 +3,7 @@ import 'package:better_one/core/result_handler/result_handler.dart';
 import 'package:better_one/core/utils/dependency_locator/dependency_injection.dart';
 import 'package:better_one/data_source/auth_data_source/auth_interface.dart';
 import 'package:better_one/model/user_model/user_model.dart';
+import 'package:supabase_flutter/supabase_flutter.dart';
 
 class SupabaseAuthImpl implements AuthInterface {
   @override
@@ -13,17 +14,11 @@ class SupabaseAuthImpl implements AuthInterface {
           .signInWithPassword(email: email, password: password);
       return ResultHandler.success(
         data: UserModel.fromJson(
-          {
-            'id': result.user!.id,
-            'email': result.user!.email,
-            'createdAt': result.user!.createdAt,
-            'updatedAt': result.user!.updatedAt,
-          },
+          result.user!.toJson(),
         ),
       );
-    } catch (e) {
-      return ResultHandler.failure(
-          error: SupabaseFailure(message: e.toString()));
+    } on AuthException catch (e) {
+      return ResultHandler.failure(error: SupabaseFailure(message: e.message));
     }
   }
 
@@ -31,21 +26,15 @@ class SupabaseAuthImpl implements AuthInterface {
   Future<ResultHandler<UserModel, SupabaseFailure>> signUp(
       {required String email, required String password}) async {
     try {
-      var result = await client.userAccount.auth
-          .signUp(email: email, password: password);
+      var result = await client.userAccount.auth.signUp(
+          email: email, password: password, data: {"display_name": "wizaa"});
       return ResultHandler.success(
         data: UserModel.fromJson(
-          {
-            'id': result.user!.id,
-            'email': result.user!.email,
-            'createdAt': result.user!.createdAt,
-            'updatedAt': result.user!.updatedAt,
-          },
+          result.user!.toJson(),
         ),
       );
-    } catch (e) {
-      return ResultHandler.failure(
-          error: SupabaseFailure(message: e.toString()));
+    } on AuthException catch (e) {
+      return ResultHandler.failure(error: SupabaseFailure(message: e.message));
     }
   }
 }
