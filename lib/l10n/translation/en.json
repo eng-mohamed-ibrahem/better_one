@@ -10,7 +10,8 @@
         "get_started": "Ready to get started? Let's create your first task!",
         "no_intenet": "No Internet Connection, please try again",
         "ex_session": "Session is Expired",
-        "login_req": "Login is required firstly"
+        "login_req": "Login is required firstly",
+        "wrong": "Something went wrong. Please try again later"
     },
     "onboarding": {
         "1": {

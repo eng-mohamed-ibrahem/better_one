@@ -7,7 +7,7 @@ import 'package:supabase_flutter/supabase_flutter.dart';
 
 class SupabaseAuthImpl implements AuthInterface {
   @override
-  Future<ResultHandler<UserModel, SupabaseFailure>> logIn(
+  Future<ResultHandler<UserModel, Failure>> logIn(
       {required String email, required String password}) async {
     try {
       var result = await client.userAccount.auth
@@ -19,11 +19,15 @@ class SupabaseAuthImpl implements AuthInterface {
       );
     } on AuthException catch (e) {
       return ResultHandler.failure(error: SupabaseFailure(message: e.message));
+    } on FormatException catch (e) {
+      return ResultHandler.failure(error: ParserFailure(message: e.message));
+    } catch (e) {
+      return ResultHandler.failure(error: OtherFailure(message: e.toString()));
     }
   }
 
   @override
-  Future<ResultHandler<UserModel, SupabaseFailure>> signUp(
+  Future<ResultHandler<UserModel, Failure>> signUp(
       {required String email, required String password}) async {
     try {
       var result = await client.userAccount.auth.signUp(
@@ -35,6 +39,10 @@ class SupabaseAuthImpl implements AuthInterface {
       );
     } on AuthException catch (e) {
       return ResultHandler.failure(error: SupabaseFailure(message: e.message));
+    } on FormatException catch (e) {
+      return ResultHandler.failure(error: ParserFailure(message: e.message));
+    } catch (e) {
+      return ResultHandler.failure(error: OtherFailure(message: e.toString()));
     }
   }
 }

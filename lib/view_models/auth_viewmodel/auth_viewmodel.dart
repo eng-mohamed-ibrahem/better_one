@@ -1,5 +1,7 @@
+import 'package:better_one/core/errors/failure.dart';
 import 'package:better_one/model/user_model/user_model.dart';
 import 'package:better_one/repositories/auth_repo/auth_repo_interface.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
@@ -26,13 +28,26 @@ class AuthViewmodel extends Cubit<AuthViewmodelState> {
           ),
         );
       },
-      failure: (failer) {
+      failure: (failure) {
+        if (failure is ParserFailure || failure is OtherFailure) {
+          debugPrint(
+              "=====================================\n${failure.toString()}\n===================================");
+          emit(
+            state.copyWith(
+              isSignupLoading: false,
+              isSignupSuccess: false,
+              isSignupFailed: true,
+              errorMessage: 'core.wrong'.tr(),
+            ),
+          );
+          return;
+        }
         emit(
           state.copyWith(
             isSignupLoading: false,
             isSignupSuccess: false,
             isSignupFailed: true,
-            errorMessage: failer.message,
+            errorMessage: failure.message,
           ),
         );
       },
@@ -52,13 +67,26 @@ class AuthViewmodel extends Cubit<AuthViewmodelState> {
           ),
         );
       },
-      failure: (failer) {
+      failure: (failure) {
+        if (failure is ParserFailure || failure is OtherFailure) {
+          debugPrint(
+              "=====================================\n${failure.toString()}\n===================================");
+          emit(
+            state.copyWith(
+              isLoginLoading: false,
+              isLoginSuccess: false,
+              isLoginFailed: true,
+              errorMessage: 'core.wrong'.tr(),
+            ),
+          );
+          return;
+        }
         emit(
           state.copyWith(
             isLoginLoading: false,
             isLoginSuccess: false,
             isLoginFailed: true,
-            errorMessage: failer.message,
+            errorMessage: failure.message,
           ),
         );
       },
@@ -67,7 +95,6 @@ class AuthViewmodel extends Cubit<AuthViewmodelState> {
 
   AuthViewmodelState release() {
     return state.copyWith(
-      isInitial: false,
       isLoginFailed: false,
       isLoginLoading: false,
       isLoginSuccess: false,

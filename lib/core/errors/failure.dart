@@ -3,6 +3,18 @@ import 'package:dio/dio.dart';
 class Failure {
   const Failure({required this.message});
   final String message;
+
+  @override
+  String toString() => "$runtimeType(message: $message)";
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) return true;
+    return other is Failure && other.message == message;
+  }
+
+  @override
+  int get hashCode => message.hashCode;
 }
 
 class ApiFailure extends Failure {
@@ -55,6 +67,14 @@ class SupabaseFailure extends Failure {
 
 class CacheFailure extends Failure {
   CacheFailure({required super.message});
+}
+
+class NoInternetFailure extends Failure {
+  NoInternetFailure({required super.message});
+}
+
+class ParserFailure extends Failure {
+  ParserFailure({required super.message});
 }
 
 class OtherFailure extends Failure {
