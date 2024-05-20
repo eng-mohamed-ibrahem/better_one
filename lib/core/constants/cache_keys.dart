@@ -26,5 +26,5 @@ class CacheKeys {
   static const onboardingSeen = 'onboarding_seen';
 
   // user data
-  static const user = 'user';
+  static const userId = 'user_id';
 }

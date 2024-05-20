@@ -1,6 +1,5 @@
 import 'package:better_one/config/generate_router.dart';
 import 'package:better_one/core/constants/app_metrices.dart';
-import 'package:better_one/core/utils/dependency_locator/dependency_injection.dart';
 import 'package:better_one/core/utils/methods/methods.dart';
 import 'package:better_one/core/utils/shared_widgets/back_button_l10n.dart';
 import 'package:better_one/view/widgets/input_field/auth_field.dart';
@@ -129,13 +128,9 @@ class _SignUpState extends State<SignUp> {
                 }
                 if (state.isSignupSuccess) {
                   showSnackBar(context, message: 'auth.signup_succ'.tr());
-                  userLocaleDatabase.setUserDataToLocale(
-                    user: state.userModel!.toJson(),
-                  );
                   Navigator.pushReplacementNamed(
                     context,
-                    GenerateRouter.accountSettingScreen,
-                    arguments: 'setting.account.title'.tr(),
+                    GenerateRouter.login,
                   );
                 }
               },
@@ -146,8 +141,10 @@ class _SignUpState extends State<SignUp> {
                 return FilledButton(
                   onPressed: () {
                     if (_globalFormKey.currentState!.validate()) {
-                      AuthViewmodel.get(context)
-                          .signup(email: email.text, password: password.text);
+                      AuthViewmodel.get(context).signup(
+                          email: email.text,
+                          password: password.text,
+                          name: userName.text);
                     }
                   },
                   child: Text(

@@ -29,7 +29,7 @@ Future<void> initDependency() async {
   routeObserver = _getIt.registerSingleton<RouteObserver<ModalRoute>>(
     RouteObserver(),
   );
-  await clientDependency();
+  await userAccountDependency();
   await notificationDependency();
   await cacheInitDependency();
   taskDependency();
@@ -38,7 +38,7 @@ Future<void> initDependency() async {
   userDependency();
 }
 
-Future<void> clientDependency() async {
+Future<void> userAccountDependency() async {
   client = _getIt.registerSingleton<SupabaseService>(
     SupabaseService(),
   );

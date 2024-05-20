@@ -1,5 +1,6 @@
 import 'package:better_one/config/generate_router.dart';
 import 'package:better_one/core/constants/constants.dart';
+import 'package:better_one/core/utils/dependency_locator/dependency_injection.dart';
 import 'package:better_one/core/utils/methods/methods.dart';
 import 'package:better_one/core/utils/shared_widgets/back_button_l10n.dart';
 import 'package:better_one/core/utils/shared_widgets/failed.dart';
@@ -28,6 +29,7 @@ class _AccountSettingScreenState extends State<AccountSettingScreen> {
 
   @override
   void dispose() {
+    controller.dispose();
     super.dispose();
   }
 
@@ -45,6 +47,7 @@ class _AccountSettingScreenState extends State<AccountSettingScreen> {
         listener: (context, state) {
           if (state.isGetUserDetailsSuccess && state.user == null) {
             showSnackBar(context, message: 'core.ex_session'.tr());
+            userLocaleDatabase.deleteUser();
             Navigator.pushReplacementNamed(context, GenerateRouter.login);
           }
         },

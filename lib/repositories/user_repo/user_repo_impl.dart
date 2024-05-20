@@ -18,7 +18,7 @@ class UserRepoImpl implements UserRepoInterface {
       return await userSource.getUserDetails();
     } else {
       return ResultHandler.failure(
-          error: OtherFailure(message: 'core.no_intenet'.tr()));
+          error: NoInternetFailure(message: 'core.no_intenet'.tr()));
     }
   }
 
@@ -29,7 +29,7 @@ class UserRepoImpl implements UserRepoInterface {
       return await userSource.logOut();
     } else {
       return ResultHandler.failure(
-          error: OtherFailure(message: 'core.no_intenet'.tr()));
+          error: NoInternetFailure(message: 'core.no_intenet'.tr()));
     }
   }
 }

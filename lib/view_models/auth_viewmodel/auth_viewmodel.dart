@@ -15,11 +15,16 @@ class AuthViewmodel extends Cubit<AuthViewmodelState> {
   static AuthViewmodel get(BuildContext context) =>
       BlocProvider.of<AuthViewmodel>(context);
 
-  void signup({required String email, required String password}) async {
+  void signup(
+      {required String email,
+      required String password,
+      required String name}) async {
     emit(release().copyWith(isSignupLoading: true));
-    var result = await authRepo.signUp(email: email, password: password);
+    var result =
+        await authRepo.signUp(email: email, password: password, name: name);
     result.when(
       success: (userModel) {
+        debugPrint(userModel.toString());
         emit(
           state.copyWith(
             isSignupLoading: false,

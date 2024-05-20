@@ -54,6 +54,7 @@ class _LoginState extends State<LogIn> {
                       ),
                       AuthField(
                         controller: email,
+                        textInputAction: TextInputAction.next,
                         validator: (value) {
                           if (value!.isEmpty) {
                             return 'auth.required.email'.tr();
@@ -69,6 +70,7 @@ class _LoginState extends State<LogIn> {
                       AuthField(
                         controller: password,
                         isItPassword: true,
+                        textInputAction: TextInputAction.done,
                         validator: (value) {
                           if (value!.isEmpty) {
                             return 'auth.required.pass'.tr();
@@ -96,8 +98,8 @@ class _LoginState extends State<LogIn> {
                 }
                 if (state.isLoginSuccess) {
                   showSnackBar(context, message: 'auth.login_succ'.tr());
-                  userLocaleDatabase.setUserDataToLocale(
-                    user: state.userModel!.toJson(),
+                  userLocaleDatabase.setUserIdToLocale(
+                    userId: state.userModel!.id,
                   );
                   Navigator.pushReplacementNamed(
                     context,
@@ -131,7 +133,7 @@ class _LoginState extends State<LogIn> {
               endIndent: 5,
             ),
             const SizedBox(
-              height: AppMetrices.verticalGap2,
+              height: AppMetrices.verticalGap3,
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,

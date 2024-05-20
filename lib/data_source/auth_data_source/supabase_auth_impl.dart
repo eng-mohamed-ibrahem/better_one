@@ -28,10 +28,12 @@ class SupabaseAuthImpl implements AuthInterface {
 
   @override
   Future<ResultHandler<UserModel, Failure>> signUp(
-      {required String email, required String password}) async {
+      {required String email,
+      required String password,
+      required String name}) async {
     try {
       var result = await client.userAccount.auth.signUp(
-          email: email, password: password, data: {"display_name": "wizaa"});
+          email: email, password: password, data: {"display_name": name});
       return ResultHandler.success(
         data: UserModel.fromJson(
           result.user!.toJson(),

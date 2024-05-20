@@ -7,7 +7,7 @@ abstract class AuthRepoInterface {
       {required String email, required String password});
 
   Future<ResultHandler<UserModel, Failure>> signUp(
-      {required String email, required String password});
+      {required String email, required String password, required String name});
 
 
 }

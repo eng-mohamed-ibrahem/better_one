@@ -23,10 +23,12 @@ class AuthRepoImpl implements AuthRepoInterface {
 
   @override
   Future<ResultHandler<UserModel, Failure>> signUp(
-      {required String email, required String password}) async {
+      {required String email,
+      required String password,
+      required String name}) async {
     var connected = await NetworkConnection.isConnected();
     if (connected) {
-      return authSource.signUp(email: email, password: password);
+      return authSource.signUp(email: email, password: password, name: name);
     } else {
       return ResultHandler.failure(
           error: NoInternetFailure(message: 'core.no_intenet'.tr()));

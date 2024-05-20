@@ -90,14 +90,17 @@ class _SettingScreenState extends State<SettingScreen> with RouteAware {
                                   : const ThemeSetting(),
                         );
                       } else if (index == 4) {
-                        userLocaleDatabase.getUserDataFromLocale() != null
+                        userLocaleDatabase.getUserIdFromLocale() != null
                             ? showFeedback(context)
                             : showSnackBar(context,
                                 message: 'core.login_req'.tr());
                       } else if (index == 5) {
-                        userLocaleDatabase.getUserDataFromLocale() != null
+                        userLocaleDatabase.getUserIdFromLocale() != null
                             ? Navigator.pushNamed(
-                                context, GenerateRouter.accountSettingScreen)
+                                context,
+                                GenerateRouter.accountSettingScreen,
+                                arguments: settingItems[index].title,
+                              )
                             : Navigator.pushNamed(
                                 context, GenerateRouter.login);
                       } else {
