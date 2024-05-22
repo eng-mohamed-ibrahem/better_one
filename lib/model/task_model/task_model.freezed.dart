@@ -22,11 +22,14 @@ TaskModel _$TaskModelFromJson(Map<String, dynamic> json) {
 mixin _$TaskModel {
   String get title => throw _privateConstructorUsedError;
   String get body => throw _privateConstructorUsedError;
+  List<({bool completed, String title})> get subTasks =>
+      throw _privateConstructorUsedError;
   String get id => throw _privateConstructorUsedError;
   DateTime get createdAt => throw _privateConstructorUsedError;
   DateTime? get updatedAt => throw _privateConstructorUsedError;
   Duration get elapsedTime => throw _privateConstructorUsedError;
   TaskStatus get status => throw _privateConstructorUsedError;
+  bool get backup => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -42,11 +45,13 @@ abstract class $TaskModelCopyWith<$Res> {
   $Res call(
       {String title,
       String body,
+      List<({bool completed, String title})> subTasks,
       String id,
       DateTime createdAt,
       DateTime? updatedAt,
       Duration elapsedTime,
-      TaskStatus status});
+      TaskStatus status,
+      bool backup});
 }
 
 /// @nodoc
@@ -64,11 +69,13 @@ class _$TaskModelCopyWithImpl<$Res, $Val extends TaskModel>
   $Res call({
     Object? title = null,
     Object? body = null,
+    Object? subTasks = null,
     Object? id = null,
     Object? createdAt = null,
     Object? updatedAt = freezed,
     Object? elapsedTime = null,
     Object? status = null,
+    Object? backup = null,
   }) {
     return _then(_value.copyWith(
       title: null == title
@@ -79,6 +86,10 @@ class _$TaskModelCopyWithImpl<$Res, $Val extends TaskModel>
           ? _value.body
           : body // ignore: cast_nullable_to_non_nullable
               as String,
+      subTasks: null == subTasks
+          ? _value.subTasks
+          : subTasks // ignore: cast_nullable_to_non_nullable
+              as List<({bool completed, String title})>,
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
@@ -99,6 +110,10 @@ class _$TaskModelCopyWithImpl<$Res, $Val extends TaskModel>
           ? _value.status
           : status // ignore: cast_nullable_to_non_nullable
               as TaskStatus,
+      backup: null == backup
+          ? _value.backup
+          : backup // ignore: cast_nullable_to_non_nullable
+              as bool,
     ) as $Val);
   }
 }
@@ -114,11 +129,13 @@ abstract class _$$TaskModelImplCopyWith<$Res>
   $Res call(
       {String title,
       String body,
+      List<({bool completed, String title})> subTasks,
       String id,
       DateTime createdAt,
       DateTime? updatedAt,
       Duration elapsedTime,
-      TaskStatus status});
+      TaskStatus status,
+      bool backup});
 }
 
 /// @nodoc
@@ -134,11 +151,13 @@ class __$$TaskModelImplCopyWithImpl<$Res>
   $Res call({
     Object? title = null,
     Object? body = null,
+    Object? subTasks = null,
     Object? id = null,
     Object? createdAt = null,
     Object? updatedAt = freezed,
     Object? elapsedTime = null,
     Object? status = null,
+    Object? backup = null,
   }) {
     return _then(_$TaskModelImpl(
       title: null == title
@@ -149,6 +168,10 @@ class __$$TaskModelImplCopyWithImpl<$Res>
           ? _value.body
           : body // ignore: cast_nullable_to_non_nullable
               as String,
+      subTasks: null == subTasks
+          ? _value._subTasks
+          : subTasks // ignore: cast_nullable_to_non_nullable
+              as List<({bool completed, String title})>,
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
@@ -169,6 +192,10 @@ class __$$TaskModelImplCopyWithImpl<$Res>
           ? _value.status
           : status // ignore: cast_nullable_to_non_nullable
               as TaskStatus,
+      backup: null == backup
+          ? _value.backup
+          : backup // ignore: cast_nullable_to_non_nullable
+              as bool,
     ));
   }
 }
@@ -179,11 +206,14 @@ class _$TaskModelImpl implements _TaskModel {
   const _$TaskModelImpl(
       {required this.title,
       required this.body,
+      final List<({bool completed, String title})> subTasks = const [],
       required this.id,
       required this.createdAt,
       this.updatedAt,
       this.elapsedTime = Duration.zero,
-      this.status = TaskStatus.none});
+      this.status = TaskStatus.none,
+      this.backup = false})
+      : _subTasks = subTasks;
 
   factory _$TaskModelImpl.fromJson(Map<String, dynamic> json) =>
       _$$TaskModelImplFromJson(json);
@@ -192,6 +222,15 @@ class _$TaskModelImpl implements _TaskModel {
   final String title;
   @override
   final String body;
+  final List<({bool completed, String title})> _subTasks;
+  @override
+  @JsonKey()
+  List<({bool completed, String title})> get subTasks {
+    if (_subTasks is EqualUnmodifiableListView) return _subTasks;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_subTasks);
+  }
+
   @override
   final String id;
   @override
@@ -204,10 +243,13 @@ class _$TaskModelImpl implements _TaskModel {
   @override
   @JsonKey()
   final TaskStatus status;
+  @override
+  @JsonKey()
+  final bool backup;
 
   @override
   String toString() {
-    return 'TaskModel(title: $title, body: $body, id: $id, createdAt: $createdAt, updatedAt: $updatedAt, elapsedTime: $elapsedTime, status: $status)';
+    return 'TaskModel(title: $title, body: $body, subTasks: $subTasks, id: $id, createdAt: $createdAt, updatedAt: $updatedAt, elapsedTime: $elapsedTime, status: $status, backup: $backup)';
   }
 
   @override
@@ -217,6 +259,7 @@ class _$TaskModelImpl implements _TaskModel {
             other is _$TaskModelImpl &&
             (identical(other.title, title) || other.title == title) &&
             (identical(other.body, body) || other.body == body) &&
+            const DeepCollectionEquality().equals(other._subTasks, _subTasks) &&
             (identical(other.id, id) || other.id == id) &&
             (identical(other.createdAt, createdAt) ||
                 other.createdAt == createdAt) &&
@@ -224,13 +267,23 @@ class _$TaskModelImpl implements _TaskModel {
                 other.updatedAt == updatedAt) &&
             (identical(other.elapsedTime, elapsedTime) ||
                 other.elapsedTime == elapsedTime) &&
-            (identical(other.status, status) || other.status == status));
+            (identical(other.status, status) || other.status == status) &&
+            (identical(other.backup, backup) || other.backup == backup));
   }
 
   @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
-      runtimeType, title, body, id, createdAt, updatedAt, elapsedTime, status);
+      runtimeType,
+      title,
+      body,
+      const DeepCollectionEquality().hash(_subTasks),
+      id,
+      createdAt,
+      updatedAt,
+      elapsedTime,
+      status,
+      backup);
 
   @JsonKey(ignore: true)
   @override
@@ -250,11 +303,13 @@ abstract class _TaskModel implements TaskModel {
   const factory _TaskModel(
       {required final String title,
       required final String body,
+      final List<({bool completed, String title})> subTasks,
       required final String id,
       required final DateTime createdAt,
       final DateTime? updatedAt,
       final Duration elapsedTime,
-      final TaskStatus status}) = _$TaskModelImpl;
+      final TaskStatus status,
+      final bool backup}) = _$TaskModelImpl;
 
   factory _TaskModel.fromJson(Map<String, dynamic> json) =
       _$TaskModelImpl.fromJson;
@@ -263,6 +318,8 @@ abstract class _TaskModel implements TaskModel {
   String get title;
   @override
   String get body;
+  @override
+  List<({bool completed, String title})> get subTasks;
   @override
   String get id;
   @override
@@ -273,6 +330,8 @@ abstract class _TaskModel implements TaskModel {
   Duration get elapsedTime;
   @override
   TaskStatus get status;
+  @override
+  bool get backup;
   @override
   @JsonKey(ignore: true)
   _$$TaskModelImplCopyWith<_$TaskModelImpl> get copyWith =>

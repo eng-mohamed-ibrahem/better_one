@@ -3,20 +3,19 @@ import 'package:better_one/core/result_handler/result_handler.dart';
 
 abstract class SettingsCacheInterface {
   /// toggle theme light or dark
-  Future<ResultHandler<String, CacheFailure>> toggleTheme();
+  Future<ResultHandler<String, Failure>> toggleTheme();
 
   /// get current theme
-  Future<ResultHandler<String, CacheFailure>> getTheme();
+  Future<ResultHandler<String, Failure>> getTheme();
 
   /// change language in app
-  Future<ResultHandler<String, CacheFailure>> changeLanguage(
-      String languageCode);
+  Future<ResultHandler<String, Failure>> changeLanguage(String languageCode);
 
   /// get current language
-  Future<ResultHandler<String, CacheFailure>> getLanguage();
+  Future<ResultHandler<String, Failure>> getLanguage();
 
   // set search settings
-  Future<ResultHandler<bool, CacheFailure>> setSearchSettings({
+  Future<ResultHandler<bool, Failure>> setSearchSettings({
     bool? isSearchByTitle,
     bool? isSearchByBody,
     bool? isSearchByDate,
@@ -24,14 +23,14 @@ abstract class SettingsCacheInterface {
   });
 
   // get search settings
-  Future<ResultHandler<Map<String, bool>, CacheFailure>> getSearchSettings();
+  Future<ResultHandler<Map<String, bool>, Failure>> getSearchSettings();
 
   // get notification settings
-  Future<ResultHandler<Map<String, dynamic>, CacheFailure>>
+  Future<ResultHandler<Map<String, dynamic>, Failure>>
       getNotificationSettings();
 
   // set notification settings
-  Future<ResultHandler<bool, CacheFailure>> setNotificationSettings({
+  Future<ResultHandler<bool, Failure>> setNotificationSettings({
     bool? isNotificationOnAdd,
     bool? isNotificationOnUpdate,
     bool? isNotificationOnComplete,
@@ -41,8 +40,8 @@ abstract class SettingsCacheInterface {
   });
 
   // set onborading seen
-  Future<ResultHandler<void, CacheFailure>> setOnBoardingSeen(bool seen);
+  Future<ResultHandler<void, Failure>> setOnBoardingSeen(bool seen);
 
   // get onborading seen
-  Future<ResultHandler<bool, CacheFailure>> getOnBoardingSeen();
+  Future<ResultHandler<bool, Failure>> getOnBoardingSeen();
 }

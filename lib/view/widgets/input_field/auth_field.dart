@@ -12,6 +12,7 @@ class AuthField extends StatefulWidget {
     this.validator,
     this.isItPassword = false,
     this.textInputAction,
+    this.readOnly = false,
   });
   final TextEditingController controller;
   final String? hintText;
@@ -21,6 +22,8 @@ class AuthField extends StatefulWidget {
   final String? Function(String?)? validator;
   final bool isItPassword;
   final TextInputAction? textInputAction;
+
+  final bool readOnly;
 
   @override
   State<AuthField> createState() => _AuthFieldState();
@@ -36,9 +39,12 @@ class _AuthFieldState extends State<AuthField> {
       autovalidateMode: AutovalidateMode.onUserInteraction,
       textInputAction: widget.textInputAction,
       obscureText: widget.isItPassword && isPasswordObsucred,
+      readOnly: widget.readOnly,
+      onTapOutside: (event) => FocusManager.instance.primaryFocus?.unfocus(),
       decoration: InputDecoration(
         labelText: widget.labelText,
         hintText: widget.hintText,
+        isDense: true,
         suffixIcon: widget.isItPassword
             ? IconButton(
                 onPressed: () {
@@ -61,7 +67,7 @@ class _AuthFieldState extends State<AuthField> {
             strokeAlign: BorderSide.strokeAlignOutside,
           ),
         ),
-        icon: widget.prefixIcon,
+        prefixIcon: widget.prefixIcon,
       ),
       style: Theme.of(context).textTheme.titleMedium!.copyWith(
             height: widget.textFieldHeight,

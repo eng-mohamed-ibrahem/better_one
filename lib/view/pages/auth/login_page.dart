@@ -55,12 +55,9 @@ class _LoginState extends State<LogIn> {
                       AuthField(
                         controller: email,
                         textInputAction: TextInputAction.next,
-                        validator: (value) {
-                          if (value!.isEmpty) {
-                            return 'auth.required.email'.tr();
-                          }
-                          return null;
-                        },
+                        prefixIcon: Icon(Icons.email_rounded,
+                            color: Theme.of(context).iconTheme.color),
+                        validator: Validators.validateEmail,
                         hintText: 'auth.u_email'.tr(),
                         labelText: 'auth.u_email'.tr(),
                       ),
@@ -71,6 +68,8 @@ class _LoginState extends State<LogIn> {
                         controller: password,
                         isItPassword: true,
                         textInputAction: TextInputAction.done,
+                        prefixIcon: Icon(Icons.lock_rounded,
+                            color: Theme.of(context).iconTheme.color),
                         validator: (value) {
                           if (value!.isEmpty) {
                             return 'auth.required.pass'.tr();

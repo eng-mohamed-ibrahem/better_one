@@ -1,5 +1,5 @@
 import 'package:better_one/config/generate_router.dart';
-import 'package:better_one/core/constants/app_metrices.dart';
+import 'package:better_one/core/constants/constants.dart';
 import 'package:better_one/core/utils/methods/methods.dart';
 import 'package:better_one/core/utils/shared_widgets/back_button_l10n.dart';
 import 'package:better_one/view/widgets/input_field/auth_field.dart';
@@ -58,6 +58,8 @@ class _SignUpState extends State<SignUp> {
                       AuthField(
                         textInputAction: TextInputAction.next,
                         controller: userName,
+                        prefixIcon: Icon(Icons.person_rounded,
+                            color: Theme.of(context).iconTheme.color),
                         validator: (value) {
                           if (value!.isEmpty) {
                             return 'auth.required.name'.tr();
@@ -72,12 +74,9 @@ class _SignUpState extends State<SignUp> {
                       AuthField(
                         textInputAction: TextInputAction.next,
                         controller: email,
-                        validator: (value) {
-                          if (value!.isEmpty) {
-                            return 'auth.required.email'.tr();
-                          }
-                          return null;
-                        },
+                        prefixIcon: Icon(Icons.email_rounded,
+                            color: Theme.of(context).iconTheme.color),
+                        validator: Validators.validateEmail,
                         labelText: 'auth.u_email'.tr(),
                       ),
                       const SizedBox(
@@ -87,12 +86,9 @@ class _SignUpState extends State<SignUp> {
                         textInputAction: TextInputAction.next,
                         controller: password,
                         isItPassword: true,
-                        validator: (value) {
-                          if (value!.isEmpty) {
-                            return 'auth.required.pass'.tr();
-                          }
-                          return null;
-                        },
+                        prefixIcon: Icon(Icons.lock_rounded,
+                            color: Theme.of(context).iconTheme.color),
+                        validator: Validators.validatePassword,
                         labelText: 'auth.u_pass'.tr(),
                       ),
                       const SizedBox(
@@ -102,6 +98,8 @@ class _SignUpState extends State<SignUp> {
                         textInputAction: TextInputAction.done,
                         controller: confirmPassword,
                         isItPassword: true,
+                        prefixIcon: Icon(Icons.lock_rounded,
+                            color: Theme.of(context).iconTheme.color),
                         validator: (value) {
                           if (confirmPassword.text != password.text) {
                             return 'auth.required.confirm_pass'.tr();

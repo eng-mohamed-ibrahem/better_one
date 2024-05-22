@@ -32,4 +32,20 @@ class UserRepoImpl implements UserRepoInterface {
           error: NoInternetFailure(message: 'core.no_intenet'.tr()));
     }
   }
+
+  @override
+  Future<ResultHandler<UserModel?, Failure>> updateUserDetails(
+      {String? newEmail, String? newPassword, String? newDisplayName}) async {
+    var connected = await NetworkConnection.isConnected();
+    if (connected) {
+      return await userSource.updateUserDetails(
+        newEmail: newEmail,
+        newPassword: newPassword,
+        newDisplayName: newDisplayName,
+      );
+    } else {
+      return ResultHandler.failure(
+          error: NoInternetFailure(message: 'core.no_intenet'.tr()));
+    }
+  }
 }

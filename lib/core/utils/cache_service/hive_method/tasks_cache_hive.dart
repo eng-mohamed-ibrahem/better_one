@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'dart:io';
 
 import 'package:better_one/core/constants/constants.dart';
 import 'package:better_one/core/errors/failure.dart';
@@ -11,7 +12,7 @@ class TaskCacheByHive implements TaskCacheInterface {
   TaskCacheByHive({required this.cacheInit});
   final HiveInitImpl cacheInit;
   @override
-  Future<ResultHandler<TaskModel, CacheFailure>> addTask(TaskModel task) async {
+  Future<ResultHandler<TaskModel, Failure>> addTask(TaskModel task) async {
     try {
       var result = await getAllTasks();
       return result.when(
@@ -24,23 +25,43 @@ class TaskCacheByHive implements TaskCacheInterface {
           return ResultHandler.failure(error: failure);
         },
       );
+    } on FileSystemException catch (e) {
+      return ResultHandler.failure(
+        error: CacheFailure(message: e.message),
+      );
+    } on FormatException catch (e) {
+      return ResultHandler.failure(
+        error: ParserFailure(message: e.message),
+      );
     } catch (e) {
-      return ResultHandler.failure(error: CacheFailure(message: e.toString()));
+      return ResultHandler.failure(
+        error: OtherFailure(message: e.toString()),
+      );
     }
   }
 
   @override
-  Future<ResultHandler<List<TaskModel>, CacheFailure>> getAllTasks() async {
+  Future<ResultHandler<List<TaskModel>, Failure>> getAllTasks() async {
     try {
       return ResultHandler.success(
           data: _convertToTaskList(cacheInit.appBox.get(CacheKeys.tasks)));
+    } on FileSystemException catch (e) {
+      return ResultHandler.failure(
+        error: CacheFailure(message: e.message),
+      );
+    } on FormatException catch (e) {
+      return ResultHandler.failure(
+        error: ParserFailure(message: e.message),
+      );
     } catch (e) {
-      return ResultHandler.failure(error: CacheFailure(message: e.toString()));
+      return ResultHandler.failure(
+        error: OtherFailure(message: e.toString()),
+      );
     }
   }
 
   @override
-  Future<ResultHandler<TaskModel, CacheFailure>> getTaskById(String id) async {
+  Future<ResultHandler<TaskModel, Failure>> getTaskById(String id) async {
     try {
       var result = await getAllTasks();
       return result.when(
@@ -61,7 +82,7 @@ class TaskCacheByHive implements TaskCacheInterface {
   }
 
   @override
-  Future<ResultHandler<TaskModel, CacheFailure>> removeTask(
+  Future<ResultHandler<TaskModel, Failure>> removeTask(
       TaskModel removedTask) async {
     try {
       var result = await getAllTasks();
@@ -75,13 +96,23 @@ class TaskCacheByHive implements TaskCacheInterface {
           return ResultHandler.failure(error: failure);
         },
       );
+    } on FileSystemException catch (e) {
+      return ResultHandler.failure(
+        error: CacheFailure(message: e.message),
+      );
+    } on FormatException catch (e) {
+      return ResultHandler.failure(
+        error: ParserFailure(message: e.message),
+      );
     } catch (e) {
-      return ResultHandler.failure(error: CacheFailure(message: e.toString()));
+      return ResultHandler.failure(
+        error: OtherFailure(message: e.toString()),
+      );
     }
   }
 
   @override
-  Future<ResultHandler<TaskModel, CacheFailure>> updateTask(
+  Future<ResultHandler<TaskModel, Failure>> updateTask(
       TaskModel oldTask, TaskModel newTask) async {
     try {
       var result = await getAllTasks();
@@ -97,8 +128,18 @@ class TaskCacheByHive implements TaskCacheInterface {
           return ResultHandler.failure(error: failure);
         },
       );
+    } on FileSystemException catch (e) {
+      return ResultHandler.failure(
+        error: CacheFailure(message: e.message),
+      );
+    } on FormatException catch (e) {
+      return ResultHandler.failure(
+        error: ParserFailure(message: e.message),
+      );
     } catch (e) {
-      return ResultHandler.failure(error: CacheFailure(message: e.toString()));
+      return ResultHandler.failure(
+        error: OtherFailure(message: e.toString()),
+      );
     }
   }
 
@@ -113,18 +154,24 @@ class TaskCacheByHive implements TaskCacheInterface {
   }
 
   @override
-  Future<ResultHandler<int, CacheFailure>> getTotoalEstimatedTime() async {
+  Future<ResultHandler<int, Failure>> getTotoalEstimatedTime() async {
     try {
       return ResultHandler.success(
           data: cacheInit.appBox
               .get(CacheKeys.totalEstimatedTime, defaultValue: 0));
+    } on FileSystemException catch (e) {
+      return ResultHandler.failure(
+        error: CacheFailure(message: e.message),
+      );
     } catch (e) {
-      return ResultHandler.failure(error: CacheFailure(message: e.toString()));
+      return ResultHandler.failure(
+        error: OtherFailure(message: e.toString()),
+      );
     }
   }
 
   @override
-  Future<ResultHandler<int, CacheFailure>> updateTotalEstimatedTime(
+  Future<ResultHandler<int, Failure>> updateTotalEstimatedTime(
       int updatedTime, bool isAdding) async {
     try {
       var result = await getTotoalEstimatedTime();
@@ -141,8 +188,14 @@ class TaskCacheByHive implements TaskCacheInterface {
           return ResultHandler.failure(error: failure);
         },
       );
+    } on FileSystemException catch (e) {
+      return ResultHandler.failure(
+        error: CacheFailure(message: e.message),
+      );
     } catch (e) {
-      return ResultHandler.failure(error: CacheFailure(message: e.toString()));
+      return ResultHandler.failure(
+        error: OtherFailure(message: e.toString()),
+      );
     }
   }
 }

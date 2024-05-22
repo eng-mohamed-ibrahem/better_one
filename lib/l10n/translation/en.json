@@ -105,7 +105,8 @@
             "no_account": "Do not have One?",
             "has_account": "Already have account?",
             "or": "Or",
-            "email_backup": "Your tasks backed up at"
+            "email_backup": "Your tasks backed up at",
+            "welcome": "hello, {name} 👋"
         }
     },
     "auth": {
@@ -122,6 +123,10 @@
             "email": "Email Required",
             "pass": "Password Required",
             "confirm_pass": "Password dose not match"
+        },
+        "invalid": {
+            "email": "Invalid Email",
+            "pass": "Invalid Password"
         },
         "signup_succ": "Signup Successfully",
         "login_succ": "Login Successfully"

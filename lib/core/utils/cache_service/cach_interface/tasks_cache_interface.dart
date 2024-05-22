@@ -4,26 +4,25 @@ import 'package:better_one/model/task_model/task_model.dart';
 
 abstract class TaskCacheInterface {
   /// get all tasks
-  Future<ResultHandler<List<TaskModel>, CacheFailure>> getAllTasks();
+  Future<ResultHandler<List<TaskModel>, Failure>> getAllTasks();
 
   /// get task by id
-  Future<ResultHandler<TaskModel, CacheFailure>> getTaskById(String id);
+  Future<ResultHandler<TaskModel, Failure>> getTaskById(String id);
 
   /// add new task
-  Future<ResultHandler<TaskModel, CacheFailure>> addTask(TaskModel task);
+  Future<ResultHandler<TaskModel, Failure>> addTask(TaskModel task);
 
   /// update task
-  Future<ResultHandler<TaskModel, CacheFailure>> updateTask(
+  Future<ResultHandler<TaskModel, Failure>> updateTask(
       TaskModel oldTask, TaskModel newTask);
 
   /// remove task
-  Future<ResultHandler<TaskModel, CacheFailure>> removeTask(
-      TaskModel removedTask);
+  Future<ResultHandler<TaskModel, Failure>> removeTask(TaskModel removedTask);
 
   /// get total estimated time
-  Future<ResultHandler<int, CacheFailure>> getTotoalEstimatedTime();
+  Future<ResultHandler<int, Failure>> getTotoalEstimatedTime();
 
   /// update total estimated time
-  Future<ResultHandler<int, CacheFailure>> updateTotalEstimatedTime(
+  Future<ResultHandler<int, Failure>> updateTotalEstimatedTime(
       int updatedTime, bool isAdding);
 }

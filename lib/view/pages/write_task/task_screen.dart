@@ -19,6 +19,7 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:uuid/uuid.dart';
 
 import '../../../core/constants/constants.dart';
 
@@ -311,9 +312,7 @@ class _TaskScreenState extends State<TaskScreen>
                                           descriptionController
                                               .text.isNotEmpty) {
                                         var newTask = TaskModel(
-                                          id: DateTime.now()
-                                              .millisecondsSinceEpoch
-                                              .toString(),
+                                          id: const Uuid().v4(),
                                           title: titleController.text,
                                           body: descriptionController.text,
                                           createdAt: DateTime.now(),
