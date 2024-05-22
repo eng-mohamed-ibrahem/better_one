@@ -45,16 +45,16 @@ The app is a simple task management app. It helps users to stay motivated and fo
 
 ### User Authentication
 
-* Users can login using their Google account.
-* User data is saved in Cloud Firestore.
+* Users can login using their E-mail and password.
+* User data is saved in Supabase Cloud.
 
 ### Search Functionality
 
 * Users can search for tasks by status, date, title, or description.
 
-### Complete Implementation
+### Upload Functionality
 
-* The app supports Firebase Authentication for user authentication.
+* Users can upload tasks to Supabase Cloud.
 
 ## Key Features of the App
 
@@ -70,10 +70,10 @@ The app is a simple task management app. It helps users to stay motivated and fo
 * Settings for notification, search, theme, and language.
 * handle app while no internet connection
 * Login with Google account.
-* Save user data in Cloud Firestore.
-* Supported Firebase Authentication.
+* Save user data in Cloud Supabase.
+* Supported Supabase Cloud Authentication.
 * Integrated search functionality to help users find tasks by status, date, title, or description.
-* Login using Firebase.
+* Login using Supabase Cloud.
 
 ## Completed Steps
 
@@ -97,6 +97,10 @@ The app is a simple task management app. It helps users to stay motivated and fo
   * Customize the notification schedule for your tasks
 * Settings for theme:
   * Change to light, dark theme
+* Login using Supabase Cloud:
+  * Login with E-mail and password
+  * Save user data in Cloud Supabase
+* Handle app while no internet connection
 
 ## Video
 
@@ -108,12 +112,10 @@ The app is a simple task management app. It helps users to stay motivated and fo
 
 ## Next steps
 
-* Handle app while no internet connection
 * Apply Feedback submit
-* Apply Search functionality i have done above to search for tasks by status, date, title, or description
-* Login using Firebase:
-  * Login with Google account
-  * Save user data in Cloud Firestore
+* Apply Search functionality to search for tasks by status, date, title, or description
+* Apply Upload functionality to upload tasks to Supabase Cloud
+* Send notifications to *other users* when tasks are completed.
 
 ## Dependencies
 

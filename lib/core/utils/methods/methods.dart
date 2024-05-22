@@ -1,9 +1,11 @@
 import 'package:better_one/config/generate_router.dart';
 import 'package:better_one/core/constants/constants.dart';
 import 'package:better_one/model/settings_item_model/setting_item_model.dart';
+import 'package:better_one/view_models/user_viewmodel/user_viewmodel.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:feedback/feedback.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:lottie/lottie.dart';
 
 void showFeedback(BuildContext context) {
@@ -147,6 +149,67 @@ void showDeleteTaskDialog(BuildContext context,
             ),
           ),
         ],
+      );
+    },
+  );
+}
+
+/// dialog for logout
+void showLogoutDialog(BuildContext context, {required VoidCallback onConfirm}) {
+  showDialog(
+    context: context,
+    builder: (context) {
+      return AlertDialog(
+        title: Text('auth.logout'.tr(),
+            style: Theme.of(context).textTheme.titleLarge),
+        content: Text('auth.logout_msg'.tr()),
+        actions: [
+          TextButton(
+            onPressed: () {
+              Navigator.pop(context);
+            },
+            child: Text('core.cancel'.tr()),
+          ),
+          TextButton(
+            onPressed: onConfirm,
+            child: Text(
+              'auth.logout'.tr(),
+              style: Theme.of(context).textTheme.titleSmall!.copyWith(
+                    color: AppColors.hightlightColor,
+                  ),
+            ),
+          ),
+        ],
+      );
+    },
+  );
+}
+
+/// show loading dialog with progress indicator
+void showLoadingDialog(BuildContext context) {
+  showDialog(
+    context: context,
+    barrierDismissible: false,
+    builder: (context) {
+      return BlocConsumer<UserViewmodel, UserViewmodelState>(
+        listener: (context, state) {
+          if (!state.isLogoutLoading) {
+            Navigator.pop(context);
+          }
+        },
+        builder: (context, state) {
+          return PopScope(
+            canPop: !state.isLogoutLoading,
+            child: const AlertDialog(
+              content: SizedBox(
+                height: 100,
+                child: Center(
+                  child: CircularProgressIndicator.adaptive(),
+                ),
+              ),
+            ),
+          );
+        },
       );
     },
   );

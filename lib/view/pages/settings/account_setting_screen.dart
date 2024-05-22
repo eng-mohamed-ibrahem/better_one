@@ -41,19 +41,41 @@ class _AccountSettingScreenState extends State<AccountSettingScreen> {
           userLocaleDatabase.deleteUser();
           Navigator.pushReplacementNamed(context, GenerateRouter.login);
         }
+        if (state.isLogoutLoading) {
+          showLoadingDialog(context);
+        }
+        if (state.isLogoutSuccess) {
+          userLocaleDatabase.deleteUser();
+          Navigator.pushReplacementNamed(
+            context,
+            GenerateRouter.login,
+          );
+        }
       },
       builder: (context, state) {
         return Scaffold(
-          appBar: AppBar(
-            centerTitle: false,
-            automaticallyImplyLeading: false,
-            backgroundColor: Theme.of(context).secondaryHeaderColor,
-            title: Text(
-              'setting.account.welcome'
-                  .tr(namedArgs: {"name": state.user!.name}),
-              style: Theme.of(context).textTheme.titleLarge,
-            ),
-          ),
+          appBar: (state.isGetUserDetailsSuccess && state.user != null)
+              ? AppBar(
+                  centerTitle: false,
+                  automaticallyImplyLeading: false,
+                  backgroundColor: Theme.of(context).secondaryHeaderColor,
+                  title: Text(
+                    'setting.account.welcome'
+                        .tr(namedArgs: {"name": state.user!.name}),
+                    style: Theme.of(context).textTheme.titleLarge,
+                  ),
+                  actions: [
+                    IconButton(
+                      onPressed: () {
+                        showLogoutDialog(context, onConfirm: () {
+                          context.read<UserViewmodel>().logout();
+                        });
+                      },
+                      icon: const Icon(Icons.logout_rounded),
+                    ),
+                  ],
+                )
+              : null,
           body: (state.isGetUserDetailsSuccess && state.user != null)
               ? SingleChildScrollView(
                   padding: const EdgeInsets.all(AppMetrices.padding),

@@ -129,7 +129,10 @@
             "pass": "Invalid Password"
         },
         "signup_succ": "Signup Successfully",
-        "login_succ": "Login Successfully"
+        "login_succ": "Login Successfully",
+        "logout_succ": "Logout Successfully",
+        "logout": "Logout",
+        "logout_msg": "Are you sure you want to logout?"
     },
     "time": {
         "hour": "hour",
