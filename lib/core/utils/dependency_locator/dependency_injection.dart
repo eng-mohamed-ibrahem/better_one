@@ -1,6 +1,6 @@
+import 'package:better_one/core/utils/notification_service/notification_interface.dart';
 import 'package:better_one/core/utils/remote_service/api_consumer/api_consumer.dart';
 import 'package:better_one/core/utils/remote_service/api_consumer/dio_consumer.dart';
-import 'package:better_one/core/utils/notification_service/notification_interface.dart';
 import 'package:better_one/core/utils/remote_service/supabase_service/supabase_service.dart';
 import 'package:better_one/data_source/quote_data_source/quote_source_interface.dart';
 import 'package:better_one/data_source/quote_data_source/remote_quote_data_source.dart';
@@ -8,7 +8,8 @@ import 'package:better_one/data_source/settings_data_source/local_settings_data_
 import 'package:better_one/data_source/settings_data_source/settings_source_interface.dart';
 import 'package:better_one/data_source/task_data_source/local_task_data_source.dart';
 import 'package:better_one/data_source/task_data_source/task_source_interface.dart';
-import 'package:better_one/data_source/user_data_source/remote_user_data_source.dart';
+import 'package:better_one/data_source/user_data_source/hive_locale_user_source.dart';
+import 'package:better_one/data_source/user_data_source/supabase_remote_user_source.dart';
 import 'package:better_one/repositories/quote_repo/quote_repo.dart';
 import 'package:better_one/repositories/quote_repo/quote_repo_interface.dart';
 import 'package:better_one/repositories/task_repo/task_repo_impl.dart';
@@ -46,20 +47,23 @@ Future<void> userAccountDependency() async {
 }
 
 void userDependency() {
-  userLocaleDatabase = _getIt.registerSingleton<UserCacheInterface>(
-    UserCacheByHive(cacheInit: _getIt<HiveInitImpl>()),
+  userLocaleDatabase = _getIt.registerSingleton<LocaleUserInfo>(
+    HiveLocaleUserInfo(),
   );
   kUserRepo = _getIt.registerSingleton<UserRepoInterface>(
-    UserRepoImpl(userSource: RemoteUserDataSource()),
+    UserRepoImpl(
+      localeUserSource: HiveLocaleUser(),
+      remoteUserSource: SupabaseRemoteUser(),
+    ),
   );
 }
 
 Future<void> cacheInitDependency() async {
   /// init cache service [Hive || SQLite]
-  _getIt.registerSingleton<HiveInitImpl>(
-    HiveInitImpl(),
+  _getIt.registerSingleton<InitCacheInterface>(
+    HiveInit(),
   );
-  await _getIt<HiveInitImpl>().init();
+  await _getIt<InitCacheInterface>().init();
 }
 
 Future<void> notificationDependency() async {
@@ -71,10 +75,8 @@ Future<void> notificationDependency() async {
 
 void taskDependency() {
   /// task cache [Hive || SQLite]
-  var taskCache = _getIt.registerSingleton<TaskCacheInterface>(
-    TaskCacheByHive(
-      cacheInit: _getIt<HiveInitImpl>(),
-    ),
+  var taskCache = _getIt.registerSingleton<LocaleTaskInterface>(
+    HiveLocaleTask(),
   );
 
   /// [Task] data source, Options [remote || local]
@@ -90,10 +92,8 @@ void taskDependency() {
 
 void settingsDependency() {
   /// setting cache [Hive || SQLite]
-  var settingCache = _getIt.registerSingleton<SettingsCacheInterface>(
-    SettingsCacheByHive(
-      cacheInit: _getIt<HiveInitImpl>(),
-    ),
+  var settingCache = _getIt.registerSingleton<LocaleSettingsInterface>(
+    HiveLocaleSettings(),
   );
 
   /// [setting] data source, Options [remote || local]
@@ -135,6 +135,6 @@ late SettingsRepoInterface settingRepo;
 late QuoteSource quoteSource;
 late QuoteRepoInterface quoteRepo;
 late RouteObserver<ModalRoute> routeObserver;
-late UserCacheInterface userLocaleDatabase;
+late LocaleUserInfo userLocaleDatabase;
 late SupabaseService client;
 late UserRepoInterface kUserRepo;

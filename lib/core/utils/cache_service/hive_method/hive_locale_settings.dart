@@ -6,15 +6,13 @@ import 'package:better_one/core/result_handler/result_handler.dart';
 import 'package:better_one/core/utils/cache_service/cache_service.dart';
 import 'package:flutter/material.dart';
 
-class SettingsCacheByHive implements SettingsCacheInterface {
-  SettingsCacheByHive({required this.cacheInit});
-  final HiveInitImpl cacheInit;
+class HiveLocaleSettings extends HiveInit implements LocaleSettingsInterface {
   @override
   Future<ResultHandler<String, Failure>> changeLanguage(
       String languageCode) async {
     try {
       return ResultHandler.success(
-        data: await cacheInit.appBox
+        data: await appBox
             .put(CacheKeys.lang, languageCode)
             .then((value) => languageCode),
       );
@@ -40,7 +38,7 @@ class SettingsCacheByHive implements SettingsCacheInterface {
               : CacheKeys.lightTheme;
 
           return ResultHandler.success(
-            data: await cacheInit.appBox.put(CacheKeys.theme, newTheme).then(
+            data: await appBox.put(CacheKeys.theme, newTheme).then(
               (value) {
                 return newTheme;
               },
@@ -66,7 +64,7 @@ class SettingsCacheByHive implements SettingsCacheInterface {
   Future<ResultHandler<String, Failure>> getLanguage() async {
     try {
       return ResultHandler.success(
-        data: cacheInit.appBox.get(CacheKeys.lang, defaultValue: 'en'),
+        data: appBox.get(CacheKeys.lang, defaultValue: 'en'),
       );
     } on FileSystemException catch (e) {
       return ResultHandler.failure(
@@ -82,7 +80,7 @@ class SettingsCacheByHive implements SettingsCacheInterface {
   @override
   Future<ResultHandler<String, Failure>> getTheme() async {
     try {
-      String theme = cacheInit.appBox.get(CacheKeys.theme,
+      String theme = appBox.get(CacheKeys.theme,
           defaultValue: WidgetsBinding
               .instance.platformDispatcher.platformBrightness.name);
 
@@ -109,13 +107,13 @@ class SettingsCacheByHive implements SettingsCacheInterface {
       var result = await getSearchSettings();
       return result.when(
         success: (settings) {
-          cacheInit.appBox.put(CacheKeys.isSearchByTitle,
+          appBox.put(CacheKeys.isSearchByTitle,
               isSearchByTitle ?? settings[CacheKeys.isSearchByTitle]);
-          cacheInit.appBox.put(CacheKeys.isSearchByBody,
+          appBox.put(CacheKeys.isSearchByBody,
               isSearchByBody ?? settings[CacheKeys.isSearchByBody]);
-          cacheInit.appBox.put(CacheKeys.isSearchByDate,
+          appBox.put(CacheKeys.isSearchByDate,
               isSearchByDate ?? settings[CacheKeys.isSearchByDate]);
-          cacheInit.appBox.put(CacheKeys.isSearchByStatus,
+          appBox.put(CacheKeys.isSearchByStatus,
               isSearchByStatus ?? settings[CacheKeys.isSearchByStatus]);
           return const ResultHandler.success(data: true);
         },
@@ -139,13 +137,13 @@ class SettingsCacheByHive implements SettingsCacheInterface {
     try {
       Map<String, bool> data = {};
       data[CacheKeys.isSearchByTitle] =
-          cacheInit.appBox.get(CacheKeys.isSearchByTitle, defaultValue: true);
+          appBox.get(CacheKeys.isSearchByTitle, defaultValue: true);
       data[CacheKeys.isSearchByBody] =
-          cacheInit.appBox.get(CacheKeys.isSearchByBody, defaultValue: false);
+          appBox.get(CacheKeys.isSearchByBody, defaultValue: false);
       data[CacheKeys.isSearchByDate] =
-          cacheInit.appBox.get(CacheKeys.isSearchByDate, defaultValue: false);
+          appBox.get(CacheKeys.isSearchByDate, defaultValue: false);
       data[CacheKeys.isSearchByStatus] =
-          cacheInit.appBox.get(CacheKeys.isSearchByStatus, defaultValue: false);
+          appBox.get(CacheKeys.isSearchByStatus, defaultValue: false);
       return ResultHandler.success(data: data);
     } on FileSystemException catch (e) {
       return ResultHandler.failure(
@@ -163,18 +161,18 @@ class SettingsCacheByHive implements SettingsCacheInterface {
       getNotificationSettings() async {
     try {
       Map<String, dynamic> data = {};
-      data[CacheKeys.isNotificationOnAdd] = cacheInit.appBox
-          .get(CacheKeys.isNotificationOnAdd, defaultValue: true);
-      data[CacheKeys.isNotificationOnUpdate] = cacheInit.appBox
-          .get(CacheKeys.isNotificationOnUpdate, defaultValue: false);
-      data[CacheKeys.isNotificationOnComplete] = cacheInit.appBox
-          .get(CacheKeys.isNotificationOnComplete, defaultValue: false);
-      data[CacheKeys.isNotificationOnReminder] = cacheInit.appBox
-          .get(CacheKeys.isNotificationOnReminder, defaultValue: false);
+      data[CacheKeys.isNotificationOnAdd] =
+          appBox.get(CacheKeys.isNotificationOnAdd, defaultValue: true);
+      data[CacheKeys.isNotificationOnUpdate] =
+          appBox.get(CacheKeys.isNotificationOnUpdate, defaultValue: false);
+      data[CacheKeys.isNotificationOnComplete] =
+          appBox.get(CacheKeys.isNotificationOnComplete, defaultValue: false);
+      data[CacheKeys.isNotificationOnReminder] =
+          appBox.get(CacheKeys.isNotificationOnReminder, defaultValue: false);
       data[CacheKeys.reminderDateTime] =
-          cacheInit.appBox.get(CacheKeys.reminderDateTime, defaultValue: 0);
+          appBox.get(CacheKeys.reminderDateTime, defaultValue: 0);
       data[CacheKeys.repeatReminder] =
-          cacheInit.appBox.get(CacheKeys.repeatReminder, defaultValue: false);
+          appBox.get(CacheKeys.repeatReminder, defaultValue: false);
       return ResultHandler.success(data: data);
     } on FileSystemException catch (e) {
       return ResultHandler.failure(
@@ -200,23 +198,23 @@ class SettingsCacheByHive implements SettingsCacheInterface {
       var result = await getNotificationSettings();
       return result.when(
         success: (settings) {
-          cacheInit.appBox.put(CacheKeys.isNotificationOnAdd,
+          appBox.put(CacheKeys.isNotificationOnAdd,
               isNotificationOnAdd ?? settings[CacheKeys.isNotificationOnAdd]);
-          cacheInit.appBox.put(
+          appBox.put(
               CacheKeys.isNotificationOnUpdate,
               isNotificationOnUpdate ??
                   settings[CacheKeys.isNotificationOnUpdate]);
-          cacheInit.appBox.put(
+          appBox.put(
               CacheKeys.isNotificationOnComplete,
               isNotificationOnComplete ??
                   settings[CacheKeys.isNotificationOnComplete]);
-          cacheInit.appBox.put(
+          appBox.put(
               CacheKeys.isNotificationOnReminder,
               isNotificationOnReminder ??
                   settings[CacheKeys.isNotificationOnReminder]);
-          cacheInit.appBox.put(CacheKeys.reminderDateTime,
+          appBox.put(CacheKeys.reminderDateTime,
               reminderDateTime ?? settings[CacheKeys.reminderDateTime]);
-          cacheInit.appBox.put(CacheKeys.repeatReminder,
+          appBox.put(CacheKeys.repeatReminder,
               repeatReminder ?? settings[CacheKeys.repeatReminder]);
           return const ResultHandler.success(data: true);
         },
@@ -239,8 +237,7 @@ class SettingsCacheByHive implements SettingsCacheInterface {
   Future<ResultHandler<bool, Failure>> getOnBoardingSeen() async {
     try {
       return ResultHandler.success(
-        data:
-            cacheInit.appBox.get(CacheKeys.onboardingSeen, defaultValue: false),
+        data: appBox.get(CacheKeys.onboardingSeen, defaultValue: false),
       );
     } on FileSystemException catch (e) {
       return ResultHandler.failure(
@@ -256,7 +253,7 @@ class SettingsCacheByHive implements SettingsCacheInterface {
   @override
   Future<ResultHandler<void, Failure>> setOnBoardingSeen(bool seen) async {
     try {
-      await cacheInit.appBox.put(CacheKeys.onboardingSeen, seen);
+      await appBox.put(CacheKeys.onboardingSeen, seen);
       return const ResultHandler.success(data: null);
     } on FileSystemException catch (e) {
       return ResultHandler.failure(

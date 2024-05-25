@@ -9,40 +9,12 @@ class TaskRepoImpl implements TaskRepoInterface {
   final TaskSource dataSource;
 
   @override
-  Future<ResultHandler<TaskModel, Failure>> addTask(TaskModel task) async {
-    return await dataSource.addTask(task);
-  }
-
-  @override
-  Future<ResultHandler<TaskModel, Failure>> removeTask(
-      TaskModel removedTask) async {
-    return await dataSource.removeTask(removedTask);
-  }
-
-  @override
-  Future<ResultHandler<TaskModel, Failure>> updateTask(
-      TaskModel oldTask, TaskModel newTask) async {
-    return await dataSource.updateTask(oldTask, newTask);
-  }
-
-  @override
-  Future<ResultHandler<List<TaskModel>, Failure>> getTasks() async {
-    return await dataSource.getTasks();
-  }
-
-  @override
-  Future<ResultHandler<TaskModel?, Failure>> getTaskById(String id) async {
-    return await dataSource.getTaskById(id);
+  Future<ResultHandler<List<TaskModel>, Failure>> getAllTasks() async {
+    return await dataSource.getAllTasks();
   }
 
   @override
   Future<ResultHandler<int, Failure>> getTotoalEstimatedTime() async {
     return await dataSource.getTotoalEstimatedTime();
-  }
-
-  @override
-  Future<ResultHandler<int, Failure>> updateTotalEstimatedTime(
-      int updatedTime, bool isAdding) async {
-    return await dataSource.updateTotalEstimatedTime(updatedTime, isAdding);
   }
 }

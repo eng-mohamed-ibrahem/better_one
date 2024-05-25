@@ -11,7 +11,7 @@ _$QuoteModelImpl _$$QuoteModelImplFromJson(Map<String, dynamic> json) =>
       content: json['content'] as String?,
       author: json['author'] as String?,
       authorSlug: json['authorSlug'] as String?,
-      length: json['length'] as int?,
+      length: (json['length'] as num?)?.toInt(),
       dateAdded: json['dateAdded'] as String?,
       dateModified: json['dateModified'] as String?,
     );

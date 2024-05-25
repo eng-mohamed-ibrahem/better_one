@@ -12,9 +12,9 @@ import 'package:better_one/model/notification_model/notification_model.dart';
 import 'package:better_one/model/task_model/task_model.dart';
 import 'package:better_one/view/widgets/duration_widget.dart';
 import 'package:better_one/view/widgets/input_field/task_field.dart';
-import 'package:better_one/view_models/home_viewmodel/home_viewmodel.dart';
 import 'package:better_one/view_models/quote_viewmodel/quote_viewmodel.dart';
 import 'package:better_one/view_models/setting_viewmodel/setting_viewmode.dart';
+import 'package:better_one/view_models/user_viewmodel/user_viewmodel.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -63,7 +63,7 @@ class _TaskScreenState extends State<TaskScreen>
   void didChangeDependencies() {
     taskId = ModalRoute.of(context)!.settings.arguments as String?;
     if (taskId != null) {
-      HomeViewmodel.get(context).getTaskById(taskId!);
+      context.read<UserViewmodel>().getTaskById(taskId!);
     }
     QuoteViewmode.get(context).getRandomQuote();
     routeObserver.subscribe(this, ModalRoute.of(context)!);
@@ -83,16 +83,6 @@ class _TaskScreenState extends State<TaskScreen>
   /// if navigate back while the task is inprogress then pause the task
   @override
   void deactivate() {
-    task != null
-        ? HomeViewmodel.get(context).updateTaskAndTotalEstimatedTime(
-            task!,
-            task!.status == TaskStatus.inprogress
-                ? TaskStatus.paused
-                : task!.status,
-            runningTime,
-          )
-        : null;
-    HomeViewmodel.get(context).release();
     super.deactivate();
   }
 
@@ -105,12 +95,12 @@ class _TaskScreenState extends State<TaskScreen>
         top: true,
         left: false,
         right: false,
-        child: BlocConsumer<HomeViewmodel, HomeViewmodelState>(
+        child: BlocConsumer<UserViewmodel, UserViewmodelState>(
           listenWhen: (previous, current) {
             if (current.isGetTaskByIdCompleted ||
-                current.isTaskUpdateCompleted ||
-                current.isTaskAddCompleted ||
-                current.isTaskRemoveCompleted) {
+                current.isUpdateTaskSuccess ||
+                current.isCreateTaskSuccess ||
+                current.isDeleteTaskSuccess) {
               return true;
             }
             return false;
@@ -121,7 +111,7 @@ class _TaskScreenState extends State<TaskScreen>
               titleController.text = task!.title;
               descriptionController.text = task!.body;
             }
-            if (state.isTaskUpdateCompleted) {
+            if (state.isUpdateTaskSuccess) {
               task = state.updatedTask;
               if (isTaskModified) {
                 settingState.isNotificationOnUpdate
@@ -156,8 +146,8 @@ class _TaskScreenState extends State<TaskScreen>
                     : null;
               }
             }
-            if (state.isTaskAddCompleted) {
-              task = state.addedTask;
+            if (state.isCreateTaskSuccess) {
+              task = state.createdTask;
               isTaskModified = false;
               settingState.isNotificationOnAdd
                   ? localNotification.display(
@@ -198,7 +188,7 @@ class _TaskScreenState extends State<TaskScreen>
                   failedAsset: LottieAssets.searchForTaskFailed,
                   errorMessage: state.errorMessage,
                   retry: () {
-                    HomeViewmodel.get(context).getTaskById(taskId!);
+                    context.read<UserViewmodel>().getTaskById(taskId!);
                   },
                 ),
               );
@@ -317,8 +307,9 @@ class _TaskScreenState extends State<TaskScreen>
                                           body: descriptionController.text,
                                           createdAt: DateTime.now(),
                                         );
-                                        HomeViewmodel.get(context)
-                                            .addTask(newTask);
+                                        context
+                                            .read<UserViewmodel>()
+                                            .createTask(newTask);
                                       } else {
                                         showSnackBar(
                                           context,
@@ -352,11 +343,10 @@ class _TaskScreenState extends State<TaskScreen>
                                                   ? TaskStatus.paused
                                                   : task!.status,
                                             );
-                                            HomeViewmodel.get(context)
+                                            context
+                                                .read<UserViewmodel>()
                                                 .updateTask(task!, newTask);
-                                            HomeViewmodel.get(context)
-                                                .updateTotalEstimatedTime(
-                                                    runningTime);
+
                                             runningTime = Duration.zero;
                                           } else {
                                             showSnackBar(
@@ -381,12 +371,6 @@ class _TaskScreenState extends State<TaskScreen>
                                     ? FilledButton.icon(
                                         label: Text('task.pause'.tr()),
                                         onPressed: () {
-                                          HomeViewmodel.get(context)
-                                              .updateTaskAndTotalEstimatedTime(
-                                            task!,
-                                            TaskStatus.paused,
-                                            runningTime,
-                                          );
                                           // 2: reset running time
                                           runningTime = Duration.zero;
                                         },
@@ -397,12 +381,6 @@ class _TaskScreenState extends State<TaskScreen>
                                     : FilledButton.icon(
                                         label: Text('task.start'.tr()),
                                         onPressed: () {
-                                          HomeViewmodel.get(context)
-                                              .updateTaskAndTotalEstimatedTime(
-                                            task!,
-                                            TaskStatus.inprogress,
-                                            runningTime,
-                                          );
                                           // 2: reset running time
                                           runningTime = Duration.zero;
                                         },
@@ -422,14 +400,14 @@ class _TaskScreenState extends State<TaskScreen>
                                 label: Text('task.status.done'.tr()),
                                 selected: task?.status == TaskStatus.done,
                                 onSelected: (value) {
-                                  HomeViewmodel.get(context).updateTask(
-                                    task!,
-                                    task!.copyWith(
-                                      status: value
-                                          ? TaskStatus.done
-                                          : TaskStatus.paused,
-                                    ),
-                                  );
+                                  context.read<UserViewmodel>().updateTask(
+                                        task!,
+                                        task!.copyWith(
+                                          status: value
+                                              ? TaskStatus.done
+                                              : TaskStatus.paused,
+                                        ),
+                                      );
                                 },
                               ),
                               SizedBox(width: AppMetrices.horizontalGap2.w),
@@ -439,8 +417,10 @@ class _TaskScreenState extends State<TaskScreen>
                                     context,
                                     message: task!.title,
                                     onConfirm: () {
-                                      HomeViewmodel.get(context)
-                                          .removeTask(task!);
+                                      context
+                                          .read<UserViewmodel>()
+                                          .deleteTask(task!);
+
                                       showSnackBar(
                                         context,
                                         message: 'task.remove'.tr(),

@@ -1,7 +1,7 @@
-import 'package:better_one/core/utils/cache_service/cach_interface/cache_init_interface.dart';
+import 'package:better_one/core/utils/cache_service/cach_interface/init_cache_interface.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 
-class HiveInitImpl implements CacheInitInterface {
+class HiveInit implements InitCacheInterface {
   static const String _userdata = 'user_data';
   late final Box appBox;
 

@@ -22,11 +22,15 @@ TaskModel _$TaskModelFromJson(Map<String, dynamic> json) {
 mixin _$TaskModel {
   String get title => throw _privateConstructorUsedError;
   String get body => throw _privateConstructorUsedError;
+  @JsonKey(name: 'sub_tasks')
   List<({bool completed, String title})> get subTasks =>
       throw _privateConstructorUsedError;
   String get id => throw _privateConstructorUsedError;
+  @JsonKey(name: 'created_at')
   DateTime get createdAt => throw _privateConstructorUsedError;
+  @JsonKey(name: 'updated_at')
   DateTime? get updatedAt => throw _privateConstructorUsedError;
+  @JsonKey(name: 'elapsed_time')
   Duration get elapsedTime => throw _privateConstructorUsedError;
   TaskStatus get status => throw _privateConstructorUsedError;
   bool get backup => throw _privateConstructorUsedError;
@@ -45,11 +49,12 @@ abstract class $TaskModelCopyWith<$Res> {
   $Res call(
       {String title,
       String body,
+      @JsonKey(name: 'sub_tasks')
       List<({bool completed, String title})> subTasks,
       String id,
-      DateTime createdAt,
-      DateTime? updatedAt,
-      Duration elapsedTime,
+      @JsonKey(name: 'created_at') DateTime createdAt,
+      @JsonKey(name: 'updated_at') DateTime? updatedAt,
+      @JsonKey(name: 'elapsed_time') Duration elapsedTime,
       TaskStatus status,
       bool backup});
 }
@@ -129,11 +134,12 @@ abstract class _$$TaskModelImplCopyWith<$Res>
   $Res call(
       {String title,
       String body,
+      @JsonKey(name: 'sub_tasks')
       List<({bool completed, String title})> subTasks,
       String id,
-      DateTime createdAt,
-      DateTime? updatedAt,
-      Duration elapsedTime,
+      @JsonKey(name: 'created_at') DateTime createdAt,
+      @JsonKey(name: 'updated_at') DateTime? updatedAt,
+      @JsonKey(name: 'elapsed_time') Duration elapsedTime,
       TaskStatus status,
       bool backup});
 }
@@ -206,11 +212,12 @@ class _$TaskModelImpl implements _TaskModel {
   const _$TaskModelImpl(
       {required this.title,
       required this.body,
+      @JsonKey(name: 'sub_tasks')
       final List<({bool completed, String title})> subTasks = const [],
       required this.id,
-      required this.createdAt,
-      this.updatedAt,
-      this.elapsedTime = Duration.zero,
+      @JsonKey(name: 'created_at') required this.createdAt,
+      @JsonKey(name: 'updated_at') this.updatedAt,
+      @JsonKey(name: 'elapsed_time') this.elapsedTime = Duration.zero,
       this.status = TaskStatus.none,
       this.backup = false})
       : _subTasks = subTasks;
@@ -224,7 +231,7 @@ class _$TaskModelImpl implements _TaskModel {
   final String body;
   final List<({bool completed, String title})> _subTasks;
   @override
-  @JsonKey()
+  @JsonKey(name: 'sub_tasks')
   List<({bool completed, String title})> get subTasks {
     if (_subTasks is EqualUnmodifiableListView) return _subTasks;
     // ignore: implicit_dynamic_type
@@ -234,11 +241,13 @@ class _$TaskModelImpl implements _TaskModel {
   @override
   final String id;
   @override
+  @JsonKey(name: 'created_at')
   final DateTime createdAt;
   @override
+  @JsonKey(name: 'updated_at')
   final DateTime? updatedAt;
   @override
-  @JsonKey()
+  @JsonKey(name: 'elapsed_time')
   final Duration elapsedTime;
   @override
   @JsonKey()
@@ -303,11 +312,12 @@ abstract class _TaskModel implements TaskModel {
   const factory _TaskModel(
       {required final String title,
       required final String body,
+      @JsonKey(name: 'sub_tasks')
       final List<({bool completed, String title})> subTasks,
       required final String id,
-      required final DateTime createdAt,
-      final DateTime? updatedAt,
-      final Duration elapsedTime,
+      @JsonKey(name: 'created_at') required final DateTime createdAt,
+      @JsonKey(name: 'updated_at') final DateTime? updatedAt,
+      @JsonKey(name: 'elapsed_time') final Duration elapsedTime,
       final TaskStatus status,
       final bool backup}) = _$TaskModelImpl;
 
@@ -319,14 +329,18 @@ abstract class _TaskModel implements TaskModel {
   @override
   String get body;
   @override
+  @JsonKey(name: 'sub_tasks')
   List<({bool completed, String title})> get subTasks;
   @override
   String get id;
   @override
+  @JsonKey(name: 'created_at')
   DateTime get createdAt;
   @override
+  @JsonKey(name: 'updated_at')
   DateTime? get updatedAt;
   @override
+  @JsonKey(name: 'elapsed_time')
   Duration get elapsedTime;
   @override
   TaskStatus get status;

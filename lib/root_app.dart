@@ -26,7 +26,7 @@ class RootApp extends StatelessWidget {
     return MultiBlocProvider(
       providers: [
         BlocProvider(
-          create: (context) => HomeViewmodel(taskRepoInterface: taskRepo)
+          create: (context) => HomeViewmodel(taskRepo: taskRepo)
             ..getTasks()
             ..getTotalEstimatedTime(),
         ),

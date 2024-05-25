@@ -9,11 +9,13 @@ class TaskModel with _$TaskModel {
   const factory TaskModel({
     required String title,
     required String body,
-    @Default([]) List<({String title, bool completed})> subTasks,
+    @JsonKey(name: 'sub_tasks')
+    @Default([])
+    List<({String title, bool completed})> subTasks,
     required String id,
-    required DateTime createdAt,
-    DateTime? updatedAt,
-    @Default(Duration.zero) Duration elapsedTime,
+    @JsonKey(name: 'created_at') required DateTime createdAt,
+    @JsonKey(name: 'updated_at') DateTime? updatedAt,
+    @JsonKey(name: 'elapsed_time') @Default(Duration.zero) Duration elapsedTime,
     @Default(TaskStatus.none) TaskStatus status,
     @Default(false) bool backup,
   }) = _TaskModel;

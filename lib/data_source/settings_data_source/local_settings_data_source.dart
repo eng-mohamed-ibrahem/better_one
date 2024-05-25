@@ -8,7 +8,7 @@ import '../../core/utils/cache_service/cache_service.dart';
 
 class LocalSettingsDataSource implements SettingsSource {
   LocalSettingsDataSource({required this.settingsCache});
-  final SettingsCacheInterface settingsCache;
+  final LocaleSettingsInterface settingsCache;
 
   @override
   Future<ResultHandler<Locale, Failure>> changeLanguage(

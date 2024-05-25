@@ -100,7 +100,7 @@ class _HomeScreenState extends State<HomeScreen> with RouteAware {
                       failedAsset: LottieAssets.error,
                       errorMessage: state.errorMessage,
                       retry: () {
-                        HomeViewmodel.get(context).getTasks();
+                        context.read<HomeViewmodel>().getTasks();
                       },
                     ),
                   );

@@ -9,39 +9,12 @@ class RemoteTaskDataSource implements TaskSource {
   final ApiConsumer apiConsumer;
 
   @override
-  Future<ResultHandler<TaskModel, Failure>> addTask(TaskModel newTask) {
-    throw UnimplementedError();
-  }
-
-  @override
-  Future<ResultHandler<TaskModel, Failure>> getTaskById(String id) {
-    throw UnimplementedError();
-  }
-
-  @override
-  Future<ResultHandler<List<TaskModel>, Failure>> getTasks() {
-    throw UnimplementedError();
-  }
-
-  @override
-  Future<ResultHandler<TaskModel, Failure>> removeTask(TaskModel removedTask) {
-    throw UnimplementedError();
-  }
-
-  @override
-  Future<ResultHandler<TaskModel, Failure>> updateTask(
-      TaskModel oldTask, TaskModel newTask) {
+  Future<ResultHandler<List<TaskModel>, Failure>> getAllTasks() {
     throw UnimplementedError();
   }
 
   @override
   Future<ResultHandler<int, Failure>> getTotoalEstimatedTime() {
-    throw UnimplementedError();
-  }
-
-  @override
-  Future<ResultHandler<int, Failure>> updateTotalEstimatedTime(
-      int updatedTime, bool isAdding) {
     throw UnimplementedError();
   }
 }

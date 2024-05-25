@@ -3,9 +3,10 @@ import 'package:better_one/core/constants/app_colors.dart';
 import 'package:better_one/core/utils/methods/methods.dart';
 import 'package:better_one/model/task_model/task_model.dart';
 import 'package:better_one/view/widgets/task/card_task.dart';
-import 'package:better_one/view_models/home_viewmodel/home_viewmodel.dart';
+import 'package:better_one/view_models/user_viewmodel/user_viewmodel.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class ModifiyCardTask extends StatefulWidget {
   const ModifiyCardTask({
@@ -63,7 +64,9 @@ class _ModifiyCardTaskState extends State<ModifiyCardTask>
                         _animationController.forward();
                         _animationController.addListener(() {
                           if (_animationController.isCompleted) {
-                            HomeViewmodel.get(context).removeTask(widget.task);
+                            context
+                                .read<UserViewmodel>()
+                                .deleteTask(widget.task);
                             showSnackBar(
                               context,
                               message: 'task.remove'.tr(),

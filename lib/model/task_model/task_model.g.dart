@@ -10,7 +10,7 @@ _$TaskModelImpl _$$TaskModelImplFromJson(Map<String, dynamic> json) =>
     _$TaskModelImpl(
       title: json['title'] as String,
       body: json['body'] as String,
-      subTasks: (json['subTasks'] as List<dynamic>?)
+      subTasks: (json['sub_tasks'] as List<dynamic>?)
               ?.map((e) => _$recordConvert(
                     e,
                     ($jsonValue) => (
@@ -21,13 +21,13 @@ _$TaskModelImpl _$$TaskModelImplFromJson(Map<String, dynamic> json) =>
               .toList() ??
           const [],
       id: json['id'] as String,
-      createdAt: DateTime.parse(json['createdAt'] as String),
-      updatedAt: json['updatedAt'] == null
+      createdAt: DateTime.parse(json['created_at'] as String),
+      updatedAt: json['updated_at'] == null
           ? null
-          : DateTime.parse(json['updatedAt'] as String),
-      elapsedTime: json['elapsedTime'] == null
+          : DateTime.parse(json['updated_at'] as String),
+      elapsedTime: json['elapsed_time'] == null
           ? Duration.zero
-          : Duration(microseconds: json['elapsedTime'] as int),
+          : Duration(microseconds: (json['elapsed_time'] as num).toInt()),
       status: $enumDecodeNullable(_$TaskStatusEnumMap, json['status']) ??
           TaskStatus.none,
       backup: json['backup'] as bool? ?? false,
@@ -37,16 +37,16 @@ Map<String, dynamic> _$$TaskModelImplToJson(_$TaskModelImpl instance) =>
     <String, dynamic>{
       'title': instance.title,
       'body': instance.body,
-      'subTasks': instance.subTasks
-          .map((e) => {
+      'sub_tasks': instance.subTasks
+          .map((e) => <String, dynamic>{
                 'completed': e.completed,
                 'title': e.title,
               })
           .toList(),
       'id': instance.id,
-      'createdAt': instance.createdAt.toIso8601String(),
-      'updatedAt': instance.updatedAt?.toIso8601String(),
-      'elapsedTime': instance.elapsedTime.inMicroseconds,
+      'created_at': instance.createdAt.toIso8601String(),
+      'updated_at': instance.updatedAt?.toIso8601String(),
+      'elapsed_time': instance.elapsedTime.inMicroseconds,
       'status': _$TaskStatusEnumMap[instance.status]!,
       'backup': instance.backup,
     };
