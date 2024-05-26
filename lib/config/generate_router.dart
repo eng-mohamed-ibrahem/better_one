@@ -104,9 +104,7 @@ class GenerateRouter {
         {
           activeRoute = accountSettingScreen;
           return MaterialPageRoute(
-            builder: (context) => AccountSettingScreen(
-              title: settings.arguments as String,
-            ),
+            builder: (context) => const AccountSettingScreen(),
           );
         }
       case signup:

@@ -48,7 +48,9 @@ Future<void> userAccountDependency() async {
 
 void userDependency() {
   userLocaleDatabase = _getIt.registerSingleton<LocaleUserInfo>(
-    HiveLocaleUserInfo(),
+    HiveLocaleUserInfo(
+      initHive: _getIt<HiveInit>(),
+    ),
   );
   kUserRepo = _getIt.registerSingleton<UserRepoInterface>(
     UserRepoImpl(
@@ -60,10 +62,10 @@ void userDependency() {
 
 Future<void> cacheInitDependency() async {
   /// init cache service [Hive || SQLite]
-  _getIt.registerSingleton<InitCacheInterface>(
+  _getIt.registerSingleton<HiveInit>(
     HiveInit(),
   );
-  await _getIt<InitCacheInterface>().init();
+  await _getIt<HiveInit>().init();
 }
 
 Future<void> notificationDependency() async {
@@ -76,7 +78,9 @@ Future<void> notificationDependency() async {
 void taskDependency() {
   /// task cache [Hive || SQLite]
   var taskCache = _getIt.registerSingleton<LocaleTaskInterface>(
-    HiveLocaleTask(),
+    HiveLocaleTask(
+      initHive: _getIt<HiveInit>(),
+    ),
   );
 
   /// [Task] data source, Options [remote || local]
@@ -93,7 +97,9 @@ void taskDependency() {
 void settingsDependency() {
   /// setting cache [Hive || SQLite]
   var settingCache = _getIt.registerSingleton<LocaleSettingsInterface>(
-    HiveLocaleSettings(),
+    HiveLocaleSettings(
+      initHive: _getIt<HiveInit>(),
+    ),
   );
 
   /// [setting] data source, Options [remote || local]

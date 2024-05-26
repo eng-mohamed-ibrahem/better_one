@@ -99,7 +99,6 @@ class _SettingScreenState extends State<SettingScreen> with RouteAware {
                             ? Navigator.pushNamed(
                                 context,
                                 GenerateRouter.accountSettingScreen,
-                                arguments: settingItems[index].title,
                               )
                             : Navigator.pushNamed(
                                 context, GenerateRouter.login);

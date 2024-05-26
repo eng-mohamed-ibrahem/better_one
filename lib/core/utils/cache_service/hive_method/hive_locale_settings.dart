@@ -6,13 +6,15 @@ import 'package:better_one/core/result_handler/result_handler.dart';
 import 'package:better_one/core/utils/cache_service/cache_service.dart';
 import 'package:flutter/material.dart';
 
-class HiveLocaleSettings extends HiveInit implements LocaleSettingsInterface {
+class HiveLocaleSettings implements LocaleSettingsInterface {
+  HiveLocaleSettings({required this.initHive});
+  final HiveInit initHive;
   @override
   Future<ResultHandler<String, Failure>> changeLanguage(
       String languageCode) async {
     try {
       return ResultHandler.success(
-        data: await appBox
+        data: await initHive.appBox
             .put(CacheKeys.lang, languageCode)
             .then((value) => languageCode),
       );
@@ -38,7 +40,7 @@ class HiveLocaleSettings extends HiveInit implements LocaleSettingsInterface {
               : CacheKeys.lightTheme;
 
           return ResultHandler.success(
-            data: await appBox.put(CacheKeys.theme, newTheme).then(
+            data: await initHive.appBox.put(CacheKeys.theme, newTheme).then(
               (value) {
                 return newTheme;
               },
@@ -64,7 +66,7 @@ class HiveLocaleSettings extends HiveInit implements LocaleSettingsInterface {
   Future<ResultHandler<String, Failure>> getLanguage() async {
     try {
       return ResultHandler.success(
-        data: appBox.get(CacheKeys.lang, defaultValue: 'en'),
+        data: initHive.appBox.get(CacheKeys.lang, defaultValue: 'en'),
       );
     } on FileSystemException catch (e) {
       return ResultHandler.failure(
@@ -80,7 +82,7 @@ class HiveLocaleSettings extends HiveInit implements LocaleSettingsInterface {
   @override
   Future<ResultHandler<String, Failure>> getTheme() async {
     try {
-      String theme = appBox.get(CacheKeys.theme,
+      String theme = initHive.appBox.get(CacheKeys.theme,
           defaultValue: WidgetsBinding
               .instance.platformDispatcher.platformBrightness.name);
 
@@ -107,13 +109,13 @@ class HiveLocaleSettings extends HiveInit implements LocaleSettingsInterface {
       var result = await getSearchSettings();
       return result.when(
         success: (settings) {
-          appBox.put(CacheKeys.isSearchByTitle,
+          initHive.appBox.put(CacheKeys.isSearchByTitle,
               isSearchByTitle ?? settings[CacheKeys.isSearchByTitle]);
-          appBox.put(CacheKeys.isSearchByBody,
+          initHive.appBox.put(CacheKeys.isSearchByBody,
               isSearchByBody ?? settings[CacheKeys.isSearchByBody]);
-          appBox.put(CacheKeys.isSearchByDate,
+          initHive.appBox.put(CacheKeys.isSearchByDate,
               isSearchByDate ?? settings[CacheKeys.isSearchByDate]);
-          appBox.put(CacheKeys.isSearchByStatus,
+          initHive.appBox.put(CacheKeys.isSearchByStatus,
               isSearchByStatus ?? settings[CacheKeys.isSearchByStatus]);
           return const ResultHandler.success(data: true);
         },
@@ -137,13 +139,13 @@ class HiveLocaleSettings extends HiveInit implements LocaleSettingsInterface {
     try {
       Map<String, bool> data = {};
       data[CacheKeys.isSearchByTitle] =
-          appBox.get(CacheKeys.isSearchByTitle, defaultValue: true);
+          initHive.appBox.get(CacheKeys.isSearchByTitle, defaultValue: true);
       data[CacheKeys.isSearchByBody] =
-          appBox.get(CacheKeys.isSearchByBody, defaultValue: false);
+          initHive.appBox.get(CacheKeys.isSearchByBody, defaultValue: false);
       data[CacheKeys.isSearchByDate] =
-          appBox.get(CacheKeys.isSearchByDate, defaultValue: false);
+          initHive.appBox.get(CacheKeys.isSearchByDate, defaultValue: false);
       data[CacheKeys.isSearchByStatus] =
-          appBox.get(CacheKeys.isSearchByStatus, defaultValue: false);
+          initHive.appBox.get(CacheKeys.isSearchByStatus, defaultValue: false);
       return ResultHandler.success(data: data);
     } on FileSystemException catch (e) {
       return ResultHandler.failure(
@@ -161,18 +163,18 @@ class HiveLocaleSettings extends HiveInit implements LocaleSettingsInterface {
       getNotificationSettings() async {
     try {
       Map<String, dynamic> data = {};
-      data[CacheKeys.isNotificationOnAdd] =
-          appBox.get(CacheKeys.isNotificationOnAdd, defaultValue: true);
-      data[CacheKeys.isNotificationOnUpdate] =
-          appBox.get(CacheKeys.isNotificationOnUpdate, defaultValue: false);
-      data[CacheKeys.isNotificationOnComplete] =
-          appBox.get(CacheKeys.isNotificationOnComplete, defaultValue: false);
-      data[CacheKeys.isNotificationOnReminder] =
-          appBox.get(CacheKeys.isNotificationOnReminder, defaultValue: false);
+      data[CacheKeys.isNotificationOnAdd] = initHive.appBox
+          .get(CacheKeys.isNotificationOnAdd, defaultValue: true);
+      data[CacheKeys.isNotificationOnUpdate] = initHive.appBox
+          .get(CacheKeys.isNotificationOnUpdate, defaultValue: false);
+      data[CacheKeys.isNotificationOnComplete] = initHive.appBox
+          .get(CacheKeys.isNotificationOnComplete, defaultValue: false);
+      data[CacheKeys.isNotificationOnReminder] = initHive.appBox
+          .get(CacheKeys.isNotificationOnReminder, defaultValue: false);
       data[CacheKeys.reminderDateTime] =
-          appBox.get(CacheKeys.reminderDateTime, defaultValue: 0);
+          initHive.appBox.get(CacheKeys.reminderDateTime, defaultValue: 0);
       data[CacheKeys.repeatReminder] =
-          appBox.get(CacheKeys.repeatReminder, defaultValue: false);
+          initHive.appBox.get(CacheKeys.repeatReminder, defaultValue: false);
       return ResultHandler.success(data: data);
     } on FileSystemException catch (e) {
       return ResultHandler.failure(
@@ -198,23 +200,23 @@ class HiveLocaleSettings extends HiveInit implements LocaleSettingsInterface {
       var result = await getNotificationSettings();
       return result.when(
         success: (settings) {
-          appBox.put(CacheKeys.isNotificationOnAdd,
+          initHive.appBox.put(CacheKeys.isNotificationOnAdd,
               isNotificationOnAdd ?? settings[CacheKeys.isNotificationOnAdd]);
-          appBox.put(
+          initHive.appBox.put(
               CacheKeys.isNotificationOnUpdate,
               isNotificationOnUpdate ??
                   settings[CacheKeys.isNotificationOnUpdate]);
-          appBox.put(
+          initHive.appBox.put(
               CacheKeys.isNotificationOnComplete,
               isNotificationOnComplete ??
                   settings[CacheKeys.isNotificationOnComplete]);
-          appBox.put(
+          initHive.appBox.put(
               CacheKeys.isNotificationOnReminder,
               isNotificationOnReminder ??
                   settings[CacheKeys.isNotificationOnReminder]);
-          appBox.put(CacheKeys.reminderDateTime,
+          initHive.appBox.put(CacheKeys.reminderDateTime,
               reminderDateTime ?? settings[CacheKeys.reminderDateTime]);
-          appBox.put(CacheKeys.repeatReminder,
+          initHive.appBox.put(CacheKeys.repeatReminder,
               repeatReminder ?? settings[CacheKeys.repeatReminder]);
           return const ResultHandler.success(data: true);
         },
@@ -237,7 +239,8 @@ class HiveLocaleSettings extends HiveInit implements LocaleSettingsInterface {
   Future<ResultHandler<bool, Failure>> getOnBoardingSeen() async {
     try {
       return ResultHandler.success(
-        data: appBox.get(CacheKeys.onboardingSeen, defaultValue: false),
+        data:
+            initHive.appBox.get(CacheKeys.onboardingSeen, defaultValue: false),
       );
     } on FileSystemException catch (e) {
       return ResultHandler.failure(
@@ -253,7 +256,7 @@ class HiveLocaleSettings extends HiveInit implements LocaleSettingsInterface {
   @override
   Future<ResultHandler<void, Failure>> setOnBoardingSeen(bool seen) async {
     try {
-      await appBox.put(CacheKeys.onboardingSeen, seen);
+      await initHive.appBox.put(CacheKeys.onboardingSeen, seen);
       return const ResultHandler.success(data: null);
     } on FileSystemException catch (e) {
       return ResultHandler.failure(

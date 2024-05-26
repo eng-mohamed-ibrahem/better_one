@@ -1,21 +1,23 @@
 import 'package:better_one/core/constants/constants.dart';
 import 'package:better_one/core/utils/cache_service/cache_service.dart';
 
-class HiveLocaleUserInfo extends HiveInit implements LocaleUserInfo {
+class HiveLocaleUserInfo implements LocaleUserInfo {
+  HiveLocaleUserInfo({required this.initHive});
+  final HiveInit initHive;
   @override
   Future<bool> deleteUser() async {
-    await appBox.delete(CacheKeys.userId);
+    await initHive.appBox.delete(CacheKeys.userId);
     return true;
   }
 
   @override
   String? getUserIdFromLocale() {
-    return appBox.get(CacheKeys.userId);
+    return initHive.appBox.get(CacheKeys.userId);
   }
 
   @override
   Future<bool> setUserIdToLocale({required String userId}) async {
-    await appBox.put(CacheKeys.userId, userId);
+    await initHive.appBox.put(CacheKeys.userId, userId);
     return true;
   }
 }

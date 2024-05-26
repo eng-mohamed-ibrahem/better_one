@@ -106,7 +106,7 @@
             "has_account": "Already have account?",
             "or": "Or",
             "email_backup": "Your tasks backed up at",
-            "welcome": "hello, {name} 👋"
+            "welcome": "Hello, {name} 👋"
         }
     },
     "auth": {

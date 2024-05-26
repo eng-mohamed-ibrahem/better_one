@@ -7,12 +7,14 @@ import 'package:better_one/core/result_handler/result_handler.dart';
 import 'package:better_one/core/utils/cache_service/cache_service.dart';
 import 'package:better_one/model/task_model/task_model.dart';
 
-class HiveLocaleTask extends HiveInit implements LocaleTaskInterface {
+class HiveLocaleTask implements LocaleTaskInterface {
+  HiveLocaleTask({required this.initHive});
+  final HiveInit initHive;
   @override
   Future<ResultHandler<List<TaskModel>, Failure>> getAllTasks() async {
     try {
       return ResultHandler.success(
-          data: _convertToTaskList(appBox.get(CacheKeys.tasks)));
+          data: _convertToTaskList(initHive.appBox.get(CacheKeys.tasks)));
     } on FileSystemException catch (e) {
       return ResultHandler.failure(
         error: CacheFailure(message: e.message),

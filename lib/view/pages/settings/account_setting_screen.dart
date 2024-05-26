@@ -11,8 +11,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class AccountSettingScreen extends StatefulWidget {
-  const AccountSettingScreen({super.key, required this.title});
-  final String title;
+  const AccountSettingScreen({super.key});
 
   @override
   State<AccountSettingScreen> createState() => _AccountSettingScreenState();
@@ -45,6 +44,7 @@ class _AccountSettingScreenState extends State<AccountSettingScreen> {
           showLoadingDialog(context);
         }
         if (state.isLogoutSuccess) {
+          Navigator.pop(context);
           userLocaleDatabase.deleteUser();
           Navigator.pushReplacementNamed(
             context,
