@@ -49,7 +49,9 @@ class GenerateRouter {
           return PageRouteBuilder(
             settings: settings,
             pageBuilder: (context, animation, secondaryAnimation) {
-              return const TaskDetailsScreen();
+              return TaskDetailsScreen(
+                taskId: settings.arguments as String,
+              );
             },
             transitionsBuilder:
                 (context, animation, secondaryAnimation, child) {

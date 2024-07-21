@@ -1,4 +1,5 @@
 import 'package:better_one/config/generate_router.dart';
+import 'package:better_one/config/navigation/routes_enum.dart';
 import 'package:better_one/core/utils/dependency_locator/dependency_injection.dart';
 import 'package:better_one/core/utils/shared_widgets/failed.dart';
 import 'package:better_one/core/utils/shared_widgets/lottie_indicator.dart';
@@ -10,6 +11,7 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:go_router/go_router.dart';
 
 import '../../../core/constants/constants.dart';
 
@@ -43,21 +45,9 @@ class _HomeScreenState extends State<HomeScreen> with RouteAware {
     localNotification.getNotificationAppLaunchDetails;
     localNotification.onTapNotificationStream.listen(
       (payload) {
-        /// 1: chech if in the same route of [task screen]
-        /// 2: if yes, pushReplacement
-        /// 3: if not, pushNamed
         if (payload!.isNotEmpty) {
-          GenerateRouter.activeRoute == GenerateRouter.taskScreen
-              ? Navigator.pushReplacementNamed(
-                  context,
-                  GenerateRouter.taskScreen,
-                  arguments: payload,
-                )
-              : Navigator.pushNamed(
-                  context,
-                  GenerateRouter.taskScreen,
-                  arguments: payload,
-                );
+          context.goNamed(Routes.taskDetail.name,
+              pathParameters: {'task_id': payload});
         }
       },
     );
@@ -181,10 +171,7 @@ class _HomeScreenState extends State<HomeScreen> with RouteAware {
                 tag: 'app_settings',
                 child: IconButton(
                   onPressed: () {
-                    Navigator.pushNamed(
-                      context,
-                      GenerateRouter.settingScreen,
-                    );
+                    context.goNamed(Routes.settings.name);
                   },
                   icon: const Icon(Icons.settings_outlined),
                 ),
@@ -204,10 +191,7 @@ class _HomeScreenState extends State<HomeScreen> with RouteAware {
                     ),
                   ),
                   onPressed: () {
-                    Navigator.pushNamed(
-                      context,
-                      GenerateRouter.taskScreen,
-                    );
+                    context.goNamed(Routes.task.name);
                   },
                   icon: const Icon(Icons.add),
                   label: Text(

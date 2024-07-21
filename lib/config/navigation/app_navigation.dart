@@ -16,6 +16,7 @@ class AppNavigation {
     navigatorKey: _parrentNavigatorKey,
     initialLocation: Routes.splash.path,
     observers: [routeObserver],
+    debugLogDiagnostics: true,
     routes: [
       GoRoute(
         path: Routes.splash.path,
@@ -65,12 +66,12 @@ class AppNavigation {
           GoRoute(
             path: "${Routes.taskDetail.path}/:task_id",
             name: Routes.taskDetail.name,
-            builder: (context, state) => const TaskDetailsScreen(),
             pageBuilder: (context, state) {
               activeRoute = Routes.taskDetail.path;
               return CustomTransitionPage(
-                child: const TaskDetailsScreen(),
-                arguments: state.pathParameters['task_id'],
+                child: TaskDetailsScreen(
+                  taskId: state.pathParameters['task_id'] as String,
+                ),
                 transitionsBuilder:
                     (context, animation, secondaryAnimation, child) {
                   return SlideTransition(

@@ -1,8 +1,9 @@
-import 'package:better_one/config/generate_router.dart';
+import 'package:better_one/config/navigation/routes_enum.dart';
 import 'package:better_one/core/constants/constants.dart';
 import 'package:better_one/model/onboarding/onboarding_model.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 class OnboardingScreen extends StatelessWidget {
@@ -50,8 +51,7 @@ class OnboardingScreen extends StatelessWidget {
                           ? const Text('')
                           : TextButton(
                               onPressed: () {
-                                Navigator.pushNamedAndRemoveUntil(context,
-                                    GenerateRouter.home, (route) => false);
+                                context.go(Routes.home.path);
                               },
                               child: Text('core.get_started'.tr()),
                             )

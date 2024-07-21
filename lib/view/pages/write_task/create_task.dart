@@ -12,6 +12,7 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
+import 'package:uuid/uuid.dart';
 
 class CreateTaskScreen extends StatelessWidget {
   CreateTaskScreen({super.key});
@@ -70,7 +71,7 @@ class CreateTaskScreen extends StatelessWidget {
               if (titleController.text.isNotEmpty &&
                   descriptionController.text.isNotEmpty) {
                 var newTask = TaskModel(
-                  id: DateTime.now().millisecondsSinceEpoch.toString(),
+                  id: const Uuid().v4(),
                   title: titleController.text,
                   body: descriptionController.text,
                   createdAt: DateTime.now(),

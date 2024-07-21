@@ -25,7 +25,8 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../../core/constants/constants.dart';
 
 class TaskDetailsScreen extends StatefulWidget {
-  const TaskDetailsScreen({super.key});
+  const TaskDetailsScreen({super.key, required this.taskId});
+  final String taskId;
 
   @override
   State<TaskDetailsScreen> createState() => _TaskScreenState();
@@ -36,7 +37,6 @@ class _TaskScreenState extends State<TaskDetailsScreen>
   final TextEditingController titleController = TextEditingController();
   final TextEditingController descriptionController = TextEditingController();
   late TaskModel task;
-  late String taskId;
   bool isTaskModified = false;
   Duration runningTime = Duration.zero;
   Timer? timer;
@@ -53,8 +53,7 @@ class _TaskScreenState extends State<TaskDetailsScreen>
 
   @override
   void didChangeDependencies() {
-    taskId = ModalRoute.of(context)!.settings.arguments as String;
-    context.read<UserViewmodel>().getTaskById(taskId);
+    context.read<UserViewmodel>().getTaskById(widget.taskId);
     QuoteViewmode.get(context).getRandomQuote();
     routeObserver.subscribe(this, ModalRoute.of(context)!);
     super.didChangeDependencies();
@@ -71,11 +70,13 @@ class _TaskScreenState extends State<TaskDetailsScreen>
   /// if navigate back while the task is inprogress then pause the task
   @override
   void deactivate() {
-    // HomeViewmodel.get(context).updateTaskAndTotalEstimatedTime(
-    //   task,
-    //   task.status == TaskStatus.inprogress ? TaskStatus.paused : task.status,
-    //   runningTime,
-    // );
+    context.read<UserViewmodel>().updateTask(
+          task,
+          task.copyWith(
+            status: TaskStatus.paused,
+            elapsedTime: runningTime + task.elapsedTime,
+          ),
+        );
     // HomeViewmodel.get(context).release();
     super.deactivate();
   }
@@ -140,6 +141,7 @@ class _TaskScreenState extends State<TaskDetailsScreen>
               }
             }
             timer?.cancel();
+            timer = null;
             timer = Timer.periodic(
               const Duration(seconds: 1),
               (timer) {
@@ -167,7 +169,7 @@ class _TaskScreenState extends State<TaskDetailsScreen>
                   failedAsset: LottieAssets.searchForTaskFailed,
                   errorMessage: state.errorMessage,
                   retry: () {
-                    context.read<UserViewmodel>().getTaskById(taskId);
+                    context.read<UserViewmodel>().getTaskById(widget.taskId);
                   },
                 ),
               );
@@ -240,6 +242,7 @@ class _TaskScreenState extends State<TaskDetailsScreen>
                                   onPressed: () {
                                     if (titleController.text.isNotEmpty &&
                                         descriptionController.text.isNotEmpty) {
+                                      // create new task and change the status to paused
                                       var newTask = task.copyWith(
                                         title: titleController.text,
                                         body: descriptionController.text,
@@ -278,12 +281,16 @@ class _TaskScreenState extends State<TaskDetailsScreen>
                                   ? FilledButton.icon(
                                       label: Text('task.pause'.tr()),
                                       onPressed: () {
-                                        // HomeViewmodel.get(context)
-                                        //     .updateTaskAndTotalEstimatedTime(
-                                        //   task,
-                                        //   TaskStatus.paused,
-                                        //   runningTime,
-                                        // );
+                                        context
+                                            .read<UserViewmodel>()
+                                            .updateTask(
+                                              task,
+                                              task.copyWith(
+                                                status: TaskStatus.paused,
+                                                elapsedTime: runningTime +
+                                                    task.elapsedTime,
+                                              ),
+                                            );
                                         // 2: reset running time
                                         runningTime = Duration.zero;
                                       },
@@ -294,12 +301,16 @@ class _TaskScreenState extends State<TaskDetailsScreen>
                                   : FilledButton.icon(
                                       label: Text('task.start'.tr()),
                                       onPressed: () {
-                                        // HomeViewmodel.get(context)
-                                        //     .updateTaskAndTotalEstimatedTime(
-                                        //   task,
-                                        //   TaskStatus.inprogress,
-                                        //   runningTime,
-                                        // );
+                                        context
+                                            .read<UserViewmodel>()
+                                            .updateTask(
+                                              task,
+                                              task.copyWith(
+                                                status: TaskStatus.inprogress,
+                                                elapsedTime: runningTime +
+                                                    task.elapsedTime,
+                                              ),
+                                            );
                                         // 2: reset running time
                                         runningTime = Duration.zero;
                                       },
