@@ -1,5 +1,5 @@
 import 'package:better_one/config/app_thems.dart';
-import 'package:better_one/config/generate_router.dart';
+import 'package:better_one/config/navigation/app_navigation.dart';
 import 'package:better_one/core/constants/constants.dart';
 import 'package:better_one/core/utils/dependency_locator/dependency_injection.dart';
 import 'package:better_one/data_source/auth_data_source/supabase_auth_impl.dart';
@@ -89,8 +89,8 @@ class RootApp extends StatelessWidget {
                     fontSize: 16,
                   ),
                 ),
-                child: MaterialApp(
-                  title: 'Better One',
+                child: MaterialApp.router(
+                  routerConfig: AppNavigation.config,
                   builder: (context, child) {
                     return MediaQuery(
                       data: MediaQuery.of(context)
@@ -99,12 +99,9 @@ class RootApp extends StatelessWidget {
                     );
                   },
                   debugShowCheckedModeBanner: false,
-                  initialRoute: GenerateRouter.splash,
-                  onGenerateRoute: GenerateRouter.routeGenerator,
                   localizationsDelegates: context.localizationDelegates,
                   supportedLocales: context.supportedLocales,
                   locale: context.locale,
-                  navigatorObservers: [routeObserver],
                   themeMode: state.currentThemeMode,
                   theme: AppThemes.lightTheme,
                   darkTheme: AppThemes.darkTheme,

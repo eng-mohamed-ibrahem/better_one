@@ -1,5 +1,5 @@
 export 'app_colors.dart';
-export 'app_metrices.dart';
+export 'ui_dimentions.dart';
 export 'lottie_assets.dart';
 export 'cache_keys.dart';
 export 'end_points.dart';

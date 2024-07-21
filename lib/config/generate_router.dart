@@ -1,13 +1,4 @@
-import 'package:better_one/view/pages/auth/login_page.dart';
-import 'package:better_one/view/pages/auth/signup_page.dart';
-import 'package:better_one/view/pages/home/home_screen.dart';
-import 'package:better_one/view/pages/onborading/onboarding_screen.dart';
-import 'package:better_one/view/pages/settings/account_setting_screen.dart';
-import 'package:better_one/view/pages/settings/notification_setting_screen.dart';
-import 'package:better_one/view/pages/settings/search_setting_screen.dart';
-import 'package:better_one/view/pages/settings/settings_screen.dart';
-import 'package:better_one/view/pages/splash/splash_screen.dart';
-import 'package:better_one/view/pages/write_task/task_screen.dart';
+import 'package:better_one/view/pages/pages.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 
@@ -58,7 +49,7 @@ class GenerateRouter {
           return PageRouteBuilder(
             settings: settings,
             pageBuilder: (context, animation, secondaryAnimation) {
-              return const TaskScreen();
+              return const TaskDetailsScreen();
             },
             transitionsBuilder:
                 (context, animation, secondaryAnimation, child) {

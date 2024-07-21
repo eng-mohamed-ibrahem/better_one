@@ -1,5 +1,5 @@
 import 'package:better_one/core/constants/app_colors.dart';
-import 'package:better_one/core/constants/app_metrices.dart';
+import 'package:better_one/core/constants/ui_dimentions.dart';
 import 'package:flutter/material.dart';
 
 class AppThemes {
@@ -62,10 +62,10 @@ class AppThemes {
   }
 
   static CheckboxThemeData checkboxTheme() {
-    return CheckboxThemeData(
-      fillColor: MaterialStateProperty.all(AppColors.primaryColor),
-      checkColor: MaterialStateProperty.all(AppColors.hightlightColor),
-      side: const BorderSide(
+    return const CheckboxThemeData(
+      fillColor: WidgetStatePropertyAll(AppColors.primaryColor),
+      checkColor: WidgetStatePropertyAll(AppColors.hightlightColor),
+      side: BorderSide(
         color: AppColors.secondColor,
         width: 2,
       ),
@@ -96,10 +96,10 @@ class AppThemes {
       const IconThemeData(color: AppColors.textButtonColor, size: 25);
 
   static FilledButtonThemeData filledButtonTheme() {
-    return FilledButtonThemeData(
+    return const FilledButtonThemeData(
       style: ButtonStyle(
-        backgroundColor: MaterialStateProperty.all(AppColors.secondColor),
-        textStyle: const MaterialStatePropertyAll<TextStyle>(
+        backgroundColor: WidgetStatePropertyAll(AppColors.secondColor),
+        textStyle: WidgetStatePropertyAll<TextStyle>(
           TextStyle(
             color: AppColors.textButtonColor,
           ),
@@ -111,9 +111,9 @@ class AppThemes {
   static IconButtonThemeData iconButtonTheme() {
     return const IconButtonThemeData(
       style: ButtonStyle(
-          iconColor: MaterialStatePropertyAll(AppColors.white),
-          backgroundColor: MaterialStatePropertyAll(AppColors.secondColor),
-          padding: MaterialStatePropertyAll(
+          iconColor: WidgetStatePropertyAll(AppColors.white),
+          backgroundColor: WidgetStatePropertyAll(AppColors.secondColor),
+          padding: WidgetStatePropertyAll(
             EdgeInsets.zero,
           )),
     );
@@ -168,10 +168,10 @@ class AppThemes {
   static DropdownMenuThemeData dropdownMenuTheme() {
     return const DropdownMenuThemeData(
       menuStyle: MenuStyle(
-        backgroundColor: MaterialStatePropertyAll(AppColors.primaryColor),
-        surfaceTintColor: MaterialStatePropertyAll(AppColors.primaryColor),
-        maximumSize: MaterialStatePropertyAll(Size.fromHeight(200)),
-        shape: MaterialStatePropertyAll(
+        backgroundColor: WidgetStatePropertyAll(AppColors.primaryColor),
+        surfaceTintColor: WidgetStatePropertyAll(AppColors.primaryColor),
+        maximumSize: WidgetStatePropertyAll(Size.fromHeight(200)),
+        shape: WidgetStatePropertyAll(
           RoundedRectangleBorder(
             borderRadius:
                 BorderRadius.all(Radius.circular(AppMetrices.borderRadius1)),
@@ -281,8 +281,8 @@ class AppThemes {
 
   static CheckboxThemeData lightCheckboxTheme() {
     return checkboxTheme().copyWith(
-      fillColor: MaterialStateProperty.all(AppColors.lightPrimaryColor),
-      checkColor: MaterialStateProperty.all(AppColors.lightTextButtonColor),
+      fillColor: const WidgetStatePropertyAll(AppColors.lightPrimaryColor),
+      checkColor: const WidgetStatePropertyAll(AppColors.lightTextButtonColor),
       side: const BorderSide(
         color: AppColors.lightTextButtonColor,
         width: 2,
@@ -293,7 +293,7 @@ class AppThemes {
   static ChipThemeData lightChipTheme() {
     return chipTheme().copyWith(
       backgroundColor: AppColors.lightPrimaryColor,
-      color: const MaterialStatePropertyAll(AppColors.lightSecondColor),
+      color: const WidgetStatePropertyAll(AppColors.lightSecondColor),
       selectedColor: AppColors.lightPrimaryColor,
       secondarySelectedColor: AppColors.lightPrimaryColor,
       labelStyle: textTheme().bodySmall!.copyWith(color: AppColors.lightWhite),
@@ -315,8 +315,8 @@ class AppThemes {
   static DropdownMenuThemeData lightDropdownMenuTheme() {
     return dropdownMenuTheme().copyWith(
       menuStyle: const MenuStyle(
-        backgroundColor: MaterialStatePropertyAll(AppColors.lightPrimaryColor),
-        surfaceTintColor: MaterialStatePropertyAll(AppColors.lightPrimaryColor),
+        backgroundColor: WidgetStatePropertyAll(AppColors.lightPrimaryColor),
+        surfaceTintColor: WidgetStatePropertyAll(AppColors.lightPrimaryColor),
       ),
       textStyle: const TextStyle(
         color: AppColors.lightWhite,
@@ -370,11 +370,11 @@ class AppThemes {
   }
 
   static FilledButtonThemeData lightFilledButtonTheme() {
-    return FilledButtonThemeData(
+    return const FilledButtonThemeData(
       style: ButtonStyle(
-        backgroundColor: MaterialStateProperty.all(AppColors.lightSecondColor),
-        foregroundColor: const MaterialStatePropertyAll(AppColors.lightWhite),
-        textStyle: const MaterialStatePropertyAll<TextStyle>(
+        backgroundColor: WidgetStatePropertyAll(AppColors.lightSecondColor),
+        foregroundColor: WidgetStatePropertyAll(AppColors.lightWhite),
+        textStyle: WidgetStatePropertyAll<TextStyle>(
           TextStyle(
             color: AppColors.lightTextButtonColor,
           ),
@@ -386,10 +386,10 @@ class AppThemes {
   static IconButtonThemeData lightIconButtonTheme() {
     return const IconButtonThemeData(
       style: ButtonStyle(
-        iconSize: MaterialStatePropertyAll(25.0),
-        iconColor: MaterialStatePropertyAll(AppColors.lightWhite),
-        backgroundColor: MaterialStatePropertyAll(AppColors.lightSecondColor),
-        padding: MaterialStatePropertyAll(
+        iconSize: WidgetStatePropertyAll(25.0),
+        iconColor: WidgetStatePropertyAll(AppColors.lightWhite),
+        backgroundColor: WidgetStatePropertyAll(AppColors.lightSecondColor),
+        padding: WidgetStatePropertyAll(
           EdgeInsets.zero,
         ),
       ),

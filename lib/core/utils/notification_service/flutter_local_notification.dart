@@ -57,6 +57,11 @@ class FlutterLocalNotification implements NotificationRepoInterface {
       'channel_name',
       priority: Priority.high,
       importance: Importance.max,
+      // ongoing: true,
+      // showProgress: true,
+      // progress: 23,
+      // maxProgress: 100,
+      // styleInformation: MediaStyleInformation(),
       // sound: RawResourceAndroidNotificationSound(
       //   'mixkit_bubble_pop_up_alert_notification.wav'.split('.').first,
       // ),
