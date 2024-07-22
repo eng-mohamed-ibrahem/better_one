@@ -1,9 +1,10 @@
-import 'package:better_one/config/generate_router.dart';
+import 'package:better_one/config/navigation/routes_enum.dart';
 import 'package:better_one/model/task_model/task_model.dart';
 import 'package:better_one/view/widgets/duration_widget.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:go_router/go_router.dart';
 
 import '../../../core/constants/constants.dart';
 
@@ -18,11 +19,8 @@ class CardTask extends StatelessWidget {
   Widget build(BuildContext context) {
     return InkWell(
       onTap: () {
-        Navigator.pushNamed(
-          context,
-          GenerateRouter.taskScreen,
-          arguments: task.id,
-        );
+        context.goNamed(Routes.taskDetail.name,
+            pathParameters: {'task_id': task.id});
       },
       child: Container(
         padding: EdgeInsets.all(10.r),

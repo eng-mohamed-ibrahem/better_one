@@ -121,6 +121,7 @@ The app is a simple task management app. It helps users to stay motivated and fo
 
 ```bash
   flutter_bloc: ^8.1.4
+  go_router: ^14.2.1
   flutter_local_notifications: ^16.3.2
   flutter_screenutil: ^5.9.0
   feedback: ^3.0.1

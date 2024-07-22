@@ -1,13 +1,13 @@
 enum Routes {
   splash("/", "splash"),
   onboarding("/onboarding", "onboarding"),
-  home("/home", "home"),
   login("/login", "login"),
-  profile("/profile", "profile"),
+  signup("/signup", "signup"),
+  home("/home", "home"),
   settings("settings", "settings"),
-  accountSetting("/account-setting", "account_setting"),
   task("task", "task"),
   taskDetail("task-detail", "task_detail"),
+  profile("/profile", "profile"),
   theme("/theme", "theme");
 
   final String path;

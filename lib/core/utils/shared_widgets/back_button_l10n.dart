@@ -1,5 +1,6 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 class BackButtonl10n extends StatelessWidget {
   const BackButtonl10n({super.key});
@@ -14,7 +15,7 @@ class BackButtonl10n extends StatelessWidget {
         size: 25,
       ),
       onPressed: () {
-        Navigator.pop(context);
+        context.pop();
       },
     );
   }

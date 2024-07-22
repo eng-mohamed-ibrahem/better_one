@@ -1,11 +1,11 @@
-import 'package:better_one/config/generate_router.dart';
+import 'package:better_one/config/navigation/app_navigation.dart';
 import 'package:better_one/config/navigation/routes_enum.dart';
 import 'package:better_one/core/utils/dependency_locator/dependency_injection.dart';
 import 'package:better_one/core/utils/shared_widgets/failed.dart';
 import 'package:better_one/core/utils/shared_widgets/lottie_indicator.dart';
-import 'package:better_one/view/widgets/task/card_task.dart';
 import 'package:better_one/view/widgets/duration_widget.dart';
 import 'package:better_one/view/widgets/sliver_header.dart';
+import 'package:better_one/view/widgets/task/card_task.dart';
 import 'package:better_one/view_models/home_viewmodel/home_viewmodel.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
@@ -55,11 +55,7 @@ class _HomeScreenState extends State<HomeScreen> with RouteAware {
 
   @override
   void didPopNext() {
-    // to rebuild [home screen] after pop from [setting screen] to reflect changes as [language, theme, ... etc]
-    if (GenerateRouter.activeRoute == GenerateRouter.settingScreen) {
-      setState(() {});
-    }
-    GenerateRouter.activeRoute = GenerateRouter.home;
+    AppNavigation.activeRoute = Routes.home.path;
   }
 
   @override
