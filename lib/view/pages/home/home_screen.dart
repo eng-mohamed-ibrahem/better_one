@@ -37,7 +37,8 @@ class _HomeScreenState extends State<HomeScreen> with RouteAware {
   @override
   didChangeDependencies() {
     routeObserver.subscribe(this, ModalRoute.of(context)!);
-
+    // context.read<HomeViewmodel>().getTasks();
+    // context.read<HomeViewmodel>().getTotalEstimatedTime();
     super.didChangeDependencies();
   }
 

@@ -46,20 +46,21 @@ class HomeViewmodel extends Cubit<HomeViewmodelState> {
   void getTotalEstimatedTime() async {
     var result = await taskRepo.getTotoalEstimatedTime();
     result.when(
-        success: (totalTime) => emit(
-              state.copyWith(
-                isGetTotalEstimatedTimeCompleted: true,
-                totalEstimatedTime: Duration(microseconds: totalTime),
-              ),
-            ),
-        failure: (error) {
-          emit(
-            state.copyWith(
-              isGetTotalEstimatedTimeCompleted: false,
-              isGetTotalEstimatedTimeFailed: true,
-              errorMessage: error.message,
-            ),
-          );
-        });
+      success: (totalTime) => emit(
+        state.copyWith(
+          isGetTotalEstimatedTimeCompleted: true,
+          totalEstimatedTime: Duration(microseconds: totalTime),
+        ),
+      ),
+      failure: (error) {
+        emit(
+          state.copyWith(
+            isGetTotalEstimatedTimeCompleted: false,
+            isGetTotalEstimatedTimeFailed: true,
+            errorMessage: error.message,
+          ),
+        );
+      },
+    );
   }
 }

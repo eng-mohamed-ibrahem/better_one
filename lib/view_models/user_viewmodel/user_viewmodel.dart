@@ -3,7 +3,6 @@ import 'package:better_one/model/user_model/user_model.dart';
 import 'package:better_one/repositories/user_repo/user_repo_intefrace.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:logger/logger.dart';
 
 part 'user_viewmodel.freezed.dart';
 part 'user_viewmodel_state.dart';
@@ -12,7 +11,7 @@ class UserViewmodel extends Cubit<UserViewmodelState> {
   UserViewmodel({required this.userRepo}) : super(const UserViewmodelState());
   final UserRepoInterface userRepo;
   void logout() async {
-    emit(state.copyWith(isLogoutLoading: true));
+    emit(state.copyWith(isLogoutLoading: true, isLogoutFailed: false));
     var result = await userRepo.logOut();
     result.when(
       success: (loggedOut) {
@@ -36,7 +35,8 @@ class UserViewmodel extends Cubit<UserViewmodelState> {
   }
 
   void getUserDetails() async {
-    emit(state.copyWith(isGetUserDetailsLoading: true));
+    emit(state.copyWith(
+        isGetUserDetailsLoading: true, isGetUserDetailsFailed: false));
     var userData = await userRepo.getUserDetails();
     userData.when(
       success: (user) {
@@ -64,7 +64,7 @@ class UserViewmodel extends Cubit<UserViewmodelState> {
   void uploadTasks() async {}
 
   void createTask(TaskModel task) async {
-    emit(state.copyWith(isCreateTaskLoading: true));
+    emit(state.copyWith(isCreateTaskLoading: true, isCreateTaskFailed: false));
     var result = await userRepo.addTask(task);
     result.when(
       success: (task) {
@@ -90,7 +90,7 @@ class UserViewmodel extends Cubit<UserViewmodelState> {
   }
 
   void updateTask(TaskModel oldTask, TaskModel newTask) async {
-    emit(state.copyWith(isUpdateTaskLoading: true));
+    emit(state.copyWith(isUpdateTaskLoading: true, isUpdateTaskFailed: false));
     var result = await userRepo.updateTask(oldTask, newTask);
     result.when(
       success: (updatedTask) {
@@ -103,7 +103,6 @@ class UserViewmodel extends Cubit<UserViewmodelState> {
         );
       },
       failure: (error) {
-        Logger().e(error.message);
         emit(
           state.copyWith(
             isUpdateTaskLoading: false,
@@ -117,7 +116,7 @@ class UserViewmodel extends Cubit<UserViewmodelState> {
   }
 
   void deleteTask(TaskModel deletedTask) async {
-    emit(state.copyWith(isDeleteTaskLoading: true));
+    emit(state.copyWith(isDeleteTaskLoading: true, isDeleteTaskFailed: false));
     var result = await userRepo.removeTask(deletedTask);
     result.when(
       success: (task) {
@@ -143,7 +142,11 @@ class UserViewmodel extends Cubit<UserViewmodelState> {
   }
 
   void getTaskById(String id) async {
-    emit(state.copyWith(isGetTaskByIdLoading: true, taskById: null));
+    emit(state.copyWith(
+      isGetTaskByIdLoading: true,
+      isGetTaskByIdFailed: false,
+      taskById: null,
+    ));
     var result = await userRepo.getTaskById(id);
     result.when(
       success: (task) {
