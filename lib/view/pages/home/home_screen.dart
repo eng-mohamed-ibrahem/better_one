@@ -6,7 +6,7 @@ import 'package:better_one/core/utils/shared_widgets/lottie_indicator.dart';
 import 'package:better_one/view/widgets/duration_widget.dart';
 import 'package:better_one/view/widgets/sliver_header.dart';
 import 'package:better_one/view/widgets/task/card_task.dart';
-import 'package:better_one/view_models/home_viewmodel/home_viewmodel.dart';
+import 'package:better_one/view_models/task_viewmodel/task_viewmodel.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -37,8 +37,8 @@ class _HomeScreenState extends State<HomeScreen> with RouteAware {
   @override
   didChangeDependencies() {
     routeObserver.subscribe(this, ModalRoute.of(context)!);
-    // context.read<HomeViewmodel>().getTasks();
-    // context.read<HomeViewmodel>().getTotalEstimatedTime();
+    context.read<TaskViewmodel>().getTasks();
+    context.read<TaskViewmodel>().getTotalEstimatedTime();
     super.didChangeDependencies();
   }
 
@@ -73,7 +73,7 @@ class _HomeScreenState extends State<HomeScreen> with RouteAware {
         child: Stack(
           alignment: AlignmentDirectional.bottomCenter,
           children: [
-            BlocBuilder<HomeViewmodel, HomeViewmodelState>(
+            BlocBuilder<TaskViewmodel, TaskViewmodelState>(
               builder: (context, state) {
                 if (state.isGetAllTasksLoading) {
                   return const Center(
@@ -87,7 +87,7 @@ class _HomeScreenState extends State<HomeScreen> with RouteAware {
                       failedAsset: LottieAssets.error,
                       errorMessage: state.errorMessage,
                       retry: () {
-                        context.read<HomeViewmodel>().getTasks();
+                        context.read<TaskViewmodel>().getTasks();
                       },
                     ),
                   );

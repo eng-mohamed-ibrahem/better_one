@@ -14,9 +14,9 @@ import 'package:better_one/model/notification_model/notification_model.dart';
 import 'package:better_one/model/task_model/task_model.dart';
 import 'package:better_one/view/widgets/duration_widget.dart';
 import 'package:better_one/view/widgets/write_task_area.dart';
+import 'package:better_one/view_models/task_viewmodel/task_viewmodel.dart';
 import 'package:better_one/view_models/quote_viewmodel/quote_viewmodel.dart';
 import 'package:better_one/view_models/setting_viewmodel/setting_viewmode.dart';
-import 'package:better_one/view_models/user_viewmodel/user_viewmodel.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -57,20 +57,12 @@ class _TaskScreenState extends State<TaskDetailsScreen>
   @override
   void initState() {
     WidgetsBinding.instance.addObserver(this);
-
-    /// initialize the timer action and assign action
-    timerAction = TimerAction(
-      periodicDuration: const Duration(seconds: 1),
-      action: () {
-        streamController.add(timerAction.elapsed + task.elapsedTime);
-      },
-    );
     super.initState();
   }
 
   @override
   void didChangeDependencies() {
-    context.read<UserViewmodel>().getTaskById(widget.taskId);
+    context.read<TaskViewmodel>().getTaskById(widget.taskId);
     QuoteViewmode.get(context).getRandomQuote();
     routeObserver.subscribe(this, ModalRoute.of(context)!);
     super.didChangeDependencies();
@@ -79,29 +71,27 @@ class _TaskScreenState extends State<TaskDetailsScreen>
   @override
   void didChangeAppLifecycleState(AppLifecycleState state) {
     if (state == AppLifecycleState.detached) {
-      context.read<UserViewmodel>().updateTask(
-            task,
-            task.copyWith(
-              elapsedTime: timerAction.elapsed + task.elapsedTime,
-            ),
-          );
+      /// using [Isolate] to avoid memory leaks
+      /// user_repo to implement task
     }
     kDebugPrint("didChangeAppLifecycleState: $state");
-    super.didChangeAppLifecycleState(state);
   }
 
   /// save the estimated time on navigate back
   /// if navigate back while the task is inprogress then pause the task
   @override
   void deactivate() {
-    debugPrint('deactivate, timerAction.elapsed: ${timerAction.elapsed + task.elapsedTime}');
-    context.read<UserViewmodel>().updateTask(
-          task,
-          task.copyWith(
-            status: TaskStatus.paused,
-            elapsedTime: timerAction.elapsed + task.elapsedTime,
-          ),
-        );
+    try {
+      context.read<TaskViewmodel>().updateTask(
+            task,
+            task.copyWith(
+              status: TaskStatus.paused,
+              elapsedTime: timerAction.elapsed + task.elapsedTime,
+            ),
+          );
+    } catch (e) {
+      kDebugPrint(e.toString());
+    }
     super.deactivate();
   }
 
@@ -118,7 +108,7 @@ class _TaskScreenState extends State<TaskDetailsScreen>
   Widget build(BuildContext context) {
     var settingState = SettingViewModel.get(context).state;
     return Scaffold(
-      body: BlocConsumer<UserViewmodel, UserViewmodelState>(
+      body: BlocConsumer<TaskViewmodel, TaskViewmodelState>(
         listenWhen: (previous, current) {
           if (current.isGetTaskByIdCompleted ||
               current.isUpdateTaskSuccess ||
@@ -132,6 +122,14 @@ class _TaskScreenState extends State<TaskDetailsScreen>
             task = state.taskById!;
             titleController.text = task.title;
             descriptionController.text = task.body;
+
+            /// initialize the timer action and assign action
+            timerAction = TimerAction(
+              periodicDuration: const Duration(seconds: 1),
+              action: () {
+                streamController.add(timerAction.elapsed + task.elapsedTime);
+              },
+            );
           }
           if (state.isUpdateTaskSuccess) {
             task = state.updatedTask!;
@@ -183,7 +181,7 @@ class _TaskScreenState extends State<TaskDetailsScreen>
                 failedAsset: LottieAssets.searchForTaskFailed,
                 errorMessage: state.errorMessage,
                 retry: () {
-                  context.read<UserViewmodel>().getTaskById(widget.taskId);
+                  context.read<TaskViewmodel>().getTaskById(widget.taskId);
                 },
               ),
             );
@@ -279,7 +277,7 @@ class _TaskScreenState extends State<TaskDetailsScreen>
                                   );
 
                                   context
-                                      .read<UserViewmodel>()
+                                      .read<TaskViewmodel>()
                                       .updateTask(task, newTask);
                                 } else {
                                   showSnackBar(
@@ -302,7 +300,7 @@ class _TaskScreenState extends State<TaskDetailsScreen>
                               ? FilledButton.icon(
                                   label: Text('task.pause'.tr()),
                                   onPressed: () {
-                                    context.read<UserViewmodel>().updateTask(
+                                    context.read<TaskViewmodel>().updateTask(
                                           task,
                                           task.copyWith(
                                             status: TaskStatus.paused,
@@ -317,7 +315,7 @@ class _TaskScreenState extends State<TaskDetailsScreen>
                               : FilledButton.icon(
                                   label: Text('task.start'.tr()),
                                   onPressed: () {
-                                    context.read<UserViewmodel>().updateTask(
+                                    context.read<TaskViewmodel>().updateTask(
                                           task,
                                           task.copyWith(
                                             status: TaskStatus.inprogress,
@@ -340,7 +338,7 @@ class _TaskScreenState extends State<TaskDetailsScreen>
                         label: Text('task.status.done'.tr()),
                         selected: task.status == TaskStatus.done,
                         onSelected: (value) {
-                          context.read<UserViewmodel>().updateTask(
+                          context.read<TaskViewmodel>().updateTask(
                                 task,
                                 task.copyWith(
                                   status: value
@@ -357,7 +355,7 @@ class _TaskScreenState extends State<TaskDetailsScreen>
                             context,
                             message: task.title,
                             onConfirm: () {
-                              context.read<UserViewmodel>().deleteTask(task);
+                              context.read<TaskViewmodel>().deleteTask(task);
                               showSnackBar(
                                 context,
                                 message: 'task.remove'.tr(),

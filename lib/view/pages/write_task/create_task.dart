@@ -6,8 +6,8 @@ import 'package:better_one/core/utils/shared_widgets/back_button_l10n.dart';
 import 'package:better_one/model/notification_model/notification_model.dart';
 import 'package:better_one/model/task_model/task_model.dart';
 import 'package:better_one/view/widgets/write_task_area.dart';
+import 'package:better_one/view_models/task_viewmodel/task_viewmodel.dart';
 import 'package:better_one/view_models/setting_viewmodel/setting_viewmode.dart';
-import 'package:better_one/view_models/user_viewmodel/user_viewmodel.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -41,7 +41,7 @@ class CreateTaskScreen extends StatelessWidget {
               descriptionController: descriptionController,
             ),
             SizedBox(height: 150.h),
-            BlocConsumer<UserViewmodel, UserViewmodelState>(
+            BlocConsumer<TaskViewmodel, TaskViewmodelState>(
               listener: (context, state) {
                 if (state.isCreateTaskSuccess) {
                   settingState.isNotificationOnAdd
@@ -82,7 +82,7 @@ class CreateTaskScreen extends StatelessWidget {
                         body: descriptionController.text,
                         createdAt: DateTime.now(),
                       );
-                      context.read<UserViewmodel>().createTask(newTask);
+                      context.read<TaskViewmodel>().createTask(newTask);
                     } else {
                       showSnackBar(
                         context,

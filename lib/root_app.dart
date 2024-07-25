@@ -5,7 +5,7 @@ import 'package:better_one/core/utils/dependency_locator/dependency_injection.da
 import 'package:better_one/data_source/auth_data_source/supabase_auth_impl.dart';
 import 'package:better_one/repositories/auth_repo/auth_repo_impl.dart';
 import 'package:better_one/view_models/auth_viewmodel/auth_viewmodel.dart';
-import 'package:better_one/view_models/home_viewmodel/home_viewmodel.dart';
+import 'package:better_one/view_models/task_viewmodel/task_viewmodel.dart';
 import 'package:better_one/view_models/quote_viewmodel/quote_viewmodel.dart';
 import 'package:better_one/view_models/setting_viewmodel/setting_viewmode.dart';
 import 'package:better_one/view_models/theme_viewmodel/theme_viewmodel.dart';
@@ -26,10 +26,8 @@ class RootApp extends StatelessWidget {
     return MultiBlocProvider(
       providers: [
         BlocProvider(
-          create: (context) => HomeViewmodel(taskRepo: taskRepo)
-            ..getTasks()
-            ..getTotalEstimatedTime(),
-        ),
+            create: (context) =>
+                TaskViewmodel(taskRepo: taskRepo, userRepo: kUserRepo)),
         BlocProvider(
           create: (context) => QuoteViewmode(quoteRepo: quoteRepo),
         ),

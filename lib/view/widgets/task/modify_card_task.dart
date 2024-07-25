@@ -3,7 +3,7 @@ import 'package:better_one/core/constants/app_colors.dart';
 import 'package:better_one/core/utils/methods/methods.dart';
 import 'package:better_one/model/task_model/task_model.dart';
 import 'package:better_one/view/widgets/task/card_task.dart';
-import 'package:better_one/view_models/user_viewmodel/user_viewmodel.dart';
+import 'package:better_one/view_models/task_viewmodel/task_viewmodel.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -65,7 +65,7 @@ class _ModifiyCardTaskState extends State<ModifiyCardTask>
                         _animationController.addListener(() {
                           if (_animationController.isCompleted) {
                             context
-                                .read<UserViewmodel>()
+                                .read<TaskViewmodel>()
                                 .deleteTask(widget.task);
                             showSnackBar(
                               context,
