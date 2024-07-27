@@ -19,6 +19,8 @@ class TaskViewmodel extends Cubit<TaskViewmodelState> {
   void getTasks() async {
     emit(state.copyWith(
       isGetAllTasksLoading: true,
+      isGetAllTasksFailed: false,
+      isGetAllTasksCompleted: false,
       isInitial: false,
     ));
     var result = await taskRepo.getAllTasks();
@@ -46,7 +48,10 @@ class TaskViewmodel extends Cubit<TaskViewmodelState> {
   }
 
   void createTask(TaskModel task) async {
-    emit(state.copyWith(isCreateTaskLoading: true, isCreateTaskFailed: false));
+    emit(state.copyWith(
+        isCreateTaskLoading: true,
+        isCreateTaskFailed: false,
+        isCreateTaskSuccess: false));
     var result = await userRepo.addTask(task);
     result.when(
       success: (task) {
@@ -72,7 +77,10 @@ class TaskViewmodel extends Cubit<TaskViewmodelState> {
   }
 
   void updateTask(TaskModel oldTask, TaskModel newTask) async {
-    emit(state.copyWith(isUpdateTaskLoading: true, isUpdateTaskFailed: false));
+    emit(state.copyWith(
+        isUpdateTaskLoading: true,
+        isUpdateTaskFailed: false,
+        isUpdateTaskSuccess: false));
     var result = await userRepo.updateTask(oldTask, newTask);
     result.when(
       success: (updatedTask) {
@@ -98,7 +106,10 @@ class TaskViewmodel extends Cubit<TaskViewmodelState> {
   }
 
   void deleteTask(TaskModel deletedTask) async {
-    emit(state.copyWith(isDeleteTaskLoading: true, isDeleteTaskFailed: false));
+    emit(state.copyWith(
+        isDeleteTaskLoading: true,
+        isDeleteTaskFailed: false,
+        isDeleteTaskSuccess: false));
     var result = await userRepo.removeTask(deletedTask);
     result.when(
       success: (task) {
@@ -127,6 +138,7 @@ class TaskViewmodel extends Cubit<TaskViewmodelState> {
     emit(state.copyWith(
       isGetTaskByIdLoading: true,
       isGetTaskByIdFailed: false,
+      isGetTaskByIdCompleted: false,
       taskById: null,
     ));
     var result = await userRepo.getTaskById(id);
@@ -171,6 +183,29 @@ class TaskViewmodel extends Cubit<TaskViewmodelState> {
           ),
         );
       },
+    );
+  }
+
+  TaskViewmodelState initialState() {
+    return state.copyWith(
+      isCreateTaskFailed: false,
+      isCreateTaskLoading: false,
+      isCreateTaskSuccess: false,
+      isGetAllTasksCompleted: false,
+      isGetAllTasksFailed: false,
+      isGetAllTasksLoading: false,
+      isDeleteTaskFailed: false,
+      isDeleteTaskLoading: false,
+      isDeleteTaskSuccess: false,
+      isUpdateTaskFailed: false,
+      isUpdateTaskLoading: false,
+      isUpdateTaskSuccess: false,
+      isGetTaskByIdCompleted: false,
+      isGetTaskByIdFailed: false,
+      isGetTaskByIdLoading: false,
+      isDownloadTasksFailed: false,
+      isDownloadTasksLoading: false,
+      isDownloadTasksSuccess: false,
     );
   }
 }

@@ -14,9 +14,9 @@ import 'package:better_one/model/notification_model/notification_model.dart';
 import 'package:better_one/model/task_model/task_model.dart';
 import 'package:better_one/view/widgets/duration_widget.dart';
 import 'package:better_one/view/widgets/write_task_area.dart';
-import 'package:better_one/view_models/task_viewmodel/task_viewmodel.dart';
 import 'package:better_one/view_models/quote_viewmodel/quote_viewmodel.dart';
 import 'package:better_one/view_models/setting_viewmodel/setting_viewmode.dart';
+import 'package:better_one/view_models/task_viewmodel/task_viewmodel.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -38,12 +38,12 @@ class _TaskScreenState extends State<TaskDetailsScreen>
   final TextEditingController descriptionController = TextEditingController();
 
   /// [task] is the corresponding task to id
-  late TaskModel task;
+  TaskModel? task;
 
   /// [isTaskModified] to check if the task is modified or not
   bool isTaskModified = false;
 
-  /// [timerAction] is the timer action to update the running time
+  /// [timerAction] is the timer of action to update the running time
   late TimerAction timerAction;
 
   /// [streamController] is the stream controller to update the running time
@@ -57,6 +57,17 @@ class _TaskScreenState extends State<TaskDetailsScreen>
   @override
   void initState() {
     WidgetsBinding.instance.addObserver(this);
+
+    /// initialize the timer action and assign action
+    timerAction = TimerAction(
+      periodicDuration: const Duration(seconds: 1),
+      action: () {
+        kDebugPrint("timerAction: ${timerAction.elapsed}");
+        if (!streamController.isClosed) {
+          streamController.add(timerAction.elapsed + task!.elapsedTime);
+        }
+      },
+    );
     super.initState();
   }
 
@@ -81,16 +92,14 @@ class _TaskScreenState extends State<TaskDetailsScreen>
   /// if navigate back while the task is inprogress then pause the task
   @override
   void deactivate() {
-    try {
+    if (task != null) {
       context.read<TaskViewmodel>().updateTask(
-            task,
-            task.copyWith(
+            task!,
+            task!.copyWith(
               status: TaskStatus.paused,
-              elapsedTime: timerAction.elapsed + task.elapsedTime,
+              elapsedTime: timerAction.elapsed + task!.elapsedTime,
             ),
           );
-    } catch (e) {
-      kDebugPrint(e.toString());
     }
     super.deactivate();
   }
@@ -98,8 +107,8 @@ class _TaskScreenState extends State<TaskDetailsScreen>
   @override
   void dispose() {
     routeObserver.unsubscribe(this);
+    task != null ? timerAction.stop() : null;
     streamController.close();
-    timerAction.stop();
     WidgetsBinding.instance.removeObserver(this);
     super.dispose();
   }
@@ -120,16 +129,23 @@ class _TaskScreenState extends State<TaskDetailsScreen>
         listener: (context, state) {
           if (state.isGetTaskByIdCompleted) {
             task = state.taskById!;
-            titleController.text = task.title;
-            descriptionController.text = task.body;
+            titleController.text = task!.title;
+            descriptionController.text = task!.body;
+            kDebugPrint("==================================");
+            kDebugPrint(
+                "state isGetTaskByIdCompleted: ${state.isGetTaskByIdCompleted}");
+            kDebugPrint("==================================");
 
-            /// initialize the timer action and assign action
-            timerAction = TimerAction(
-              periodicDuration: const Duration(seconds: 1),
-              action: () {
-                streamController.add(timerAction.elapsed + task.elapsedTime);
-              },
-            );
+            // /// initialize the timer action and assign action
+            // timerAction = TimerAction(
+            //   periodicDuration: const Duration(seconds: 1),
+            //   action: () {
+            //     kDebugPrint("timerAction: ${timerAction.elapsed}");
+            //     if (!streamController.isClosed) {
+            //       streamController.add(timerAction.elapsed + task!.elapsedTime);
+            //     }
+            //   },
+            // );
           }
           if (state.isUpdateTaskSuccess) {
             task = state.updatedTask!;
@@ -139,14 +155,14 @@ class _TaskScreenState extends State<TaskDetailsScreen>
                       notification: NotificationModel(
                         id: DateTime.now().microsecond,
                         title: 'task.motive_update'.tr(),
-                        body: task.title,
-                        payload: task.id,
+                        body: task!.title,
+                        payload: task!.id,
                       ),
                     )
                   : null;
               isTaskModified = false;
             }
-            if (task.status == TaskStatus.done) {
+            if (task!.status == TaskStatus.done) {
               showCompleteTaskDialog(
                 context,
                 AnimationController(
@@ -159,8 +175,8 @@ class _TaskScreenState extends State<TaskDetailsScreen>
                       notification: NotificationModel(
                         id: DateTime.now().microsecond,
                         title: 'task.motive_complete'.tr(),
-                        body: task.title,
-                        payload: task.id,
+                        body: task!.title,
+                        payload: task!.id,
                       ),
                     )
                   : null;
@@ -193,7 +209,7 @@ class _TaskScreenState extends State<TaskDetailsScreen>
                 preferredSize: Size.fromHeight(35.h),
                 child: StreamBuilder<Duration>(
                   stream: streamController.stream,
-                  initialData: task.elapsedTime,
+                  initialData: task!.elapsedTime,
                   builder: (context, snapshot) {
                     return Padding(
                       padding: EdgeInsetsDirectional.only(top: 5.h, end: 15.w),
@@ -265,20 +281,20 @@ class _TaskScreenState extends State<TaskDetailsScreen>
                                 if (titleController.text.isNotEmpty &&
                                     descriptionController.text.isNotEmpty) {
                                   // create new task and change the status to paused
-                                  var newTask = task.copyWith(
+                                  var newTask = task!.copyWith(
                                     title: titleController.text,
                                     body: descriptionController.text,
                                     updatedAt: DateTime.now(),
                                     // elapsedTime:
-                                    //     timerAction.elapsed + task.elapsedTime,
-                                    status: task.status == TaskStatus.done
+                                    //     timerAction.elapsed + task!.elapsedTime,
+                                    status: task!.status == TaskStatus.done
                                         ? TaskStatus.paused
-                                        : task.status,
+                                        : task!.status,
                                   );
 
                                   context
                                       .read<TaskViewmodel>()
-                                      .updateTask(task, newTask);
+                                      .updateTask(task!, newTask);
                                 } else {
                                   showSnackBar(
                                     context,
@@ -295,14 +311,14 @@ class _TaskScreenState extends State<TaskDetailsScreen>
                             )
                           : const SizedBox(),
                       SizedBox(width: AppMetrices.horizontalGap2.w),
-                      task.status != TaskStatus.done
-                          ? task.status == TaskStatus.inprogress
+                      task!.status != TaskStatus.done
+                          ? task!.status == TaskStatus.inprogress
                               ? FilledButton.icon(
                                   label: Text('task.pause'.tr()),
                                   onPressed: () {
                                     context.read<TaskViewmodel>().updateTask(
-                                          task,
-                                          task.copyWith(
+                                          task!,
+                                          task!.copyWith(
                                             status: TaskStatus.paused,
                                           ),
                                         );
@@ -316,8 +332,8 @@ class _TaskScreenState extends State<TaskDetailsScreen>
                                   label: Text('task.start'.tr()),
                                   onPressed: () {
                                     context.read<TaskViewmodel>().updateTask(
-                                          task,
-                                          task.copyWith(
+                                          task!,
+                                          task!.copyWith(
                                             status: TaskStatus.inprogress,
                                           ),
                                         );
@@ -336,11 +352,11 @@ class _TaskScreenState extends State<TaskDetailsScreen>
                     children: [
                       ChoiceChip(
                         label: Text('task.status.done'.tr()),
-                        selected: task.status == TaskStatus.done,
+                        selected: task!.status == TaskStatus.done,
                         onSelected: (value) {
                           context.read<TaskViewmodel>().updateTask(
-                                task,
-                                task.copyWith(
+                                task!,
+                                task!.copyWith(
                                   status: value
                                       ? TaskStatus.done
                                       : TaskStatus.paused,
@@ -353,9 +369,9 @@ class _TaskScreenState extends State<TaskDetailsScreen>
                         onPressed: () {
                           showDeleteTaskDialog(
                             context,
-                            message: task.title,
+                            message: task!.title,
                             onConfirm: () {
-                              context.read<TaskViewmodel>().deleteTask(task);
+                              context.read<TaskViewmodel>().deleteTask(task!);
                               showSnackBar(
                                 context,
                                 message: 'task.remove'.tr(),

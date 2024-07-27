@@ -1,6 +1,8 @@
 import 'dart:async';
 import 'dart:ui';
 
+import 'package:better_one/core/utils/methods/methods.dart';
+
 /// [TimerAction] is a class to manage the timer
 ///
 /// used to execute the function periodically
@@ -10,7 +12,7 @@ import 'dart:ui';
 /// [periodicDuration] is the duration of the timer
 ///
 /// [action] is the function to be executed when the timer is triggered
-///
+/// and every periodicDuration
 ///
 class TimerAction {
   /// [TimerAction] is a class to manage the timer
@@ -22,7 +24,7 @@ class TimerAction {
   /// [periodicDuration] is the duration of the timer
   ///
   /// [action] is the function to be executed when the timer is triggered
-  ///
+  /// and every periodicDuration
   ///
   TimerAction({
     this.periodicDuration = const Duration(seconds: 1),
@@ -47,7 +49,7 @@ class TimerAction {
         if (_stopwatch.isRunning) {
           action();
         } else {
-          _timer?.cancel();
+          _timer!.cancel();
           _timer = null;
         }
       },
@@ -55,9 +57,8 @@ class TimerAction {
   }
 
   void stop() {
+    kDebugPrint("timer stop");
     _stopwatch.stop();
-    _timer?.cancel();
-    _timer = null;
   }
 
   void reset() {
