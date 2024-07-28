@@ -3,6 +3,7 @@ import 'package:better_one/view_models/theme_viewmodel/theme_viewmodel.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:go_router/go_router.dart';
 
 class ThemeSetting extends StatelessWidget {
   const ThemeSetting({super.key});
@@ -23,7 +24,7 @@ class ThemeSetting extends StatelessWidget {
             IconButton(
               onPressed: () {
                 ThemeViewModel.get(context).toggleTheme();
-                Navigator.pop(context);
+                context.pop();
               },
               icon: const Icon(Icons.compare_arrows_rounded,
                   color: AppColors.hightlightColor),

@@ -7,14 +7,13 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class SearchSettingScreen extends StatelessWidget {
-  const SearchSettingScreen({super.key, required this.title});
-  final String title;
+  const SearchSettingScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(title),
+        title: Text('setting.search.title'.tr()),
         leading: const FittedBox(
           fit: BoxFit.scaleDown,
           child: BackButtonl10n(),

@@ -94,6 +94,58 @@ class AppNavigation {
               activeRoute = Routes.settings.path;
               return const SettingScreen();
             },
+
+            /// 3 paths {profile{login, signup}, searc-setting, notification-setting}
+            routes: [
+              GoRoute(
+                path: Routes.searchSetting.path,
+                name: Routes.searchSetting.name,
+                builder: (context, state) {
+                  activeRoute = Routes.searchSetting.path;
+
+                  return const SearchSettingScreen();
+                },
+              ),
+              GoRoute(
+                path: Routes.notificationSetting.path,
+                name: Routes.notificationSetting.name,
+                builder: (context, state) {
+                  activeRoute = Routes.notificationSetting.path;
+                  return const NotificationSettingScreen();
+                },
+              ),
+              GoRoute(
+                path: Routes.profile.path,
+                name: Routes.profile.name,
+                builder: (context, state) {
+                  activeRoute = Routes.profile.path;
+                  return const AccountSettingScreen();
+                },
+                redirect: (context, state) {
+                  return userLocaleDatabase.getUserIdFromLocale() != null
+                      ? null
+                      : state.namedLocation(Routes.login.name);
+                },
+                routes: [
+                  GoRoute(
+                    path: Routes.login.path,
+                    name: Routes.login.name,
+                    builder: (context, state) {
+                      activeRoute = Routes.login.path;
+                      return const LogIn();
+                    },
+                  ),
+                  GoRoute(
+                    path: Routes.signup.path,
+                    name: Routes.signup.name,
+                    builder: (context, state) {
+                      activeRoute = Routes.signup.path;
+                      return const SignUp();
+                    },
+                  )
+                ],
+              ),
+            ],
           ),
         ],
       ),

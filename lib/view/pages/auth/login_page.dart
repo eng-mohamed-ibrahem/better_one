@@ -1,4 +1,4 @@
-import 'package:better_one/config/generate_router.dart';
+import 'package:better_one/config/navigation/routes_enum.dart';
 import 'package:better_one/core/constants/constants.dart';
 import 'package:better_one/core/utils/dependency_locator/dependency_injection.dart';
 import 'package:better_one/core/utils/methods/methods.dart';
@@ -8,6 +8,7 @@ import 'package:better_one/view_models/auth_viewmodel/auth_viewmodel.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
 
 class LogIn extends StatefulWidget {
   const LogIn({super.key});
@@ -100,11 +101,7 @@ class _LoginState extends State<LogIn> {
                   userLocaleDatabase.setUserIdToLocale(
                     userId: state.userModel!.id,
                   );
-                  Navigator.pushReplacementNamed(
-                    context,
-                    GenerateRouter.accountSettingScreen,
-                    arguments: 'setting.account.title'.tr(),
-                  );
+                  context.goNamed(Routes.profile.name);
                 }
               },
               builder: (context, state) {
@@ -147,8 +144,7 @@ class _LoginState extends State<LogIn> {
                 ),
                 GestureDetector(
                   onTap: () {
-                    Navigator.pushReplacementNamed(
-                        context, GenerateRouter.signup);
+                    context.goNamed(Routes.signup.name);
                   },
                   child: Container(
                     alignment: Alignment.bottomCenter,

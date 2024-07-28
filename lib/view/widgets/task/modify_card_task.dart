@@ -1,4 +1,3 @@
-import 'package:better_one/config/generate_router.dart';
 import 'package:better_one/core/constants/app_colors.dart';
 import 'package:better_one/core/utils/methods/methods.dart';
 import 'package:better_one/model/task_model/task_model.dart';
@@ -90,13 +89,7 @@ class _ModifiyCardTaskState extends State<ModifiyCardTask>
                   style: IconButton.styleFrom(
                     padding: EdgeInsets.zero,
                   ),
-                  onPressed: () {
-                    Navigator.pushNamed(
-                      context,
-                      GenerateRouter.taskScreen,
-                      arguments: widget.task.id,
-                    );
-                  },
+                  onPressed: () {},
                   icon: const Icon(
                     Icons.edit_note_rounded,
                   ),
