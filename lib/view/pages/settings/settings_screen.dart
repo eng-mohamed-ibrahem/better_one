@@ -1,4 +1,5 @@
-import 'package:better_one/config/generate_router.dart';
+import 'package:better_one/config/navigation/app_navigation.dart';
+import 'package:better_one/config/navigation/routes_enum.dart';
 import 'package:better_one/core/utils/dependency_locator/dependency_injection.dart';
 import 'package:better_one/core/utils/methods/methods.dart';
 import 'package:better_one/core/utils/shared_widgets/back_button_l10n.dart';
@@ -13,6 +14,7 @@ import 'package:better_one/view_models/theme_viewmodel/theme_viewmodel.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
 
 import '../../../core/constants/constants.dart';
 
@@ -32,7 +34,7 @@ class _SettingScreenState extends State<SettingScreen> with RouteAware {
 
   @override
   void didPopNext() {
-    GenerateRouter.activeRoute = GenerateRouter.settingScreen;
+    AppNavigation.activeRoute = Routes.settings.path;
     super.didPop();
   }
 
@@ -94,20 +96,8 @@ class _SettingScreenState extends State<SettingScreen> with RouteAware {
                             ? showFeedback(context)
                             : showSnackBar(context,
                                 message: 'core.login_req'.tr());
-                      } else if (index == 5) {
-                        userLocaleDatabase.getUserIdFromLocale() != null
-                            ? Navigator.pushNamed(
-                                context,
-                                GenerateRouter.accountSettingScreen,
-                              )
-                            : Navigator.pushNamed(
-                                context, GenerateRouter.login);
                       } else {
-                        Navigator.pushNamed(
-                          context,
-                          settingItems[index].path!,
-                          arguments: settingItems[index].title,
-                        );
+                        context.goNamed(settingItems[index].path!);
                       }
                     },
                     leadingIcon: settingItems[index].leadingIcon,

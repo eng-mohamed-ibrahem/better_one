@@ -1,4 +1,4 @@
-import 'package:better_one/config/generate_router.dart';
+import 'package:better_one/config/navigation/routes_enum.dart';
 import 'package:better_one/core/constants/constants.dart';
 import 'package:better_one/model/settings_item_model/setting_item_model.dart';
 import 'package:better_one/view_models/user_viewmodel/user_viewmodel.dart';
@@ -7,6 +7,7 @@ import 'package:feedback/feedback.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
 import 'package:lottie/lottie.dart';
 
 void showFeedback(BuildContext context) {
@@ -53,7 +54,6 @@ List<SettingItemModel> generateSettingItems() {
       leadingIcon: const Icon(
         Icons.language,
       ),
-      path: GenerateRouter.languageSettingScreen,
     ),
     SettingItemModel(
       title: 'setting.theme.title'.tr(),
@@ -61,7 +61,6 @@ List<SettingItemModel> generateSettingItems() {
       leadingIcon: const Icon(
         Icons.brightness_6,
       ),
-      path: GenerateRouter.themeSettingScreen,
     ),
     SettingItemModel(
       title: 'setting.notification.title'.tr(),
@@ -69,7 +68,7 @@ List<SettingItemModel> generateSettingItems() {
       leadingIcon: const Icon(
         Icons.notifications,
       ),
-      path: GenerateRouter.notificationSettingScreen,
+      path: Routes.notificationSetting.name,
     ),
     SettingItemModel(
       title: 'setting.search.title'.tr(),
@@ -77,7 +76,7 @@ List<SettingItemModel> generateSettingItems() {
       leadingIcon: const Icon(
         Icons.search,
       ),
-      path: GenerateRouter.searchSettingScreen,
+      path: Routes.searchSetting.name,
     ),
     SettingItemModel(
       title: 'setting.feedback.title'.tr(),
@@ -92,7 +91,7 @@ List<SettingItemModel> generateSettingItems() {
       leadingIcon: const Icon(
         Icons.person,
       ),
-      path: GenerateRouter.accountSettingScreen,
+      path: Routes.profile.name,
     ),
   ];
 }
@@ -115,7 +114,7 @@ void showCompleteTaskDialog(
   controller.addListener(() {
     if (controller.isCompleted) {
       controller.stop();
-      Navigator.pop(context);
+      context.pop();
     }
   });
 }
@@ -133,14 +132,14 @@ void showDeleteTaskDialog(BuildContext context,
         actions: [
           TextButton(
             onPressed: () {
-              Navigator.pop(context);
+              context.pop();
             },
             child: Text('core.cancel'.tr()),
           ),
           TextButton(
             onPressed: () {
               onConfirm?.call();
-              Navigator.pop(context);
+              context.pop();
             },
             child: Text(
               'task.confirm_delete'.tr(),
@@ -167,7 +166,7 @@ void showLogoutDialog(BuildContext context, {required VoidCallback onConfirm}) {
         actions: [
           TextButton(
             onPressed: () {
-              Navigator.pop(context);
+              context.pop();
             },
             child: Text('core.cancel'.tr()),
           ),
@@ -196,7 +195,7 @@ void showLoadingDialog(BuildContext context) {
         listener: (context, state) {
           if (!state.isLogoutLoading) {
             debugPrint("isLogoutLoading listener: ${state.isLogoutLoading}");
-            Navigator.pop(context);
+            context.pop();
           }
         },
         builder: (context, state) {

@@ -8,8 +8,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class NotificationSettingScreen extends StatefulWidget {
-  const NotificationSettingScreen({super.key, required this.title});
-  final String title;
+  const NotificationSettingScreen({super.key});
 
   @override
   State<NotificationSettingScreen> createState() => _NotificationScreenState();
@@ -37,7 +36,7 @@ class _NotificationScreenState extends State<NotificationSettingScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(widget.title),
+        title: Text('setting.notification.title'.tr()),
         leading: const FittedBox(
           fit: BoxFit.scaleDown,
           child: BackButtonl10n(),

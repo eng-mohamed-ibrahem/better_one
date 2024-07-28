@@ -1,8 +1,9 @@
 import 'package:better_one/core/constants/constants.dart';
+import 'package:better_one/core/enum/language_enum.dart';
 import 'package:better_one/view_models/setting_viewmodel/setting_viewmode.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
-import 'package:better_one/core/enum/language_enum.dart';
+import 'package:go_router/go_router.dart';
 
 class LanguageSetting extends StatelessWidget {
   const LanguageSetting({super.key});
@@ -26,7 +27,7 @@ class LanguageSetting extends StatelessWidget {
               SettingViewModel.get(context).changeLanguage(Locale(value!));
               await context
                   .setLocale(Locale(value))
-                  .whenComplete(() => Navigator.pop(context));
+                  .whenComplete(() => context.pop());
             },
             dropdownMenuEntries: List.generate(
               Language.values.length,

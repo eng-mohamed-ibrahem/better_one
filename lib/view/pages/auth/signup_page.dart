@@ -1,4 +1,4 @@
-import 'package:better_one/config/generate_router.dart';
+import 'package:better_one/config/navigation/routes_enum.dart';
 import 'package:better_one/core/constants/constants.dart';
 import 'package:better_one/core/utils/methods/methods.dart';
 import 'package:better_one/core/utils/shared_widgets/back_button_l10n.dart';
@@ -7,6 +7,7 @@ import 'package:better_one/view_models/auth_viewmodel/auth_viewmodel.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
 
 class SignUp extends StatefulWidget {
   const SignUp({super.key});
@@ -126,10 +127,7 @@ class _SignUpState extends State<SignUp> {
                 }
                 if (state.isSignupSuccess) {
                   showSnackBar(context, message: 'auth.signup_succ'.tr());
-                  Navigator.pushReplacementNamed(
-                    context,
-                    GenerateRouter.login,
-                  );
+                  context.goNamed(Routes.login.name);
                 }
               },
               builder: (context, state) {
@@ -187,8 +185,7 @@ class _SignUpState extends State<SignUp> {
                 ),
                 GestureDetector(
                   onTap: () {
-                    Navigator.pushReplacementNamed(
-                        context, GenerateRouter.login);
+                    context.goNamed(Routes.login.name);
                   },
                   child: Container(
                     alignment: Alignment.bottomCenter,
