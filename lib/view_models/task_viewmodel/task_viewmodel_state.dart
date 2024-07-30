@@ -2,70 +2,79 @@ part of 'task_viewmodel.dart';
 
 @Freezed(makeCollectionsUnmodifiable: false)
 class TaskViewmodelState with _$TaskViewmodelState {
-  const factory TaskViewmodelState({
-    @Default(true) bool isInitial,
+  
+  factory TaskViewmodelState.initial() = _Initial;
 
-    /// get all tasks
-    @Default(false) bool isGetAllTasksLoading,
-    @Default(false) bool isGetAllTasksCompleted,
-    @Default(false) bool isGetAllTasksFailed,
-    @Default([]) List<TaskModel> allTasks,
+  /// get all tasks
+  factory TaskViewmodelState.allTasksLoading() = _AllTasksLoading;
+  factory TaskViewmodelState.allTasksCompleted(
+      {required List<TaskModel> allTasks}) = _AllTasksCompleted;
+  factory TaskViewmodelState.allTasksFailed({required String message}) =
+      _AllTasksFailed;
 
-    /// error message
-    @Default(null) String? errorMessage,
+  /// search
+  factory TaskViewmodelState.searchLoading() = _SearchLoading;
+  factory TaskViewmodelState.searchCompleted(
+      {required List<TaskModel> searchedTasks}) = _SearchCompleted;
+  factory TaskViewmodelState.searchFailed({required String message}) =
+      _SearchFailed;
 
-    /// search
-    @Default(false) bool isSearchLoading,
-    @Default(false) bool isSearchCompleted,
-    @Default(false) bool isSearchFailed,
-    @Default(null) List<TaskModel>? searchedTasks,
+  /// get total estimated time
+  factory TaskViewmodelState.getTotalEstimatedTimeLoading() =
+      _GetTotalEstimatedTimeLoading;
+  factory TaskViewmodelState.getTotalEstimatedTimeCompleted(
+      {required Duration totalEstimatedTime}) = _GetTotalEstimatedTimeCompleted;
+  factory TaskViewmodelState.getTotalEstimatedTimeFailed(
+      {required String message}) = _GetTotalEstimatedTimeFailed;
 
-    /// get total estimated time
-    @Default(false) bool isGetTotalEstimatedTimeLoading,
-    @Default(false) bool isGetTotalEstimatedTimeCompleted,
-    @Default(false) bool isGetTotalEstimatedTimeFailed,
+  /// update total estimated time
+  factory TaskViewmodelState.updateTotalEstimatedTimeLoading() =
+      _UpdateTotalEstimatedTimeLoading;
+  factory TaskViewmodelState.updateTotalEstimatedTimeFailed(
+      {required String message}) = _UpdateTotalEstimatedTimeFailed;
+  factory TaskViewmodelState.updateTotalEstimatedTimeCompleted(
+          {required Duration totalEstimatedTime}) =
+      _UpdateTotalEstimatedTimeCompleted;
 
-    /// update total estimated time
-    @Default(false) bool isUpdateTotalEstimatedTimeLoading,
-    @Default(false) bool isUpdateTotalEstimatedTimeCompleted,
-    @Default(false) bool isUpdateTotalEstimatedTimeFailed,
-    @Default(Duration.zero) Duration totalEstimatedTime,
+  /// upload tasks
+  factory TaskViewmodelState.uploadTasksLoading() = _UploadTasksLoading;
+  factory TaskViewmodelState.uploadTasksFailed({required String message}) =
+      _UploadTasksFailed;
+  factory TaskViewmodelState.uploadTasksCompleted(
+      {required TaskModel meupdatedTaskssage}) = _UploadTasksCompleted;
 
-    /// scroll controller
-    @Default(null) ScrollController? scrollController,
+  /// download tasks
+  factory TaskViewmodelState.downloadTasksLoading() = _DownloadTasksLoading;
+  factory TaskViewmodelState.downloadTasksFailed({required String message}) =
+      _DownloadTasksFailed;
+  factory TaskViewmodelState.downloadTasksCompleted(
+      {required List<TaskModel> downloadedTasks}) = _DownloadTasksCompleted;
 
-    /// upload tasks
-    @Default(false) bool isUploadTasksLoading,
-    @Default(false) bool isUploadTasksSuccess,
-    @Default(false) bool isUploadTasksFailed,
+  /// update task
+  factory TaskViewmodelState.updateTaskLoading() = _UpdateTaskLoading;
+  factory TaskViewmodelState.updateTaskFailed({required String message}) =
+      _UpdateTaskFailed;
+  factory TaskViewmodelState.updateTaskCompleted(
+      {required TaskModel updatedTask}) = _UpdateTaskCompleted;
 
-    /// download tasks
-    @Default(false) bool isDownloadTasksLoading,
-    @Default(false) bool isDownloadTasksSuccess,
-    @Default(false) bool isDownloadTasksFailed,
+  /// get task
+  factory TaskViewmodelState.getTaskByIdLoading() = _GetTaskByIdLoading;
+  factory TaskViewmodelState.getTaskByIdFailed({required String message}) =
+      _GetTaskByIdFailed;
+  factory TaskViewmodelState.getTaskByIdCompleted(
+      {required TaskModel taskById}) = _GetTaskByIdCompleted;
 
-    /// create task
-    @Default(false) bool isCreateTaskLoading,
-    @Default(false) bool isCreateTaskSuccess,
-    @Default(false) bool isCreateTaskFailed,
-    @Default(null) TaskModel? createdTask,
+  /// create task
+  factory TaskViewmodelState.createTaskLoading() = _CreateTaskLoading;
+  factory TaskViewmodelState.createTaskFailed({required String message}) =
+      _CreateTaskFailed;
+  factory TaskViewmodelState.createTaskCompleted(
+      {required TaskModel createdTask}) = _CreateTaskCompleted;
 
-    /// update task
-    @Default(false) bool isUpdateTaskLoading,
-    @Default(false) bool isUpdateTaskSuccess,
-    @Default(false) bool isUpdateTaskFailed,
-    @Default(null) TaskModel? updatedTask,
-
-    /// delete task
-    @Default(false) bool isDeleteTaskLoading,
-    @Default(false) bool isDeleteTaskSuccess,
-    @Default(false) bool isDeleteTaskFailed,
-    @Default(null) TaskModel? deletedTask,
-
-    /// get task
-    @Default(false) bool isGetTaskByIdLoading,
-    @Default(false) bool isGetTaskByIdCompleted,
-    @Default(false) bool isGetTaskByIdFailed,
-    @Default(null) TaskModel? taskById,
-  }) = _TaskViewmodelState;
+  /// delete task
+  factory TaskViewmodelState.deleteTaskLoading() = _DeleteTaskLoading;
+  factory TaskViewmodelState.deleteTaskFailed({required String message}) =
+      _DeleteTaskFailed;
+  factory TaskViewmodelState.deleteTaskCompleted(
+      {required TaskModel deletedTask}) = _DeleteTaskCompleted;
 }

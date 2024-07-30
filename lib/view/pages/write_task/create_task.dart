@@ -6,8 +6,8 @@ import 'package:better_one/core/utils/shared_widgets/back_button_l10n.dart';
 import 'package:better_one/model/notification_model/notification_model.dart';
 import 'package:better_one/model/task_model/task_model.dart';
 import 'package:better_one/view/widgets/write_task_area.dart';
-import 'package:better_one/view_models/task_viewmodel/task_viewmodel.dart';
 import 'package:better_one/view_models/setting_viewmodel/setting_viewmode.dart';
+import 'package:better_one/view_models/task_viewmodel/task_viewmodel.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -43,55 +43,61 @@ class CreateTaskScreen extends StatelessWidget {
             SizedBox(height: 150.h),
             BlocConsumer<TaskViewmodel, TaskViewmodelState>(
               listener: (context, state) {
-                if (state.isCreateTaskSuccess) {
-                  settingState.isNotificationOnAdd
-                      ? localNotification.display(
-                          notification: NotificationModel(
-                            id: DateTime.now().microsecond,
-                            title: 'task.motive_add'.tr(),
-                            body: state.createdTask!.title,
-                            payload: state.createdTask!.id,
-                          ),
-                        )
-                      : null;
-                  context.goNamed(
-                    Routes.taskDetail.name,
-                    pathParameters: {
-                      'task_id': state.createdTask!.id,
-                    },
-                  );
-                }
-                if (state.isCreateTaskFailed) {
-                  showSnackBar(
-                    context,
-                    message: state.errorMessage!,
-                  );
-                }
+                state.whenOrNull(
+                  createTaskCompleted: (createdTask) {
+                    settingState.isNotificationOnAdd
+                        ? localNotification.display(
+                            notification: NotificationModel(
+                              id: DateTime.now().microsecond,
+                              title: 'task.motive_add'.tr(),
+                              body: createdTask.title,
+                              payload: createdTask.id,
+                            ),
+                          )
+                        : null;
+                    context.goNamed(
+                      Routes.taskDetail.name,
+                      pathParameters: {
+                        'task_id': createdTask.id,
+                      },
+                    );
+                  },
+                  createTaskFailed: (failure) {
+                    showSnackBar(
+                      context,
+                      message: failure,
+                    );
+                  },
+                );
               },
               builder: (context, state) {
-                if (state.isCreateTaskLoading) {
-                  return const Center(child: CircularProgressIndicator());
-                }
-                return FilledButton.icon(
-                  onPressed: () {
-                    if (titleController.text.isNotEmpty &&
-                        descriptionController.text.isNotEmpty) {
-                      var newTask = TaskModel(
-                        id: const Uuid().v4(),
-                        title: titleController.text,
-                        body: descriptionController.text,
-                        createdAt: DateTime.now(),
-                      );
-                      context.read<TaskViewmodel>().createTask(newTask);
-                    } else {
-                      showSnackBar(
-                        context,
-                        message: 'task.title_and_description_required'.tr(),
-                      );
-                    }
+                return state.maybeWhen(
+                  createTaskLoading: () {
+                    return const Center(child: CircularProgressIndicator());
                   },
-                  icon: const Icon(Icons.add),
-                  label: Text('task.add'.tr()),
+                  orElse: () {
+                    return FilledButton.icon(
+                      onPressed: () {
+                        if (titleController.text.isNotEmpty &&
+                            descriptionController.text.isNotEmpty) {
+                          var newTask = TaskModel(
+                            id: const Uuid().v4(),
+                            title: titleController.text,
+                            body: descriptionController.text,
+                            createdAt: DateTime.now(),
+                          );
+                          context.read<TaskViewmodel>().createTask(newTask);
+                        } else {
+                          showSnackBar(
+                            context,
+                            message: 'task.title_and_description_required'.tr(),
+                          );
+                        }
+                      },
+                      icon: const Icon(Icons.add),
+                      label: Text('task.add'.tr()),
+                    );
+                  },
                 );
               },
             ),

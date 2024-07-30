@@ -1,4 +1,3 @@
-import 'package:better_one/model/task_model/task_model.dart';
 import 'package:better_one/model/user_model/user_model.dart';
 import 'package:better_one/repositories/user_repo/user_repo_intefrace.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';

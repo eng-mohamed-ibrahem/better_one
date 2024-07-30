@@ -43,8 +43,8 @@ class _TaskScreenState extends State<TaskDetailsScreen>
   /// [isTaskModified] to check if the task is modified or not
   bool isTaskModified = false;
 
-  /// [timerAction] is the timer of action to update the running time
-  late TimerAction timerAction;
+  /// [periodicActionManager] is the timer of action to update the running time
+  late PeriodicActionManager periodicActionManager;
 
   /// [streamController] is the stream controller to update the running time
   StreamController<Duration> streamController = StreamController<Duration>();
@@ -57,17 +57,6 @@ class _TaskScreenState extends State<TaskDetailsScreen>
   @override
   void initState() {
     WidgetsBinding.instance.addObserver(this);
-
-    /// initialize the timer action and assign action
-    timerAction = TimerAction(
-      periodicDuration: const Duration(seconds: 1),
-      action: () {
-        kDebugPrint("timerAction: ${timerAction.elapsed}");
-        if (!streamController.isClosed) {
-          streamController.add(timerAction.elapsed + task!.elapsedTime);
-        }
-      },
-    );
     super.initState();
   }
 
@@ -88,16 +77,16 @@ class _TaskScreenState extends State<TaskDetailsScreen>
     kDebugPrint("didChangeAppLifecycleState: $state");
   }
 
-  /// save the estimated time on navigate back
-  /// if navigate back while the task is inprogress then pause the task
   @override
   void deactivate() {
     if (task != null) {
+      kDebugPrint(
+          "deactivate: ${periodicActionManager.elapsed + task!.elapsedTime}");
       context.read<TaskViewmodel>().updateTask(
             task!,
             task!.copyWith(
               status: TaskStatus.paused,
-              elapsedTime: timerAction.elapsed + task!.elapsedTime,
+              elapsedTime: periodicActionManager.elapsed + task!.elapsedTime,
             ),
           );
     }
@@ -106,8 +95,9 @@ class _TaskScreenState extends State<TaskDetailsScreen>
 
   @override
   void dispose() {
+    kDebugPrint("dispose: ${periodicActionManager.elapsed}");
     routeObserver.unsubscribe(this);
-    task != null ? timerAction.stop() : null;
+    task != null ? periodicActionManager.stop() : null;
     streamController.close();
     WidgetsBinding.instance.removeObserver(this);
     super.dispose();
@@ -118,280 +108,284 @@ class _TaskScreenState extends State<TaskDetailsScreen>
     var settingState = SettingViewModel.get(context).state;
     return Scaffold(
       body: BlocConsumer<TaskViewmodel, TaskViewmodelState>(
-        listenWhen: (previous, current) {
-          if (current.isGetTaskByIdCompleted ||
-              current.isUpdateTaskSuccess ||
-              current.isDeleteTaskSuccess) {
-            return true;
-          }
-          return false;
-        },
         listener: (context, state) {
-          if (state.isGetTaskByIdCompleted) {
-            task = state.taskById!;
-            titleController.text = task!.title;
-            descriptionController.text = task!.body;
-            kDebugPrint("==================================");
-            kDebugPrint(
-                "state isGetTaskByIdCompleted: ${state.isGetTaskByIdCompleted}");
-            kDebugPrint("==================================");
+          state.whenOrNull(
+            getTaskByIdCompleted: (taskById) {
+              task = taskById;
+              titleController.text = task!.title;
+              descriptionController.text = task!.body;
 
-            // /// initialize the timer action and assign action
-            // timerAction = TimerAction(
-            //   periodicDuration: const Duration(seconds: 1),
-            //   action: () {
-            //     kDebugPrint("timerAction: ${timerAction.elapsed}");
-            //     if (!streamController.isClosed) {
-            //       streamController.add(timerAction.elapsed + task!.elapsedTime);
-            //     }
-            //   },
-            // );
-          }
-          if (state.isUpdateTaskSuccess) {
-            task = state.updatedTask!;
-            if (isTaskModified) {
-              settingState.isNotificationOnUpdate
-                  ? localNotification.display(
-                      notification: NotificationModel(
-                        id: DateTime.now().microsecond,
-                        title: 'task.motive_update'.tr(),
-                        body: task!.title,
-                        payload: task!.id,
-                      ),
-                    )
-                  : null;
-              isTaskModified = false;
-            }
-            if (task!.status == TaskStatus.done) {
-              showCompleteTaskDialog(
-                context,
-                AnimationController(
-                  vsync: this,
-                  duration: const Duration(seconds: 3, milliseconds: 500),
-                )..forward(),
+              /// initialize the timer action and assign action
+              periodicActionManager = PeriodicActionManager(
+                periodicDuration: const Duration(seconds: 1),
+                action: () {
+                  kDebugPrint(
+                      "periodicActionManager: ${periodicActionManager.elapsed}");
+                  if (!streamController.isClosed) {
+                    streamController
+                        .add(periodicActionManager.elapsed + task!.elapsedTime);
+                  }
+                },
               );
-              settingState.isNotificationOnComplete
-                  ? localNotification.display(
-                      notification: NotificationModel(
-                        id: DateTime.now().microsecond,
-                        title: 'task.motive_complete'.tr(),
-                        body: task!.title,
-                        payload: task!.id,
-                      ),
-                    )
-                  : null;
-            }
-          }
+            },
+            updateTaskCompleted: (updatedTask) {
+              task = updatedTask;
+              if (isTaskModified) {
+                settingState.isNotificationOnUpdate
+                    ? localNotification.display(
+                        notification: NotificationModel(
+                          id: DateTime.now().microsecond,
+                          title: 'task.motive_update'.tr(),
+                          body: task!.title,
+                          payload: task!.id,
+                        ),
+                      )
+                    : null;
+                isTaskModified = false;
+              }
+              if (task!.status == TaskStatus.done) {
+                showCompleteTaskDialog(
+                  context,
+                  AnimationController(
+                    vsync: this,
+                    duration: const Duration(seconds: 3, milliseconds: 500),
+                  )..forward(),
+                );
+                settingState.isNotificationOnComplete
+                    ? localNotification.display(
+                        notification: NotificationModel(
+                          id: DateTime.now().microsecond,
+                          title: 'task.motive_complete'.tr(),
+                          body: task!.title,
+                          payload: task!.id,
+                        ),
+                      )
+                    : null;
+              }
+            },
+          );
         },
         builder: (context, state) {
-          if (state.isGetTaskByIdLoading) {
-            return const Center(
-              child: LottieIndicator(
-                statusAssets: LottieAssets.searchForTask,
-              ),
-            );
-          }
-          if (state.isGetTaskByIdFailed) {
-            return Center(
-              child: Failed(
-                failedAsset: LottieAssets.searchForTaskFailed,
-                errorMessage: state.errorMessage,
-                retry: () {
-                  context.read<TaskViewmodel>().getTaskById(widget.taskId);
-                },
-              ),
-            );
-          }
-          return Scaffold(
-            appBar: AppBar(
-              leading: const BackButtonl10n(),
-              bottom: PreferredSize(
-                preferredSize: Size.fromHeight(35.h),
-                child: StreamBuilder<Duration>(
-                  stream: streamController.stream,
-                  initialData: task!.elapsedTime,
-                  builder: (context, snapshot) {
-                    return Padding(
-                      padding: EdgeInsetsDirectional.only(top: 5.h, end: 15.w),
-                      child: DurationTime(
-                        duration: snapshot.data!,
-                        style: Theme.of(context).textTheme.titleLarge,
-                      ),
-                    );
+          return state.maybeWhen(
+            getTaskByIdLoading: () {
+              return const Center(
+                child: LottieIndicator(
+                  statusAssets: LottieAssets.searchForTask,
+                ),
+              );
+            },
+            getTaskByIdFailed: (message) {
+              return Center(
+                child: Failed(
+                  failedAsset: LottieAssets.searchForTaskFailed,
+                  errorMessage: message,
+                  retry: () {
+                    context.read<TaskViewmodel>().getTaskById(widget.taskId);
                   },
                 ),
-              ),
-            ),
-            body: SingleChildScrollView(
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  SizedBox(height: AppMetrices.verticalGap.h),
-                  BlocBuilder<QuoteViewmode, QuoteViewmodelState>(
-                    builder: (context, state) {
-                      if (state.quote == null) {
-                        return const SizedBox();
-                      }
-                      return AnimatedSize(
-                        duration: const Duration(milliseconds: 300),
-                        child: Container(
-                          color: Theme.of(context).secondaryHeaderColor,
-                          padding: EdgeInsets.all(
-                              MediaQuery.of(context).padding.top),
-                          width: double.infinity,
-                          child: Directionality(
-                            textDirection: ui.TextDirection.ltr,
-                            child: Text(
-                              state.quote!.content!,
-                              textAlign: TextAlign.center,
-                              style: Theme.of(context)
-                                  .textTheme
-                                  .titleMedium!
-                                  .copyWith(
-                                    fontWeight: FontWeight.w300,
-                                    fontStyle: FontStyle.italic,
-                                  ),
-                            ),
+              );
+            },
+            orElse: () {
+              return Scaffold(
+                appBar: AppBar(
+                  leading: const BackButtonl10n(),
+                  bottom: PreferredSize(
+                    preferredSize: Size.fromHeight(35.h),
+                    child: StreamBuilder<Duration>(
+                      stream: streamController.stream,
+                      initialData: task!.elapsedTime,
+                      builder: (context, snapshot) {
+                        return Padding(
+                          padding:
+                              EdgeInsetsDirectional.only(top: 5.h, end: 15.w),
+                          child: DurationTime(
+                            duration: snapshot.data!,
+                            style: Theme.of(context).textTheme.titleLarge,
                           ),
-                        ),
-                      );
-                    },
+                        );
+                      },
+                    ),
                   ),
-                  SizedBox(height: AppMetrices.verticalGap2.h),
-                  WriteTaskArea(
-                    titleController: titleController,
-                    descriptionController: descriptionController,
-                    onChanged: (value) {
-                      isTaskModified
-                          ? null
-                          : setState(
-                              () {
-                                isTaskModified = true;
-                              },
-                            );
-                    },
-                  ),
-                  SizedBox(height: AppMetrices.verticalGap2.h),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
+                ),
+                body: SingleChildScrollView(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      isTaskModified
-                          ? FilledButton(
-                              onPressed: () {
-                                if (titleController.text.isNotEmpty &&
-                                    descriptionController.text.isNotEmpty) {
-                                  // create new task and change the status to paused
-                                  var newTask = task!.copyWith(
-                                    title: titleController.text,
-                                    body: descriptionController.text,
-                                    updatedAt: DateTime.now(),
-                                    // elapsedTime:
-                                    //     timerAction.elapsed + task!.elapsedTime,
-                                    status: task!.status == TaskStatus.done
-                                        ? TaskStatus.paused
-                                        : task!.status,
-                                  );
-
-                                  context
-                                      .read<TaskViewmodel>()
-                                      .updateTask(task!, newTask);
-                                } else {
-                                  showSnackBar(
-                                    context,
-                                    message:
-                                        'task.title_and_description_required'
-                                            .tr(),
-                                  );
-                                }
-                              },
-                              child: Text(
-                                'task.update'.tr(),
-                                style: Theme.of(context).textTheme.titleSmall,
-                              ),
-                            )
-                          : const SizedBox(),
-                      SizedBox(width: AppMetrices.horizontalGap2.w),
-                      task!.status != TaskStatus.done
-                          ? task!.status == TaskStatus.inprogress
-                              ? FilledButton.icon(
-                                  label: Text('task.pause'.tr()),
-                                  onPressed: () {
-                                    context.read<TaskViewmodel>().updateTask(
-                                          task!,
-                                          task!.copyWith(
-                                            status: TaskStatus.paused,
-                                          ),
-                                        );
-                                    timerAction.stop();
-                                  },
-                                  icon: const Icon(
-                                    Icons.pause_circle_outline,
-                                  ),
-                                )
-                              : FilledButton.icon(
-                                  label: Text('task.start'.tr()),
-                                  onPressed: () {
-                                    context.read<TaskViewmodel>().updateTask(
-                                          task!,
-                                          task!.copyWith(
-                                            status: TaskStatus.inprogress,
-                                          ),
-                                        );
-                                    timerAction.start();
-                                  },
-                                  icon: const Icon(
-                                    Icons.play_circle_outlined,
-                                  ),
-                                )
-                          : const SizedBox(),
-                    ],
-                  ),
-                  SizedBox(height: AppMetrices.verticalGap.h),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      ChoiceChip(
-                        label: Text('task.status.done'.tr()),
-                        selected: task!.status == TaskStatus.done,
-                        onSelected: (value) {
-                          context.read<TaskViewmodel>().updateTask(
-                                task!,
-                                task!.copyWith(
-                                  status: value
-                                      ? TaskStatus.done
-                                      : TaskStatus.paused,
+                      SizedBox(height: AppMetrices.verticalGap.h),
+                      BlocBuilder<QuoteViewmode, QuoteViewmodelState>(
+                        builder: (context, state) {
+                          if (state.quote == null) {
+                            return const SizedBox();
+                          }
+                          return AnimatedSize(
+                            duration: const Duration(milliseconds: 300),
+                            child: Container(
+                              color: Theme.of(context).secondaryHeaderColor,
+                              padding: EdgeInsets.all(
+                                  MediaQuery.of(context).padding.top),
+                              width: double.infinity,
+                              child: Directionality(
+                                textDirection: ui.TextDirection.ltr,
+                                child: Text(
+                                  state.quote!.content!,
+                                  textAlign: TextAlign.center,
+                                  style: Theme.of(context)
+                                      .textTheme
+                                      .titleMedium!
+                                      .copyWith(
+                                        fontWeight: FontWeight.w300,
+                                        fontStyle: FontStyle.italic,
+                                      ),
                                 ),
-                              );
-                        },
-                      ),
-                      SizedBox(width: AppMetrices.horizontalGap2.w),
-                      FilledButton.icon(
-                        onPressed: () {
-                          showDeleteTaskDialog(
-                            context,
-                            message: task!.title,
-                            onConfirm: () {
-                              context.read<TaskViewmodel>().deleteTask(task!);
-                              showSnackBar(
-                                context,
-                                message: 'task.remove'.tr(),
-                              );
-                            },
+                              ),
+                            ),
                           );
                         },
-                        icon: const Icon(
-                          Icons.delete_forever,
-                          color: AppColors.hightlightColor,
-                        ),
-                        label: Text(
-                          'core.delete'.tr(),
-                        ),
+                      ),
+                      SizedBox(height: AppMetrices.verticalGap2.h),
+                      WriteTaskArea(
+                        titleController: titleController,
+                        descriptionController: descriptionController,
+                        onChanged: (value) {
+                          isTaskModified
+                              ? null
+                              : setState(
+                                  () {
+                                    isTaskModified = true;
+                                  },
+                                );
+                        },
+                      ),
+                      SizedBox(height: AppMetrices.verticalGap2.h),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          isTaskModified
+                              ? FilledButton(
+                                  onPressed: () {
+                                    if (titleController.text.isNotEmpty &&
+                                        descriptionController.text.isNotEmpty) {
+                                      // create new task and change the status to paused
+                                      var newTask = task!.copyWith(
+                                        title: titleController.text,
+                                        body: descriptionController.text,
+                                        updatedAt: DateTime.now(),
+                                        // elapsedTime:
+                                        //     periodicActionManager.elapsed + task!.elapsedTime,
+                                        status: task!.status == TaskStatus.done
+                                            ? TaskStatus.paused
+                                            : task!.status,
+                                      );
+
+                                      context
+                                          .read<TaskViewmodel>()
+                                          .updateTask(task!, newTask);
+                                    } else {
+                                      showSnackBar(
+                                        context,
+                                        message:
+                                            'task.title_and_description_required'
+                                                .tr(),
+                                      );
+                                    }
+                                  },
+                                  child: Text(
+                                    'task.update'.tr(),
+                                    style:
+                                        Theme.of(context).textTheme.titleSmall,
+                                  ),
+                                )
+                              : const SizedBox(),
+                          SizedBox(width: AppMetrices.horizontalGap2.w),
+                          task!.status != TaskStatus.done
+                              ? task!.status == TaskStatus.inprogress
+                                  ? FilledButton.icon(
+                                      label: Text('task.pause'.tr()),
+                                      onPressed: () {
+                                        context
+                                            .read<TaskViewmodel>()
+                                            .updateTask(
+                                              task!,
+                                              task!.copyWith(
+                                                status: TaskStatus.paused,
+                                              ),
+                                            );
+                                        periodicActionManager.stop();
+                                      },
+                                      icon: const Icon(
+                                        Icons.pause_circle_outline,
+                                      ),
+                                    )
+                                  : FilledButton.icon(
+                                      label: Text('task.start'.tr()),
+                                      onPressed: () {
+                                        context
+                                            .read<TaskViewmodel>()
+                                            .updateTask(
+                                              task!,
+                                              task!.copyWith(
+                                                status: TaskStatus.inprogress,
+                                              ),
+                                            );
+                                        periodicActionManager.start();
+                                      },
+                                      icon: const Icon(
+                                        Icons.play_circle_outlined,
+                                      ),
+                                    )
+                              : const SizedBox(),
+                        ],
+                      ),
+                      SizedBox(height: AppMetrices.verticalGap.h),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          ChoiceChip(
+                            label: Text('task.status.done'.tr()),
+                            selected: task!.status == TaskStatus.done,
+                            onSelected: (value) {
+                              context.read<TaskViewmodel>().updateTask(
+                                    task!,
+                                    task!.copyWith(
+                                      status: value
+                                          ? TaskStatus.done
+                                          : TaskStatus.paused,
+                                    ),
+                                  );
+                            },
+                          ),
+                          SizedBox(width: AppMetrices.horizontalGap2.w),
+                          FilledButton.icon(
+                            onPressed: () {
+                              showDeleteTaskDialog(
+                                context,
+                                message: task!.title,
+                                onConfirm: () {
+                                  context
+                                      .read<TaskViewmodel>()
+                                      .deleteTask(task!);
+                                  showSnackBar(
+                                    context,
+                                    message: 'task.remove'.tr(),
+                                  );
+                                },
+                              );
+                            },
+                            icon: const Icon(
+                              Icons.delete_forever,
+                              color: AppColors.hightlightColor,
+                            ),
+                            label: Text(
+                              'core.delete'.tr(),
+                            ),
+                          ),
+                        ],
                       ),
                     ],
                   ),
-                ],
-              ),
-            ),
+                ),
+              );
+            },
           );
         },
       ),

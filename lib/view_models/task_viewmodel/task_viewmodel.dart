@@ -1,6 +1,9 @@
+import 'package:better_one/core/errors/failure.dart';
+import 'package:better_one/core/utils/methods/methods.dart';
 import 'package:better_one/model/task_model/task_model.dart';
 import 'package:better_one/repositories/task_repo/task_repo_interface.dart';
 import 'package:better_one/repositories/user_repo/user_repo_intefrace.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
@@ -10,156 +13,108 @@ part 'task_viewmodel_state.dart';
 
 class TaskViewmodel extends Cubit<TaskViewmodelState> {
   TaskViewmodel({required this.taskRepo, required this.userRepo})
-      : super(TaskViewmodelState(
-          scrollController: ScrollController(),
-        ));
+      : super(TaskViewmodelState.initial()) {
+    scrollController = ScrollController();
+  }
   final TaskRepoInterface taskRepo;
   final UserRepoInterface userRepo;
 
+  /// scroll controller
+  late ScrollController scrollController;
+
+  /// all tasks
+  List<TaskModel> allTasks = [];
+
+  /// total estimated time
+  Duration totalEstimatedTime = Duration.zero;
+
+  /// [getTasks] to get all tasks
   void getTasks() async {
-    emit(state.copyWith(
-      isGetAllTasksLoading: true,
-      isGetAllTasksFailed: false,
-      isGetAllTasksCompleted: false,
-      isInitial: false,
-    ));
+    emit(TaskViewmodelState.allTasksLoading());
     var result = await taskRepo.getAllTasks();
     result.when(
       success: (tasks) {
         emit(
-          state.copyWith(
-            isGetAllTasksLoading: false,
-            isGetAllTasksCompleted: true,
-            allTasks: tasks,
-          ),
+          TaskViewmodelState.allTasksCompleted(allTasks: allTasks = tasks),
         );
       },
       failure: (error) {
-        emit(
-          state.copyWith(
-            isGetAllTasksLoading: false,
-            isGetAllTasksCompleted: false,
-            isGetAllTasksFailed: true,
-            errorMessage: error.message,
-          ),
-        );
+        emit(TaskViewmodelState.allTasksFailed(
+            message:
+                error is OtherFailure ? "core.error".tr() : error.message));
       },
     );
   }
 
   void createTask(TaskModel task) async {
-    emit(state.copyWith(
-        isCreateTaskLoading: true,
-        isCreateTaskFailed: false,
-        isCreateTaskSuccess: false));
+    emit(TaskViewmodelState.createTaskLoading());
     var result = await userRepo.addTask(task);
     result.when(
       success: (task) {
         emit(
-          state.copyWith(
-            isCreateTaskLoading: false,
-            isCreateTaskSuccess: true,
-            createdTask: task,
-          ),
+          TaskViewmodelState.createTaskCompleted(createdTask: task),
         );
       },
       failure: (error) {
         emit(
-          state.copyWith(
-            isCreateTaskLoading: false,
-            isCreateTaskSuccess: false,
-            isCreateTaskFailed: true,
-            errorMessage: error.message,
-          ),
+          TaskViewmodelState.createTaskFailed(
+              message:
+                  error is OtherFailure ? "core.error".tr() : error.message),
         );
       },
     );
   }
 
   void updateTask(TaskModel oldTask, TaskModel newTask) async {
-    emit(state.copyWith(
-        isUpdateTaskLoading: true,
-        isUpdateTaskFailed: false,
-        isUpdateTaskSuccess: false));
+    emit(TaskViewmodelState.updateTaskLoading());
     var result = await userRepo.updateTask(oldTask, newTask);
     result.when(
       success: (updatedTask) {
-        emit(
-          state.copyWith(
-            isUpdateTaskLoading: false,
-            isUpdateTaskSuccess: true,
-            updatedTask: updatedTask,
-          ),
-        );
+        emit(TaskViewmodelState.updateTaskCompleted(updatedTask: updatedTask));
       },
       failure: (error) {
         emit(
-          state.copyWith(
-            isUpdateTaskLoading: false,
-            isUpdateTaskSuccess: false,
-            isUpdateTaskFailed: true,
-            errorMessage: error.message,
-          ),
+          TaskViewmodelState.updateTaskFailed(
+              message:
+                  error is OtherFailure ? "core.error".tr() : error.message),
         );
       },
     );
   }
 
   void deleteTask(TaskModel deletedTask) async {
-    emit(state.copyWith(
-        isDeleteTaskLoading: true,
-        isDeleteTaskFailed: false,
-        isDeleteTaskSuccess: false));
+    emit(TaskViewmodelState.deleteTaskLoading());
     var result = await userRepo.removeTask(deletedTask);
     result.when(
       success: (task) {
         emit(
-          state.copyWith(
-            isDeleteTaskLoading: false,
-            isDeleteTaskSuccess: true,
-            deletedTask: task,
-          ),
+          TaskViewmodelState.deleteTaskCompleted(deletedTask: task),
         );
       },
       failure: (error) {
         emit(
-          state.copyWith(
-            isDeleteTaskLoading: false,
-            isDeleteTaskSuccess: false,
-            isDeleteTaskFailed: true,
-            errorMessage: error.message,
-          ),
+          TaskViewmodelState.deleteTaskFailed(
+              message:
+                  error is OtherFailure ? "core.error".tr() : error.message),
         );
       },
     );
   }
 
   void getTaskById(String id) async {
-    emit(state.copyWith(
-      isGetTaskByIdLoading: true,
-      isGetTaskByIdFailed: false,
-      isGetTaskByIdCompleted: false,
-      taskById: null,
-    ));
+    emit(TaskViewmodelState.getTaskByIdLoading());
     var result = await userRepo.getTaskById(id);
     result.when(
       success: (task) {
         emit(
-          state.copyWith(
-            isGetTaskByIdLoading: false,
-            isGetTaskByIdCompleted: true,
-            taskById: task,
-          ),
+          TaskViewmodelState.getTaskByIdCompleted(taskById: task!),
         );
       },
       failure: (error) {
         emit(
-          state.copyWith(
-            isGetTaskByIdLoading: false,
-            isGetTaskByIdCompleted: false,
-            isGetTaskByIdFailed: true,
-            errorMessage: error.message,
-          ),
+          TaskViewmodelState.getTaskByIdFailed(
+              message:
+                  error is OtherFailure ? "core.error".tr() : error.message),
         );
       },
     );
@@ -168,44 +123,21 @@ class TaskViewmodel extends Cubit<TaskViewmodelState> {
   void getTotalEstimatedTime() async {
     var result = await taskRepo.getTotoalEstimatedTime();
     result.when(
-      success: (totalTime) => emit(
-        state.copyWith(
-          isGetTotalEstimatedTimeCompleted: true,
-          totalEstimatedTime: Duration(microseconds: totalTime),
-        ),
-      ),
-      failure: (error) {
+      success: (totalTime) {
         emit(
-          state.copyWith(
-            isGetTotalEstimatedTimeCompleted: false,
-            isGetTotalEstimatedTimeFailed: true,
-            errorMessage: error.message,
-          ),
+          TaskViewmodelState.getTotalEstimatedTimeCompleted(
+              totalEstimatedTime: totalEstimatedTime =
+                  Duration(microseconds: totalTime)),
         );
       },
-    );
-  }
-
-  TaskViewmodelState initialState() {
-    return state.copyWith(
-      isCreateTaskFailed: false,
-      isCreateTaskLoading: false,
-      isCreateTaskSuccess: false,
-      isGetAllTasksCompleted: false,
-      isGetAllTasksFailed: false,
-      isGetAllTasksLoading: false,
-      isDeleteTaskFailed: false,
-      isDeleteTaskLoading: false,
-      isDeleteTaskSuccess: false,
-      isUpdateTaskFailed: false,
-      isUpdateTaskLoading: false,
-      isUpdateTaskSuccess: false,
-      isGetTaskByIdCompleted: false,
-      isGetTaskByIdFailed: false,
-      isGetTaskByIdLoading: false,
-      isDownloadTasksFailed: false,
-      isDownloadTasksLoading: false,
-      isDownloadTasksSuccess: false,
+      failure: (error) {
+        kDebugPrint(error.message);
+        emit(
+          TaskViewmodelState.getTotalEstimatedTimeFailed(
+              message:
+                  error is OtherFailure ? "core.error".tr() : error.message),
+        );
+      },
     );
   }
 }
