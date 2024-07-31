@@ -9,17 +9,17 @@ class TaskModel with _$TaskModel {
   const factory TaskModel({
     required String title,
     required String body,
-    @JsonKey(name: 'sub_tasks')
-    @Default([])
-    List<({String title, bool completed})> subTasks,
+    @JsonKey(name: 'sub_tasks') @Default(<SubTask>[]) List<SubTask> subTasks,
     required String id,
     @JsonKey(name: 'created_at') required DateTime createdAt,
     @JsonKey(name: 'updated_at') DateTime? updatedAt,
     @JsonKey(name: 'elapsed_time') @Default(Duration.zero) Duration elapsedTime,
-    @Default(TaskStatus.none) TaskStatus status,
+    @Default(TaskStatus.created) TaskStatus status,
     @Default(false) bool backup,
   }) = _TaskModel;
 
   factory TaskModel.fromJson(Map<String, dynamic> json) =>
       _$TaskModelFromJson(json);
 }
+
+typedef SubTask = ({String title, bool completed});

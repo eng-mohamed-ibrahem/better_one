@@ -19,7 +19,7 @@ _$TaskModelImpl _$$TaskModelImplFromJson(Map<String, dynamic> json) =>
                     ),
                   ))
               .toList() ??
-          const [],
+          const <SubTask>[],
       id: json['id'] as String,
       createdAt: DateTime.parse(json['created_at'] as String),
       updatedAt: json['updated_at'] == null
@@ -29,7 +29,7 @@ _$TaskModelImpl _$$TaskModelImplFromJson(Map<String, dynamic> json) =>
           ? Duration.zero
           : Duration(microseconds: (json['elapsed_time'] as num).toInt()),
       status: $enumDecodeNullable(_$TaskStatusEnumMap, json['status']) ??
-          TaskStatus.none,
+          TaskStatus.created,
       backup: json['backup'] as bool? ?? false,
     );
 
@@ -61,5 +61,5 @@ const _$TaskStatusEnumMap = {
   TaskStatus.done: 'done',
   TaskStatus.inprogress: 'inprogress',
   TaskStatus.paused: 'paused',
-  TaskStatus.none: 'none',
+  TaskStatus.created: 'created',
 };

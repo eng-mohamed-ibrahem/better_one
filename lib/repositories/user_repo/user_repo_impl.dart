@@ -54,10 +54,10 @@ class UserRepoImpl implements UserRepoInterface {
 
   @override
   Future<ResultHandler<TaskModel, Failure>> addTask(TaskModel task) async {
-    var connected = await NetworkConnection.isConnected();
-    if (connected) {
-      return await remoteUserSource.addTask(task);
-    }
+    // var connected = await NetworkConnection.isConnected();
+    // if (connected) {
+    //   return await remoteUserSource.addTask(task);
+    // }
     return await localeUserSource.addTask(task);
   }
 
@@ -74,19 +74,19 @@ class UserRepoImpl implements UserRepoInterface {
   @override
   Future<ResultHandler<TaskModel, Failure>> updateTask(
       TaskModel oldTask, TaskModel newTask) async {
-    var connected = await NetworkConnection.isConnected();
-    if (connected) {
-      return await remoteUserSource.updateTask(oldTask, newTask);
-    }
+    // var connected = await NetworkConnection.isConnected();
+    // if (connected) {
+    //   return await remoteUserSource.updateTask(oldTask, newTask);
+    // }
     return await localeUserSource.updateTask(oldTask, newTask);
   }
 
   @override
   Future<ResultHandler<TaskModel?, Failure>> getTaskById(String id) async {
-    var connected = await NetworkConnection.isConnected();
-    if (connected) {
-      return await remoteUserSource.getTaskById(id);
-    }
+    // var connected = await NetworkConnection.isConnected();
+    // if (connected) {
+    //   return await remoteUserSource.getTaskById(id);
+    // }
     return await localeUserSource.getTaskById(id);
   }
 }

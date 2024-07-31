@@ -31,14 +31,14 @@ class _HomeScreenState extends State<HomeScreen> with RouteAware {
     WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
       settingRepo.setOnBoardingSeen(true);
     });
+    context.read<TaskViewmodel>().getTasks();
+    context.read<TaskViewmodel>().getTotalEstimatedTime();
     super.initState();
   }
 
   @override
   didChangeDependencies() {
     routeObserver.subscribe(this, ModalRoute.of(context)!);
-    context.read<TaskViewmodel>().getTasks();
-    context.read<TaskViewmodel>().getTotalEstimatedTime();
     super.didChangeDependencies();
   }
 

@@ -80,8 +80,6 @@ class _TaskScreenState extends State<TaskDetailsScreen>
   @override
   void deactivate() {
     if (task != null) {
-      kDebugPrint(
-          "deactivate: ${periodicActionManager.elapsed + task!.elapsedTime}");
       context.read<TaskViewmodel>().updateTask(
             task!,
             task!.copyWith(

@@ -60,19 +60,20 @@ class PeriodicActionManager {
         }
       },
     );
-    kDebugPrint("_timer in start $_timer");
+    kDebugPrint("_timer in start $_timer, ${_stopwatch.isRunning}");
   }
 
   /// [stop] stop the action calling and stop timer without deleting the elabsed time
   void stop() {
-    kDebugPrint("_timer in stop $_timer");
+    kDebugPrint("_timer in stop $_timer, ${_stopwatch.isRunning}");
     if (_timer == null && _stopwatch.isRunning == false) {
       return;
     }
+
     _stopwatch.stop();
     _timer!.cancel();
     _timer = null;
-    kDebugPrint("timer is stoped");
+    kDebugPrint("timer is stoped, ${_stopwatch.isRunning}");
   }
 
   /// [reset] reset the timer to 0 counts and waiting for starting again
