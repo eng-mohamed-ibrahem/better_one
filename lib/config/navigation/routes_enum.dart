@@ -1,8 +1,8 @@
 enum Routes {
   splash("/", "splash"),
   onboarding("/onboarding", "onboarding"),
-  login("/login", "login"),
-  signup("/signup", "signup"),
+  login("login", "login"),
+  signup("signup", "signup"),
   home("/home", "home"),
   settings("settings", "settings"),
   task("task", "task"),

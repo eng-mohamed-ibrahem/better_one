@@ -11,7 +11,8 @@
         "no_intenet": "No Internet Connection, please try again",
         "ex_session": "Session is Expired",
         "login_req": "Login is required firstly",
-        "wrong": "Something went wrong. Please try again later"
+        "wrong": "Something went wrong. Please try again later",
+        "error":"Oobs, there something unexpected happened. Please try again later"
     },
     "onboarding": {
         "1": {

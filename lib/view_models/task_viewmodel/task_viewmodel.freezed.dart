@@ -16,77 +16,244 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$TaskViewmodelState {
-  bool get isInitial => throw _privateConstructorUsedError;
-
-  /// get all tasks
-  bool get isGetAllTasksLoading => throw _privateConstructorUsedError;
-  bool get isGetAllTasksCompleted => throw _privateConstructorUsedError;
-  bool get isGetAllTasksFailed => throw _privateConstructorUsedError;
-  List<TaskModel> get allTasks => throw _privateConstructorUsedError;
-
-  /// error message
-  String? get errorMessage => throw _privateConstructorUsedError;
-
-  /// search
-  bool get isSearchLoading => throw _privateConstructorUsedError;
-  bool get isSearchCompleted => throw _privateConstructorUsedError;
-  bool get isSearchFailed => throw _privateConstructorUsedError;
-  List<TaskModel>? get searchedTasks => throw _privateConstructorUsedError;
-
-  /// get total estimated time
-  bool get isGetTotalEstimatedTimeLoading => throw _privateConstructorUsedError;
-  bool get isGetTotalEstimatedTimeCompleted =>
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() allTasksLoading,
+    required TResult Function(List<TaskModel> allTasks) allTasksCompleted,
+    required TResult Function(String message) allTasksFailed,
+    required TResult Function() searchLoading,
+    required TResult Function(List<TaskModel> searchedTasks) searchCompleted,
+    required TResult Function(String message) searchFailed,
+    required TResult Function() getTotalEstimatedTimeLoading,
+    required TResult Function(Duration totalEstimatedTime)
+        getTotalEstimatedTimeCompleted,
+    required TResult Function(String message) getTotalEstimatedTimeFailed,
+    required TResult Function() updateTotalEstimatedTimeLoading,
+    required TResult Function(String message) updateTotalEstimatedTimeFailed,
+    required TResult Function(Duration totalEstimatedTime)
+        updateTotalEstimatedTimeCompleted,
+    required TResult Function() uploadTasksLoading,
+    required TResult Function(String message) uploadTasksFailed,
+    required TResult Function(TaskModel meupdatedTaskssage)
+        uploadTasksCompleted,
+    required TResult Function() downloadTasksLoading,
+    required TResult Function(String message) downloadTasksFailed,
+    required TResult Function(List<TaskModel> downloadedTasks)
+        downloadTasksCompleted,
+    required TResult Function() updateTaskLoading,
+    required TResult Function(String message) updateTaskFailed,
+    required TResult Function(TaskModel updatedTask) updateTaskCompleted,
+    required TResult Function() getTaskByIdLoading,
+    required TResult Function(String message) getTaskByIdFailed,
+    required TResult Function(TaskModel taskById) getTaskByIdCompleted,
+    required TResult Function() createTaskLoading,
+    required TResult Function(String message) createTaskFailed,
+    required TResult Function(TaskModel createdTask) createTaskCompleted,
+    required TResult Function() deleteTaskLoading,
+    required TResult Function(String message) deleteTaskFailed,
+    required TResult Function(TaskModel deletedTask) deleteTaskCompleted,
+  }) =>
       throw _privateConstructorUsedError;
-  bool get isGetTotalEstimatedTimeFailed => throw _privateConstructorUsedError;
-
-  /// update total estimated time
-  bool get isUpdateTotalEstimatedTimeLoading =>
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? allTasksLoading,
+    TResult? Function(List<TaskModel> allTasks)? allTasksCompleted,
+    TResult? Function(String message)? allTasksFailed,
+    TResult? Function()? searchLoading,
+    TResult? Function(List<TaskModel> searchedTasks)? searchCompleted,
+    TResult? Function(String message)? searchFailed,
+    TResult? Function()? getTotalEstimatedTimeLoading,
+    TResult? Function(Duration totalEstimatedTime)?
+        getTotalEstimatedTimeCompleted,
+    TResult? Function(String message)? getTotalEstimatedTimeFailed,
+    TResult? Function()? updateTotalEstimatedTimeLoading,
+    TResult? Function(String message)? updateTotalEstimatedTimeFailed,
+    TResult? Function(Duration totalEstimatedTime)?
+        updateTotalEstimatedTimeCompleted,
+    TResult? Function()? uploadTasksLoading,
+    TResult? Function(String message)? uploadTasksFailed,
+    TResult? Function(TaskModel meupdatedTaskssage)? uploadTasksCompleted,
+    TResult? Function()? downloadTasksLoading,
+    TResult? Function(String message)? downloadTasksFailed,
+    TResult? Function(List<TaskModel> downloadedTasks)? downloadTasksCompleted,
+    TResult? Function()? updateTaskLoading,
+    TResult? Function(String message)? updateTaskFailed,
+    TResult? Function(TaskModel updatedTask)? updateTaskCompleted,
+    TResult? Function()? getTaskByIdLoading,
+    TResult? Function(String message)? getTaskByIdFailed,
+    TResult? Function(TaskModel taskById)? getTaskByIdCompleted,
+    TResult? Function()? createTaskLoading,
+    TResult? Function(String message)? createTaskFailed,
+    TResult? Function(TaskModel createdTask)? createTaskCompleted,
+    TResult? Function()? deleteTaskLoading,
+    TResult? Function(String message)? deleteTaskFailed,
+    TResult? Function(TaskModel deletedTask)? deleteTaskCompleted,
+  }) =>
       throw _privateConstructorUsedError;
-  bool get isUpdateTotalEstimatedTimeCompleted =>
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? allTasksLoading,
+    TResult Function(List<TaskModel> allTasks)? allTasksCompleted,
+    TResult Function(String message)? allTasksFailed,
+    TResult Function()? searchLoading,
+    TResult Function(List<TaskModel> searchedTasks)? searchCompleted,
+    TResult Function(String message)? searchFailed,
+    TResult Function()? getTotalEstimatedTimeLoading,
+    TResult Function(Duration totalEstimatedTime)?
+        getTotalEstimatedTimeCompleted,
+    TResult Function(String message)? getTotalEstimatedTimeFailed,
+    TResult Function()? updateTotalEstimatedTimeLoading,
+    TResult Function(String message)? updateTotalEstimatedTimeFailed,
+    TResult Function(Duration totalEstimatedTime)?
+        updateTotalEstimatedTimeCompleted,
+    TResult Function()? uploadTasksLoading,
+    TResult Function(String message)? uploadTasksFailed,
+    TResult Function(TaskModel meupdatedTaskssage)? uploadTasksCompleted,
+    TResult Function()? downloadTasksLoading,
+    TResult Function(String message)? downloadTasksFailed,
+    TResult Function(List<TaskModel> downloadedTasks)? downloadTasksCompleted,
+    TResult Function()? updateTaskLoading,
+    TResult Function(String message)? updateTaskFailed,
+    TResult Function(TaskModel updatedTask)? updateTaskCompleted,
+    TResult Function()? getTaskByIdLoading,
+    TResult Function(String message)? getTaskByIdFailed,
+    TResult Function(TaskModel taskById)? getTaskByIdCompleted,
+    TResult Function()? createTaskLoading,
+    TResult Function(String message)? createTaskFailed,
+    TResult Function(TaskModel createdTask)? createTaskCompleted,
+    TResult Function()? deleteTaskLoading,
+    TResult Function(String message)? deleteTaskFailed,
+    TResult Function(TaskModel deletedTask)? deleteTaskCompleted,
+    required TResult orElse(),
+  }) =>
       throw _privateConstructorUsedError;
-  bool get isUpdateTotalEstimatedTimeFailed =>
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(_AllTasksLoading value) allTasksLoading,
+    required TResult Function(_AllTasksCompleted value) allTasksCompleted,
+    required TResult Function(_AllTasksFailed value) allTasksFailed,
+    required TResult Function(_SearchLoading value) searchLoading,
+    required TResult Function(_SearchCompleted value) searchCompleted,
+    required TResult Function(_SearchFailed value) searchFailed,
+    required TResult Function(_GetTotalEstimatedTimeLoading value)
+        getTotalEstimatedTimeLoading,
+    required TResult Function(_GetTotalEstimatedTimeCompleted value)
+        getTotalEstimatedTimeCompleted,
+    required TResult Function(_GetTotalEstimatedTimeFailed value)
+        getTotalEstimatedTimeFailed,
+    required TResult Function(_UpdateTotalEstimatedTimeLoading value)
+        updateTotalEstimatedTimeLoading,
+    required TResult Function(_UpdateTotalEstimatedTimeFailed value)
+        updateTotalEstimatedTimeFailed,
+    required TResult Function(_UpdateTotalEstimatedTimeCompleted value)
+        updateTotalEstimatedTimeCompleted,
+    required TResult Function(_UploadTasksLoading value) uploadTasksLoading,
+    required TResult Function(_UploadTasksFailed value) uploadTasksFailed,
+    required TResult Function(_UploadTasksCompleted value) uploadTasksCompleted,
+    required TResult Function(_DownloadTasksLoading value) downloadTasksLoading,
+    required TResult Function(_DownloadTasksFailed value) downloadTasksFailed,
+    required TResult Function(_DownloadTasksCompleted value)
+        downloadTasksCompleted,
+    required TResult Function(_UpdateTaskLoading value) updateTaskLoading,
+    required TResult Function(_UpdateTaskFailed value) updateTaskFailed,
+    required TResult Function(_UpdateTaskCompleted value) updateTaskCompleted,
+    required TResult Function(_GetTaskByIdLoading value) getTaskByIdLoading,
+    required TResult Function(_GetTaskByIdFailed value) getTaskByIdFailed,
+    required TResult Function(_GetTaskByIdCompleted value) getTaskByIdCompleted,
+    required TResult Function(_CreateTaskLoading value) createTaskLoading,
+    required TResult Function(_CreateTaskFailed value) createTaskFailed,
+    required TResult Function(_CreateTaskCompleted value) createTaskCompleted,
+    required TResult Function(_DeleteTaskLoading value) deleteTaskLoading,
+    required TResult Function(_DeleteTaskFailed value) deleteTaskFailed,
+    required TResult Function(_DeleteTaskCompleted value) deleteTaskCompleted,
+  }) =>
       throw _privateConstructorUsedError;
-  Duration get totalEstimatedTime => throw _privateConstructorUsedError;
-
-  /// scroll controller
-  ScrollController? get scrollController => throw _privateConstructorUsedError;
-
-  /// upload tasks
-  bool get isUploadTasksLoading => throw _privateConstructorUsedError;
-  bool get isUploadTasksSuccess => throw _privateConstructorUsedError;
-  bool get isUploadTasksFailed => throw _privateConstructorUsedError;
-
-  /// download tasks
-  bool get isDownloadTasksLoading => throw _privateConstructorUsedError;
-  bool get isDownloadTasksSuccess => throw _privateConstructorUsedError;
-  bool get isDownloadTasksFailed => throw _privateConstructorUsedError;
-
-  /// create task
-  bool get isCreateTaskLoading => throw _privateConstructorUsedError;
-  bool get isCreateTaskSuccess => throw _privateConstructorUsedError;
-  bool get isCreateTaskFailed => throw _privateConstructorUsedError;
-  TaskModel? get createdTask => throw _privateConstructorUsedError;
-
-  /// update task
-  bool get isUpdateTaskLoading => throw _privateConstructorUsedError;
-  bool get isUpdateTaskSuccess => throw _privateConstructorUsedError;
-  bool get isUpdateTaskFailed => throw _privateConstructorUsedError;
-  TaskModel? get updatedTask => throw _privateConstructorUsedError;
-
-  /// delete task
-  bool get isDeleteTaskLoading => throw _privateConstructorUsedError;
-  bool get isDeleteTaskSuccess => throw _privateConstructorUsedError;
-  bool get isDeleteTaskFailed => throw _privateConstructorUsedError;
-  TaskModel? get deletedTask => throw _privateConstructorUsedError;
-
-  /// get task
-  bool get isGetTaskByIdLoading => throw _privateConstructorUsedError;
-  bool get isGetTaskByIdCompleted => throw _privateConstructorUsedError;
-  bool get isGetTaskByIdFailed => throw _privateConstructorUsedError;
-  TaskModel? get taskById => throw _privateConstructorUsedError;
-
-  @JsonKey(ignore: true)
-  $TaskViewmodelStateCopyWith<TaskViewmodelState> get copyWith =>
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_AllTasksLoading value)? allTasksLoading,
+    TResult? Function(_AllTasksCompleted value)? allTasksCompleted,
+    TResult? Function(_AllTasksFailed value)? allTasksFailed,
+    TResult? Function(_SearchLoading value)? searchLoading,
+    TResult? Function(_SearchCompleted value)? searchCompleted,
+    TResult? Function(_SearchFailed value)? searchFailed,
+    TResult? Function(_GetTotalEstimatedTimeLoading value)?
+        getTotalEstimatedTimeLoading,
+    TResult? Function(_GetTotalEstimatedTimeCompleted value)?
+        getTotalEstimatedTimeCompleted,
+    TResult? Function(_GetTotalEstimatedTimeFailed value)?
+        getTotalEstimatedTimeFailed,
+    TResult? Function(_UpdateTotalEstimatedTimeLoading value)?
+        updateTotalEstimatedTimeLoading,
+    TResult? Function(_UpdateTotalEstimatedTimeFailed value)?
+        updateTotalEstimatedTimeFailed,
+    TResult? Function(_UpdateTotalEstimatedTimeCompleted value)?
+        updateTotalEstimatedTimeCompleted,
+    TResult? Function(_UploadTasksLoading value)? uploadTasksLoading,
+    TResult? Function(_UploadTasksFailed value)? uploadTasksFailed,
+    TResult? Function(_UploadTasksCompleted value)? uploadTasksCompleted,
+    TResult? Function(_DownloadTasksLoading value)? downloadTasksLoading,
+    TResult? Function(_DownloadTasksFailed value)? downloadTasksFailed,
+    TResult? Function(_DownloadTasksCompleted value)? downloadTasksCompleted,
+    TResult? Function(_UpdateTaskLoading value)? updateTaskLoading,
+    TResult? Function(_UpdateTaskFailed value)? updateTaskFailed,
+    TResult? Function(_UpdateTaskCompleted value)? updateTaskCompleted,
+    TResult? Function(_GetTaskByIdLoading value)? getTaskByIdLoading,
+    TResult? Function(_GetTaskByIdFailed value)? getTaskByIdFailed,
+    TResult? Function(_GetTaskByIdCompleted value)? getTaskByIdCompleted,
+    TResult? Function(_CreateTaskLoading value)? createTaskLoading,
+    TResult? Function(_CreateTaskFailed value)? createTaskFailed,
+    TResult? Function(_CreateTaskCompleted value)? createTaskCompleted,
+    TResult? Function(_DeleteTaskLoading value)? deleteTaskLoading,
+    TResult? Function(_DeleteTaskFailed value)? deleteTaskFailed,
+    TResult? Function(_DeleteTaskCompleted value)? deleteTaskCompleted,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_AllTasksLoading value)? allTasksLoading,
+    TResult Function(_AllTasksCompleted value)? allTasksCompleted,
+    TResult Function(_AllTasksFailed value)? allTasksFailed,
+    TResult Function(_SearchLoading value)? searchLoading,
+    TResult Function(_SearchCompleted value)? searchCompleted,
+    TResult Function(_SearchFailed value)? searchFailed,
+    TResult Function(_GetTotalEstimatedTimeLoading value)?
+        getTotalEstimatedTimeLoading,
+    TResult Function(_GetTotalEstimatedTimeCompleted value)?
+        getTotalEstimatedTimeCompleted,
+    TResult Function(_GetTotalEstimatedTimeFailed value)?
+        getTotalEstimatedTimeFailed,
+    TResult Function(_UpdateTotalEstimatedTimeLoading value)?
+        updateTotalEstimatedTimeLoading,
+    TResult Function(_UpdateTotalEstimatedTimeFailed value)?
+        updateTotalEstimatedTimeFailed,
+    TResult Function(_UpdateTotalEstimatedTimeCompleted value)?
+        updateTotalEstimatedTimeCompleted,
+    TResult Function(_UploadTasksLoading value)? uploadTasksLoading,
+    TResult Function(_UploadTasksFailed value)? uploadTasksFailed,
+    TResult Function(_UploadTasksCompleted value)? uploadTasksCompleted,
+    TResult Function(_DownloadTasksLoading value)? downloadTasksLoading,
+    TResult Function(_DownloadTasksFailed value)? downloadTasksFailed,
+    TResult Function(_DownloadTasksCompleted value)? downloadTasksCompleted,
+    TResult Function(_UpdateTaskLoading value)? updateTaskLoading,
+    TResult Function(_UpdateTaskFailed value)? updateTaskFailed,
+    TResult Function(_UpdateTaskCompleted value)? updateTaskCompleted,
+    TResult Function(_GetTaskByIdLoading value)? getTaskByIdLoading,
+    TResult Function(_GetTaskByIdFailed value)? getTaskByIdFailed,
+    TResult Function(_GetTaskByIdCompleted value)? getTaskByIdCompleted,
+    TResult Function(_CreateTaskLoading value)? createTaskLoading,
+    TResult Function(_CreateTaskFailed value)? createTaskFailed,
+    TResult Function(_CreateTaskCompleted value)? createTaskCompleted,
+    TResult Function(_DeleteTaskLoading value)? deleteTaskLoading,
+    TResult Function(_DeleteTaskFailed value)? deleteTaskFailed,
+    TResult Function(_DeleteTaskCompleted value)? deleteTaskCompleted,
+    required TResult orElse(),
+  }) =>
       throw _privateConstructorUsedError;
 }
 
@@ -95,53 +262,6 @@ abstract class $TaskViewmodelStateCopyWith<$Res> {
   factory $TaskViewmodelStateCopyWith(
           TaskViewmodelState value, $Res Function(TaskViewmodelState) then) =
       _$TaskViewmodelStateCopyWithImpl<$Res, TaskViewmodelState>;
-  @useResult
-  $Res call(
-      {bool isInitial,
-      bool isGetAllTasksLoading,
-      bool isGetAllTasksCompleted,
-      bool isGetAllTasksFailed,
-      List<TaskModel> allTasks,
-      String? errorMessage,
-      bool isSearchLoading,
-      bool isSearchCompleted,
-      bool isSearchFailed,
-      List<TaskModel>? searchedTasks,
-      bool isGetTotalEstimatedTimeLoading,
-      bool isGetTotalEstimatedTimeCompleted,
-      bool isGetTotalEstimatedTimeFailed,
-      bool isUpdateTotalEstimatedTimeLoading,
-      bool isUpdateTotalEstimatedTimeCompleted,
-      bool isUpdateTotalEstimatedTimeFailed,
-      Duration totalEstimatedTime,
-      ScrollController? scrollController,
-      bool isUploadTasksLoading,
-      bool isUploadTasksSuccess,
-      bool isUploadTasksFailed,
-      bool isDownloadTasksLoading,
-      bool isDownloadTasksSuccess,
-      bool isDownloadTasksFailed,
-      bool isCreateTaskLoading,
-      bool isCreateTaskSuccess,
-      bool isCreateTaskFailed,
-      TaskModel? createdTask,
-      bool isUpdateTaskLoading,
-      bool isUpdateTaskSuccess,
-      bool isUpdateTaskFailed,
-      TaskModel? updatedTask,
-      bool isDeleteTaskLoading,
-      bool isDeleteTaskSuccess,
-      bool isDeleteTaskFailed,
-      TaskModel? deletedTask,
-      bool isGetTaskByIdLoading,
-      bool isGetTaskByIdCompleted,
-      bool isGetTaskByIdFailed,
-      TaskModel? taskById});
-
-  $TaskModelCopyWith<$Res>? get createdTask;
-  $TaskModelCopyWith<$Res>? get updatedTask;
-  $TaskModelCopyWith<$Res>? get deletedTask;
-  $TaskModelCopyWith<$Res>? get taskById;
 }
 
 /// @nodoc
@@ -153,1018 +273,10159 @@ class _$TaskViewmodelStateCopyWithImpl<$Res, $Val extends TaskViewmodelState>
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
+}
 
-  @pragma('vm:prefer-inline')
+/// @nodoc
+abstract class _$$InitialImplCopyWith<$Res> {
+  factory _$$InitialImplCopyWith(
+          _$InitialImpl value, $Res Function(_$InitialImpl) then) =
+      __$$InitialImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$InitialImplCopyWithImpl<$Res>
+    extends _$TaskViewmodelStateCopyWithImpl<$Res, _$InitialImpl>
+    implements _$$InitialImplCopyWith<$Res> {
+  __$$InitialImplCopyWithImpl(
+      _$InitialImpl _value, $Res Function(_$InitialImpl) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$InitialImpl implements _Initial {
+  _$InitialImpl();
+
   @override
-  $Res call({
-    Object? isInitial = null,
-    Object? isGetAllTasksLoading = null,
-    Object? isGetAllTasksCompleted = null,
-    Object? isGetAllTasksFailed = null,
-    Object? allTasks = null,
-    Object? errorMessage = freezed,
-    Object? isSearchLoading = null,
-    Object? isSearchCompleted = null,
-    Object? isSearchFailed = null,
-    Object? searchedTasks = freezed,
-    Object? isGetTotalEstimatedTimeLoading = null,
-    Object? isGetTotalEstimatedTimeCompleted = null,
-    Object? isGetTotalEstimatedTimeFailed = null,
-    Object? isUpdateTotalEstimatedTimeLoading = null,
-    Object? isUpdateTotalEstimatedTimeCompleted = null,
-    Object? isUpdateTotalEstimatedTimeFailed = null,
-    Object? totalEstimatedTime = null,
-    Object? scrollController = freezed,
-    Object? isUploadTasksLoading = null,
-    Object? isUploadTasksSuccess = null,
-    Object? isUploadTasksFailed = null,
-    Object? isDownloadTasksLoading = null,
-    Object? isDownloadTasksSuccess = null,
-    Object? isDownloadTasksFailed = null,
-    Object? isCreateTaskLoading = null,
-    Object? isCreateTaskSuccess = null,
-    Object? isCreateTaskFailed = null,
-    Object? createdTask = freezed,
-    Object? isUpdateTaskLoading = null,
-    Object? isUpdateTaskSuccess = null,
-    Object? isUpdateTaskFailed = null,
-    Object? updatedTask = freezed,
-    Object? isDeleteTaskLoading = null,
-    Object? isDeleteTaskSuccess = null,
-    Object? isDeleteTaskFailed = null,
-    Object? deletedTask = freezed,
-    Object? isGetTaskByIdLoading = null,
-    Object? isGetTaskByIdCompleted = null,
-    Object? isGetTaskByIdFailed = null,
-    Object? taskById = freezed,
+  String toString() {
+    return 'TaskViewmodelState.initial()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$InitialImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() allTasksLoading,
+    required TResult Function(List<TaskModel> allTasks) allTasksCompleted,
+    required TResult Function(String message) allTasksFailed,
+    required TResult Function() searchLoading,
+    required TResult Function(List<TaskModel> searchedTasks) searchCompleted,
+    required TResult Function(String message) searchFailed,
+    required TResult Function() getTotalEstimatedTimeLoading,
+    required TResult Function(Duration totalEstimatedTime)
+        getTotalEstimatedTimeCompleted,
+    required TResult Function(String message) getTotalEstimatedTimeFailed,
+    required TResult Function() updateTotalEstimatedTimeLoading,
+    required TResult Function(String message) updateTotalEstimatedTimeFailed,
+    required TResult Function(Duration totalEstimatedTime)
+        updateTotalEstimatedTimeCompleted,
+    required TResult Function() uploadTasksLoading,
+    required TResult Function(String message) uploadTasksFailed,
+    required TResult Function(TaskModel meupdatedTaskssage)
+        uploadTasksCompleted,
+    required TResult Function() downloadTasksLoading,
+    required TResult Function(String message) downloadTasksFailed,
+    required TResult Function(List<TaskModel> downloadedTasks)
+        downloadTasksCompleted,
+    required TResult Function() updateTaskLoading,
+    required TResult Function(String message) updateTaskFailed,
+    required TResult Function(TaskModel updatedTask) updateTaskCompleted,
+    required TResult Function() getTaskByIdLoading,
+    required TResult Function(String message) getTaskByIdFailed,
+    required TResult Function(TaskModel taskById) getTaskByIdCompleted,
+    required TResult Function() createTaskLoading,
+    required TResult Function(String message) createTaskFailed,
+    required TResult Function(TaskModel createdTask) createTaskCompleted,
+    required TResult Function() deleteTaskLoading,
+    required TResult Function(String message) deleteTaskFailed,
+    required TResult Function(TaskModel deletedTask) deleteTaskCompleted,
   }) {
-    return _then(_value.copyWith(
-      isInitial: null == isInitial
-          ? _value.isInitial
-          : isInitial // ignore: cast_nullable_to_non_nullable
-              as bool,
-      isGetAllTasksLoading: null == isGetAllTasksLoading
-          ? _value.isGetAllTasksLoading
-          : isGetAllTasksLoading // ignore: cast_nullable_to_non_nullable
-              as bool,
-      isGetAllTasksCompleted: null == isGetAllTasksCompleted
-          ? _value.isGetAllTasksCompleted
-          : isGetAllTasksCompleted // ignore: cast_nullable_to_non_nullable
-              as bool,
-      isGetAllTasksFailed: null == isGetAllTasksFailed
-          ? _value.isGetAllTasksFailed
-          : isGetAllTasksFailed // ignore: cast_nullable_to_non_nullable
-              as bool,
-      allTasks: null == allTasks
-          ? _value.allTasks
-          : allTasks // ignore: cast_nullable_to_non_nullable
-              as List<TaskModel>,
-      errorMessage: freezed == errorMessage
-          ? _value.errorMessage
-          : errorMessage // ignore: cast_nullable_to_non_nullable
-              as String?,
-      isSearchLoading: null == isSearchLoading
-          ? _value.isSearchLoading
-          : isSearchLoading // ignore: cast_nullable_to_non_nullable
-              as bool,
-      isSearchCompleted: null == isSearchCompleted
-          ? _value.isSearchCompleted
-          : isSearchCompleted // ignore: cast_nullable_to_non_nullable
-              as bool,
-      isSearchFailed: null == isSearchFailed
-          ? _value.isSearchFailed
-          : isSearchFailed // ignore: cast_nullable_to_non_nullable
-              as bool,
-      searchedTasks: freezed == searchedTasks
-          ? _value.searchedTasks
-          : searchedTasks // ignore: cast_nullable_to_non_nullable
-              as List<TaskModel>?,
-      isGetTotalEstimatedTimeLoading: null == isGetTotalEstimatedTimeLoading
-          ? _value.isGetTotalEstimatedTimeLoading
-          : isGetTotalEstimatedTimeLoading // ignore: cast_nullable_to_non_nullable
-              as bool,
-      isGetTotalEstimatedTimeCompleted: null == isGetTotalEstimatedTimeCompleted
-          ? _value.isGetTotalEstimatedTimeCompleted
-          : isGetTotalEstimatedTimeCompleted // ignore: cast_nullable_to_non_nullable
-              as bool,
-      isGetTotalEstimatedTimeFailed: null == isGetTotalEstimatedTimeFailed
-          ? _value.isGetTotalEstimatedTimeFailed
-          : isGetTotalEstimatedTimeFailed // ignore: cast_nullable_to_non_nullable
-              as bool,
-      isUpdateTotalEstimatedTimeLoading: null ==
-              isUpdateTotalEstimatedTimeLoading
-          ? _value.isUpdateTotalEstimatedTimeLoading
-          : isUpdateTotalEstimatedTimeLoading // ignore: cast_nullable_to_non_nullable
-              as bool,
-      isUpdateTotalEstimatedTimeCompleted: null ==
-              isUpdateTotalEstimatedTimeCompleted
-          ? _value.isUpdateTotalEstimatedTimeCompleted
-          : isUpdateTotalEstimatedTimeCompleted // ignore: cast_nullable_to_non_nullable
-              as bool,
-      isUpdateTotalEstimatedTimeFailed: null == isUpdateTotalEstimatedTimeFailed
-          ? _value.isUpdateTotalEstimatedTimeFailed
-          : isUpdateTotalEstimatedTimeFailed // ignore: cast_nullable_to_non_nullable
-              as bool,
-      totalEstimatedTime: null == totalEstimatedTime
-          ? _value.totalEstimatedTime
-          : totalEstimatedTime // ignore: cast_nullable_to_non_nullable
-              as Duration,
-      scrollController: freezed == scrollController
-          ? _value.scrollController
-          : scrollController // ignore: cast_nullable_to_non_nullable
-              as ScrollController?,
-      isUploadTasksLoading: null == isUploadTasksLoading
-          ? _value.isUploadTasksLoading
-          : isUploadTasksLoading // ignore: cast_nullable_to_non_nullable
-              as bool,
-      isUploadTasksSuccess: null == isUploadTasksSuccess
-          ? _value.isUploadTasksSuccess
-          : isUploadTasksSuccess // ignore: cast_nullable_to_non_nullable
-              as bool,
-      isUploadTasksFailed: null == isUploadTasksFailed
-          ? _value.isUploadTasksFailed
-          : isUploadTasksFailed // ignore: cast_nullable_to_non_nullable
-              as bool,
-      isDownloadTasksLoading: null == isDownloadTasksLoading
-          ? _value.isDownloadTasksLoading
-          : isDownloadTasksLoading // ignore: cast_nullable_to_non_nullable
-              as bool,
-      isDownloadTasksSuccess: null == isDownloadTasksSuccess
-          ? _value.isDownloadTasksSuccess
-          : isDownloadTasksSuccess // ignore: cast_nullable_to_non_nullable
-              as bool,
-      isDownloadTasksFailed: null == isDownloadTasksFailed
-          ? _value.isDownloadTasksFailed
-          : isDownloadTasksFailed // ignore: cast_nullable_to_non_nullable
-              as bool,
-      isCreateTaskLoading: null == isCreateTaskLoading
-          ? _value.isCreateTaskLoading
-          : isCreateTaskLoading // ignore: cast_nullable_to_non_nullable
-              as bool,
-      isCreateTaskSuccess: null == isCreateTaskSuccess
-          ? _value.isCreateTaskSuccess
-          : isCreateTaskSuccess // ignore: cast_nullable_to_non_nullable
-              as bool,
-      isCreateTaskFailed: null == isCreateTaskFailed
-          ? _value.isCreateTaskFailed
-          : isCreateTaskFailed // ignore: cast_nullable_to_non_nullable
-              as bool,
-      createdTask: freezed == createdTask
-          ? _value.createdTask
-          : createdTask // ignore: cast_nullable_to_non_nullable
-              as TaskModel?,
-      isUpdateTaskLoading: null == isUpdateTaskLoading
-          ? _value.isUpdateTaskLoading
-          : isUpdateTaskLoading // ignore: cast_nullable_to_non_nullable
-              as bool,
-      isUpdateTaskSuccess: null == isUpdateTaskSuccess
-          ? _value.isUpdateTaskSuccess
-          : isUpdateTaskSuccess // ignore: cast_nullable_to_non_nullable
-              as bool,
-      isUpdateTaskFailed: null == isUpdateTaskFailed
-          ? _value.isUpdateTaskFailed
-          : isUpdateTaskFailed // ignore: cast_nullable_to_non_nullable
-              as bool,
-      updatedTask: freezed == updatedTask
-          ? _value.updatedTask
-          : updatedTask // ignore: cast_nullable_to_non_nullable
-              as TaskModel?,
-      isDeleteTaskLoading: null == isDeleteTaskLoading
-          ? _value.isDeleteTaskLoading
-          : isDeleteTaskLoading // ignore: cast_nullable_to_non_nullable
-              as bool,
-      isDeleteTaskSuccess: null == isDeleteTaskSuccess
-          ? _value.isDeleteTaskSuccess
-          : isDeleteTaskSuccess // ignore: cast_nullable_to_non_nullable
-              as bool,
-      isDeleteTaskFailed: null == isDeleteTaskFailed
-          ? _value.isDeleteTaskFailed
-          : isDeleteTaskFailed // ignore: cast_nullable_to_non_nullable
-              as bool,
-      deletedTask: freezed == deletedTask
-          ? _value.deletedTask
-          : deletedTask // ignore: cast_nullable_to_non_nullable
-              as TaskModel?,
-      isGetTaskByIdLoading: null == isGetTaskByIdLoading
-          ? _value.isGetTaskByIdLoading
-          : isGetTaskByIdLoading // ignore: cast_nullable_to_non_nullable
-              as bool,
-      isGetTaskByIdCompleted: null == isGetTaskByIdCompleted
-          ? _value.isGetTaskByIdCompleted
-          : isGetTaskByIdCompleted // ignore: cast_nullable_to_non_nullable
-              as bool,
-      isGetTaskByIdFailed: null == isGetTaskByIdFailed
-          ? _value.isGetTaskByIdFailed
-          : isGetTaskByIdFailed // ignore: cast_nullable_to_non_nullable
-              as bool,
-      taskById: freezed == taskById
-          ? _value.taskById
-          : taskById // ignore: cast_nullable_to_non_nullable
-              as TaskModel?,
-    ) as $Val);
+    return initial();
   }
 
   @override
-  @pragma('vm:prefer-inline')
-  $TaskModelCopyWith<$Res>? get createdTask {
-    if (_value.createdTask == null) {
-      return null;
-    }
-
-    return $TaskModelCopyWith<$Res>(_value.createdTask!, (value) {
-      return _then(_value.copyWith(createdTask: value) as $Val);
-    });
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? allTasksLoading,
+    TResult? Function(List<TaskModel> allTasks)? allTasksCompleted,
+    TResult? Function(String message)? allTasksFailed,
+    TResult? Function()? searchLoading,
+    TResult? Function(List<TaskModel> searchedTasks)? searchCompleted,
+    TResult? Function(String message)? searchFailed,
+    TResult? Function()? getTotalEstimatedTimeLoading,
+    TResult? Function(Duration totalEstimatedTime)?
+        getTotalEstimatedTimeCompleted,
+    TResult? Function(String message)? getTotalEstimatedTimeFailed,
+    TResult? Function()? updateTotalEstimatedTimeLoading,
+    TResult? Function(String message)? updateTotalEstimatedTimeFailed,
+    TResult? Function(Duration totalEstimatedTime)?
+        updateTotalEstimatedTimeCompleted,
+    TResult? Function()? uploadTasksLoading,
+    TResult? Function(String message)? uploadTasksFailed,
+    TResult? Function(TaskModel meupdatedTaskssage)? uploadTasksCompleted,
+    TResult? Function()? downloadTasksLoading,
+    TResult? Function(String message)? downloadTasksFailed,
+    TResult? Function(List<TaskModel> downloadedTasks)? downloadTasksCompleted,
+    TResult? Function()? updateTaskLoading,
+    TResult? Function(String message)? updateTaskFailed,
+    TResult? Function(TaskModel updatedTask)? updateTaskCompleted,
+    TResult? Function()? getTaskByIdLoading,
+    TResult? Function(String message)? getTaskByIdFailed,
+    TResult? Function(TaskModel taskById)? getTaskByIdCompleted,
+    TResult? Function()? createTaskLoading,
+    TResult? Function(String message)? createTaskFailed,
+    TResult? Function(TaskModel createdTask)? createTaskCompleted,
+    TResult? Function()? deleteTaskLoading,
+    TResult? Function(String message)? deleteTaskFailed,
+    TResult? Function(TaskModel deletedTask)? deleteTaskCompleted,
+  }) {
+    return initial?.call();
   }
 
   @override
-  @pragma('vm:prefer-inline')
-  $TaskModelCopyWith<$Res>? get updatedTask {
-    if (_value.updatedTask == null) {
-      return null;
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? allTasksLoading,
+    TResult Function(List<TaskModel> allTasks)? allTasksCompleted,
+    TResult Function(String message)? allTasksFailed,
+    TResult Function()? searchLoading,
+    TResult Function(List<TaskModel> searchedTasks)? searchCompleted,
+    TResult Function(String message)? searchFailed,
+    TResult Function()? getTotalEstimatedTimeLoading,
+    TResult Function(Duration totalEstimatedTime)?
+        getTotalEstimatedTimeCompleted,
+    TResult Function(String message)? getTotalEstimatedTimeFailed,
+    TResult Function()? updateTotalEstimatedTimeLoading,
+    TResult Function(String message)? updateTotalEstimatedTimeFailed,
+    TResult Function(Duration totalEstimatedTime)?
+        updateTotalEstimatedTimeCompleted,
+    TResult Function()? uploadTasksLoading,
+    TResult Function(String message)? uploadTasksFailed,
+    TResult Function(TaskModel meupdatedTaskssage)? uploadTasksCompleted,
+    TResult Function()? downloadTasksLoading,
+    TResult Function(String message)? downloadTasksFailed,
+    TResult Function(List<TaskModel> downloadedTasks)? downloadTasksCompleted,
+    TResult Function()? updateTaskLoading,
+    TResult Function(String message)? updateTaskFailed,
+    TResult Function(TaskModel updatedTask)? updateTaskCompleted,
+    TResult Function()? getTaskByIdLoading,
+    TResult Function(String message)? getTaskByIdFailed,
+    TResult Function(TaskModel taskById)? getTaskByIdCompleted,
+    TResult Function()? createTaskLoading,
+    TResult Function(String message)? createTaskFailed,
+    TResult Function(TaskModel createdTask)? createTaskCompleted,
+    TResult Function()? deleteTaskLoading,
+    TResult Function(String message)? deleteTaskFailed,
+    TResult Function(TaskModel deletedTask)? deleteTaskCompleted,
+    required TResult orElse(),
+  }) {
+    if (initial != null) {
+      return initial();
     }
-
-    return $TaskModelCopyWith<$Res>(_value.updatedTask!, (value) {
-      return _then(_value.copyWith(updatedTask: value) as $Val);
-    });
+    return orElse();
   }
 
   @override
-  @pragma('vm:prefer-inline')
-  $TaskModelCopyWith<$Res>? get deletedTask {
-    if (_value.deletedTask == null) {
-      return null;
-    }
-
-    return $TaskModelCopyWith<$Res>(_value.deletedTask!, (value) {
-      return _then(_value.copyWith(deletedTask: value) as $Val);
-    });
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(_AllTasksLoading value) allTasksLoading,
+    required TResult Function(_AllTasksCompleted value) allTasksCompleted,
+    required TResult Function(_AllTasksFailed value) allTasksFailed,
+    required TResult Function(_SearchLoading value) searchLoading,
+    required TResult Function(_SearchCompleted value) searchCompleted,
+    required TResult Function(_SearchFailed value) searchFailed,
+    required TResult Function(_GetTotalEstimatedTimeLoading value)
+        getTotalEstimatedTimeLoading,
+    required TResult Function(_GetTotalEstimatedTimeCompleted value)
+        getTotalEstimatedTimeCompleted,
+    required TResult Function(_GetTotalEstimatedTimeFailed value)
+        getTotalEstimatedTimeFailed,
+    required TResult Function(_UpdateTotalEstimatedTimeLoading value)
+        updateTotalEstimatedTimeLoading,
+    required TResult Function(_UpdateTotalEstimatedTimeFailed value)
+        updateTotalEstimatedTimeFailed,
+    required TResult Function(_UpdateTotalEstimatedTimeCompleted value)
+        updateTotalEstimatedTimeCompleted,
+    required TResult Function(_UploadTasksLoading value) uploadTasksLoading,
+    required TResult Function(_UploadTasksFailed value) uploadTasksFailed,
+    required TResult Function(_UploadTasksCompleted value) uploadTasksCompleted,
+    required TResult Function(_DownloadTasksLoading value) downloadTasksLoading,
+    required TResult Function(_DownloadTasksFailed value) downloadTasksFailed,
+    required TResult Function(_DownloadTasksCompleted value)
+        downloadTasksCompleted,
+    required TResult Function(_UpdateTaskLoading value) updateTaskLoading,
+    required TResult Function(_UpdateTaskFailed value) updateTaskFailed,
+    required TResult Function(_UpdateTaskCompleted value) updateTaskCompleted,
+    required TResult Function(_GetTaskByIdLoading value) getTaskByIdLoading,
+    required TResult Function(_GetTaskByIdFailed value) getTaskByIdFailed,
+    required TResult Function(_GetTaskByIdCompleted value) getTaskByIdCompleted,
+    required TResult Function(_CreateTaskLoading value) createTaskLoading,
+    required TResult Function(_CreateTaskFailed value) createTaskFailed,
+    required TResult Function(_CreateTaskCompleted value) createTaskCompleted,
+    required TResult Function(_DeleteTaskLoading value) deleteTaskLoading,
+    required TResult Function(_DeleteTaskFailed value) deleteTaskFailed,
+    required TResult Function(_DeleteTaskCompleted value) deleteTaskCompleted,
+  }) {
+    return initial(this);
   }
 
   @override
-  @pragma('vm:prefer-inline')
-  $TaskModelCopyWith<$Res>? get taskById {
-    if (_value.taskById == null) {
-      return null;
-    }
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_AllTasksLoading value)? allTasksLoading,
+    TResult? Function(_AllTasksCompleted value)? allTasksCompleted,
+    TResult? Function(_AllTasksFailed value)? allTasksFailed,
+    TResult? Function(_SearchLoading value)? searchLoading,
+    TResult? Function(_SearchCompleted value)? searchCompleted,
+    TResult? Function(_SearchFailed value)? searchFailed,
+    TResult? Function(_GetTotalEstimatedTimeLoading value)?
+        getTotalEstimatedTimeLoading,
+    TResult? Function(_GetTotalEstimatedTimeCompleted value)?
+        getTotalEstimatedTimeCompleted,
+    TResult? Function(_GetTotalEstimatedTimeFailed value)?
+        getTotalEstimatedTimeFailed,
+    TResult? Function(_UpdateTotalEstimatedTimeLoading value)?
+        updateTotalEstimatedTimeLoading,
+    TResult? Function(_UpdateTotalEstimatedTimeFailed value)?
+        updateTotalEstimatedTimeFailed,
+    TResult? Function(_UpdateTotalEstimatedTimeCompleted value)?
+        updateTotalEstimatedTimeCompleted,
+    TResult? Function(_UploadTasksLoading value)? uploadTasksLoading,
+    TResult? Function(_UploadTasksFailed value)? uploadTasksFailed,
+    TResult? Function(_UploadTasksCompleted value)? uploadTasksCompleted,
+    TResult? Function(_DownloadTasksLoading value)? downloadTasksLoading,
+    TResult? Function(_DownloadTasksFailed value)? downloadTasksFailed,
+    TResult? Function(_DownloadTasksCompleted value)? downloadTasksCompleted,
+    TResult? Function(_UpdateTaskLoading value)? updateTaskLoading,
+    TResult? Function(_UpdateTaskFailed value)? updateTaskFailed,
+    TResult? Function(_UpdateTaskCompleted value)? updateTaskCompleted,
+    TResult? Function(_GetTaskByIdLoading value)? getTaskByIdLoading,
+    TResult? Function(_GetTaskByIdFailed value)? getTaskByIdFailed,
+    TResult? Function(_GetTaskByIdCompleted value)? getTaskByIdCompleted,
+    TResult? Function(_CreateTaskLoading value)? createTaskLoading,
+    TResult? Function(_CreateTaskFailed value)? createTaskFailed,
+    TResult? Function(_CreateTaskCompleted value)? createTaskCompleted,
+    TResult? Function(_DeleteTaskLoading value)? deleteTaskLoading,
+    TResult? Function(_DeleteTaskFailed value)? deleteTaskFailed,
+    TResult? Function(_DeleteTaskCompleted value)? deleteTaskCompleted,
+  }) {
+    return initial?.call(this);
+  }
 
-    return $TaskModelCopyWith<$Res>(_value.taskById!, (value) {
-      return _then(_value.copyWith(taskById: value) as $Val);
-    });
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_AllTasksLoading value)? allTasksLoading,
+    TResult Function(_AllTasksCompleted value)? allTasksCompleted,
+    TResult Function(_AllTasksFailed value)? allTasksFailed,
+    TResult Function(_SearchLoading value)? searchLoading,
+    TResult Function(_SearchCompleted value)? searchCompleted,
+    TResult Function(_SearchFailed value)? searchFailed,
+    TResult Function(_GetTotalEstimatedTimeLoading value)?
+        getTotalEstimatedTimeLoading,
+    TResult Function(_GetTotalEstimatedTimeCompleted value)?
+        getTotalEstimatedTimeCompleted,
+    TResult Function(_GetTotalEstimatedTimeFailed value)?
+        getTotalEstimatedTimeFailed,
+    TResult Function(_UpdateTotalEstimatedTimeLoading value)?
+        updateTotalEstimatedTimeLoading,
+    TResult Function(_UpdateTotalEstimatedTimeFailed value)?
+        updateTotalEstimatedTimeFailed,
+    TResult Function(_UpdateTotalEstimatedTimeCompleted value)?
+        updateTotalEstimatedTimeCompleted,
+    TResult Function(_UploadTasksLoading value)? uploadTasksLoading,
+    TResult Function(_UploadTasksFailed value)? uploadTasksFailed,
+    TResult Function(_UploadTasksCompleted value)? uploadTasksCompleted,
+    TResult Function(_DownloadTasksLoading value)? downloadTasksLoading,
+    TResult Function(_DownloadTasksFailed value)? downloadTasksFailed,
+    TResult Function(_DownloadTasksCompleted value)? downloadTasksCompleted,
+    TResult Function(_UpdateTaskLoading value)? updateTaskLoading,
+    TResult Function(_UpdateTaskFailed value)? updateTaskFailed,
+    TResult Function(_UpdateTaskCompleted value)? updateTaskCompleted,
+    TResult Function(_GetTaskByIdLoading value)? getTaskByIdLoading,
+    TResult Function(_GetTaskByIdFailed value)? getTaskByIdFailed,
+    TResult Function(_GetTaskByIdCompleted value)? getTaskByIdCompleted,
+    TResult Function(_CreateTaskLoading value)? createTaskLoading,
+    TResult Function(_CreateTaskFailed value)? createTaskFailed,
+    TResult Function(_CreateTaskCompleted value)? createTaskCompleted,
+    TResult Function(_DeleteTaskLoading value)? deleteTaskLoading,
+    TResult Function(_DeleteTaskFailed value)? deleteTaskFailed,
+    TResult Function(_DeleteTaskCompleted value)? deleteTaskCompleted,
+    required TResult orElse(),
+  }) {
+    if (initial != null) {
+      return initial(this);
+    }
+    return orElse();
   }
 }
 
+abstract class _Initial implements TaskViewmodelState {
+  factory _Initial() = _$InitialImpl;
+}
+
 /// @nodoc
-abstract class _$$TaskViewmodelStateImplCopyWith<$Res>
-    implements $TaskViewmodelStateCopyWith<$Res> {
-  factory _$$TaskViewmodelStateImplCopyWith(_$TaskViewmodelStateImpl value,
-          $Res Function(_$TaskViewmodelStateImpl) then) =
-      __$$TaskViewmodelStateImplCopyWithImpl<$Res>;
+abstract class _$$AllTasksLoadingImplCopyWith<$Res> {
+  factory _$$AllTasksLoadingImplCopyWith(_$AllTasksLoadingImpl value,
+          $Res Function(_$AllTasksLoadingImpl) then) =
+      __$$AllTasksLoadingImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$AllTasksLoadingImplCopyWithImpl<$Res>
+    extends _$TaskViewmodelStateCopyWithImpl<$Res, _$AllTasksLoadingImpl>
+    implements _$$AllTasksLoadingImplCopyWith<$Res> {
+  __$$AllTasksLoadingImplCopyWithImpl(
+      _$AllTasksLoadingImpl _value, $Res Function(_$AllTasksLoadingImpl) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$AllTasksLoadingImpl implements _AllTasksLoading {
+  _$AllTasksLoadingImpl();
+
   @override
+  String toString() {
+    return 'TaskViewmodelState.allTasksLoading()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$AllTasksLoadingImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() allTasksLoading,
+    required TResult Function(List<TaskModel> allTasks) allTasksCompleted,
+    required TResult Function(String message) allTasksFailed,
+    required TResult Function() searchLoading,
+    required TResult Function(List<TaskModel> searchedTasks) searchCompleted,
+    required TResult Function(String message) searchFailed,
+    required TResult Function() getTotalEstimatedTimeLoading,
+    required TResult Function(Duration totalEstimatedTime)
+        getTotalEstimatedTimeCompleted,
+    required TResult Function(String message) getTotalEstimatedTimeFailed,
+    required TResult Function() updateTotalEstimatedTimeLoading,
+    required TResult Function(String message) updateTotalEstimatedTimeFailed,
+    required TResult Function(Duration totalEstimatedTime)
+        updateTotalEstimatedTimeCompleted,
+    required TResult Function() uploadTasksLoading,
+    required TResult Function(String message) uploadTasksFailed,
+    required TResult Function(TaskModel meupdatedTaskssage)
+        uploadTasksCompleted,
+    required TResult Function() downloadTasksLoading,
+    required TResult Function(String message) downloadTasksFailed,
+    required TResult Function(List<TaskModel> downloadedTasks)
+        downloadTasksCompleted,
+    required TResult Function() updateTaskLoading,
+    required TResult Function(String message) updateTaskFailed,
+    required TResult Function(TaskModel updatedTask) updateTaskCompleted,
+    required TResult Function() getTaskByIdLoading,
+    required TResult Function(String message) getTaskByIdFailed,
+    required TResult Function(TaskModel taskById) getTaskByIdCompleted,
+    required TResult Function() createTaskLoading,
+    required TResult Function(String message) createTaskFailed,
+    required TResult Function(TaskModel createdTask) createTaskCompleted,
+    required TResult Function() deleteTaskLoading,
+    required TResult Function(String message) deleteTaskFailed,
+    required TResult Function(TaskModel deletedTask) deleteTaskCompleted,
+  }) {
+    return allTasksLoading();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? allTasksLoading,
+    TResult? Function(List<TaskModel> allTasks)? allTasksCompleted,
+    TResult? Function(String message)? allTasksFailed,
+    TResult? Function()? searchLoading,
+    TResult? Function(List<TaskModel> searchedTasks)? searchCompleted,
+    TResult? Function(String message)? searchFailed,
+    TResult? Function()? getTotalEstimatedTimeLoading,
+    TResult? Function(Duration totalEstimatedTime)?
+        getTotalEstimatedTimeCompleted,
+    TResult? Function(String message)? getTotalEstimatedTimeFailed,
+    TResult? Function()? updateTotalEstimatedTimeLoading,
+    TResult? Function(String message)? updateTotalEstimatedTimeFailed,
+    TResult? Function(Duration totalEstimatedTime)?
+        updateTotalEstimatedTimeCompleted,
+    TResult? Function()? uploadTasksLoading,
+    TResult? Function(String message)? uploadTasksFailed,
+    TResult? Function(TaskModel meupdatedTaskssage)? uploadTasksCompleted,
+    TResult? Function()? downloadTasksLoading,
+    TResult? Function(String message)? downloadTasksFailed,
+    TResult? Function(List<TaskModel> downloadedTasks)? downloadTasksCompleted,
+    TResult? Function()? updateTaskLoading,
+    TResult? Function(String message)? updateTaskFailed,
+    TResult? Function(TaskModel updatedTask)? updateTaskCompleted,
+    TResult? Function()? getTaskByIdLoading,
+    TResult? Function(String message)? getTaskByIdFailed,
+    TResult? Function(TaskModel taskById)? getTaskByIdCompleted,
+    TResult? Function()? createTaskLoading,
+    TResult? Function(String message)? createTaskFailed,
+    TResult? Function(TaskModel createdTask)? createTaskCompleted,
+    TResult? Function()? deleteTaskLoading,
+    TResult? Function(String message)? deleteTaskFailed,
+    TResult? Function(TaskModel deletedTask)? deleteTaskCompleted,
+  }) {
+    return allTasksLoading?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? allTasksLoading,
+    TResult Function(List<TaskModel> allTasks)? allTasksCompleted,
+    TResult Function(String message)? allTasksFailed,
+    TResult Function()? searchLoading,
+    TResult Function(List<TaskModel> searchedTasks)? searchCompleted,
+    TResult Function(String message)? searchFailed,
+    TResult Function()? getTotalEstimatedTimeLoading,
+    TResult Function(Duration totalEstimatedTime)?
+        getTotalEstimatedTimeCompleted,
+    TResult Function(String message)? getTotalEstimatedTimeFailed,
+    TResult Function()? updateTotalEstimatedTimeLoading,
+    TResult Function(String message)? updateTotalEstimatedTimeFailed,
+    TResult Function(Duration totalEstimatedTime)?
+        updateTotalEstimatedTimeCompleted,
+    TResult Function()? uploadTasksLoading,
+    TResult Function(String message)? uploadTasksFailed,
+    TResult Function(TaskModel meupdatedTaskssage)? uploadTasksCompleted,
+    TResult Function()? downloadTasksLoading,
+    TResult Function(String message)? downloadTasksFailed,
+    TResult Function(List<TaskModel> downloadedTasks)? downloadTasksCompleted,
+    TResult Function()? updateTaskLoading,
+    TResult Function(String message)? updateTaskFailed,
+    TResult Function(TaskModel updatedTask)? updateTaskCompleted,
+    TResult Function()? getTaskByIdLoading,
+    TResult Function(String message)? getTaskByIdFailed,
+    TResult Function(TaskModel taskById)? getTaskByIdCompleted,
+    TResult Function()? createTaskLoading,
+    TResult Function(String message)? createTaskFailed,
+    TResult Function(TaskModel createdTask)? createTaskCompleted,
+    TResult Function()? deleteTaskLoading,
+    TResult Function(String message)? deleteTaskFailed,
+    TResult Function(TaskModel deletedTask)? deleteTaskCompleted,
+    required TResult orElse(),
+  }) {
+    if (allTasksLoading != null) {
+      return allTasksLoading();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(_AllTasksLoading value) allTasksLoading,
+    required TResult Function(_AllTasksCompleted value) allTasksCompleted,
+    required TResult Function(_AllTasksFailed value) allTasksFailed,
+    required TResult Function(_SearchLoading value) searchLoading,
+    required TResult Function(_SearchCompleted value) searchCompleted,
+    required TResult Function(_SearchFailed value) searchFailed,
+    required TResult Function(_GetTotalEstimatedTimeLoading value)
+        getTotalEstimatedTimeLoading,
+    required TResult Function(_GetTotalEstimatedTimeCompleted value)
+        getTotalEstimatedTimeCompleted,
+    required TResult Function(_GetTotalEstimatedTimeFailed value)
+        getTotalEstimatedTimeFailed,
+    required TResult Function(_UpdateTotalEstimatedTimeLoading value)
+        updateTotalEstimatedTimeLoading,
+    required TResult Function(_UpdateTotalEstimatedTimeFailed value)
+        updateTotalEstimatedTimeFailed,
+    required TResult Function(_UpdateTotalEstimatedTimeCompleted value)
+        updateTotalEstimatedTimeCompleted,
+    required TResult Function(_UploadTasksLoading value) uploadTasksLoading,
+    required TResult Function(_UploadTasksFailed value) uploadTasksFailed,
+    required TResult Function(_UploadTasksCompleted value) uploadTasksCompleted,
+    required TResult Function(_DownloadTasksLoading value) downloadTasksLoading,
+    required TResult Function(_DownloadTasksFailed value) downloadTasksFailed,
+    required TResult Function(_DownloadTasksCompleted value)
+        downloadTasksCompleted,
+    required TResult Function(_UpdateTaskLoading value) updateTaskLoading,
+    required TResult Function(_UpdateTaskFailed value) updateTaskFailed,
+    required TResult Function(_UpdateTaskCompleted value) updateTaskCompleted,
+    required TResult Function(_GetTaskByIdLoading value) getTaskByIdLoading,
+    required TResult Function(_GetTaskByIdFailed value) getTaskByIdFailed,
+    required TResult Function(_GetTaskByIdCompleted value) getTaskByIdCompleted,
+    required TResult Function(_CreateTaskLoading value) createTaskLoading,
+    required TResult Function(_CreateTaskFailed value) createTaskFailed,
+    required TResult Function(_CreateTaskCompleted value) createTaskCompleted,
+    required TResult Function(_DeleteTaskLoading value) deleteTaskLoading,
+    required TResult Function(_DeleteTaskFailed value) deleteTaskFailed,
+    required TResult Function(_DeleteTaskCompleted value) deleteTaskCompleted,
+  }) {
+    return allTasksLoading(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_AllTasksLoading value)? allTasksLoading,
+    TResult? Function(_AllTasksCompleted value)? allTasksCompleted,
+    TResult? Function(_AllTasksFailed value)? allTasksFailed,
+    TResult? Function(_SearchLoading value)? searchLoading,
+    TResult? Function(_SearchCompleted value)? searchCompleted,
+    TResult? Function(_SearchFailed value)? searchFailed,
+    TResult? Function(_GetTotalEstimatedTimeLoading value)?
+        getTotalEstimatedTimeLoading,
+    TResult? Function(_GetTotalEstimatedTimeCompleted value)?
+        getTotalEstimatedTimeCompleted,
+    TResult? Function(_GetTotalEstimatedTimeFailed value)?
+        getTotalEstimatedTimeFailed,
+    TResult? Function(_UpdateTotalEstimatedTimeLoading value)?
+        updateTotalEstimatedTimeLoading,
+    TResult? Function(_UpdateTotalEstimatedTimeFailed value)?
+        updateTotalEstimatedTimeFailed,
+    TResult? Function(_UpdateTotalEstimatedTimeCompleted value)?
+        updateTotalEstimatedTimeCompleted,
+    TResult? Function(_UploadTasksLoading value)? uploadTasksLoading,
+    TResult? Function(_UploadTasksFailed value)? uploadTasksFailed,
+    TResult? Function(_UploadTasksCompleted value)? uploadTasksCompleted,
+    TResult? Function(_DownloadTasksLoading value)? downloadTasksLoading,
+    TResult? Function(_DownloadTasksFailed value)? downloadTasksFailed,
+    TResult? Function(_DownloadTasksCompleted value)? downloadTasksCompleted,
+    TResult? Function(_UpdateTaskLoading value)? updateTaskLoading,
+    TResult? Function(_UpdateTaskFailed value)? updateTaskFailed,
+    TResult? Function(_UpdateTaskCompleted value)? updateTaskCompleted,
+    TResult? Function(_GetTaskByIdLoading value)? getTaskByIdLoading,
+    TResult? Function(_GetTaskByIdFailed value)? getTaskByIdFailed,
+    TResult? Function(_GetTaskByIdCompleted value)? getTaskByIdCompleted,
+    TResult? Function(_CreateTaskLoading value)? createTaskLoading,
+    TResult? Function(_CreateTaskFailed value)? createTaskFailed,
+    TResult? Function(_CreateTaskCompleted value)? createTaskCompleted,
+    TResult? Function(_DeleteTaskLoading value)? deleteTaskLoading,
+    TResult? Function(_DeleteTaskFailed value)? deleteTaskFailed,
+    TResult? Function(_DeleteTaskCompleted value)? deleteTaskCompleted,
+  }) {
+    return allTasksLoading?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_AllTasksLoading value)? allTasksLoading,
+    TResult Function(_AllTasksCompleted value)? allTasksCompleted,
+    TResult Function(_AllTasksFailed value)? allTasksFailed,
+    TResult Function(_SearchLoading value)? searchLoading,
+    TResult Function(_SearchCompleted value)? searchCompleted,
+    TResult Function(_SearchFailed value)? searchFailed,
+    TResult Function(_GetTotalEstimatedTimeLoading value)?
+        getTotalEstimatedTimeLoading,
+    TResult Function(_GetTotalEstimatedTimeCompleted value)?
+        getTotalEstimatedTimeCompleted,
+    TResult Function(_GetTotalEstimatedTimeFailed value)?
+        getTotalEstimatedTimeFailed,
+    TResult Function(_UpdateTotalEstimatedTimeLoading value)?
+        updateTotalEstimatedTimeLoading,
+    TResult Function(_UpdateTotalEstimatedTimeFailed value)?
+        updateTotalEstimatedTimeFailed,
+    TResult Function(_UpdateTotalEstimatedTimeCompleted value)?
+        updateTotalEstimatedTimeCompleted,
+    TResult Function(_UploadTasksLoading value)? uploadTasksLoading,
+    TResult Function(_UploadTasksFailed value)? uploadTasksFailed,
+    TResult Function(_UploadTasksCompleted value)? uploadTasksCompleted,
+    TResult Function(_DownloadTasksLoading value)? downloadTasksLoading,
+    TResult Function(_DownloadTasksFailed value)? downloadTasksFailed,
+    TResult Function(_DownloadTasksCompleted value)? downloadTasksCompleted,
+    TResult Function(_UpdateTaskLoading value)? updateTaskLoading,
+    TResult Function(_UpdateTaskFailed value)? updateTaskFailed,
+    TResult Function(_UpdateTaskCompleted value)? updateTaskCompleted,
+    TResult Function(_GetTaskByIdLoading value)? getTaskByIdLoading,
+    TResult Function(_GetTaskByIdFailed value)? getTaskByIdFailed,
+    TResult Function(_GetTaskByIdCompleted value)? getTaskByIdCompleted,
+    TResult Function(_CreateTaskLoading value)? createTaskLoading,
+    TResult Function(_CreateTaskFailed value)? createTaskFailed,
+    TResult Function(_CreateTaskCompleted value)? createTaskCompleted,
+    TResult Function(_DeleteTaskLoading value)? deleteTaskLoading,
+    TResult Function(_DeleteTaskFailed value)? deleteTaskFailed,
+    TResult Function(_DeleteTaskCompleted value)? deleteTaskCompleted,
+    required TResult orElse(),
+  }) {
+    if (allTasksLoading != null) {
+      return allTasksLoading(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _AllTasksLoading implements TaskViewmodelState {
+  factory _AllTasksLoading() = _$AllTasksLoadingImpl;
+}
+
+/// @nodoc
+abstract class _$$AllTasksCompletedImplCopyWith<$Res> {
+  factory _$$AllTasksCompletedImplCopyWith(_$AllTasksCompletedImpl value,
+          $Res Function(_$AllTasksCompletedImpl) then) =
+      __$$AllTasksCompletedImplCopyWithImpl<$Res>;
   @useResult
-  $Res call(
-      {bool isInitial,
-      bool isGetAllTasksLoading,
-      bool isGetAllTasksCompleted,
-      bool isGetAllTasksFailed,
-      List<TaskModel> allTasks,
-      String? errorMessage,
-      bool isSearchLoading,
-      bool isSearchCompleted,
-      bool isSearchFailed,
-      List<TaskModel>? searchedTasks,
-      bool isGetTotalEstimatedTimeLoading,
-      bool isGetTotalEstimatedTimeCompleted,
-      bool isGetTotalEstimatedTimeFailed,
-      bool isUpdateTotalEstimatedTimeLoading,
-      bool isUpdateTotalEstimatedTimeCompleted,
-      bool isUpdateTotalEstimatedTimeFailed,
-      Duration totalEstimatedTime,
-      ScrollController? scrollController,
-      bool isUploadTasksLoading,
-      bool isUploadTasksSuccess,
-      bool isUploadTasksFailed,
-      bool isDownloadTasksLoading,
-      bool isDownloadTasksSuccess,
-      bool isDownloadTasksFailed,
-      bool isCreateTaskLoading,
-      bool isCreateTaskSuccess,
-      bool isCreateTaskFailed,
-      TaskModel? createdTask,
-      bool isUpdateTaskLoading,
-      bool isUpdateTaskSuccess,
-      bool isUpdateTaskFailed,
-      TaskModel? updatedTask,
-      bool isDeleteTaskLoading,
-      bool isDeleteTaskSuccess,
-      bool isDeleteTaskFailed,
-      TaskModel? deletedTask,
-      bool isGetTaskByIdLoading,
-      bool isGetTaskByIdCompleted,
-      bool isGetTaskByIdFailed,
-      TaskModel? taskById});
-
-  @override
-  $TaskModelCopyWith<$Res>? get createdTask;
-  @override
-  $TaskModelCopyWith<$Res>? get updatedTask;
-  @override
-  $TaskModelCopyWith<$Res>? get deletedTask;
-  @override
-  $TaskModelCopyWith<$Res>? get taskById;
+  $Res call({List<TaskModel> allTasks});
 }
 
 /// @nodoc
-class __$$TaskViewmodelStateImplCopyWithImpl<$Res>
-    extends _$TaskViewmodelStateCopyWithImpl<$Res, _$TaskViewmodelStateImpl>
-    implements _$$TaskViewmodelStateImplCopyWith<$Res> {
-  __$$TaskViewmodelStateImplCopyWithImpl(_$TaskViewmodelStateImpl _value,
-      $Res Function(_$TaskViewmodelStateImpl) _then)
+class __$$AllTasksCompletedImplCopyWithImpl<$Res>
+    extends _$TaskViewmodelStateCopyWithImpl<$Res, _$AllTasksCompletedImpl>
+    implements _$$AllTasksCompletedImplCopyWith<$Res> {
+  __$$AllTasksCompletedImplCopyWithImpl(_$AllTasksCompletedImpl _value,
+      $Res Function(_$AllTasksCompletedImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? isInitial = null,
-    Object? isGetAllTasksLoading = null,
-    Object? isGetAllTasksCompleted = null,
-    Object? isGetAllTasksFailed = null,
     Object? allTasks = null,
-    Object? errorMessage = freezed,
-    Object? isSearchLoading = null,
-    Object? isSearchCompleted = null,
-    Object? isSearchFailed = null,
-    Object? searchedTasks = freezed,
-    Object? isGetTotalEstimatedTimeLoading = null,
-    Object? isGetTotalEstimatedTimeCompleted = null,
-    Object? isGetTotalEstimatedTimeFailed = null,
-    Object? isUpdateTotalEstimatedTimeLoading = null,
-    Object? isUpdateTotalEstimatedTimeCompleted = null,
-    Object? isUpdateTotalEstimatedTimeFailed = null,
-    Object? totalEstimatedTime = null,
-    Object? scrollController = freezed,
-    Object? isUploadTasksLoading = null,
-    Object? isUploadTasksSuccess = null,
-    Object? isUploadTasksFailed = null,
-    Object? isDownloadTasksLoading = null,
-    Object? isDownloadTasksSuccess = null,
-    Object? isDownloadTasksFailed = null,
-    Object? isCreateTaskLoading = null,
-    Object? isCreateTaskSuccess = null,
-    Object? isCreateTaskFailed = null,
-    Object? createdTask = freezed,
-    Object? isUpdateTaskLoading = null,
-    Object? isUpdateTaskSuccess = null,
-    Object? isUpdateTaskFailed = null,
-    Object? updatedTask = freezed,
-    Object? isDeleteTaskLoading = null,
-    Object? isDeleteTaskSuccess = null,
-    Object? isDeleteTaskFailed = null,
-    Object? deletedTask = freezed,
-    Object? isGetTaskByIdLoading = null,
-    Object? isGetTaskByIdCompleted = null,
-    Object? isGetTaskByIdFailed = null,
-    Object? taskById = freezed,
   }) {
-    return _then(_$TaskViewmodelStateImpl(
-      isInitial: null == isInitial
-          ? _value.isInitial
-          : isInitial // ignore: cast_nullable_to_non_nullable
-              as bool,
-      isGetAllTasksLoading: null == isGetAllTasksLoading
-          ? _value.isGetAllTasksLoading
-          : isGetAllTasksLoading // ignore: cast_nullable_to_non_nullable
-              as bool,
-      isGetAllTasksCompleted: null == isGetAllTasksCompleted
-          ? _value.isGetAllTasksCompleted
-          : isGetAllTasksCompleted // ignore: cast_nullable_to_non_nullable
-              as bool,
-      isGetAllTasksFailed: null == isGetAllTasksFailed
-          ? _value.isGetAllTasksFailed
-          : isGetAllTasksFailed // ignore: cast_nullable_to_non_nullable
-              as bool,
+    return _then(_$AllTasksCompletedImpl(
       allTasks: null == allTasks
           ? _value.allTasks
           : allTasks // ignore: cast_nullable_to_non_nullable
               as List<TaskModel>,
-      errorMessage: freezed == errorMessage
-          ? _value.errorMessage
-          : errorMessage // ignore: cast_nullable_to_non_nullable
-              as String?,
-      isSearchLoading: null == isSearchLoading
-          ? _value.isSearchLoading
-          : isSearchLoading // ignore: cast_nullable_to_non_nullable
-              as bool,
-      isSearchCompleted: null == isSearchCompleted
-          ? _value.isSearchCompleted
-          : isSearchCompleted // ignore: cast_nullable_to_non_nullable
-              as bool,
-      isSearchFailed: null == isSearchFailed
-          ? _value.isSearchFailed
-          : isSearchFailed // ignore: cast_nullable_to_non_nullable
-              as bool,
-      searchedTasks: freezed == searchedTasks
-          ? _value.searchedTasks
-          : searchedTasks // ignore: cast_nullable_to_non_nullable
-              as List<TaskModel>?,
-      isGetTotalEstimatedTimeLoading: null == isGetTotalEstimatedTimeLoading
-          ? _value.isGetTotalEstimatedTimeLoading
-          : isGetTotalEstimatedTimeLoading // ignore: cast_nullable_to_non_nullable
-              as bool,
-      isGetTotalEstimatedTimeCompleted: null == isGetTotalEstimatedTimeCompleted
-          ? _value.isGetTotalEstimatedTimeCompleted
-          : isGetTotalEstimatedTimeCompleted // ignore: cast_nullable_to_non_nullable
-              as bool,
-      isGetTotalEstimatedTimeFailed: null == isGetTotalEstimatedTimeFailed
-          ? _value.isGetTotalEstimatedTimeFailed
-          : isGetTotalEstimatedTimeFailed // ignore: cast_nullable_to_non_nullable
-              as bool,
-      isUpdateTotalEstimatedTimeLoading: null ==
-              isUpdateTotalEstimatedTimeLoading
-          ? _value.isUpdateTotalEstimatedTimeLoading
-          : isUpdateTotalEstimatedTimeLoading // ignore: cast_nullable_to_non_nullable
-              as bool,
-      isUpdateTotalEstimatedTimeCompleted: null ==
-              isUpdateTotalEstimatedTimeCompleted
-          ? _value.isUpdateTotalEstimatedTimeCompleted
-          : isUpdateTotalEstimatedTimeCompleted // ignore: cast_nullable_to_non_nullable
-              as bool,
-      isUpdateTotalEstimatedTimeFailed: null == isUpdateTotalEstimatedTimeFailed
-          ? _value.isUpdateTotalEstimatedTimeFailed
-          : isUpdateTotalEstimatedTimeFailed // ignore: cast_nullable_to_non_nullable
-              as bool,
-      totalEstimatedTime: null == totalEstimatedTime
-          ? _value.totalEstimatedTime
-          : totalEstimatedTime // ignore: cast_nullable_to_non_nullable
-              as Duration,
-      scrollController: freezed == scrollController
-          ? _value.scrollController
-          : scrollController // ignore: cast_nullable_to_non_nullable
-              as ScrollController?,
-      isUploadTasksLoading: null == isUploadTasksLoading
-          ? _value.isUploadTasksLoading
-          : isUploadTasksLoading // ignore: cast_nullable_to_non_nullable
-              as bool,
-      isUploadTasksSuccess: null == isUploadTasksSuccess
-          ? _value.isUploadTasksSuccess
-          : isUploadTasksSuccess // ignore: cast_nullable_to_non_nullable
-              as bool,
-      isUploadTasksFailed: null == isUploadTasksFailed
-          ? _value.isUploadTasksFailed
-          : isUploadTasksFailed // ignore: cast_nullable_to_non_nullable
-              as bool,
-      isDownloadTasksLoading: null == isDownloadTasksLoading
-          ? _value.isDownloadTasksLoading
-          : isDownloadTasksLoading // ignore: cast_nullable_to_non_nullable
-              as bool,
-      isDownloadTasksSuccess: null == isDownloadTasksSuccess
-          ? _value.isDownloadTasksSuccess
-          : isDownloadTasksSuccess // ignore: cast_nullable_to_non_nullable
-              as bool,
-      isDownloadTasksFailed: null == isDownloadTasksFailed
-          ? _value.isDownloadTasksFailed
-          : isDownloadTasksFailed // ignore: cast_nullable_to_non_nullable
-              as bool,
-      isCreateTaskLoading: null == isCreateTaskLoading
-          ? _value.isCreateTaskLoading
-          : isCreateTaskLoading // ignore: cast_nullable_to_non_nullable
-              as bool,
-      isCreateTaskSuccess: null == isCreateTaskSuccess
-          ? _value.isCreateTaskSuccess
-          : isCreateTaskSuccess // ignore: cast_nullable_to_non_nullable
-              as bool,
-      isCreateTaskFailed: null == isCreateTaskFailed
-          ? _value.isCreateTaskFailed
-          : isCreateTaskFailed // ignore: cast_nullable_to_non_nullable
-              as bool,
-      createdTask: freezed == createdTask
-          ? _value.createdTask
-          : createdTask // ignore: cast_nullable_to_non_nullable
-              as TaskModel?,
-      isUpdateTaskLoading: null == isUpdateTaskLoading
-          ? _value.isUpdateTaskLoading
-          : isUpdateTaskLoading // ignore: cast_nullable_to_non_nullable
-              as bool,
-      isUpdateTaskSuccess: null == isUpdateTaskSuccess
-          ? _value.isUpdateTaskSuccess
-          : isUpdateTaskSuccess // ignore: cast_nullable_to_non_nullable
-              as bool,
-      isUpdateTaskFailed: null == isUpdateTaskFailed
-          ? _value.isUpdateTaskFailed
-          : isUpdateTaskFailed // ignore: cast_nullable_to_non_nullable
-              as bool,
-      updatedTask: freezed == updatedTask
-          ? _value.updatedTask
-          : updatedTask // ignore: cast_nullable_to_non_nullable
-              as TaskModel?,
-      isDeleteTaskLoading: null == isDeleteTaskLoading
-          ? _value.isDeleteTaskLoading
-          : isDeleteTaskLoading // ignore: cast_nullable_to_non_nullable
-              as bool,
-      isDeleteTaskSuccess: null == isDeleteTaskSuccess
-          ? _value.isDeleteTaskSuccess
-          : isDeleteTaskSuccess // ignore: cast_nullable_to_non_nullable
-              as bool,
-      isDeleteTaskFailed: null == isDeleteTaskFailed
-          ? _value.isDeleteTaskFailed
-          : isDeleteTaskFailed // ignore: cast_nullable_to_non_nullable
-              as bool,
-      deletedTask: freezed == deletedTask
-          ? _value.deletedTask
-          : deletedTask // ignore: cast_nullable_to_non_nullable
-              as TaskModel?,
-      isGetTaskByIdLoading: null == isGetTaskByIdLoading
-          ? _value.isGetTaskByIdLoading
-          : isGetTaskByIdLoading // ignore: cast_nullable_to_non_nullable
-              as bool,
-      isGetTaskByIdCompleted: null == isGetTaskByIdCompleted
-          ? _value.isGetTaskByIdCompleted
-          : isGetTaskByIdCompleted // ignore: cast_nullable_to_non_nullable
-              as bool,
-      isGetTaskByIdFailed: null == isGetTaskByIdFailed
-          ? _value.isGetTaskByIdFailed
-          : isGetTaskByIdFailed // ignore: cast_nullable_to_non_nullable
-              as bool,
-      taskById: freezed == taskById
-          ? _value.taskById
-          : taskById // ignore: cast_nullable_to_non_nullable
-              as TaskModel?,
     ));
   }
 }
 
 /// @nodoc
 
-class _$TaskViewmodelStateImpl implements _TaskViewmodelState {
-  const _$TaskViewmodelStateImpl(
-      {this.isInitial = true,
-      this.isGetAllTasksLoading = false,
-      this.isGetAllTasksCompleted = false,
-      this.isGetAllTasksFailed = false,
-      this.allTasks = const [],
-      this.errorMessage = null,
-      this.isSearchLoading = false,
-      this.isSearchCompleted = false,
-      this.isSearchFailed = false,
-      this.searchedTasks = null,
-      this.isGetTotalEstimatedTimeLoading = false,
-      this.isGetTotalEstimatedTimeCompleted = false,
-      this.isGetTotalEstimatedTimeFailed = false,
-      this.isUpdateTotalEstimatedTimeLoading = false,
-      this.isUpdateTotalEstimatedTimeCompleted = false,
-      this.isUpdateTotalEstimatedTimeFailed = false,
-      this.totalEstimatedTime = Duration.zero,
-      this.scrollController = null,
-      this.isUploadTasksLoading = false,
-      this.isUploadTasksSuccess = false,
-      this.isUploadTasksFailed = false,
-      this.isDownloadTasksLoading = false,
-      this.isDownloadTasksSuccess = false,
-      this.isDownloadTasksFailed = false,
-      this.isCreateTaskLoading = false,
-      this.isCreateTaskSuccess = false,
-      this.isCreateTaskFailed = false,
-      this.createdTask = null,
-      this.isUpdateTaskLoading = false,
-      this.isUpdateTaskSuccess = false,
-      this.isUpdateTaskFailed = false,
-      this.updatedTask = null,
-      this.isDeleteTaskLoading = false,
-      this.isDeleteTaskSuccess = false,
-      this.isDeleteTaskFailed = false,
-      this.deletedTask = null,
-      this.isGetTaskByIdLoading = false,
-      this.isGetTaskByIdCompleted = false,
-      this.isGetTaskByIdFailed = false,
-      this.taskById = null});
+class _$AllTasksCompletedImpl implements _AllTasksCompleted {
+  _$AllTasksCompletedImpl({required this.allTasks});
 
   @override
-  @JsonKey()
-  final bool isInitial;
-
-  /// get all tasks
-  @override
-  @JsonKey()
-  final bool isGetAllTasksLoading;
-  @override
-  @JsonKey()
-  final bool isGetAllTasksCompleted;
-  @override
-  @JsonKey()
-  final bool isGetAllTasksFailed;
-  @override
-  @JsonKey()
   final List<TaskModel> allTasks;
-
-  /// error message
-  @override
-  @JsonKey()
-  final String? errorMessage;
-
-  /// search
-  @override
-  @JsonKey()
-  final bool isSearchLoading;
-  @override
-  @JsonKey()
-  final bool isSearchCompleted;
-  @override
-  @JsonKey()
-  final bool isSearchFailed;
-  @override
-  @JsonKey()
-  final List<TaskModel>? searchedTasks;
-
-  /// get total estimated time
-  @override
-  @JsonKey()
-  final bool isGetTotalEstimatedTimeLoading;
-  @override
-  @JsonKey()
-  final bool isGetTotalEstimatedTimeCompleted;
-  @override
-  @JsonKey()
-  final bool isGetTotalEstimatedTimeFailed;
-
-  /// update total estimated time
-  @override
-  @JsonKey()
-  final bool isUpdateTotalEstimatedTimeLoading;
-  @override
-  @JsonKey()
-  final bool isUpdateTotalEstimatedTimeCompleted;
-  @override
-  @JsonKey()
-  final bool isUpdateTotalEstimatedTimeFailed;
-  @override
-  @JsonKey()
-  final Duration totalEstimatedTime;
-
-  /// scroll controller
-  @override
-  @JsonKey()
-  final ScrollController? scrollController;
-
-  /// upload tasks
-  @override
-  @JsonKey()
-  final bool isUploadTasksLoading;
-  @override
-  @JsonKey()
-  final bool isUploadTasksSuccess;
-  @override
-  @JsonKey()
-  final bool isUploadTasksFailed;
-
-  /// download tasks
-  @override
-  @JsonKey()
-  final bool isDownloadTasksLoading;
-  @override
-  @JsonKey()
-  final bool isDownloadTasksSuccess;
-  @override
-  @JsonKey()
-  final bool isDownloadTasksFailed;
-
-  /// create task
-  @override
-  @JsonKey()
-  final bool isCreateTaskLoading;
-  @override
-  @JsonKey()
-  final bool isCreateTaskSuccess;
-  @override
-  @JsonKey()
-  final bool isCreateTaskFailed;
-  @override
-  @JsonKey()
-  final TaskModel? createdTask;
-
-  /// update task
-  @override
-  @JsonKey()
-  final bool isUpdateTaskLoading;
-  @override
-  @JsonKey()
-  final bool isUpdateTaskSuccess;
-  @override
-  @JsonKey()
-  final bool isUpdateTaskFailed;
-  @override
-  @JsonKey()
-  final TaskModel? updatedTask;
-
-  /// delete task
-  @override
-  @JsonKey()
-  final bool isDeleteTaskLoading;
-  @override
-  @JsonKey()
-  final bool isDeleteTaskSuccess;
-  @override
-  @JsonKey()
-  final bool isDeleteTaskFailed;
-  @override
-  @JsonKey()
-  final TaskModel? deletedTask;
-
-  /// get task
-  @override
-  @JsonKey()
-  final bool isGetTaskByIdLoading;
-  @override
-  @JsonKey()
-  final bool isGetTaskByIdCompleted;
-  @override
-  @JsonKey()
-  final bool isGetTaskByIdFailed;
-  @override
-  @JsonKey()
-  final TaskModel? taskById;
 
   @override
   String toString() {
-    return 'TaskViewmodelState(isInitial: $isInitial, isGetAllTasksLoading: $isGetAllTasksLoading, isGetAllTasksCompleted: $isGetAllTasksCompleted, isGetAllTasksFailed: $isGetAllTasksFailed, allTasks: $allTasks, errorMessage: $errorMessage, isSearchLoading: $isSearchLoading, isSearchCompleted: $isSearchCompleted, isSearchFailed: $isSearchFailed, searchedTasks: $searchedTasks, isGetTotalEstimatedTimeLoading: $isGetTotalEstimatedTimeLoading, isGetTotalEstimatedTimeCompleted: $isGetTotalEstimatedTimeCompleted, isGetTotalEstimatedTimeFailed: $isGetTotalEstimatedTimeFailed, isUpdateTotalEstimatedTimeLoading: $isUpdateTotalEstimatedTimeLoading, isUpdateTotalEstimatedTimeCompleted: $isUpdateTotalEstimatedTimeCompleted, isUpdateTotalEstimatedTimeFailed: $isUpdateTotalEstimatedTimeFailed, totalEstimatedTime: $totalEstimatedTime, scrollController: $scrollController, isUploadTasksLoading: $isUploadTasksLoading, isUploadTasksSuccess: $isUploadTasksSuccess, isUploadTasksFailed: $isUploadTasksFailed, isDownloadTasksLoading: $isDownloadTasksLoading, isDownloadTasksSuccess: $isDownloadTasksSuccess, isDownloadTasksFailed: $isDownloadTasksFailed, isCreateTaskLoading: $isCreateTaskLoading, isCreateTaskSuccess: $isCreateTaskSuccess, isCreateTaskFailed: $isCreateTaskFailed, createdTask: $createdTask, isUpdateTaskLoading: $isUpdateTaskLoading, isUpdateTaskSuccess: $isUpdateTaskSuccess, isUpdateTaskFailed: $isUpdateTaskFailed, updatedTask: $updatedTask, isDeleteTaskLoading: $isDeleteTaskLoading, isDeleteTaskSuccess: $isDeleteTaskSuccess, isDeleteTaskFailed: $isDeleteTaskFailed, deletedTask: $deletedTask, isGetTaskByIdLoading: $isGetTaskByIdLoading, isGetTaskByIdCompleted: $isGetTaskByIdCompleted, isGetTaskByIdFailed: $isGetTaskByIdFailed, taskById: $taskById)';
+    return 'TaskViewmodelState.allTasksCompleted(allTasks: $allTasks)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$TaskViewmodelStateImpl &&
-            (identical(other.isInitial, isInitial) ||
-                other.isInitial == isInitial) &&
-            (identical(other.isGetAllTasksLoading, isGetAllTasksLoading) ||
-                other.isGetAllTasksLoading == isGetAllTasksLoading) &&
-            (identical(other.isGetAllTasksCompleted, isGetAllTasksCompleted) ||
-                other.isGetAllTasksCompleted == isGetAllTasksCompleted) &&
-            (identical(other.isGetAllTasksFailed, isGetAllTasksFailed) ||
-                other.isGetAllTasksFailed == isGetAllTasksFailed) &&
-            const DeepCollectionEquality().equals(other.allTasks, allTasks) &&
-            (identical(other.errorMessage, errorMessage) ||
-                other.errorMessage == errorMessage) &&
-            (identical(other.isSearchLoading, isSearchLoading) ||
-                other.isSearchLoading == isSearchLoading) &&
-            (identical(other.isSearchCompleted, isSearchCompleted) ||
-                other.isSearchCompleted == isSearchCompleted) &&
-            (identical(other.isSearchFailed, isSearchFailed) ||
-                other.isSearchFailed == isSearchFailed) &&
-            const DeepCollectionEquality()
-                .equals(other.searchedTasks, searchedTasks) &&
-            (identical(other.isGetTotalEstimatedTimeLoading, isGetTotalEstimatedTimeLoading) ||
-                other.isGetTotalEstimatedTimeLoading ==
-                    isGetTotalEstimatedTimeLoading) &&
-            (identical(other.isGetTotalEstimatedTimeCompleted, isGetTotalEstimatedTimeCompleted) ||
-                other.isGetTotalEstimatedTimeCompleted ==
-                    isGetTotalEstimatedTimeCompleted) &&
-            (identical(other.isGetTotalEstimatedTimeFailed, isGetTotalEstimatedTimeFailed) ||
-                other.isGetTotalEstimatedTimeFailed ==
-                    isGetTotalEstimatedTimeFailed) &&
-            (identical(other.isUpdateTotalEstimatedTimeLoading, isUpdateTotalEstimatedTimeLoading) ||
-                other.isUpdateTotalEstimatedTimeLoading ==
-                    isUpdateTotalEstimatedTimeLoading) &&
-            (identical(other.isUpdateTotalEstimatedTimeCompleted, isUpdateTotalEstimatedTimeCompleted) ||
-                other.isUpdateTotalEstimatedTimeCompleted ==
-                    isUpdateTotalEstimatedTimeCompleted) &&
-            (identical(other.isUpdateTotalEstimatedTimeFailed, isUpdateTotalEstimatedTimeFailed) ||
-                other.isUpdateTotalEstimatedTimeFailed ==
-                    isUpdateTotalEstimatedTimeFailed) &&
-            (identical(other.totalEstimatedTime, totalEstimatedTime) ||
-                other.totalEstimatedTime == totalEstimatedTime) &&
-            (identical(other.scrollController, scrollController) ||
-                other.scrollController == scrollController) &&
-            (identical(other.isUploadTasksLoading, isUploadTasksLoading) ||
-                other.isUploadTasksLoading == isUploadTasksLoading) &&
-            (identical(other.isUploadTasksSuccess, isUploadTasksSuccess) ||
-                other.isUploadTasksSuccess == isUploadTasksSuccess) &&
-            (identical(other.isUploadTasksFailed, isUploadTasksFailed) ||
-                other.isUploadTasksFailed == isUploadTasksFailed) &&
-            (identical(other.isDownloadTasksLoading, isDownloadTasksLoading) ||
-                other.isDownloadTasksLoading == isDownloadTasksLoading) &&
-            (identical(other.isDownloadTasksSuccess, isDownloadTasksSuccess) ||
-                other.isDownloadTasksSuccess == isDownloadTasksSuccess) &&
-            (identical(other.isDownloadTasksFailed, isDownloadTasksFailed) ||
-                other.isDownloadTasksFailed == isDownloadTasksFailed) &&
-            (identical(other.isCreateTaskLoading, isCreateTaskLoading) || other.isCreateTaskLoading == isCreateTaskLoading) &&
-            (identical(other.isCreateTaskSuccess, isCreateTaskSuccess) || other.isCreateTaskSuccess == isCreateTaskSuccess) &&
-            (identical(other.isCreateTaskFailed, isCreateTaskFailed) || other.isCreateTaskFailed == isCreateTaskFailed) &&
-            (identical(other.createdTask, createdTask) || other.createdTask == createdTask) &&
-            (identical(other.isUpdateTaskLoading, isUpdateTaskLoading) || other.isUpdateTaskLoading == isUpdateTaskLoading) &&
-            (identical(other.isUpdateTaskSuccess, isUpdateTaskSuccess) || other.isUpdateTaskSuccess == isUpdateTaskSuccess) &&
-            (identical(other.isUpdateTaskFailed, isUpdateTaskFailed) || other.isUpdateTaskFailed == isUpdateTaskFailed) &&
-            (identical(other.updatedTask, updatedTask) || other.updatedTask == updatedTask) &&
-            (identical(other.isDeleteTaskLoading, isDeleteTaskLoading) || other.isDeleteTaskLoading == isDeleteTaskLoading) &&
-            (identical(other.isDeleteTaskSuccess, isDeleteTaskSuccess) || other.isDeleteTaskSuccess == isDeleteTaskSuccess) &&
-            (identical(other.isDeleteTaskFailed, isDeleteTaskFailed) || other.isDeleteTaskFailed == isDeleteTaskFailed) &&
-            (identical(other.deletedTask, deletedTask) || other.deletedTask == deletedTask) &&
-            (identical(other.isGetTaskByIdLoading, isGetTaskByIdLoading) || other.isGetTaskByIdLoading == isGetTaskByIdLoading) &&
-            (identical(other.isGetTaskByIdCompleted, isGetTaskByIdCompleted) || other.isGetTaskByIdCompleted == isGetTaskByIdCompleted) &&
-            (identical(other.isGetTaskByIdFailed, isGetTaskByIdFailed) || other.isGetTaskByIdFailed == isGetTaskByIdFailed) &&
-            (identical(other.taskById, taskById) || other.taskById == taskById));
+            other is _$AllTasksCompletedImpl &&
+            const DeepCollectionEquality().equals(other.allTasks, allTasks));
   }
 
   @override
-  int get hashCode => Object.hashAll([
-        runtimeType,
-        isInitial,
-        isGetAllTasksLoading,
-        isGetAllTasksCompleted,
-        isGetAllTasksFailed,
-        const DeepCollectionEquality().hash(allTasks),
-        errorMessage,
-        isSearchLoading,
-        isSearchCompleted,
-        isSearchFailed,
-        const DeepCollectionEquality().hash(searchedTasks),
-        isGetTotalEstimatedTimeLoading,
-        isGetTotalEstimatedTimeCompleted,
-        isGetTotalEstimatedTimeFailed,
-        isUpdateTotalEstimatedTimeLoading,
-        isUpdateTotalEstimatedTimeCompleted,
-        isUpdateTotalEstimatedTimeFailed,
-        totalEstimatedTime,
-        scrollController,
-        isUploadTasksLoading,
-        isUploadTasksSuccess,
-        isUploadTasksFailed,
-        isDownloadTasksLoading,
-        isDownloadTasksSuccess,
-        isDownloadTasksFailed,
-        isCreateTaskLoading,
-        isCreateTaskSuccess,
-        isCreateTaskFailed,
-        createdTask,
-        isUpdateTaskLoading,
-        isUpdateTaskSuccess,
-        isUpdateTaskFailed,
-        updatedTask,
-        isDeleteTaskLoading,
-        isDeleteTaskSuccess,
-        isDeleteTaskFailed,
-        deletedTask,
-        isGetTaskByIdLoading,
-        isGetTaskByIdCompleted,
-        isGetTaskByIdFailed,
-        taskById
-      ]);
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(allTasks));
 
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$TaskViewmodelStateImplCopyWith<_$TaskViewmodelStateImpl> get copyWith =>
-      __$$TaskViewmodelStateImplCopyWithImpl<_$TaskViewmodelStateImpl>(
+  _$$AllTasksCompletedImplCopyWith<_$AllTasksCompletedImpl> get copyWith =>
+      __$$AllTasksCompletedImplCopyWithImpl<_$AllTasksCompletedImpl>(
           this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() allTasksLoading,
+    required TResult Function(List<TaskModel> allTasks) allTasksCompleted,
+    required TResult Function(String message) allTasksFailed,
+    required TResult Function() searchLoading,
+    required TResult Function(List<TaskModel> searchedTasks) searchCompleted,
+    required TResult Function(String message) searchFailed,
+    required TResult Function() getTotalEstimatedTimeLoading,
+    required TResult Function(Duration totalEstimatedTime)
+        getTotalEstimatedTimeCompleted,
+    required TResult Function(String message) getTotalEstimatedTimeFailed,
+    required TResult Function() updateTotalEstimatedTimeLoading,
+    required TResult Function(String message) updateTotalEstimatedTimeFailed,
+    required TResult Function(Duration totalEstimatedTime)
+        updateTotalEstimatedTimeCompleted,
+    required TResult Function() uploadTasksLoading,
+    required TResult Function(String message) uploadTasksFailed,
+    required TResult Function(TaskModel meupdatedTaskssage)
+        uploadTasksCompleted,
+    required TResult Function() downloadTasksLoading,
+    required TResult Function(String message) downloadTasksFailed,
+    required TResult Function(List<TaskModel> downloadedTasks)
+        downloadTasksCompleted,
+    required TResult Function() updateTaskLoading,
+    required TResult Function(String message) updateTaskFailed,
+    required TResult Function(TaskModel updatedTask) updateTaskCompleted,
+    required TResult Function() getTaskByIdLoading,
+    required TResult Function(String message) getTaskByIdFailed,
+    required TResult Function(TaskModel taskById) getTaskByIdCompleted,
+    required TResult Function() createTaskLoading,
+    required TResult Function(String message) createTaskFailed,
+    required TResult Function(TaskModel createdTask) createTaskCompleted,
+    required TResult Function() deleteTaskLoading,
+    required TResult Function(String message) deleteTaskFailed,
+    required TResult Function(TaskModel deletedTask) deleteTaskCompleted,
+  }) {
+    return allTasksCompleted(allTasks);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? allTasksLoading,
+    TResult? Function(List<TaskModel> allTasks)? allTasksCompleted,
+    TResult? Function(String message)? allTasksFailed,
+    TResult? Function()? searchLoading,
+    TResult? Function(List<TaskModel> searchedTasks)? searchCompleted,
+    TResult? Function(String message)? searchFailed,
+    TResult? Function()? getTotalEstimatedTimeLoading,
+    TResult? Function(Duration totalEstimatedTime)?
+        getTotalEstimatedTimeCompleted,
+    TResult? Function(String message)? getTotalEstimatedTimeFailed,
+    TResult? Function()? updateTotalEstimatedTimeLoading,
+    TResult? Function(String message)? updateTotalEstimatedTimeFailed,
+    TResult? Function(Duration totalEstimatedTime)?
+        updateTotalEstimatedTimeCompleted,
+    TResult? Function()? uploadTasksLoading,
+    TResult? Function(String message)? uploadTasksFailed,
+    TResult? Function(TaskModel meupdatedTaskssage)? uploadTasksCompleted,
+    TResult? Function()? downloadTasksLoading,
+    TResult? Function(String message)? downloadTasksFailed,
+    TResult? Function(List<TaskModel> downloadedTasks)? downloadTasksCompleted,
+    TResult? Function()? updateTaskLoading,
+    TResult? Function(String message)? updateTaskFailed,
+    TResult? Function(TaskModel updatedTask)? updateTaskCompleted,
+    TResult? Function()? getTaskByIdLoading,
+    TResult? Function(String message)? getTaskByIdFailed,
+    TResult? Function(TaskModel taskById)? getTaskByIdCompleted,
+    TResult? Function()? createTaskLoading,
+    TResult? Function(String message)? createTaskFailed,
+    TResult? Function(TaskModel createdTask)? createTaskCompleted,
+    TResult? Function()? deleteTaskLoading,
+    TResult? Function(String message)? deleteTaskFailed,
+    TResult? Function(TaskModel deletedTask)? deleteTaskCompleted,
+  }) {
+    return allTasksCompleted?.call(allTasks);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? allTasksLoading,
+    TResult Function(List<TaskModel> allTasks)? allTasksCompleted,
+    TResult Function(String message)? allTasksFailed,
+    TResult Function()? searchLoading,
+    TResult Function(List<TaskModel> searchedTasks)? searchCompleted,
+    TResult Function(String message)? searchFailed,
+    TResult Function()? getTotalEstimatedTimeLoading,
+    TResult Function(Duration totalEstimatedTime)?
+        getTotalEstimatedTimeCompleted,
+    TResult Function(String message)? getTotalEstimatedTimeFailed,
+    TResult Function()? updateTotalEstimatedTimeLoading,
+    TResult Function(String message)? updateTotalEstimatedTimeFailed,
+    TResult Function(Duration totalEstimatedTime)?
+        updateTotalEstimatedTimeCompleted,
+    TResult Function()? uploadTasksLoading,
+    TResult Function(String message)? uploadTasksFailed,
+    TResult Function(TaskModel meupdatedTaskssage)? uploadTasksCompleted,
+    TResult Function()? downloadTasksLoading,
+    TResult Function(String message)? downloadTasksFailed,
+    TResult Function(List<TaskModel> downloadedTasks)? downloadTasksCompleted,
+    TResult Function()? updateTaskLoading,
+    TResult Function(String message)? updateTaskFailed,
+    TResult Function(TaskModel updatedTask)? updateTaskCompleted,
+    TResult Function()? getTaskByIdLoading,
+    TResult Function(String message)? getTaskByIdFailed,
+    TResult Function(TaskModel taskById)? getTaskByIdCompleted,
+    TResult Function()? createTaskLoading,
+    TResult Function(String message)? createTaskFailed,
+    TResult Function(TaskModel createdTask)? createTaskCompleted,
+    TResult Function()? deleteTaskLoading,
+    TResult Function(String message)? deleteTaskFailed,
+    TResult Function(TaskModel deletedTask)? deleteTaskCompleted,
+    required TResult orElse(),
+  }) {
+    if (allTasksCompleted != null) {
+      return allTasksCompleted(allTasks);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(_AllTasksLoading value) allTasksLoading,
+    required TResult Function(_AllTasksCompleted value) allTasksCompleted,
+    required TResult Function(_AllTasksFailed value) allTasksFailed,
+    required TResult Function(_SearchLoading value) searchLoading,
+    required TResult Function(_SearchCompleted value) searchCompleted,
+    required TResult Function(_SearchFailed value) searchFailed,
+    required TResult Function(_GetTotalEstimatedTimeLoading value)
+        getTotalEstimatedTimeLoading,
+    required TResult Function(_GetTotalEstimatedTimeCompleted value)
+        getTotalEstimatedTimeCompleted,
+    required TResult Function(_GetTotalEstimatedTimeFailed value)
+        getTotalEstimatedTimeFailed,
+    required TResult Function(_UpdateTotalEstimatedTimeLoading value)
+        updateTotalEstimatedTimeLoading,
+    required TResult Function(_UpdateTotalEstimatedTimeFailed value)
+        updateTotalEstimatedTimeFailed,
+    required TResult Function(_UpdateTotalEstimatedTimeCompleted value)
+        updateTotalEstimatedTimeCompleted,
+    required TResult Function(_UploadTasksLoading value) uploadTasksLoading,
+    required TResult Function(_UploadTasksFailed value) uploadTasksFailed,
+    required TResult Function(_UploadTasksCompleted value) uploadTasksCompleted,
+    required TResult Function(_DownloadTasksLoading value) downloadTasksLoading,
+    required TResult Function(_DownloadTasksFailed value) downloadTasksFailed,
+    required TResult Function(_DownloadTasksCompleted value)
+        downloadTasksCompleted,
+    required TResult Function(_UpdateTaskLoading value) updateTaskLoading,
+    required TResult Function(_UpdateTaskFailed value) updateTaskFailed,
+    required TResult Function(_UpdateTaskCompleted value) updateTaskCompleted,
+    required TResult Function(_GetTaskByIdLoading value) getTaskByIdLoading,
+    required TResult Function(_GetTaskByIdFailed value) getTaskByIdFailed,
+    required TResult Function(_GetTaskByIdCompleted value) getTaskByIdCompleted,
+    required TResult Function(_CreateTaskLoading value) createTaskLoading,
+    required TResult Function(_CreateTaskFailed value) createTaskFailed,
+    required TResult Function(_CreateTaskCompleted value) createTaskCompleted,
+    required TResult Function(_DeleteTaskLoading value) deleteTaskLoading,
+    required TResult Function(_DeleteTaskFailed value) deleteTaskFailed,
+    required TResult Function(_DeleteTaskCompleted value) deleteTaskCompleted,
+  }) {
+    return allTasksCompleted(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_AllTasksLoading value)? allTasksLoading,
+    TResult? Function(_AllTasksCompleted value)? allTasksCompleted,
+    TResult? Function(_AllTasksFailed value)? allTasksFailed,
+    TResult? Function(_SearchLoading value)? searchLoading,
+    TResult? Function(_SearchCompleted value)? searchCompleted,
+    TResult? Function(_SearchFailed value)? searchFailed,
+    TResult? Function(_GetTotalEstimatedTimeLoading value)?
+        getTotalEstimatedTimeLoading,
+    TResult? Function(_GetTotalEstimatedTimeCompleted value)?
+        getTotalEstimatedTimeCompleted,
+    TResult? Function(_GetTotalEstimatedTimeFailed value)?
+        getTotalEstimatedTimeFailed,
+    TResult? Function(_UpdateTotalEstimatedTimeLoading value)?
+        updateTotalEstimatedTimeLoading,
+    TResult? Function(_UpdateTotalEstimatedTimeFailed value)?
+        updateTotalEstimatedTimeFailed,
+    TResult? Function(_UpdateTotalEstimatedTimeCompleted value)?
+        updateTotalEstimatedTimeCompleted,
+    TResult? Function(_UploadTasksLoading value)? uploadTasksLoading,
+    TResult? Function(_UploadTasksFailed value)? uploadTasksFailed,
+    TResult? Function(_UploadTasksCompleted value)? uploadTasksCompleted,
+    TResult? Function(_DownloadTasksLoading value)? downloadTasksLoading,
+    TResult? Function(_DownloadTasksFailed value)? downloadTasksFailed,
+    TResult? Function(_DownloadTasksCompleted value)? downloadTasksCompleted,
+    TResult? Function(_UpdateTaskLoading value)? updateTaskLoading,
+    TResult? Function(_UpdateTaskFailed value)? updateTaskFailed,
+    TResult? Function(_UpdateTaskCompleted value)? updateTaskCompleted,
+    TResult? Function(_GetTaskByIdLoading value)? getTaskByIdLoading,
+    TResult? Function(_GetTaskByIdFailed value)? getTaskByIdFailed,
+    TResult? Function(_GetTaskByIdCompleted value)? getTaskByIdCompleted,
+    TResult? Function(_CreateTaskLoading value)? createTaskLoading,
+    TResult? Function(_CreateTaskFailed value)? createTaskFailed,
+    TResult? Function(_CreateTaskCompleted value)? createTaskCompleted,
+    TResult? Function(_DeleteTaskLoading value)? deleteTaskLoading,
+    TResult? Function(_DeleteTaskFailed value)? deleteTaskFailed,
+    TResult? Function(_DeleteTaskCompleted value)? deleteTaskCompleted,
+  }) {
+    return allTasksCompleted?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_AllTasksLoading value)? allTasksLoading,
+    TResult Function(_AllTasksCompleted value)? allTasksCompleted,
+    TResult Function(_AllTasksFailed value)? allTasksFailed,
+    TResult Function(_SearchLoading value)? searchLoading,
+    TResult Function(_SearchCompleted value)? searchCompleted,
+    TResult Function(_SearchFailed value)? searchFailed,
+    TResult Function(_GetTotalEstimatedTimeLoading value)?
+        getTotalEstimatedTimeLoading,
+    TResult Function(_GetTotalEstimatedTimeCompleted value)?
+        getTotalEstimatedTimeCompleted,
+    TResult Function(_GetTotalEstimatedTimeFailed value)?
+        getTotalEstimatedTimeFailed,
+    TResult Function(_UpdateTotalEstimatedTimeLoading value)?
+        updateTotalEstimatedTimeLoading,
+    TResult Function(_UpdateTotalEstimatedTimeFailed value)?
+        updateTotalEstimatedTimeFailed,
+    TResult Function(_UpdateTotalEstimatedTimeCompleted value)?
+        updateTotalEstimatedTimeCompleted,
+    TResult Function(_UploadTasksLoading value)? uploadTasksLoading,
+    TResult Function(_UploadTasksFailed value)? uploadTasksFailed,
+    TResult Function(_UploadTasksCompleted value)? uploadTasksCompleted,
+    TResult Function(_DownloadTasksLoading value)? downloadTasksLoading,
+    TResult Function(_DownloadTasksFailed value)? downloadTasksFailed,
+    TResult Function(_DownloadTasksCompleted value)? downloadTasksCompleted,
+    TResult Function(_UpdateTaskLoading value)? updateTaskLoading,
+    TResult Function(_UpdateTaskFailed value)? updateTaskFailed,
+    TResult Function(_UpdateTaskCompleted value)? updateTaskCompleted,
+    TResult Function(_GetTaskByIdLoading value)? getTaskByIdLoading,
+    TResult Function(_GetTaskByIdFailed value)? getTaskByIdFailed,
+    TResult Function(_GetTaskByIdCompleted value)? getTaskByIdCompleted,
+    TResult Function(_CreateTaskLoading value)? createTaskLoading,
+    TResult Function(_CreateTaskFailed value)? createTaskFailed,
+    TResult Function(_CreateTaskCompleted value)? createTaskCompleted,
+    TResult Function(_DeleteTaskLoading value)? deleteTaskLoading,
+    TResult Function(_DeleteTaskFailed value)? deleteTaskFailed,
+    TResult Function(_DeleteTaskCompleted value)? deleteTaskCompleted,
+    required TResult orElse(),
+  }) {
+    if (allTasksCompleted != null) {
+      return allTasksCompleted(this);
+    }
+    return orElse();
+  }
 }
 
-abstract class _TaskViewmodelState implements TaskViewmodelState {
-  const factory _TaskViewmodelState(
-      {final bool isInitial,
-      final bool isGetAllTasksLoading,
-      final bool isGetAllTasksCompleted,
-      final bool isGetAllTasksFailed,
-      final List<TaskModel> allTasks,
-      final String? errorMessage,
-      final bool isSearchLoading,
-      final bool isSearchCompleted,
-      final bool isSearchFailed,
-      final List<TaskModel>? searchedTasks,
-      final bool isGetTotalEstimatedTimeLoading,
-      final bool isGetTotalEstimatedTimeCompleted,
-      final bool isGetTotalEstimatedTimeFailed,
-      final bool isUpdateTotalEstimatedTimeLoading,
-      final bool isUpdateTotalEstimatedTimeCompleted,
-      final bool isUpdateTotalEstimatedTimeFailed,
-      final Duration totalEstimatedTime,
-      final ScrollController? scrollController,
-      final bool isUploadTasksLoading,
-      final bool isUploadTasksSuccess,
-      final bool isUploadTasksFailed,
-      final bool isDownloadTasksLoading,
-      final bool isDownloadTasksSuccess,
-      final bool isDownloadTasksFailed,
-      final bool isCreateTaskLoading,
-      final bool isCreateTaskSuccess,
-      final bool isCreateTaskFailed,
-      final TaskModel? createdTask,
-      final bool isUpdateTaskLoading,
-      final bool isUpdateTaskSuccess,
-      final bool isUpdateTaskFailed,
-      final TaskModel? updatedTask,
-      final bool isDeleteTaskLoading,
-      final bool isDeleteTaskSuccess,
-      final bool isDeleteTaskFailed,
-      final TaskModel? deletedTask,
-      final bool isGetTaskByIdLoading,
-      final bool isGetTaskByIdCompleted,
-      final bool isGetTaskByIdFailed,
-      final TaskModel? taskById}) = _$TaskViewmodelStateImpl;
+abstract class _AllTasksCompleted implements TaskViewmodelState {
+  factory _AllTasksCompleted({required final List<TaskModel> allTasks}) =
+      _$AllTasksCompletedImpl;
 
-  @override
-  bool get isInitial;
-  @override
-
-  /// get all tasks
-  bool get isGetAllTasksLoading;
-  @override
-  bool get isGetAllTasksCompleted;
-  @override
-  bool get isGetAllTasksFailed;
-  @override
   List<TaskModel> get allTasks;
-  @override
-
-  /// error message
-  String? get errorMessage;
-  @override
-
-  /// search
-  bool get isSearchLoading;
-  @override
-  bool get isSearchCompleted;
-  @override
-  bool get isSearchFailed;
-  @override
-  List<TaskModel>? get searchedTasks;
-  @override
-
-  /// get total estimated time
-  bool get isGetTotalEstimatedTimeLoading;
-  @override
-  bool get isGetTotalEstimatedTimeCompleted;
-  @override
-  bool get isGetTotalEstimatedTimeFailed;
-  @override
-
-  /// update total estimated time
-  bool get isUpdateTotalEstimatedTimeLoading;
-  @override
-  bool get isUpdateTotalEstimatedTimeCompleted;
-  @override
-  bool get isUpdateTotalEstimatedTimeFailed;
-  @override
-  Duration get totalEstimatedTime;
-  @override
-
-  /// scroll controller
-  ScrollController? get scrollController;
-  @override
-
-  /// upload tasks
-  bool get isUploadTasksLoading;
-  @override
-  bool get isUploadTasksSuccess;
-  @override
-  bool get isUploadTasksFailed;
-  @override
-
-  /// download tasks
-  bool get isDownloadTasksLoading;
-  @override
-  bool get isDownloadTasksSuccess;
-  @override
-  bool get isDownloadTasksFailed;
-  @override
-
-  /// create task
-  bool get isCreateTaskLoading;
-  @override
-  bool get isCreateTaskSuccess;
-  @override
-  bool get isCreateTaskFailed;
-  @override
-  TaskModel? get createdTask;
-  @override
-
-  /// update task
-  bool get isUpdateTaskLoading;
-  @override
-  bool get isUpdateTaskSuccess;
-  @override
-  bool get isUpdateTaskFailed;
-  @override
-  TaskModel? get updatedTask;
-  @override
-
-  /// delete task
-  bool get isDeleteTaskLoading;
-  @override
-  bool get isDeleteTaskSuccess;
-  @override
-  bool get isDeleteTaskFailed;
-  @override
-  TaskModel? get deletedTask;
-  @override
-
-  /// get task
-  bool get isGetTaskByIdLoading;
-  @override
-  bool get isGetTaskByIdCompleted;
-  @override
-  bool get isGetTaskByIdFailed;
-  @override
-  TaskModel? get taskById;
-  @override
   @JsonKey(ignore: true)
-  _$$TaskViewmodelStateImplCopyWith<_$TaskViewmodelStateImpl> get copyWith =>
+  _$$AllTasksCompletedImplCopyWith<_$AllTasksCompletedImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$AllTasksFailedImplCopyWith<$Res> {
+  factory _$$AllTasksFailedImplCopyWith(_$AllTasksFailedImpl value,
+          $Res Function(_$AllTasksFailedImpl) then) =
+      __$$AllTasksFailedImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String message});
+}
+
+/// @nodoc
+class __$$AllTasksFailedImplCopyWithImpl<$Res>
+    extends _$TaskViewmodelStateCopyWithImpl<$Res, _$AllTasksFailedImpl>
+    implements _$$AllTasksFailedImplCopyWith<$Res> {
+  __$$AllTasksFailedImplCopyWithImpl(
+      _$AllTasksFailedImpl _value, $Res Function(_$AllTasksFailedImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? message = null,
+  }) {
+    return _then(_$AllTasksFailedImpl(
+      message: null == message
+          ? _value.message
+          : message // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$AllTasksFailedImpl implements _AllTasksFailed {
+  _$AllTasksFailedImpl({required this.message});
+
+  @override
+  final String message;
+
+  @override
+  String toString() {
+    return 'TaskViewmodelState.allTasksFailed(message: $message)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$AllTasksFailedImpl &&
+            (identical(other.message, message) || other.message == message));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, message);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$AllTasksFailedImplCopyWith<_$AllTasksFailedImpl> get copyWith =>
+      __$$AllTasksFailedImplCopyWithImpl<_$AllTasksFailedImpl>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() allTasksLoading,
+    required TResult Function(List<TaskModel> allTasks) allTasksCompleted,
+    required TResult Function(String message) allTasksFailed,
+    required TResult Function() searchLoading,
+    required TResult Function(List<TaskModel> searchedTasks) searchCompleted,
+    required TResult Function(String message) searchFailed,
+    required TResult Function() getTotalEstimatedTimeLoading,
+    required TResult Function(Duration totalEstimatedTime)
+        getTotalEstimatedTimeCompleted,
+    required TResult Function(String message) getTotalEstimatedTimeFailed,
+    required TResult Function() updateTotalEstimatedTimeLoading,
+    required TResult Function(String message) updateTotalEstimatedTimeFailed,
+    required TResult Function(Duration totalEstimatedTime)
+        updateTotalEstimatedTimeCompleted,
+    required TResult Function() uploadTasksLoading,
+    required TResult Function(String message) uploadTasksFailed,
+    required TResult Function(TaskModel meupdatedTaskssage)
+        uploadTasksCompleted,
+    required TResult Function() downloadTasksLoading,
+    required TResult Function(String message) downloadTasksFailed,
+    required TResult Function(List<TaskModel> downloadedTasks)
+        downloadTasksCompleted,
+    required TResult Function() updateTaskLoading,
+    required TResult Function(String message) updateTaskFailed,
+    required TResult Function(TaskModel updatedTask) updateTaskCompleted,
+    required TResult Function() getTaskByIdLoading,
+    required TResult Function(String message) getTaskByIdFailed,
+    required TResult Function(TaskModel taskById) getTaskByIdCompleted,
+    required TResult Function() createTaskLoading,
+    required TResult Function(String message) createTaskFailed,
+    required TResult Function(TaskModel createdTask) createTaskCompleted,
+    required TResult Function() deleteTaskLoading,
+    required TResult Function(String message) deleteTaskFailed,
+    required TResult Function(TaskModel deletedTask) deleteTaskCompleted,
+  }) {
+    return allTasksFailed(message);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? allTasksLoading,
+    TResult? Function(List<TaskModel> allTasks)? allTasksCompleted,
+    TResult? Function(String message)? allTasksFailed,
+    TResult? Function()? searchLoading,
+    TResult? Function(List<TaskModel> searchedTasks)? searchCompleted,
+    TResult? Function(String message)? searchFailed,
+    TResult? Function()? getTotalEstimatedTimeLoading,
+    TResult? Function(Duration totalEstimatedTime)?
+        getTotalEstimatedTimeCompleted,
+    TResult? Function(String message)? getTotalEstimatedTimeFailed,
+    TResult? Function()? updateTotalEstimatedTimeLoading,
+    TResult? Function(String message)? updateTotalEstimatedTimeFailed,
+    TResult? Function(Duration totalEstimatedTime)?
+        updateTotalEstimatedTimeCompleted,
+    TResult? Function()? uploadTasksLoading,
+    TResult? Function(String message)? uploadTasksFailed,
+    TResult? Function(TaskModel meupdatedTaskssage)? uploadTasksCompleted,
+    TResult? Function()? downloadTasksLoading,
+    TResult? Function(String message)? downloadTasksFailed,
+    TResult? Function(List<TaskModel> downloadedTasks)? downloadTasksCompleted,
+    TResult? Function()? updateTaskLoading,
+    TResult? Function(String message)? updateTaskFailed,
+    TResult? Function(TaskModel updatedTask)? updateTaskCompleted,
+    TResult? Function()? getTaskByIdLoading,
+    TResult? Function(String message)? getTaskByIdFailed,
+    TResult? Function(TaskModel taskById)? getTaskByIdCompleted,
+    TResult? Function()? createTaskLoading,
+    TResult? Function(String message)? createTaskFailed,
+    TResult? Function(TaskModel createdTask)? createTaskCompleted,
+    TResult? Function()? deleteTaskLoading,
+    TResult? Function(String message)? deleteTaskFailed,
+    TResult? Function(TaskModel deletedTask)? deleteTaskCompleted,
+  }) {
+    return allTasksFailed?.call(message);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? allTasksLoading,
+    TResult Function(List<TaskModel> allTasks)? allTasksCompleted,
+    TResult Function(String message)? allTasksFailed,
+    TResult Function()? searchLoading,
+    TResult Function(List<TaskModel> searchedTasks)? searchCompleted,
+    TResult Function(String message)? searchFailed,
+    TResult Function()? getTotalEstimatedTimeLoading,
+    TResult Function(Duration totalEstimatedTime)?
+        getTotalEstimatedTimeCompleted,
+    TResult Function(String message)? getTotalEstimatedTimeFailed,
+    TResult Function()? updateTotalEstimatedTimeLoading,
+    TResult Function(String message)? updateTotalEstimatedTimeFailed,
+    TResult Function(Duration totalEstimatedTime)?
+        updateTotalEstimatedTimeCompleted,
+    TResult Function()? uploadTasksLoading,
+    TResult Function(String message)? uploadTasksFailed,
+    TResult Function(TaskModel meupdatedTaskssage)? uploadTasksCompleted,
+    TResult Function()? downloadTasksLoading,
+    TResult Function(String message)? downloadTasksFailed,
+    TResult Function(List<TaskModel> downloadedTasks)? downloadTasksCompleted,
+    TResult Function()? updateTaskLoading,
+    TResult Function(String message)? updateTaskFailed,
+    TResult Function(TaskModel updatedTask)? updateTaskCompleted,
+    TResult Function()? getTaskByIdLoading,
+    TResult Function(String message)? getTaskByIdFailed,
+    TResult Function(TaskModel taskById)? getTaskByIdCompleted,
+    TResult Function()? createTaskLoading,
+    TResult Function(String message)? createTaskFailed,
+    TResult Function(TaskModel createdTask)? createTaskCompleted,
+    TResult Function()? deleteTaskLoading,
+    TResult Function(String message)? deleteTaskFailed,
+    TResult Function(TaskModel deletedTask)? deleteTaskCompleted,
+    required TResult orElse(),
+  }) {
+    if (allTasksFailed != null) {
+      return allTasksFailed(message);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(_AllTasksLoading value) allTasksLoading,
+    required TResult Function(_AllTasksCompleted value) allTasksCompleted,
+    required TResult Function(_AllTasksFailed value) allTasksFailed,
+    required TResult Function(_SearchLoading value) searchLoading,
+    required TResult Function(_SearchCompleted value) searchCompleted,
+    required TResult Function(_SearchFailed value) searchFailed,
+    required TResult Function(_GetTotalEstimatedTimeLoading value)
+        getTotalEstimatedTimeLoading,
+    required TResult Function(_GetTotalEstimatedTimeCompleted value)
+        getTotalEstimatedTimeCompleted,
+    required TResult Function(_GetTotalEstimatedTimeFailed value)
+        getTotalEstimatedTimeFailed,
+    required TResult Function(_UpdateTotalEstimatedTimeLoading value)
+        updateTotalEstimatedTimeLoading,
+    required TResult Function(_UpdateTotalEstimatedTimeFailed value)
+        updateTotalEstimatedTimeFailed,
+    required TResult Function(_UpdateTotalEstimatedTimeCompleted value)
+        updateTotalEstimatedTimeCompleted,
+    required TResult Function(_UploadTasksLoading value) uploadTasksLoading,
+    required TResult Function(_UploadTasksFailed value) uploadTasksFailed,
+    required TResult Function(_UploadTasksCompleted value) uploadTasksCompleted,
+    required TResult Function(_DownloadTasksLoading value) downloadTasksLoading,
+    required TResult Function(_DownloadTasksFailed value) downloadTasksFailed,
+    required TResult Function(_DownloadTasksCompleted value)
+        downloadTasksCompleted,
+    required TResult Function(_UpdateTaskLoading value) updateTaskLoading,
+    required TResult Function(_UpdateTaskFailed value) updateTaskFailed,
+    required TResult Function(_UpdateTaskCompleted value) updateTaskCompleted,
+    required TResult Function(_GetTaskByIdLoading value) getTaskByIdLoading,
+    required TResult Function(_GetTaskByIdFailed value) getTaskByIdFailed,
+    required TResult Function(_GetTaskByIdCompleted value) getTaskByIdCompleted,
+    required TResult Function(_CreateTaskLoading value) createTaskLoading,
+    required TResult Function(_CreateTaskFailed value) createTaskFailed,
+    required TResult Function(_CreateTaskCompleted value) createTaskCompleted,
+    required TResult Function(_DeleteTaskLoading value) deleteTaskLoading,
+    required TResult Function(_DeleteTaskFailed value) deleteTaskFailed,
+    required TResult Function(_DeleteTaskCompleted value) deleteTaskCompleted,
+  }) {
+    return allTasksFailed(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_AllTasksLoading value)? allTasksLoading,
+    TResult? Function(_AllTasksCompleted value)? allTasksCompleted,
+    TResult? Function(_AllTasksFailed value)? allTasksFailed,
+    TResult? Function(_SearchLoading value)? searchLoading,
+    TResult? Function(_SearchCompleted value)? searchCompleted,
+    TResult? Function(_SearchFailed value)? searchFailed,
+    TResult? Function(_GetTotalEstimatedTimeLoading value)?
+        getTotalEstimatedTimeLoading,
+    TResult? Function(_GetTotalEstimatedTimeCompleted value)?
+        getTotalEstimatedTimeCompleted,
+    TResult? Function(_GetTotalEstimatedTimeFailed value)?
+        getTotalEstimatedTimeFailed,
+    TResult? Function(_UpdateTotalEstimatedTimeLoading value)?
+        updateTotalEstimatedTimeLoading,
+    TResult? Function(_UpdateTotalEstimatedTimeFailed value)?
+        updateTotalEstimatedTimeFailed,
+    TResult? Function(_UpdateTotalEstimatedTimeCompleted value)?
+        updateTotalEstimatedTimeCompleted,
+    TResult? Function(_UploadTasksLoading value)? uploadTasksLoading,
+    TResult? Function(_UploadTasksFailed value)? uploadTasksFailed,
+    TResult? Function(_UploadTasksCompleted value)? uploadTasksCompleted,
+    TResult? Function(_DownloadTasksLoading value)? downloadTasksLoading,
+    TResult? Function(_DownloadTasksFailed value)? downloadTasksFailed,
+    TResult? Function(_DownloadTasksCompleted value)? downloadTasksCompleted,
+    TResult? Function(_UpdateTaskLoading value)? updateTaskLoading,
+    TResult? Function(_UpdateTaskFailed value)? updateTaskFailed,
+    TResult? Function(_UpdateTaskCompleted value)? updateTaskCompleted,
+    TResult? Function(_GetTaskByIdLoading value)? getTaskByIdLoading,
+    TResult? Function(_GetTaskByIdFailed value)? getTaskByIdFailed,
+    TResult? Function(_GetTaskByIdCompleted value)? getTaskByIdCompleted,
+    TResult? Function(_CreateTaskLoading value)? createTaskLoading,
+    TResult? Function(_CreateTaskFailed value)? createTaskFailed,
+    TResult? Function(_CreateTaskCompleted value)? createTaskCompleted,
+    TResult? Function(_DeleteTaskLoading value)? deleteTaskLoading,
+    TResult? Function(_DeleteTaskFailed value)? deleteTaskFailed,
+    TResult? Function(_DeleteTaskCompleted value)? deleteTaskCompleted,
+  }) {
+    return allTasksFailed?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_AllTasksLoading value)? allTasksLoading,
+    TResult Function(_AllTasksCompleted value)? allTasksCompleted,
+    TResult Function(_AllTasksFailed value)? allTasksFailed,
+    TResult Function(_SearchLoading value)? searchLoading,
+    TResult Function(_SearchCompleted value)? searchCompleted,
+    TResult Function(_SearchFailed value)? searchFailed,
+    TResult Function(_GetTotalEstimatedTimeLoading value)?
+        getTotalEstimatedTimeLoading,
+    TResult Function(_GetTotalEstimatedTimeCompleted value)?
+        getTotalEstimatedTimeCompleted,
+    TResult Function(_GetTotalEstimatedTimeFailed value)?
+        getTotalEstimatedTimeFailed,
+    TResult Function(_UpdateTotalEstimatedTimeLoading value)?
+        updateTotalEstimatedTimeLoading,
+    TResult Function(_UpdateTotalEstimatedTimeFailed value)?
+        updateTotalEstimatedTimeFailed,
+    TResult Function(_UpdateTotalEstimatedTimeCompleted value)?
+        updateTotalEstimatedTimeCompleted,
+    TResult Function(_UploadTasksLoading value)? uploadTasksLoading,
+    TResult Function(_UploadTasksFailed value)? uploadTasksFailed,
+    TResult Function(_UploadTasksCompleted value)? uploadTasksCompleted,
+    TResult Function(_DownloadTasksLoading value)? downloadTasksLoading,
+    TResult Function(_DownloadTasksFailed value)? downloadTasksFailed,
+    TResult Function(_DownloadTasksCompleted value)? downloadTasksCompleted,
+    TResult Function(_UpdateTaskLoading value)? updateTaskLoading,
+    TResult Function(_UpdateTaskFailed value)? updateTaskFailed,
+    TResult Function(_UpdateTaskCompleted value)? updateTaskCompleted,
+    TResult Function(_GetTaskByIdLoading value)? getTaskByIdLoading,
+    TResult Function(_GetTaskByIdFailed value)? getTaskByIdFailed,
+    TResult Function(_GetTaskByIdCompleted value)? getTaskByIdCompleted,
+    TResult Function(_CreateTaskLoading value)? createTaskLoading,
+    TResult Function(_CreateTaskFailed value)? createTaskFailed,
+    TResult Function(_CreateTaskCompleted value)? createTaskCompleted,
+    TResult Function(_DeleteTaskLoading value)? deleteTaskLoading,
+    TResult Function(_DeleteTaskFailed value)? deleteTaskFailed,
+    TResult Function(_DeleteTaskCompleted value)? deleteTaskCompleted,
+    required TResult orElse(),
+  }) {
+    if (allTasksFailed != null) {
+      return allTasksFailed(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _AllTasksFailed implements TaskViewmodelState {
+  factory _AllTasksFailed({required final String message}) =
+      _$AllTasksFailedImpl;
+
+  String get message;
+  @JsonKey(ignore: true)
+  _$$AllTasksFailedImplCopyWith<_$AllTasksFailedImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$SearchLoadingImplCopyWith<$Res> {
+  factory _$$SearchLoadingImplCopyWith(
+          _$SearchLoadingImpl value, $Res Function(_$SearchLoadingImpl) then) =
+      __$$SearchLoadingImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$SearchLoadingImplCopyWithImpl<$Res>
+    extends _$TaskViewmodelStateCopyWithImpl<$Res, _$SearchLoadingImpl>
+    implements _$$SearchLoadingImplCopyWith<$Res> {
+  __$$SearchLoadingImplCopyWithImpl(
+      _$SearchLoadingImpl _value, $Res Function(_$SearchLoadingImpl) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$SearchLoadingImpl implements _SearchLoading {
+  _$SearchLoadingImpl();
+
+  @override
+  String toString() {
+    return 'TaskViewmodelState.searchLoading()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$SearchLoadingImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() allTasksLoading,
+    required TResult Function(List<TaskModel> allTasks) allTasksCompleted,
+    required TResult Function(String message) allTasksFailed,
+    required TResult Function() searchLoading,
+    required TResult Function(List<TaskModel> searchedTasks) searchCompleted,
+    required TResult Function(String message) searchFailed,
+    required TResult Function() getTotalEstimatedTimeLoading,
+    required TResult Function(Duration totalEstimatedTime)
+        getTotalEstimatedTimeCompleted,
+    required TResult Function(String message) getTotalEstimatedTimeFailed,
+    required TResult Function() updateTotalEstimatedTimeLoading,
+    required TResult Function(String message) updateTotalEstimatedTimeFailed,
+    required TResult Function(Duration totalEstimatedTime)
+        updateTotalEstimatedTimeCompleted,
+    required TResult Function() uploadTasksLoading,
+    required TResult Function(String message) uploadTasksFailed,
+    required TResult Function(TaskModel meupdatedTaskssage)
+        uploadTasksCompleted,
+    required TResult Function() downloadTasksLoading,
+    required TResult Function(String message) downloadTasksFailed,
+    required TResult Function(List<TaskModel> downloadedTasks)
+        downloadTasksCompleted,
+    required TResult Function() updateTaskLoading,
+    required TResult Function(String message) updateTaskFailed,
+    required TResult Function(TaskModel updatedTask) updateTaskCompleted,
+    required TResult Function() getTaskByIdLoading,
+    required TResult Function(String message) getTaskByIdFailed,
+    required TResult Function(TaskModel taskById) getTaskByIdCompleted,
+    required TResult Function() createTaskLoading,
+    required TResult Function(String message) createTaskFailed,
+    required TResult Function(TaskModel createdTask) createTaskCompleted,
+    required TResult Function() deleteTaskLoading,
+    required TResult Function(String message) deleteTaskFailed,
+    required TResult Function(TaskModel deletedTask) deleteTaskCompleted,
+  }) {
+    return searchLoading();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? allTasksLoading,
+    TResult? Function(List<TaskModel> allTasks)? allTasksCompleted,
+    TResult? Function(String message)? allTasksFailed,
+    TResult? Function()? searchLoading,
+    TResult? Function(List<TaskModel> searchedTasks)? searchCompleted,
+    TResult? Function(String message)? searchFailed,
+    TResult? Function()? getTotalEstimatedTimeLoading,
+    TResult? Function(Duration totalEstimatedTime)?
+        getTotalEstimatedTimeCompleted,
+    TResult? Function(String message)? getTotalEstimatedTimeFailed,
+    TResult? Function()? updateTotalEstimatedTimeLoading,
+    TResult? Function(String message)? updateTotalEstimatedTimeFailed,
+    TResult? Function(Duration totalEstimatedTime)?
+        updateTotalEstimatedTimeCompleted,
+    TResult? Function()? uploadTasksLoading,
+    TResult? Function(String message)? uploadTasksFailed,
+    TResult? Function(TaskModel meupdatedTaskssage)? uploadTasksCompleted,
+    TResult? Function()? downloadTasksLoading,
+    TResult? Function(String message)? downloadTasksFailed,
+    TResult? Function(List<TaskModel> downloadedTasks)? downloadTasksCompleted,
+    TResult? Function()? updateTaskLoading,
+    TResult? Function(String message)? updateTaskFailed,
+    TResult? Function(TaskModel updatedTask)? updateTaskCompleted,
+    TResult? Function()? getTaskByIdLoading,
+    TResult? Function(String message)? getTaskByIdFailed,
+    TResult? Function(TaskModel taskById)? getTaskByIdCompleted,
+    TResult? Function()? createTaskLoading,
+    TResult? Function(String message)? createTaskFailed,
+    TResult? Function(TaskModel createdTask)? createTaskCompleted,
+    TResult? Function()? deleteTaskLoading,
+    TResult? Function(String message)? deleteTaskFailed,
+    TResult? Function(TaskModel deletedTask)? deleteTaskCompleted,
+  }) {
+    return searchLoading?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? allTasksLoading,
+    TResult Function(List<TaskModel> allTasks)? allTasksCompleted,
+    TResult Function(String message)? allTasksFailed,
+    TResult Function()? searchLoading,
+    TResult Function(List<TaskModel> searchedTasks)? searchCompleted,
+    TResult Function(String message)? searchFailed,
+    TResult Function()? getTotalEstimatedTimeLoading,
+    TResult Function(Duration totalEstimatedTime)?
+        getTotalEstimatedTimeCompleted,
+    TResult Function(String message)? getTotalEstimatedTimeFailed,
+    TResult Function()? updateTotalEstimatedTimeLoading,
+    TResult Function(String message)? updateTotalEstimatedTimeFailed,
+    TResult Function(Duration totalEstimatedTime)?
+        updateTotalEstimatedTimeCompleted,
+    TResult Function()? uploadTasksLoading,
+    TResult Function(String message)? uploadTasksFailed,
+    TResult Function(TaskModel meupdatedTaskssage)? uploadTasksCompleted,
+    TResult Function()? downloadTasksLoading,
+    TResult Function(String message)? downloadTasksFailed,
+    TResult Function(List<TaskModel> downloadedTasks)? downloadTasksCompleted,
+    TResult Function()? updateTaskLoading,
+    TResult Function(String message)? updateTaskFailed,
+    TResult Function(TaskModel updatedTask)? updateTaskCompleted,
+    TResult Function()? getTaskByIdLoading,
+    TResult Function(String message)? getTaskByIdFailed,
+    TResult Function(TaskModel taskById)? getTaskByIdCompleted,
+    TResult Function()? createTaskLoading,
+    TResult Function(String message)? createTaskFailed,
+    TResult Function(TaskModel createdTask)? createTaskCompleted,
+    TResult Function()? deleteTaskLoading,
+    TResult Function(String message)? deleteTaskFailed,
+    TResult Function(TaskModel deletedTask)? deleteTaskCompleted,
+    required TResult orElse(),
+  }) {
+    if (searchLoading != null) {
+      return searchLoading();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(_AllTasksLoading value) allTasksLoading,
+    required TResult Function(_AllTasksCompleted value) allTasksCompleted,
+    required TResult Function(_AllTasksFailed value) allTasksFailed,
+    required TResult Function(_SearchLoading value) searchLoading,
+    required TResult Function(_SearchCompleted value) searchCompleted,
+    required TResult Function(_SearchFailed value) searchFailed,
+    required TResult Function(_GetTotalEstimatedTimeLoading value)
+        getTotalEstimatedTimeLoading,
+    required TResult Function(_GetTotalEstimatedTimeCompleted value)
+        getTotalEstimatedTimeCompleted,
+    required TResult Function(_GetTotalEstimatedTimeFailed value)
+        getTotalEstimatedTimeFailed,
+    required TResult Function(_UpdateTotalEstimatedTimeLoading value)
+        updateTotalEstimatedTimeLoading,
+    required TResult Function(_UpdateTotalEstimatedTimeFailed value)
+        updateTotalEstimatedTimeFailed,
+    required TResult Function(_UpdateTotalEstimatedTimeCompleted value)
+        updateTotalEstimatedTimeCompleted,
+    required TResult Function(_UploadTasksLoading value) uploadTasksLoading,
+    required TResult Function(_UploadTasksFailed value) uploadTasksFailed,
+    required TResult Function(_UploadTasksCompleted value) uploadTasksCompleted,
+    required TResult Function(_DownloadTasksLoading value) downloadTasksLoading,
+    required TResult Function(_DownloadTasksFailed value) downloadTasksFailed,
+    required TResult Function(_DownloadTasksCompleted value)
+        downloadTasksCompleted,
+    required TResult Function(_UpdateTaskLoading value) updateTaskLoading,
+    required TResult Function(_UpdateTaskFailed value) updateTaskFailed,
+    required TResult Function(_UpdateTaskCompleted value) updateTaskCompleted,
+    required TResult Function(_GetTaskByIdLoading value) getTaskByIdLoading,
+    required TResult Function(_GetTaskByIdFailed value) getTaskByIdFailed,
+    required TResult Function(_GetTaskByIdCompleted value) getTaskByIdCompleted,
+    required TResult Function(_CreateTaskLoading value) createTaskLoading,
+    required TResult Function(_CreateTaskFailed value) createTaskFailed,
+    required TResult Function(_CreateTaskCompleted value) createTaskCompleted,
+    required TResult Function(_DeleteTaskLoading value) deleteTaskLoading,
+    required TResult Function(_DeleteTaskFailed value) deleteTaskFailed,
+    required TResult Function(_DeleteTaskCompleted value) deleteTaskCompleted,
+  }) {
+    return searchLoading(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_AllTasksLoading value)? allTasksLoading,
+    TResult? Function(_AllTasksCompleted value)? allTasksCompleted,
+    TResult? Function(_AllTasksFailed value)? allTasksFailed,
+    TResult? Function(_SearchLoading value)? searchLoading,
+    TResult? Function(_SearchCompleted value)? searchCompleted,
+    TResult? Function(_SearchFailed value)? searchFailed,
+    TResult? Function(_GetTotalEstimatedTimeLoading value)?
+        getTotalEstimatedTimeLoading,
+    TResult? Function(_GetTotalEstimatedTimeCompleted value)?
+        getTotalEstimatedTimeCompleted,
+    TResult? Function(_GetTotalEstimatedTimeFailed value)?
+        getTotalEstimatedTimeFailed,
+    TResult? Function(_UpdateTotalEstimatedTimeLoading value)?
+        updateTotalEstimatedTimeLoading,
+    TResult? Function(_UpdateTotalEstimatedTimeFailed value)?
+        updateTotalEstimatedTimeFailed,
+    TResult? Function(_UpdateTotalEstimatedTimeCompleted value)?
+        updateTotalEstimatedTimeCompleted,
+    TResult? Function(_UploadTasksLoading value)? uploadTasksLoading,
+    TResult? Function(_UploadTasksFailed value)? uploadTasksFailed,
+    TResult? Function(_UploadTasksCompleted value)? uploadTasksCompleted,
+    TResult? Function(_DownloadTasksLoading value)? downloadTasksLoading,
+    TResult? Function(_DownloadTasksFailed value)? downloadTasksFailed,
+    TResult? Function(_DownloadTasksCompleted value)? downloadTasksCompleted,
+    TResult? Function(_UpdateTaskLoading value)? updateTaskLoading,
+    TResult? Function(_UpdateTaskFailed value)? updateTaskFailed,
+    TResult? Function(_UpdateTaskCompleted value)? updateTaskCompleted,
+    TResult? Function(_GetTaskByIdLoading value)? getTaskByIdLoading,
+    TResult? Function(_GetTaskByIdFailed value)? getTaskByIdFailed,
+    TResult? Function(_GetTaskByIdCompleted value)? getTaskByIdCompleted,
+    TResult? Function(_CreateTaskLoading value)? createTaskLoading,
+    TResult? Function(_CreateTaskFailed value)? createTaskFailed,
+    TResult? Function(_CreateTaskCompleted value)? createTaskCompleted,
+    TResult? Function(_DeleteTaskLoading value)? deleteTaskLoading,
+    TResult? Function(_DeleteTaskFailed value)? deleteTaskFailed,
+    TResult? Function(_DeleteTaskCompleted value)? deleteTaskCompleted,
+  }) {
+    return searchLoading?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_AllTasksLoading value)? allTasksLoading,
+    TResult Function(_AllTasksCompleted value)? allTasksCompleted,
+    TResult Function(_AllTasksFailed value)? allTasksFailed,
+    TResult Function(_SearchLoading value)? searchLoading,
+    TResult Function(_SearchCompleted value)? searchCompleted,
+    TResult Function(_SearchFailed value)? searchFailed,
+    TResult Function(_GetTotalEstimatedTimeLoading value)?
+        getTotalEstimatedTimeLoading,
+    TResult Function(_GetTotalEstimatedTimeCompleted value)?
+        getTotalEstimatedTimeCompleted,
+    TResult Function(_GetTotalEstimatedTimeFailed value)?
+        getTotalEstimatedTimeFailed,
+    TResult Function(_UpdateTotalEstimatedTimeLoading value)?
+        updateTotalEstimatedTimeLoading,
+    TResult Function(_UpdateTotalEstimatedTimeFailed value)?
+        updateTotalEstimatedTimeFailed,
+    TResult Function(_UpdateTotalEstimatedTimeCompleted value)?
+        updateTotalEstimatedTimeCompleted,
+    TResult Function(_UploadTasksLoading value)? uploadTasksLoading,
+    TResult Function(_UploadTasksFailed value)? uploadTasksFailed,
+    TResult Function(_UploadTasksCompleted value)? uploadTasksCompleted,
+    TResult Function(_DownloadTasksLoading value)? downloadTasksLoading,
+    TResult Function(_DownloadTasksFailed value)? downloadTasksFailed,
+    TResult Function(_DownloadTasksCompleted value)? downloadTasksCompleted,
+    TResult Function(_UpdateTaskLoading value)? updateTaskLoading,
+    TResult Function(_UpdateTaskFailed value)? updateTaskFailed,
+    TResult Function(_UpdateTaskCompleted value)? updateTaskCompleted,
+    TResult Function(_GetTaskByIdLoading value)? getTaskByIdLoading,
+    TResult Function(_GetTaskByIdFailed value)? getTaskByIdFailed,
+    TResult Function(_GetTaskByIdCompleted value)? getTaskByIdCompleted,
+    TResult Function(_CreateTaskLoading value)? createTaskLoading,
+    TResult Function(_CreateTaskFailed value)? createTaskFailed,
+    TResult Function(_CreateTaskCompleted value)? createTaskCompleted,
+    TResult Function(_DeleteTaskLoading value)? deleteTaskLoading,
+    TResult Function(_DeleteTaskFailed value)? deleteTaskFailed,
+    TResult Function(_DeleteTaskCompleted value)? deleteTaskCompleted,
+    required TResult orElse(),
+  }) {
+    if (searchLoading != null) {
+      return searchLoading(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _SearchLoading implements TaskViewmodelState {
+  factory _SearchLoading() = _$SearchLoadingImpl;
+}
+
+/// @nodoc
+abstract class _$$SearchCompletedImplCopyWith<$Res> {
+  factory _$$SearchCompletedImplCopyWith(_$SearchCompletedImpl value,
+          $Res Function(_$SearchCompletedImpl) then) =
+      __$$SearchCompletedImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({List<TaskModel> searchedTasks});
+}
+
+/// @nodoc
+class __$$SearchCompletedImplCopyWithImpl<$Res>
+    extends _$TaskViewmodelStateCopyWithImpl<$Res, _$SearchCompletedImpl>
+    implements _$$SearchCompletedImplCopyWith<$Res> {
+  __$$SearchCompletedImplCopyWithImpl(
+      _$SearchCompletedImpl _value, $Res Function(_$SearchCompletedImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? searchedTasks = null,
+  }) {
+    return _then(_$SearchCompletedImpl(
+      searchedTasks: null == searchedTasks
+          ? _value.searchedTasks
+          : searchedTasks // ignore: cast_nullable_to_non_nullable
+              as List<TaskModel>,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$SearchCompletedImpl implements _SearchCompleted {
+  _$SearchCompletedImpl({required this.searchedTasks});
+
+  @override
+  final List<TaskModel> searchedTasks;
+
+  @override
+  String toString() {
+    return 'TaskViewmodelState.searchCompleted(searchedTasks: $searchedTasks)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$SearchCompletedImpl &&
+            const DeepCollectionEquality()
+                .equals(other.searchedTasks, searchedTasks));
+  }
+
+  @override
+  int get hashCode => Object.hash(
+      runtimeType, const DeepCollectionEquality().hash(searchedTasks));
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$SearchCompletedImplCopyWith<_$SearchCompletedImpl> get copyWith =>
+      __$$SearchCompletedImplCopyWithImpl<_$SearchCompletedImpl>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() allTasksLoading,
+    required TResult Function(List<TaskModel> allTasks) allTasksCompleted,
+    required TResult Function(String message) allTasksFailed,
+    required TResult Function() searchLoading,
+    required TResult Function(List<TaskModel> searchedTasks) searchCompleted,
+    required TResult Function(String message) searchFailed,
+    required TResult Function() getTotalEstimatedTimeLoading,
+    required TResult Function(Duration totalEstimatedTime)
+        getTotalEstimatedTimeCompleted,
+    required TResult Function(String message) getTotalEstimatedTimeFailed,
+    required TResult Function() updateTotalEstimatedTimeLoading,
+    required TResult Function(String message) updateTotalEstimatedTimeFailed,
+    required TResult Function(Duration totalEstimatedTime)
+        updateTotalEstimatedTimeCompleted,
+    required TResult Function() uploadTasksLoading,
+    required TResult Function(String message) uploadTasksFailed,
+    required TResult Function(TaskModel meupdatedTaskssage)
+        uploadTasksCompleted,
+    required TResult Function() downloadTasksLoading,
+    required TResult Function(String message) downloadTasksFailed,
+    required TResult Function(List<TaskModel> downloadedTasks)
+        downloadTasksCompleted,
+    required TResult Function() updateTaskLoading,
+    required TResult Function(String message) updateTaskFailed,
+    required TResult Function(TaskModel updatedTask) updateTaskCompleted,
+    required TResult Function() getTaskByIdLoading,
+    required TResult Function(String message) getTaskByIdFailed,
+    required TResult Function(TaskModel taskById) getTaskByIdCompleted,
+    required TResult Function() createTaskLoading,
+    required TResult Function(String message) createTaskFailed,
+    required TResult Function(TaskModel createdTask) createTaskCompleted,
+    required TResult Function() deleteTaskLoading,
+    required TResult Function(String message) deleteTaskFailed,
+    required TResult Function(TaskModel deletedTask) deleteTaskCompleted,
+  }) {
+    return searchCompleted(searchedTasks);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? allTasksLoading,
+    TResult? Function(List<TaskModel> allTasks)? allTasksCompleted,
+    TResult? Function(String message)? allTasksFailed,
+    TResult? Function()? searchLoading,
+    TResult? Function(List<TaskModel> searchedTasks)? searchCompleted,
+    TResult? Function(String message)? searchFailed,
+    TResult? Function()? getTotalEstimatedTimeLoading,
+    TResult? Function(Duration totalEstimatedTime)?
+        getTotalEstimatedTimeCompleted,
+    TResult? Function(String message)? getTotalEstimatedTimeFailed,
+    TResult? Function()? updateTotalEstimatedTimeLoading,
+    TResult? Function(String message)? updateTotalEstimatedTimeFailed,
+    TResult? Function(Duration totalEstimatedTime)?
+        updateTotalEstimatedTimeCompleted,
+    TResult? Function()? uploadTasksLoading,
+    TResult? Function(String message)? uploadTasksFailed,
+    TResult? Function(TaskModel meupdatedTaskssage)? uploadTasksCompleted,
+    TResult? Function()? downloadTasksLoading,
+    TResult? Function(String message)? downloadTasksFailed,
+    TResult? Function(List<TaskModel> downloadedTasks)? downloadTasksCompleted,
+    TResult? Function()? updateTaskLoading,
+    TResult? Function(String message)? updateTaskFailed,
+    TResult? Function(TaskModel updatedTask)? updateTaskCompleted,
+    TResult? Function()? getTaskByIdLoading,
+    TResult? Function(String message)? getTaskByIdFailed,
+    TResult? Function(TaskModel taskById)? getTaskByIdCompleted,
+    TResult? Function()? createTaskLoading,
+    TResult? Function(String message)? createTaskFailed,
+    TResult? Function(TaskModel createdTask)? createTaskCompleted,
+    TResult? Function()? deleteTaskLoading,
+    TResult? Function(String message)? deleteTaskFailed,
+    TResult? Function(TaskModel deletedTask)? deleteTaskCompleted,
+  }) {
+    return searchCompleted?.call(searchedTasks);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? allTasksLoading,
+    TResult Function(List<TaskModel> allTasks)? allTasksCompleted,
+    TResult Function(String message)? allTasksFailed,
+    TResult Function()? searchLoading,
+    TResult Function(List<TaskModel> searchedTasks)? searchCompleted,
+    TResult Function(String message)? searchFailed,
+    TResult Function()? getTotalEstimatedTimeLoading,
+    TResult Function(Duration totalEstimatedTime)?
+        getTotalEstimatedTimeCompleted,
+    TResult Function(String message)? getTotalEstimatedTimeFailed,
+    TResult Function()? updateTotalEstimatedTimeLoading,
+    TResult Function(String message)? updateTotalEstimatedTimeFailed,
+    TResult Function(Duration totalEstimatedTime)?
+        updateTotalEstimatedTimeCompleted,
+    TResult Function()? uploadTasksLoading,
+    TResult Function(String message)? uploadTasksFailed,
+    TResult Function(TaskModel meupdatedTaskssage)? uploadTasksCompleted,
+    TResult Function()? downloadTasksLoading,
+    TResult Function(String message)? downloadTasksFailed,
+    TResult Function(List<TaskModel> downloadedTasks)? downloadTasksCompleted,
+    TResult Function()? updateTaskLoading,
+    TResult Function(String message)? updateTaskFailed,
+    TResult Function(TaskModel updatedTask)? updateTaskCompleted,
+    TResult Function()? getTaskByIdLoading,
+    TResult Function(String message)? getTaskByIdFailed,
+    TResult Function(TaskModel taskById)? getTaskByIdCompleted,
+    TResult Function()? createTaskLoading,
+    TResult Function(String message)? createTaskFailed,
+    TResult Function(TaskModel createdTask)? createTaskCompleted,
+    TResult Function()? deleteTaskLoading,
+    TResult Function(String message)? deleteTaskFailed,
+    TResult Function(TaskModel deletedTask)? deleteTaskCompleted,
+    required TResult orElse(),
+  }) {
+    if (searchCompleted != null) {
+      return searchCompleted(searchedTasks);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(_AllTasksLoading value) allTasksLoading,
+    required TResult Function(_AllTasksCompleted value) allTasksCompleted,
+    required TResult Function(_AllTasksFailed value) allTasksFailed,
+    required TResult Function(_SearchLoading value) searchLoading,
+    required TResult Function(_SearchCompleted value) searchCompleted,
+    required TResult Function(_SearchFailed value) searchFailed,
+    required TResult Function(_GetTotalEstimatedTimeLoading value)
+        getTotalEstimatedTimeLoading,
+    required TResult Function(_GetTotalEstimatedTimeCompleted value)
+        getTotalEstimatedTimeCompleted,
+    required TResult Function(_GetTotalEstimatedTimeFailed value)
+        getTotalEstimatedTimeFailed,
+    required TResult Function(_UpdateTotalEstimatedTimeLoading value)
+        updateTotalEstimatedTimeLoading,
+    required TResult Function(_UpdateTotalEstimatedTimeFailed value)
+        updateTotalEstimatedTimeFailed,
+    required TResult Function(_UpdateTotalEstimatedTimeCompleted value)
+        updateTotalEstimatedTimeCompleted,
+    required TResult Function(_UploadTasksLoading value) uploadTasksLoading,
+    required TResult Function(_UploadTasksFailed value) uploadTasksFailed,
+    required TResult Function(_UploadTasksCompleted value) uploadTasksCompleted,
+    required TResult Function(_DownloadTasksLoading value) downloadTasksLoading,
+    required TResult Function(_DownloadTasksFailed value) downloadTasksFailed,
+    required TResult Function(_DownloadTasksCompleted value)
+        downloadTasksCompleted,
+    required TResult Function(_UpdateTaskLoading value) updateTaskLoading,
+    required TResult Function(_UpdateTaskFailed value) updateTaskFailed,
+    required TResult Function(_UpdateTaskCompleted value) updateTaskCompleted,
+    required TResult Function(_GetTaskByIdLoading value) getTaskByIdLoading,
+    required TResult Function(_GetTaskByIdFailed value) getTaskByIdFailed,
+    required TResult Function(_GetTaskByIdCompleted value) getTaskByIdCompleted,
+    required TResult Function(_CreateTaskLoading value) createTaskLoading,
+    required TResult Function(_CreateTaskFailed value) createTaskFailed,
+    required TResult Function(_CreateTaskCompleted value) createTaskCompleted,
+    required TResult Function(_DeleteTaskLoading value) deleteTaskLoading,
+    required TResult Function(_DeleteTaskFailed value) deleteTaskFailed,
+    required TResult Function(_DeleteTaskCompleted value) deleteTaskCompleted,
+  }) {
+    return searchCompleted(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_AllTasksLoading value)? allTasksLoading,
+    TResult? Function(_AllTasksCompleted value)? allTasksCompleted,
+    TResult? Function(_AllTasksFailed value)? allTasksFailed,
+    TResult? Function(_SearchLoading value)? searchLoading,
+    TResult? Function(_SearchCompleted value)? searchCompleted,
+    TResult? Function(_SearchFailed value)? searchFailed,
+    TResult? Function(_GetTotalEstimatedTimeLoading value)?
+        getTotalEstimatedTimeLoading,
+    TResult? Function(_GetTotalEstimatedTimeCompleted value)?
+        getTotalEstimatedTimeCompleted,
+    TResult? Function(_GetTotalEstimatedTimeFailed value)?
+        getTotalEstimatedTimeFailed,
+    TResult? Function(_UpdateTotalEstimatedTimeLoading value)?
+        updateTotalEstimatedTimeLoading,
+    TResult? Function(_UpdateTotalEstimatedTimeFailed value)?
+        updateTotalEstimatedTimeFailed,
+    TResult? Function(_UpdateTotalEstimatedTimeCompleted value)?
+        updateTotalEstimatedTimeCompleted,
+    TResult? Function(_UploadTasksLoading value)? uploadTasksLoading,
+    TResult? Function(_UploadTasksFailed value)? uploadTasksFailed,
+    TResult? Function(_UploadTasksCompleted value)? uploadTasksCompleted,
+    TResult? Function(_DownloadTasksLoading value)? downloadTasksLoading,
+    TResult? Function(_DownloadTasksFailed value)? downloadTasksFailed,
+    TResult? Function(_DownloadTasksCompleted value)? downloadTasksCompleted,
+    TResult? Function(_UpdateTaskLoading value)? updateTaskLoading,
+    TResult? Function(_UpdateTaskFailed value)? updateTaskFailed,
+    TResult? Function(_UpdateTaskCompleted value)? updateTaskCompleted,
+    TResult? Function(_GetTaskByIdLoading value)? getTaskByIdLoading,
+    TResult? Function(_GetTaskByIdFailed value)? getTaskByIdFailed,
+    TResult? Function(_GetTaskByIdCompleted value)? getTaskByIdCompleted,
+    TResult? Function(_CreateTaskLoading value)? createTaskLoading,
+    TResult? Function(_CreateTaskFailed value)? createTaskFailed,
+    TResult? Function(_CreateTaskCompleted value)? createTaskCompleted,
+    TResult? Function(_DeleteTaskLoading value)? deleteTaskLoading,
+    TResult? Function(_DeleteTaskFailed value)? deleteTaskFailed,
+    TResult? Function(_DeleteTaskCompleted value)? deleteTaskCompleted,
+  }) {
+    return searchCompleted?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_AllTasksLoading value)? allTasksLoading,
+    TResult Function(_AllTasksCompleted value)? allTasksCompleted,
+    TResult Function(_AllTasksFailed value)? allTasksFailed,
+    TResult Function(_SearchLoading value)? searchLoading,
+    TResult Function(_SearchCompleted value)? searchCompleted,
+    TResult Function(_SearchFailed value)? searchFailed,
+    TResult Function(_GetTotalEstimatedTimeLoading value)?
+        getTotalEstimatedTimeLoading,
+    TResult Function(_GetTotalEstimatedTimeCompleted value)?
+        getTotalEstimatedTimeCompleted,
+    TResult Function(_GetTotalEstimatedTimeFailed value)?
+        getTotalEstimatedTimeFailed,
+    TResult Function(_UpdateTotalEstimatedTimeLoading value)?
+        updateTotalEstimatedTimeLoading,
+    TResult Function(_UpdateTotalEstimatedTimeFailed value)?
+        updateTotalEstimatedTimeFailed,
+    TResult Function(_UpdateTotalEstimatedTimeCompleted value)?
+        updateTotalEstimatedTimeCompleted,
+    TResult Function(_UploadTasksLoading value)? uploadTasksLoading,
+    TResult Function(_UploadTasksFailed value)? uploadTasksFailed,
+    TResult Function(_UploadTasksCompleted value)? uploadTasksCompleted,
+    TResult Function(_DownloadTasksLoading value)? downloadTasksLoading,
+    TResult Function(_DownloadTasksFailed value)? downloadTasksFailed,
+    TResult Function(_DownloadTasksCompleted value)? downloadTasksCompleted,
+    TResult Function(_UpdateTaskLoading value)? updateTaskLoading,
+    TResult Function(_UpdateTaskFailed value)? updateTaskFailed,
+    TResult Function(_UpdateTaskCompleted value)? updateTaskCompleted,
+    TResult Function(_GetTaskByIdLoading value)? getTaskByIdLoading,
+    TResult Function(_GetTaskByIdFailed value)? getTaskByIdFailed,
+    TResult Function(_GetTaskByIdCompleted value)? getTaskByIdCompleted,
+    TResult Function(_CreateTaskLoading value)? createTaskLoading,
+    TResult Function(_CreateTaskFailed value)? createTaskFailed,
+    TResult Function(_CreateTaskCompleted value)? createTaskCompleted,
+    TResult Function(_DeleteTaskLoading value)? deleteTaskLoading,
+    TResult Function(_DeleteTaskFailed value)? deleteTaskFailed,
+    TResult Function(_DeleteTaskCompleted value)? deleteTaskCompleted,
+    required TResult orElse(),
+  }) {
+    if (searchCompleted != null) {
+      return searchCompleted(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _SearchCompleted implements TaskViewmodelState {
+  factory _SearchCompleted({required final List<TaskModel> searchedTasks}) =
+      _$SearchCompletedImpl;
+
+  List<TaskModel> get searchedTasks;
+  @JsonKey(ignore: true)
+  _$$SearchCompletedImplCopyWith<_$SearchCompletedImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$SearchFailedImplCopyWith<$Res> {
+  factory _$$SearchFailedImplCopyWith(
+          _$SearchFailedImpl value, $Res Function(_$SearchFailedImpl) then) =
+      __$$SearchFailedImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String message});
+}
+
+/// @nodoc
+class __$$SearchFailedImplCopyWithImpl<$Res>
+    extends _$TaskViewmodelStateCopyWithImpl<$Res, _$SearchFailedImpl>
+    implements _$$SearchFailedImplCopyWith<$Res> {
+  __$$SearchFailedImplCopyWithImpl(
+      _$SearchFailedImpl _value, $Res Function(_$SearchFailedImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? message = null,
+  }) {
+    return _then(_$SearchFailedImpl(
+      message: null == message
+          ? _value.message
+          : message // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$SearchFailedImpl implements _SearchFailed {
+  _$SearchFailedImpl({required this.message});
+
+  @override
+  final String message;
+
+  @override
+  String toString() {
+    return 'TaskViewmodelState.searchFailed(message: $message)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$SearchFailedImpl &&
+            (identical(other.message, message) || other.message == message));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, message);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$SearchFailedImplCopyWith<_$SearchFailedImpl> get copyWith =>
+      __$$SearchFailedImplCopyWithImpl<_$SearchFailedImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() allTasksLoading,
+    required TResult Function(List<TaskModel> allTasks) allTasksCompleted,
+    required TResult Function(String message) allTasksFailed,
+    required TResult Function() searchLoading,
+    required TResult Function(List<TaskModel> searchedTasks) searchCompleted,
+    required TResult Function(String message) searchFailed,
+    required TResult Function() getTotalEstimatedTimeLoading,
+    required TResult Function(Duration totalEstimatedTime)
+        getTotalEstimatedTimeCompleted,
+    required TResult Function(String message) getTotalEstimatedTimeFailed,
+    required TResult Function() updateTotalEstimatedTimeLoading,
+    required TResult Function(String message) updateTotalEstimatedTimeFailed,
+    required TResult Function(Duration totalEstimatedTime)
+        updateTotalEstimatedTimeCompleted,
+    required TResult Function() uploadTasksLoading,
+    required TResult Function(String message) uploadTasksFailed,
+    required TResult Function(TaskModel meupdatedTaskssage)
+        uploadTasksCompleted,
+    required TResult Function() downloadTasksLoading,
+    required TResult Function(String message) downloadTasksFailed,
+    required TResult Function(List<TaskModel> downloadedTasks)
+        downloadTasksCompleted,
+    required TResult Function() updateTaskLoading,
+    required TResult Function(String message) updateTaskFailed,
+    required TResult Function(TaskModel updatedTask) updateTaskCompleted,
+    required TResult Function() getTaskByIdLoading,
+    required TResult Function(String message) getTaskByIdFailed,
+    required TResult Function(TaskModel taskById) getTaskByIdCompleted,
+    required TResult Function() createTaskLoading,
+    required TResult Function(String message) createTaskFailed,
+    required TResult Function(TaskModel createdTask) createTaskCompleted,
+    required TResult Function() deleteTaskLoading,
+    required TResult Function(String message) deleteTaskFailed,
+    required TResult Function(TaskModel deletedTask) deleteTaskCompleted,
+  }) {
+    return searchFailed(message);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? allTasksLoading,
+    TResult? Function(List<TaskModel> allTasks)? allTasksCompleted,
+    TResult? Function(String message)? allTasksFailed,
+    TResult? Function()? searchLoading,
+    TResult? Function(List<TaskModel> searchedTasks)? searchCompleted,
+    TResult? Function(String message)? searchFailed,
+    TResult? Function()? getTotalEstimatedTimeLoading,
+    TResult? Function(Duration totalEstimatedTime)?
+        getTotalEstimatedTimeCompleted,
+    TResult? Function(String message)? getTotalEstimatedTimeFailed,
+    TResult? Function()? updateTotalEstimatedTimeLoading,
+    TResult? Function(String message)? updateTotalEstimatedTimeFailed,
+    TResult? Function(Duration totalEstimatedTime)?
+        updateTotalEstimatedTimeCompleted,
+    TResult? Function()? uploadTasksLoading,
+    TResult? Function(String message)? uploadTasksFailed,
+    TResult? Function(TaskModel meupdatedTaskssage)? uploadTasksCompleted,
+    TResult? Function()? downloadTasksLoading,
+    TResult? Function(String message)? downloadTasksFailed,
+    TResult? Function(List<TaskModel> downloadedTasks)? downloadTasksCompleted,
+    TResult? Function()? updateTaskLoading,
+    TResult? Function(String message)? updateTaskFailed,
+    TResult? Function(TaskModel updatedTask)? updateTaskCompleted,
+    TResult? Function()? getTaskByIdLoading,
+    TResult? Function(String message)? getTaskByIdFailed,
+    TResult? Function(TaskModel taskById)? getTaskByIdCompleted,
+    TResult? Function()? createTaskLoading,
+    TResult? Function(String message)? createTaskFailed,
+    TResult? Function(TaskModel createdTask)? createTaskCompleted,
+    TResult? Function()? deleteTaskLoading,
+    TResult? Function(String message)? deleteTaskFailed,
+    TResult? Function(TaskModel deletedTask)? deleteTaskCompleted,
+  }) {
+    return searchFailed?.call(message);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? allTasksLoading,
+    TResult Function(List<TaskModel> allTasks)? allTasksCompleted,
+    TResult Function(String message)? allTasksFailed,
+    TResult Function()? searchLoading,
+    TResult Function(List<TaskModel> searchedTasks)? searchCompleted,
+    TResult Function(String message)? searchFailed,
+    TResult Function()? getTotalEstimatedTimeLoading,
+    TResult Function(Duration totalEstimatedTime)?
+        getTotalEstimatedTimeCompleted,
+    TResult Function(String message)? getTotalEstimatedTimeFailed,
+    TResult Function()? updateTotalEstimatedTimeLoading,
+    TResult Function(String message)? updateTotalEstimatedTimeFailed,
+    TResult Function(Duration totalEstimatedTime)?
+        updateTotalEstimatedTimeCompleted,
+    TResult Function()? uploadTasksLoading,
+    TResult Function(String message)? uploadTasksFailed,
+    TResult Function(TaskModel meupdatedTaskssage)? uploadTasksCompleted,
+    TResult Function()? downloadTasksLoading,
+    TResult Function(String message)? downloadTasksFailed,
+    TResult Function(List<TaskModel> downloadedTasks)? downloadTasksCompleted,
+    TResult Function()? updateTaskLoading,
+    TResult Function(String message)? updateTaskFailed,
+    TResult Function(TaskModel updatedTask)? updateTaskCompleted,
+    TResult Function()? getTaskByIdLoading,
+    TResult Function(String message)? getTaskByIdFailed,
+    TResult Function(TaskModel taskById)? getTaskByIdCompleted,
+    TResult Function()? createTaskLoading,
+    TResult Function(String message)? createTaskFailed,
+    TResult Function(TaskModel createdTask)? createTaskCompleted,
+    TResult Function()? deleteTaskLoading,
+    TResult Function(String message)? deleteTaskFailed,
+    TResult Function(TaskModel deletedTask)? deleteTaskCompleted,
+    required TResult orElse(),
+  }) {
+    if (searchFailed != null) {
+      return searchFailed(message);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(_AllTasksLoading value) allTasksLoading,
+    required TResult Function(_AllTasksCompleted value) allTasksCompleted,
+    required TResult Function(_AllTasksFailed value) allTasksFailed,
+    required TResult Function(_SearchLoading value) searchLoading,
+    required TResult Function(_SearchCompleted value) searchCompleted,
+    required TResult Function(_SearchFailed value) searchFailed,
+    required TResult Function(_GetTotalEstimatedTimeLoading value)
+        getTotalEstimatedTimeLoading,
+    required TResult Function(_GetTotalEstimatedTimeCompleted value)
+        getTotalEstimatedTimeCompleted,
+    required TResult Function(_GetTotalEstimatedTimeFailed value)
+        getTotalEstimatedTimeFailed,
+    required TResult Function(_UpdateTotalEstimatedTimeLoading value)
+        updateTotalEstimatedTimeLoading,
+    required TResult Function(_UpdateTotalEstimatedTimeFailed value)
+        updateTotalEstimatedTimeFailed,
+    required TResult Function(_UpdateTotalEstimatedTimeCompleted value)
+        updateTotalEstimatedTimeCompleted,
+    required TResult Function(_UploadTasksLoading value) uploadTasksLoading,
+    required TResult Function(_UploadTasksFailed value) uploadTasksFailed,
+    required TResult Function(_UploadTasksCompleted value) uploadTasksCompleted,
+    required TResult Function(_DownloadTasksLoading value) downloadTasksLoading,
+    required TResult Function(_DownloadTasksFailed value) downloadTasksFailed,
+    required TResult Function(_DownloadTasksCompleted value)
+        downloadTasksCompleted,
+    required TResult Function(_UpdateTaskLoading value) updateTaskLoading,
+    required TResult Function(_UpdateTaskFailed value) updateTaskFailed,
+    required TResult Function(_UpdateTaskCompleted value) updateTaskCompleted,
+    required TResult Function(_GetTaskByIdLoading value) getTaskByIdLoading,
+    required TResult Function(_GetTaskByIdFailed value) getTaskByIdFailed,
+    required TResult Function(_GetTaskByIdCompleted value) getTaskByIdCompleted,
+    required TResult Function(_CreateTaskLoading value) createTaskLoading,
+    required TResult Function(_CreateTaskFailed value) createTaskFailed,
+    required TResult Function(_CreateTaskCompleted value) createTaskCompleted,
+    required TResult Function(_DeleteTaskLoading value) deleteTaskLoading,
+    required TResult Function(_DeleteTaskFailed value) deleteTaskFailed,
+    required TResult Function(_DeleteTaskCompleted value) deleteTaskCompleted,
+  }) {
+    return searchFailed(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_AllTasksLoading value)? allTasksLoading,
+    TResult? Function(_AllTasksCompleted value)? allTasksCompleted,
+    TResult? Function(_AllTasksFailed value)? allTasksFailed,
+    TResult? Function(_SearchLoading value)? searchLoading,
+    TResult? Function(_SearchCompleted value)? searchCompleted,
+    TResult? Function(_SearchFailed value)? searchFailed,
+    TResult? Function(_GetTotalEstimatedTimeLoading value)?
+        getTotalEstimatedTimeLoading,
+    TResult? Function(_GetTotalEstimatedTimeCompleted value)?
+        getTotalEstimatedTimeCompleted,
+    TResult? Function(_GetTotalEstimatedTimeFailed value)?
+        getTotalEstimatedTimeFailed,
+    TResult? Function(_UpdateTotalEstimatedTimeLoading value)?
+        updateTotalEstimatedTimeLoading,
+    TResult? Function(_UpdateTotalEstimatedTimeFailed value)?
+        updateTotalEstimatedTimeFailed,
+    TResult? Function(_UpdateTotalEstimatedTimeCompleted value)?
+        updateTotalEstimatedTimeCompleted,
+    TResult? Function(_UploadTasksLoading value)? uploadTasksLoading,
+    TResult? Function(_UploadTasksFailed value)? uploadTasksFailed,
+    TResult? Function(_UploadTasksCompleted value)? uploadTasksCompleted,
+    TResult? Function(_DownloadTasksLoading value)? downloadTasksLoading,
+    TResult? Function(_DownloadTasksFailed value)? downloadTasksFailed,
+    TResult? Function(_DownloadTasksCompleted value)? downloadTasksCompleted,
+    TResult? Function(_UpdateTaskLoading value)? updateTaskLoading,
+    TResult? Function(_UpdateTaskFailed value)? updateTaskFailed,
+    TResult? Function(_UpdateTaskCompleted value)? updateTaskCompleted,
+    TResult? Function(_GetTaskByIdLoading value)? getTaskByIdLoading,
+    TResult? Function(_GetTaskByIdFailed value)? getTaskByIdFailed,
+    TResult? Function(_GetTaskByIdCompleted value)? getTaskByIdCompleted,
+    TResult? Function(_CreateTaskLoading value)? createTaskLoading,
+    TResult? Function(_CreateTaskFailed value)? createTaskFailed,
+    TResult? Function(_CreateTaskCompleted value)? createTaskCompleted,
+    TResult? Function(_DeleteTaskLoading value)? deleteTaskLoading,
+    TResult? Function(_DeleteTaskFailed value)? deleteTaskFailed,
+    TResult? Function(_DeleteTaskCompleted value)? deleteTaskCompleted,
+  }) {
+    return searchFailed?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_AllTasksLoading value)? allTasksLoading,
+    TResult Function(_AllTasksCompleted value)? allTasksCompleted,
+    TResult Function(_AllTasksFailed value)? allTasksFailed,
+    TResult Function(_SearchLoading value)? searchLoading,
+    TResult Function(_SearchCompleted value)? searchCompleted,
+    TResult Function(_SearchFailed value)? searchFailed,
+    TResult Function(_GetTotalEstimatedTimeLoading value)?
+        getTotalEstimatedTimeLoading,
+    TResult Function(_GetTotalEstimatedTimeCompleted value)?
+        getTotalEstimatedTimeCompleted,
+    TResult Function(_GetTotalEstimatedTimeFailed value)?
+        getTotalEstimatedTimeFailed,
+    TResult Function(_UpdateTotalEstimatedTimeLoading value)?
+        updateTotalEstimatedTimeLoading,
+    TResult Function(_UpdateTotalEstimatedTimeFailed value)?
+        updateTotalEstimatedTimeFailed,
+    TResult Function(_UpdateTotalEstimatedTimeCompleted value)?
+        updateTotalEstimatedTimeCompleted,
+    TResult Function(_UploadTasksLoading value)? uploadTasksLoading,
+    TResult Function(_UploadTasksFailed value)? uploadTasksFailed,
+    TResult Function(_UploadTasksCompleted value)? uploadTasksCompleted,
+    TResult Function(_DownloadTasksLoading value)? downloadTasksLoading,
+    TResult Function(_DownloadTasksFailed value)? downloadTasksFailed,
+    TResult Function(_DownloadTasksCompleted value)? downloadTasksCompleted,
+    TResult Function(_UpdateTaskLoading value)? updateTaskLoading,
+    TResult Function(_UpdateTaskFailed value)? updateTaskFailed,
+    TResult Function(_UpdateTaskCompleted value)? updateTaskCompleted,
+    TResult Function(_GetTaskByIdLoading value)? getTaskByIdLoading,
+    TResult Function(_GetTaskByIdFailed value)? getTaskByIdFailed,
+    TResult Function(_GetTaskByIdCompleted value)? getTaskByIdCompleted,
+    TResult Function(_CreateTaskLoading value)? createTaskLoading,
+    TResult Function(_CreateTaskFailed value)? createTaskFailed,
+    TResult Function(_CreateTaskCompleted value)? createTaskCompleted,
+    TResult Function(_DeleteTaskLoading value)? deleteTaskLoading,
+    TResult Function(_DeleteTaskFailed value)? deleteTaskFailed,
+    TResult Function(_DeleteTaskCompleted value)? deleteTaskCompleted,
+    required TResult orElse(),
+  }) {
+    if (searchFailed != null) {
+      return searchFailed(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _SearchFailed implements TaskViewmodelState {
+  factory _SearchFailed({required final String message}) = _$SearchFailedImpl;
+
+  String get message;
+  @JsonKey(ignore: true)
+  _$$SearchFailedImplCopyWith<_$SearchFailedImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$GetTotalEstimatedTimeLoadingImplCopyWith<$Res> {
+  factory _$$GetTotalEstimatedTimeLoadingImplCopyWith(
+          _$GetTotalEstimatedTimeLoadingImpl value,
+          $Res Function(_$GetTotalEstimatedTimeLoadingImpl) then) =
+      __$$GetTotalEstimatedTimeLoadingImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$GetTotalEstimatedTimeLoadingImplCopyWithImpl<$Res>
+    extends _$TaskViewmodelStateCopyWithImpl<$Res,
+        _$GetTotalEstimatedTimeLoadingImpl>
+    implements _$$GetTotalEstimatedTimeLoadingImplCopyWith<$Res> {
+  __$$GetTotalEstimatedTimeLoadingImplCopyWithImpl(
+      _$GetTotalEstimatedTimeLoadingImpl _value,
+      $Res Function(_$GetTotalEstimatedTimeLoadingImpl) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$GetTotalEstimatedTimeLoadingImpl
+    implements _GetTotalEstimatedTimeLoading {
+  _$GetTotalEstimatedTimeLoadingImpl();
+
+  @override
+  String toString() {
+    return 'TaskViewmodelState.getTotalEstimatedTimeLoading()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$GetTotalEstimatedTimeLoadingImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() allTasksLoading,
+    required TResult Function(List<TaskModel> allTasks) allTasksCompleted,
+    required TResult Function(String message) allTasksFailed,
+    required TResult Function() searchLoading,
+    required TResult Function(List<TaskModel> searchedTasks) searchCompleted,
+    required TResult Function(String message) searchFailed,
+    required TResult Function() getTotalEstimatedTimeLoading,
+    required TResult Function(Duration totalEstimatedTime)
+        getTotalEstimatedTimeCompleted,
+    required TResult Function(String message) getTotalEstimatedTimeFailed,
+    required TResult Function() updateTotalEstimatedTimeLoading,
+    required TResult Function(String message) updateTotalEstimatedTimeFailed,
+    required TResult Function(Duration totalEstimatedTime)
+        updateTotalEstimatedTimeCompleted,
+    required TResult Function() uploadTasksLoading,
+    required TResult Function(String message) uploadTasksFailed,
+    required TResult Function(TaskModel meupdatedTaskssage)
+        uploadTasksCompleted,
+    required TResult Function() downloadTasksLoading,
+    required TResult Function(String message) downloadTasksFailed,
+    required TResult Function(List<TaskModel> downloadedTasks)
+        downloadTasksCompleted,
+    required TResult Function() updateTaskLoading,
+    required TResult Function(String message) updateTaskFailed,
+    required TResult Function(TaskModel updatedTask) updateTaskCompleted,
+    required TResult Function() getTaskByIdLoading,
+    required TResult Function(String message) getTaskByIdFailed,
+    required TResult Function(TaskModel taskById) getTaskByIdCompleted,
+    required TResult Function() createTaskLoading,
+    required TResult Function(String message) createTaskFailed,
+    required TResult Function(TaskModel createdTask) createTaskCompleted,
+    required TResult Function() deleteTaskLoading,
+    required TResult Function(String message) deleteTaskFailed,
+    required TResult Function(TaskModel deletedTask) deleteTaskCompleted,
+  }) {
+    return getTotalEstimatedTimeLoading();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? allTasksLoading,
+    TResult? Function(List<TaskModel> allTasks)? allTasksCompleted,
+    TResult? Function(String message)? allTasksFailed,
+    TResult? Function()? searchLoading,
+    TResult? Function(List<TaskModel> searchedTasks)? searchCompleted,
+    TResult? Function(String message)? searchFailed,
+    TResult? Function()? getTotalEstimatedTimeLoading,
+    TResult? Function(Duration totalEstimatedTime)?
+        getTotalEstimatedTimeCompleted,
+    TResult? Function(String message)? getTotalEstimatedTimeFailed,
+    TResult? Function()? updateTotalEstimatedTimeLoading,
+    TResult? Function(String message)? updateTotalEstimatedTimeFailed,
+    TResult? Function(Duration totalEstimatedTime)?
+        updateTotalEstimatedTimeCompleted,
+    TResult? Function()? uploadTasksLoading,
+    TResult? Function(String message)? uploadTasksFailed,
+    TResult? Function(TaskModel meupdatedTaskssage)? uploadTasksCompleted,
+    TResult? Function()? downloadTasksLoading,
+    TResult? Function(String message)? downloadTasksFailed,
+    TResult? Function(List<TaskModel> downloadedTasks)? downloadTasksCompleted,
+    TResult? Function()? updateTaskLoading,
+    TResult? Function(String message)? updateTaskFailed,
+    TResult? Function(TaskModel updatedTask)? updateTaskCompleted,
+    TResult? Function()? getTaskByIdLoading,
+    TResult? Function(String message)? getTaskByIdFailed,
+    TResult? Function(TaskModel taskById)? getTaskByIdCompleted,
+    TResult? Function()? createTaskLoading,
+    TResult? Function(String message)? createTaskFailed,
+    TResult? Function(TaskModel createdTask)? createTaskCompleted,
+    TResult? Function()? deleteTaskLoading,
+    TResult? Function(String message)? deleteTaskFailed,
+    TResult? Function(TaskModel deletedTask)? deleteTaskCompleted,
+  }) {
+    return getTotalEstimatedTimeLoading?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? allTasksLoading,
+    TResult Function(List<TaskModel> allTasks)? allTasksCompleted,
+    TResult Function(String message)? allTasksFailed,
+    TResult Function()? searchLoading,
+    TResult Function(List<TaskModel> searchedTasks)? searchCompleted,
+    TResult Function(String message)? searchFailed,
+    TResult Function()? getTotalEstimatedTimeLoading,
+    TResult Function(Duration totalEstimatedTime)?
+        getTotalEstimatedTimeCompleted,
+    TResult Function(String message)? getTotalEstimatedTimeFailed,
+    TResult Function()? updateTotalEstimatedTimeLoading,
+    TResult Function(String message)? updateTotalEstimatedTimeFailed,
+    TResult Function(Duration totalEstimatedTime)?
+        updateTotalEstimatedTimeCompleted,
+    TResult Function()? uploadTasksLoading,
+    TResult Function(String message)? uploadTasksFailed,
+    TResult Function(TaskModel meupdatedTaskssage)? uploadTasksCompleted,
+    TResult Function()? downloadTasksLoading,
+    TResult Function(String message)? downloadTasksFailed,
+    TResult Function(List<TaskModel> downloadedTasks)? downloadTasksCompleted,
+    TResult Function()? updateTaskLoading,
+    TResult Function(String message)? updateTaskFailed,
+    TResult Function(TaskModel updatedTask)? updateTaskCompleted,
+    TResult Function()? getTaskByIdLoading,
+    TResult Function(String message)? getTaskByIdFailed,
+    TResult Function(TaskModel taskById)? getTaskByIdCompleted,
+    TResult Function()? createTaskLoading,
+    TResult Function(String message)? createTaskFailed,
+    TResult Function(TaskModel createdTask)? createTaskCompleted,
+    TResult Function()? deleteTaskLoading,
+    TResult Function(String message)? deleteTaskFailed,
+    TResult Function(TaskModel deletedTask)? deleteTaskCompleted,
+    required TResult orElse(),
+  }) {
+    if (getTotalEstimatedTimeLoading != null) {
+      return getTotalEstimatedTimeLoading();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(_AllTasksLoading value) allTasksLoading,
+    required TResult Function(_AllTasksCompleted value) allTasksCompleted,
+    required TResult Function(_AllTasksFailed value) allTasksFailed,
+    required TResult Function(_SearchLoading value) searchLoading,
+    required TResult Function(_SearchCompleted value) searchCompleted,
+    required TResult Function(_SearchFailed value) searchFailed,
+    required TResult Function(_GetTotalEstimatedTimeLoading value)
+        getTotalEstimatedTimeLoading,
+    required TResult Function(_GetTotalEstimatedTimeCompleted value)
+        getTotalEstimatedTimeCompleted,
+    required TResult Function(_GetTotalEstimatedTimeFailed value)
+        getTotalEstimatedTimeFailed,
+    required TResult Function(_UpdateTotalEstimatedTimeLoading value)
+        updateTotalEstimatedTimeLoading,
+    required TResult Function(_UpdateTotalEstimatedTimeFailed value)
+        updateTotalEstimatedTimeFailed,
+    required TResult Function(_UpdateTotalEstimatedTimeCompleted value)
+        updateTotalEstimatedTimeCompleted,
+    required TResult Function(_UploadTasksLoading value) uploadTasksLoading,
+    required TResult Function(_UploadTasksFailed value) uploadTasksFailed,
+    required TResult Function(_UploadTasksCompleted value) uploadTasksCompleted,
+    required TResult Function(_DownloadTasksLoading value) downloadTasksLoading,
+    required TResult Function(_DownloadTasksFailed value) downloadTasksFailed,
+    required TResult Function(_DownloadTasksCompleted value)
+        downloadTasksCompleted,
+    required TResult Function(_UpdateTaskLoading value) updateTaskLoading,
+    required TResult Function(_UpdateTaskFailed value) updateTaskFailed,
+    required TResult Function(_UpdateTaskCompleted value) updateTaskCompleted,
+    required TResult Function(_GetTaskByIdLoading value) getTaskByIdLoading,
+    required TResult Function(_GetTaskByIdFailed value) getTaskByIdFailed,
+    required TResult Function(_GetTaskByIdCompleted value) getTaskByIdCompleted,
+    required TResult Function(_CreateTaskLoading value) createTaskLoading,
+    required TResult Function(_CreateTaskFailed value) createTaskFailed,
+    required TResult Function(_CreateTaskCompleted value) createTaskCompleted,
+    required TResult Function(_DeleteTaskLoading value) deleteTaskLoading,
+    required TResult Function(_DeleteTaskFailed value) deleteTaskFailed,
+    required TResult Function(_DeleteTaskCompleted value) deleteTaskCompleted,
+  }) {
+    return getTotalEstimatedTimeLoading(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_AllTasksLoading value)? allTasksLoading,
+    TResult? Function(_AllTasksCompleted value)? allTasksCompleted,
+    TResult? Function(_AllTasksFailed value)? allTasksFailed,
+    TResult? Function(_SearchLoading value)? searchLoading,
+    TResult? Function(_SearchCompleted value)? searchCompleted,
+    TResult? Function(_SearchFailed value)? searchFailed,
+    TResult? Function(_GetTotalEstimatedTimeLoading value)?
+        getTotalEstimatedTimeLoading,
+    TResult? Function(_GetTotalEstimatedTimeCompleted value)?
+        getTotalEstimatedTimeCompleted,
+    TResult? Function(_GetTotalEstimatedTimeFailed value)?
+        getTotalEstimatedTimeFailed,
+    TResult? Function(_UpdateTotalEstimatedTimeLoading value)?
+        updateTotalEstimatedTimeLoading,
+    TResult? Function(_UpdateTotalEstimatedTimeFailed value)?
+        updateTotalEstimatedTimeFailed,
+    TResult? Function(_UpdateTotalEstimatedTimeCompleted value)?
+        updateTotalEstimatedTimeCompleted,
+    TResult? Function(_UploadTasksLoading value)? uploadTasksLoading,
+    TResult? Function(_UploadTasksFailed value)? uploadTasksFailed,
+    TResult? Function(_UploadTasksCompleted value)? uploadTasksCompleted,
+    TResult? Function(_DownloadTasksLoading value)? downloadTasksLoading,
+    TResult? Function(_DownloadTasksFailed value)? downloadTasksFailed,
+    TResult? Function(_DownloadTasksCompleted value)? downloadTasksCompleted,
+    TResult? Function(_UpdateTaskLoading value)? updateTaskLoading,
+    TResult? Function(_UpdateTaskFailed value)? updateTaskFailed,
+    TResult? Function(_UpdateTaskCompleted value)? updateTaskCompleted,
+    TResult? Function(_GetTaskByIdLoading value)? getTaskByIdLoading,
+    TResult? Function(_GetTaskByIdFailed value)? getTaskByIdFailed,
+    TResult? Function(_GetTaskByIdCompleted value)? getTaskByIdCompleted,
+    TResult? Function(_CreateTaskLoading value)? createTaskLoading,
+    TResult? Function(_CreateTaskFailed value)? createTaskFailed,
+    TResult? Function(_CreateTaskCompleted value)? createTaskCompleted,
+    TResult? Function(_DeleteTaskLoading value)? deleteTaskLoading,
+    TResult? Function(_DeleteTaskFailed value)? deleteTaskFailed,
+    TResult? Function(_DeleteTaskCompleted value)? deleteTaskCompleted,
+  }) {
+    return getTotalEstimatedTimeLoading?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_AllTasksLoading value)? allTasksLoading,
+    TResult Function(_AllTasksCompleted value)? allTasksCompleted,
+    TResult Function(_AllTasksFailed value)? allTasksFailed,
+    TResult Function(_SearchLoading value)? searchLoading,
+    TResult Function(_SearchCompleted value)? searchCompleted,
+    TResult Function(_SearchFailed value)? searchFailed,
+    TResult Function(_GetTotalEstimatedTimeLoading value)?
+        getTotalEstimatedTimeLoading,
+    TResult Function(_GetTotalEstimatedTimeCompleted value)?
+        getTotalEstimatedTimeCompleted,
+    TResult Function(_GetTotalEstimatedTimeFailed value)?
+        getTotalEstimatedTimeFailed,
+    TResult Function(_UpdateTotalEstimatedTimeLoading value)?
+        updateTotalEstimatedTimeLoading,
+    TResult Function(_UpdateTotalEstimatedTimeFailed value)?
+        updateTotalEstimatedTimeFailed,
+    TResult Function(_UpdateTotalEstimatedTimeCompleted value)?
+        updateTotalEstimatedTimeCompleted,
+    TResult Function(_UploadTasksLoading value)? uploadTasksLoading,
+    TResult Function(_UploadTasksFailed value)? uploadTasksFailed,
+    TResult Function(_UploadTasksCompleted value)? uploadTasksCompleted,
+    TResult Function(_DownloadTasksLoading value)? downloadTasksLoading,
+    TResult Function(_DownloadTasksFailed value)? downloadTasksFailed,
+    TResult Function(_DownloadTasksCompleted value)? downloadTasksCompleted,
+    TResult Function(_UpdateTaskLoading value)? updateTaskLoading,
+    TResult Function(_UpdateTaskFailed value)? updateTaskFailed,
+    TResult Function(_UpdateTaskCompleted value)? updateTaskCompleted,
+    TResult Function(_GetTaskByIdLoading value)? getTaskByIdLoading,
+    TResult Function(_GetTaskByIdFailed value)? getTaskByIdFailed,
+    TResult Function(_GetTaskByIdCompleted value)? getTaskByIdCompleted,
+    TResult Function(_CreateTaskLoading value)? createTaskLoading,
+    TResult Function(_CreateTaskFailed value)? createTaskFailed,
+    TResult Function(_CreateTaskCompleted value)? createTaskCompleted,
+    TResult Function(_DeleteTaskLoading value)? deleteTaskLoading,
+    TResult Function(_DeleteTaskFailed value)? deleteTaskFailed,
+    TResult Function(_DeleteTaskCompleted value)? deleteTaskCompleted,
+    required TResult orElse(),
+  }) {
+    if (getTotalEstimatedTimeLoading != null) {
+      return getTotalEstimatedTimeLoading(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _GetTotalEstimatedTimeLoading implements TaskViewmodelState {
+  factory _GetTotalEstimatedTimeLoading() = _$GetTotalEstimatedTimeLoadingImpl;
+}
+
+/// @nodoc
+abstract class _$$GetTotalEstimatedTimeCompletedImplCopyWith<$Res> {
+  factory _$$GetTotalEstimatedTimeCompletedImplCopyWith(
+          _$GetTotalEstimatedTimeCompletedImpl value,
+          $Res Function(_$GetTotalEstimatedTimeCompletedImpl) then) =
+      __$$GetTotalEstimatedTimeCompletedImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({Duration totalEstimatedTime});
+}
+
+/// @nodoc
+class __$$GetTotalEstimatedTimeCompletedImplCopyWithImpl<$Res>
+    extends _$TaskViewmodelStateCopyWithImpl<$Res,
+        _$GetTotalEstimatedTimeCompletedImpl>
+    implements _$$GetTotalEstimatedTimeCompletedImplCopyWith<$Res> {
+  __$$GetTotalEstimatedTimeCompletedImplCopyWithImpl(
+      _$GetTotalEstimatedTimeCompletedImpl _value,
+      $Res Function(_$GetTotalEstimatedTimeCompletedImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? totalEstimatedTime = null,
+  }) {
+    return _then(_$GetTotalEstimatedTimeCompletedImpl(
+      totalEstimatedTime: null == totalEstimatedTime
+          ? _value.totalEstimatedTime
+          : totalEstimatedTime // ignore: cast_nullable_to_non_nullable
+              as Duration,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$GetTotalEstimatedTimeCompletedImpl
+    implements _GetTotalEstimatedTimeCompleted {
+  _$GetTotalEstimatedTimeCompletedImpl({required this.totalEstimatedTime});
+
+  @override
+  final Duration totalEstimatedTime;
+
+  @override
+  String toString() {
+    return 'TaskViewmodelState.getTotalEstimatedTimeCompleted(totalEstimatedTime: $totalEstimatedTime)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$GetTotalEstimatedTimeCompletedImpl &&
+            (identical(other.totalEstimatedTime, totalEstimatedTime) ||
+                other.totalEstimatedTime == totalEstimatedTime));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, totalEstimatedTime);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$GetTotalEstimatedTimeCompletedImplCopyWith<
+          _$GetTotalEstimatedTimeCompletedImpl>
+      get copyWith => __$$GetTotalEstimatedTimeCompletedImplCopyWithImpl<
+          _$GetTotalEstimatedTimeCompletedImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() allTasksLoading,
+    required TResult Function(List<TaskModel> allTasks) allTasksCompleted,
+    required TResult Function(String message) allTasksFailed,
+    required TResult Function() searchLoading,
+    required TResult Function(List<TaskModel> searchedTasks) searchCompleted,
+    required TResult Function(String message) searchFailed,
+    required TResult Function() getTotalEstimatedTimeLoading,
+    required TResult Function(Duration totalEstimatedTime)
+        getTotalEstimatedTimeCompleted,
+    required TResult Function(String message) getTotalEstimatedTimeFailed,
+    required TResult Function() updateTotalEstimatedTimeLoading,
+    required TResult Function(String message) updateTotalEstimatedTimeFailed,
+    required TResult Function(Duration totalEstimatedTime)
+        updateTotalEstimatedTimeCompleted,
+    required TResult Function() uploadTasksLoading,
+    required TResult Function(String message) uploadTasksFailed,
+    required TResult Function(TaskModel meupdatedTaskssage)
+        uploadTasksCompleted,
+    required TResult Function() downloadTasksLoading,
+    required TResult Function(String message) downloadTasksFailed,
+    required TResult Function(List<TaskModel> downloadedTasks)
+        downloadTasksCompleted,
+    required TResult Function() updateTaskLoading,
+    required TResult Function(String message) updateTaskFailed,
+    required TResult Function(TaskModel updatedTask) updateTaskCompleted,
+    required TResult Function() getTaskByIdLoading,
+    required TResult Function(String message) getTaskByIdFailed,
+    required TResult Function(TaskModel taskById) getTaskByIdCompleted,
+    required TResult Function() createTaskLoading,
+    required TResult Function(String message) createTaskFailed,
+    required TResult Function(TaskModel createdTask) createTaskCompleted,
+    required TResult Function() deleteTaskLoading,
+    required TResult Function(String message) deleteTaskFailed,
+    required TResult Function(TaskModel deletedTask) deleteTaskCompleted,
+  }) {
+    return getTotalEstimatedTimeCompleted(totalEstimatedTime);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? allTasksLoading,
+    TResult? Function(List<TaskModel> allTasks)? allTasksCompleted,
+    TResult? Function(String message)? allTasksFailed,
+    TResult? Function()? searchLoading,
+    TResult? Function(List<TaskModel> searchedTasks)? searchCompleted,
+    TResult? Function(String message)? searchFailed,
+    TResult? Function()? getTotalEstimatedTimeLoading,
+    TResult? Function(Duration totalEstimatedTime)?
+        getTotalEstimatedTimeCompleted,
+    TResult? Function(String message)? getTotalEstimatedTimeFailed,
+    TResult? Function()? updateTotalEstimatedTimeLoading,
+    TResult? Function(String message)? updateTotalEstimatedTimeFailed,
+    TResult? Function(Duration totalEstimatedTime)?
+        updateTotalEstimatedTimeCompleted,
+    TResult? Function()? uploadTasksLoading,
+    TResult? Function(String message)? uploadTasksFailed,
+    TResult? Function(TaskModel meupdatedTaskssage)? uploadTasksCompleted,
+    TResult? Function()? downloadTasksLoading,
+    TResult? Function(String message)? downloadTasksFailed,
+    TResult? Function(List<TaskModel> downloadedTasks)? downloadTasksCompleted,
+    TResult? Function()? updateTaskLoading,
+    TResult? Function(String message)? updateTaskFailed,
+    TResult? Function(TaskModel updatedTask)? updateTaskCompleted,
+    TResult? Function()? getTaskByIdLoading,
+    TResult? Function(String message)? getTaskByIdFailed,
+    TResult? Function(TaskModel taskById)? getTaskByIdCompleted,
+    TResult? Function()? createTaskLoading,
+    TResult? Function(String message)? createTaskFailed,
+    TResult? Function(TaskModel createdTask)? createTaskCompleted,
+    TResult? Function()? deleteTaskLoading,
+    TResult? Function(String message)? deleteTaskFailed,
+    TResult? Function(TaskModel deletedTask)? deleteTaskCompleted,
+  }) {
+    return getTotalEstimatedTimeCompleted?.call(totalEstimatedTime);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? allTasksLoading,
+    TResult Function(List<TaskModel> allTasks)? allTasksCompleted,
+    TResult Function(String message)? allTasksFailed,
+    TResult Function()? searchLoading,
+    TResult Function(List<TaskModel> searchedTasks)? searchCompleted,
+    TResult Function(String message)? searchFailed,
+    TResult Function()? getTotalEstimatedTimeLoading,
+    TResult Function(Duration totalEstimatedTime)?
+        getTotalEstimatedTimeCompleted,
+    TResult Function(String message)? getTotalEstimatedTimeFailed,
+    TResult Function()? updateTotalEstimatedTimeLoading,
+    TResult Function(String message)? updateTotalEstimatedTimeFailed,
+    TResult Function(Duration totalEstimatedTime)?
+        updateTotalEstimatedTimeCompleted,
+    TResult Function()? uploadTasksLoading,
+    TResult Function(String message)? uploadTasksFailed,
+    TResult Function(TaskModel meupdatedTaskssage)? uploadTasksCompleted,
+    TResult Function()? downloadTasksLoading,
+    TResult Function(String message)? downloadTasksFailed,
+    TResult Function(List<TaskModel> downloadedTasks)? downloadTasksCompleted,
+    TResult Function()? updateTaskLoading,
+    TResult Function(String message)? updateTaskFailed,
+    TResult Function(TaskModel updatedTask)? updateTaskCompleted,
+    TResult Function()? getTaskByIdLoading,
+    TResult Function(String message)? getTaskByIdFailed,
+    TResult Function(TaskModel taskById)? getTaskByIdCompleted,
+    TResult Function()? createTaskLoading,
+    TResult Function(String message)? createTaskFailed,
+    TResult Function(TaskModel createdTask)? createTaskCompleted,
+    TResult Function()? deleteTaskLoading,
+    TResult Function(String message)? deleteTaskFailed,
+    TResult Function(TaskModel deletedTask)? deleteTaskCompleted,
+    required TResult orElse(),
+  }) {
+    if (getTotalEstimatedTimeCompleted != null) {
+      return getTotalEstimatedTimeCompleted(totalEstimatedTime);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(_AllTasksLoading value) allTasksLoading,
+    required TResult Function(_AllTasksCompleted value) allTasksCompleted,
+    required TResult Function(_AllTasksFailed value) allTasksFailed,
+    required TResult Function(_SearchLoading value) searchLoading,
+    required TResult Function(_SearchCompleted value) searchCompleted,
+    required TResult Function(_SearchFailed value) searchFailed,
+    required TResult Function(_GetTotalEstimatedTimeLoading value)
+        getTotalEstimatedTimeLoading,
+    required TResult Function(_GetTotalEstimatedTimeCompleted value)
+        getTotalEstimatedTimeCompleted,
+    required TResult Function(_GetTotalEstimatedTimeFailed value)
+        getTotalEstimatedTimeFailed,
+    required TResult Function(_UpdateTotalEstimatedTimeLoading value)
+        updateTotalEstimatedTimeLoading,
+    required TResult Function(_UpdateTotalEstimatedTimeFailed value)
+        updateTotalEstimatedTimeFailed,
+    required TResult Function(_UpdateTotalEstimatedTimeCompleted value)
+        updateTotalEstimatedTimeCompleted,
+    required TResult Function(_UploadTasksLoading value) uploadTasksLoading,
+    required TResult Function(_UploadTasksFailed value) uploadTasksFailed,
+    required TResult Function(_UploadTasksCompleted value) uploadTasksCompleted,
+    required TResult Function(_DownloadTasksLoading value) downloadTasksLoading,
+    required TResult Function(_DownloadTasksFailed value) downloadTasksFailed,
+    required TResult Function(_DownloadTasksCompleted value)
+        downloadTasksCompleted,
+    required TResult Function(_UpdateTaskLoading value) updateTaskLoading,
+    required TResult Function(_UpdateTaskFailed value) updateTaskFailed,
+    required TResult Function(_UpdateTaskCompleted value) updateTaskCompleted,
+    required TResult Function(_GetTaskByIdLoading value) getTaskByIdLoading,
+    required TResult Function(_GetTaskByIdFailed value) getTaskByIdFailed,
+    required TResult Function(_GetTaskByIdCompleted value) getTaskByIdCompleted,
+    required TResult Function(_CreateTaskLoading value) createTaskLoading,
+    required TResult Function(_CreateTaskFailed value) createTaskFailed,
+    required TResult Function(_CreateTaskCompleted value) createTaskCompleted,
+    required TResult Function(_DeleteTaskLoading value) deleteTaskLoading,
+    required TResult Function(_DeleteTaskFailed value) deleteTaskFailed,
+    required TResult Function(_DeleteTaskCompleted value) deleteTaskCompleted,
+  }) {
+    return getTotalEstimatedTimeCompleted(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_AllTasksLoading value)? allTasksLoading,
+    TResult? Function(_AllTasksCompleted value)? allTasksCompleted,
+    TResult? Function(_AllTasksFailed value)? allTasksFailed,
+    TResult? Function(_SearchLoading value)? searchLoading,
+    TResult? Function(_SearchCompleted value)? searchCompleted,
+    TResult? Function(_SearchFailed value)? searchFailed,
+    TResult? Function(_GetTotalEstimatedTimeLoading value)?
+        getTotalEstimatedTimeLoading,
+    TResult? Function(_GetTotalEstimatedTimeCompleted value)?
+        getTotalEstimatedTimeCompleted,
+    TResult? Function(_GetTotalEstimatedTimeFailed value)?
+        getTotalEstimatedTimeFailed,
+    TResult? Function(_UpdateTotalEstimatedTimeLoading value)?
+        updateTotalEstimatedTimeLoading,
+    TResult? Function(_UpdateTotalEstimatedTimeFailed value)?
+        updateTotalEstimatedTimeFailed,
+    TResult? Function(_UpdateTotalEstimatedTimeCompleted value)?
+        updateTotalEstimatedTimeCompleted,
+    TResult? Function(_UploadTasksLoading value)? uploadTasksLoading,
+    TResult? Function(_UploadTasksFailed value)? uploadTasksFailed,
+    TResult? Function(_UploadTasksCompleted value)? uploadTasksCompleted,
+    TResult? Function(_DownloadTasksLoading value)? downloadTasksLoading,
+    TResult? Function(_DownloadTasksFailed value)? downloadTasksFailed,
+    TResult? Function(_DownloadTasksCompleted value)? downloadTasksCompleted,
+    TResult? Function(_UpdateTaskLoading value)? updateTaskLoading,
+    TResult? Function(_UpdateTaskFailed value)? updateTaskFailed,
+    TResult? Function(_UpdateTaskCompleted value)? updateTaskCompleted,
+    TResult? Function(_GetTaskByIdLoading value)? getTaskByIdLoading,
+    TResult? Function(_GetTaskByIdFailed value)? getTaskByIdFailed,
+    TResult? Function(_GetTaskByIdCompleted value)? getTaskByIdCompleted,
+    TResult? Function(_CreateTaskLoading value)? createTaskLoading,
+    TResult? Function(_CreateTaskFailed value)? createTaskFailed,
+    TResult? Function(_CreateTaskCompleted value)? createTaskCompleted,
+    TResult? Function(_DeleteTaskLoading value)? deleteTaskLoading,
+    TResult? Function(_DeleteTaskFailed value)? deleteTaskFailed,
+    TResult? Function(_DeleteTaskCompleted value)? deleteTaskCompleted,
+  }) {
+    return getTotalEstimatedTimeCompleted?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_AllTasksLoading value)? allTasksLoading,
+    TResult Function(_AllTasksCompleted value)? allTasksCompleted,
+    TResult Function(_AllTasksFailed value)? allTasksFailed,
+    TResult Function(_SearchLoading value)? searchLoading,
+    TResult Function(_SearchCompleted value)? searchCompleted,
+    TResult Function(_SearchFailed value)? searchFailed,
+    TResult Function(_GetTotalEstimatedTimeLoading value)?
+        getTotalEstimatedTimeLoading,
+    TResult Function(_GetTotalEstimatedTimeCompleted value)?
+        getTotalEstimatedTimeCompleted,
+    TResult Function(_GetTotalEstimatedTimeFailed value)?
+        getTotalEstimatedTimeFailed,
+    TResult Function(_UpdateTotalEstimatedTimeLoading value)?
+        updateTotalEstimatedTimeLoading,
+    TResult Function(_UpdateTotalEstimatedTimeFailed value)?
+        updateTotalEstimatedTimeFailed,
+    TResult Function(_UpdateTotalEstimatedTimeCompleted value)?
+        updateTotalEstimatedTimeCompleted,
+    TResult Function(_UploadTasksLoading value)? uploadTasksLoading,
+    TResult Function(_UploadTasksFailed value)? uploadTasksFailed,
+    TResult Function(_UploadTasksCompleted value)? uploadTasksCompleted,
+    TResult Function(_DownloadTasksLoading value)? downloadTasksLoading,
+    TResult Function(_DownloadTasksFailed value)? downloadTasksFailed,
+    TResult Function(_DownloadTasksCompleted value)? downloadTasksCompleted,
+    TResult Function(_UpdateTaskLoading value)? updateTaskLoading,
+    TResult Function(_UpdateTaskFailed value)? updateTaskFailed,
+    TResult Function(_UpdateTaskCompleted value)? updateTaskCompleted,
+    TResult Function(_GetTaskByIdLoading value)? getTaskByIdLoading,
+    TResult Function(_GetTaskByIdFailed value)? getTaskByIdFailed,
+    TResult Function(_GetTaskByIdCompleted value)? getTaskByIdCompleted,
+    TResult Function(_CreateTaskLoading value)? createTaskLoading,
+    TResult Function(_CreateTaskFailed value)? createTaskFailed,
+    TResult Function(_CreateTaskCompleted value)? createTaskCompleted,
+    TResult Function(_DeleteTaskLoading value)? deleteTaskLoading,
+    TResult Function(_DeleteTaskFailed value)? deleteTaskFailed,
+    TResult Function(_DeleteTaskCompleted value)? deleteTaskCompleted,
+    required TResult orElse(),
+  }) {
+    if (getTotalEstimatedTimeCompleted != null) {
+      return getTotalEstimatedTimeCompleted(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _GetTotalEstimatedTimeCompleted implements TaskViewmodelState {
+  factory _GetTotalEstimatedTimeCompleted(
+          {required final Duration totalEstimatedTime}) =
+      _$GetTotalEstimatedTimeCompletedImpl;
+
+  Duration get totalEstimatedTime;
+  @JsonKey(ignore: true)
+  _$$GetTotalEstimatedTimeCompletedImplCopyWith<
+          _$GetTotalEstimatedTimeCompletedImpl>
+      get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$GetTotalEstimatedTimeFailedImplCopyWith<$Res> {
+  factory _$$GetTotalEstimatedTimeFailedImplCopyWith(
+          _$GetTotalEstimatedTimeFailedImpl value,
+          $Res Function(_$GetTotalEstimatedTimeFailedImpl) then) =
+      __$$GetTotalEstimatedTimeFailedImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String message});
+}
+
+/// @nodoc
+class __$$GetTotalEstimatedTimeFailedImplCopyWithImpl<$Res>
+    extends _$TaskViewmodelStateCopyWithImpl<$Res,
+        _$GetTotalEstimatedTimeFailedImpl>
+    implements _$$GetTotalEstimatedTimeFailedImplCopyWith<$Res> {
+  __$$GetTotalEstimatedTimeFailedImplCopyWithImpl(
+      _$GetTotalEstimatedTimeFailedImpl _value,
+      $Res Function(_$GetTotalEstimatedTimeFailedImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? message = null,
+  }) {
+    return _then(_$GetTotalEstimatedTimeFailedImpl(
+      message: null == message
+          ? _value.message
+          : message // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$GetTotalEstimatedTimeFailedImpl
+    implements _GetTotalEstimatedTimeFailed {
+  _$GetTotalEstimatedTimeFailedImpl({required this.message});
+
+  @override
+  final String message;
+
+  @override
+  String toString() {
+    return 'TaskViewmodelState.getTotalEstimatedTimeFailed(message: $message)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$GetTotalEstimatedTimeFailedImpl &&
+            (identical(other.message, message) || other.message == message));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, message);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$GetTotalEstimatedTimeFailedImplCopyWith<_$GetTotalEstimatedTimeFailedImpl>
+      get copyWith => __$$GetTotalEstimatedTimeFailedImplCopyWithImpl<
+          _$GetTotalEstimatedTimeFailedImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() allTasksLoading,
+    required TResult Function(List<TaskModel> allTasks) allTasksCompleted,
+    required TResult Function(String message) allTasksFailed,
+    required TResult Function() searchLoading,
+    required TResult Function(List<TaskModel> searchedTasks) searchCompleted,
+    required TResult Function(String message) searchFailed,
+    required TResult Function() getTotalEstimatedTimeLoading,
+    required TResult Function(Duration totalEstimatedTime)
+        getTotalEstimatedTimeCompleted,
+    required TResult Function(String message) getTotalEstimatedTimeFailed,
+    required TResult Function() updateTotalEstimatedTimeLoading,
+    required TResult Function(String message) updateTotalEstimatedTimeFailed,
+    required TResult Function(Duration totalEstimatedTime)
+        updateTotalEstimatedTimeCompleted,
+    required TResult Function() uploadTasksLoading,
+    required TResult Function(String message) uploadTasksFailed,
+    required TResult Function(TaskModel meupdatedTaskssage)
+        uploadTasksCompleted,
+    required TResult Function() downloadTasksLoading,
+    required TResult Function(String message) downloadTasksFailed,
+    required TResult Function(List<TaskModel> downloadedTasks)
+        downloadTasksCompleted,
+    required TResult Function() updateTaskLoading,
+    required TResult Function(String message) updateTaskFailed,
+    required TResult Function(TaskModel updatedTask) updateTaskCompleted,
+    required TResult Function() getTaskByIdLoading,
+    required TResult Function(String message) getTaskByIdFailed,
+    required TResult Function(TaskModel taskById) getTaskByIdCompleted,
+    required TResult Function() createTaskLoading,
+    required TResult Function(String message) createTaskFailed,
+    required TResult Function(TaskModel createdTask) createTaskCompleted,
+    required TResult Function() deleteTaskLoading,
+    required TResult Function(String message) deleteTaskFailed,
+    required TResult Function(TaskModel deletedTask) deleteTaskCompleted,
+  }) {
+    return getTotalEstimatedTimeFailed(message);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? allTasksLoading,
+    TResult? Function(List<TaskModel> allTasks)? allTasksCompleted,
+    TResult? Function(String message)? allTasksFailed,
+    TResult? Function()? searchLoading,
+    TResult? Function(List<TaskModel> searchedTasks)? searchCompleted,
+    TResult? Function(String message)? searchFailed,
+    TResult? Function()? getTotalEstimatedTimeLoading,
+    TResult? Function(Duration totalEstimatedTime)?
+        getTotalEstimatedTimeCompleted,
+    TResult? Function(String message)? getTotalEstimatedTimeFailed,
+    TResult? Function()? updateTotalEstimatedTimeLoading,
+    TResult? Function(String message)? updateTotalEstimatedTimeFailed,
+    TResult? Function(Duration totalEstimatedTime)?
+        updateTotalEstimatedTimeCompleted,
+    TResult? Function()? uploadTasksLoading,
+    TResult? Function(String message)? uploadTasksFailed,
+    TResult? Function(TaskModel meupdatedTaskssage)? uploadTasksCompleted,
+    TResult? Function()? downloadTasksLoading,
+    TResult? Function(String message)? downloadTasksFailed,
+    TResult? Function(List<TaskModel> downloadedTasks)? downloadTasksCompleted,
+    TResult? Function()? updateTaskLoading,
+    TResult? Function(String message)? updateTaskFailed,
+    TResult? Function(TaskModel updatedTask)? updateTaskCompleted,
+    TResult? Function()? getTaskByIdLoading,
+    TResult? Function(String message)? getTaskByIdFailed,
+    TResult? Function(TaskModel taskById)? getTaskByIdCompleted,
+    TResult? Function()? createTaskLoading,
+    TResult? Function(String message)? createTaskFailed,
+    TResult? Function(TaskModel createdTask)? createTaskCompleted,
+    TResult? Function()? deleteTaskLoading,
+    TResult? Function(String message)? deleteTaskFailed,
+    TResult? Function(TaskModel deletedTask)? deleteTaskCompleted,
+  }) {
+    return getTotalEstimatedTimeFailed?.call(message);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? allTasksLoading,
+    TResult Function(List<TaskModel> allTasks)? allTasksCompleted,
+    TResult Function(String message)? allTasksFailed,
+    TResult Function()? searchLoading,
+    TResult Function(List<TaskModel> searchedTasks)? searchCompleted,
+    TResult Function(String message)? searchFailed,
+    TResult Function()? getTotalEstimatedTimeLoading,
+    TResult Function(Duration totalEstimatedTime)?
+        getTotalEstimatedTimeCompleted,
+    TResult Function(String message)? getTotalEstimatedTimeFailed,
+    TResult Function()? updateTotalEstimatedTimeLoading,
+    TResult Function(String message)? updateTotalEstimatedTimeFailed,
+    TResult Function(Duration totalEstimatedTime)?
+        updateTotalEstimatedTimeCompleted,
+    TResult Function()? uploadTasksLoading,
+    TResult Function(String message)? uploadTasksFailed,
+    TResult Function(TaskModel meupdatedTaskssage)? uploadTasksCompleted,
+    TResult Function()? downloadTasksLoading,
+    TResult Function(String message)? downloadTasksFailed,
+    TResult Function(List<TaskModel> downloadedTasks)? downloadTasksCompleted,
+    TResult Function()? updateTaskLoading,
+    TResult Function(String message)? updateTaskFailed,
+    TResult Function(TaskModel updatedTask)? updateTaskCompleted,
+    TResult Function()? getTaskByIdLoading,
+    TResult Function(String message)? getTaskByIdFailed,
+    TResult Function(TaskModel taskById)? getTaskByIdCompleted,
+    TResult Function()? createTaskLoading,
+    TResult Function(String message)? createTaskFailed,
+    TResult Function(TaskModel createdTask)? createTaskCompleted,
+    TResult Function()? deleteTaskLoading,
+    TResult Function(String message)? deleteTaskFailed,
+    TResult Function(TaskModel deletedTask)? deleteTaskCompleted,
+    required TResult orElse(),
+  }) {
+    if (getTotalEstimatedTimeFailed != null) {
+      return getTotalEstimatedTimeFailed(message);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(_AllTasksLoading value) allTasksLoading,
+    required TResult Function(_AllTasksCompleted value) allTasksCompleted,
+    required TResult Function(_AllTasksFailed value) allTasksFailed,
+    required TResult Function(_SearchLoading value) searchLoading,
+    required TResult Function(_SearchCompleted value) searchCompleted,
+    required TResult Function(_SearchFailed value) searchFailed,
+    required TResult Function(_GetTotalEstimatedTimeLoading value)
+        getTotalEstimatedTimeLoading,
+    required TResult Function(_GetTotalEstimatedTimeCompleted value)
+        getTotalEstimatedTimeCompleted,
+    required TResult Function(_GetTotalEstimatedTimeFailed value)
+        getTotalEstimatedTimeFailed,
+    required TResult Function(_UpdateTotalEstimatedTimeLoading value)
+        updateTotalEstimatedTimeLoading,
+    required TResult Function(_UpdateTotalEstimatedTimeFailed value)
+        updateTotalEstimatedTimeFailed,
+    required TResult Function(_UpdateTotalEstimatedTimeCompleted value)
+        updateTotalEstimatedTimeCompleted,
+    required TResult Function(_UploadTasksLoading value) uploadTasksLoading,
+    required TResult Function(_UploadTasksFailed value) uploadTasksFailed,
+    required TResult Function(_UploadTasksCompleted value) uploadTasksCompleted,
+    required TResult Function(_DownloadTasksLoading value) downloadTasksLoading,
+    required TResult Function(_DownloadTasksFailed value) downloadTasksFailed,
+    required TResult Function(_DownloadTasksCompleted value)
+        downloadTasksCompleted,
+    required TResult Function(_UpdateTaskLoading value) updateTaskLoading,
+    required TResult Function(_UpdateTaskFailed value) updateTaskFailed,
+    required TResult Function(_UpdateTaskCompleted value) updateTaskCompleted,
+    required TResult Function(_GetTaskByIdLoading value) getTaskByIdLoading,
+    required TResult Function(_GetTaskByIdFailed value) getTaskByIdFailed,
+    required TResult Function(_GetTaskByIdCompleted value) getTaskByIdCompleted,
+    required TResult Function(_CreateTaskLoading value) createTaskLoading,
+    required TResult Function(_CreateTaskFailed value) createTaskFailed,
+    required TResult Function(_CreateTaskCompleted value) createTaskCompleted,
+    required TResult Function(_DeleteTaskLoading value) deleteTaskLoading,
+    required TResult Function(_DeleteTaskFailed value) deleteTaskFailed,
+    required TResult Function(_DeleteTaskCompleted value) deleteTaskCompleted,
+  }) {
+    return getTotalEstimatedTimeFailed(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_AllTasksLoading value)? allTasksLoading,
+    TResult? Function(_AllTasksCompleted value)? allTasksCompleted,
+    TResult? Function(_AllTasksFailed value)? allTasksFailed,
+    TResult? Function(_SearchLoading value)? searchLoading,
+    TResult? Function(_SearchCompleted value)? searchCompleted,
+    TResult? Function(_SearchFailed value)? searchFailed,
+    TResult? Function(_GetTotalEstimatedTimeLoading value)?
+        getTotalEstimatedTimeLoading,
+    TResult? Function(_GetTotalEstimatedTimeCompleted value)?
+        getTotalEstimatedTimeCompleted,
+    TResult? Function(_GetTotalEstimatedTimeFailed value)?
+        getTotalEstimatedTimeFailed,
+    TResult? Function(_UpdateTotalEstimatedTimeLoading value)?
+        updateTotalEstimatedTimeLoading,
+    TResult? Function(_UpdateTotalEstimatedTimeFailed value)?
+        updateTotalEstimatedTimeFailed,
+    TResult? Function(_UpdateTotalEstimatedTimeCompleted value)?
+        updateTotalEstimatedTimeCompleted,
+    TResult? Function(_UploadTasksLoading value)? uploadTasksLoading,
+    TResult? Function(_UploadTasksFailed value)? uploadTasksFailed,
+    TResult? Function(_UploadTasksCompleted value)? uploadTasksCompleted,
+    TResult? Function(_DownloadTasksLoading value)? downloadTasksLoading,
+    TResult? Function(_DownloadTasksFailed value)? downloadTasksFailed,
+    TResult? Function(_DownloadTasksCompleted value)? downloadTasksCompleted,
+    TResult? Function(_UpdateTaskLoading value)? updateTaskLoading,
+    TResult? Function(_UpdateTaskFailed value)? updateTaskFailed,
+    TResult? Function(_UpdateTaskCompleted value)? updateTaskCompleted,
+    TResult? Function(_GetTaskByIdLoading value)? getTaskByIdLoading,
+    TResult? Function(_GetTaskByIdFailed value)? getTaskByIdFailed,
+    TResult? Function(_GetTaskByIdCompleted value)? getTaskByIdCompleted,
+    TResult? Function(_CreateTaskLoading value)? createTaskLoading,
+    TResult? Function(_CreateTaskFailed value)? createTaskFailed,
+    TResult? Function(_CreateTaskCompleted value)? createTaskCompleted,
+    TResult? Function(_DeleteTaskLoading value)? deleteTaskLoading,
+    TResult? Function(_DeleteTaskFailed value)? deleteTaskFailed,
+    TResult? Function(_DeleteTaskCompleted value)? deleteTaskCompleted,
+  }) {
+    return getTotalEstimatedTimeFailed?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_AllTasksLoading value)? allTasksLoading,
+    TResult Function(_AllTasksCompleted value)? allTasksCompleted,
+    TResult Function(_AllTasksFailed value)? allTasksFailed,
+    TResult Function(_SearchLoading value)? searchLoading,
+    TResult Function(_SearchCompleted value)? searchCompleted,
+    TResult Function(_SearchFailed value)? searchFailed,
+    TResult Function(_GetTotalEstimatedTimeLoading value)?
+        getTotalEstimatedTimeLoading,
+    TResult Function(_GetTotalEstimatedTimeCompleted value)?
+        getTotalEstimatedTimeCompleted,
+    TResult Function(_GetTotalEstimatedTimeFailed value)?
+        getTotalEstimatedTimeFailed,
+    TResult Function(_UpdateTotalEstimatedTimeLoading value)?
+        updateTotalEstimatedTimeLoading,
+    TResult Function(_UpdateTotalEstimatedTimeFailed value)?
+        updateTotalEstimatedTimeFailed,
+    TResult Function(_UpdateTotalEstimatedTimeCompleted value)?
+        updateTotalEstimatedTimeCompleted,
+    TResult Function(_UploadTasksLoading value)? uploadTasksLoading,
+    TResult Function(_UploadTasksFailed value)? uploadTasksFailed,
+    TResult Function(_UploadTasksCompleted value)? uploadTasksCompleted,
+    TResult Function(_DownloadTasksLoading value)? downloadTasksLoading,
+    TResult Function(_DownloadTasksFailed value)? downloadTasksFailed,
+    TResult Function(_DownloadTasksCompleted value)? downloadTasksCompleted,
+    TResult Function(_UpdateTaskLoading value)? updateTaskLoading,
+    TResult Function(_UpdateTaskFailed value)? updateTaskFailed,
+    TResult Function(_UpdateTaskCompleted value)? updateTaskCompleted,
+    TResult Function(_GetTaskByIdLoading value)? getTaskByIdLoading,
+    TResult Function(_GetTaskByIdFailed value)? getTaskByIdFailed,
+    TResult Function(_GetTaskByIdCompleted value)? getTaskByIdCompleted,
+    TResult Function(_CreateTaskLoading value)? createTaskLoading,
+    TResult Function(_CreateTaskFailed value)? createTaskFailed,
+    TResult Function(_CreateTaskCompleted value)? createTaskCompleted,
+    TResult Function(_DeleteTaskLoading value)? deleteTaskLoading,
+    TResult Function(_DeleteTaskFailed value)? deleteTaskFailed,
+    TResult Function(_DeleteTaskCompleted value)? deleteTaskCompleted,
+    required TResult orElse(),
+  }) {
+    if (getTotalEstimatedTimeFailed != null) {
+      return getTotalEstimatedTimeFailed(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _GetTotalEstimatedTimeFailed implements TaskViewmodelState {
+  factory _GetTotalEstimatedTimeFailed({required final String message}) =
+      _$GetTotalEstimatedTimeFailedImpl;
+
+  String get message;
+  @JsonKey(ignore: true)
+  _$$GetTotalEstimatedTimeFailedImplCopyWith<_$GetTotalEstimatedTimeFailedImpl>
+      get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$UpdateTotalEstimatedTimeLoadingImplCopyWith<$Res> {
+  factory _$$UpdateTotalEstimatedTimeLoadingImplCopyWith(
+          _$UpdateTotalEstimatedTimeLoadingImpl value,
+          $Res Function(_$UpdateTotalEstimatedTimeLoadingImpl) then) =
+      __$$UpdateTotalEstimatedTimeLoadingImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$UpdateTotalEstimatedTimeLoadingImplCopyWithImpl<$Res>
+    extends _$TaskViewmodelStateCopyWithImpl<$Res,
+        _$UpdateTotalEstimatedTimeLoadingImpl>
+    implements _$$UpdateTotalEstimatedTimeLoadingImplCopyWith<$Res> {
+  __$$UpdateTotalEstimatedTimeLoadingImplCopyWithImpl(
+      _$UpdateTotalEstimatedTimeLoadingImpl _value,
+      $Res Function(_$UpdateTotalEstimatedTimeLoadingImpl) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$UpdateTotalEstimatedTimeLoadingImpl
+    implements _UpdateTotalEstimatedTimeLoading {
+  _$UpdateTotalEstimatedTimeLoadingImpl();
+
+  @override
+  String toString() {
+    return 'TaskViewmodelState.updateTotalEstimatedTimeLoading()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$UpdateTotalEstimatedTimeLoadingImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() allTasksLoading,
+    required TResult Function(List<TaskModel> allTasks) allTasksCompleted,
+    required TResult Function(String message) allTasksFailed,
+    required TResult Function() searchLoading,
+    required TResult Function(List<TaskModel> searchedTasks) searchCompleted,
+    required TResult Function(String message) searchFailed,
+    required TResult Function() getTotalEstimatedTimeLoading,
+    required TResult Function(Duration totalEstimatedTime)
+        getTotalEstimatedTimeCompleted,
+    required TResult Function(String message) getTotalEstimatedTimeFailed,
+    required TResult Function() updateTotalEstimatedTimeLoading,
+    required TResult Function(String message) updateTotalEstimatedTimeFailed,
+    required TResult Function(Duration totalEstimatedTime)
+        updateTotalEstimatedTimeCompleted,
+    required TResult Function() uploadTasksLoading,
+    required TResult Function(String message) uploadTasksFailed,
+    required TResult Function(TaskModel meupdatedTaskssage)
+        uploadTasksCompleted,
+    required TResult Function() downloadTasksLoading,
+    required TResult Function(String message) downloadTasksFailed,
+    required TResult Function(List<TaskModel> downloadedTasks)
+        downloadTasksCompleted,
+    required TResult Function() updateTaskLoading,
+    required TResult Function(String message) updateTaskFailed,
+    required TResult Function(TaskModel updatedTask) updateTaskCompleted,
+    required TResult Function() getTaskByIdLoading,
+    required TResult Function(String message) getTaskByIdFailed,
+    required TResult Function(TaskModel taskById) getTaskByIdCompleted,
+    required TResult Function() createTaskLoading,
+    required TResult Function(String message) createTaskFailed,
+    required TResult Function(TaskModel createdTask) createTaskCompleted,
+    required TResult Function() deleteTaskLoading,
+    required TResult Function(String message) deleteTaskFailed,
+    required TResult Function(TaskModel deletedTask) deleteTaskCompleted,
+  }) {
+    return updateTotalEstimatedTimeLoading();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? allTasksLoading,
+    TResult? Function(List<TaskModel> allTasks)? allTasksCompleted,
+    TResult? Function(String message)? allTasksFailed,
+    TResult? Function()? searchLoading,
+    TResult? Function(List<TaskModel> searchedTasks)? searchCompleted,
+    TResult? Function(String message)? searchFailed,
+    TResult? Function()? getTotalEstimatedTimeLoading,
+    TResult? Function(Duration totalEstimatedTime)?
+        getTotalEstimatedTimeCompleted,
+    TResult? Function(String message)? getTotalEstimatedTimeFailed,
+    TResult? Function()? updateTotalEstimatedTimeLoading,
+    TResult? Function(String message)? updateTotalEstimatedTimeFailed,
+    TResult? Function(Duration totalEstimatedTime)?
+        updateTotalEstimatedTimeCompleted,
+    TResult? Function()? uploadTasksLoading,
+    TResult? Function(String message)? uploadTasksFailed,
+    TResult? Function(TaskModel meupdatedTaskssage)? uploadTasksCompleted,
+    TResult? Function()? downloadTasksLoading,
+    TResult? Function(String message)? downloadTasksFailed,
+    TResult? Function(List<TaskModel> downloadedTasks)? downloadTasksCompleted,
+    TResult? Function()? updateTaskLoading,
+    TResult? Function(String message)? updateTaskFailed,
+    TResult? Function(TaskModel updatedTask)? updateTaskCompleted,
+    TResult? Function()? getTaskByIdLoading,
+    TResult? Function(String message)? getTaskByIdFailed,
+    TResult? Function(TaskModel taskById)? getTaskByIdCompleted,
+    TResult? Function()? createTaskLoading,
+    TResult? Function(String message)? createTaskFailed,
+    TResult? Function(TaskModel createdTask)? createTaskCompleted,
+    TResult? Function()? deleteTaskLoading,
+    TResult? Function(String message)? deleteTaskFailed,
+    TResult? Function(TaskModel deletedTask)? deleteTaskCompleted,
+  }) {
+    return updateTotalEstimatedTimeLoading?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? allTasksLoading,
+    TResult Function(List<TaskModel> allTasks)? allTasksCompleted,
+    TResult Function(String message)? allTasksFailed,
+    TResult Function()? searchLoading,
+    TResult Function(List<TaskModel> searchedTasks)? searchCompleted,
+    TResult Function(String message)? searchFailed,
+    TResult Function()? getTotalEstimatedTimeLoading,
+    TResult Function(Duration totalEstimatedTime)?
+        getTotalEstimatedTimeCompleted,
+    TResult Function(String message)? getTotalEstimatedTimeFailed,
+    TResult Function()? updateTotalEstimatedTimeLoading,
+    TResult Function(String message)? updateTotalEstimatedTimeFailed,
+    TResult Function(Duration totalEstimatedTime)?
+        updateTotalEstimatedTimeCompleted,
+    TResult Function()? uploadTasksLoading,
+    TResult Function(String message)? uploadTasksFailed,
+    TResult Function(TaskModel meupdatedTaskssage)? uploadTasksCompleted,
+    TResult Function()? downloadTasksLoading,
+    TResult Function(String message)? downloadTasksFailed,
+    TResult Function(List<TaskModel> downloadedTasks)? downloadTasksCompleted,
+    TResult Function()? updateTaskLoading,
+    TResult Function(String message)? updateTaskFailed,
+    TResult Function(TaskModel updatedTask)? updateTaskCompleted,
+    TResult Function()? getTaskByIdLoading,
+    TResult Function(String message)? getTaskByIdFailed,
+    TResult Function(TaskModel taskById)? getTaskByIdCompleted,
+    TResult Function()? createTaskLoading,
+    TResult Function(String message)? createTaskFailed,
+    TResult Function(TaskModel createdTask)? createTaskCompleted,
+    TResult Function()? deleteTaskLoading,
+    TResult Function(String message)? deleteTaskFailed,
+    TResult Function(TaskModel deletedTask)? deleteTaskCompleted,
+    required TResult orElse(),
+  }) {
+    if (updateTotalEstimatedTimeLoading != null) {
+      return updateTotalEstimatedTimeLoading();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(_AllTasksLoading value) allTasksLoading,
+    required TResult Function(_AllTasksCompleted value) allTasksCompleted,
+    required TResult Function(_AllTasksFailed value) allTasksFailed,
+    required TResult Function(_SearchLoading value) searchLoading,
+    required TResult Function(_SearchCompleted value) searchCompleted,
+    required TResult Function(_SearchFailed value) searchFailed,
+    required TResult Function(_GetTotalEstimatedTimeLoading value)
+        getTotalEstimatedTimeLoading,
+    required TResult Function(_GetTotalEstimatedTimeCompleted value)
+        getTotalEstimatedTimeCompleted,
+    required TResult Function(_GetTotalEstimatedTimeFailed value)
+        getTotalEstimatedTimeFailed,
+    required TResult Function(_UpdateTotalEstimatedTimeLoading value)
+        updateTotalEstimatedTimeLoading,
+    required TResult Function(_UpdateTotalEstimatedTimeFailed value)
+        updateTotalEstimatedTimeFailed,
+    required TResult Function(_UpdateTotalEstimatedTimeCompleted value)
+        updateTotalEstimatedTimeCompleted,
+    required TResult Function(_UploadTasksLoading value) uploadTasksLoading,
+    required TResult Function(_UploadTasksFailed value) uploadTasksFailed,
+    required TResult Function(_UploadTasksCompleted value) uploadTasksCompleted,
+    required TResult Function(_DownloadTasksLoading value) downloadTasksLoading,
+    required TResult Function(_DownloadTasksFailed value) downloadTasksFailed,
+    required TResult Function(_DownloadTasksCompleted value)
+        downloadTasksCompleted,
+    required TResult Function(_UpdateTaskLoading value) updateTaskLoading,
+    required TResult Function(_UpdateTaskFailed value) updateTaskFailed,
+    required TResult Function(_UpdateTaskCompleted value) updateTaskCompleted,
+    required TResult Function(_GetTaskByIdLoading value) getTaskByIdLoading,
+    required TResult Function(_GetTaskByIdFailed value) getTaskByIdFailed,
+    required TResult Function(_GetTaskByIdCompleted value) getTaskByIdCompleted,
+    required TResult Function(_CreateTaskLoading value) createTaskLoading,
+    required TResult Function(_CreateTaskFailed value) createTaskFailed,
+    required TResult Function(_CreateTaskCompleted value) createTaskCompleted,
+    required TResult Function(_DeleteTaskLoading value) deleteTaskLoading,
+    required TResult Function(_DeleteTaskFailed value) deleteTaskFailed,
+    required TResult Function(_DeleteTaskCompleted value) deleteTaskCompleted,
+  }) {
+    return updateTotalEstimatedTimeLoading(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_AllTasksLoading value)? allTasksLoading,
+    TResult? Function(_AllTasksCompleted value)? allTasksCompleted,
+    TResult? Function(_AllTasksFailed value)? allTasksFailed,
+    TResult? Function(_SearchLoading value)? searchLoading,
+    TResult? Function(_SearchCompleted value)? searchCompleted,
+    TResult? Function(_SearchFailed value)? searchFailed,
+    TResult? Function(_GetTotalEstimatedTimeLoading value)?
+        getTotalEstimatedTimeLoading,
+    TResult? Function(_GetTotalEstimatedTimeCompleted value)?
+        getTotalEstimatedTimeCompleted,
+    TResult? Function(_GetTotalEstimatedTimeFailed value)?
+        getTotalEstimatedTimeFailed,
+    TResult? Function(_UpdateTotalEstimatedTimeLoading value)?
+        updateTotalEstimatedTimeLoading,
+    TResult? Function(_UpdateTotalEstimatedTimeFailed value)?
+        updateTotalEstimatedTimeFailed,
+    TResult? Function(_UpdateTotalEstimatedTimeCompleted value)?
+        updateTotalEstimatedTimeCompleted,
+    TResult? Function(_UploadTasksLoading value)? uploadTasksLoading,
+    TResult? Function(_UploadTasksFailed value)? uploadTasksFailed,
+    TResult? Function(_UploadTasksCompleted value)? uploadTasksCompleted,
+    TResult? Function(_DownloadTasksLoading value)? downloadTasksLoading,
+    TResult? Function(_DownloadTasksFailed value)? downloadTasksFailed,
+    TResult? Function(_DownloadTasksCompleted value)? downloadTasksCompleted,
+    TResult? Function(_UpdateTaskLoading value)? updateTaskLoading,
+    TResult? Function(_UpdateTaskFailed value)? updateTaskFailed,
+    TResult? Function(_UpdateTaskCompleted value)? updateTaskCompleted,
+    TResult? Function(_GetTaskByIdLoading value)? getTaskByIdLoading,
+    TResult? Function(_GetTaskByIdFailed value)? getTaskByIdFailed,
+    TResult? Function(_GetTaskByIdCompleted value)? getTaskByIdCompleted,
+    TResult? Function(_CreateTaskLoading value)? createTaskLoading,
+    TResult? Function(_CreateTaskFailed value)? createTaskFailed,
+    TResult? Function(_CreateTaskCompleted value)? createTaskCompleted,
+    TResult? Function(_DeleteTaskLoading value)? deleteTaskLoading,
+    TResult? Function(_DeleteTaskFailed value)? deleteTaskFailed,
+    TResult? Function(_DeleteTaskCompleted value)? deleteTaskCompleted,
+  }) {
+    return updateTotalEstimatedTimeLoading?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_AllTasksLoading value)? allTasksLoading,
+    TResult Function(_AllTasksCompleted value)? allTasksCompleted,
+    TResult Function(_AllTasksFailed value)? allTasksFailed,
+    TResult Function(_SearchLoading value)? searchLoading,
+    TResult Function(_SearchCompleted value)? searchCompleted,
+    TResult Function(_SearchFailed value)? searchFailed,
+    TResult Function(_GetTotalEstimatedTimeLoading value)?
+        getTotalEstimatedTimeLoading,
+    TResult Function(_GetTotalEstimatedTimeCompleted value)?
+        getTotalEstimatedTimeCompleted,
+    TResult Function(_GetTotalEstimatedTimeFailed value)?
+        getTotalEstimatedTimeFailed,
+    TResult Function(_UpdateTotalEstimatedTimeLoading value)?
+        updateTotalEstimatedTimeLoading,
+    TResult Function(_UpdateTotalEstimatedTimeFailed value)?
+        updateTotalEstimatedTimeFailed,
+    TResult Function(_UpdateTotalEstimatedTimeCompleted value)?
+        updateTotalEstimatedTimeCompleted,
+    TResult Function(_UploadTasksLoading value)? uploadTasksLoading,
+    TResult Function(_UploadTasksFailed value)? uploadTasksFailed,
+    TResult Function(_UploadTasksCompleted value)? uploadTasksCompleted,
+    TResult Function(_DownloadTasksLoading value)? downloadTasksLoading,
+    TResult Function(_DownloadTasksFailed value)? downloadTasksFailed,
+    TResult Function(_DownloadTasksCompleted value)? downloadTasksCompleted,
+    TResult Function(_UpdateTaskLoading value)? updateTaskLoading,
+    TResult Function(_UpdateTaskFailed value)? updateTaskFailed,
+    TResult Function(_UpdateTaskCompleted value)? updateTaskCompleted,
+    TResult Function(_GetTaskByIdLoading value)? getTaskByIdLoading,
+    TResult Function(_GetTaskByIdFailed value)? getTaskByIdFailed,
+    TResult Function(_GetTaskByIdCompleted value)? getTaskByIdCompleted,
+    TResult Function(_CreateTaskLoading value)? createTaskLoading,
+    TResult Function(_CreateTaskFailed value)? createTaskFailed,
+    TResult Function(_CreateTaskCompleted value)? createTaskCompleted,
+    TResult Function(_DeleteTaskLoading value)? deleteTaskLoading,
+    TResult Function(_DeleteTaskFailed value)? deleteTaskFailed,
+    TResult Function(_DeleteTaskCompleted value)? deleteTaskCompleted,
+    required TResult orElse(),
+  }) {
+    if (updateTotalEstimatedTimeLoading != null) {
+      return updateTotalEstimatedTimeLoading(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _UpdateTotalEstimatedTimeLoading implements TaskViewmodelState {
+  factory _UpdateTotalEstimatedTimeLoading() =
+      _$UpdateTotalEstimatedTimeLoadingImpl;
+}
+
+/// @nodoc
+abstract class _$$UpdateTotalEstimatedTimeFailedImplCopyWith<$Res> {
+  factory _$$UpdateTotalEstimatedTimeFailedImplCopyWith(
+          _$UpdateTotalEstimatedTimeFailedImpl value,
+          $Res Function(_$UpdateTotalEstimatedTimeFailedImpl) then) =
+      __$$UpdateTotalEstimatedTimeFailedImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String message});
+}
+
+/// @nodoc
+class __$$UpdateTotalEstimatedTimeFailedImplCopyWithImpl<$Res>
+    extends _$TaskViewmodelStateCopyWithImpl<$Res,
+        _$UpdateTotalEstimatedTimeFailedImpl>
+    implements _$$UpdateTotalEstimatedTimeFailedImplCopyWith<$Res> {
+  __$$UpdateTotalEstimatedTimeFailedImplCopyWithImpl(
+      _$UpdateTotalEstimatedTimeFailedImpl _value,
+      $Res Function(_$UpdateTotalEstimatedTimeFailedImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? message = null,
+  }) {
+    return _then(_$UpdateTotalEstimatedTimeFailedImpl(
+      message: null == message
+          ? _value.message
+          : message // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$UpdateTotalEstimatedTimeFailedImpl
+    implements _UpdateTotalEstimatedTimeFailed {
+  _$UpdateTotalEstimatedTimeFailedImpl({required this.message});
+
+  @override
+  final String message;
+
+  @override
+  String toString() {
+    return 'TaskViewmodelState.updateTotalEstimatedTimeFailed(message: $message)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$UpdateTotalEstimatedTimeFailedImpl &&
+            (identical(other.message, message) || other.message == message));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, message);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$UpdateTotalEstimatedTimeFailedImplCopyWith<
+          _$UpdateTotalEstimatedTimeFailedImpl>
+      get copyWith => __$$UpdateTotalEstimatedTimeFailedImplCopyWithImpl<
+          _$UpdateTotalEstimatedTimeFailedImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() allTasksLoading,
+    required TResult Function(List<TaskModel> allTasks) allTasksCompleted,
+    required TResult Function(String message) allTasksFailed,
+    required TResult Function() searchLoading,
+    required TResult Function(List<TaskModel> searchedTasks) searchCompleted,
+    required TResult Function(String message) searchFailed,
+    required TResult Function() getTotalEstimatedTimeLoading,
+    required TResult Function(Duration totalEstimatedTime)
+        getTotalEstimatedTimeCompleted,
+    required TResult Function(String message) getTotalEstimatedTimeFailed,
+    required TResult Function() updateTotalEstimatedTimeLoading,
+    required TResult Function(String message) updateTotalEstimatedTimeFailed,
+    required TResult Function(Duration totalEstimatedTime)
+        updateTotalEstimatedTimeCompleted,
+    required TResult Function() uploadTasksLoading,
+    required TResult Function(String message) uploadTasksFailed,
+    required TResult Function(TaskModel meupdatedTaskssage)
+        uploadTasksCompleted,
+    required TResult Function() downloadTasksLoading,
+    required TResult Function(String message) downloadTasksFailed,
+    required TResult Function(List<TaskModel> downloadedTasks)
+        downloadTasksCompleted,
+    required TResult Function() updateTaskLoading,
+    required TResult Function(String message) updateTaskFailed,
+    required TResult Function(TaskModel updatedTask) updateTaskCompleted,
+    required TResult Function() getTaskByIdLoading,
+    required TResult Function(String message) getTaskByIdFailed,
+    required TResult Function(TaskModel taskById) getTaskByIdCompleted,
+    required TResult Function() createTaskLoading,
+    required TResult Function(String message) createTaskFailed,
+    required TResult Function(TaskModel createdTask) createTaskCompleted,
+    required TResult Function() deleteTaskLoading,
+    required TResult Function(String message) deleteTaskFailed,
+    required TResult Function(TaskModel deletedTask) deleteTaskCompleted,
+  }) {
+    return updateTotalEstimatedTimeFailed(message);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? allTasksLoading,
+    TResult? Function(List<TaskModel> allTasks)? allTasksCompleted,
+    TResult? Function(String message)? allTasksFailed,
+    TResult? Function()? searchLoading,
+    TResult? Function(List<TaskModel> searchedTasks)? searchCompleted,
+    TResult? Function(String message)? searchFailed,
+    TResult? Function()? getTotalEstimatedTimeLoading,
+    TResult? Function(Duration totalEstimatedTime)?
+        getTotalEstimatedTimeCompleted,
+    TResult? Function(String message)? getTotalEstimatedTimeFailed,
+    TResult? Function()? updateTotalEstimatedTimeLoading,
+    TResult? Function(String message)? updateTotalEstimatedTimeFailed,
+    TResult? Function(Duration totalEstimatedTime)?
+        updateTotalEstimatedTimeCompleted,
+    TResult? Function()? uploadTasksLoading,
+    TResult? Function(String message)? uploadTasksFailed,
+    TResult? Function(TaskModel meupdatedTaskssage)? uploadTasksCompleted,
+    TResult? Function()? downloadTasksLoading,
+    TResult? Function(String message)? downloadTasksFailed,
+    TResult? Function(List<TaskModel> downloadedTasks)? downloadTasksCompleted,
+    TResult? Function()? updateTaskLoading,
+    TResult? Function(String message)? updateTaskFailed,
+    TResult? Function(TaskModel updatedTask)? updateTaskCompleted,
+    TResult? Function()? getTaskByIdLoading,
+    TResult? Function(String message)? getTaskByIdFailed,
+    TResult? Function(TaskModel taskById)? getTaskByIdCompleted,
+    TResult? Function()? createTaskLoading,
+    TResult? Function(String message)? createTaskFailed,
+    TResult? Function(TaskModel createdTask)? createTaskCompleted,
+    TResult? Function()? deleteTaskLoading,
+    TResult? Function(String message)? deleteTaskFailed,
+    TResult? Function(TaskModel deletedTask)? deleteTaskCompleted,
+  }) {
+    return updateTotalEstimatedTimeFailed?.call(message);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? allTasksLoading,
+    TResult Function(List<TaskModel> allTasks)? allTasksCompleted,
+    TResult Function(String message)? allTasksFailed,
+    TResult Function()? searchLoading,
+    TResult Function(List<TaskModel> searchedTasks)? searchCompleted,
+    TResult Function(String message)? searchFailed,
+    TResult Function()? getTotalEstimatedTimeLoading,
+    TResult Function(Duration totalEstimatedTime)?
+        getTotalEstimatedTimeCompleted,
+    TResult Function(String message)? getTotalEstimatedTimeFailed,
+    TResult Function()? updateTotalEstimatedTimeLoading,
+    TResult Function(String message)? updateTotalEstimatedTimeFailed,
+    TResult Function(Duration totalEstimatedTime)?
+        updateTotalEstimatedTimeCompleted,
+    TResult Function()? uploadTasksLoading,
+    TResult Function(String message)? uploadTasksFailed,
+    TResult Function(TaskModel meupdatedTaskssage)? uploadTasksCompleted,
+    TResult Function()? downloadTasksLoading,
+    TResult Function(String message)? downloadTasksFailed,
+    TResult Function(List<TaskModel> downloadedTasks)? downloadTasksCompleted,
+    TResult Function()? updateTaskLoading,
+    TResult Function(String message)? updateTaskFailed,
+    TResult Function(TaskModel updatedTask)? updateTaskCompleted,
+    TResult Function()? getTaskByIdLoading,
+    TResult Function(String message)? getTaskByIdFailed,
+    TResult Function(TaskModel taskById)? getTaskByIdCompleted,
+    TResult Function()? createTaskLoading,
+    TResult Function(String message)? createTaskFailed,
+    TResult Function(TaskModel createdTask)? createTaskCompleted,
+    TResult Function()? deleteTaskLoading,
+    TResult Function(String message)? deleteTaskFailed,
+    TResult Function(TaskModel deletedTask)? deleteTaskCompleted,
+    required TResult orElse(),
+  }) {
+    if (updateTotalEstimatedTimeFailed != null) {
+      return updateTotalEstimatedTimeFailed(message);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(_AllTasksLoading value) allTasksLoading,
+    required TResult Function(_AllTasksCompleted value) allTasksCompleted,
+    required TResult Function(_AllTasksFailed value) allTasksFailed,
+    required TResult Function(_SearchLoading value) searchLoading,
+    required TResult Function(_SearchCompleted value) searchCompleted,
+    required TResult Function(_SearchFailed value) searchFailed,
+    required TResult Function(_GetTotalEstimatedTimeLoading value)
+        getTotalEstimatedTimeLoading,
+    required TResult Function(_GetTotalEstimatedTimeCompleted value)
+        getTotalEstimatedTimeCompleted,
+    required TResult Function(_GetTotalEstimatedTimeFailed value)
+        getTotalEstimatedTimeFailed,
+    required TResult Function(_UpdateTotalEstimatedTimeLoading value)
+        updateTotalEstimatedTimeLoading,
+    required TResult Function(_UpdateTotalEstimatedTimeFailed value)
+        updateTotalEstimatedTimeFailed,
+    required TResult Function(_UpdateTotalEstimatedTimeCompleted value)
+        updateTotalEstimatedTimeCompleted,
+    required TResult Function(_UploadTasksLoading value) uploadTasksLoading,
+    required TResult Function(_UploadTasksFailed value) uploadTasksFailed,
+    required TResult Function(_UploadTasksCompleted value) uploadTasksCompleted,
+    required TResult Function(_DownloadTasksLoading value) downloadTasksLoading,
+    required TResult Function(_DownloadTasksFailed value) downloadTasksFailed,
+    required TResult Function(_DownloadTasksCompleted value)
+        downloadTasksCompleted,
+    required TResult Function(_UpdateTaskLoading value) updateTaskLoading,
+    required TResult Function(_UpdateTaskFailed value) updateTaskFailed,
+    required TResult Function(_UpdateTaskCompleted value) updateTaskCompleted,
+    required TResult Function(_GetTaskByIdLoading value) getTaskByIdLoading,
+    required TResult Function(_GetTaskByIdFailed value) getTaskByIdFailed,
+    required TResult Function(_GetTaskByIdCompleted value) getTaskByIdCompleted,
+    required TResult Function(_CreateTaskLoading value) createTaskLoading,
+    required TResult Function(_CreateTaskFailed value) createTaskFailed,
+    required TResult Function(_CreateTaskCompleted value) createTaskCompleted,
+    required TResult Function(_DeleteTaskLoading value) deleteTaskLoading,
+    required TResult Function(_DeleteTaskFailed value) deleteTaskFailed,
+    required TResult Function(_DeleteTaskCompleted value) deleteTaskCompleted,
+  }) {
+    return updateTotalEstimatedTimeFailed(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_AllTasksLoading value)? allTasksLoading,
+    TResult? Function(_AllTasksCompleted value)? allTasksCompleted,
+    TResult? Function(_AllTasksFailed value)? allTasksFailed,
+    TResult? Function(_SearchLoading value)? searchLoading,
+    TResult? Function(_SearchCompleted value)? searchCompleted,
+    TResult? Function(_SearchFailed value)? searchFailed,
+    TResult? Function(_GetTotalEstimatedTimeLoading value)?
+        getTotalEstimatedTimeLoading,
+    TResult? Function(_GetTotalEstimatedTimeCompleted value)?
+        getTotalEstimatedTimeCompleted,
+    TResult? Function(_GetTotalEstimatedTimeFailed value)?
+        getTotalEstimatedTimeFailed,
+    TResult? Function(_UpdateTotalEstimatedTimeLoading value)?
+        updateTotalEstimatedTimeLoading,
+    TResult? Function(_UpdateTotalEstimatedTimeFailed value)?
+        updateTotalEstimatedTimeFailed,
+    TResult? Function(_UpdateTotalEstimatedTimeCompleted value)?
+        updateTotalEstimatedTimeCompleted,
+    TResult? Function(_UploadTasksLoading value)? uploadTasksLoading,
+    TResult? Function(_UploadTasksFailed value)? uploadTasksFailed,
+    TResult? Function(_UploadTasksCompleted value)? uploadTasksCompleted,
+    TResult? Function(_DownloadTasksLoading value)? downloadTasksLoading,
+    TResult? Function(_DownloadTasksFailed value)? downloadTasksFailed,
+    TResult? Function(_DownloadTasksCompleted value)? downloadTasksCompleted,
+    TResult? Function(_UpdateTaskLoading value)? updateTaskLoading,
+    TResult? Function(_UpdateTaskFailed value)? updateTaskFailed,
+    TResult? Function(_UpdateTaskCompleted value)? updateTaskCompleted,
+    TResult? Function(_GetTaskByIdLoading value)? getTaskByIdLoading,
+    TResult? Function(_GetTaskByIdFailed value)? getTaskByIdFailed,
+    TResult? Function(_GetTaskByIdCompleted value)? getTaskByIdCompleted,
+    TResult? Function(_CreateTaskLoading value)? createTaskLoading,
+    TResult? Function(_CreateTaskFailed value)? createTaskFailed,
+    TResult? Function(_CreateTaskCompleted value)? createTaskCompleted,
+    TResult? Function(_DeleteTaskLoading value)? deleteTaskLoading,
+    TResult? Function(_DeleteTaskFailed value)? deleteTaskFailed,
+    TResult? Function(_DeleteTaskCompleted value)? deleteTaskCompleted,
+  }) {
+    return updateTotalEstimatedTimeFailed?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_AllTasksLoading value)? allTasksLoading,
+    TResult Function(_AllTasksCompleted value)? allTasksCompleted,
+    TResult Function(_AllTasksFailed value)? allTasksFailed,
+    TResult Function(_SearchLoading value)? searchLoading,
+    TResult Function(_SearchCompleted value)? searchCompleted,
+    TResult Function(_SearchFailed value)? searchFailed,
+    TResult Function(_GetTotalEstimatedTimeLoading value)?
+        getTotalEstimatedTimeLoading,
+    TResult Function(_GetTotalEstimatedTimeCompleted value)?
+        getTotalEstimatedTimeCompleted,
+    TResult Function(_GetTotalEstimatedTimeFailed value)?
+        getTotalEstimatedTimeFailed,
+    TResult Function(_UpdateTotalEstimatedTimeLoading value)?
+        updateTotalEstimatedTimeLoading,
+    TResult Function(_UpdateTotalEstimatedTimeFailed value)?
+        updateTotalEstimatedTimeFailed,
+    TResult Function(_UpdateTotalEstimatedTimeCompleted value)?
+        updateTotalEstimatedTimeCompleted,
+    TResult Function(_UploadTasksLoading value)? uploadTasksLoading,
+    TResult Function(_UploadTasksFailed value)? uploadTasksFailed,
+    TResult Function(_UploadTasksCompleted value)? uploadTasksCompleted,
+    TResult Function(_DownloadTasksLoading value)? downloadTasksLoading,
+    TResult Function(_DownloadTasksFailed value)? downloadTasksFailed,
+    TResult Function(_DownloadTasksCompleted value)? downloadTasksCompleted,
+    TResult Function(_UpdateTaskLoading value)? updateTaskLoading,
+    TResult Function(_UpdateTaskFailed value)? updateTaskFailed,
+    TResult Function(_UpdateTaskCompleted value)? updateTaskCompleted,
+    TResult Function(_GetTaskByIdLoading value)? getTaskByIdLoading,
+    TResult Function(_GetTaskByIdFailed value)? getTaskByIdFailed,
+    TResult Function(_GetTaskByIdCompleted value)? getTaskByIdCompleted,
+    TResult Function(_CreateTaskLoading value)? createTaskLoading,
+    TResult Function(_CreateTaskFailed value)? createTaskFailed,
+    TResult Function(_CreateTaskCompleted value)? createTaskCompleted,
+    TResult Function(_DeleteTaskLoading value)? deleteTaskLoading,
+    TResult Function(_DeleteTaskFailed value)? deleteTaskFailed,
+    TResult Function(_DeleteTaskCompleted value)? deleteTaskCompleted,
+    required TResult orElse(),
+  }) {
+    if (updateTotalEstimatedTimeFailed != null) {
+      return updateTotalEstimatedTimeFailed(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _UpdateTotalEstimatedTimeFailed implements TaskViewmodelState {
+  factory _UpdateTotalEstimatedTimeFailed({required final String message}) =
+      _$UpdateTotalEstimatedTimeFailedImpl;
+
+  String get message;
+  @JsonKey(ignore: true)
+  _$$UpdateTotalEstimatedTimeFailedImplCopyWith<
+          _$UpdateTotalEstimatedTimeFailedImpl>
+      get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$UpdateTotalEstimatedTimeCompletedImplCopyWith<$Res> {
+  factory _$$UpdateTotalEstimatedTimeCompletedImplCopyWith(
+          _$UpdateTotalEstimatedTimeCompletedImpl value,
+          $Res Function(_$UpdateTotalEstimatedTimeCompletedImpl) then) =
+      __$$UpdateTotalEstimatedTimeCompletedImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({Duration totalEstimatedTime});
+}
+
+/// @nodoc
+class __$$UpdateTotalEstimatedTimeCompletedImplCopyWithImpl<$Res>
+    extends _$TaskViewmodelStateCopyWithImpl<$Res,
+        _$UpdateTotalEstimatedTimeCompletedImpl>
+    implements _$$UpdateTotalEstimatedTimeCompletedImplCopyWith<$Res> {
+  __$$UpdateTotalEstimatedTimeCompletedImplCopyWithImpl(
+      _$UpdateTotalEstimatedTimeCompletedImpl _value,
+      $Res Function(_$UpdateTotalEstimatedTimeCompletedImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? totalEstimatedTime = null,
+  }) {
+    return _then(_$UpdateTotalEstimatedTimeCompletedImpl(
+      totalEstimatedTime: null == totalEstimatedTime
+          ? _value.totalEstimatedTime
+          : totalEstimatedTime // ignore: cast_nullable_to_non_nullable
+              as Duration,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$UpdateTotalEstimatedTimeCompletedImpl
+    implements _UpdateTotalEstimatedTimeCompleted {
+  _$UpdateTotalEstimatedTimeCompletedImpl({required this.totalEstimatedTime});
+
+  @override
+  final Duration totalEstimatedTime;
+
+  @override
+  String toString() {
+    return 'TaskViewmodelState.updateTotalEstimatedTimeCompleted(totalEstimatedTime: $totalEstimatedTime)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$UpdateTotalEstimatedTimeCompletedImpl &&
+            (identical(other.totalEstimatedTime, totalEstimatedTime) ||
+                other.totalEstimatedTime == totalEstimatedTime));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, totalEstimatedTime);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$UpdateTotalEstimatedTimeCompletedImplCopyWith<
+          _$UpdateTotalEstimatedTimeCompletedImpl>
+      get copyWith => __$$UpdateTotalEstimatedTimeCompletedImplCopyWithImpl<
+          _$UpdateTotalEstimatedTimeCompletedImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() allTasksLoading,
+    required TResult Function(List<TaskModel> allTasks) allTasksCompleted,
+    required TResult Function(String message) allTasksFailed,
+    required TResult Function() searchLoading,
+    required TResult Function(List<TaskModel> searchedTasks) searchCompleted,
+    required TResult Function(String message) searchFailed,
+    required TResult Function() getTotalEstimatedTimeLoading,
+    required TResult Function(Duration totalEstimatedTime)
+        getTotalEstimatedTimeCompleted,
+    required TResult Function(String message) getTotalEstimatedTimeFailed,
+    required TResult Function() updateTotalEstimatedTimeLoading,
+    required TResult Function(String message) updateTotalEstimatedTimeFailed,
+    required TResult Function(Duration totalEstimatedTime)
+        updateTotalEstimatedTimeCompleted,
+    required TResult Function() uploadTasksLoading,
+    required TResult Function(String message) uploadTasksFailed,
+    required TResult Function(TaskModel meupdatedTaskssage)
+        uploadTasksCompleted,
+    required TResult Function() downloadTasksLoading,
+    required TResult Function(String message) downloadTasksFailed,
+    required TResult Function(List<TaskModel> downloadedTasks)
+        downloadTasksCompleted,
+    required TResult Function() updateTaskLoading,
+    required TResult Function(String message) updateTaskFailed,
+    required TResult Function(TaskModel updatedTask) updateTaskCompleted,
+    required TResult Function() getTaskByIdLoading,
+    required TResult Function(String message) getTaskByIdFailed,
+    required TResult Function(TaskModel taskById) getTaskByIdCompleted,
+    required TResult Function() createTaskLoading,
+    required TResult Function(String message) createTaskFailed,
+    required TResult Function(TaskModel createdTask) createTaskCompleted,
+    required TResult Function() deleteTaskLoading,
+    required TResult Function(String message) deleteTaskFailed,
+    required TResult Function(TaskModel deletedTask) deleteTaskCompleted,
+  }) {
+    return updateTotalEstimatedTimeCompleted(totalEstimatedTime);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? allTasksLoading,
+    TResult? Function(List<TaskModel> allTasks)? allTasksCompleted,
+    TResult? Function(String message)? allTasksFailed,
+    TResult? Function()? searchLoading,
+    TResult? Function(List<TaskModel> searchedTasks)? searchCompleted,
+    TResult? Function(String message)? searchFailed,
+    TResult? Function()? getTotalEstimatedTimeLoading,
+    TResult? Function(Duration totalEstimatedTime)?
+        getTotalEstimatedTimeCompleted,
+    TResult? Function(String message)? getTotalEstimatedTimeFailed,
+    TResult? Function()? updateTotalEstimatedTimeLoading,
+    TResult? Function(String message)? updateTotalEstimatedTimeFailed,
+    TResult? Function(Duration totalEstimatedTime)?
+        updateTotalEstimatedTimeCompleted,
+    TResult? Function()? uploadTasksLoading,
+    TResult? Function(String message)? uploadTasksFailed,
+    TResult? Function(TaskModel meupdatedTaskssage)? uploadTasksCompleted,
+    TResult? Function()? downloadTasksLoading,
+    TResult? Function(String message)? downloadTasksFailed,
+    TResult? Function(List<TaskModel> downloadedTasks)? downloadTasksCompleted,
+    TResult? Function()? updateTaskLoading,
+    TResult? Function(String message)? updateTaskFailed,
+    TResult? Function(TaskModel updatedTask)? updateTaskCompleted,
+    TResult? Function()? getTaskByIdLoading,
+    TResult? Function(String message)? getTaskByIdFailed,
+    TResult? Function(TaskModel taskById)? getTaskByIdCompleted,
+    TResult? Function()? createTaskLoading,
+    TResult? Function(String message)? createTaskFailed,
+    TResult? Function(TaskModel createdTask)? createTaskCompleted,
+    TResult? Function()? deleteTaskLoading,
+    TResult? Function(String message)? deleteTaskFailed,
+    TResult? Function(TaskModel deletedTask)? deleteTaskCompleted,
+  }) {
+    return updateTotalEstimatedTimeCompleted?.call(totalEstimatedTime);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? allTasksLoading,
+    TResult Function(List<TaskModel> allTasks)? allTasksCompleted,
+    TResult Function(String message)? allTasksFailed,
+    TResult Function()? searchLoading,
+    TResult Function(List<TaskModel> searchedTasks)? searchCompleted,
+    TResult Function(String message)? searchFailed,
+    TResult Function()? getTotalEstimatedTimeLoading,
+    TResult Function(Duration totalEstimatedTime)?
+        getTotalEstimatedTimeCompleted,
+    TResult Function(String message)? getTotalEstimatedTimeFailed,
+    TResult Function()? updateTotalEstimatedTimeLoading,
+    TResult Function(String message)? updateTotalEstimatedTimeFailed,
+    TResult Function(Duration totalEstimatedTime)?
+        updateTotalEstimatedTimeCompleted,
+    TResult Function()? uploadTasksLoading,
+    TResult Function(String message)? uploadTasksFailed,
+    TResult Function(TaskModel meupdatedTaskssage)? uploadTasksCompleted,
+    TResult Function()? downloadTasksLoading,
+    TResult Function(String message)? downloadTasksFailed,
+    TResult Function(List<TaskModel> downloadedTasks)? downloadTasksCompleted,
+    TResult Function()? updateTaskLoading,
+    TResult Function(String message)? updateTaskFailed,
+    TResult Function(TaskModel updatedTask)? updateTaskCompleted,
+    TResult Function()? getTaskByIdLoading,
+    TResult Function(String message)? getTaskByIdFailed,
+    TResult Function(TaskModel taskById)? getTaskByIdCompleted,
+    TResult Function()? createTaskLoading,
+    TResult Function(String message)? createTaskFailed,
+    TResult Function(TaskModel createdTask)? createTaskCompleted,
+    TResult Function()? deleteTaskLoading,
+    TResult Function(String message)? deleteTaskFailed,
+    TResult Function(TaskModel deletedTask)? deleteTaskCompleted,
+    required TResult orElse(),
+  }) {
+    if (updateTotalEstimatedTimeCompleted != null) {
+      return updateTotalEstimatedTimeCompleted(totalEstimatedTime);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(_AllTasksLoading value) allTasksLoading,
+    required TResult Function(_AllTasksCompleted value) allTasksCompleted,
+    required TResult Function(_AllTasksFailed value) allTasksFailed,
+    required TResult Function(_SearchLoading value) searchLoading,
+    required TResult Function(_SearchCompleted value) searchCompleted,
+    required TResult Function(_SearchFailed value) searchFailed,
+    required TResult Function(_GetTotalEstimatedTimeLoading value)
+        getTotalEstimatedTimeLoading,
+    required TResult Function(_GetTotalEstimatedTimeCompleted value)
+        getTotalEstimatedTimeCompleted,
+    required TResult Function(_GetTotalEstimatedTimeFailed value)
+        getTotalEstimatedTimeFailed,
+    required TResult Function(_UpdateTotalEstimatedTimeLoading value)
+        updateTotalEstimatedTimeLoading,
+    required TResult Function(_UpdateTotalEstimatedTimeFailed value)
+        updateTotalEstimatedTimeFailed,
+    required TResult Function(_UpdateTotalEstimatedTimeCompleted value)
+        updateTotalEstimatedTimeCompleted,
+    required TResult Function(_UploadTasksLoading value) uploadTasksLoading,
+    required TResult Function(_UploadTasksFailed value) uploadTasksFailed,
+    required TResult Function(_UploadTasksCompleted value) uploadTasksCompleted,
+    required TResult Function(_DownloadTasksLoading value) downloadTasksLoading,
+    required TResult Function(_DownloadTasksFailed value) downloadTasksFailed,
+    required TResult Function(_DownloadTasksCompleted value)
+        downloadTasksCompleted,
+    required TResult Function(_UpdateTaskLoading value) updateTaskLoading,
+    required TResult Function(_UpdateTaskFailed value) updateTaskFailed,
+    required TResult Function(_UpdateTaskCompleted value) updateTaskCompleted,
+    required TResult Function(_GetTaskByIdLoading value) getTaskByIdLoading,
+    required TResult Function(_GetTaskByIdFailed value) getTaskByIdFailed,
+    required TResult Function(_GetTaskByIdCompleted value) getTaskByIdCompleted,
+    required TResult Function(_CreateTaskLoading value) createTaskLoading,
+    required TResult Function(_CreateTaskFailed value) createTaskFailed,
+    required TResult Function(_CreateTaskCompleted value) createTaskCompleted,
+    required TResult Function(_DeleteTaskLoading value) deleteTaskLoading,
+    required TResult Function(_DeleteTaskFailed value) deleteTaskFailed,
+    required TResult Function(_DeleteTaskCompleted value) deleteTaskCompleted,
+  }) {
+    return updateTotalEstimatedTimeCompleted(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_AllTasksLoading value)? allTasksLoading,
+    TResult? Function(_AllTasksCompleted value)? allTasksCompleted,
+    TResult? Function(_AllTasksFailed value)? allTasksFailed,
+    TResult? Function(_SearchLoading value)? searchLoading,
+    TResult? Function(_SearchCompleted value)? searchCompleted,
+    TResult? Function(_SearchFailed value)? searchFailed,
+    TResult? Function(_GetTotalEstimatedTimeLoading value)?
+        getTotalEstimatedTimeLoading,
+    TResult? Function(_GetTotalEstimatedTimeCompleted value)?
+        getTotalEstimatedTimeCompleted,
+    TResult? Function(_GetTotalEstimatedTimeFailed value)?
+        getTotalEstimatedTimeFailed,
+    TResult? Function(_UpdateTotalEstimatedTimeLoading value)?
+        updateTotalEstimatedTimeLoading,
+    TResult? Function(_UpdateTotalEstimatedTimeFailed value)?
+        updateTotalEstimatedTimeFailed,
+    TResult? Function(_UpdateTotalEstimatedTimeCompleted value)?
+        updateTotalEstimatedTimeCompleted,
+    TResult? Function(_UploadTasksLoading value)? uploadTasksLoading,
+    TResult? Function(_UploadTasksFailed value)? uploadTasksFailed,
+    TResult? Function(_UploadTasksCompleted value)? uploadTasksCompleted,
+    TResult? Function(_DownloadTasksLoading value)? downloadTasksLoading,
+    TResult? Function(_DownloadTasksFailed value)? downloadTasksFailed,
+    TResult? Function(_DownloadTasksCompleted value)? downloadTasksCompleted,
+    TResult? Function(_UpdateTaskLoading value)? updateTaskLoading,
+    TResult? Function(_UpdateTaskFailed value)? updateTaskFailed,
+    TResult? Function(_UpdateTaskCompleted value)? updateTaskCompleted,
+    TResult? Function(_GetTaskByIdLoading value)? getTaskByIdLoading,
+    TResult? Function(_GetTaskByIdFailed value)? getTaskByIdFailed,
+    TResult? Function(_GetTaskByIdCompleted value)? getTaskByIdCompleted,
+    TResult? Function(_CreateTaskLoading value)? createTaskLoading,
+    TResult? Function(_CreateTaskFailed value)? createTaskFailed,
+    TResult? Function(_CreateTaskCompleted value)? createTaskCompleted,
+    TResult? Function(_DeleteTaskLoading value)? deleteTaskLoading,
+    TResult? Function(_DeleteTaskFailed value)? deleteTaskFailed,
+    TResult? Function(_DeleteTaskCompleted value)? deleteTaskCompleted,
+  }) {
+    return updateTotalEstimatedTimeCompleted?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_AllTasksLoading value)? allTasksLoading,
+    TResult Function(_AllTasksCompleted value)? allTasksCompleted,
+    TResult Function(_AllTasksFailed value)? allTasksFailed,
+    TResult Function(_SearchLoading value)? searchLoading,
+    TResult Function(_SearchCompleted value)? searchCompleted,
+    TResult Function(_SearchFailed value)? searchFailed,
+    TResult Function(_GetTotalEstimatedTimeLoading value)?
+        getTotalEstimatedTimeLoading,
+    TResult Function(_GetTotalEstimatedTimeCompleted value)?
+        getTotalEstimatedTimeCompleted,
+    TResult Function(_GetTotalEstimatedTimeFailed value)?
+        getTotalEstimatedTimeFailed,
+    TResult Function(_UpdateTotalEstimatedTimeLoading value)?
+        updateTotalEstimatedTimeLoading,
+    TResult Function(_UpdateTotalEstimatedTimeFailed value)?
+        updateTotalEstimatedTimeFailed,
+    TResult Function(_UpdateTotalEstimatedTimeCompleted value)?
+        updateTotalEstimatedTimeCompleted,
+    TResult Function(_UploadTasksLoading value)? uploadTasksLoading,
+    TResult Function(_UploadTasksFailed value)? uploadTasksFailed,
+    TResult Function(_UploadTasksCompleted value)? uploadTasksCompleted,
+    TResult Function(_DownloadTasksLoading value)? downloadTasksLoading,
+    TResult Function(_DownloadTasksFailed value)? downloadTasksFailed,
+    TResult Function(_DownloadTasksCompleted value)? downloadTasksCompleted,
+    TResult Function(_UpdateTaskLoading value)? updateTaskLoading,
+    TResult Function(_UpdateTaskFailed value)? updateTaskFailed,
+    TResult Function(_UpdateTaskCompleted value)? updateTaskCompleted,
+    TResult Function(_GetTaskByIdLoading value)? getTaskByIdLoading,
+    TResult Function(_GetTaskByIdFailed value)? getTaskByIdFailed,
+    TResult Function(_GetTaskByIdCompleted value)? getTaskByIdCompleted,
+    TResult Function(_CreateTaskLoading value)? createTaskLoading,
+    TResult Function(_CreateTaskFailed value)? createTaskFailed,
+    TResult Function(_CreateTaskCompleted value)? createTaskCompleted,
+    TResult Function(_DeleteTaskLoading value)? deleteTaskLoading,
+    TResult Function(_DeleteTaskFailed value)? deleteTaskFailed,
+    TResult Function(_DeleteTaskCompleted value)? deleteTaskCompleted,
+    required TResult orElse(),
+  }) {
+    if (updateTotalEstimatedTimeCompleted != null) {
+      return updateTotalEstimatedTimeCompleted(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _UpdateTotalEstimatedTimeCompleted
+    implements TaskViewmodelState {
+  factory _UpdateTotalEstimatedTimeCompleted(
+          {required final Duration totalEstimatedTime}) =
+      _$UpdateTotalEstimatedTimeCompletedImpl;
+
+  Duration get totalEstimatedTime;
+  @JsonKey(ignore: true)
+  _$$UpdateTotalEstimatedTimeCompletedImplCopyWith<
+          _$UpdateTotalEstimatedTimeCompletedImpl>
+      get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$UploadTasksLoadingImplCopyWith<$Res> {
+  factory _$$UploadTasksLoadingImplCopyWith(_$UploadTasksLoadingImpl value,
+          $Res Function(_$UploadTasksLoadingImpl) then) =
+      __$$UploadTasksLoadingImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$UploadTasksLoadingImplCopyWithImpl<$Res>
+    extends _$TaskViewmodelStateCopyWithImpl<$Res, _$UploadTasksLoadingImpl>
+    implements _$$UploadTasksLoadingImplCopyWith<$Res> {
+  __$$UploadTasksLoadingImplCopyWithImpl(_$UploadTasksLoadingImpl _value,
+      $Res Function(_$UploadTasksLoadingImpl) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$UploadTasksLoadingImpl implements _UploadTasksLoading {
+  _$UploadTasksLoadingImpl();
+
+  @override
+  String toString() {
+    return 'TaskViewmodelState.uploadTasksLoading()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$UploadTasksLoadingImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() allTasksLoading,
+    required TResult Function(List<TaskModel> allTasks) allTasksCompleted,
+    required TResult Function(String message) allTasksFailed,
+    required TResult Function() searchLoading,
+    required TResult Function(List<TaskModel> searchedTasks) searchCompleted,
+    required TResult Function(String message) searchFailed,
+    required TResult Function() getTotalEstimatedTimeLoading,
+    required TResult Function(Duration totalEstimatedTime)
+        getTotalEstimatedTimeCompleted,
+    required TResult Function(String message) getTotalEstimatedTimeFailed,
+    required TResult Function() updateTotalEstimatedTimeLoading,
+    required TResult Function(String message) updateTotalEstimatedTimeFailed,
+    required TResult Function(Duration totalEstimatedTime)
+        updateTotalEstimatedTimeCompleted,
+    required TResult Function() uploadTasksLoading,
+    required TResult Function(String message) uploadTasksFailed,
+    required TResult Function(TaskModel meupdatedTaskssage)
+        uploadTasksCompleted,
+    required TResult Function() downloadTasksLoading,
+    required TResult Function(String message) downloadTasksFailed,
+    required TResult Function(List<TaskModel> downloadedTasks)
+        downloadTasksCompleted,
+    required TResult Function() updateTaskLoading,
+    required TResult Function(String message) updateTaskFailed,
+    required TResult Function(TaskModel updatedTask) updateTaskCompleted,
+    required TResult Function() getTaskByIdLoading,
+    required TResult Function(String message) getTaskByIdFailed,
+    required TResult Function(TaskModel taskById) getTaskByIdCompleted,
+    required TResult Function() createTaskLoading,
+    required TResult Function(String message) createTaskFailed,
+    required TResult Function(TaskModel createdTask) createTaskCompleted,
+    required TResult Function() deleteTaskLoading,
+    required TResult Function(String message) deleteTaskFailed,
+    required TResult Function(TaskModel deletedTask) deleteTaskCompleted,
+  }) {
+    return uploadTasksLoading();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? allTasksLoading,
+    TResult? Function(List<TaskModel> allTasks)? allTasksCompleted,
+    TResult? Function(String message)? allTasksFailed,
+    TResult? Function()? searchLoading,
+    TResult? Function(List<TaskModel> searchedTasks)? searchCompleted,
+    TResult? Function(String message)? searchFailed,
+    TResult? Function()? getTotalEstimatedTimeLoading,
+    TResult? Function(Duration totalEstimatedTime)?
+        getTotalEstimatedTimeCompleted,
+    TResult? Function(String message)? getTotalEstimatedTimeFailed,
+    TResult? Function()? updateTotalEstimatedTimeLoading,
+    TResult? Function(String message)? updateTotalEstimatedTimeFailed,
+    TResult? Function(Duration totalEstimatedTime)?
+        updateTotalEstimatedTimeCompleted,
+    TResult? Function()? uploadTasksLoading,
+    TResult? Function(String message)? uploadTasksFailed,
+    TResult? Function(TaskModel meupdatedTaskssage)? uploadTasksCompleted,
+    TResult? Function()? downloadTasksLoading,
+    TResult? Function(String message)? downloadTasksFailed,
+    TResult? Function(List<TaskModel> downloadedTasks)? downloadTasksCompleted,
+    TResult? Function()? updateTaskLoading,
+    TResult? Function(String message)? updateTaskFailed,
+    TResult? Function(TaskModel updatedTask)? updateTaskCompleted,
+    TResult? Function()? getTaskByIdLoading,
+    TResult? Function(String message)? getTaskByIdFailed,
+    TResult? Function(TaskModel taskById)? getTaskByIdCompleted,
+    TResult? Function()? createTaskLoading,
+    TResult? Function(String message)? createTaskFailed,
+    TResult? Function(TaskModel createdTask)? createTaskCompleted,
+    TResult? Function()? deleteTaskLoading,
+    TResult? Function(String message)? deleteTaskFailed,
+    TResult? Function(TaskModel deletedTask)? deleteTaskCompleted,
+  }) {
+    return uploadTasksLoading?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? allTasksLoading,
+    TResult Function(List<TaskModel> allTasks)? allTasksCompleted,
+    TResult Function(String message)? allTasksFailed,
+    TResult Function()? searchLoading,
+    TResult Function(List<TaskModel> searchedTasks)? searchCompleted,
+    TResult Function(String message)? searchFailed,
+    TResult Function()? getTotalEstimatedTimeLoading,
+    TResult Function(Duration totalEstimatedTime)?
+        getTotalEstimatedTimeCompleted,
+    TResult Function(String message)? getTotalEstimatedTimeFailed,
+    TResult Function()? updateTotalEstimatedTimeLoading,
+    TResult Function(String message)? updateTotalEstimatedTimeFailed,
+    TResult Function(Duration totalEstimatedTime)?
+        updateTotalEstimatedTimeCompleted,
+    TResult Function()? uploadTasksLoading,
+    TResult Function(String message)? uploadTasksFailed,
+    TResult Function(TaskModel meupdatedTaskssage)? uploadTasksCompleted,
+    TResult Function()? downloadTasksLoading,
+    TResult Function(String message)? downloadTasksFailed,
+    TResult Function(List<TaskModel> downloadedTasks)? downloadTasksCompleted,
+    TResult Function()? updateTaskLoading,
+    TResult Function(String message)? updateTaskFailed,
+    TResult Function(TaskModel updatedTask)? updateTaskCompleted,
+    TResult Function()? getTaskByIdLoading,
+    TResult Function(String message)? getTaskByIdFailed,
+    TResult Function(TaskModel taskById)? getTaskByIdCompleted,
+    TResult Function()? createTaskLoading,
+    TResult Function(String message)? createTaskFailed,
+    TResult Function(TaskModel createdTask)? createTaskCompleted,
+    TResult Function()? deleteTaskLoading,
+    TResult Function(String message)? deleteTaskFailed,
+    TResult Function(TaskModel deletedTask)? deleteTaskCompleted,
+    required TResult orElse(),
+  }) {
+    if (uploadTasksLoading != null) {
+      return uploadTasksLoading();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(_AllTasksLoading value) allTasksLoading,
+    required TResult Function(_AllTasksCompleted value) allTasksCompleted,
+    required TResult Function(_AllTasksFailed value) allTasksFailed,
+    required TResult Function(_SearchLoading value) searchLoading,
+    required TResult Function(_SearchCompleted value) searchCompleted,
+    required TResult Function(_SearchFailed value) searchFailed,
+    required TResult Function(_GetTotalEstimatedTimeLoading value)
+        getTotalEstimatedTimeLoading,
+    required TResult Function(_GetTotalEstimatedTimeCompleted value)
+        getTotalEstimatedTimeCompleted,
+    required TResult Function(_GetTotalEstimatedTimeFailed value)
+        getTotalEstimatedTimeFailed,
+    required TResult Function(_UpdateTotalEstimatedTimeLoading value)
+        updateTotalEstimatedTimeLoading,
+    required TResult Function(_UpdateTotalEstimatedTimeFailed value)
+        updateTotalEstimatedTimeFailed,
+    required TResult Function(_UpdateTotalEstimatedTimeCompleted value)
+        updateTotalEstimatedTimeCompleted,
+    required TResult Function(_UploadTasksLoading value) uploadTasksLoading,
+    required TResult Function(_UploadTasksFailed value) uploadTasksFailed,
+    required TResult Function(_UploadTasksCompleted value) uploadTasksCompleted,
+    required TResult Function(_DownloadTasksLoading value) downloadTasksLoading,
+    required TResult Function(_DownloadTasksFailed value) downloadTasksFailed,
+    required TResult Function(_DownloadTasksCompleted value)
+        downloadTasksCompleted,
+    required TResult Function(_UpdateTaskLoading value) updateTaskLoading,
+    required TResult Function(_UpdateTaskFailed value) updateTaskFailed,
+    required TResult Function(_UpdateTaskCompleted value) updateTaskCompleted,
+    required TResult Function(_GetTaskByIdLoading value) getTaskByIdLoading,
+    required TResult Function(_GetTaskByIdFailed value) getTaskByIdFailed,
+    required TResult Function(_GetTaskByIdCompleted value) getTaskByIdCompleted,
+    required TResult Function(_CreateTaskLoading value) createTaskLoading,
+    required TResult Function(_CreateTaskFailed value) createTaskFailed,
+    required TResult Function(_CreateTaskCompleted value) createTaskCompleted,
+    required TResult Function(_DeleteTaskLoading value) deleteTaskLoading,
+    required TResult Function(_DeleteTaskFailed value) deleteTaskFailed,
+    required TResult Function(_DeleteTaskCompleted value) deleteTaskCompleted,
+  }) {
+    return uploadTasksLoading(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_AllTasksLoading value)? allTasksLoading,
+    TResult? Function(_AllTasksCompleted value)? allTasksCompleted,
+    TResult? Function(_AllTasksFailed value)? allTasksFailed,
+    TResult? Function(_SearchLoading value)? searchLoading,
+    TResult? Function(_SearchCompleted value)? searchCompleted,
+    TResult? Function(_SearchFailed value)? searchFailed,
+    TResult? Function(_GetTotalEstimatedTimeLoading value)?
+        getTotalEstimatedTimeLoading,
+    TResult? Function(_GetTotalEstimatedTimeCompleted value)?
+        getTotalEstimatedTimeCompleted,
+    TResult? Function(_GetTotalEstimatedTimeFailed value)?
+        getTotalEstimatedTimeFailed,
+    TResult? Function(_UpdateTotalEstimatedTimeLoading value)?
+        updateTotalEstimatedTimeLoading,
+    TResult? Function(_UpdateTotalEstimatedTimeFailed value)?
+        updateTotalEstimatedTimeFailed,
+    TResult? Function(_UpdateTotalEstimatedTimeCompleted value)?
+        updateTotalEstimatedTimeCompleted,
+    TResult? Function(_UploadTasksLoading value)? uploadTasksLoading,
+    TResult? Function(_UploadTasksFailed value)? uploadTasksFailed,
+    TResult? Function(_UploadTasksCompleted value)? uploadTasksCompleted,
+    TResult? Function(_DownloadTasksLoading value)? downloadTasksLoading,
+    TResult? Function(_DownloadTasksFailed value)? downloadTasksFailed,
+    TResult? Function(_DownloadTasksCompleted value)? downloadTasksCompleted,
+    TResult? Function(_UpdateTaskLoading value)? updateTaskLoading,
+    TResult? Function(_UpdateTaskFailed value)? updateTaskFailed,
+    TResult? Function(_UpdateTaskCompleted value)? updateTaskCompleted,
+    TResult? Function(_GetTaskByIdLoading value)? getTaskByIdLoading,
+    TResult? Function(_GetTaskByIdFailed value)? getTaskByIdFailed,
+    TResult? Function(_GetTaskByIdCompleted value)? getTaskByIdCompleted,
+    TResult? Function(_CreateTaskLoading value)? createTaskLoading,
+    TResult? Function(_CreateTaskFailed value)? createTaskFailed,
+    TResult? Function(_CreateTaskCompleted value)? createTaskCompleted,
+    TResult? Function(_DeleteTaskLoading value)? deleteTaskLoading,
+    TResult? Function(_DeleteTaskFailed value)? deleteTaskFailed,
+    TResult? Function(_DeleteTaskCompleted value)? deleteTaskCompleted,
+  }) {
+    return uploadTasksLoading?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_AllTasksLoading value)? allTasksLoading,
+    TResult Function(_AllTasksCompleted value)? allTasksCompleted,
+    TResult Function(_AllTasksFailed value)? allTasksFailed,
+    TResult Function(_SearchLoading value)? searchLoading,
+    TResult Function(_SearchCompleted value)? searchCompleted,
+    TResult Function(_SearchFailed value)? searchFailed,
+    TResult Function(_GetTotalEstimatedTimeLoading value)?
+        getTotalEstimatedTimeLoading,
+    TResult Function(_GetTotalEstimatedTimeCompleted value)?
+        getTotalEstimatedTimeCompleted,
+    TResult Function(_GetTotalEstimatedTimeFailed value)?
+        getTotalEstimatedTimeFailed,
+    TResult Function(_UpdateTotalEstimatedTimeLoading value)?
+        updateTotalEstimatedTimeLoading,
+    TResult Function(_UpdateTotalEstimatedTimeFailed value)?
+        updateTotalEstimatedTimeFailed,
+    TResult Function(_UpdateTotalEstimatedTimeCompleted value)?
+        updateTotalEstimatedTimeCompleted,
+    TResult Function(_UploadTasksLoading value)? uploadTasksLoading,
+    TResult Function(_UploadTasksFailed value)? uploadTasksFailed,
+    TResult Function(_UploadTasksCompleted value)? uploadTasksCompleted,
+    TResult Function(_DownloadTasksLoading value)? downloadTasksLoading,
+    TResult Function(_DownloadTasksFailed value)? downloadTasksFailed,
+    TResult Function(_DownloadTasksCompleted value)? downloadTasksCompleted,
+    TResult Function(_UpdateTaskLoading value)? updateTaskLoading,
+    TResult Function(_UpdateTaskFailed value)? updateTaskFailed,
+    TResult Function(_UpdateTaskCompleted value)? updateTaskCompleted,
+    TResult Function(_GetTaskByIdLoading value)? getTaskByIdLoading,
+    TResult Function(_GetTaskByIdFailed value)? getTaskByIdFailed,
+    TResult Function(_GetTaskByIdCompleted value)? getTaskByIdCompleted,
+    TResult Function(_CreateTaskLoading value)? createTaskLoading,
+    TResult Function(_CreateTaskFailed value)? createTaskFailed,
+    TResult Function(_CreateTaskCompleted value)? createTaskCompleted,
+    TResult Function(_DeleteTaskLoading value)? deleteTaskLoading,
+    TResult Function(_DeleteTaskFailed value)? deleteTaskFailed,
+    TResult Function(_DeleteTaskCompleted value)? deleteTaskCompleted,
+    required TResult orElse(),
+  }) {
+    if (uploadTasksLoading != null) {
+      return uploadTasksLoading(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _UploadTasksLoading implements TaskViewmodelState {
+  factory _UploadTasksLoading() = _$UploadTasksLoadingImpl;
+}
+
+/// @nodoc
+abstract class _$$UploadTasksFailedImplCopyWith<$Res> {
+  factory _$$UploadTasksFailedImplCopyWith(_$UploadTasksFailedImpl value,
+          $Res Function(_$UploadTasksFailedImpl) then) =
+      __$$UploadTasksFailedImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String message});
+}
+
+/// @nodoc
+class __$$UploadTasksFailedImplCopyWithImpl<$Res>
+    extends _$TaskViewmodelStateCopyWithImpl<$Res, _$UploadTasksFailedImpl>
+    implements _$$UploadTasksFailedImplCopyWith<$Res> {
+  __$$UploadTasksFailedImplCopyWithImpl(_$UploadTasksFailedImpl _value,
+      $Res Function(_$UploadTasksFailedImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? message = null,
+  }) {
+    return _then(_$UploadTasksFailedImpl(
+      message: null == message
+          ? _value.message
+          : message // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$UploadTasksFailedImpl implements _UploadTasksFailed {
+  _$UploadTasksFailedImpl({required this.message});
+
+  @override
+  final String message;
+
+  @override
+  String toString() {
+    return 'TaskViewmodelState.uploadTasksFailed(message: $message)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$UploadTasksFailedImpl &&
+            (identical(other.message, message) || other.message == message));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, message);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$UploadTasksFailedImplCopyWith<_$UploadTasksFailedImpl> get copyWith =>
+      __$$UploadTasksFailedImplCopyWithImpl<_$UploadTasksFailedImpl>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() allTasksLoading,
+    required TResult Function(List<TaskModel> allTasks) allTasksCompleted,
+    required TResult Function(String message) allTasksFailed,
+    required TResult Function() searchLoading,
+    required TResult Function(List<TaskModel> searchedTasks) searchCompleted,
+    required TResult Function(String message) searchFailed,
+    required TResult Function() getTotalEstimatedTimeLoading,
+    required TResult Function(Duration totalEstimatedTime)
+        getTotalEstimatedTimeCompleted,
+    required TResult Function(String message) getTotalEstimatedTimeFailed,
+    required TResult Function() updateTotalEstimatedTimeLoading,
+    required TResult Function(String message) updateTotalEstimatedTimeFailed,
+    required TResult Function(Duration totalEstimatedTime)
+        updateTotalEstimatedTimeCompleted,
+    required TResult Function() uploadTasksLoading,
+    required TResult Function(String message) uploadTasksFailed,
+    required TResult Function(TaskModel meupdatedTaskssage)
+        uploadTasksCompleted,
+    required TResult Function() downloadTasksLoading,
+    required TResult Function(String message) downloadTasksFailed,
+    required TResult Function(List<TaskModel> downloadedTasks)
+        downloadTasksCompleted,
+    required TResult Function() updateTaskLoading,
+    required TResult Function(String message) updateTaskFailed,
+    required TResult Function(TaskModel updatedTask) updateTaskCompleted,
+    required TResult Function() getTaskByIdLoading,
+    required TResult Function(String message) getTaskByIdFailed,
+    required TResult Function(TaskModel taskById) getTaskByIdCompleted,
+    required TResult Function() createTaskLoading,
+    required TResult Function(String message) createTaskFailed,
+    required TResult Function(TaskModel createdTask) createTaskCompleted,
+    required TResult Function() deleteTaskLoading,
+    required TResult Function(String message) deleteTaskFailed,
+    required TResult Function(TaskModel deletedTask) deleteTaskCompleted,
+  }) {
+    return uploadTasksFailed(message);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? allTasksLoading,
+    TResult? Function(List<TaskModel> allTasks)? allTasksCompleted,
+    TResult? Function(String message)? allTasksFailed,
+    TResult? Function()? searchLoading,
+    TResult? Function(List<TaskModel> searchedTasks)? searchCompleted,
+    TResult? Function(String message)? searchFailed,
+    TResult? Function()? getTotalEstimatedTimeLoading,
+    TResult? Function(Duration totalEstimatedTime)?
+        getTotalEstimatedTimeCompleted,
+    TResult? Function(String message)? getTotalEstimatedTimeFailed,
+    TResult? Function()? updateTotalEstimatedTimeLoading,
+    TResult? Function(String message)? updateTotalEstimatedTimeFailed,
+    TResult? Function(Duration totalEstimatedTime)?
+        updateTotalEstimatedTimeCompleted,
+    TResult? Function()? uploadTasksLoading,
+    TResult? Function(String message)? uploadTasksFailed,
+    TResult? Function(TaskModel meupdatedTaskssage)? uploadTasksCompleted,
+    TResult? Function()? downloadTasksLoading,
+    TResult? Function(String message)? downloadTasksFailed,
+    TResult? Function(List<TaskModel> downloadedTasks)? downloadTasksCompleted,
+    TResult? Function()? updateTaskLoading,
+    TResult? Function(String message)? updateTaskFailed,
+    TResult? Function(TaskModel updatedTask)? updateTaskCompleted,
+    TResult? Function()? getTaskByIdLoading,
+    TResult? Function(String message)? getTaskByIdFailed,
+    TResult? Function(TaskModel taskById)? getTaskByIdCompleted,
+    TResult? Function()? createTaskLoading,
+    TResult? Function(String message)? createTaskFailed,
+    TResult? Function(TaskModel createdTask)? createTaskCompleted,
+    TResult? Function()? deleteTaskLoading,
+    TResult? Function(String message)? deleteTaskFailed,
+    TResult? Function(TaskModel deletedTask)? deleteTaskCompleted,
+  }) {
+    return uploadTasksFailed?.call(message);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? allTasksLoading,
+    TResult Function(List<TaskModel> allTasks)? allTasksCompleted,
+    TResult Function(String message)? allTasksFailed,
+    TResult Function()? searchLoading,
+    TResult Function(List<TaskModel> searchedTasks)? searchCompleted,
+    TResult Function(String message)? searchFailed,
+    TResult Function()? getTotalEstimatedTimeLoading,
+    TResult Function(Duration totalEstimatedTime)?
+        getTotalEstimatedTimeCompleted,
+    TResult Function(String message)? getTotalEstimatedTimeFailed,
+    TResult Function()? updateTotalEstimatedTimeLoading,
+    TResult Function(String message)? updateTotalEstimatedTimeFailed,
+    TResult Function(Duration totalEstimatedTime)?
+        updateTotalEstimatedTimeCompleted,
+    TResult Function()? uploadTasksLoading,
+    TResult Function(String message)? uploadTasksFailed,
+    TResult Function(TaskModel meupdatedTaskssage)? uploadTasksCompleted,
+    TResult Function()? downloadTasksLoading,
+    TResult Function(String message)? downloadTasksFailed,
+    TResult Function(List<TaskModel> downloadedTasks)? downloadTasksCompleted,
+    TResult Function()? updateTaskLoading,
+    TResult Function(String message)? updateTaskFailed,
+    TResult Function(TaskModel updatedTask)? updateTaskCompleted,
+    TResult Function()? getTaskByIdLoading,
+    TResult Function(String message)? getTaskByIdFailed,
+    TResult Function(TaskModel taskById)? getTaskByIdCompleted,
+    TResult Function()? createTaskLoading,
+    TResult Function(String message)? createTaskFailed,
+    TResult Function(TaskModel createdTask)? createTaskCompleted,
+    TResult Function()? deleteTaskLoading,
+    TResult Function(String message)? deleteTaskFailed,
+    TResult Function(TaskModel deletedTask)? deleteTaskCompleted,
+    required TResult orElse(),
+  }) {
+    if (uploadTasksFailed != null) {
+      return uploadTasksFailed(message);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(_AllTasksLoading value) allTasksLoading,
+    required TResult Function(_AllTasksCompleted value) allTasksCompleted,
+    required TResult Function(_AllTasksFailed value) allTasksFailed,
+    required TResult Function(_SearchLoading value) searchLoading,
+    required TResult Function(_SearchCompleted value) searchCompleted,
+    required TResult Function(_SearchFailed value) searchFailed,
+    required TResult Function(_GetTotalEstimatedTimeLoading value)
+        getTotalEstimatedTimeLoading,
+    required TResult Function(_GetTotalEstimatedTimeCompleted value)
+        getTotalEstimatedTimeCompleted,
+    required TResult Function(_GetTotalEstimatedTimeFailed value)
+        getTotalEstimatedTimeFailed,
+    required TResult Function(_UpdateTotalEstimatedTimeLoading value)
+        updateTotalEstimatedTimeLoading,
+    required TResult Function(_UpdateTotalEstimatedTimeFailed value)
+        updateTotalEstimatedTimeFailed,
+    required TResult Function(_UpdateTotalEstimatedTimeCompleted value)
+        updateTotalEstimatedTimeCompleted,
+    required TResult Function(_UploadTasksLoading value) uploadTasksLoading,
+    required TResult Function(_UploadTasksFailed value) uploadTasksFailed,
+    required TResult Function(_UploadTasksCompleted value) uploadTasksCompleted,
+    required TResult Function(_DownloadTasksLoading value) downloadTasksLoading,
+    required TResult Function(_DownloadTasksFailed value) downloadTasksFailed,
+    required TResult Function(_DownloadTasksCompleted value)
+        downloadTasksCompleted,
+    required TResult Function(_UpdateTaskLoading value) updateTaskLoading,
+    required TResult Function(_UpdateTaskFailed value) updateTaskFailed,
+    required TResult Function(_UpdateTaskCompleted value) updateTaskCompleted,
+    required TResult Function(_GetTaskByIdLoading value) getTaskByIdLoading,
+    required TResult Function(_GetTaskByIdFailed value) getTaskByIdFailed,
+    required TResult Function(_GetTaskByIdCompleted value) getTaskByIdCompleted,
+    required TResult Function(_CreateTaskLoading value) createTaskLoading,
+    required TResult Function(_CreateTaskFailed value) createTaskFailed,
+    required TResult Function(_CreateTaskCompleted value) createTaskCompleted,
+    required TResult Function(_DeleteTaskLoading value) deleteTaskLoading,
+    required TResult Function(_DeleteTaskFailed value) deleteTaskFailed,
+    required TResult Function(_DeleteTaskCompleted value) deleteTaskCompleted,
+  }) {
+    return uploadTasksFailed(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_AllTasksLoading value)? allTasksLoading,
+    TResult? Function(_AllTasksCompleted value)? allTasksCompleted,
+    TResult? Function(_AllTasksFailed value)? allTasksFailed,
+    TResult? Function(_SearchLoading value)? searchLoading,
+    TResult? Function(_SearchCompleted value)? searchCompleted,
+    TResult? Function(_SearchFailed value)? searchFailed,
+    TResult? Function(_GetTotalEstimatedTimeLoading value)?
+        getTotalEstimatedTimeLoading,
+    TResult? Function(_GetTotalEstimatedTimeCompleted value)?
+        getTotalEstimatedTimeCompleted,
+    TResult? Function(_GetTotalEstimatedTimeFailed value)?
+        getTotalEstimatedTimeFailed,
+    TResult? Function(_UpdateTotalEstimatedTimeLoading value)?
+        updateTotalEstimatedTimeLoading,
+    TResult? Function(_UpdateTotalEstimatedTimeFailed value)?
+        updateTotalEstimatedTimeFailed,
+    TResult? Function(_UpdateTotalEstimatedTimeCompleted value)?
+        updateTotalEstimatedTimeCompleted,
+    TResult? Function(_UploadTasksLoading value)? uploadTasksLoading,
+    TResult? Function(_UploadTasksFailed value)? uploadTasksFailed,
+    TResult? Function(_UploadTasksCompleted value)? uploadTasksCompleted,
+    TResult? Function(_DownloadTasksLoading value)? downloadTasksLoading,
+    TResult? Function(_DownloadTasksFailed value)? downloadTasksFailed,
+    TResult? Function(_DownloadTasksCompleted value)? downloadTasksCompleted,
+    TResult? Function(_UpdateTaskLoading value)? updateTaskLoading,
+    TResult? Function(_UpdateTaskFailed value)? updateTaskFailed,
+    TResult? Function(_UpdateTaskCompleted value)? updateTaskCompleted,
+    TResult? Function(_GetTaskByIdLoading value)? getTaskByIdLoading,
+    TResult? Function(_GetTaskByIdFailed value)? getTaskByIdFailed,
+    TResult? Function(_GetTaskByIdCompleted value)? getTaskByIdCompleted,
+    TResult? Function(_CreateTaskLoading value)? createTaskLoading,
+    TResult? Function(_CreateTaskFailed value)? createTaskFailed,
+    TResult? Function(_CreateTaskCompleted value)? createTaskCompleted,
+    TResult? Function(_DeleteTaskLoading value)? deleteTaskLoading,
+    TResult? Function(_DeleteTaskFailed value)? deleteTaskFailed,
+    TResult? Function(_DeleteTaskCompleted value)? deleteTaskCompleted,
+  }) {
+    return uploadTasksFailed?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_AllTasksLoading value)? allTasksLoading,
+    TResult Function(_AllTasksCompleted value)? allTasksCompleted,
+    TResult Function(_AllTasksFailed value)? allTasksFailed,
+    TResult Function(_SearchLoading value)? searchLoading,
+    TResult Function(_SearchCompleted value)? searchCompleted,
+    TResult Function(_SearchFailed value)? searchFailed,
+    TResult Function(_GetTotalEstimatedTimeLoading value)?
+        getTotalEstimatedTimeLoading,
+    TResult Function(_GetTotalEstimatedTimeCompleted value)?
+        getTotalEstimatedTimeCompleted,
+    TResult Function(_GetTotalEstimatedTimeFailed value)?
+        getTotalEstimatedTimeFailed,
+    TResult Function(_UpdateTotalEstimatedTimeLoading value)?
+        updateTotalEstimatedTimeLoading,
+    TResult Function(_UpdateTotalEstimatedTimeFailed value)?
+        updateTotalEstimatedTimeFailed,
+    TResult Function(_UpdateTotalEstimatedTimeCompleted value)?
+        updateTotalEstimatedTimeCompleted,
+    TResult Function(_UploadTasksLoading value)? uploadTasksLoading,
+    TResult Function(_UploadTasksFailed value)? uploadTasksFailed,
+    TResult Function(_UploadTasksCompleted value)? uploadTasksCompleted,
+    TResult Function(_DownloadTasksLoading value)? downloadTasksLoading,
+    TResult Function(_DownloadTasksFailed value)? downloadTasksFailed,
+    TResult Function(_DownloadTasksCompleted value)? downloadTasksCompleted,
+    TResult Function(_UpdateTaskLoading value)? updateTaskLoading,
+    TResult Function(_UpdateTaskFailed value)? updateTaskFailed,
+    TResult Function(_UpdateTaskCompleted value)? updateTaskCompleted,
+    TResult Function(_GetTaskByIdLoading value)? getTaskByIdLoading,
+    TResult Function(_GetTaskByIdFailed value)? getTaskByIdFailed,
+    TResult Function(_GetTaskByIdCompleted value)? getTaskByIdCompleted,
+    TResult Function(_CreateTaskLoading value)? createTaskLoading,
+    TResult Function(_CreateTaskFailed value)? createTaskFailed,
+    TResult Function(_CreateTaskCompleted value)? createTaskCompleted,
+    TResult Function(_DeleteTaskLoading value)? deleteTaskLoading,
+    TResult Function(_DeleteTaskFailed value)? deleteTaskFailed,
+    TResult Function(_DeleteTaskCompleted value)? deleteTaskCompleted,
+    required TResult orElse(),
+  }) {
+    if (uploadTasksFailed != null) {
+      return uploadTasksFailed(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _UploadTasksFailed implements TaskViewmodelState {
+  factory _UploadTasksFailed({required final String message}) =
+      _$UploadTasksFailedImpl;
+
+  String get message;
+  @JsonKey(ignore: true)
+  _$$UploadTasksFailedImplCopyWith<_$UploadTasksFailedImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$UploadTasksCompletedImplCopyWith<$Res> {
+  factory _$$UploadTasksCompletedImplCopyWith(_$UploadTasksCompletedImpl value,
+          $Res Function(_$UploadTasksCompletedImpl) then) =
+      __$$UploadTasksCompletedImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({TaskModel meupdatedTaskssage});
+
+  $TaskModelCopyWith<$Res> get meupdatedTaskssage;
+}
+
+/// @nodoc
+class __$$UploadTasksCompletedImplCopyWithImpl<$Res>
+    extends _$TaskViewmodelStateCopyWithImpl<$Res, _$UploadTasksCompletedImpl>
+    implements _$$UploadTasksCompletedImplCopyWith<$Res> {
+  __$$UploadTasksCompletedImplCopyWithImpl(_$UploadTasksCompletedImpl _value,
+      $Res Function(_$UploadTasksCompletedImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? meupdatedTaskssage = null,
+  }) {
+    return _then(_$UploadTasksCompletedImpl(
+      meupdatedTaskssage: null == meupdatedTaskssage
+          ? _value.meupdatedTaskssage
+          : meupdatedTaskssage // ignore: cast_nullable_to_non_nullable
+              as TaskModel,
+    ));
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $TaskModelCopyWith<$Res> get meupdatedTaskssage {
+    return $TaskModelCopyWith<$Res>(_value.meupdatedTaskssage, (value) {
+      return _then(_value.copyWith(meupdatedTaskssage: value));
+    });
+  }
+}
+
+/// @nodoc
+
+class _$UploadTasksCompletedImpl implements _UploadTasksCompleted {
+  _$UploadTasksCompletedImpl({required this.meupdatedTaskssage});
+
+  @override
+  final TaskModel meupdatedTaskssage;
+
+  @override
+  String toString() {
+    return 'TaskViewmodelState.uploadTasksCompleted(meupdatedTaskssage: $meupdatedTaskssage)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$UploadTasksCompletedImpl &&
+            (identical(other.meupdatedTaskssage, meupdatedTaskssage) ||
+                other.meupdatedTaskssage == meupdatedTaskssage));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, meupdatedTaskssage);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$UploadTasksCompletedImplCopyWith<_$UploadTasksCompletedImpl>
+      get copyWith =>
+          __$$UploadTasksCompletedImplCopyWithImpl<_$UploadTasksCompletedImpl>(
+              this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() allTasksLoading,
+    required TResult Function(List<TaskModel> allTasks) allTasksCompleted,
+    required TResult Function(String message) allTasksFailed,
+    required TResult Function() searchLoading,
+    required TResult Function(List<TaskModel> searchedTasks) searchCompleted,
+    required TResult Function(String message) searchFailed,
+    required TResult Function() getTotalEstimatedTimeLoading,
+    required TResult Function(Duration totalEstimatedTime)
+        getTotalEstimatedTimeCompleted,
+    required TResult Function(String message) getTotalEstimatedTimeFailed,
+    required TResult Function() updateTotalEstimatedTimeLoading,
+    required TResult Function(String message) updateTotalEstimatedTimeFailed,
+    required TResult Function(Duration totalEstimatedTime)
+        updateTotalEstimatedTimeCompleted,
+    required TResult Function() uploadTasksLoading,
+    required TResult Function(String message) uploadTasksFailed,
+    required TResult Function(TaskModel meupdatedTaskssage)
+        uploadTasksCompleted,
+    required TResult Function() downloadTasksLoading,
+    required TResult Function(String message) downloadTasksFailed,
+    required TResult Function(List<TaskModel> downloadedTasks)
+        downloadTasksCompleted,
+    required TResult Function() updateTaskLoading,
+    required TResult Function(String message) updateTaskFailed,
+    required TResult Function(TaskModel updatedTask) updateTaskCompleted,
+    required TResult Function() getTaskByIdLoading,
+    required TResult Function(String message) getTaskByIdFailed,
+    required TResult Function(TaskModel taskById) getTaskByIdCompleted,
+    required TResult Function() createTaskLoading,
+    required TResult Function(String message) createTaskFailed,
+    required TResult Function(TaskModel createdTask) createTaskCompleted,
+    required TResult Function() deleteTaskLoading,
+    required TResult Function(String message) deleteTaskFailed,
+    required TResult Function(TaskModel deletedTask) deleteTaskCompleted,
+  }) {
+    return uploadTasksCompleted(meupdatedTaskssage);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? allTasksLoading,
+    TResult? Function(List<TaskModel> allTasks)? allTasksCompleted,
+    TResult? Function(String message)? allTasksFailed,
+    TResult? Function()? searchLoading,
+    TResult? Function(List<TaskModel> searchedTasks)? searchCompleted,
+    TResult? Function(String message)? searchFailed,
+    TResult? Function()? getTotalEstimatedTimeLoading,
+    TResult? Function(Duration totalEstimatedTime)?
+        getTotalEstimatedTimeCompleted,
+    TResult? Function(String message)? getTotalEstimatedTimeFailed,
+    TResult? Function()? updateTotalEstimatedTimeLoading,
+    TResult? Function(String message)? updateTotalEstimatedTimeFailed,
+    TResult? Function(Duration totalEstimatedTime)?
+        updateTotalEstimatedTimeCompleted,
+    TResult? Function()? uploadTasksLoading,
+    TResult? Function(String message)? uploadTasksFailed,
+    TResult? Function(TaskModel meupdatedTaskssage)? uploadTasksCompleted,
+    TResult? Function()? downloadTasksLoading,
+    TResult? Function(String message)? downloadTasksFailed,
+    TResult? Function(List<TaskModel> downloadedTasks)? downloadTasksCompleted,
+    TResult? Function()? updateTaskLoading,
+    TResult? Function(String message)? updateTaskFailed,
+    TResult? Function(TaskModel updatedTask)? updateTaskCompleted,
+    TResult? Function()? getTaskByIdLoading,
+    TResult? Function(String message)? getTaskByIdFailed,
+    TResult? Function(TaskModel taskById)? getTaskByIdCompleted,
+    TResult? Function()? createTaskLoading,
+    TResult? Function(String message)? createTaskFailed,
+    TResult? Function(TaskModel createdTask)? createTaskCompleted,
+    TResult? Function()? deleteTaskLoading,
+    TResult? Function(String message)? deleteTaskFailed,
+    TResult? Function(TaskModel deletedTask)? deleteTaskCompleted,
+  }) {
+    return uploadTasksCompleted?.call(meupdatedTaskssage);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? allTasksLoading,
+    TResult Function(List<TaskModel> allTasks)? allTasksCompleted,
+    TResult Function(String message)? allTasksFailed,
+    TResult Function()? searchLoading,
+    TResult Function(List<TaskModel> searchedTasks)? searchCompleted,
+    TResult Function(String message)? searchFailed,
+    TResult Function()? getTotalEstimatedTimeLoading,
+    TResult Function(Duration totalEstimatedTime)?
+        getTotalEstimatedTimeCompleted,
+    TResult Function(String message)? getTotalEstimatedTimeFailed,
+    TResult Function()? updateTotalEstimatedTimeLoading,
+    TResult Function(String message)? updateTotalEstimatedTimeFailed,
+    TResult Function(Duration totalEstimatedTime)?
+        updateTotalEstimatedTimeCompleted,
+    TResult Function()? uploadTasksLoading,
+    TResult Function(String message)? uploadTasksFailed,
+    TResult Function(TaskModel meupdatedTaskssage)? uploadTasksCompleted,
+    TResult Function()? downloadTasksLoading,
+    TResult Function(String message)? downloadTasksFailed,
+    TResult Function(List<TaskModel> downloadedTasks)? downloadTasksCompleted,
+    TResult Function()? updateTaskLoading,
+    TResult Function(String message)? updateTaskFailed,
+    TResult Function(TaskModel updatedTask)? updateTaskCompleted,
+    TResult Function()? getTaskByIdLoading,
+    TResult Function(String message)? getTaskByIdFailed,
+    TResult Function(TaskModel taskById)? getTaskByIdCompleted,
+    TResult Function()? createTaskLoading,
+    TResult Function(String message)? createTaskFailed,
+    TResult Function(TaskModel createdTask)? createTaskCompleted,
+    TResult Function()? deleteTaskLoading,
+    TResult Function(String message)? deleteTaskFailed,
+    TResult Function(TaskModel deletedTask)? deleteTaskCompleted,
+    required TResult orElse(),
+  }) {
+    if (uploadTasksCompleted != null) {
+      return uploadTasksCompleted(meupdatedTaskssage);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(_AllTasksLoading value) allTasksLoading,
+    required TResult Function(_AllTasksCompleted value) allTasksCompleted,
+    required TResult Function(_AllTasksFailed value) allTasksFailed,
+    required TResult Function(_SearchLoading value) searchLoading,
+    required TResult Function(_SearchCompleted value) searchCompleted,
+    required TResult Function(_SearchFailed value) searchFailed,
+    required TResult Function(_GetTotalEstimatedTimeLoading value)
+        getTotalEstimatedTimeLoading,
+    required TResult Function(_GetTotalEstimatedTimeCompleted value)
+        getTotalEstimatedTimeCompleted,
+    required TResult Function(_GetTotalEstimatedTimeFailed value)
+        getTotalEstimatedTimeFailed,
+    required TResult Function(_UpdateTotalEstimatedTimeLoading value)
+        updateTotalEstimatedTimeLoading,
+    required TResult Function(_UpdateTotalEstimatedTimeFailed value)
+        updateTotalEstimatedTimeFailed,
+    required TResult Function(_UpdateTotalEstimatedTimeCompleted value)
+        updateTotalEstimatedTimeCompleted,
+    required TResult Function(_UploadTasksLoading value) uploadTasksLoading,
+    required TResult Function(_UploadTasksFailed value) uploadTasksFailed,
+    required TResult Function(_UploadTasksCompleted value) uploadTasksCompleted,
+    required TResult Function(_DownloadTasksLoading value) downloadTasksLoading,
+    required TResult Function(_DownloadTasksFailed value) downloadTasksFailed,
+    required TResult Function(_DownloadTasksCompleted value)
+        downloadTasksCompleted,
+    required TResult Function(_UpdateTaskLoading value) updateTaskLoading,
+    required TResult Function(_UpdateTaskFailed value) updateTaskFailed,
+    required TResult Function(_UpdateTaskCompleted value) updateTaskCompleted,
+    required TResult Function(_GetTaskByIdLoading value) getTaskByIdLoading,
+    required TResult Function(_GetTaskByIdFailed value) getTaskByIdFailed,
+    required TResult Function(_GetTaskByIdCompleted value) getTaskByIdCompleted,
+    required TResult Function(_CreateTaskLoading value) createTaskLoading,
+    required TResult Function(_CreateTaskFailed value) createTaskFailed,
+    required TResult Function(_CreateTaskCompleted value) createTaskCompleted,
+    required TResult Function(_DeleteTaskLoading value) deleteTaskLoading,
+    required TResult Function(_DeleteTaskFailed value) deleteTaskFailed,
+    required TResult Function(_DeleteTaskCompleted value) deleteTaskCompleted,
+  }) {
+    return uploadTasksCompleted(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_AllTasksLoading value)? allTasksLoading,
+    TResult? Function(_AllTasksCompleted value)? allTasksCompleted,
+    TResult? Function(_AllTasksFailed value)? allTasksFailed,
+    TResult? Function(_SearchLoading value)? searchLoading,
+    TResult? Function(_SearchCompleted value)? searchCompleted,
+    TResult? Function(_SearchFailed value)? searchFailed,
+    TResult? Function(_GetTotalEstimatedTimeLoading value)?
+        getTotalEstimatedTimeLoading,
+    TResult? Function(_GetTotalEstimatedTimeCompleted value)?
+        getTotalEstimatedTimeCompleted,
+    TResult? Function(_GetTotalEstimatedTimeFailed value)?
+        getTotalEstimatedTimeFailed,
+    TResult? Function(_UpdateTotalEstimatedTimeLoading value)?
+        updateTotalEstimatedTimeLoading,
+    TResult? Function(_UpdateTotalEstimatedTimeFailed value)?
+        updateTotalEstimatedTimeFailed,
+    TResult? Function(_UpdateTotalEstimatedTimeCompleted value)?
+        updateTotalEstimatedTimeCompleted,
+    TResult? Function(_UploadTasksLoading value)? uploadTasksLoading,
+    TResult? Function(_UploadTasksFailed value)? uploadTasksFailed,
+    TResult? Function(_UploadTasksCompleted value)? uploadTasksCompleted,
+    TResult? Function(_DownloadTasksLoading value)? downloadTasksLoading,
+    TResult? Function(_DownloadTasksFailed value)? downloadTasksFailed,
+    TResult? Function(_DownloadTasksCompleted value)? downloadTasksCompleted,
+    TResult? Function(_UpdateTaskLoading value)? updateTaskLoading,
+    TResult? Function(_UpdateTaskFailed value)? updateTaskFailed,
+    TResult? Function(_UpdateTaskCompleted value)? updateTaskCompleted,
+    TResult? Function(_GetTaskByIdLoading value)? getTaskByIdLoading,
+    TResult? Function(_GetTaskByIdFailed value)? getTaskByIdFailed,
+    TResult? Function(_GetTaskByIdCompleted value)? getTaskByIdCompleted,
+    TResult? Function(_CreateTaskLoading value)? createTaskLoading,
+    TResult? Function(_CreateTaskFailed value)? createTaskFailed,
+    TResult? Function(_CreateTaskCompleted value)? createTaskCompleted,
+    TResult? Function(_DeleteTaskLoading value)? deleteTaskLoading,
+    TResult? Function(_DeleteTaskFailed value)? deleteTaskFailed,
+    TResult? Function(_DeleteTaskCompleted value)? deleteTaskCompleted,
+  }) {
+    return uploadTasksCompleted?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_AllTasksLoading value)? allTasksLoading,
+    TResult Function(_AllTasksCompleted value)? allTasksCompleted,
+    TResult Function(_AllTasksFailed value)? allTasksFailed,
+    TResult Function(_SearchLoading value)? searchLoading,
+    TResult Function(_SearchCompleted value)? searchCompleted,
+    TResult Function(_SearchFailed value)? searchFailed,
+    TResult Function(_GetTotalEstimatedTimeLoading value)?
+        getTotalEstimatedTimeLoading,
+    TResult Function(_GetTotalEstimatedTimeCompleted value)?
+        getTotalEstimatedTimeCompleted,
+    TResult Function(_GetTotalEstimatedTimeFailed value)?
+        getTotalEstimatedTimeFailed,
+    TResult Function(_UpdateTotalEstimatedTimeLoading value)?
+        updateTotalEstimatedTimeLoading,
+    TResult Function(_UpdateTotalEstimatedTimeFailed value)?
+        updateTotalEstimatedTimeFailed,
+    TResult Function(_UpdateTotalEstimatedTimeCompleted value)?
+        updateTotalEstimatedTimeCompleted,
+    TResult Function(_UploadTasksLoading value)? uploadTasksLoading,
+    TResult Function(_UploadTasksFailed value)? uploadTasksFailed,
+    TResult Function(_UploadTasksCompleted value)? uploadTasksCompleted,
+    TResult Function(_DownloadTasksLoading value)? downloadTasksLoading,
+    TResult Function(_DownloadTasksFailed value)? downloadTasksFailed,
+    TResult Function(_DownloadTasksCompleted value)? downloadTasksCompleted,
+    TResult Function(_UpdateTaskLoading value)? updateTaskLoading,
+    TResult Function(_UpdateTaskFailed value)? updateTaskFailed,
+    TResult Function(_UpdateTaskCompleted value)? updateTaskCompleted,
+    TResult Function(_GetTaskByIdLoading value)? getTaskByIdLoading,
+    TResult Function(_GetTaskByIdFailed value)? getTaskByIdFailed,
+    TResult Function(_GetTaskByIdCompleted value)? getTaskByIdCompleted,
+    TResult Function(_CreateTaskLoading value)? createTaskLoading,
+    TResult Function(_CreateTaskFailed value)? createTaskFailed,
+    TResult Function(_CreateTaskCompleted value)? createTaskCompleted,
+    TResult Function(_DeleteTaskLoading value)? deleteTaskLoading,
+    TResult Function(_DeleteTaskFailed value)? deleteTaskFailed,
+    TResult Function(_DeleteTaskCompleted value)? deleteTaskCompleted,
+    required TResult orElse(),
+  }) {
+    if (uploadTasksCompleted != null) {
+      return uploadTasksCompleted(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _UploadTasksCompleted implements TaskViewmodelState {
+  factory _UploadTasksCompleted({required final TaskModel meupdatedTaskssage}) =
+      _$UploadTasksCompletedImpl;
+
+  TaskModel get meupdatedTaskssage;
+  @JsonKey(ignore: true)
+  _$$UploadTasksCompletedImplCopyWith<_$UploadTasksCompletedImpl>
+      get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$DownloadTasksLoadingImplCopyWith<$Res> {
+  factory _$$DownloadTasksLoadingImplCopyWith(_$DownloadTasksLoadingImpl value,
+          $Res Function(_$DownloadTasksLoadingImpl) then) =
+      __$$DownloadTasksLoadingImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$DownloadTasksLoadingImplCopyWithImpl<$Res>
+    extends _$TaskViewmodelStateCopyWithImpl<$Res, _$DownloadTasksLoadingImpl>
+    implements _$$DownloadTasksLoadingImplCopyWith<$Res> {
+  __$$DownloadTasksLoadingImplCopyWithImpl(_$DownloadTasksLoadingImpl _value,
+      $Res Function(_$DownloadTasksLoadingImpl) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$DownloadTasksLoadingImpl implements _DownloadTasksLoading {
+  _$DownloadTasksLoadingImpl();
+
+  @override
+  String toString() {
+    return 'TaskViewmodelState.downloadTasksLoading()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$DownloadTasksLoadingImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() allTasksLoading,
+    required TResult Function(List<TaskModel> allTasks) allTasksCompleted,
+    required TResult Function(String message) allTasksFailed,
+    required TResult Function() searchLoading,
+    required TResult Function(List<TaskModel> searchedTasks) searchCompleted,
+    required TResult Function(String message) searchFailed,
+    required TResult Function() getTotalEstimatedTimeLoading,
+    required TResult Function(Duration totalEstimatedTime)
+        getTotalEstimatedTimeCompleted,
+    required TResult Function(String message) getTotalEstimatedTimeFailed,
+    required TResult Function() updateTotalEstimatedTimeLoading,
+    required TResult Function(String message) updateTotalEstimatedTimeFailed,
+    required TResult Function(Duration totalEstimatedTime)
+        updateTotalEstimatedTimeCompleted,
+    required TResult Function() uploadTasksLoading,
+    required TResult Function(String message) uploadTasksFailed,
+    required TResult Function(TaskModel meupdatedTaskssage)
+        uploadTasksCompleted,
+    required TResult Function() downloadTasksLoading,
+    required TResult Function(String message) downloadTasksFailed,
+    required TResult Function(List<TaskModel> downloadedTasks)
+        downloadTasksCompleted,
+    required TResult Function() updateTaskLoading,
+    required TResult Function(String message) updateTaskFailed,
+    required TResult Function(TaskModel updatedTask) updateTaskCompleted,
+    required TResult Function() getTaskByIdLoading,
+    required TResult Function(String message) getTaskByIdFailed,
+    required TResult Function(TaskModel taskById) getTaskByIdCompleted,
+    required TResult Function() createTaskLoading,
+    required TResult Function(String message) createTaskFailed,
+    required TResult Function(TaskModel createdTask) createTaskCompleted,
+    required TResult Function() deleteTaskLoading,
+    required TResult Function(String message) deleteTaskFailed,
+    required TResult Function(TaskModel deletedTask) deleteTaskCompleted,
+  }) {
+    return downloadTasksLoading();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? allTasksLoading,
+    TResult? Function(List<TaskModel> allTasks)? allTasksCompleted,
+    TResult? Function(String message)? allTasksFailed,
+    TResult? Function()? searchLoading,
+    TResult? Function(List<TaskModel> searchedTasks)? searchCompleted,
+    TResult? Function(String message)? searchFailed,
+    TResult? Function()? getTotalEstimatedTimeLoading,
+    TResult? Function(Duration totalEstimatedTime)?
+        getTotalEstimatedTimeCompleted,
+    TResult? Function(String message)? getTotalEstimatedTimeFailed,
+    TResult? Function()? updateTotalEstimatedTimeLoading,
+    TResult? Function(String message)? updateTotalEstimatedTimeFailed,
+    TResult? Function(Duration totalEstimatedTime)?
+        updateTotalEstimatedTimeCompleted,
+    TResult? Function()? uploadTasksLoading,
+    TResult? Function(String message)? uploadTasksFailed,
+    TResult? Function(TaskModel meupdatedTaskssage)? uploadTasksCompleted,
+    TResult? Function()? downloadTasksLoading,
+    TResult? Function(String message)? downloadTasksFailed,
+    TResult? Function(List<TaskModel> downloadedTasks)? downloadTasksCompleted,
+    TResult? Function()? updateTaskLoading,
+    TResult? Function(String message)? updateTaskFailed,
+    TResult? Function(TaskModel updatedTask)? updateTaskCompleted,
+    TResult? Function()? getTaskByIdLoading,
+    TResult? Function(String message)? getTaskByIdFailed,
+    TResult? Function(TaskModel taskById)? getTaskByIdCompleted,
+    TResult? Function()? createTaskLoading,
+    TResult? Function(String message)? createTaskFailed,
+    TResult? Function(TaskModel createdTask)? createTaskCompleted,
+    TResult? Function()? deleteTaskLoading,
+    TResult? Function(String message)? deleteTaskFailed,
+    TResult? Function(TaskModel deletedTask)? deleteTaskCompleted,
+  }) {
+    return downloadTasksLoading?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? allTasksLoading,
+    TResult Function(List<TaskModel> allTasks)? allTasksCompleted,
+    TResult Function(String message)? allTasksFailed,
+    TResult Function()? searchLoading,
+    TResult Function(List<TaskModel> searchedTasks)? searchCompleted,
+    TResult Function(String message)? searchFailed,
+    TResult Function()? getTotalEstimatedTimeLoading,
+    TResult Function(Duration totalEstimatedTime)?
+        getTotalEstimatedTimeCompleted,
+    TResult Function(String message)? getTotalEstimatedTimeFailed,
+    TResult Function()? updateTotalEstimatedTimeLoading,
+    TResult Function(String message)? updateTotalEstimatedTimeFailed,
+    TResult Function(Duration totalEstimatedTime)?
+        updateTotalEstimatedTimeCompleted,
+    TResult Function()? uploadTasksLoading,
+    TResult Function(String message)? uploadTasksFailed,
+    TResult Function(TaskModel meupdatedTaskssage)? uploadTasksCompleted,
+    TResult Function()? downloadTasksLoading,
+    TResult Function(String message)? downloadTasksFailed,
+    TResult Function(List<TaskModel> downloadedTasks)? downloadTasksCompleted,
+    TResult Function()? updateTaskLoading,
+    TResult Function(String message)? updateTaskFailed,
+    TResult Function(TaskModel updatedTask)? updateTaskCompleted,
+    TResult Function()? getTaskByIdLoading,
+    TResult Function(String message)? getTaskByIdFailed,
+    TResult Function(TaskModel taskById)? getTaskByIdCompleted,
+    TResult Function()? createTaskLoading,
+    TResult Function(String message)? createTaskFailed,
+    TResult Function(TaskModel createdTask)? createTaskCompleted,
+    TResult Function()? deleteTaskLoading,
+    TResult Function(String message)? deleteTaskFailed,
+    TResult Function(TaskModel deletedTask)? deleteTaskCompleted,
+    required TResult orElse(),
+  }) {
+    if (downloadTasksLoading != null) {
+      return downloadTasksLoading();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(_AllTasksLoading value) allTasksLoading,
+    required TResult Function(_AllTasksCompleted value) allTasksCompleted,
+    required TResult Function(_AllTasksFailed value) allTasksFailed,
+    required TResult Function(_SearchLoading value) searchLoading,
+    required TResult Function(_SearchCompleted value) searchCompleted,
+    required TResult Function(_SearchFailed value) searchFailed,
+    required TResult Function(_GetTotalEstimatedTimeLoading value)
+        getTotalEstimatedTimeLoading,
+    required TResult Function(_GetTotalEstimatedTimeCompleted value)
+        getTotalEstimatedTimeCompleted,
+    required TResult Function(_GetTotalEstimatedTimeFailed value)
+        getTotalEstimatedTimeFailed,
+    required TResult Function(_UpdateTotalEstimatedTimeLoading value)
+        updateTotalEstimatedTimeLoading,
+    required TResult Function(_UpdateTotalEstimatedTimeFailed value)
+        updateTotalEstimatedTimeFailed,
+    required TResult Function(_UpdateTotalEstimatedTimeCompleted value)
+        updateTotalEstimatedTimeCompleted,
+    required TResult Function(_UploadTasksLoading value) uploadTasksLoading,
+    required TResult Function(_UploadTasksFailed value) uploadTasksFailed,
+    required TResult Function(_UploadTasksCompleted value) uploadTasksCompleted,
+    required TResult Function(_DownloadTasksLoading value) downloadTasksLoading,
+    required TResult Function(_DownloadTasksFailed value) downloadTasksFailed,
+    required TResult Function(_DownloadTasksCompleted value)
+        downloadTasksCompleted,
+    required TResult Function(_UpdateTaskLoading value) updateTaskLoading,
+    required TResult Function(_UpdateTaskFailed value) updateTaskFailed,
+    required TResult Function(_UpdateTaskCompleted value) updateTaskCompleted,
+    required TResult Function(_GetTaskByIdLoading value) getTaskByIdLoading,
+    required TResult Function(_GetTaskByIdFailed value) getTaskByIdFailed,
+    required TResult Function(_GetTaskByIdCompleted value) getTaskByIdCompleted,
+    required TResult Function(_CreateTaskLoading value) createTaskLoading,
+    required TResult Function(_CreateTaskFailed value) createTaskFailed,
+    required TResult Function(_CreateTaskCompleted value) createTaskCompleted,
+    required TResult Function(_DeleteTaskLoading value) deleteTaskLoading,
+    required TResult Function(_DeleteTaskFailed value) deleteTaskFailed,
+    required TResult Function(_DeleteTaskCompleted value) deleteTaskCompleted,
+  }) {
+    return downloadTasksLoading(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_AllTasksLoading value)? allTasksLoading,
+    TResult? Function(_AllTasksCompleted value)? allTasksCompleted,
+    TResult? Function(_AllTasksFailed value)? allTasksFailed,
+    TResult? Function(_SearchLoading value)? searchLoading,
+    TResult? Function(_SearchCompleted value)? searchCompleted,
+    TResult? Function(_SearchFailed value)? searchFailed,
+    TResult? Function(_GetTotalEstimatedTimeLoading value)?
+        getTotalEstimatedTimeLoading,
+    TResult? Function(_GetTotalEstimatedTimeCompleted value)?
+        getTotalEstimatedTimeCompleted,
+    TResult? Function(_GetTotalEstimatedTimeFailed value)?
+        getTotalEstimatedTimeFailed,
+    TResult? Function(_UpdateTotalEstimatedTimeLoading value)?
+        updateTotalEstimatedTimeLoading,
+    TResult? Function(_UpdateTotalEstimatedTimeFailed value)?
+        updateTotalEstimatedTimeFailed,
+    TResult? Function(_UpdateTotalEstimatedTimeCompleted value)?
+        updateTotalEstimatedTimeCompleted,
+    TResult? Function(_UploadTasksLoading value)? uploadTasksLoading,
+    TResult? Function(_UploadTasksFailed value)? uploadTasksFailed,
+    TResult? Function(_UploadTasksCompleted value)? uploadTasksCompleted,
+    TResult? Function(_DownloadTasksLoading value)? downloadTasksLoading,
+    TResult? Function(_DownloadTasksFailed value)? downloadTasksFailed,
+    TResult? Function(_DownloadTasksCompleted value)? downloadTasksCompleted,
+    TResult? Function(_UpdateTaskLoading value)? updateTaskLoading,
+    TResult? Function(_UpdateTaskFailed value)? updateTaskFailed,
+    TResult? Function(_UpdateTaskCompleted value)? updateTaskCompleted,
+    TResult? Function(_GetTaskByIdLoading value)? getTaskByIdLoading,
+    TResult? Function(_GetTaskByIdFailed value)? getTaskByIdFailed,
+    TResult? Function(_GetTaskByIdCompleted value)? getTaskByIdCompleted,
+    TResult? Function(_CreateTaskLoading value)? createTaskLoading,
+    TResult? Function(_CreateTaskFailed value)? createTaskFailed,
+    TResult? Function(_CreateTaskCompleted value)? createTaskCompleted,
+    TResult? Function(_DeleteTaskLoading value)? deleteTaskLoading,
+    TResult? Function(_DeleteTaskFailed value)? deleteTaskFailed,
+    TResult? Function(_DeleteTaskCompleted value)? deleteTaskCompleted,
+  }) {
+    return downloadTasksLoading?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_AllTasksLoading value)? allTasksLoading,
+    TResult Function(_AllTasksCompleted value)? allTasksCompleted,
+    TResult Function(_AllTasksFailed value)? allTasksFailed,
+    TResult Function(_SearchLoading value)? searchLoading,
+    TResult Function(_SearchCompleted value)? searchCompleted,
+    TResult Function(_SearchFailed value)? searchFailed,
+    TResult Function(_GetTotalEstimatedTimeLoading value)?
+        getTotalEstimatedTimeLoading,
+    TResult Function(_GetTotalEstimatedTimeCompleted value)?
+        getTotalEstimatedTimeCompleted,
+    TResult Function(_GetTotalEstimatedTimeFailed value)?
+        getTotalEstimatedTimeFailed,
+    TResult Function(_UpdateTotalEstimatedTimeLoading value)?
+        updateTotalEstimatedTimeLoading,
+    TResult Function(_UpdateTotalEstimatedTimeFailed value)?
+        updateTotalEstimatedTimeFailed,
+    TResult Function(_UpdateTotalEstimatedTimeCompleted value)?
+        updateTotalEstimatedTimeCompleted,
+    TResult Function(_UploadTasksLoading value)? uploadTasksLoading,
+    TResult Function(_UploadTasksFailed value)? uploadTasksFailed,
+    TResult Function(_UploadTasksCompleted value)? uploadTasksCompleted,
+    TResult Function(_DownloadTasksLoading value)? downloadTasksLoading,
+    TResult Function(_DownloadTasksFailed value)? downloadTasksFailed,
+    TResult Function(_DownloadTasksCompleted value)? downloadTasksCompleted,
+    TResult Function(_UpdateTaskLoading value)? updateTaskLoading,
+    TResult Function(_UpdateTaskFailed value)? updateTaskFailed,
+    TResult Function(_UpdateTaskCompleted value)? updateTaskCompleted,
+    TResult Function(_GetTaskByIdLoading value)? getTaskByIdLoading,
+    TResult Function(_GetTaskByIdFailed value)? getTaskByIdFailed,
+    TResult Function(_GetTaskByIdCompleted value)? getTaskByIdCompleted,
+    TResult Function(_CreateTaskLoading value)? createTaskLoading,
+    TResult Function(_CreateTaskFailed value)? createTaskFailed,
+    TResult Function(_CreateTaskCompleted value)? createTaskCompleted,
+    TResult Function(_DeleteTaskLoading value)? deleteTaskLoading,
+    TResult Function(_DeleteTaskFailed value)? deleteTaskFailed,
+    TResult Function(_DeleteTaskCompleted value)? deleteTaskCompleted,
+    required TResult orElse(),
+  }) {
+    if (downloadTasksLoading != null) {
+      return downloadTasksLoading(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _DownloadTasksLoading implements TaskViewmodelState {
+  factory _DownloadTasksLoading() = _$DownloadTasksLoadingImpl;
+}
+
+/// @nodoc
+abstract class _$$DownloadTasksFailedImplCopyWith<$Res> {
+  factory _$$DownloadTasksFailedImplCopyWith(_$DownloadTasksFailedImpl value,
+          $Res Function(_$DownloadTasksFailedImpl) then) =
+      __$$DownloadTasksFailedImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String message});
+}
+
+/// @nodoc
+class __$$DownloadTasksFailedImplCopyWithImpl<$Res>
+    extends _$TaskViewmodelStateCopyWithImpl<$Res, _$DownloadTasksFailedImpl>
+    implements _$$DownloadTasksFailedImplCopyWith<$Res> {
+  __$$DownloadTasksFailedImplCopyWithImpl(_$DownloadTasksFailedImpl _value,
+      $Res Function(_$DownloadTasksFailedImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? message = null,
+  }) {
+    return _then(_$DownloadTasksFailedImpl(
+      message: null == message
+          ? _value.message
+          : message // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$DownloadTasksFailedImpl implements _DownloadTasksFailed {
+  _$DownloadTasksFailedImpl({required this.message});
+
+  @override
+  final String message;
+
+  @override
+  String toString() {
+    return 'TaskViewmodelState.downloadTasksFailed(message: $message)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$DownloadTasksFailedImpl &&
+            (identical(other.message, message) || other.message == message));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, message);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$DownloadTasksFailedImplCopyWith<_$DownloadTasksFailedImpl> get copyWith =>
+      __$$DownloadTasksFailedImplCopyWithImpl<_$DownloadTasksFailedImpl>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() allTasksLoading,
+    required TResult Function(List<TaskModel> allTasks) allTasksCompleted,
+    required TResult Function(String message) allTasksFailed,
+    required TResult Function() searchLoading,
+    required TResult Function(List<TaskModel> searchedTasks) searchCompleted,
+    required TResult Function(String message) searchFailed,
+    required TResult Function() getTotalEstimatedTimeLoading,
+    required TResult Function(Duration totalEstimatedTime)
+        getTotalEstimatedTimeCompleted,
+    required TResult Function(String message) getTotalEstimatedTimeFailed,
+    required TResult Function() updateTotalEstimatedTimeLoading,
+    required TResult Function(String message) updateTotalEstimatedTimeFailed,
+    required TResult Function(Duration totalEstimatedTime)
+        updateTotalEstimatedTimeCompleted,
+    required TResult Function() uploadTasksLoading,
+    required TResult Function(String message) uploadTasksFailed,
+    required TResult Function(TaskModel meupdatedTaskssage)
+        uploadTasksCompleted,
+    required TResult Function() downloadTasksLoading,
+    required TResult Function(String message) downloadTasksFailed,
+    required TResult Function(List<TaskModel> downloadedTasks)
+        downloadTasksCompleted,
+    required TResult Function() updateTaskLoading,
+    required TResult Function(String message) updateTaskFailed,
+    required TResult Function(TaskModel updatedTask) updateTaskCompleted,
+    required TResult Function() getTaskByIdLoading,
+    required TResult Function(String message) getTaskByIdFailed,
+    required TResult Function(TaskModel taskById) getTaskByIdCompleted,
+    required TResult Function() createTaskLoading,
+    required TResult Function(String message) createTaskFailed,
+    required TResult Function(TaskModel createdTask) createTaskCompleted,
+    required TResult Function() deleteTaskLoading,
+    required TResult Function(String message) deleteTaskFailed,
+    required TResult Function(TaskModel deletedTask) deleteTaskCompleted,
+  }) {
+    return downloadTasksFailed(message);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? allTasksLoading,
+    TResult? Function(List<TaskModel> allTasks)? allTasksCompleted,
+    TResult? Function(String message)? allTasksFailed,
+    TResult? Function()? searchLoading,
+    TResult? Function(List<TaskModel> searchedTasks)? searchCompleted,
+    TResult? Function(String message)? searchFailed,
+    TResult? Function()? getTotalEstimatedTimeLoading,
+    TResult? Function(Duration totalEstimatedTime)?
+        getTotalEstimatedTimeCompleted,
+    TResult? Function(String message)? getTotalEstimatedTimeFailed,
+    TResult? Function()? updateTotalEstimatedTimeLoading,
+    TResult? Function(String message)? updateTotalEstimatedTimeFailed,
+    TResult? Function(Duration totalEstimatedTime)?
+        updateTotalEstimatedTimeCompleted,
+    TResult? Function()? uploadTasksLoading,
+    TResult? Function(String message)? uploadTasksFailed,
+    TResult? Function(TaskModel meupdatedTaskssage)? uploadTasksCompleted,
+    TResult? Function()? downloadTasksLoading,
+    TResult? Function(String message)? downloadTasksFailed,
+    TResult? Function(List<TaskModel> downloadedTasks)? downloadTasksCompleted,
+    TResult? Function()? updateTaskLoading,
+    TResult? Function(String message)? updateTaskFailed,
+    TResult? Function(TaskModel updatedTask)? updateTaskCompleted,
+    TResult? Function()? getTaskByIdLoading,
+    TResult? Function(String message)? getTaskByIdFailed,
+    TResult? Function(TaskModel taskById)? getTaskByIdCompleted,
+    TResult? Function()? createTaskLoading,
+    TResult? Function(String message)? createTaskFailed,
+    TResult? Function(TaskModel createdTask)? createTaskCompleted,
+    TResult? Function()? deleteTaskLoading,
+    TResult? Function(String message)? deleteTaskFailed,
+    TResult? Function(TaskModel deletedTask)? deleteTaskCompleted,
+  }) {
+    return downloadTasksFailed?.call(message);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? allTasksLoading,
+    TResult Function(List<TaskModel> allTasks)? allTasksCompleted,
+    TResult Function(String message)? allTasksFailed,
+    TResult Function()? searchLoading,
+    TResult Function(List<TaskModel> searchedTasks)? searchCompleted,
+    TResult Function(String message)? searchFailed,
+    TResult Function()? getTotalEstimatedTimeLoading,
+    TResult Function(Duration totalEstimatedTime)?
+        getTotalEstimatedTimeCompleted,
+    TResult Function(String message)? getTotalEstimatedTimeFailed,
+    TResult Function()? updateTotalEstimatedTimeLoading,
+    TResult Function(String message)? updateTotalEstimatedTimeFailed,
+    TResult Function(Duration totalEstimatedTime)?
+        updateTotalEstimatedTimeCompleted,
+    TResult Function()? uploadTasksLoading,
+    TResult Function(String message)? uploadTasksFailed,
+    TResult Function(TaskModel meupdatedTaskssage)? uploadTasksCompleted,
+    TResult Function()? downloadTasksLoading,
+    TResult Function(String message)? downloadTasksFailed,
+    TResult Function(List<TaskModel> downloadedTasks)? downloadTasksCompleted,
+    TResult Function()? updateTaskLoading,
+    TResult Function(String message)? updateTaskFailed,
+    TResult Function(TaskModel updatedTask)? updateTaskCompleted,
+    TResult Function()? getTaskByIdLoading,
+    TResult Function(String message)? getTaskByIdFailed,
+    TResult Function(TaskModel taskById)? getTaskByIdCompleted,
+    TResult Function()? createTaskLoading,
+    TResult Function(String message)? createTaskFailed,
+    TResult Function(TaskModel createdTask)? createTaskCompleted,
+    TResult Function()? deleteTaskLoading,
+    TResult Function(String message)? deleteTaskFailed,
+    TResult Function(TaskModel deletedTask)? deleteTaskCompleted,
+    required TResult orElse(),
+  }) {
+    if (downloadTasksFailed != null) {
+      return downloadTasksFailed(message);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(_AllTasksLoading value) allTasksLoading,
+    required TResult Function(_AllTasksCompleted value) allTasksCompleted,
+    required TResult Function(_AllTasksFailed value) allTasksFailed,
+    required TResult Function(_SearchLoading value) searchLoading,
+    required TResult Function(_SearchCompleted value) searchCompleted,
+    required TResult Function(_SearchFailed value) searchFailed,
+    required TResult Function(_GetTotalEstimatedTimeLoading value)
+        getTotalEstimatedTimeLoading,
+    required TResult Function(_GetTotalEstimatedTimeCompleted value)
+        getTotalEstimatedTimeCompleted,
+    required TResult Function(_GetTotalEstimatedTimeFailed value)
+        getTotalEstimatedTimeFailed,
+    required TResult Function(_UpdateTotalEstimatedTimeLoading value)
+        updateTotalEstimatedTimeLoading,
+    required TResult Function(_UpdateTotalEstimatedTimeFailed value)
+        updateTotalEstimatedTimeFailed,
+    required TResult Function(_UpdateTotalEstimatedTimeCompleted value)
+        updateTotalEstimatedTimeCompleted,
+    required TResult Function(_UploadTasksLoading value) uploadTasksLoading,
+    required TResult Function(_UploadTasksFailed value) uploadTasksFailed,
+    required TResult Function(_UploadTasksCompleted value) uploadTasksCompleted,
+    required TResult Function(_DownloadTasksLoading value) downloadTasksLoading,
+    required TResult Function(_DownloadTasksFailed value) downloadTasksFailed,
+    required TResult Function(_DownloadTasksCompleted value)
+        downloadTasksCompleted,
+    required TResult Function(_UpdateTaskLoading value) updateTaskLoading,
+    required TResult Function(_UpdateTaskFailed value) updateTaskFailed,
+    required TResult Function(_UpdateTaskCompleted value) updateTaskCompleted,
+    required TResult Function(_GetTaskByIdLoading value) getTaskByIdLoading,
+    required TResult Function(_GetTaskByIdFailed value) getTaskByIdFailed,
+    required TResult Function(_GetTaskByIdCompleted value) getTaskByIdCompleted,
+    required TResult Function(_CreateTaskLoading value) createTaskLoading,
+    required TResult Function(_CreateTaskFailed value) createTaskFailed,
+    required TResult Function(_CreateTaskCompleted value) createTaskCompleted,
+    required TResult Function(_DeleteTaskLoading value) deleteTaskLoading,
+    required TResult Function(_DeleteTaskFailed value) deleteTaskFailed,
+    required TResult Function(_DeleteTaskCompleted value) deleteTaskCompleted,
+  }) {
+    return downloadTasksFailed(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_AllTasksLoading value)? allTasksLoading,
+    TResult? Function(_AllTasksCompleted value)? allTasksCompleted,
+    TResult? Function(_AllTasksFailed value)? allTasksFailed,
+    TResult? Function(_SearchLoading value)? searchLoading,
+    TResult? Function(_SearchCompleted value)? searchCompleted,
+    TResult? Function(_SearchFailed value)? searchFailed,
+    TResult? Function(_GetTotalEstimatedTimeLoading value)?
+        getTotalEstimatedTimeLoading,
+    TResult? Function(_GetTotalEstimatedTimeCompleted value)?
+        getTotalEstimatedTimeCompleted,
+    TResult? Function(_GetTotalEstimatedTimeFailed value)?
+        getTotalEstimatedTimeFailed,
+    TResult? Function(_UpdateTotalEstimatedTimeLoading value)?
+        updateTotalEstimatedTimeLoading,
+    TResult? Function(_UpdateTotalEstimatedTimeFailed value)?
+        updateTotalEstimatedTimeFailed,
+    TResult? Function(_UpdateTotalEstimatedTimeCompleted value)?
+        updateTotalEstimatedTimeCompleted,
+    TResult? Function(_UploadTasksLoading value)? uploadTasksLoading,
+    TResult? Function(_UploadTasksFailed value)? uploadTasksFailed,
+    TResult? Function(_UploadTasksCompleted value)? uploadTasksCompleted,
+    TResult? Function(_DownloadTasksLoading value)? downloadTasksLoading,
+    TResult? Function(_DownloadTasksFailed value)? downloadTasksFailed,
+    TResult? Function(_DownloadTasksCompleted value)? downloadTasksCompleted,
+    TResult? Function(_UpdateTaskLoading value)? updateTaskLoading,
+    TResult? Function(_UpdateTaskFailed value)? updateTaskFailed,
+    TResult? Function(_UpdateTaskCompleted value)? updateTaskCompleted,
+    TResult? Function(_GetTaskByIdLoading value)? getTaskByIdLoading,
+    TResult? Function(_GetTaskByIdFailed value)? getTaskByIdFailed,
+    TResult? Function(_GetTaskByIdCompleted value)? getTaskByIdCompleted,
+    TResult? Function(_CreateTaskLoading value)? createTaskLoading,
+    TResult? Function(_CreateTaskFailed value)? createTaskFailed,
+    TResult? Function(_CreateTaskCompleted value)? createTaskCompleted,
+    TResult? Function(_DeleteTaskLoading value)? deleteTaskLoading,
+    TResult? Function(_DeleteTaskFailed value)? deleteTaskFailed,
+    TResult? Function(_DeleteTaskCompleted value)? deleteTaskCompleted,
+  }) {
+    return downloadTasksFailed?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_AllTasksLoading value)? allTasksLoading,
+    TResult Function(_AllTasksCompleted value)? allTasksCompleted,
+    TResult Function(_AllTasksFailed value)? allTasksFailed,
+    TResult Function(_SearchLoading value)? searchLoading,
+    TResult Function(_SearchCompleted value)? searchCompleted,
+    TResult Function(_SearchFailed value)? searchFailed,
+    TResult Function(_GetTotalEstimatedTimeLoading value)?
+        getTotalEstimatedTimeLoading,
+    TResult Function(_GetTotalEstimatedTimeCompleted value)?
+        getTotalEstimatedTimeCompleted,
+    TResult Function(_GetTotalEstimatedTimeFailed value)?
+        getTotalEstimatedTimeFailed,
+    TResult Function(_UpdateTotalEstimatedTimeLoading value)?
+        updateTotalEstimatedTimeLoading,
+    TResult Function(_UpdateTotalEstimatedTimeFailed value)?
+        updateTotalEstimatedTimeFailed,
+    TResult Function(_UpdateTotalEstimatedTimeCompleted value)?
+        updateTotalEstimatedTimeCompleted,
+    TResult Function(_UploadTasksLoading value)? uploadTasksLoading,
+    TResult Function(_UploadTasksFailed value)? uploadTasksFailed,
+    TResult Function(_UploadTasksCompleted value)? uploadTasksCompleted,
+    TResult Function(_DownloadTasksLoading value)? downloadTasksLoading,
+    TResult Function(_DownloadTasksFailed value)? downloadTasksFailed,
+    TResult Function(_DownloadTasksCompleted value)? downloadTasksCompleted,
+    TResult Function(_UpdateTaskLoading value)? updateTaskLoading,
+    TResult Function(_UpdateTaskFailed value)? updateTaskFailed,
+    TResult Function(_UpdateTaskCompleted value)? updateTaskCompleted,
+    TResult Function(_GetTaskByIdLoading value)? getTaskByIdLoading,
+    TResult Function(_GetTaskByIdFailed value)? getTaskByIdFailed,
+    TResult Function(_GetTaskByIdCompleted value)? getTaskByIdCompleted,
+    TResult Function(_CreateTaskLoading value)? createTaskLoading,
+    TResult Function(_CreateTaskFailed value)? createTaskFailed,
+    TResult Function(_CreateTaskCompleted value)? createTaskCompleted,
+    TResult Function(_DeleteTaskLoading value)? deleteTaskLoading,
+    TResult Function(_DeleteTaskFailed value)? deleteTaskFailed,
+    TResult Function(_DeleteTaskCompleted value)? deleteTaskCompleted,
+    required TResult orElse(),
+  }) {
+    if (downloadTasksFailed != null) {
+      return downloadTasksFailed(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _DownloadTasksFailed implements TaskViewmodelState {
+  factory _DownloadTasksFailed({required final String message}) =
+      _$DownloadTasksFailedImpl;
+
+  String get message;
+  @JsonKey(ignore: true)
+  _$$DownloadTasksFailedImplCopyWith<_$DownloadTasksFailedImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$DownloadTasksCompletedImplCopyWith<$Res> {
+  factory _$$DownloadTasksCompletedImplCopyWith(
+          _$DownloadTasksCompletedImpl value,
+          $Res Function(_$DownloadTasksCompletedImpl) then) =
+      __$$DownloadTasksCompletedImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({List<TaskModel> downloadedTasks});
+}
+
+/// @nodoc
+class __$$DownloadTasksCompletedImplCopyWithImpl<$Res>
+    extends _$TaskViewmodelStateCopyWithImpl<$Res, _$DownloadTasksCompletedImpl>
+    implements _$$DownloadTasksCompletedImplCopyWith<$Res> {
+  __$$DownloadTasksCompletedImplCopyWithImpl(
+      _$DownloadTasksCompletedImpl _value,
+      $Res Function(_$DownloadTasksCompletedImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? downloadedTasks = null,
+  }) {
+    return _then(_$DownloadTasksCompletedImpl(
+      downloadedTasks: null == downloadedTasks
+          ? _value.downloadedTasks
+          : downloadedTasks // ignore: cast_nullable_to_non_nullable
+              as List<TaskModel>,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$DownloadTasksCompletedImpl implements _DownloadTasksCompleted {
+  _$DownloadTasksCompletedImpl({required this.downloadedTasks});
+
+  @override
+  final List<TaskModel> downloadedTasks;
+
+  @override
+  String toString() {
+    return 'TaskViewmodelState.downloadTasksCompleted(downloadedTasks: $downloadedTasks)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$DownloadTasksCompletedImpl &&
+            const DeepCollectionEquality()
+                .equals(other.downloadedTasks, downloadedTasks));
+  }
+
+  @override
+  int get hashCode => Object.hash(
+      runtimeType, const DeepCollectionEquality().hash(downloadedTasks));
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$DownloadTasksCompletedImplCopyWith<_$DownloadTasksCompletedImpl>
+      get copyWith => __$$DownloadTasksCompletedImplCopyWithImpl<
+          _$DownloadTasksCompletedImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() allTasksLoading,
+    required TResult Function(List<TaskModel> allTasks) allTasksCompleted,
+    required TResult Function(String message) allTasksFailed,
+    required TResult Function() searchLoading,
+    required TResult Function(List<TaskModel> searchedTasks) searchCompleted,
+    required TResult Function(String message) searchFailed,
+    required TResult Function() getTotalEstimatedTimeLoading,
+    required TResult Function(Duration totalEstimatedTime)
+        getTotalEstimatedTimeCompleted,
+    required TResult Function(String message) getTotalEstimatedTimeFailed,
+    required TResult Function() updateTotalEstimatedTimeLoading,
+    required TResult Function(String message) updateTotalEstimatedTimeFailed,
+    required TResult Function(Duration totalEstimatedTime)
+        updateTotalEstimatedTimeCompleted,
+    required TResult Function() uploadTasksLoading,
+    required TResult Function(String message) uploadTasksFailed,
+    required TResult Function(TaskModel meupdatedTaskssage)
+        uploadTasksCompleted,
+    required TResult Function() downloadTasksLoading,
+    required TResult Function(String message) downloadTasksFailed,
+    required TResult Function(List<TaskModel> downloadedTasks)
+        downloadTasksCompleted,
+    required TResult Function() updateTaskLoading,
+    required TResult Function(String message) updateTaskFailed,
+    required TResult Function(TaskModel updatedTask) updateTaskCompleted,
+    required TResult Function() getTaskByIdLoading,
+    required TResult Function(String message) getTaskByIdFailed,
+    required TResult Function(TaskModel taskById) getTaskByIdCompleted,
+    required TResult Function() createTaskLoading,
+    required TResult Function(String message) createTaskFailed,
+    required TResult Function(TaskModel createdTask) createTaskCompleted,
+    required TResult Function() deleteTaskLoading,
+    required TResult Function(String message) deleteTaskFailed,
+    required TResult Function(TaskModel deletedTask) deleteTaskCompleted,
+  }) {
+    return downloadTasksCompleted(downloadedTasks);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? allTasksLoading,
+    TResult? Function(List<TaskModel> allTasks)? allTasksCompleted,
+    TResult? Function(String message)? allTasksFailed,
+    TResult? Function()? searchLoading,
+    TResult? Function(List<TaskModel> searchedTasks)? searchCompleted,
+    TResult? Function(String message)? searchFailed,
+    TResult? Function()? getTotalEstimatedTimeLoading,
+    TResult? Function(Duration totalEstimatedTime)?
+        getTotalEstimatedTimeCompleted,
+    TResult? Function(String message)? getTotalEstimatedTimeFailed,
+    TResult? Function()? updateTotalEstimatedTimeLoading,
+    TResult? Function(String message)? updateTotalEstimatedTimeFailed,
+    TResult? Function(Duration totalEstimatedTime)?
+        updateTotalEstimatedTimeCompleted,
+    TResult? Function()? uploadTasksLoading,
+    TResult? Function(String message)? uploadTasksFailed,
+    TResult? Function(TaskModel meupdatedTaskssage)? uploadTasksCompleted,
+    TResult? Function()? downloadTasksLoading,
+    TResult? Function(String message)? downloadTasksFailed,
+    TResult? Function(List<TaskModel> downloadedTasks)? downloadTasksCompleted,
+    TResult? Function()? updateTaskLoading,
+    TResult? Function(String message)? updateTaskFailed,
+    TResult? Function(TaskModel updatedTask)? updateTaskCompleted,
+    TResult? Function()? getTaskByIdLoading,
+    TResult? Function(String message)? getTaskByIdFailed,
+    TResult? Function(TaskModel taskById)? getTaskByIdCompleted,
+    TResult? Function()? createTaskLoading,
+    TResult? Function(String message)? createTaskFailed,
+    TResult? Function(TaskModel createdTask)? createTaskCompleted,
+    TResult? Function()? deleteTaskLoading,
+    TResult? Function(String message)? deleteTaskFailed,
+    TResult? Function(TaskModel deletedTask)? deleteTaskCompleted,
+  }) {
+    return downloadTasksCompleted?.call(downloadedTasks);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? allTasksLoading,
+    TResult Function(List<TaskModel> allTasks)? allTasksCompleted,
+    TResult Function(String message)? allTasksFailed,
+    TResult Function()? searchLoading,
+    TResult Function(List<TaskModel> searchedTasks)? searchCompleted,
+    TResult Function(String message)? searchFailed,
+    TResult Function()? getTotalEstimatedTimeLoading,
+    TResult Function(Duration totalEstimatedTime)?
+        getTotalEstimatedTimeCompleted,
+    TResult Function(String message)? getTotalEstimatedTimeFailed,
+    TResult Function()? updateTotalEstimatedTimeLoading,
+    TResult Function(String message)? updateTotalEstimatedTimeFailed,
+    TResult Function(Duration totalEstimatedTime)?
+        updateTotalEstimatedTimeCompleted,
+    TResult Function()? uploadTasksLoading,
+    TResult Function(String message)? uploadTasksFailed,
+    TResult Function(TaskModel meupdatedTaskssage)? uploadTasksCompleted,
+    TResult Function()? downloadTasksLoading,
+    TResult Function(String message)? downloadTasksFailed,
+    TResult Function(List<TaskModel> downloadedTasks)? downloadTasksCompleted,
+    TResult Function()? updateTaskLoading,
+    TResult Function(String message)? updateTaskFailed,
+    TResult Function(TaskModel updatedTask)? updateTaskCompleted,
+    TResult Function()? getTaskByIdLoading,
+    TResult Function(String message)? getTaskByIdFailed,
+    TResult Function(TaskModel taskById)? getTaskByIdCompleted,
+    TResult Function()? createTaskLoading,
+    TResult Function(String message)? createTaskFailed,
+    TResult Function(TaskModel createdTask)? createTaskCompleted,
+    TResult Function()? deleteTaskLoading,
+    TResult Function(String message)? deleteTaskFailed,
+    TResult Function(TaskModel deletedTask)? deleteTaskCompleted,
+    required TResult orElse(),
+  }) {
+    if (downloadTasksCompleted != null) {
+      return downloadTasksCompleted(downloadedTasks);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(_AllTasksLoading value) allTasksLoading,
+    required TResult Function(_AllTasksCompleted value) allTasksCompleted,
+    required TResult Function(_AllTasksFailed value) allTasksFailed,
+    required TResult Function(_SearchLoading value) searchLoading,
+    required TResult Function(_SearchCompleted value) searchCompleted,
+    required TResult Function(_SearchFailed value) searchFailed,
+    required TResult Function(_GetTotalEstimatedTimeLoading value)
+        getTotalEstimatedTimeLoading,
+    required TResult Function(_GetTotalEstimatedTimeCompleted value)
+        getTotalEstimatedTimeCompleted,
+    required TResult Function(_GetTotalEstimatedTimeFailed value)
+        getTotalEstimatedTimeFailed,
+    required TResult Function(_UpdateTotalEstimatedTimeLoading value)
+        updateTotalEstimatedTimeLoading,
+    required TResult Function(_UpdateTotalEstimatedTimeFailed value)
+        updateTotalEstimatedTimeFailed,
+    required TResult Function(_UpdateTotalEstimatedTimeCompleted value)
+        updateTotalEstimatedTimeCompleted,
+    required TResult Function(_UploadTasksLoading value) uploadTasksLoading,
+    required TResult Function(_UploadTasksFailed value) uploadTasksFailed,
+    required TResult Function(_UploadTasksCompleted value) uploadTasksCompleted,
+    required TResult Function(_DownloadTasksLoading value) downloadTasksLoading,
+    required TResult Function(_DownloadTasksFailed value) downloadTasksFailed,
+    required TResult Function(_DownloadTasksCompleted value)
+        downloadTasksCompleted,
+    required TResult Function(_UpdateTaskLoading value) updateTaskLoading,
+    required TResult Function(_UpdateTaskFailed value) updateTaskFailed,
+    required TResult Function(_UpdateTaskCompleted value) updateTaskCompleted,
+    required TResult Function(_GetTaskByIdLoading value) getTaskByIdLoading,
+    required TResult Function(_GetTaskByIdFailed value) getTaskByIdFailed,
+    required TResult Function(_GetTaskByIdCompleted value) getTaskByIdCompleted,
+    required TResult Function(_CreateTaskLoading value) createTaskLoading,
+    required TResult Function(_CreateTaskFailed value) createTaskFailed,
+    required TResult Function(_CreateTaskCompleted value) createTaskCompleted,
+    required TResult Function(_DeleteTaskLoading value) deleteTaskLoading,
+    required TResult Function(_DeleteTaskFailed value) deleteTaskFailed,
+    required TResult Function(_DeleteTaskCompleted value) deleteTaskCompleted,
+  }) {
+    return downloadTasksCompleted(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_AllTasksLoading value)? allTasksLoading,
+    TResult? Function(_AllTasksCompleted value)? allTasksCompleted,
+    TResult? Function(_AllTasksFailed value)? allTasksFailed,
+    TResult? Function(_SearchLoading value)? searchLoading,
+    TResult? Function(_SearchCompleted value)? searchCompleted,
+    TResult? Function(_SearchFailed value)? searchFailed,
+    TResult? Function(_GetTotalEstimatedTimeLoading value)?
+        getTotalEstimatedTimeLoading,
+    TResult? Function(_GetTotalEstimatedTimeCompleted value)?
+        getTotalEstimatedTimeCompleted,
+    TResult? Function(_GetTotalEstimatedTimeFailed value)?
+        getTotalEstimatedTimeFailed,
+    TResult? Function(_UpdateTotalEstimatedTimeLoading value)?
+        updateTotalEstimatedTimeLoading,
+    TResult? Function(_UpdateTotalEstimatedTimeFailed value)?
+        updateTotalEstimatedTimeFailed,
+    TResult? Function(_UpdateTotalEstimatedTimeCompleted value)?
+        updateTotalEstimatedTimeCompleted,
+    TResult? Function(_UploadTasksLoading value)? uploadTasksLoading,
+    TResult? Function(_UploadTasksFailed value)? uploadTasksFailed,
+    TResult? Function(_UploadTasksCompleted value)? uploadTasksCompleted,
+    TResult? Function(_DownloadTasksLoading value)? downloadTasksLoading,
+    TResult? Function(_DownloadTasksFailed value)? downloadTasksFailed,
+    TResult? Function(_DownloadTasksCompleted value)? downloadTasksCompleted,
+    TResult? Function(_UpdateTaskLoading value)? updateTaskLoading,
+    TResult? Function(_UpdateTaskFailed value)? updateTaskFailed,
+    TResult? Function(_UpdateTaskCompleted value)? updateTaskCompleted,
+    TResult? Function(_GetTaskByIdLoading value)? getTaskByIdLoading,
+    TResult? Function(_GetTaskByIdFailed value)? getTaskByIdFailed,
+    TResult? Function(_GetTaskByIdCompleted value)? getTaskByIdCompleted,
+    TResult? Function(_CreateTaskLoading value)? createTaskLoading,
+    TResult? Function(_CreateTaskFailed value)? createTaskFailed,
+    TResult? Function(_CreateTaskCompleted value)? createTaskCompleted,
+    TResult? Function(_DeleteTaskLoading value)? deleteTaskLoading,
+    TResult? Function(_DeleteTaskFailed value)? deleteTaskFailed,
+    TResult? Function(_DeleteTaskCompleted value)? deleteTaskCompleted,
+  }) {
+    return downloadTasksCompleted?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_AllTasksLoading value)? allTasksLoading,
+    TResult Function(_AllTasksCompleted value)? allTasksCompleted,
+    TResult Function(_AllTasksFailed value)? allTasksFailed,
+    TResult Function(_SearchLoading value)? searchLoading,
+    TResult Function(_SearchCompleted value)? searchCompleted,
+    TResult Function(_SearchFailed value)? searchFailed,
+    TResult Function(_GetTotalEstimatedTimeLoading value)?
+        getTotalEstimatedTimeLoading,
+    TResult Function(_GetTotalEstimatedTimeCompleted value)?
+        getTotalEstimatedTimeCompleted,
+    TResult Function(_GetTotalEstimatedTimeFailed value)?
+        getTotalEstimatedTimeFailed,
+    TResult Function(_UpdateTotalEstimatedTimeLoading value)?
+        updateTotalEstimatedTimeLoading,
+    TResult Function(_UpdateTotalEstimatedTimeFailed value)?
+        updateTotalEstimatedTimeFailed,
+    TResult Function(_UpdateTotalEstimatedTimeCompleted value)?
+        updateTotalEstimatedTimeCompleted,
+    TResult Function(_UploadTasksLoading value)? uploadTasksLoading,
+    TResult Function(_UploadTasksFailed value)? uploadTasksFailed,
+    TResult Function(_UploadTasksCompleted value)? uploadTasksCompleted,
+    TResult Function(_DownloadTasksLoading value)? downloadTasksLoading,
+    TResult Function(_DownloadTasksFailed value)? downloadTasksFailed,
+    TResult Function(_DownloadTasksCompleted value)? downloadTasksCompleted,
+    TResult Function(_UpdateTaskLoading value)? updateTaskLoading,
+    TResult Function(_UpdateTaskFailed value)? updateTaskFailed,
+    TResult Function(_UpdateTaskCompleted value)? updateTaskCompleted,
+    TResult Function(_GetTaskByIdLoading value)? getTaskByIdLoading,
+    TResult Function(_GetTaskByIdFailed value)? getTaskByIdFailed,
+    TResult Function(_GetTaskByIdCompleted value)? getTaskByIdCompleted,
+    TResult Function(_CreateTaskLoading value)? createTaskLoading,
+    TResult Function(_CreateTaskFailed value)? createTaskFailed,
+    TResult Function(_CreateTaskCompleted value)? createTaskCompleted,
+    TResult Function(_DeleteTaskLoading value)? deleteTaskLoading,
+    TResult Function(_DeleteTaskFailed value)? deleteTaskFailed,
+    TResult Function(_DeleteTaskCompleted value)? deleteTaskCompleted,
+    required TResult orElse(),
+  }) {
+    if (downloadTasksCompleted != null) {
+      return downloadTasksCompleted(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _DownloadTasksCompleted implements TaskViewmodelState {
+  factory _DownloadTasksCompleted(
+          {required final List<TaskModel> downloadedTasks}) =
+      _$DownloadTasksCompletedImpl;
+
+  List<TaskModel> get downloadedTasks;
+  @JsonKey(ignore: true)
+  _$$DownloadTasksCompletedImplCopyWith<_$DownloadTasksCompletedImpl>
+      get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$UpdateTaskLoadingImplCopyWith<$Res> {
+  factory _$$UpdateTaskLoadingImplCopyWith(_$UpdateTaskLoadingImpl value,
+          $Res Function(_$UpdateTaskLoadingImpl) then) =
+      __$$UpdateTaskLoadingImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$UpdateTaskLoadingImplCopyWithImpl<$Res>
+    extends _$TaskViewmodelStateCopyWithImpl<$Res, _$UpdateTaskLoadingImpl>
+    implements _$$UpdateTaskLoadingImplCopyWith<$Res> {
+  __$$UpdateTaskLoadingImplCopyWithImpl(_$UpdateTaskLoadingImpl _value,
+      $Res Function(_$UpdateTaskLoadingImpl) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$UpdateTaskLoadingImpl implements _UpdateTaskLoading {
+  _$UpdateTaskLoadingImpl();
+
+  @override
+  String toString() {
+    return 'TaskViewmodelState.updateTaskLoading()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$UpdateTaskLoadingImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() allTasksLoading,
+    required TResult Function(List<TaskModel> allTasks) allTasksCompleted,
+    required TResult Function(String message) allTasksFailed,
+    required TResult Function() searchLoading,
+    required TResult Function(List<TaskModel> searchedTasks) searchCompleted,
+    required TResult Function(String message) searchFailed,
+    required TResult Function() getTotalEstimatedTimeLoading,
+    required TResult Function(Duration totalEstimatedTime)
+        getTotalEstimatedTimeCompleted,
+    required TResult Function(String message) getTotalEstimatedTimeFailed,
+    required TResult Function() updateTotalEstimatedTimeLoading,
+    required TResult Function(String message) updateTotalEstimatedTimeFailed,
+    required TResult Function(Duration totalEstimatedTime)
+        updateTotalEstimatedTimeCompleted,
+    required TResult Function() uploadTasksLoading,
+    required TResult Function(String message) uploadTasksFailed,
+    required TResult Function(TaskModel meupdatedTaskssage)
+        uploadTasksCompleted,
+    required TResult Function() downloadTasksLoading,
+    required TResult Function(String message) downloadTasksFailed,
+    required TResult Function(List<TaskModel> downloadedTasks)
+        downloadTasksCompleted,
+    required TResult Function() updateTaskLoading,
+    required TResult Function(String message) updateTaskFailed,
+    required TResult Function(TaskModel updatedTask) updateTaskCompleted,
+    required TResult Function() getTaskByIdLoading,
+    required TResult Function(String message) getTaskByIdFailed,
+    required TResult Function(TaskModel taskById) getTaskByIdCompleted,
+    required TResult Function() createTaskLoading,
+    required TResult Function(String message) createTaskFailed,
+    required TResult Function(TaskModel createdTask) createTaskCompleted,
+    required TResult Function() deleteTaskLoading,
+    required TResult Function(String message) deleteTaskFailed,
+    required TResult Function(TaskModel deletedTask) deleteTaskCompleted,
+  }) {
+    return updateTaskLoading();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? allTasksLoading,
+    TResult? Function(List<TaskModel> allTasks)? allTasksCompleted,
+    TResult? Function(String message)? allTasksFailed,
+    TResult? Function()? searchLoading,
+    TResult? Function(List<TaskModel> searchedTasks)? searchCompleted,
+    TResult? Function(String message)? searchFailed,
+    TResult? Function()? getTotalEstimatedTimeLoading,
+    TResult? Function(Duration totalEstimatedTime)?
+        getTotalEstimatedTimeCompleted,
+    TResult? Function(String message)? getTotalEstimatedTimeFailed,
+    TResult? Function()? updateTotalEstimatedTimeLoading,
+    TResult? Function(String message)? updateTotalEstimatedTimeFailed,
+    TResult? Function(Duration totalEstimatedTime)?
+        updateTotalEstimatedTimeCompleted,
+    TResult? Function()? uploadTasksLoading,
+    TResult? Function(String message)? uploadTasksFailed,
+    TResult? Function(TaskModel meupdatedTaskssage)? uploadTasksCompleted,
+    TResult? Function()? downloadTasksLoading,
+    TResult? Function(String message)? downloadTasksFailed,
+    TResult? Function(List<TaskModel> downloadedTasks)? downloadTasksCompleted,
+    TResult? Function()? updateTaskLoading,
+    TResult? Function(String message)? updateTaskFailed,
+    TResult? Function(TaskModel updatedTask)? updateTaskCompleted,
+    TResult? Function()? getTaskByIdLoading,
+    TResult? Function(String message)? getTaskByIdFailed,
+    TResult? Function(TaskModel taskById)? getTaskByIdCompleted,
+    TResult? Function()? createTaskLoading,
+    TResult? Function(String message)? createTaskFailed,
+    TResult? Function(TaskModel createdTask)? createTaskCompleted,
+    TResult? Function()? deleteTaskLoading,
+    TResult? Function(String message)? deleteTaskFailed,
+    TResult? Function(TaskModel deletedTask)? deleteTaskCompleted,
+  }) {
+    return updateTaskLoading?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? allTasksLoading,
+    TResult Function(List<TaskModel> allTasks)? allTasksCompleted,
+    TResult Function(String message)? allTasksFailed,
+    TResult Function()? searchLoading,
+    TResult Function(List<TaskModel> searchedTasks)? searchCompleted,
+    TResult Function(String message)? searchFailed,
+    TResult Function()? getTotalEstimatedTimeLoading,
+    TResult Function(Duration totalEstimatedTime)?
+        getTotalEstimatedTimeCompleted,
+    TResult Function(String message)? getTotalEstimatedTimeFailed,
+    TResult Function()? updateTotalEstimatedTimeLoading,
+    TResult Function(String message)? updateTotalEstimatedTimeFailed,
+    TResult Function(Duration totalEstimatedTime)?
+        updateTotalEstimatedTimeCompleted,
+    TResult Function()? uploadTasksLoading,
+    TResult Function(String message)? uploadTasksFailed,
+    TResult Function(TaskModel meupdatedTaskssage)? uploadTasksCompleted,
+    TResult Function()? downloadTasksLoading,
+    TResult Function(String message)? downloadTasksFailed,
+    TResult Function(List<TaskModel> downloadedTasks)? downloadTasksCompleted,
+    TResult Function()? updateTaskLoading,
+    TResult Function(String message)? updateTaskFailed,
+    TResult Function(TaskModel updatedTask)? updateTaskCompleted,
+    TResult Function()? getTaskByIdLoading,
+    TResult Function(String message)? getTaskByIdFailed,
+    TResult Function(TaskModel taskById)? getTaskByIdCompleted,
+    TResult Function()? createTaskLoading,
+    TResult Function(String message)? createTaskFailed,
+    TResult Function(TaskModel createdTask)? createTaskCompleted,
+    TResult Function()? deleteTaskLoading,
+    TResult Function(String message)? deleteTaskFailed,
+    TResult Function(TaskModel deletedTask)? deleteTaskCompleted,
+    required TResult orElse(),
+  }) {
+    if (updateTaskLoading != null) {
+      return updateTaskLoading();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(_AllTasksLoading value) allTasksLoading,
+    required TResult Function(_AllTasksCompleted value) allTasksCompleted,
+    required TResult Function(_AllTasksFailed value) allTasksFailed,
+    required TResult Function(_SearchLoading value) searchLoading,
+    required TResult Function(_SearchCompleted value) searchCompleted,
+    required TResult Function(_SearchFailed value) searchFailed,
+    required TResult Function(_GetTotalEstimatedTimeLoading value)
+        getTotalEstimatedTimeLoading,
+    required TResult Function(_GetTotalEstimatedTimeCompleted value)
+        getTotalEstimatedTimeCompleted,
+    required TResult Function(_GetTotalEstimatedTimeFailed value)
+        getTotalEstimatedTimeFailed,
+    required TResult Function(_UpdateTotalEstimatedTimeLoading value)
+        updateTotalEstimatedTimeLoading,
+    required TResult Function(_UpdateTotalEstimatedTimeFailed value)
+        updateTotalEstimatedTimeFailed,
+    required TResult Function(_UpdateTotalEstimatedTimeCompleted value)
+        updateTotalEstimatedTimeCompleted,
+    required TResult Function(_UploadTasksLoading value) uploadTasksLoading,
+    required TResult Function(_UploadTasksFailed value) uploadTasksFailed,
+    required TResult Function(_UploadTasksCompleted value) uploadTasksCompleted,
+    required TResult Function(_DownloadTasksLoading value) downloadTasksLoading,
+    required TResult Function(_DownloadTasksFailed value) downloadTasksFailed,
+    required TResult Function(_DownloadTasksCompleted value)
+        downloadTasksCompleted,
+    required TResult Function(_UpdateTaskLoading value) updateTaskLoading,
+    required TResult Function(_UpdateTaskFailed value) updateTaskFailed,
+    required TResult Function(_UpdateTaskCompleted value) updateTaskCompleted,
+    required TResult Function(_GetTaskByIdLoading value) getTaskByIdLoading,
+    required TResult Function(_GetTaskByIdFailed value) getTaskByIdFailed,
+    required TResult Function(_GetTaskByIdCompleted value) getTaskByIdCompleted,
+    required TResult Function(_CreateTaskLoading value) createTaskLoading,
+    required TResult Function(_CreateTaskFailed value) createTaskFailed,
+    required TResult Function(_CreateTaskCompleted value) createTaskCompleted,
+    required TResult Function(_DeleteTaskLoading value) deleteTaskLoading,
+    required TResult Function(_DeleteTaskFailed value) deleteTaskFailed,
+    required TResult Function(_DeleteTaskCompleted value) deleteTaskCompleted,
+  }) {
+    return updateTaskLoading(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_AllTasksLoading value)? allTasksLoading,
+    TResult? Function(_AllTasksCompleted value)? allTasksCompleted,
+    TResult? Function(_AllTasksFailed value)? allTasksFailed,
+    TResult? Function(_SearchLoading value)? searchLoading,
+    TResult? Function(_SearchCompleted value)? searchCompleted,
+    TResult? Function(_SearchFailed value)? searchFailed,
+    TResult? Function(_GetTotalEstimatedTimeLoading value)?
+        getTotalEstimatedTimeLoading,
+    TResult? Function(_GetTotalEstimatedTimeCompleted value)?
+        getTotalEstimatedTimeCompleted,
+    TResult? Function(_GetTotalEstimatedTimeFailed value)?
+        getTotalEstimatedTimeFailed,
+    TResult? Function(_UpdateTotalEstimatedTimeLoading value)?
+        updateTotalEstimatedTimeLoading,
+    TResult? Function(_UpdateTotalEstimatedTimeFailed value)?
+        updateTotalEstimatedTimeFailed,
+    TResult? Function(_UpdateTotalEstimatedTimeCompleted value)?
+        updateTotalEstimatedTimeCompleted,
+    TResult? Function(_UploadTasksLoading value)? uploadTasksLoading,
+    TResult? Function(_UploadTasksFailed value)? uploadTasksFailed,
+    TResult? Function(_UploadTasksCompleted value)? uploadTasksCompleted,
+    TResult? Function(_DownloadTasksLoading value)? downloadTasksLoading,
+    TResult? Function(_DownloadTasksFailed value)? downloadTasksFailed,
+    TResult? Function(_DownloadTasksCompleted value)? downloadTasksCompleted,
+    TResult? Function(_UpdateTaskLoading value)? updateTaskLoading,
+    TResult? Function(_UpdateTaskFailed value)? updateTaskFailed,
+    TResult? Function(_UpdateTaskCompleted value)? updateTaskCompleted,
+    TResult? Function(_GetTaskByIdLoading value)? getTaskByIdLoading,
+    TResult? Function(_GetTaskByIdFailed value)? getTaskByIdFailed,
+    TResult? Function(_GetTaskByIdCompleted value)? getTaskByIdCompleted,
+    TResult? Function(_CreateTaskLoading value)? createTaskLoading,
+    TResult? Function(_CreateTaskFailed value)? createTaskFailed,
+    TResult? Function(_CreateTaskCompleted value)? createTaskCompleted,
+    TResult? Function(_DeleteTaskLoading value)? deleteTaskLoading,
+    TResult? Function(_DeleteTaskFailed value)? deleteTaskFailed,
+    TResult? Function(_DeleteTaskCompleted value)? deleteTaskCompleted,
+  }) {
+    return updateTaskLoading?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_AllTasksLoading value)? allTasksLoading,
+    TResult Function(_AllTasksCompleted value)? allTasksCompleted,
+    TResult Function(_AllTasksFailed value)? allTasksFailed,
+    TResult Function(_SearchLoading value)? searchLoading,
+    TResult Function(_SearchCompleted value)? searchCompleted,
+    TResult Function(_SearchFailed value)? searchFailed,
+    TResult Function(_GetTotalEstimatedTimeLoading value)?
+        getTotalEstimatedTimeLoading,
+    TResult Function(_GetTotalEstimatedTimeCompleted value)?
+        getTotalEstimatedTimeCompleted,
+    TResult Function(_GetTotalEstimatedTimeFailed value)?
+        getTotalEstimatedTimeFailed,
+    TResult Function(_UpdateTotalEstimatedTimeLoading value)?
+        updateTotalEstimatedTimeLoading,
+    TResult Function(_UpdateTotalEstimatedTimeFailed value)?
+        updateTotalEstimatedTimeFailed,
+    TResult Function(_UpdateTotalEstimatedTimeCompleted value)?
+        updateTotalEstimatedTimeCompleted,
+    TResult Function(_UploadTasksLoading value)? uploadTasksLoading,
+    TResult Function(_UploadTasksFailed value)? uploadTasksFailed,
+    TResult Function(_UploadTasksCompleted value)? uploadTasksCompleted,
+    TResult Function(_DownloadTasksLoading value)? downloadTasksLoading,
+    TResult Function(_DownloadTasksFailed value)? downloadTasksFailed,
+    TResult Function(_DownloadTasksCompleted value)? downloadTasksCompleted,
+    TResult Function(_UpdateTaskLoading value)? updateTaskLoading,
+    TResult Function(_UpdateTaskFailed value)? updateTaskFailed,
+    TResult Function(_UpdateTaskCompleted value)? updateTaskCompleted,
+    TResult Function(_GetTaskByIdLoading value)? getTaskByIdLoading,
+    TResult Function(_GetTaskByIdFailed value)? getTaskByIdFailed,
+    TResult Function(_GetTaskByIdCompleted value)? getTaskByIdCompleted,
+    TResult Function(_CreateTaskLoading value)? createTaskLoading,
+    TResult Function(_CreateTaskFailed value)? createTaskFailed,
+    TResult Function(_CreateTaskCompleted value)? createTaskCompleted,
+    TResult Function(_DeleteTaskLoading value)? deleteTaskLoading,
+    TResult Function(_DeleteTaskFailed value)? deleteTaskFailed,
+    TResult Function(_DeleteTaskCompleted value)? deleteTaskCompleted,
+    required TResult orElse(),
+  }) {
+    if (updateTaskLoading != null) {
+      return updateTaskLoading(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _UpdateTaskLoading implements TaskViewmodelState {
+  factory _UpdateTaskLoading() = _$UpdateTaskLoadingImpl;
+}
+
+/// @nodoc
+abstract class _$$UpdateTaskFailedImplCopyWith<$Res> {
+  factory _$$UpdateTaskFailedImplCopyWith(_$UpdateTaskFailedImpl value,
+          $Res Function(_$UpdateTaskFailedImpl) then) =
+      __$$UpdateTaskFailedImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String message});
+}
+
+/// @nodoc
+class __$$UpdateTaskFailedImplCopyWithImpl<$Res>
+    extends _$TaskViewmodelStateCopyWithImpl<$Res, _$UpdateTaskFailedImpl>
+    implements _$$UpdateTaskFailedImplCopyWith<$Res> {
+  __$$UpdateTaskFailedImplCopyWithImpl(_$UpdateTaskFailedImpl _value,
+      $Res Function(_$UpdateTaskFailedImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? message = null,
+  }) {
+    return _then(_$UpdateTaskFailedImpl(
+      message: null == message
+          ? _value.message
+          : message // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$UpdateTaskFailedImpl implements _UpdateTaskFailed {
+  _$UpdateTaskFailedImpl({required this.message});
+
+  @override
+  final String message;
+
+  @override
+  String toString() {
+    return 'TaskViewmodelState.updateTaskFailed(message: $message)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$UpdateTaskFailedImpl &&
+            (identical(other.message, message) || other.message == message));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, message);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$UpdateTaskFailedImplCopyWith<_$UpdateTaskFailedImpl> get copyWith =>
+      __$$UpdateTaskFailedImplCopyWithImpl<_$UpdateTaskFailedImpl>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() allTasksLoading,
+    required TResult Function(List<TaskModel> allTasks) allTasksCompleted,
+    required TResult Function(String message) allTasksFailed,
+    required TResult Function() searchLoading,
+    required TResult Function(List<TaskModel> searchedTasks) searchCompleted,
+    required TResult Function(String message) searchFailed,
+    required TResult Function() getTotalEstimatedTimeLoading,
+    required TResult Function(Duration totalEstimatedTime)
+        getTotalEstimatedTimeCompleted,
+    required TResult Function(String message) getTotalEstimatedTimeFailed,
+    required TResult Function() updateTotalEstimatedTimeLoading,
+    required TResult Function(String message) updateTotalEstimatedTimeFailed,
+    required TResult Function(Duration totalEstimatedTime)
+        updateTotalEstimatedTimeCompleted,
+    required TResult Function() uploadTasksLoading,
+    required TResult Function(String message) uploadTasksFailed,
+    required TResult Function(TaskModel meupdatedTaskssage)
+        uploadTasksCompleted,
+    required TResult Function() downloadTasksLoading,
+    required TResult Function(String message) downloadTasksFailed,
+    required TResult Function(List<TaskModel> downloadedTasks)
+        downloadTasksCompleted,
+    required TResult Function() updateTaskLoading,
+    required TResult Function(String message) updateTaskFailed,
+    required TResult Function(TaskModel updatedTask) updateTaskCompleted,
+    required TResult Function() getTaskByIdLoading,
+    required TResult Function(String message) getTaskByIdFailed,
+    required TResult Function(TaskModel taskById) getTaskByIdCompleted,
+    required TResult Function() createTaskLoading,
+    required TResult Function(String message) createTaskFailed,
+    required TResult Function(TaskModel createdTask) createTaskCompleted,
+    required TResult Function() deleteTaskLoading,
+    required TResult Function(String message) deleteTaskFailed,
+    required TResult Function(TaskModel deletedTask) deleteTaskCompleted,
+  }) {
+    return updateTaskFailed(message);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? allTasksLoading,
+    TResult? Function(List<TaskModel> allTasks)? allTasksCompleted,
+    TResult? Function(String message)? allTasksFailed,
+    TResult? Function()? searchLoading,
+    TResult? Function(List<TaskModel> searchedTasks)? searchCompleted,
+    TResult? Function(String message)? searchFailed,
+    TResult? Function()? getTotalEstimatedTimeLoading,
+    TResult? Function(Duration totalEstimatedTime)?
+        getTotalEstimatedTimeCompleted,
+    TResult? Function(String message)? getTotalEstimatedTimeFailed,
+    TResult? Function()? updateTotalEstimatedTimeLoading,
+    TResult? Function(String message)? updateTotalEstimatedTimeFailed,
+    TResult? Function(Duration totalEstimatedTime)?
+        updateTotalEstimatedTimeCompleted,
+    TResult? Function()? uploadTasksLoading,
+    TResult? Function(String message)? uploadTasksFailed,
+    TResult? Function(TaskModel meupdatedTaskssage)? uploadTasksCompleted,
+    TResult? Function()? downloadTasksLoading,
+    TResult? Function(String message)? downloadTasksFailed,
+    TResult? Function(List<TaskModel> downloadedTasks)? downloadTasksCompleted,
+    TResult? Function()? updateTaskLoading,
+    TResult? Function(String message)? updateTaskFailed,
+    TResult? Function(TaskModel updatedTask)? updateTaskCompleted,
+    TResult? Function()? getTaskByIdLoading,
+    TResult? Function(String message)? getTaskByIdFailed,
+    TResult? Function(TaskModel taskById)? getTaskByIdCompleted,
+    TResult? Function()? createTaskLoading,
+    TResult? Function(String message)? createTaskFailed,
+    TResult? Function(TaskModel createdTask)? createTaskCompleted,
+    TResult? Function()? deleteTaskLoading,
+    TResult? Function(String message)? deleteTaskFailed,
+    TResult? Function(TaskModel deletedTask)? deleteTaskCompleted,
+  }) {
+    return updateTaskFailed?.call(message);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? allTasksLoading,
+    TResult Function(List<TaskModel> allTasks)? allTasksCompleted,
+    TResult Function(String message)? allTasksFailed,
+    TResult Function()? searchLoading,
+    TResult Function(List<TaskModel> searchedTasks)? searchCompleted,
+    TResult Function(String message)? searchFailed,
+    TResult Function()? getTotalEstimatedTimeLoading,
+    TResult Function(Duration totalEstimatedTime)?
+        getTotalEstimatedTimeCompleted,
+    TResult Function(String message)? getTotalEstimatedTimeFailed,
+    TResult Function()? updateTotalEstimatedTimeLoading,
+    TResult Function(String message)? updateTotalEstimatedTimeFailed,
+    TResult Function(Duration totalEstimatedTime)?
+        updateTotalEstimatedTimeCompleted,
+    TResult Function()? uploadTasksLoading,
+    TResult Function(String message)? uploadTasksFailed,
+    TResult Function(TaskModel meupdatedTaskssage)? uploadTasksCompleted,
+    TResult Function()? downloadTasksLoading,
+    TResult Function(String message)? downloadTasksFailed,
+    TResult Function(List<TaskModel> downloadedTasks)? downloadTasksCompleted,
+    TResult Function()? updateTaskLoading,
+    TResult Function(String message)? updateTaskFailed,
+    TResult Function(TaskModel updatedTask)? updateTaskCompleted,
+    TResult Function()? getTaskByIdLoading,
+    TResult Function(String message)? getTaskByIdFailed,
+    TResult Function(TaskModel taskById)? getTaskByIdCompleted,
+    TResult Function()? createTaskLoading,
+    TResult Function(String message)? createTaskFailed,
+    TResult Function(TaskModel createdTask)? createTaskCompleted,
+    TResult Function()? deleteTaskLoading,
+    TResult Function(String message)? deleteTaskFailed,
+    TResult Function(TaskModel deletedTask)? deleteTaskCompleted,
+    required TResult orElse(),
+  }) {
+    if (updateTaskFailed != null) {
+      return updateTaskFailed(message);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(_AllTasksLoading value) allTasksLoading,
+    required TResult Function(_AllTasksCompleted value) allTasksCompleted,
+    required TResult Function(_AllTasksFailed value) allTasksFailed,
+    required TResult Function(_SearchLoading value) searchLoading,
+    required TResult Function(_SearchCompleted value) searchCompleted,
+    required TResult Function(_SearchFailed value) searchFailed,
+    required TResult Function(_GetTotalEstimatedTimeLoading value)
+        getTotalEstimatedTimeLoading,
+    required TResult Function(_GetTotalEstimatedTimeCompleted value)
+        getTotalEstimatedTimeCompleted,
+    required TResult Function(_GetTotalEstimatedTimeFailed value)
+        getTotalEstimatedTimeFailed,
+    required TResult Function(_UpdateTotalEstimatedTimeLoading value)
+        updateTotalEstimatedTimeLoading,
+    required TResult Function(_UpdateTotalEstimatedTimeFailed value)
+        updateTotalEstimatedTimeFailed,
+    required TResult Function(_UpdateTotalEstimatedTimeCompleted value)
+        updateTotalEstimatedTimeCompleted,
+    required TResult Function(_UploadTasksLoading value) uploadTasksLoading,
+    required TResult Function(_UploadTasksFailed value) uploadTasksFailed,
+    required TResult Function(_UploadTasksCompleted value) uploadTasksCompleted,
+    required TResult Function(_DownloadTasksLoading value) downloadTasksLoading,
+    required TResult Function(_DownloadTasksFailed value) downloadTasksFailed,
+    required TResult Function(_DownloadTasksCompleted value)
+        downloadTasksCompleted,
+    required TResult Function(_UpdateTaskLoading value) updateTaskLoading,
+    required TResult Function(_UpdateTaskFailed value) updateTaskFailed,
+    required TResult Function(_UpdateTaskCompleted value) updateTaskCompleted,
+    required TResult Function(_GetTaskByIdLoading value) getTaskByIdLoading,
+    required TResult Function(_GetTaskByIdFailed value) getTaskByIdFailed,
+    required TResult Function(_GetTaskByIdCompleted value) getTaskByIdCompleted,
+    required TResult Function(_CreateTaskLoading value) createTaskLoading,
+    required TResult Function(_CreateTaskFailed value) createTaskFailed,
+    required TResult Function(_CreateTaskCompleted value) createTaskCompleted,
+    required TResult Function(_DeleteTaskLoading value) deleteTaskLoading,
+    required TResult Function(_DeleteTaskFailed value) deleteTaskFailed,
+    required TResult Function(_DeleteTaskCompleted value) deleteTaskCompleted,
+  }) {
+    return updateTaskFailed(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_AllTasksLoading value)? allTasksLoading,
+    TResult? Function(_AllTasksCompleted value)? allTasksCompleted,
+    TResult? Function(_AllTasksFailed value)? allTasksFailed,
+    TResult? Function(_SearchLoading value)? searchLoading,
+    TResult? Function(_SearchCompleted value)? searchCompleted,
+    TResult? Function(_SearchFailed value)? searchFailed,
+    TResult? Function(_GetTotalEstimatedTimeLoading value)?
+        getTotalEstimatedTimeLoading,
+    TResult? Function(_GetTotalEstimatedTimeCompleted value)?
+        getTotalEstimatedTimeCompleted,
+    TResult? Function(_GetTotalEstimatedTimeFailed value)?
+        getTotalEstimatedTimeFailed,
+    TResult? Function(_UpdateTotalEstimatedTimeLoading value)?
+        updateTotalEstimatedTimeLoading,
+    TResult? Function(_UpdateTotalEstimatedTimeFailed value)?
+        updateTotalEstimatedTimeFailed,
+    TResult? Function(_UpdateTotalEstimatedTimeCompleted value)?
+        updateTotalEstimatedTimeCompleted,
+    TResult? Function(_UploadTasksLoading value)? uploadTasksLoading,
+    TResult? Function(_UploadTasksFailed value)? uploadTasksFailed,
+    TResult? Function(_UploadTasksCompleted value)? uploadTasksCompleted,
+    TResult? Function(_DownloadTasksLoading value)? downloadTasksLoading,
+    TResult? Function(_DownloadTasksFailed value)? downloadTasksFailed,
+    TResult? Function(_DownloadTasksCompleted value)? downloadTasksCompleted,
+    TResult? Function(_UpdateTaskLoading value)? updateTaskLoading,
+    TResult? Function(_UpdateTaskFailed value)? updateTaskFailed,
+    TResult? Function(_UpdateTaskCompleted value)? updateTaskCompleted,
+    TResult? Function(_GetTaskByIdLoading value)? getTaskByIdLoading,
+    TResult? Function(_GetTaskByIdFailed value)? getTaskByIdFailed,
+    TResult? Function(_GetTaskByIdCompleted value)? getTaskByIdCompleted,
+    TResult? Function(_CreateTaskLoading value)? createTaskLoading,
+    TResult? Function(_CreateTaskFailed value)? createTaskFailed,
+    TResult? Function(_CreateTaskCompleted value)? createTaskCompleted,
+    TResult? Function(_DeleteTaskLoading value)? deleteTaskLoading,
+    TResult? Function(_DeleteTaskFailed value)? deleteTaskFailed,
+    TResult? Function(_DeleteTaskCompleted value)? deleteTaskCompleted,
+  }) {
+    return updateTaskFailed?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_AllTasksLoading value)? allTasksLoading,
+    TResult Function(_AllTasksCompleted value)? allTasksCompleted,
+    TResult Function(_AllTasksFailed value)? allTasksFailed,
+    TResult Function(_SearchLoading value)? searchLoading,
+    TResult Function(_SearchCompleted value)? searchCompleted,
+    TResult Function(_SearchFailed value)? searchFailed,
+    TResult Function(_GetTotalEstimatedTimeLoading value)?
+        getTotalEstimatedTimeLoading,
+    TResult Function(_GetTotalEstimatedTimeCompleted value)?
+        getTotalEstimatedTimeCompleted,
+    TResult Function(_GetTotalEstimatedTimeFailed value)?
+        getTotalEstimatedTimeFailed,
+    TResult Function(_UpdateTotalEstimatedTimeLoading value)?
+        updateTotalEstimatedTimeLoading,
+    TResult Function(_UpdateTotalEstimatedTimeFailed value)?
+        updateTotalEstimatedTimeFailed,
+    TResult Function(_UpdateTotalEstimatedTimeCompleted value)?
+        updateTotalEstimatedTimeCompleted,
+    TResult Function(_UploadTasksLoading value)? uploadTasksLoading,
+    TResult Function(_UploadTasksFailed value)? uploadTasksFailed,
+    TResult Function(_UploadTasksCompleted value)? uploadTasksCompleted,
+    TResult Function(_DownloadTasksLoading value)? downloadTasksLoading,
+    TResult Function(_DownloadTasksFailed value)? downloadTasksFailed,
+    TResult Function(_DownloadTasksCompleted value)? downloadTasksCompleted,
+    TResult Function(_UpdateTaskLoading value)? updateTaskLoading,
+    TResult Function(_UpdateTaskFailed value)? updateTaskFailed,
+    TResult Function(_UpdateTaskCompleted value)? updateTaskCompleted,
+    TResult Function(_GetTaskByIdLoading value)? getTaskByIdLoading,
+    TResult Function(_GetTaskByIdFailed value)? getTaskByIdFailed,
+    TResult Function(_GetTaskByIdCompleted value)? getTaskByIdCompleted,
+    TResult Function(_CreateTaskLoading value)? createTaskLoading,
+    TResult Function(_CreateTaskFailed value)? createTaskFailed,
+    TResult Function(_CreateTaskCompleted value)? createTaskCompleted,
+    TResult Function(_DeleteTaskLoading value)? deleteTaskLoading,
+    TResult Function(_DeleteTaskFailed value)? deleteTaskFailed,
+    TResult Function(_DeleteTaskCompleted value)? deleteTaskCompleted,
+    required TResult orElse(),
+  }) {
+    if (updateTaskFailed != null) {
+      return updateTaskFailed(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _UpdateTaskFailed implements TaskViewmodelState {
+  factory _UpdateTaskFailed({required final String message}) =
+      _$UpdateTaskFailedImpl;
+
+  String get message;
+  @JsonKey(ignore: true)
+  _$$UpdateTaskFailedImplCopyWith<_$UpdateTaskFailedImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$UpdateTaskCompletedImplCopyWith<$Res> {
+  factory _$$UpdateTaskCompletedImplCopyWith(_$UpdateTaskCompletedImpl value,
+          $Res Function(_$UpdateTaskCompletedImpl) then) =
+      __$$UpdateTaskCompletedImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({TaskModel updatedTask});
+
+  $TaskModelCopyWith<$Res> get updatedTask;
+}
+
+/// @nodoc
+class __$$UpdateTaskCompletedImplCopyWithImpl<$Res>
+    extends _$TaskViewmodelStateCopyWithImpl<$Res, _$UpdateTaskCompletedImpl>
+    implements _$$UpdateTaskCompletedImplCopyWith<$Res> {
+  __$$UpdateTaskCompletedImplCopyWithImpl(_$UpdateTaskCompletedImpl _value,
+      $Res Function(_$UpdateTaskCompletedImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? updatedTask = null,
+  }) {
+    return _then(_$UpdateTaskCompletedImpl(
+      updatedTask: null == updatedTask
+          ? _value.updatedTask
+          : updatedTask // ignore: cast_nullable_to_non_nullable
+              as TaskModel,
+    ));
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $TaskModelCopyWith<$Res> get updatedTask {
+    return $TaskModelCopyWith<$Res>(_value.updatedTask, (value) {
+      return _then(_value.copyWith(updatedTask: value));
+    });
+  }
+}
+
+/// @nodoc
+
+class _$UpdateTaskCompletedImpl implements _UpdateTaskCompleted {
+  _$UpdateTaskCompletedImpl({required this.updatedTask});
+
+  @override
+  final TaskModel updatedTask;
+
+  @override
+  String toString() {
+    return 'TaskViewmodelState.updateTaskCompleted(updatedTask: $updatedTask)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$UpdateTaskCompletedImpl &&
+            (identical(other.updatedTask, updatedTask) ||
+                other.updatedTask == updatedTask));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, updatedTask);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$UpdateTaskCompletedImplCopyWith<_$UpdateTaskCompletedImpl> get copyWith =>
+      __$$UpdateTaskCompletedImplCopyWithImpl<_$UpdateTaskCompletedImpl>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() allTasksLoading,
+    required TResult Function(List<TaskModel> allTasks) allTasksCompleted,
+    required TResult Function(String message) allTasksFailed,
+    required TResult Function() searchLoading,
+    required TResult Function(List<TaskModel> searchedTasks) searchCompleted,
+    required TResult Function(String message) searchFailed,
+    required TResult Function() getTotalEstimatedTimeLoading,
+    required TResult Function(Duration totalEstimatedTime)
+        getTotalEstimatedTimeCompleted,
+    required TResult Function(String message) getTotalEstimatedTimeFailed,
+    required TResult Function() updateTotalEstimatedTimeLoading,
+    required TResult Function(String message) updateTotalEstimatedTimeFailed,
+    required TResult Function(Duration totalEstimatedTime)
+        updateTotalEstimatedTimeCompleted,
+    required TResult Function() uploadTasksLoading,
+    required TResult Function(String message) uploadTasksFailed,
+    required TResult Function(TaskModel meupdatedTaskssage)
+        uploadTasksCompleted,
+    required TResult Function() downloadTasksLoading,
+    required TResult Function(String message) downloadTasksFailed,
+    required TResult Function(List<TaskModel> downloadedTasks)
+        downloadTasksCompleted,
+    required TResult Function() updateTaskLoading,
+    required TResult Function(String message) updateTaskFailed,
+    required TResult Function(TaskModel updatedTask) updateTaskCompleted,
+    required TResult Function() getTaskByIdLoading,
+    required TResult Function(String message) getTaskByIdFailed,
+    required TResult Function(TaskModel taskById) getTaskByIdCompleted,
+    required TResult Function() createTaskLoading,
+    required TResult Function(String message) createTaskFailed,
+    required TResult Function(TaskModel createdTask) createTaskCompleted,
+    required TResult Function() deleteTaskLoading,
+    required TResult Function(String message) deleteTaskFailed,
+    required TResult Function(TaskModel deletedTask) deleteTaskCompleted,
+  }) {
+    return updateTaskCompleted(updatedTask);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? allTasksLoading,
+    TResult? Function(List<TaskModel> allTasks)? allTasksCompleted,
+    TResult? Function(String message)? allTasksFailed,
+    TResult? Function()? searchLoading,
+    TResult? Function(List<TaskModel> searchedTasks)? searchCompleted,
+    TResult? Function(String message)? searchFailed,
+    TResult? Function()? getTotalEstimatedTimeLoading,
+    TResult? Function(Duration totalEstimatedTime)?
+        getTotalEstimatedTimeCompleted,
+    TResult? Function(String message)? getTotalEstimatedTimeFailed,
+    TResult? Function()? updateTotalEstimatedTimeLoading,
+    TResult? Function(String message)? updateTotalEstimatedTimeFailed,
+    TResult? Function(Duration totalEstimatedTime)?
+        updateTotalEstimatedTimeCompleted,
+    TResult? Function()? uploadTasksLoading,
+    TResult? Function(String message)? uploadTasksFailed,
+    TResult? Function(TaskModel meupdatedTaskssage)? uploadTasksCompleted,
+    TResult? Function()? downloadTasksLoading,
+    TResult? Function(String message)? downloadTasksFailed,
+    TResult? Function(List<TaskModel> downloadedTasks)? downloadTasksCompleted,
+    TResult? Function()? updateTaskLoading,
+    TResult? Function(String message)? updateTaskFailed,
+    TResult? Function(TaskModel updatedTask)? updateTaskCompleted,
+    TResult? Function()? getTaskByIdLoading,
+    TResult? Function(String message)? getTaskByIdFailed,
+    TResult? Function(TaskModel taskById)? getTaskByIdCompleted,
+    TResult? Function()? createTaskLoading,
+    TResult? Function(String message)? createTaskFailed,
+    TResult? Function(TaskModel createdTask)? createTaskCompleted,
+    TResult? Function()? deleteTaskLoading,
+    TResult? Function(String message)? deleteTaskFailed,
+    TResult? Function(TaskModel deletedTask)? deleteTaskCompleted,
+  }) {
+    return updateTaskCompleted?.call(updatedTask);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? allTasksLoading,
+    TResult Function(List<TaskModel> allTasks)? allTasksCompleted,
+    TResult Function(String message)? allTasksFailed,
+    TResult Function()? searchLoading,
+    TResult Function(List<TaskModel> searchedTasks)? searchCompleted,
+    TResult Function(String message)? searchFailed,
+    TResult Function()? getTotalEstimatedTimeLoading,
+    TResult Function(Duration totalEstimatedTime)?
+        getTotalEstimatedTimeCompleted,
+    TResult Function(String message)? getTotalEstimatedTimeFailed,
+    TResult Function()? updateTotalEstimatedTimeLoading,
+    TResult Function(String message)? updateTotalEstimatedTimeFailed,
+    TResult Function(Duration totalEstimatedTime)?
+        updateTotalEstimatedTimeCompleted,
+    TResult Function()? uploadTasksLoading,
+    TResult Function(String message)? uploadTasksFailed,
+    TResult Function(TaskModel meupdatedTaskssage)? uploadTasksCompleted,
+    TResult Function()? downloadTasksLoading,
+    TResult Function(String message)? downloadTasksFailed,
+    TResult Function(List<TaskModel> downloadedTasks)? downloadTasksCompleted,
+    TResult Function()? updateTaskLoading,
+    TResult Function(String message)? updateTaskFailed,
+    TResult Function(TaskModel updatedTask)? updateTaskCompleted,
+    TResult Function()? getTaskByIdLoading,
+    TResult Function(String message)? getTaskByIdFailed,
+    TResult Function(TaskModel taskById)? getTaskByIdCompleted,
+    TResult Function()? createTaskLoading,
+    TResult Function(String message)? createTaskFailed,
+    TResult Function(TaskModel createdTask)? createTaskCompleted,
+    TResult Function()? deleteTaskLoading,
+    TResult Function(String message)? deleteTaskFailed,
+    TResult Function(TaskModel deletedTask)? deleteTaskCompleted,
+    required TResult orElse(),
+  }) {
+    if (updateTaskCompleted != null) {
+      return updateTaskCompleted(updatedTask);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(_AllTasksLoading value) allTasksLoading,
+    required TResult Function(_AllTasksCompleted value) allTasksCompleted,
+    required TResult Function(_AllTasksFailed value) allTasksFailed,
+    required TResult Function(_SearchLoading value) searchLoading,
+    required TResult Function(_SearchCompleted value) searchCompleted,
+    required TResult Function(_SearchFailed value) searchFailed,
+    required TResult Function(_GetTotalEstimatedTimeLoading value)
+        getTotalEstimatedTimeLoading,
+    required TResult Function(_GetTotalEstimatedTimeCompleted value)
+        getTotalEstimatedTimeCompleted,
+    required TResult Function(_GetTotalEstimatedTimeFailed value)
+        getTotalEstimatedTimeFailed,
+    required TResult Function(_UpdateTotalEstimatedTimeLoading value)
+        updateTotalEstimatedTimeLoading,
+    required TResult Function(_UpdateTotalEstimatedTimeFailed value)
+        updateTotalEstimatedTimeFailed,
+    required TResult Function(_UpdateTotalEstimatedTimeCompleted value)
+        updateTotalEstimatedTimeCompleted,
+    required TResult Function(_UploadTasksLoading value) uploadTasksLoading,
+    required TResult Function(_UploadTasksFailed value) uploadTasksFailed,
+    required TResult Function(_UploadTasksCompleted value) uploadTasksCompleted,
+    required TResult Function(_DownloadTasksLoading value) downloadTasksLoading,
+    required TResult Function(_DownloadTasksFailed value) downloadTasksFailed,
+    required TResult Function(_DownloadTasksCompleted value)
+        downloadTasksCompleted,
+    required TResult Function(_UpdateTaskLoading value) updateTaskLoading,
+    required TResult Function(_UpdateTaskFailed value) updateTaskFailed,
+    required TResult Function(_UpdateTaskCompleted value) updateTaskCompleted,
+    required TResult Function(_GetTaskByIdLoading value) getTaskByIdLoading,
+    required TResult Function(_GetTaskByIdFailed value) getTaskByIdFailed,
+    required TResult Function(_GetTaskByIdCompleted value) getTaskByIdCompleted,
+    required TResult Function(_CreateTaskLoading value) createTaskLoading,
+    required TResult Function(_CreateTaskFailed value) createTaskFailed,
+    required TResult Function(_CreateTaskCompleted value) createTaskCompleted,
+    required TResult Function(_DeleteTaskLoading value) deleteTaskLoading,
+    required TResult Function(_DeleteTaskFailed value) deleteTaskFailed,
+    required TResult Function(_DeleteTaskCompleted value) deleteTaskCompleted,
+  }) {
+    return updateTaskCompleted(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_AllTasksLoading value)? allTasksLoading,
+    TResult? Function(_AllTasksCompleted value)? allTasksCompleted,
+    TResult? Function(_AllTasksFailed value)? allTasksFailed,
+    TResult? Function(_SearchLoading value)? searchLoading,
+    TResult? Function(_SearchCompleted value)? searchCompleted,
+    TResult? Function(_SearchFailed value)? searchFailed,
+    TResult? Function(_GetTotalEstimatedTimeLoading value)?
+        getTotalEstimatedTimeLoading,
+    TResult? Function(_GetTotalEstimatedTimeCompleted value)?
+        getTotalEstimatedTimeCompleted,
+    TResult? Function(_GetTotalEstimatedTimeFailed value)?
+        getTotalEstimatedTimeFailed,
+    TResult? Function(_UpdateTotalEstimatedTimeLoading value)?
+        updateTotalEstimatedTimeLoading,
+    TResult? Function(_UpdateTotalEstimatedTimeFailed value)?
+        updateTotalEstimatedTimeFailed,
+    TResult? Function(_UpdateTotalEstimatedTimeCompleted value)?
+        updateTotalEstimatedTimeCompleted,
+    TResult? Function(_UploadTasksLoading value)? uploadTasksLoading,
+    TResult? Function(_UploadTasksFailed value)? uploadTasksFailed,
+    TResult? Function(_UploadTasksCompleted value)? uploadTasksCompleted,
+    TResult? Function(_DownloadTasksLoading value)? downloadTasksLoading,
+    TResult? Function(_DownloadTasksFailed value)? downloadTasksFailed,
+    TResult? Function(_DownloadTasksCompleted value)? downloadTasksCompleted,
+    TResult? Function(_UpdateTaskLoading value)? updateTaskLoading,
+    TResult? Function(_UpdateTaskFailed value)? updateTaskFailed,
+    TResult? Function(_UpdateTaskCompleted value)? updateTaskCompleted,
+    TResult? Function(_GetTaskByIdLoading value)? getTaskByIdLoading,
+    TResult? Function(_GetTaskByIdFailed value)? getTaskByIdFailed,
+    TResult? Function(_GetTaskByIdCompleted value)? getTaskByIdCompleted,
+    TResult? Function(_CreateTaskLoading value)? createTaskLoading,
+    TResult? Function(_CreateTaskFailed value)? createTaskFailed,
+    TResult? Function(_CreateTaskCompleted value)? createTaskCompleted,
+    TResult? Function(_DeleteTaskLoading value)? deleteTaskLoading,
+    TResult? Function(_DeleteTaskFailed value)? deleteTaskFailed,
+    TResult? Function(_DeleteTaskCompleted value)? deleteTaskCompleted,
+  }) {
+    return updateTaskCompleted?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_AllTasksLoading value)? allTasksLoading,
+    TResult Function(_AllTasksCompleted value)? allTasksCompleted,
+    TResult Function(_AllTasksFailed value)? allTasksFailed,
+    TResult Function(_SearchLoading value)? searchLoading,
+    TResult Function(_SearchCompleted value)? searchCompleted,
+    TResult Function(_SearchFailed value)? searchFailed,
+    TResult Function(_GetTotalEstimatedTimeLoading value)?
+        getTotalEstimatedTimeLoading,
+    TResult Function(_GetTotalEstimatedTimeCompleted value)?
+        getTotalEstimatedTimeCompleted,
+    TResult Function(_GetTotalEstimatedTimeFailed value)?
+        getTotalEstimatedTimeFailed,
+    TResult Function(_UpdateTotalEstimatedTimeLoading value)?
+        updateTotalEstimatedTimeLoading,
+    TResult Function(_UpdateTotalEstimatedTimeFailed value)?
+        updateTotalEstimatedTimeFailed,
+    TResult Function(_UpdateTotalEstimatedTimeCompleted value)?
+        updateTotalEstimatedTimeCompleted,
+    TResult Function(_UploadTasksLoading value)? uploadTasksLoading,
+    TResult Function(_UploadTasksFailed value)? uploadTasksFailed,
+    TResult Function(_UploadTasksCompleted value)? uploadTasksCompleted,
+    TResult Function(_DownloadTasksLoading value)? downloadTasksLoading,
+    TResult Function(_DownloadTasksFailed value)? downloadTasksFailed,
+    TResult Function(_DownloadTasksCompleted value)? downloadTasksCompleted,
+    TResult Function(_UpdateTaskLoading value)? updateTaskLoading,
+    TResult Function(_UpdateTaskFailed value)? updateTaskFailed,
+    TResult Function(_UpdateTaskCompleted value)? updateTaskCompleted,
+    TResult Function(_GetTaskByIdLoading value)? getTaskByIdLoading,
+    TResult Function(_GetTaskByIdFailed value)? getTaskByIdFailed,
+    TResult Function(_GetTaskByIdCompleted value)? getTaskByIdCompleted,
+    TResult Function(_CreateTaskLoading value)? createTaskLoading,
+    TResult Function(_CreateTaskFailed value)? createTaskFailed,
+    TResult Function(_CreateTaskCompleted value)? createTaskCompleted,
+    TResult Function(_DeleteTaskLoading value)? deleteTaskLoading,
+    TResult Function(_DeleteTaskFailed value)? deleteTaskFailed,
+    TResult Function(_DeleteTaskCompleted value)? deleteTaskCompleted,
+    required TResult orElse(),
+  }) {
+    if (updateTaskCompleted != null) {
+      return updateTaskCompleted(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _UpdateTaskCompleted implements TaskViewmodelState {
+  factory _UpdateTaskCompleted({required final TaskModel updatedTask}) =
+      _$UpdateTaskCompletedImpl;
+
+  TaskModel get updatedTask;
+  @JsonKey(ignore: true)
+  _$$UpdateTaskCompletedImplCopyWith<_$UpdateTaskCompletedImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$GetTaskByIdLoadingImplCopyWith<$Res> {
+  factory _$$GetTaskByIdLoadingImplCopyWith(_$GetTaskByIdLoadingImpl value,
+          $Res Function(_$GetTaskByIdLoadingImpl) then) =
+      __$$GetTaskByIdLoadingImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$GetTaskByIdLoadingImplCopyWithImpl<$Res>
+    extends _$TaskViewmodelStateCopyWithImpl<$Res, _$GetTaskByIdLoadingImpl>
+    implements _$$GetTaskByIdLoadingImplCopyWith<$Res> {
+  __$$GetTaskByIdLoadingImplCopyWithImpl(_$GetTaskByIdLoadingImpl _value,
+      $Res Function(_$GetTaskByIdLoadingImpl) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$GetTaskByIdLoadingImpl implements _GetTaskByIdLoading {
+  _$GetTaskByIdLoadingImpl();
+
+  @override
+  String toString() {
+    return 'TaskViewmodelState.getTaskByIdLoading()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$GetTaskByIdLoadingImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() allTasksLoading,
+    required TResult Function(List<TaskModel> allTasks) allTasksCompleted,
+    required TResult Function(String message) allTasksFailed,
+    required TResult Function() searchLoading,
+    required TResult Function(List<TaskModel> searchedTasks) searchCompleted,
+    required TResult Function(String message) searchFailed,
+    required TResult Function() getTotalEstimatedTimeLoading,
+    required TResult Function(Duration totalEstimatedTime)
+        getTotalEstimatedTimeCompleted,
+    required TResult Function(String message) getTotalEstimatedTimeFailed,
+    required TResult Function() updateTotalEstimatedTimeLoading,
+    required TResult Function(String message) updateTotalEstimatedTimeFailed,
+    required TResult Function(Duration totalEstimatedTime)
+        updateTotalEstimatedTimeCompleted,
+    required TResult Function() uploadTasksLoading,
+    required TResult Function(String message) uploadTasksFailed,
+    required TResult Function(TaskModel meupdatedTaskssage)
+        uploadTasksCompleted,
+    required TResult Function() downloadTasksLoading,
+    required TResult Function(String message) downloadTasksFailed,
+    required TResult Function(List<TaskModel> downloadedTasks)
+        downloadTasksCompleted,
+    required TResult Function() updateTaskLoading,
+    required TResult Function(String message) updateTaskFailed,
+    required TResult Function(TaskModel updatedTask) updateTaskCompleted,
+    required TResult Function() getTaskByIdLoading,
+    required TResult Function(String message) getTaskByIdFailed,
+    required TResult Function(TaskModel taskById) getTaskByIdCompleted,
+    required TResult Function() createTaskLoading,
+    required TResult Function(String message) createTaskFailed,
+    required TResult Function(TaskModel createdTask) createTaskCompleted,
+    required TResult Function() deleteTaskLoading,
+    required TResult Function(String message) deleteTaskFailed,
+    required TResult Function(TaskModel deletedTask) deleteTaskCompleted,
+  }) {
+    return getTaskByIdLoading();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? allTasksLoading,
+    TResult? Function(List<TaskModel> allTasks)? allTasksCompleted,
+    TResult? Function(String message)? allTasksFailed,
+    TResult? Function()? searchLoading,
+    TResult? Function(List<TaskModel> searchedTasks)? searchCompleted,
+    TResult? Function(String message)? searchFailed,
+    TResult? Function()? getTotalEstimatedTimeLoading,
+    TResult? Function(Duration totalEstimatedTime)?
+        getTotalEstimatedTimeCompleted,
+    TResult? Function(String message)? getTotalEstimatedTimeFailed,
+    TResult? Function()? updateTotalEstimatedTimeLoading,
+    TResult? Function(String message)? updateTotalEstimatedTimeFailed,
+    TResult? Function(Duration totalEstimatedTime)?
+        updateTotalEstimatedTimeCompleted,
+    TResult? Function()? uploadTasksLoading,
+    TResult? Function(String message)? uploadTasksFailed,
+    TResult? Function(TaskModel meupdatedTaskssage)? uploadTasksCompleted,
+    TResult? Function()? downloadTasksLoading,
+    TResult? Function(String message)? downloadTasksFailed,
+    TResult? Function(List<TaskModel> downloadedTasks)? downloadTasksCompleted,
+    TResult? Function()? updateTaskLoading,
+    TResult? Function(String message)? updateTaskFailed,
+    TResult? Function(TaskModel updatedTask)? updateTaskCompleted,
+    TResult? Function()? getTaskByIdLoading,
+    TResult? Function(String message)? getTaskByIdFailed,
+    TResult? Function(TaskModel taskById)? getTaskByIdCompleted,
+    TResult? Function()? createTaskLoading,
+    TResult? Function(String message)? createTaskFailed,
+    TResult? Function(TaskModel createdTask)? createTaskCompleted,
+    TResult? Function()? deleteTaskLoading,
+    TResult? Function(String message)? deleteTaskFailed,
+    TResult? Function(TaskModel deletedTask)? deleteTaskCompleted,
+  }) {
+    return getTaskByIdLoading?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? allTasksLoading,
+    TResult Function(List<TaskModel> allTasks)? allTasksCompleted,
+    TResult Function(String message)? allTasksFailed,
+    TResult Function()? searchLoading,
+    TResult Function(List<TaskModel> searchedTasks)? searchCompleted,
+    TResult Function(String message)? searchFailed,
+    TResult Function()? getTotalEstimatedTimeLoading,
+    TResult Function(Duration totalEstimatedTime)?
+        getTotalEstimatedTimeCompleted,
+    TResult Function(String message)? getTotalEstimatedTimeFailed,
+    TResult Function()? updateTotalEstimatedTimeLoading,
+    TResult Function(String message)? updateTotalEstimatedTimeFailed,
+    TResult Function(Duration totalEstimatedTime)?
+        updateTotalEstimatedTimeCompleted,
+    TResult Function()? uploadTasksLoading,
+    TResult Function(String message)? uploadTasksFailed,
+    TResult Function(TaskModel meupdatedTaskssage)? uploadTasksCompleted,
+    TResult Function()? downloadTasksLoading,
+    TResult Function(String message)? downloadTasksFailed,
+    TResult Function(List<TaskModel> downloadedTasks)? downloadTasksCompleted,
+    TResult Function()? updateTaskLoading,
+    TResult Function(String message)? updateTaskFailed,
+    TResult Function(TaskModel updatedTask)? updateTaskCompleted,
+    TResult Function()? getTaskByIdLoading,
+    TResult Function(String message)? getTaskByIdFailed,
+    TResult Function(TaskModel taskById)? getTaskByIdCompleted,
+    TResult Function()? createTaskLoading,
+    TResult Function(String message)? createTaskFailed,
+    TResult Function(TaskModel createdTask)? createTaskCompleted,
+    TResult Function()? deleteTaskLoading,
+    TResult Function(String message)? deleteTaskFailed,
+    TResult Function(TaskModel deletedTask)? deleteTaskCompleted,
+    required TResult orElse(),
+  }) {
+    if (getTaskByIdLoading != null) {
+      return getTaskByIdLoading();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(_AllTasksLoading value) allTasksLoading,
+    required TResult Function(_AllTasksCompleted value) allTasksCompleted,
+    required TResult Function(_AllTasksFailed value) allTasksFailed,
+    required TResult Function(_SearchLoading value) searchLoading,
+    required TResult Function(_SearchCompleted value) searchCompleted,
+    required TResult Function(_SearchFailed value) searchFailed,
+    required TResult Function(_GetTotalEstimatedTimeLoading value)
+        getTotalEstimatedTimeLoading,
+    required TResult Function(_GetTotalEstimatedTimeCompleted value)
+        getTotalEstimatedTimeCompleted,
+    required TResult Function(_GetTotalEstimatedTimeFailed value)
+        getTotalEstimatedTimeFailed,
+    required TResult Function(_UpdateTotalEstimatedTimeLoading value)
+        updateTotalEstimatedTimeLoading,
+    required TResult Function(_UpdateTotalEstimatedTimeFailed value)
+        updateTotalEstimatedTimeFailed,
+    required TResult Function(_UpdateTotalEstimatedTimeCompleted value)
+        updateTotalEstimatedTimeCompleted,
+    required TResult Function(_UploadTasksLoading value) uploadTasksLoading,
+    required TResult Function(_UploadTasksFailed value) uploadTasksFailed,
+    required TResult Function(_UploadTasksCompleted value) uploadTasksCompleted,
+    required TResult Function(_DownloadTasksLoading value) downloadTasksLoading,
+    required TResult Function(_DownloadTasksFailed value) downloadTasksFailed,
+    required TResult Function(_DownloadTasksCompleted value)
+        downloadTasksCompleted,
+    required TResult Function(_UpdateTaskLoading value) updateTaskLoading,
+    required TResult Function(_UpdateTaskFailed value) updateTaskFailed,
+    required TResult Function(_UpdateTaskCompleted value) updateTaskCompleted,
+    required TResult Function(_GetTaskByIdLoading value) getTaskByIdLoading,
+    required TResult Function(_GetTaskByIdFailed value) getTaskByIdFailed,
+    required TResult Function(_GetTaskByIdCompleted value) getTaskByIdCompleted,
+    required TResult Function(_CreateTaskLoading value) createTaskLoading,
+    required TResult Function(_CreateTaskFailed value) createTaskFailed,
+    required TResult Function(_CreateTaskCompleted value) createTaskCompleted,
+    required TResult Function(_DeleteTaskLoading value) deleteTaskLoading,
+    required TResult Function(_DeleteTaskFailed value) deleteTaskFailed,
+    required TResult Function(_DeleteTaskCompleted value) deleteTaskCompleted,
+  }) {
+    return getTaskByIdLoading(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_AllTasksLoading value)? allTasksLoading,
+    TResult? Function(_AllTasksCompleted value)? allTasksCompleted,
+    TResult? Function(_AllTasksFailed value)? allTasksFailed,
+    TResult? Function(_SearchLoading value)? searchLoading,
+    TResult? Function(_SearchCompleted value)? searchCompleted,
+    TResult? Function(_SearchFailed value)? searchFailed,
+    TResult? Function(_GetTotalEstimatedTimeLoading value)?
+        getTotalEstimatedTimeLoading,
+    TResult? Function(_GetTotalEstimatedTimeCompleted value)?
+        getTotalEstimatedTimeCompleted,
+    TResult? Function(_GetTotalEstimatedTimeFailed value)?
+        getTotalEstimatedTimeFailed,
+    TResult? Function(_UpdateTotalEstimatedTimeLoading value)?
+        updateTotalEstimatedTimeLoading,
+    TResult? Function(_UpdateTotalEstimatedTimeFailed value)?
+        updateTotalEstimatedTimeFailed,
+    TResult? Function(_UpdateTotalEstimatedTimeCompleted value)?
+        updateTotalEstimatedTimeCompleted,
+    TResult? Function(_UploadTasksLoading value)? uploadTasksLoading,
+    TResult? Function(_UploadTasksFailed value)? uploadTasksFailed,
+    TResult? Function(_UploadTasksCompleted value)? uploadTasksCompleted,
+    TResult? Function(_DownloadTasksLoading value)? downloadTasksLoading,
+    TResult? Function(_DownloadTasksFailed value)? downloadTasksFailed,
+    TResult? Function(_DownloadTasksCompleted value)? downloadTasksCompleted,
+    TResult? Function(_UpdateTaskLoading value)? updateTaskLoading,
+    TResult? Function(_UpdateTaskFailed value)? updateTaskFailed,
+    TResult? Function(_UpdateTaskCompleted value)? updateTaskCompleted,
+    TResult? Function(_GetTaskByIdLoading value)? getTaskByIdLoading,
+    TResult? Function(_GetTaskByIdFailed value)? getTaskByIdFailed,
+    TResult? Function(_GetTaskByIdCompleted value)? getTaskByIdCompleted,
+    TResult? Function(_CreateTaskLoading value)? createTaskLoading,
+    TResult? Function(_CreateTaskFailed value)? createTaskFailed,
+    TResult? Function(_CreateTaskCompleted value)? createTaskCompleted,
+    TResult? Function(_DeleteTaskLoading value)? deleteTaskLoading,
+    TResult? Function(_DeleteTaskFailed value)? deleteTaskFailed,
+    TResult? Function(_DeleteTaskCompleted value)? deleteTaskCompleted,
+  }) {
+    return getTaskByIdLoading?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_AllTasksLoading value)? allTasksLoading,
+    TResult Function(_AllTasksCompleted value)? allTasksCompleted,
+    TResult Function(_AllTasksFailed value)? allTasksFailed,
+    TResult Function(_SearchLoading value)? searchLoading,
+    TResult Function(_SearchCompleted value)? searchCompleted,
+    TResult Function(_SearchFailed value)? searchFailed,
+    TResult Function(_GetTotalEstimatedTimeLoading value)?
+        getTotalEstimatedTimeLoading,
+    TResult Function(_GetTotalEstimatedTimeCompleted value)?
+        getTotalEstimatedTimeCompleted,
+    TResult Function(_GetTotalEstimatedTimeFailed value)?
+        getTotalEstimatedTimeFailed,
+    TResult Function(_UpdateTotalEstimatedTimeLoading value)?
+        updateTotalEstimatedTimeLoading,
+    TResult Function(_UpdateTotalEstimatedTimeFailed value)?
+        updateTotalEstimatedTimeFailed,
+    TResult Function(_UpdateTotalEstimatedTimeCompleted value)?
+        updateTotalEstimatedTimeCompleted,
+    TResult Function(_UploadTasksLoading value)? uploadTasksLoading,
+    TResult Function(_UploadTasksFailed value)? uploadTasksFailed,
+    TResult Function(_UploadTasksCompleted value)? uploadTasksCompleted,
+    TResult Function(_DownloadTasksLoading value)? downloadTasksLoading,
+    TResult Function(_DownloadTasksFailed value)? downloadTasksFailed,
+    TResult Function(_DownloadTasksCompleted value)? downloadTasksCompleted,
+    TResult Function(_UpdateTaskLoading value)? updateTaskLoading,
+    TResult Function(_UpdateTaskFailed value)? updateTaskFailed,
+    TResult Function(_UpdateTaskCompleted value)? updateTaskCompleted,
+    TResult Function(_GetTaskByIdLoading value)? getTaskByIdLoading,
+    TResult Function(_GetTaskByIdFailed value)? getTaskByIdFailed,
+    TResult Function(_GetTaskByIdCompleted value)? getTaskByIdCompleted,
+    TResult Function(_CreateTaskLoading value)? createTaskLoading,
+    TResult Function(_CreateTaskFailed value)? createTaskFailed,
+    TResult Function(_CreateTaskCompleted value)? createTaskCompleted,
+    TResult Function(_DeleteTaskLoading value)? deleteTaskLoading,
+    TResult Function(_DeleteTaskFailed value)? deleteTaskFailed,
+    TResult Function(_DeleteTaskCompleted value)? deleteTaskCompleted,
+    required TResult orElse(),
+  }) {
+    if (getTaskByIdLoading != null) {
+      return getTaskByIdLoading(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _GetTaskByIdLoading implements TaskViewmodelState {
+  factory _GetTaskByIdLoading() = _$GetTaskByIdLoadingImpl;
+}
+
+/// @nodoc
+abstract class _$$GetTaskByIdFailedImplCopyWith<$Res> {
+  factory _$$GetTaskByIdFailedImplCopyWith(_$GetTaskByIdFailedImpl value,
+          $Res Function(_$GetTaskByIdFailedImpl) then) =
+      __$$GetTaskByIdFailedImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String message});
+}
+
+/// @nodoc
+class __$$GetTaskByIdFailedImplCopyWithImpl<$Res>
+    extends _$TaskViewmodelStateCopyWithImpl<$Res, _$GetTaskByIdFailedImpl>
+    implements _$$GetTaskByIdFailedImplCopyWith<$Res> {
+  __$$GetTaskByIdFailedImplCopyWithImpl(_$GetTaskByIdFailedImpl _value,
+      $Res Function(_$GetTaskByIdFailedImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? message = null,
+  }) {
+    return _then(_$GetTaskByIdFailedImpl(
+      message: null == message
+          ? _value.message
+          : message // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$GetTaskByIdFailedImpl implements _GetTaskByIdFailed {
+  _$GetTaskByIdFailedImpl({required this.message});
+
+  @override
+  final String message;
+
+  @override
+  String toString() {
+    return 'TaskViewmodelState.getTaskByIdFailed(message: $message)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$GetTaskByIdFailedImpl &&
+            (identical(other.message, message) || other.message == message));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, message);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$GetTaskByIdFailedImplCopyWith<_$GetTaskByIdFailedImpl> get copyWith =>
+      __$$GetTaskByIdFailedImplCopyWithImpl<_$GetTaskByIdFailedImpl>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() allTasksLoading,
+    required TResult Function(List<TaskModel> allTasks) allTasksCompleted,
+    required TResult Function(String message) allTasksFailed,
+    required TResult Function() searchLoading,
+    required TResult Function(List<TaskModel> searchedTasks) searchCompleted,
+    required TResult Function(String message) searchFailed,
+    required TResult Function() getTotalEstimatedTimeLoading,
+    required TResult Function(Duration totalEstimatedTime)
+        getTotalEstimatedTimeCompleted,
+    required TResult Function(String message) getTotalEstimatedTimeFailed,
+    required TResult Function() updateTotalEstimatedTimeLoading,
+    required TResult Function(String message) updateTotalEstimatedTimeFailed,
+    required TResult Function(Duration totalEstimatedTime)
+        updateTotalEstimatedTimeCompleted,
+    required TResult Function() uploadTasksLoading,
+    required TResult Function(String message) uploadTasksFailed,
+    required TResult Function(TaskModel meupdatedTaskssage)
+        uploadTasksCompleted,
+    required TResult Function() downloadTasksLoading,
+    required TResult Function(String message) downloadTasksFailed,
+    required TResult Function(List<TaskModel> downloadedTasks)
+        downloadTasksCompleted,
+    required TResult Function() updateTaskLoading,
+    required TResult Function(String message) updateTaskFailed,
+    required TResult Function(TaskModel updatedTask) updateTaskCompleted,
+    required TResult Function() getTaskByIdLoading,
+    required TResult Function(String message) getTaskByIdFailed,
+    required TResult Function(TaskModel taskById) getTaskByIdCompleted,
+    required TResult Function() createTaskLoading,
+    required TResult Function(String message) createTaskFailed,
+    required TResult Function(TaskModel createdTask) createTaskCompleted,
+    required TResult Function() deleteTaskLoading,
+    required TResult Function(String message) deleteTaskFailed,
+    required TResult Function(TaskModel deletedTask) deleteTaskCompleted,
+  }) {
+    return getTaskByIdFailed(message);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? allTasksLoading,
+    TResult? Function(List<TaskModel> allTasks)? allTasksCompleted,
+    TResult? Function(String message)? allTasksFailed,
+    TResult? Function()? searchLoading,
+    TResult? Function(List<TaskModel> searchedTasks)? searchCompleted,
+    TResult? Function(String message)? searchFailed,
+    TResult? Function()? getTotalEstimatedTimeLoading,
+    TResult? Function(Duration totalEstimatedTime)?
+        getTotalEstimatedTimeCompleted,
+    TResult? Function(String message)? getTotalEstimatedTimeFailed,
+    TResult? Function()? updateTotalEstimatedTimeLoading,
+    TResult? Function(String message)? updateTotalEstimatedTimeFailed,
+    TResult? Function(Duration totalEstimatedTime)?
+        updateTotalEstimatedTimeCompleted,
+    TResult? Function()? uploadTasksLoading,
+    TResult? Function(String message)? uploadTasksFailed,
+    TResult? Function(TaskModel meupdatedTaskssage)? uploadTasksCompleted,
+    TResult? Function()? downloadTasksLoading,
+    TResult? Function(String message)? downloadTasksFailed,
+    TResult? Function(List<TaskModel> downloadedTasks)? downloadTasksCompleted,
+    TResult? Function()? updateTaskLoading,
+    TResult? Function(String message)? updateTaskFailed,
+    TResult? Function(TaskModel updatedTask)? updateTaskCompleted,
+    TResult? Function()? getTaskByIdLoading,
+    TResult? Function(String message)? getTaskByIdFailed,
+    TResult? Function(TaskModel taskById)? getTaskByIdCompleted,
+    TResult? Function()? createTaskLoading,
+    TResult? Function(String message)? createTaskFailed,
+    TResult? Function(TaskModel createdTask)? createTaskCompleted,
+    TResult? Function()? deleteTaskLoading,
+    TResult? Function(String message)? deleteTaskFailed,
+    TResult? Function(TaskModel deletedTask)? deleteTaskCompleted,
+  }) {
+    return getTaskByIdFailed?.call(message);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? allTasksLoading,
+    TResult Function(List<TaskModel> allTasks)? allTasksCompleted,
+    TResult Function(String message)? allTasksFailed,
+    TResult Function()? searchLoading,
+    TResult Function(List<TaskModel> searchedTasks)? searchCompleted,
+    TResult Function(String message)? searchFailed,
+    TResult Function()? getTotalEstimatedTimeLoading,
+    TResult Function(Duration totalEstimatedTime)?
+        getTotalEstimatedTimeCompleted,
+    TResult Function(String message)? getTotalEstimatedTimeFailed,
+    TResult Function()? updateTotalEstimatedTimeLoading,
+    TResult Function(String message)? updateTotalEstimatedTimeFailed,
+    TResult Function(Duration totalEstimatedTime)?
+        updateTotalEstimatedTimeCompleted,
+    TResult Function()? uploadTasksLoading,
+    TResult Function(String message)? uploadTasksFailed,
+    TResult Function(TaskModel meupdatedTaskssage)? uploadTasksCompleted,
+    TResult Function()? downloadTasksLoading,
+    TResult Function(String message)? downloadTasksFailed,
+    TResult Function(List<TaskModel> downloadedTasks)? downloadTasksCompleted,
+    TResult Function()? updateTaskLoading,
+    TResult Function(String message)? updateTaskFailed,
+    TResult Function(TaskModel updatedTask)? updateTaskCompleted,
+    TResult Function()? getTaskByIdLoading,
+    TResult Function(String message)? getTaskByIdFailed,
+    TResult Function(TaskModel taskById)? getTaskByIdCompleted,
+    TResult Function()? createTaskLoading,
+    TResult Function(String message)? createTaskFailed,
+    TResult Function(TaskModel createdTask)? createTaskCompleted,
+    TResult Function()? deleteTaskLoading,
+    TResult Function(String message)? deleteTaskFailed,
+    TResult Function(TaskModel deletedTask)? deleteTaskCompleted,
+    required TResult orElse(),
+  }) {
+    if (getTaskByIdFailed != null) {
+      return getTaskByIdFailed(message);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(_AllTasksLoading value) allTasksLoading,
+    required TResult Function(_AllTasksCompleted value) allTasksCompleted,
+    required TResult Function(_AllTasksFailed value) allTasksFailed,
+    required TResult Function(_SearchLoading value) searchLoading,
+    required TResult Function(_SearchCompleted value) searchCompleted,
+    required TResult Function(_SearchFailed value) searchFailed,
+    required TResult Function(_GetTotalEstimatedTimeLoading value)
+        getTotalEstimatedTimeLoading,
+    required TResult Function(_GetTotalEstimatedTimeCompleted value)
+        getTotalEstimatedTimeCompleted,
+    required TResult Function(_GetTotalEstimatedTimeFailed value)
+        getTotalEstimatedTimeFailed,
+    required TResult Function(_UpdateTotalEstimatedTimeLoading value)
+        updateTotalEstimatedTimeLoading,
+    required TResult Function(_UpdateTotalEstimatedTimeFailed value)
+        updateTotalEstimatedTimeFailed,
+    required TResult Function(_UpdateTotalEstimatedTimeCompleted value)
+        updateTotalEstimatedTimeCompleted,
+    required TResult Function(_UploadTasksLoading value) uploadTasksLoading,
+    required TResult Function(_UploadTasksFailed value) uploadTasksFailed,
+    required TResult Function(_UploadTasksCompleted value) uploadTasksCompleted,
+    required TResult Function(_DownloadTasksLoading value) downloadTasksLoading,
+    required TResult Function(_DownloadTasksFailed value) downloadTasksFailed,
+    required TResult Function(_DownloadTasksCompleted value)
+        downloadTasksCompleted,
+    required TResult Function(_UpdateTaskLoading value) updateTaskLoading,
+    required TResult Function(_UpdateTaskFailed value) updateTaskFailed,
+    required TResult Function(_UpdateTaskCompleted value) updateTaskCompleted,
+    required TResult Function(_GetTaskByIdLoading value) getTaskByIdLoading,
+    required TResult Function(_GetTaskByIdFailed value) getTaskByIdFailed,
+    required TResult Function(_GetTaskByIdCompleted value) getTaskByIdCompleted,
+    required TResult Function(_CreateTaskLoading value) createTaskLoading,
+    required TResult Function(_CreateTaskFailed value) createTaskFailed,
+    required TResult Function(_CreateTaskCompleted value) createTaskCompleted,
+    required TResult Function(_DeleteTaskLoading value) deleteTaskLoading,
+    required TResult Function(_DeleteTaskFailed value) deleteTaskFailed,
+    required TResult Function(_DeleteTaskCompleted value) deleteTaskCompleted,
+  }) {
+    return getTaskByIdFailed(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_AllTasksLoading value)? allTasksLoading,
+    TResult? Function(_AllTasksCompleted value)? allTasksCompleted,
+    TResult? Function(_AllTasksFailed value)? allTasksFailed,
+    TResult? Function(_SearchLoading value)? searchLoading,
+    TResult? Function(_SearchCompleted value)? searchCompleted,
+    TResult? Function(_SearchFailed value)? searchFailed,
+    TResult? Function(_GetTotalEstimatedTimeLoading value)?
+        getTotalEstimatedTimeLoading,
+    TResult? Function(_GetTotalEstimatedTimeCompleted value)?
+        getTotalEstimatedTimeCompleted,
+    TResult? Function(_GetTotalEstimatedTimeFailed value)?
+        getTotalEstimatedTimeFailed,
+    TResult? Function(_UpdateTotalEstimatedTimeLoading value)?
+        updateTotalEstimatedTimeLoading,
+    TResult? Function(_UpdateTotalEstimatedTimeFailed value)?
+        updateTotalEstimatedTimeFailed,
+    TResult? Function(_UpdateTotalEstimatedTimeCompleted value)?
+        updateTotalEstimatedTimeCompleted,
+    TResult? Function(_UploadTasksLoading value)? uploadTasksLoading,
+    TResult? Function(_UploadTasksFailed value)? uploadTasksFailed,
+    TResult? Function(_UploadTasksCompleted value)? uploadTasksCompleted,
+    TResult? Function(_DownloadTasksLoading value)? downloadTasksLoading,
+    TResult? Function(_DownloadTasksFailed value)? downloadTasksFailed,
+    TResult? Function(_DownloadTasksCompleted value)? downloadTasksCompleted,
+    TResult? Function(_UpdateTaskLoading value)? updateTaskLoading,
+    TResult? Function(_UpdateTaskFailed value)? updateTaskFailed,
+    TResult? Function(_UpdateTaskCompleted value)? updateTaskCompleted,
+    TResult? Function(_GetTaskByIdLoading value)? getTaskByIdLoading,
+    TResult? Function(_GetTaskByIdFailed value)? getTaskByIdFailed,
+    TResult? Function(_GetTaskByIdCompleted value)? getTaskByIdCompleted,
+    TResult? Function(_CreateTaskLoading value)? createTaskLoading,
+    TResult? Function(_CreateTaskFailed value)? createTaskFailed,
+    TResult? Function(_CreateTaskCompleted value)? createTaskCompleted,
+    TResult? Function(_DeleteTaskLoading value)? deleteTaskLoading,
+    TResult? Function(_DeleteTaskFailed value)? deleteTaskFailed,
+    TResult? Function(_DeleteTaskCompleted value)? deleteTaskCompleted,
+  }) {
+    return getTaskByIdFailed?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_AllTasksLoading value)? allTasksLoading,
+    TResult Function(_AllTasksCompleted value)? allTasksCompleted,
+    TResult Function(_AllTasksFailed value)? allTasksFailed,
+    TResult Function(_SearchLoading value)? searchLoading,
+    TResult Function(_SearchCompleted value)? searchCompleted,
+    TResult Function(_SearchFailed value)? searchFailed,
+    TResult Function(_GetTotalEstimatedTimeLoading value)?
+        getTotalEstimatedTimeLoading,
+    TResult Function(_GetTotalEstimatedTimeCompleted value)?
+        getTotalEstimatedTimeCompleted,
+    TResult Function(_GetTotalEstimatedTimeFailed value)?
+        getTotalEstimatedTimeFailed,
+    TResult Function(_UpdateTotalEstimatedTimeLoading value)?
+        updateTotalEstimatedTimeLoading,
+    TResult Function(_UpdateTotalEstimatedTimeFailed value)?
+        updateTotalEstimatedTimeFailed,
+    TResult Function(_UpdateTotalEstimatedTimeCompleted value)?
+        updateTotalEstimatedTimeCompleted,
+    TResult Function(_UploadTasksLoading value)? uploadTasksLoading,
+    TResult Function(_UploadTasksFailed value)? uploadTasksFailed,
+    TResult Function(_UploadTasksCompleted value)? uploadTasksCompleted,
+    TResult Function(_DownloadTasksLoading value)? downloadTasksLoading,
+    TResult Function(_DownloadTasksFailed value)? downloadTasksFailed,
+    TResult Function(_DownloadTasksCompleted value)? downloadTasksCompleted,
+    TResult Function(_UpdateTaskLoading value)? updateTaskLoading,
+    TResult Function(_UpdateTaskFailed value)? updateTaskFailed,
+    TResult Function(_UpdateTaskCompleted value)? updateTaskCompleted,
+    TResult Function(_GetTaskByIdLoading value)? getTaskByIdLoading,
+    TResult Function(_GetTaskByIdFailed value)? getTaskByIdFailed,
+    TResult Function(_GetTaskByIdCompleted value)? getTaskByIdCompleted,
+    TResult Function(_CreateTaskLoading value)? createTaskLoading,
+    TResult Function(_CreateTaskFailed value)? createTaskFailed,
+    TResult Function(_CreateTaskCompleted value)? createTaskCompleted,
+    TResult Function(_DeleteTaskLoading value)? deleteTaskLoading,
+    TResult Function(_DeleteTaskFailed value)? deleteTaskFailed,
+    TResult Function(_DeleteTaskCompleted value)? deleteTaskCompleted,
+    required TResult orElse(),
+  }) {
+    if (getTaskByIdFailed != null) {
+      return getTaskByIdFailed(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _GetTaskByIdFailed implements TaskViewmodelState {
+  factory _GetTaskByIdFailed({required final String message}) =
+      _$GetTaskByIdFailedImpl;
+
+  String get message;
+  @JsonKey(ignore: true)
+  _$$GetTaskByIdFailedImplCopyWith<_$GetTaskByIdFailedImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$GetTaskByIdCompletedImplCopyWith<$Res> {
+  factory _$$GetTaskByIdCompletedImplCopyWith(_$GetTaskByIdCompletedImpl value,
+          $Res Function(_$GetTaskByIdCompletedImpl) then) =
+      __$$GetTaskByIdCompletedImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({TaskModel taskById});
+
+  $TaskModelCopyWith<$Res> get taskById;
+}
+
+/// @nodoc
+class __$$GetTaskByIdCompletedImplCopyWithImpl<$Res>
+    extends _$TaskViewmodelStateCopyWithImpl<$Res, _$GetTaskByIdCompletedImpl>
+    implements _$$GetTaskByIdCompletedImplCopyWith<$Res> {
+  __$$GetTaskByIdCompletedImplCopyWithImpl(_$GetTaskByIdCompletedImpl _value,
+      $Res Function(_$GetTaskByIdCompletedImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? taskById = null,
+  }) {
+    return _then(_$GetTaskByIdCompletedImpl(
+      taskById: null == taskById
+          ? _value.taskById
+          : taskById // ignore: cast_nullable_to_non_nullable
+              as TaskModel,
+    ));
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $TaskModelCopyWith<$Res> get taskById {
+    return $TaskModelCopyWith<$Res>(_value.taskById, (value) {
+      return _then(_value.copyWith(taskById: value));
+    });
+  }
+}
+
+/// @nodoc
+
+class _$GetTaskByIdCompletedImpl implements _GetTaskByIdCompleted {
+  _$GetTaskByIdCompletedImpl({required this.taskById});
+
+  @override
+  final TaskModel taskById;
+
+  @override
+  String toString() {
+    return 'TaskViewmodelState.getTaskByIdCompleted(taskById: $taskById)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$GetTaskByIdCompletedImpl &&
+            (identical(other.taskById, taskById) ||
+                other.taskById == taskById));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, taskById);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$GetTaskByIdCompletedImplCopyWith<_$GetTaskByIdCompletedImpl>
+      get copyWith =>
+          __$$GetTaskByIdCompletedImplCopyWithImpl<_$GetTaskByIdCompletedImpl>(
+              this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() allTasksLoading,
+    required TResult Function(List<TaskModel> allTasks) allTasksCompleted,
+    required TResult Function(String message) allTasksFailed,
+    required TResult Function() searchLoading,
+    required TResult Function(List<TaskModel> searchedTasks) searchCompleted,
+    required TResult Function(String message) searchFailed,
+    required TResult Function() getTotalEstimatedTimeLoading,
+    required TResult Function(Duration totalEstimatedTime)
+        getTotalEstimatedTimeCompleted,
+    required TResult Function(String message) getTotalEstimatedTimeFailed,
+    required TResult Function() updateTotalEstimatedTimeLoading,
+    required TResult Function(String message) updateTotalEstimatedTimeFailed,
+    required TResult Function(Duration totalEstimatedTime)
+        updateTotalEstimatedTimeCompleted,
+    required TResult Function() uploadTasksLoading,
+    required TResult Function(String message) uploadTasksFailed,
+    required TResult Function(TaskModel meupdatedTaskssage)
+        uploadTasksCompleted,
+    required TResult Function() downloadTasksLoading,
+    required TResult Function(String message) downloadTasksFailed,
+    required TResult Function(List<TaskModel> downloadedTasks)
+        downloadTasksCompleted,
+    required TResult Function() updateTaskLoading,
+    required TResult Function(String message) updateTaskFailed,
+    required TResult Function(TaskModel updatedTask) updateTaskCompleted,
+    required TResult Function() getTaskByIdLoading,
+    required TResult Function(String message) getTaskByIdFailed,
+    required TResult Function(TaskModel taskById) getTaskByIdCompleted,
+    required TResult Function() createTaskLoading,
+    required TResult Function(String message) createTaskFailed,
+    required TResult Function(TaskModel createdTask) createTaskCompleted,
+    required TResult Function() deleteTaskLoading,
+    required TResult Function(String message) deleteTaskFailed,
+    required TResult Function(TaskModel deletedTask) deleteTaskCompleted,
+  }) {
+    return getTaskByIdCompleted(taskById);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? allTasksLoading,
+    TResult? Function(List<TaskModel> allTasks)? allTasksCompleted,
+    TResult? Function(String message)? allTasksFailed,
+    TResult? Function()? searchLoading,
+    TResult? Function(List<TaskModel> searchedTasks)? searchCompleted,
+    TResult? Function(String message)? searchFailed,
+    TResult? Function()? getTotalEstimatedTimeLoading,
+    TResult? Function(Duration totalEstimatedTime)?
+        getTotalEstimatedTimeCompleted,
+    TResult? Function(String message)? getTotalEstimatedTimeFailed,
+    TResult? Function()? updateTotalEstimatedTimeLoading,
+    TResult? Function(String message)? updateTotalEstimatedTimeFailed,
+    TResult? Function(Duration totalEstimatedTime)?
+        updateTotalEstimatedTimeCompleted,
+    TResult? Function()? uploadTasksLoading,
+    TResult? Function(String message)? uploadTasksFailed,
+    TResult? Function(TaskModel meupdatedTaskssage)? uploadTasksCompleted,
+    TResult? Function()? downloadTasksLoading,
+    TResult? Function(String message)? downloadTasksFailed,
+    TResult? Function(List<TaskModel> downloadedTasks)? downloadTasksCompleted,
+    TResult? Function()? updateTaskLoading,
+    TResult? Function(String message)? updateTaskFailed,
+    TResult? Function(TaskModel updatedTask)? updateTaskCompleted,
+    TResult? Function()? getTaskByIdLoading,
+    TResult? Function(String message)? getTaskByIdFailed,
+    TResult? Function(TaskModel taskById)? getTaskByIdCompleted,
+    TResult? Function()? createTaskLoading,
+    TResult? Function(String message)? createTaskFailed,
+    TResult? Function(TaskModel createdTask)? createTaskCompleted,
+    TResult? Function()? deleteTaskLoading,
+    TResult? Function(String message)? deleteTaskFailed,
+    TResult? Function(TaskModel deletedTask)? deleteTaskCompleted,
+  }) {
+    return getTaskByIdCompleted?.call(taskById);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? allTasksLoading,
+    TResult Function(List<TaskModel> allTasks)? allTasksCompleted,
+    TResult Function(String message)? allTasksFailed,
+    TResult Function()? searchLoading,
+    TResult Function(List<TaskModel> searchedTasks)? searchCompleted,
+    TResult Function(String message)? searchFailed,
+    TResult Function()? getTotalEstimatedTimeLoading,
+    TResult Function(Duration totalEstimatedTime)?
+        getTotalEstimatedTimeCompleted,
+    TResult Function(String message)? getTotalEstimatedTimeFailed,
+    TResult Function()? updateTotalEstimatedTimeLoading,
+    TResult Function(String message)? updateTotalEstimatedTimeFailed,
+    TResult Function(Duration totalEstimatedTime)?
+        updateTotalEstimatedTimeCompleted,
+    TResult Function()? uploadTasksLoading,
+    TResult Function(String message)? uploadTasksFailed,
+    TResult Function(TaskModel meupdatedTaskssage)? uploadTasksCompleted,
+    TResult Function()? downloadTasksLoading,
+    TResult Function(String message)? downloadTasksFailed,
+    TResult Function(List<TaskModel> downloadedTasks)? downloadTasksCompleted,
+    TResult Function()? updateTaskLoading,
+    TResult Function(String message)? updateTaskFailed,
+    TResult Function(TaskModel updatedTask)? updateTaskCompleted,
+    TResult Function()? getTaskByIdLoading,
+    TResult Function(String message)? getTaskByIdFailed,
+    TResult Function(TaskModel taskById)? getTaskByIdCompleted,
+    TResult Function()? createTaskLoading,
+    TResult Function(String message)? createTaskFailed,
+    TResult Function(TaskModel createdTask)? createTaskCompleted,
+    TResult Function()? deleteTaskLoading,
+    TResult Function(String message)? deleteTaskFailed,
+    TResult Function(TaskModel deletedTask)? deleteTaskCompleted,
+    required TResult orElse(),
+  }) {
+    if (getTaskByIdCompleted != null) {
+      return getTaskByIdCompleted(taskById);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(_AllTasksLoading value) allTasksLoading,
+    required TResult Function(_AllTasksCompleted value) allTasksCompleted,
+    required TResult Function(_AllTasksFailed value) allTasksFailed,
+    required TResult Function(_SearchLoading value) searchLoading,
+    required TResult Function(_SearchCompleted value) searchCompleted,
+    required TResult Function(_SearchFailed value) searchFailed,
+    required TResult Function(_GetTotalEstimatedTimeLoading value)
+        getTotalEstimatedTimeLoading,
+    required TResult Function(_GetTotalEstimatedTimeCompleted value)
+        getTotalEstimatedTimeCompleted,
+    required TResult Function(_GetTotalEstimatedTimeFailed value)
+        getTotalEstimatedTimeFailed,
+    required TResult Function(_UpdateTotalEstimatedTimeLoading value)
+        updateTotalEstimatedTimeLoading,
+    required TResult Function(_UpdateTotalEstimatedTimeFailed value)
+        updateTotalEstimatedTimeFailed,
+    required TResult Function(_UpdateTotalEstimatedTimeCompleted value)
+        updateTotalEstimatedTimeCompleted,
+    required TResult Function(_UploadTasksLoading value) uploadTasksLoading,
+    required TResult Function(_UploadTasksFailed value) uploadTasksFailed,
+    required TResult Function(_UploadTasksCompleted value) uploadTasksCompleted,
+    required TResult Function(_DownloadTasksLoading value) downloadTasksLoading,
+    required TResult Function(_DownloadTasksFailed value) downloadTasksFailed,
+    required TResult Function(_DownloadTasksCompleted value)
+        downloadTasksCompleted,
+    required TResult Function(_UpdateTaskLoading value) updateTaskLoading,
+    required TResult Function(_UpdateTaskFailed value) updateTaskFailed,
+    required TResult Function(_UpdateTaskCompleted value) updateTaskCompleted,
+    required TResult Function(_GetTaskByIdLoading value) getTaskByIdLoading,
+    required TResult Function(_GetTaskByIdFailed value) getTaskByIdFailed,
+    required TResult Function(_GetTaskByIdCompleted value) getTaskByIdCompleted,
+    required TResult Function(_CreateTaskLoading value) createTaskLoading,
+    required TResult Function(_CreateTaskFailed value) createTaskFailed,
+    required TResult Function(_CreateTaskCompleted value) createTaskCompleted,
+    required TResult Function(_DeleteTaskLoading value) deleteTaskLoading,
+    required TResult Function(_DeleteTaskFailed value) deleteTaskFailed,
+    required TResult Function(_DeleteTaskCompleted value) deleteTaskCompleted,
+  }) {
+    return getTaskByIdCompleted(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_AllTasksLoading value)? allTasksLoading,
+    TResult? Function(_AllTasksCompleted value)? allTasksCompleted,
+    TResult? Function(_AllTasksFailed value)? allTasksFailed,
+    TResult? Function(_SearchLoading value)? searchLoading,
+    TResult? Function(_SearchCompleted value)? searchCompleted,
+    TResult? Function(_SearchFailed value)? searchFailed,
+    TResult? Function(_GetTotalEstimatedTimeLoading value)?
+        getTotalEstimatedTimeLoading,
+    TResult? Function(_GetTotalEstimatedTimeCompleted value)?
+        getTotalEstimatedTimeCompleted,
+    TResult? Function(_GetTotalEstimatedTimeFailed value)?
+        getTotalEstimatedTimeFailed,
+    TResult? Function(_UpdateTotalEstimatedTimeLoading value)?
+        updateTotalEstimatedTimeLoading,
+    TResult? Function(_UpdateTotalEstimatedTimeFailed value)?
+        updateTotalEstimatedTimeFailed,
+    TResult? Function(_UpdateTotalEstimatedTimeCompleted value)?
+        updateTotalEstimatedTimeCompleted,
+    TResult? Function(_UploadTasksLoading value)? uploadTasksLoading,
+    TResult? Function(_UploadTasksFailed value)? uploadTasksFailed,
+    TResult? Function(_UploadTasksCompleted value)? uploadTasksCompleted,
+    TResult? Function(_DownloadTasksLoading value)? downloadTasksLoading,
+    TResult? Function(_DownloadTasksFailed value)? downloadTasksFailed,
+    TResult? Function(_DownloadTasksCompleted value)? downloadTasksCompleted,
+    TResult? Function(_UpdateTaskLoading value)? updateTaskLoading,
+    TResult? Function(_UpdateTaskFailed value)? updateTaskFailed,
+    TResult? Function(_UpdateTaskCompleted value)? updateTaskCompleted,
+    TResult? Function(_GetTaskByIdLoading value)? getTaskByIdLoading,
+    TResult? Function(_GetTaskByIdFailed value)? getTaskByIdFailed,
+    TResult? Function(_GetTaskByIdCompleted value)? getTaskByIdCompleted,
+    TResult? Function(_CreateTaskLoading value)? createTaskLoading,
+    TResult? Function(_CreateTaskFailed value)? createTaskFailed,
+    TResult? Function(_CreateTaskCompleted value)? createTaskCompleted,
+    TResult? Function(_DeleteTaskLoading value)? deleteTaskLoading,
+    TResult? Function(_DeleteTaskFailed value)? deleteTaskFailed,
+    TResult? Function(_DeleteTaskCompleted value)? deleteTaskCompleted,
+  }) {
+    return getTaskByIdCompleted?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_AllTasksLoading value)? allTasksLoading,
+    TResult Function(_AllTasksCompleted value)? allTasksCompleted,
+    TResult Function(_AllTasksFailed value)? allTasksFailed,
+    TResult Function(_SearchLoading value)? searchLoading,
+    TResult Function(_SearchCompleted value)? searchCompleted,
+    TResult Function(_SearchFailed value)? searchFailed,
+    TResult Function(_GetTotalEstimatedTimeLoading value)?
+        getTotalEstimatedTimeLoading,
+    TResult Function(_GetTotalEstimatedTimeCompleted value)?
+        getTotalEstimatedTimeCompleted,
+    TResult Function(_GetTotalEstimatedTimeFailed value)?
+        getTotalEstimatedTimeFailed,
+    TResult Function(_UpdateTotalEstimatedTimeLoading value)?
+        updateTotalEstimatedTimeLoading,
+    TResult Function(_UpdateTotalEstimatedTimeFailed value)?
+        updateTotalEstimatedTimeFailed,
+    TResult Function(_UpdateTotalEstimatedTimeCompleted value)?
+        updateTotalEstimatedTimeCompleted,
+    TResult Function(_UploadTasksLoading value)? uploadTasksLoading,
+    TResult Function(_UploadTasksFailed value)? uploadTasksFailed,
+    TResult Function(_UploadTasksCompleted value)? uploadTasksCompleted,
+    TResult Function(_DownloadTasksLoading value)? downloadTasksLoading,
+    TResult Function(_DownloadTasksFailed value)? downloadTasksFailed,
+    TResult Function(_DownloadTasksCompleted value)? downloadTasksCompleted,
+    TResult Function(_UpdateTaskLoading value)? updateTaskLoading,
+    TResult Function(_UpdateTaskFailed value)? updateTaskFailed,
+    TResult Function(_UpdateTaskCompleted value)? updateTaskCompleted,
+    TResult Function(_GetTaskByIdLoading value)? getTaskByIdLoading,
+    TResult Function(_GetTaskByIdFailed value)? getTaskByIdFailed,
+    TResult Function(_GetTaskByIdCompleted value)? getTaskByIdCompleted,
+    TResult Function(_CreateTaskLoading value)? createTaskLoading,
+    TResult Function(_CreateTaskFailed value)? createTaskFailed,
+    TResult Function(_CreateTaskCompleted value)? createTaskCompleted,
+    TResult Function(_DeleteTaskLoading value)? deleteTaskLoading,
+    TResult Function(_DeleteTaskFailed value)? deleteTaskFailed,
+    TResult Function(_DeleteTaskCompleted value)? deleteTaskCompleted,
+    required TResult orElse(),
+  }) {
+    if (getTaskByIdCompleted != null) {
+      return getTaskByIdCompleted(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _GetTaskByIdCompleted implements TaskViewmodelState {
+  factory _GetTaskByIdCompleted({required final TaskModel taskById}) =
+      _$GetTaskByIdCompletedImpl;
+
+  TaskModel get taskById;
+  @JsonKey(ignore: true)
+  _$$GetTaskByIdCompletedImplCopyWith<_$GetTaskByIdCompletedImpl>
+      get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$CreateTaskLoadingImplCopyWith<$Res> {
+  factory _$$CreateTaskLoadingImplCopyWith(_$CreateTaskLoadingImpl value,
+          $Res Function(_$CreateTaskLoadingImpl) then) =
+      __$$CreateTaskLoadingImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$CreateTaskLoadingImplCopyWithImpl<$Res>
+    extends _$TaskViewmodelStateCopyWithImpl<$Res, _$CreateTaskLoadingImpl>
+    implements _$$CreateTaskLoadingImplCopyWith<$Res> {
+  __$$CreateTaskLoadingImplCopyWithImpl(_$CreateTaskLoadingImpl _value,
+      $Res Function(_$CreateTaskLoadingImpl) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$CreateTaskLoadingImpl implements _CreateTaskLoading {
+  _$CreateTaskLoadingImpl();
+
+  @override
+  String toString() {
+    return 'TaskViewmodelState.createTaskLoading()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$CreateTaskLoadingImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() allTasksLoading,
+    required TResult Function(List<TaskModel> allTasks) allTasksCompleted,
+    required TResult Function(String message) allTasksFailed,
+    required TResult Function() searchLoading,
+    required TResult Function(List<TaskModel> searchedTasks) searchCompleted,
+    required TResult Function(String message) searchFailed,
+    required TResult Function() getTotalEstimatedTimeLoading,
+    required TResult Function(Duration totalEstimatedTime)
+        getTotalEstimatedTimeCompleted,
+    required TResult Function(String message) getTotalEstimatedTimeFailed,
+    required TResult Function() updateTotalEstimatedTimeLoading,
+    required TResult Function(String message) updateTotalEstimatedTimeFailed,
+    required TResult Function(Duration totalEstimatedTime)
+        updateTotalEstimatedTimeCompleted,
+    required TResult Function() uploadTasksLoading,
+    required TResult Function(String message) uploadTasksFailed,
+    required TResult Function(TaskModel meupdatedTaskssage)
+        uploadTasksCompleted,
+    required TResult Function() downloadTasksLoading,
+    required TResult Function(String message) downloadTasksFailed,
+    required TResult Function(List<TaskModel> downloadedTasks)
+        downloadTasksCompleted,
+    required TResult Function() updateTaskLoading,
+    required TResult Function(String message) updateTaskFailed,
+    required TResult Function(TaskModel updatedTask) updateTaskCompleted,
+    required TResult Function() getTaskByIdLoading,
+    required TResult Function(String message) getTaskByIdFailed,
+    required TResult Function(TaskModel taskById) getTaskByIdCompleted,
+    required TResult Function() createTaskLoading,
+    required TResult Function(String message) createTaskFailed,
+    required TResult Function(TaskModel createdTask) createTaskCompleted,
+    required TResult Function() deleteTaskLoading,
+    required TResult Function(String message) deleteTaskFailed,
+    required TResult Function(TaskModel deletedTask) deleteTaskCompleted,
+  }) {
+    return createTaskLoading();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? allTasksLoading,
+    TResult? Function(List<TaskModel> allTasks)? allTasksCompleted,
+    TResult? Function(String message)? allTasksFailed,
+    TResult? Function()? searchLoading,
+    TResult? Function(List<TaskModel> searchedTasks)? searchCompleted,
+    TResult? Function(String message)? searchFailed,
+    TResult? Function()? getTotalEstimatedTimeLoading,
+    TResult? Function(Duration totalEstimatedTime)?
+        getTotalEstimatedTimeCompleted,
+    TResult? Function(String message)? getTotalEstimatedTimeFailed,
+    TResult? Function()? updateTotalEstimatedTimeLoading,
+    TResult? Function(String message)? updateTotalEstimatedTimeFailed,
+    TResult? Function(Duration totalEstimatedTime)?
+        updateTotalEstimatedTimeCompleted,
+    TResult? Function()? uploadTasksLoading,
+    TResult? Function(String message)? uploadTasksFailed,
+    TResult? Function(TaskModel meupdatedTaskssage)? uploadTasksCompleted,
+    TResult? Function()? downloadTasksLoading,
+    TResult? Function(String message)? downloadTasksFailed,
+    TResult? Function(List<TaskModel> downloadedTasks)? downloadTasksCompleted,
+    TResult? Function()? updateTaskLoading,
+    TResult? Function(String message)? updateTaskFailed,
+    TResult? Function(TaskModel updatedTask)? updateTaskCompleted,
+    TResult? Function()? getTaskByIdLoading,
+    TResult? Function(String message)? getTaskByIdFailed,
+    TResult? Function(TaskModel taskById)? getTaskByIdCompleted,
+    TResult? Function()? createTaskLoading,
+    TResult? Function(String message)? createTaskFailed,
+    TResult? Function(TaskModel createdTask)? createTaskCompleted,
+    TResult? Function()? deleteTaskLoading,
+    TResult? Function(String message)? deleteTaskFailed,
+    TResult? Function(TaskModel deletedTask)? deleteTaskCompleted,
+  }) {
+    return createTaskLoading?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? allTasksLoading,
+    TResult Function(List<TaskModel> allTasks)? allTasksCompleted,
+    TResult Function(String message)? allTasksFailed,
+    TResult Function()? searchLoading,
+    TResult Function(List<TaskModel> searchedTasks)? searchCompleted,
+    TResult Function(String message)? searchFailed,
+    TResult Function()? getTotalEstimatedTimeLoading,
+    TResult Function(Duration totalEstimatedTime)?
+        getTotalEstimatedTimeCompleted,
+    TResult Function(String message)? getTotalEstimatedTimeFailed,
+    TResult Function()? updateTotalEstimatedTimeLoading,
+    TResult Function(String message)? updateTotalEstimatedTimeFailed,
+    TResult Function(Duration totalEstimatedTime)?
+        updateTotalEstimatedTimeCompleted,
+    TResult Function()? uploadTasksLoading,
+    TResult Function(String message)? uploadTasksFailed,
+    TResult Function(TaskModel meupdatedTaskssage)? uploadTasksCompleted,
+    TResult Function()? downloadTasksLoading,
+    TResult Function(String message)? downloadTasksFailed,
+    TResult Function(List<TaskModel> downloadedTasks)? downloadTasksCompleted,
+    TResult Function()? updateTaskLoading,
+    TResult Function(String message)? updateTaskFailed,
+    TResult Function(TaskModel updatedTask)? updateTaskCompleted,
+    TResult Function()? getTaskByIdLoading,
+    TResult Function(String message)? getTaskByIdFailed,
+    TResult Function(TaskModel taskById)? getTaskByIdCompleted,
+    TResult Function()? createTaskLoading,
+    TResult Function(String message)? createTaskFailed,
+    TResult Function(TaskModel createdTask)? createTaskCompleted,
+    TResult Function()? deleteTaskLoading,
+    TResult Function(String message)? deleteTaskFailed,
+    TResult Function(TaskModel deletedTask)? deleteTaskCompleted,
+    required TResult orElse(),
+  }) {
+    if (createTaskLoading != null) {
+      return createTaskLoading();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(_AllTasksLoading value) allTasksLoading,
+    required TResult Function(_AllTasksCompleted value) allTasksCompleted,
+    required TResult Function(_AllTasksFailed value) allTasksFailed,
+    required TResult Function(_SearchLoading value) searchLoading,
+    required TResult Function(_SearchCompleted value) searchCompleted,
+    required TResult Function(_SearchFailed value) searchFailed,
+    required TResult Function(_GetTotalEstimatedTimeLoading value)
+        getTotalEstimatedTimeLoading,
+    required TResult Function(_GetTotalEstimatedTimeCompleted value)
+        getTotalEstimatedTimeCompleted,
+    required TResult Function(_GetTotalEstimatedTimeFailed value)
+        getTotalEstimatedTimeFailed,
+    required TResult Function(_UpdateTotalEstimatedTimeLoading value)
+        updateTotalEstimatedTimeLoading,
+    required TResult Function(_UpdateTotalEstimatedTimeFailed value)
+        updateTotalEstimatedTimeFailed,
+    required TResult Function(_UpdateTotalEstimatedTimeCompleted value)
+        updateTotalEstimatedTimeCompleted,
+    required TResult Function(_UploadTasksLoading value) uploadTasksLoading,
+    required TResult Function(_UploadTasksFailed value) uploadTasksFailed,
+    required TResult Function(_UploadTasksCompleted value) uploadTasksCompleted,
+    required TResult Function(_DownloadTasksLoading value) downloadTasksLoading,
+    required TResult Function(_DownloadTasksFailed value) downloadTasksFailed,
+    required TResult Function(_DownloadTasksCompleted value)
+        downloadTasksCompleted,
+    required TResult Function(_UpdateTaskLoading value) updateTaskLoading,
+    required TResult Function(_UpdateTaskFailed value) updateTaskFailed,
+    required TResult Function(_UpdateTaskCompleted value) updateTaskCompleted,
+    required TResult Function(_GetTaskByIdLoading value) getTaskByIdLoading,
+    required TResult Function(_GetTaskByIdFailed value) getTaskByIdFailed,
+    required TResult Function(_GetTaskByIdCompleted value) getTaskByIdCompleted,
+    required TResult Function(_CreateTaskLoading value) createTaskLoading,
+    required TResult Function(_CreateTaskFailed value) createTaskFailed,
+    required TResult Function(_CreateTaskCompleted value) createTaskCompleted,
+    required TResult Function(_DeleteTaskLoading value) deleteTaskLoading,
+    required TResult Function(_DeleteTaskFailed value) deleteTaskFailed,
+    required TResult Function(_DeleteTaskCompleted value) deleteTaskCompleted,
+  }) {
+    return createTaskLoading(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_AllTasksLoading value)? allTasksLoading,
+    TResult? Function(_AllTasksCompleted value)? allTasksCompleted,
+    TResult? Function(_AllTasksFailed value)? allTasksFailed,
+    TResult? Function(_SearchLoading value)? searchLoading,
+    TResult? Function(_SearchCompleted value)? searchCompleted,
+    TResult? Function(_SearchFailed value)? searchFailed,
+    TResult? Function(_GetTotalEstimatedTimeLoading value)?
+        getTotalEstimatedTimeLoading,
+    TResult? Function(_GetTotalEstimatedTimeCompleted value)?
+        getTotalEstimatedTimeCompleted,
+    TResult? Function(_GetTotalEstimatedTimeFailed value)?
+        getTotalEstimatedTimeFailed,
+    TResult? Function(_UpdateTotalEstimatedTimeLoading value)?
+        updateTotalEstimatedTimeLoading,
+    TResult? Function(_UpdateTotalEstimatedTimeFailed value)?
+        updateTotalEstimatedTimeFailed,
+    TResult? Function(_UpdateTotalEstimatedTimeCompleted value)?
+        updateTotalEstimatedTimeCompleted,
+    TResult? Function(_UploadTasksLoading value)? uploadTasksLoading,
+    TResult? Function(_UploadTasksFailed value)? uploadTasksFailed,
+    TResult? Function(_UploadTasksCompleted value)? uploadTasksCompleted,
+    TResult? Function(_DownloadTasksLoading value)? downloadTasksLoading,
+    TResult? Function(_DownloadTasksFailed value)? downloadTasksFailed,
+    TResult? Function(_DownloadTasksCompleted value)? downloadTasksCompleted,
+    TResult? Function(_UpdateTaskLoading value)? updateTaskLoading,
+    TResult? Function(_UpdateTaskFailed value)? updateTaskFailed,
+    TResult? Function(_UpdateTaskCompleted value)? updateTaskCompleted,
+    TResult? Function(_GetTaskByIdLoading value)? getTaskByIdLoading,
+    TResult? Function(_GetTaskByIdFailed value)? getTaskByIdFailed,
+    TResult? Function(_GetTaskByIdCompleted value)? getTaskByIdCompleted,
+    TResult? Function(_CreateTaskLoading value)? createTaskLoading,
+    TResult? Function(_CreateTaskFailed value)? createTaskFailed,
+    TResult? Function(_CreateTaskCompleted value)? createTaskCompleted,
+    TResult? Function(_DeleteTaskLoading value)? deleteTaskLoading,
+    TResult? Function(_DeleteTaskFailed value)? deleteTaskFailed,
+    TResult? Function(_DeleteTaskCompleted value)? deleteTaskCompleted,
+  }) {
+    return createTaskLoading?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_AllTasksLoading value)? allTasksLoading,
+    TResult Function(_AllTasksCompleted value)? allTasksCompleted,
+    TResult Function(_AllTasksFailed value)? allTasksFailed,
+    TResult Function(_SearchLoading value)? searchLoading,
+    TResult Function(_SearchCompleted value)? searchCompleted,
+    TResult Function(_SearchFailed value)? searchFailed,
+    TResult Function(_GetTotalEstimatedTimeLoading value)?
+        getTotalEstimatedTimeLoading,
+    TResult Function(_GetTotalEstimatedTimeCompleted value)?
+        getTotalEstimatedTimeCompleted,
+    TResult Function(_GetTotalEstimatedTimeFailed value)?
+        getTotalEstimatedTimeFailed,
+    TResult Function(_UpdateTotalEstimatedTimeLoading value)?
+        updateTotalEstimatedTimeLoading,
+    TResult Function(_UpdateTotalEstimatedTimeFailed value)?
+        updateTotalEstimatedTimeFailed,
+    TResult Function(_UpdateTotalEstimatedTimeCompleted value)?
+        updateTotalEstimatedTimeCompleted,
+    TResult Function(_UploadTasksLoading value)? uploadTasksLoading,
+    TResult Function(_UploadTasksFailed value)? uploadTasksFailed,
+    TResult Function(_UploadTasksCompleted value)? uploadTasksCompleted,
+    TResult Function(_DownloadTasksLoading value)? downloadTasksLoading,
+    TResult Function(_DownloadTasksFailed value)? downloadTasksFailed,
+    TResult Function(_DownloadTasksCompleted value)? downloadTasksCompleted,
+    TResult Function(_UpdateTaskLoading value)? updateTaskLoading,
+    TResult Function(_UpdateTaskFailed value)? updateTaskFailed,
+    TResult Function(_UpdateTaskCompleted value)? updateTaskCompleted,
+    TResult Function(_GetTaskByIdLoading value)? getTaskByIdLoading,
+    TResult Function(_GetTaskByIdFailed value)? getTaskByIdFailed,
+    TResult Function(_GetTaskByIdCompleted value)? getTaskByIdCompleted,
+    TResult Function(_CreateTaskLoading value)? createTaskLoading,
+    TResult Function(_CreateTaskFailed value)? createTaskFailed,
+    TResult Function(_CreateTaskCompleted value)? createTaskCompleted,
+    TResult Function(_DeleteTaskLoading value)? deleteTaskLoading,
+    TResult Function(_DeleteTaskFailed value)? deleteTaskFailed,
+    TResult Function(_DeleteTaskCompleted value)? deleteTaskCompleted,
+    required TResult orElse(),
+  }) {
+    if (createTaskLoading != null) {
+      return createTaskLoading(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _CreateTaskLoading implements TaskViewmodelState {
+  factory _CreateTaskLoading() = _$CreateTaskLoadingImpl;
+}
+
+/// @nodoc
+abstract class _$$CreateTaskFailedImplCopyWith<$Res> {
+  factory _$$CreateTaskFailedImplCopyWith(_$CreateTaskFailedImpl value,
+          $Res Function(_$CreateTaskFailedImpl) then) =
+      __$$CreateTaskFailedImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String message});
+}
+
+/// @nodoc
+class __$$CreateTaskFailedImplCopyWithImpl<$Res>
+    extends _$TaskViewmodelStateCopyWithImpl<$Res, _$CreateTaskFailedImpl>
+    implements _$$CreateTaskFailedImplCopyWith<$Res> {
+  __$$CreateTaskFailedImplCopyWithImpl(_$CreateTaskFailedImpl _value,
+      $Res Function(_$CreateTaskFailedImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? message = null,
+  }) {
+    return _then(_$CreateTaskFailedImpl(
+      message: null == message
+          ? _value.message
+          : message // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$CreateTaskFailedImpl implements _CreateTaskFailed {
+  _$CreateTaskFailedImpl({required this.message});
+
+  @override
+  final String message;
+
+  @override
+  String toString() {
+    return 'TaskViewmodelState.createTaskFailed(message: $message)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$CreateTaskFailedImpl &&
+            (identical(other.message, message) || other.message == message));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, message);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$CreateTaskFailedImplCopyWith<_$CreateTaskFailedImpl> get copyWith =>
+      __$$CreateTaskFailedImplCopyWithImpl<_$CreateTaskFailedImpl>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() allTasksLoading,
+    required TResult Function(List<TaskModel> allTasks) allTasksCompleted,
+    required TResult Function(String message) allTasksFailed,
+    required TResult Function() searchLoading,
+    required TResult Function(List<TaskModel> searchedTasks) searchCompleted,
+    required TResult Function(String message) searchFailed,
+    required TResult Function() getTotalEstimatedTimeLoading,
+    required TResult Function(Duration totalEstimatedTime)
+        getTotalEstimatedTimeCompleted,
+    required TResult Function(String message) getTotalEstimatedTimeFailed,
+    required TResult Function() updateTotalEstimatedTimeLoading,
+    required TResult Function(String message) updateTotalEstimatedTimeFailed,
+    required TResult Function(Duration totalEstimatedTime)
+        updateTotalEstimatedTimeCompleted,
+    required TResult Function() uploadTasksLoading,
+    required TResult Function(String message) uploadTasksFailed,
+    required TResult Function(TaskModel meupdatedTaskssage)
+        uploadTasksCompleted,
+    required TResult Function() downloadTasksLoading,
+    required TResult Function(String message) downloadTasksFailed,
+    required TResult Function(List<TaskModel> downloadedTasks)
+        downloadTasksCompleted,
+    required TResult Function() updateTaskLoading,
+    required TResult Function(String message) updateTaskFailed,
+    required TResult Function(TaskModel updatedTask) updateTaskCompleted,
+    required TResult Function() getTaskByIdLoading,
+    required TResult Function(String message) getTaskByIdFailed,
+    required TResult Function(TaskModel taskById) getTaskByIdCompleted,
+    required TResult Function() createTaskLoading,
+    required TResult Function(String message) createTaskFailed,
+    required TResult Function(TaskModel createdTask) createTaskCompleted,
+    required TResult Function() deleteTaskLoading,
+    required TResult Function(String message) deleteTaskFailed,
+    required TResult Function(TaskModel deletedTask) deleteTaskCompleted,
+  }) {
+    return createTaskFailed(message);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? allTasksLoading,
+    TResult? Function(List<TaskModel> allTasks)? allTasksCompleted,
+    TResult? Function(String message)? allTasksFailed,
+    TResult? Function()? searchLoading,
+    TResult? Function(List<TaskModel> searchedTasks)? searchCompleted,
+    TResult? Function(String message)? searchFailed,
+    TResult? Function()? getTotalEstimatedTimeLoading,
+    TResult? Function(Duration totalEstimatedTime)?
+        getTotalEstimatedTimeCompleted,
+    TResult? Function(String message)? getTotalEstimatedTimeFailed,
+    TResult? Function()? updateTotalEstimatedTimeLoading,
+    TResult? Function(String message)? updateTotalEstimatedTimeFailed,
+    TResult? Function(Duration totalEstimatedTime)?
+        updateTotalEstimatedTimeCompleted,
+    TResult? Function()? uploadTasksLoading,
+    TResult? Function(String message)? uploadTasksFailed,
+    TResult? Function(TaskModel meupdatedTaskssage)? uploadTasksCompleted,
+    TResult? Function()? downloadTasksLoading,
+    TResult? Function(String message)? downloadTasksFailed,
+    TResult? Function(List<TaskModel> downloadedTasks)? downloadTasksCompleted,
+    TResult? Function()? updateTaskLoading,
+    TResult? Function(String message)? updateTaskFailed,
+    TResult? Function(TaskModel updatedTask)? updateTaskCompleted,
+    TResult? Function()? getTaskByIdLoading,
+    TResult? Function(String message)? getTaskByIdFailed,
+    TResult? Function(TaskModel taskById)? getTaskByIdCompleted,
+    TResult? Function()? createTaskLoading,
+    TResult? Function(String message)? createTaskFailed,
+    TResult? Function(TaskModel createdTask)? createTaskCompleted,
+    TResult? Function()? deleteTaskLoading,
+    TResult? Function(String message)? deleteTaskFailed,
+    TResult? Function(TaskModel deletedTask)? deleteTaskCompleted,
+  }) {
+    return createTaskFailed?.call(message);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? allTasksLoading,
+    TResult Function(List<TaskModel> allTasks)? allTasksCompleted,
+    TResult Function(String message)? allTasksFailed,
+    TResult Function()? searchLoading,
+    TResult Function(List<TaskModel> searchedTasks)? searchCompleted,
+    TResult Function(String message)? searchFailed,
+    TResult Function()? getTotalEstimatedTimeLoading,
+    TResult Function(Duration totalEstimatedTime)?
+        getTotalEstimatedTimeCompleted,
+    TResult Function(String message)? getTotalEstimatedTimeFailed,
+    TResult Function()? updateTotalEstimatedTimeLoading,
+    TResult Function(String message)? updateTotalEstimatedTimeFailed,
+    TResult Function(Duration totalEstimatedTime)?
+        updateTotalEstimatedTimeCompleted,
+    TResult Function()? uploadTasksLoading,
+    TResult Function(String message)? uploadTasksFailed,
+    TResult Function(TaskModel meupdatedTaskssage)? uploadTasksCompleted,
+    TResult Function()? downloadTasksLoading,
+    TResult Function(String message)? downloadTasksFailed,
+    TResult Function(List<TaskModel> downloadedTasks)? downloadTasksCompleted,
+    TResult Function()? updateTaskLoading,
+    TResult Function(String message)? updateTaskFailed,
+    TResult Function(TaskModel updatedTask)? updateTaskCompleted,
+    TResult Function()? getTaskByIdLoading,
+    TResult Function(String message)? getTaskByIdFailed,
+    TResult Function(TaskModel taskById)? getTaskByIdCompleted,
+    TResult Function()? createTaskLoading,
+    TResult Function(String message)? createTaskFailed,
+    TResult Function(TaskModel createdTask)? createTaskCompleted,
+    TResult Function()? deleteTaskLoading,
+    TResult Function(String message)? deleteTaskFailed,
+    TResult Function(TaskModel deletedTask)? deleteTaskCompleted,
+    required TResult orElse(),
+  }) {
+    if (createTaskFailed != null) {
+      return createTaskFailed(message);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(_AllTasksLoading value) allTasksLoading,
+    required TResult Function(_AllTasksCompleted value) allTasksCompleted,
+    required TResult Function(_AllTasksFailed value) allTasksFailed,
+    required TResult Function(_SearchLoading value) searchLoading,
+    required TResult Function(_SearchCompleted value) searchCompleted,
+    required TResult Function(_SearchFailed value) searchFailed,
+    required TResult Function(_GetTotalEstimatedTimeLoading value)
+        getTotalEstimatedTimeLoading,
+    required TResult Function(_GetTotalEstimatedTimeCompleted value)
+        getTotalEstimatedTimeCompleted,
+    required TResult Function(_GetTotalEstimatedTimeFailed value)
+        getTotalEstimatedTimeFailed,
+    required TResult Function(_UpdateTotalEstimatedTimeLoading value)
+        updateTotalEstimatedTimeLoading,
+    required TResult Function(_UpdateTotalEstimatedTimeFailed value)
+        updateTotalEstimatedTimeFailed,
+    required TResult Function(_UpdateTotalEstimatedTimeCompleted value)
+        updateTotalEstimatedTimeCompleted,
+    required TResult Function(_UploadTasksLoading value) uploadTasksLoading,
+    required TResult Function(_UploadTasksFailed value) uploadTasksFailed,
+    required TResult Function(_UploadTasksCompleted value) uploadTasksCompleted,
+    required TResult Function(_DownloadTasksLoading value) downloadTasksLoading,
+    required TResult Function(_DownloadTasksFailed value) downloadTasksFailed,
+    required TResult Function(_DownloadTasksCompleted value)
+        downloadTasksCompleted,
+    required TResult Function(_UpdateTaskLoading value) updateTaskLoading,
+    required TResult Function(_UpdateTaskFailed value) updateTaskFailed,
+    required TResult Function(_UpdateTaskCompleted value) updateTaskCompleted,
+    required TResult Function(_GetTaskByIdLoading value) getTaskByIdLoading,
+    required TResult Function(_GetTaskByIdFailed value) getTaskByIdFailed,
+    required TResult Function(_GetTaskByIdCompleted value) getTaskByIdCompleted,
+    required TResult Function(_CreateTaskLoading value) createTaskLoading,
+    required TResult Function(_CreateTaskFailed value) createTaskFailed,
+    required TResult Function(_CreateTaskCompleted value) createTaskCompleted,
+    required TResult Function(_DeleteTaskLoading value) deleteTaskLoading,
+    required TResult Function(_DeleteTaskFailed value) deleteTaskFailed,
+    required TResult Function(_DeleteTaskCompleted value) deleteTaskCompleted,
+  }) {
+    return createTaskFailed(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_AllTasksLoading value)? allTasksLoading,
+    TResult? Function(_AllTasksCompleted value)? allTasksCompleted,
+    TResult? Function(_AllTasksFailed value)? allTasksFailed,
+    TResult? Function(_SearchLoading value)? searchLoading,
+    TResult? Function(_SearchCompleted value)? searchCompleted,
+    TResult? Function(_SearchFailed value)? searchFailed,
+    TResult? Function(_GetTotalEstimatedTimeLoading value)?
+        getTotalEstimatedTimeLoading,
+    TResult? Function(_GetTotalEstimatedTimeCompleted value)?
+        getTotalEstimatedTimeCompleted,
+    TResult? Function(_GetTotalEstimatedTimeFailed value)?
+        getTotalEstimatedTimeFailed,
+    TResult? Function(_UpdateTotalEstimatedTimeLoading value)?
+        updateTotalEstimatedTimeLoading,
+    TResult? Function(_UpdateTotalEstimatedTimeFailed value)?
+        updateTotalEstimatedTimeFailed,
+    TResult? Function(_UpdateTotalEstimatedTimeCompleted value)?
+        updateTotalEstimatedTimeCompleted,
+    TResult? Function(_UploadTasksLoading value)? uploadTasksLoading,
+    TResult? Function(_UploadTasksFailed value)? uploadTasksFailed,
+    TResult? Function(_UploadTasksCompleted value)? uploadTasksCompleted,
+    TResult? Function(_DownloadTasksLoading value)? downloadTasksLoading,
+    TResult? Function(_DownloadTasksFailed value)? downloadTasksFailed,
+    TResult? Function(_DownloadTasksCompleted value)? downloadTasksCompleted,
+    TResult? Function(_UpdateTaskLoading value)? updateTaskLoading,
+    TResult? Function(_UpdateTaskFailed value)? updateTaskFailed,
+    TResult? Function(_UpdateTaskCompleted value)? updateTaskCompleted,
+    TResult? Function(_GetTaskByIdLoading value)? getTaskByIdLoading,
+    TResult? Function(_GetTaskByIdFailed value)? getTaskByIdFailed,
+    TResult? Function(_GetTaskByIdCompleted value)? getTaskByIdCompleted,
+    TResult? Function(_CreateTaskLoading value)? createTaskLoading,
+    TResult? Function(_CreateTaskFailed value)? createTaskFailed,
+    TResult? Function(_CreateTaskCompleted value)? createTaskCompleted,
+    TResult? Function(_DeleteTaskLoading value)? deleteTaskLoading,
+    TResult? Function(_DeleteTaskFailed value)? deleteTaskFailed,
+    TResult? Function(_DeleteTaskCompleted value)? deleteTaskCompleted,
+  }) {
+    return createTaskFailed?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_AllTasksLoading value)? allTasksLoading,
+    TResult Function(_AllTasksCompleted value)? allTasksCompleted,
+    TResult Function(_AllTasksFailed value)? allTasksFailed,
+    TResult Function(_SearchLoading value)? searchLoading,
+    TResult Function(_SearchCompleted value)? searchCompleted,
+    TResult Function(_SearchFailed value)? searchFailed,
+    TResult Function(_GetTotalEstimatedTimeLoading value)?
+        getTotalEstimatedTimeLoading,
+    TResult Function(_GetTotalEstimatedTimeCompleted value)?
+        getTotalEstimatedTimeCompleted,
+    TResult Function(_GetTotalEstimatedTimeFailed value)?
+        getTotalEstimatedTimeFailed,
+    TResult Function(_UpdateTotalEstimatedTimeLoading value)?
+        updateTotalEstimatedTimeLoading,
+    TResult Function(_UpdateTotalEstimatedTimeFailed value)?
+        updateTotalEstimatedTimeFailed,
+    TResult Function(_UpdateTotalEstimatedTimeCompleted value)?
+        updateTotalEstimatedTimeCompleted,
+    TResult Function(_UploadTasksLoading value)? uploadTasksLoading,
+    TResult Function(_UploadTasksFailed value)? uploadTasksFailed,
+    TResult Function(_UploadTasksCompleted value)? uploadTasksCompleted,
+    TResult Function(_DownloadTasksLoading value)? downloadTasksLoading,
+    TResult Function(_DownloadTasksFailed value)? downloadTasksFailed,
+    TResult Function(_DownloadTasksCompleted value)? downloadTasksCompleted,
+    TResult Function(_UpdateTaskLoading value)? updateTaskLoading,
+    TResult Function(_UpdateTaskFailed value)? updateTaskFailed,
+    TResult Function(_UpdateTaskCompleted value)? updateTaskCompleted,
+    TResult Function(_GetTaskByIdLoading value)? getTaskByIdLoading,
+    TResult Function(_GetTaskByIdFailed value)? getTaskByIdFailed,
+    TResult Function(_GetTaskByIdCompleted value)? getTaskByIdCompleted,
+    TResult Function(_CreateTaskLoading value)? createTaskLoading,
+    TResult Function(_CreateTaskFailed value)? createTaskFailed,
+    TResult Function(_CreateTaskCompleted value)? createTaskCompleted,
+    TResult Function(_DeleteTaskLoading value)? deleteTaskLoading,
+    TResult Function(_DeleteTaskFailed value)? deleteTaskFailed,
+    TResult Function(_DeleteTaskCompleted value)? deleteTaskCompleted,
+    required TResult orElse(),
+  }) {
+    if (createTaskFailed != null) {
+      return createTaskFailed(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _CreateTaskFailed implements TaskViewmodelState {
+  factory _CreateTaskFailed({required final String message}) =
+      _$CreateTaskFailedImpl;
+
+  String get message;
+  @JsonKey(ignore: true)
+  _$$CreateTaskFailedImplCopyWith<_$CreateTaskFailedImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$CreateTaskCompletedImplCopyWith<$Res> {
+  factory _$$CreateTaskCompletedImplCopyWith(_$CreateTaskCompletedImpl value,
+          $Res Function(_$CreateTaskCompletedImpl) then) =
+      __$$CreateTaskCompletedImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({TaskModel createdTask});
+
+  $TaskModelCopyWith<$Res> get createdTask;
+}
+
+/// @nodoc
+class __$$CreateTaskCompletedImplCopyWithImpl<$Res>
+    extends _$TaskViewmodelStateCopyWithImpl<$Res, _$CreateTaskCompletedImpl>
+    implements _$$CreateTaskCompletedImplCopyWith<$Res> {
+  __$$CreateTaskCompletedImplCopyWithImpl(_$CreateTaskCompletedImpl _value,
+      $Res Function(_$CreateTaskCompletedImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? createdTask = null,
+  }) {
+    return _then(_$CreateTaskCompletedImpl(
+      createdTask: null == createdTask
+          ? _value.createdTask
+          : createdTask // ignore: cast_nullable_to_non_nullable
+              as TaskModel,
+    ));
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $TaskModelCopyWith<$Res> get createdTask {
+    return $TaskModelCopyWith<$Res>(_value.createdTask, (value) {
+      return _then(_value.copyWith(createdTask: value));
+    });
+  }
+}
+
+/// @nodoc
+
+class _$CreateTaskCompletedImpl implements _CreateTaskCompleted {
+  _$CreateTaskCompletedImpl({required this.createdTask});
+
+  @override
+  final TaskModel createdTask;
+
+  @override
+  String toString() {
+    return 'TaskViewmodelState.createTaskCompleted(createdTask: $createdTask)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$CreateTaskCompletedImpl &&
+            (identical(other.createdTask, createdTask) ||
+                other.createdTask == createdTask));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, createdTask);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$CreateTaskCompletedImplCopyWith<_$CreateTaskCompletedImpl> get copyWith =>
+      __$$CreateTaskCompletedImplCopyWithImpl<_$CreateTaskCompletedImpl>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() allTasksLoading,
+    required TResult Function(List<TaskModel> allTasks) allTasksCompleted,
+    required TResult Function(String message) allTasksFailed,
+    required TResult Function() searchLoading,
+    required TResult Function(List<TaskModel> searchedTasks) searchCompleted,
+    required TResult Function(String message) searchFailed,
+    required TResult Function() getTotalEstimatedTimeLoading,
+    required TResult Function(Duration totalEstimatedTime)
+        getTotalEstimatedTimeCompleted,
+    required TResult Function(String message) getTotalEstimatedTimeFailed,
+    required TResult Function() updateTotalEstimatedTimeLoading,
+    required TResult Function(String message) updateTotalEstimatedTimeFailed,
+    required TResult Function(Duration totalEstimatedTime)
+        updateTotalEstimatedTimeCompleted,
+    required TResult Function() uploadTasksLoading,
+    required TResult Function(String message) uploadTasksFailed,
+    required TResult Function(TaskModel meupdatedTaskssage)
+        uploadTasksCompleted,
+    required TResult Function() downloadTasksLoading,
+    required TResult Function(String message) downloadTasksFailed,
+    required TResult Function(List<TaskModel> downloadedTasks)
+        downloadTasksCompleted,
+    required TResult Function() updateTaskLoading,
+    required TResult Function(String message) updateTaskFailed,
+    required TResult Function(TaskModel updatedTask) updateTaskCompleted,
+    required TResult Function() getTaskByIdLoading,
+    required TResult Function(String message) getTaskByIdFailed,
+    required TResult Function(TaskModel taskById) getTaskByIdCompleted,
+    required TResult Function() createTaskLoading,
+    required TResult Function(String message) createTaskFailed,
+    required TResult Function(TaskModel createdTask) createTaskCompleted,
+    required TResult Function() deleteTaskLoading,
+    required TResult Function(String message) deleteTaskFailed,
+    required TResult Function(TaskModel deletedTask) deleteTaskCompleted,
+  }) {
+    return createTaskCompleted(createdTask);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? allTasksLoading,
+    TResult? Function(List<TaskModel> allTasks)? allTasksCompleted,
+    TResult? Function(String message)? allTasksFailed,
+    TResult? Function()? searchLoading,
+    TResult? Function(List<TaskModel> searchedTasks)? searchCompleted,
+    TResult? Function(String message)? searchFailed,
+    TResult? Function()? getTotalEstimatedTimeLoading,
+    TResult? Function(Duration totalEstimatedTime)?
+        getTotalEstimatedTimeCompleted,
+    TResult? Function(String message)? getTotalEstimatedTimeFailed,
+    TResult? Function()? updateTotalEstimatedTimeLoading,
+    TResult? Function(String message)? updateTotalEstimatedTimeFailed,
+    TResult? Function(Duration totalEstimatedTime)?
+        updateTotalEstimatedTimeCompleted,
+    TResult? Function()? uploadTasksLoading,
+    TResult? Function(String message)? uploadTasksFailed,
+    TResult? Function(TaskModel meupdatedTaskssage)? uploadTasksCompleted,
+    TResult? Function()? downloadTasksLoading,
+    TResult? Function(String message)? downloadTasksFailed,
+    TResult? Function(List<TaskModel> downloadedTasks)? downloadTasksCompleted,
+    TResult? Function()? updateTaskLoading,
+    TResult? Function(String message)? updateTaskFailed,
+    TResult? Function(TaskModel updatedTask)? updateTaskCompleted,
+    TResult? Function()? getTaskByIdLoading,
+    TResult? Function(String message)? getTaskByIdFailed,
+    TResult? Function(TaskModel taskById)? getTaskByIdCompleted,
+    TResult? Function()? createTaskLoading,
+    TResult? Function(String message)? createTaskFailed,
+    TResult? Function(TaskModel createdTask)? createTaskCompleted,
+    TResult? Function()? deleteTaskLoading,
+    TResult? Function(String message)? deleteTaskFailed,
+    TResult? Function(TaskModel deletedTask)? deleteTaskCompleted,
+  }) {
+    return createTaskCompleted?.call(createdTask);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? allTasksLoading,
+    TResult Function(List<TaskModel> allTasks)? allTasksCompleted,
+    TResult Function(String message)? allTasksFailed,
+    TResult Function()? searchLoading,
+    TResult Function(List<TaskModel> searchedTasks)? searchCompleted,
+    TResult Function(String message)? searchFailed,
+    TResult Function()? getTotalEstimatedTimeLoading,
+    TResult Function(Duration totalEstimatedTime)?
+        getTotalEstimatedTimeCompleted,
+    TResult Function(String message)? getTotalEstimatedTimeFailed,
+    TResult Function()? updateTotalEstimatedTimeLoading,
+    TResult Function(String message)? updateTotalEstimatedTimeFailed,
+    TResult Function(Duration totalEstimatedTime)?
+        updateTotalEstimatedTimeCompleted,
+    TResult Function()? uploadTasksLoading,
+    TResult Function(String message)? uploadTasksFailed,
+    TResult Function(TaskModel meupdatedTaskssage)? uploadTasksCompleted,
+    TResult Function()? downloadTasksLoading,
+    TResult Function(String message)? downloadTasksFailed,
+    TResult Function(List<TaskModel> downloadedTasks)? downloadTasksCompleted,
+    TResult Function()? updateTaskLoading,
+    TResult Function(String message)? updateTaskFailed,
+    TResult Function(TaskModel updatedTask)? updateTaskCompleted,
+    TResult Function()? getTaskByIdLoading,
+    TResult Function(String message)? getTaskByIdFailed,
+    TResult Function(TaskModel taskById)? getTaskByIdCompleted,
+    TResult Function()? createTaskLoading,
+    TResult Function(String message)? createTaskFailed,
+    TResult Function(TaskModel createdTask)? createTaskCompleted,
+    TResult Function()? deleteTaskLoading,
+    TResult Function(String message)? deleteTaskFailed,
+    TResult Function(TaskModel deletedTask)? deleteTaskCompleted,
+    required TResult orElse(),
+  }) {
+    if (createTaskCompleted != null) {
+      return createTaskCompleted(createdTask);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(_AllTasksLoading value) allTasksLoading,
+    required TResult Function(_AllTasksCompleted value) allTasksCompleted,
+    required TResult Function(_AllTasksFailed value) allTasksFailed,
+    required TResult Function(_SearchLoading value) searchLoading,
+    required TResult Function(_SearchCompleted value) searchCompleted,
+    required TResult Function(_SearchFailed value) searchFailed,
+    required TResult Function(_GetTotalEstimatedTimeLoading value)
+        getTotalEstimatedTimeLoading,
+    required TResult Function(_GetTotalEstimatedTimeCompleted value)
+        getTotalEstimatedTimeCompleted,
+    required TResult Function(_GetTotalEstimatedTimeFailed value)
+        getTotalEstimatedTimeFailed,
+    required TResult Function(_UpdateTotalEstimatedTimeLoading value)
+        updateTotalEstimatedTimeLoading,
+    required TResult Function(_UpdateTotalEstimatedTimeFailed value)
+        updateTotalEstimatedTimeFailed,
+    required TResult Function(_UpdateTotalEstimatedTimeCompleted value)
+        updateTotalEstimatedTimeCompleted,
+    required TResult Function(_UploadTasksLoading value) uploadTasksLoading,
+    required TResult Function(_UploadTasksFailed value) uploadTasksFailed,
+    required TResult Function(_UploadTasksCompleted value) uploadTasksCompleted,
+    required TResult Function(_DownloadTasksLoading value) downloadTasksLoading,
+    required TResult Function(_DownloadTasksFailed value) downloadTasksFailed,
+    required TResult Function(_DownloadTasksCompleted value)
+        downloadTasksCompleted,
+    required TResult Function(_UpdateTaskLoading value) updateTaskLoading,
+    required TResult Function(_UpdateTaskFailed value) updateTaskFailed,
+    required TResult Function(_UpdateTaskCompleted value) updateTaskCompleted,
+    required TResult Function(_GetTaskByIdLoading value) getTaskByIdLoading,
+    required TResult Function(_GetTaskByIdFailed value) getTaskByIdFailed,
+    required TResult Function(_GetTaskByIdCompleted value) getTaskByIdCompleted,
+    required TResult Function(_CreateTaskLoading value) createTaskLoading,
+    required TResult Function(_CreateTaskFailed value) createTaskFailed,
+    required TResult Function(_CreateTaskCompleted value) createTaskCompleted,
+    required TResult Function(_DeleteTaskLoading value) deleteTaskLoading,
+    required TResult Function(_DeleteTaskFailed value) deleteTaskFailed,
+    required TResult Function(_DeleteTaskCompleted value) deleteTaskCompleted,
+  }) {
+    return createTaskCompleted(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_AllTasksLoading value)? allTasksLoading,
+    TResult? Function(_AllTasksCompleted value)? allTasksCompleted,
+    TResult? Function(_AllTasksFailed value)? allTasksFailed,
+    TResult? Function(_SearchLoading value)? searchLoading,
+    TResult? Function(_SearchCompleted value)? searchCompleted,
+    TResult? Function(_SearchFailed value)? searchFailed,
+    TResult? Function(_GetTotalEstimatedTimeLoading value)?
+        getTotalEstimatedTimeLoading,
+    TResult? Function(_GetTotalEstimatedTimeCompleted value)?
+        getTotalEstimatedTimeCompleted,
+    TResult? Function(_GetTotalEstimatedTimeFailed value)?
+        getTotalEstimatedTimeFailed,
+    TResult? Function(_UpdateTotalEstimatedTimeLoading value)?
+        updateTotalEstimatedTimeLoading,
+    TResult? Function(_UpdateTotalEstimatedTimeFailed value)?
+        updateTotalEstimatedTimeFailed,
+    TResult? Function(_UpdateTotalEstimatedTimeCompleted value)?
+        updateTotalEstimatedTimeCompleted,
+    TResult? Function(_UploadTasksLoading value)? uploadTasksLoading,
+    TResult? Function(_UploadTasksFailed value)? uploadTasksFailed,
+    TResult? Function(_UploadTasksCompleted value)? uploadTasksCompleted,
+    TResult? Function(_DownloadTasksLoading value)? downloadTasksLoading,
+    TResult? Function(_DownloadTasksFailed value)? downloadTasksFailed,
+    TResult? Function(_DownloadTasksCompleted value)? downloadTasksCompleted,
+    TResult? Function(_UpdateTaskLoading value)? updateTaskLoading,
+    TResult? Function(_UpdateTaskFailed value)? updateTaskFailed,
+    TResult? Function(_UpdateTaskCompleted value)? updateTaskCompleted,
+    TResult? Function(_GetTaskByIdLoading value)? getTaskByIdLoading,
+    TResult? Function(_GetTaskByIdFailed value)? getTaskByIdFailed,
+    TResult? Function(_GetTaskByIdCompleted value)? getTaskByIdCompleted,
+    TResult? Function(_CreateTaskLoading value)? createTaskLoading,
+    TResult? Function(_CreateTaskFailed value)? createTaskFailed,
+    TResult? Function(_CreateTaskCompleted value)? createTaskCompleted,
+    TResult? Function(_DeleteTaskLoading value)? deleteTaskLoading,
+    TResult? Function(_DeleteTaskFailed value)? deleteTaskFailed,
+    TResult? Function(_DeleteTaskCompleted value)? deleteTaskCompleted,
+  }) {
+    return createTaskCompleted?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_AllTasksLoading value)? allTasksLoading,
+    TResult Function(_AllTasksCompleted value)? allTasksCompleted,
+    TResult Function(_AllTasksFailed value)? allTasksFailed,
+    TResult Function(_SearchLoading value)? searchLoading,
+    TResult Function(_SearchCompleted value)? searchCompleted,
+    TResult Function(_SearchFailed value)? searchFailed,
+    TResult Function(_GetTotalEstimatedTimeLoading value)?
+        getTotalEstimatedTimeLoading,
+    TResult Function(_GetTotalEstimatedTimeCompleted value)?
+        getTotalEstimatedTimeCompleted,
+    TResult Function(_GetTotalEstimatedTimeFailed value)?
+        getTotalEstimatedTimeFailed,
+    TResult Function(_UpdateTotalEstimatedTimeLoading value)?
+        updateTotalEstimatedTimeLoading,
+    TResult Function(_UpdateTotalEstimatedTimeFailed value)?
+        updateTotalEstimatedTimeFailed,
+    TResult Function(_UpdateTotalEstimatedTimeCompleted value)?
+        updateTotalEstimatedTimeCompleted,
+    TResult Function(_UploadTasksLoading value)? uploadTasksLoading,
+    TResult Function(_UploadTasksFailed value)? uploadTasksFailed,
+    TResult Function(_UploadTasksCompleted value)? uploadTasksCompleted,
+    TResult Function(_DownloadTasksLoading value)? downloadTasksLoading,
+    TResult Function(_DownloadTasksFailed value)? downloadTasksFailed,
+    TResult Function(_DownloadTasksCompleted value)? downloadTasksCompleted,
+    TResult Function(_UpdateTaskLoading value)? updateTaskLoading,
+    TResult Function(_UpdateTaskFailed value)? updateTaskFailed,
+    TResult Function(_UpdateTaskCompleted value)? updateTaskCompleted,
+    TResult Function(_GetTaskByIdLoading value)? getTaskByIdLoading,
+    TResult Function(_GetTaskByIdFailed value)? getTaskByIdFailed,
+    TResult Function(_GetTaskByIdCompleted value)? getTaskByIdCompleted,
+    TResult Function(_CreateTaskLoading value)? createTaskLoading,
+    TResult Function(_CreateTaskFailed value)? createTaskFailed,
+    TResult Function(_CreateTaskCompleted value)? createTaskCompleted,
+    TResult Function(_DeleteTaskLoading value)? deleteTaskLoading,
+    TResult Function(_DeleteTaskFailed value)? deleteTaskFailed,
+    TResult Function(_DeleteTaskCompleted value)? deleteTaskCompleted,
+    required TResult orElse(),
+  }) {
+    if (createTaskCompleted != null) {
+      return createTaskCompleted(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _CreateTaskCompleted implements TaskViewmodelState {
+  factory _CreateTaskCompleted({required final TaskModel createdTask}) =
+      _$CreateTaskCompletedImpl;
+
+  TaskModel get createdTask;
+  @JsonKey(ignore: true)
+  _$$CreateTaskCompletedImplCopyWith<_$CreateTaskCompletedImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$DeleteTaskLoadingImplCopyWith<$Res> {
+  factory _$$DeleteTaskLoadingImplCopyWith(_$DeleteTaskLoadingImpl value,
+          $Res Function(_$DeleteTaskLoadingImpl) then) =
+      __$$DeleteTaskLoadingImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$DeleteTaskLoadingImplCopyWithImpl<$Res>
+    extends _$TaskViewmodelStateCopyWithImpl<$Res, _$DeleteTaskLoadingImpl>
+    implements _$$DeleteTaskLoadingImplCopyWith<$Res> {
+  __$$DeleteTaskLoadingImplCopyWithImpl(_$DeleteTaskLoadingImpl _value,
+      $Res Function(_$DeleteTaskLoadingImpl) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$DeleteTaskLoadingImpl implements _DeleteTaskLoading {
+  _$DeleteTaskLoadingImpl();
+
+  @override
+  String toString() {
+    return 'TaskViewmodelState.deleteTaskLoading()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$DeleteTaskLoadingImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() allTasksLoading,
+    required TResult Function(List<TaskModel> allTasks) allTasksCompleted,
+    required TResult Function(String message) allTasksFailed,
+    required TResult Function() searchLoading,
+    required TResult Function(List<TaskModel> searchedTasks) searchCompleted,
+    required TResult Function(String message) searchFailed,
+    required TResult Function() getTotalEstimatedTimeLoading,
+    required TResult Function(Duration totalEstimatedTime)
+        getTotalEstimatedTimeCompleted,
+    required TResult Function(String message) getTotalEstimatedTimeFailed,
+    required TResult Function() updateTotalEstimatedTimeLoading,
+    required TResult Function(String message) updateTotalEstimatedTimeFailed,
+    required TResult Function(Duration totalEstimatedTime)
+        updateTotalEstimatedTimeCompleted,
+    required TResult Function() uploadTasksLoading,
+    required TResult Function(String message) uploadTasksFailed,
+    required TResult Function(TaskModel meupdatedTaskssage)
+        uploadTasksCompleted,
+    required TResult Function() downloadTasksLoading,
+    required TResult Function(String message) downloadTasksFailed,
+    required TResult Function(List<TaskModel> downloadedTasks)
+        downloadTasksCompleted,
+    required TResult Function() updateTaskLoading,
+    required TResult Function(String message) updateTaskFailed,
+    required TResult Function(TaskModel updatedTask) updateTaskCompleted,
+    required TResult Function() getTaskByIdLoading,
+    required TResult Function(String message) getTaskByIdFailed,
+    required TResult Function(TaskModel taskById) getTaskByIdCompleted,
+    required TResult Function() createTaskLoading,
+    required TResult Function(String message) createTaskFailed,
+    required TResult Function(TaskModel createdTask) createTaskCompleted,
+    required TResult Function() deleteTaskLoading,
+    required TResult Function(String message) deleteTaskFailed,
+    required TResult Function(TaskModel deletedTask) deleteTaskCompleted,
+  }) {
+    return deleteTaskLoading();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? allTasksLoading,
+    TResult? Function(List<TaskModel> allTasks)? allTasksCompleted,
+    TResult? Function(String message)? allTasksFailed,
+    TResult? Function()? searchLoading,
+    TResult? Function(List<TaskModel> searchedTasks)? searchCompleted,
+    TResult? Function(String message)? searchFailed,
+    TResult? Function()? getTotalEstimatedTimeLoading,
+    TResult? Function(Duration totalEstimatedTime)?
+        getTotalEstimatedTimeCompleted,
+    TResult? Function(String message)? getTotalEstimatedTimeFailed,
+    TResult? Function()? updateTotalEstimatedTimeLoading,
+    TResult? Function(String message)? updateTotalEstimatedTimeFailed,
+    TResult? Function(Duration totalEstimatedTime)?
+        updateTotalEstimatedTimeCompleted,
+    TResult? Function()? uploadTasksLoading,
+    TResult? Function(String message)? uploadTasksFailed,
+    TResult? Function(TaskModel meupdatedTaskssage)? uploadTasksCompleted,
+    TResult? Function()? downloadTasksLoading,
+    TResult? Function(String message)? downloadTasksFailed,
+    TResult? Function(List<TaskModel> downloadedTasks)? downloadTasksCompleted,
+    TResult? Function()? updateTaskLoading,
+    TResult? Function(String message)? updateTaskFailed,
+    TResult? Function(TaskModel updatedTask)? updateTaskCompleted,
+    TResult? Function()? getTaskByIdLoading,
+    TResult? Function(String message)? getTaskByIdFailed,
+    TResult? Function(TaskModel taskById)? getTaskByIdCompleted,
+    TResult? Function()? createTaskLoading,
+    TResult? Function(String message)? createTaskFailed,
+    TResult? Function(TaskModel createdTask)? createTaskCompleted,
+    TResult? Function()? deleteTaskLoading,
+    TResult? Function(String message)? deleteTaskFailed,
+    TResult? Function(TaskModel deletedTask)? deleteTaskCompleted,
+  }) {
+    return deleteTaskLoading?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? allTasksLoading,
+    TResult Function(List<TaskModel> allTasks)? allTasksCompleted,
+    TResult Function(String message)? allTasksFailed,
+    TResult Function()? searchLoading,
+    TResult Function(List<TaskModel> searchedTasks)? searchCompleted,
+    TResult Function(String message)? searchFailed,
+    TResult Function()? getTotalEstimatedTimeLoading,
+    TResult Function(Duration totalEstimatedTime)?
+        getTotalEstimatedTimeCompleted,
+    TResult Function(String message)? getTotalEstimatedTimeFailed,
+    TResult Function()? updateTotalEstimatedTimeLoading,
+    TResult Function(String message)? updateTotalEstimatedTimeFailed,
+    TResult Function(Duration totalEstimatedTime)?
+        updateTotalEstimatedTimeCompleted,
+    TResult Function()? uploadTasksLoading,
+    TResult Function(String message)? uploadTasksFailed,
+    TResult Function(TaskModel meupdatedTaskssage)? uploadTasksCompleted,
+    TResult Function()? downloadTasksLoading,
+    TResult Function(String message)? downloadTasksFailed,
+    TResult Function(List<TaskModel> downloadedTasks)? downloadTasksCompleted,
+    TResult Function()? updateTaskLoading,
+    TResult Function(String message)? updateTaskFailed,
+    TResult Function(TaskModel updatedTask)? updateTaskCompleted,
+    TResult Function()? getTaskByIdLoading,
+    TResult Function(String message)? getTaskByIdFailed,
+    TResult Function(TaskModel taskById)? getTaskByIdCompleted,
+    TResult Function()? createTaskLoading,
+    TResult Function(String message)? createTaskFailed,
+    TResult Function(TaskModel createdTask)? createTaskCompleted,
+    TResult Function()? deleteTaskLoading,
+    TResult Function(String message)? deleteTaskFailed,
+    TResult Function(TaskModel deletedTask)? deleteTaskCompleted,
+    required TResult orElse(),
+  }) {
+    if (deleteTaskLoading != null) {
+      return deleteTaskLoading();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(_AllTasksLoading value) allTasksLoading,
+    required TResult Function(_AllTasksCompleted value) allTasksCompleted,
+    required TResult Function(_AllTasksFailed value) allTasksFailed,
+    required TResult Function(_SearchLoading value) searchLoading,
+    required TResult Function(_SearchCompleted value) searchCompleted,
+    required TResult Function(_SearchFailed value) searchFailed,
+    required TResult Function(_GetTotalEstimatedTimeLoading value)
+        getTotalEstimatedTimeLoading,
+    required TResult Function(_GetTotalEstimatedTimeCompleted value)
+        getTotalEstimatedTimeCompleted,
+    required TResult Function(_GetTotalEstimatedTimeFailed value)
+        getTotalEstimatedTimeFailed,
+    required TResult Function(_UpdateTotalEstimatedTimeLoading value)
+        updateTotalEstimatedTimeLoading,
+    required TResult Function(_UpdateTotalEstimatedTimeFailed value)
+        updateTotalEstimatedTimeFailed,
+    required TResult Function(_UpdateTotalEstimatedTimeCompleted value)
+        updateTotalEstimatedTimeCompleted,
+    required TResult Function(_UploadTasksLoading value) uploadTasksLoading,
+    required TResult Function(_UploadTasksFailed value) uploadTasksFailed,
+    required TResult Function(_UploadTasksCompleted value) uploadTasksCompleted,
+    required TResult Function(_DownloadTasksLoading value) downloadTasksLoading,
+    required TResult Function(_DownloadTasksFailed value) downloadTasksFailed,
+    required TResult Function(_DownloadTasksCompleted value)
+        downloadTasksCompleted,
+    required TResult Function(_UpdateTaskLoading value) updateTaskLoading,
+    required TResult Function(_UpdateTaskFailed value) updateTaskFailed,
+    required TResult Function(_UpdateTaskCompleted value) updateTaskCompleted,
+    required TResult Function(_GetTaskByIdLoading value) getTaskByIdLoading,
+    required TResult Function(_GetTaskByIdFailed value) getTaskByIdFailed,
+    required TResult Function(_GetTaskByIdCompleted value) getTaskByIdCompleted,
+    required TResult Function(_CreateTaskLoading value) createTaskLoading,
+    required TResult Function(_CreateTaskFailed value) createTaskFailed,
+    required TResult Function(_CreateTaskCompleted value) createTaskCompleted,
+    required TResult Function(_DeleteTaskLoading value) deleteTaskLoading,
+    required TResult Function(_DeleteTaskFailed value) deleteTaskFailed,
+    required TResult Function(_DeleteTaskCompleted value) deleteTaskCompleted,
+  }) {
+    return deleteTaskLoading(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_AllTasksLoading value)? allTasksLoading,
+    TResult? Function(_AllTasksCompleted value)? allTasksCompleted,
+    TResult? Function(_AllTasksFailed value)? allTasksFailed,
+    TResult? Function(_SearchLoading value)? searchLoading,
+    TResult? Function(_SearchCompleted value)? searchCompleted,
+    TResult? Function(_SearchFailed value)? searchFailed,
+    TResult? Function(_GetTotalEstimatedTimeLoading value)?
+        getTotalEstimatedTimeLoading,
+    TResult? Function(_GetTotalEstimatedTimeCompleted value)?
+        getTotalEstimatedTimeCompleted,
+    TResult? Function(_GetTotalEstimatedTimeFailed value)?
+        getTotalEstimatedTimeFailed,
+    TResult? Function(_UpdateTotalEstimatedTimeLoading value)?
+        updateTotalEstimatedTimeLoading,
+    TResult? Function(_UpdateTotalEstimatedTimeFailed value)?
+        updateTotalEstimatedTimeFailed,
+    TResult? Function(_UpdateTotalEstimatedTimeCompleted value)?
+        updateTotalEstimatedTimeCompleted,
+    TResult? Function(_UploadTasksLoading value)? uploadTasksLoading,
+    TResult? Function(_UploadTasksFailed value)? uploadTasksFailed,
+    TResult? Function(_UploadTasksCompleted value)? uploadTasksCompleted,
+    TResult? Function(_DownloadTasksLoading value)? downloadTasksLoading,
+    TResult? Function(_DownloadTasksFailed value)? downloadTasksFailed,
+    TResult? Function(_DownloadTasksCompleted value)? downloadTasksCompleted,
+    TResult? Function(_UpdateTaskLoading value)? updateTaskLoading,
+    TResult? Function(_UpdateTaskFailed value)? updateTaskFailed,
+    TResult? Function(_UpdateTaskCompleted value)? updateTaskCompleted,
+    TResult? Function(_GetTaskByIdLoading value)? getTaskByIdLoading,
+    TResult? Function(_GetTaskByIdFailed value)? getTaskByIdFailed,
+    TResult? Function(_GetTaskByIdCompleted value)? getTaskByIdCompleted,
+    TResult? Function(_CreateTaskLoading value)? createTaskLoading,
+    TResult? Function(_CreateTaskFailed value)? createTaskFailed,
+    TResult? Function(_CreateTaskCompleted value)? createTaskCompleted,
+    TResult? Function(_DeleteTaskLoading value)? deleteTaskLoading,
+    TResult? Function(_DeleteTaskFailed value)? deleteTaskFailed,
+    TResult? Function(_DeleteTaskCompleted value)? deleteTaskCompleted,
+  }) {
+    return deleteTaskLoading?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_AllTasksLoading value)? allTasksLoading,
+    TResult Function(_AllTasksCompleted value)? allTasksCompleted,
+    TResult Function(_AllTasksFailed value)? allTasksFailed,
+    TResult Function(_SearchLoading value)? searchLoading,
+    TResult Function(_SearchCompleted value)? searchCompleted,
+    TResult Function(_SearchFailed value)? searchFailed,
+    TResult Function(_GetTotalEstimatedTimeLoading value)?
+        getTotalEstimatedTimeLoading,
+    TResult Function(_GetTotalEstimatedTimeCompleted value)?
+        getTotalEstimatedTimeCompleted,
+    TResult Function(_GetTotalEstimatedTimeFailed value)?
+        getTotalEstimatedTimeFailed,
+    TResult Function(_UpdateTotalEstimatedTimeLoading value)?
+        updateTotalEstimatedTimeLoading,
+    TResult Function(_UpdateTotalEstimatedTimeFailed value)?
+        updateTotalEstimatedTimeFailed,
+    TResult Function(_UpdateTotalEstimatedTimeCompleted value)?
+        updateTotalEstimatedTimeCompleted,
+    TResult Function(_UploadTasksLoading value)? uploadTasksLoading,
+    TResult Function(_UploadTasksFailed value)? uploadTasksFailed,
+    TResult Function(_UploadTasksCompleted value)? uploadTasksCompleted,
+    TResult Function(_DownloadTasksLoading value)? downloadTasksLoading,
+    TResult Function(_DownloadTasksFailed value)? downloadTasksFailed,
+    TResult Function(_DownloadTasksCompleted value)? downloadTasksCompleted,
+    TResult Function(_UpdateTaskLoading value)? updateTaskLoading,
+    TResult Function(_UpdateTaskFailed value)? updateTaskFailed,
+    TResult Function(_UpdateTaskCompleted value)? updateTaskCompleted,
+    TResult Function(_GetTaskByIdLoading value)? getTaskByIdLoading,
+    TResult Function(_GetTaskByIdFailed value)? getTaskByIdFailed,
+    TResult Function(_GetTaskByIdCompleted value)? getTaskByIdCompleted,
+    TResult Function(_CreateTaskLoading value)? createTaskLoading,
+    TResult Function(_CreateTaskFailed value)? createTaskFailed,
+    TResult Function(_CreateTaskCompleted value)? createTaskCompleted,
+    TResult Function(_DeleteTaskLoading value)? deleteTaskLoading,
+    TResult Function(_DeleteTaskFailed value)? deleteTaskFailed,
+    TResult Function(_DeleteTaskCompleted value)? deleteTaskCompleted,
+    required TResult orElse(),
+  }) {
+    if (deleteTaskLoading != null) {
+      return deleteTaskLoading(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _DeleteTaskLoading implements TaskViewmodelState {
+  factory _DeleteTaskLoading() = _$DeleteTaskLoadingImpl;
+}
+
+/// @nodoc
+abstract class _$$DeleteTaskFailedImplCopyWith<$Res> {
+  factory _$$DeleteTaskFailedImplCopyWith(_$DeleteTaskFailedImpl value,
+          $Res Function(_$DeleteTaskFailedImpl) then) =
+      __$$DeleteTaskFailedImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String message});
+}
+
+/// @nodoc
+class __$$DeleteTaskFailedImplCopyWithImpl<$Res>
+    extends _$TaskViewmodelStateCopyWithImpl<$Res, _$DeleteTaskFailedImpl>
+    implements _$$DeleteTaskFailedImplCopyWith<$Res> {
+  __$$DeleteTaskFailedImplCopyWithImpl(_$DeleteTaskFailedImpl _value,
+      $Res Function(_$DeleteTaskFailedImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? message = null,
+  }) {
+    return _then(_$DeleteTaskFailedImpl(
+      message: null == message
+          ? _value.message
+          : message // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$DeleteTaskFailedImpl implements _DeleteTaskFailed {
+  _$DeleteTaskFailedImpl({required this.message});
+
+  @override
+  final String message;
+
+  @override
+  String toString() {
+    return 'TaskViewmodelState.deleteTaskFailed(message: $message)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$DeleteTaskFailedImpl &&
+            (identical(other.message, message) || other.message == message));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, message);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$DeleteTaskFailedImplCopyWith<_$DeleteTaskFailedImpl> get copyWith =>
+      __$$DeleteTaskFailedImplCopyWithImpl<_$DeleteTaskFailedImpl>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() allTasksLoading,
+    required TResult Function(List<TaskModel> allTasks) allTasksCompleted,
+    required TResult Function(String message) allTasksFailed,
+    required TResult Function() searchLoading,
+    required TResult Function(List<TaskModel> searchedTasks) searchCompleted,
+    required TResult Function(String message) searchFailed,
+    required TResult Function() getTotalEstimatedTimeLoading,
+    required TResult Function(Duration totalEstimatedTime)
+        getTotalEstimatedTimeCompleted,
+    required TResult Function(String message) getTotalEstimatedTimeFailed,
+    required TResult Function() updateTotalEstimatedTimeLoading,
+    required TResult Function(String message) updateTotalEstimatedTimeFailed,
+    required TResult Function(Duration totalEstimatedTime)
+        updateTotalEstimatedTimeCompleted,
+    required TResult Function() uploadTasksLoading,
+    required TResult Function(String message) uploadTasksFailed,
+    required TResult Function(TaskModel meupdatedTaskssage)
+        uploadTasksCompleted,
+    required TResult Function() downloadTasksLoading,
+    required TResult Function(String message) downloadTasksFailed,
+    required TResult Function(List<TaskModel> downloadedTasks)
+        downloadTasksCompleted,
+    required TResult Function() updateTaskLoading,
+    required TResult Function(String message) updateTaskFailed,
+    required TResult Function(TaskModel updatedTask) updateTaskCompleted,
+    required TResult Function() getTaskByIdLoading,
+    required TResult Function(String message) getTaskByIdFailed,
+    required TResult Function(TaskModel taskById) getTaskByIdCompleted,
+    required TResult Function() createTaskLoading,
+    required TResult Function(String message) createTaskFailed,
+    required TResult Function(TaskModel createdTask) createTaskCompleted,
+    required TResult Function() deleteTaskLoading,
+    required TResult Function(String message) deleteTaskFailed,
+    required TResult Function(TaskModel deletedTask) deleteTaskCompleted,
+  }) {
+    return deleteTaskFailed(message);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? allTasksLoading,
+    TResult? Function(List<TaskModel> allTasks)? allTasksCompleted,
+    TResult? Function(String message)? allTasksFailed,
+    TResult? Function()? searchLoading,
+    TResult? Function(List<TaskModel> searchedTasks)? searchCompleted,
+    TResult? Function(String message)? searchFailed,
+    TResult? Function()? getTotalEstimatedTimeLoading,
+    TResult? Function(Duration totalEstimatedTime)?
+        getTotalEstimatedTimeCompleted,
+    TResult? Function(String message)? getTotalEstimatedTimeFailed,
+    TResult? Function()? updateTotalEstimatedTimeLoading,
+    TResult? Function(String message)? updateTotalEstimatedTimeFailed,
+    TResult? Function(Duration totalEstimatedTime)?
+        updateTotalEstimatedTimeCompleted,
+    TResult? Function()? uploadTasksLoading,
+    TResult? Function(String message)? uploadTasksFailed,
+    TResult? Function(TaskModel meupdatedTaskssage)? uploadTasksCompleted,
+    TResult? Function()? downloadTasksLoading,
+    TResult? Function(String message)? downloadTasksFailed,
+    TResult? Function(List<TaskModel> downloadedTasks)? downloadTasksCompleted,
+    TResult? Function()? updateTaskLoading,
+    TResult? Function(String message)? updateTaskFailed,
+    TResult? Function(TaskModel updatedTask)? updateTaskCompleted,
+    TResult? Function()? getTaskByIdLoading,
+    TResult? Function(String message)? getTaskByIdFailed,
+    TResult? Function(TaskModel taskById)? getTaskByIdCompleted,
+    TResult? Function()? createTaskLoading,
+    TResult? Function(String message)? createTaskFailed,
+    TResult? Function(TaskModel createdTask)? createTaskCompleted,
+    TResult? Function()? deleteTaskLoading,
+    TResult? Function(String message)? deleteTaskFailed,
+    TResult? Function(TaskModel deletedTask)? deleteTaskCompleted,
+  }) {
+    return deleteTaskFailed?.call(message);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? allTasksLoading,
+    TResult Function(List<TaskModel> allTasks)? allTasksCompleted,
+    TResult Function(String message)? allTasksFailed,
+    TResult Function()? searchLoading,
+    TResult Function(List<TaskModel> searchedTasks)? searchCompleted,
+    TResult Function(String message)? searchFailed,
+    TResult Function()? getTotalEstimatedTimeLoading,
+    TResult Function(Duration totalEstimatedTime)?
+        getTotalEstimatedTimeCompleted,
+    TResult Function(String message)? getTotalEstimatedTimeFailed,
+    TResult Function()? updateTotalEstimatedTimeLoading,
+    TResult Function(String message)? updateTotalEstimatedTimeFailed,
+    TResult Function(Duration totalEstimatedTime)?
+        updateTotalEstimatedTimeCompleted,
+    TResult Function()? uploadTasksLoading,
+    TResult Function(String message)? uploadTasksFailed,
+    TResult Function(TaskModel meupdatedTaskssage)? uploadTasksCompleted,
+    TResult Function()? downloadTasksLoading,
+    TResult Function(String message)? downloadTasksFailed,
+    TResult Function(List<TaskModel> downloadedTasks)? downloadTasksCompleted,
+    TResult Function()? updateTaskLoading,
+    TResult Function(String message)? updateTaskFailed,
+    TResult Function(TaskModel updatedTask)? updateTaskCompleted,
+    TResult Function()? getTaskByIdLoading,
+    TResult Function(String message)? getTaskByIdFailed,
+    TResult Function(TaskModel taskById)? getTaskByIdCompleted,
+    TResult Function()? createTaskLoading,
+    TResult Function(String message)? createTaskFailed,
+    TResult Function(TaskModel createdTask)? createTaskCompleted,
+    TResult Function()? deleteTaskLoading,
+    TResult Function(String message)? deleteTaskFailed,
+    TResult Function(TaskModel deletedTask)? deleteTaskCompleted,
+    required TResult orElse(),
+  }) {
+    if (deleteTaskFailed != null) {
+      return deleteTaskFailed(message);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(_AllTasksLoading value) allTasksLoading,
+    required TResult Function(_AllTasksCompleted value) allTasksCompleted,
+    required TResult Function(_AllTasksFailed value) allTasksFailed,
+    required TResult Function(_SearchLoading value) searchLoading,
+    required TResult Function(_SearchCompleted value) searchCompleted,
+    required TResult Function(_SearchFailed value) searchFailed,
+    required TResult Function(_GetTotalEstimatedTimeLoading value)
+        getTotalEstimatedTimeLoading,
+    required TResult Function(_GetTotalEstimatedTimeCompleted value)
+        getTotalEstimatedTimeCompleted,
+    required TResult Function(_GetTotalEstimatedTimeFailed value)
+        getTotalEstimatedTimeFailed,
+    required TResult Function(_UpdateTotalEstimatedTimeLoading value)
+        updateTotalEstimatedTimeLoading,
+    required TResult Function(_UpdateTotalEstimatedTimeFailed value)
+        updateTotalEstimatedTimeFailed,
+    required TResult Function(_UpdateTotalEstimatedTimeCompleted value)
+        updateTotalEstimatedTimeCompleted,
+    required TResult Function(_UploadTasksLoading value) uploadTasksLoading,
+    required TResult Function(_UploadTasksFailed value) uploadTasksFailed,
+    required TResult Function(_UploadTasksCompleted value) uploadTasksCompleted,
+    required TResult Function(_DownloadTasksLoading value) downloadTasksLoading,
+    required TResult Function(_DownloadTasksFailed value) downloadTasksFailed,
+    required TResult Function(_DownloadTasksCompleted value)
+        downloadTasksCompleted,
+    required TResult Function(_UpdateTaskLoading value) updateTaskLoading,
+    required TResult Function(_UpdateTaskFailed value) updateTaskFailed,
+    required TResult Function(_UpdateTaskCompleted value) updateTaskCompleted,
+    required TResult Function(_GetTaskByIdLoading value) getTaskByIdLoading,
+    required TResult Function(_GetTaskByIdFailed value) getTaskByIdFailed,
+    required TResult Function(_GetTaskByIdCompleted value) getTaskByIdCompleted,
+    required TResult Function(_CreateTaskLoading value) createTaskLoading,
+    required TResult Function(_CreateTaskFailed value) createTaskFailed,
+    required TResult Function(_CreateTaskCompleted value) createTaskCompleted,
+    required TResult Function(_DeleteTaskLoading value) deleteTaskLoading,
+    required TResult Function(_DeleteTaskFailed value) deleteTaskFailed,
+    required TResult Function(_DeleteTaskCompleted value) deleteTaskCompleted,
+  }) {
+    return deleteTaskFailed(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_AllTasksLoading value)? allTasksLoading,
+    TResult? Function(_AllTasksCompleted value)? allTasksCompleted,
+    TResult? Function(_AllTasksFailed value)? allTasksFailed,
+    TResult? Function(_SearchLoading value)? searchLoading,
+    TResult? Function(_SearchCompleted value)? searchCompleted,
+    TResult? Function(_SearchFailed value)? searchFailed,
+    TResult? Function(_GetTotalEstimatedTimeLoading value)?
+        getTotalEstimatedTimeLoading,
+    TResult? Function(_GetTotalEstimatedTimeCompleted value)?
+        getTotalEstimatedTimeCompleted,
+    TResult? Function(_GetTotalEstimatedTimeFailed value)?
+        getTotalEstimatedTimeFailed,
+    TResult? Function(_UpdateTotalEstimatedTimeLoading value)?
+        updateTotalEstimatedTimeLoading,
+    TResult? Function(_UpdateTotalEstimatedTimeFailed value)?
+        updateTotalEstimatedTimeFailed,
+    TResult? Function(_UpdateTotalEstimatedTimeCompleted value)?
+        updateTotalEstimatedTimeCompleted,
+    TResult? Function(_UploadTasksLoading value)? uploadTasksLoading,
+    TResult? Function(_UploadTasksFailed value)? uploadTasksFailed,
+    TResult? Function(_UploadTasksCompleted value)? uploadTasksCompleted,
+    TResult? Function(_DownloadTasksLoading value)? downloadTasksLoading,
+    TResult? Function(_DownloadTasksFailed value)? downloadTasksFailed,
+    TResult? Function(_DownloadTasksCompleted value)? downloadTasksCompleted,
+    TResult? Function(_UpdateTaskLoading value)? updateTaskLoading,
+    TResult? Function(_UpdateTaskFailed value)? updateTaskFailed,
+    TResult? Function(_UpdateTaskCompleted value)? updateTaskCompleted,
+    TResult? Function(_GetTaskByIdLoading value)? getTaskByIdLoading,
+    TResult? Function(_GetTaskByIdFailed value)? getTaskByIdFailed,
+    TResult? Function(_GetTaskByIdCompleted value)? getTaskByIdCompleted,
+    TResult? Function(_CreateTaskLoading value)? createTaskLoading,
+    TResult? Function(_CreateTaskFailed value)? createTaskFailed,
+    TResult? Function(_CreateTaskCompleted value)? createTaskCompleted,
+    TResult? Function(_DeleteTaskLoading value)? deleteTaskLoading,
+    TResult? Function(_DeleteTaskFailed value)? deleteTaskFailed,
+    TResult? Function(_DeleteTaskCompleted value)? deleteTaskCompleted,
+  }) {
+    return deleteTaskFailed?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_AllTasksLoading value)? allTasksLoading,
+    TResult Function(_AllTasksCompleted value)? allTasksCompleted,
+    TResult Function(_AllTasksFailed value)? allTasksFailed,
+    TResult Function(_SearchLoading value)? searchLoading,
+    TResult Function(_SearchCompleted value)? searchCompleted,
+    TResult Function(_SearchFailed value)? searchFailed,
+    TResult Function(_GetTotalEstimatedTimeLoading value)?
+        getTotalEstimatedTimeLoading,
+    TResult Function(_GetTotalEstimatedTimeCompleted value)?
+        getTotalEstimatedTimeCompleted,
+    TResult Function(_GetTotalEstimatedTimeFailed value)?
+        getTotalEstimatedTimeFailed,
+    TResult Function(_UpdateTotalEstimatedTimeLoading value)?
+        updateTotalEstimatedTimeLoading,
+    TResult Function(_UpdateTotalEstimatedTimeFailed value)?
+        updateTotalEstimatedTimeFailed,
+    TResult Function(_UpdateTotalEstimatedTimeCompleted value)?
+        updateTotalEstimatedTimeCompleted,
+    TResult Function(_UploadTasksLoading value)? uploadTasksLoading,
+    TResult Function(_UploadTasksFailed value)? uploadTasksFailed,
+    TResult Function(_UploadTasksCompleted value)? uploadTasksCompleted,
+    TResult Function(_DownloadTasksLoading value)? downloadTasksLoading,
+    TResult Function(_DownloadTasksFailed value)? downloadTasksFailed,
+    TResult Function(_DownloadTasksCompleted value)? downloadTasksCompleted,
+    TResult Function(_UpdateTaskLoading value)? updateTaskLoading,
+    TResult Function(_UpdateTaskFailed value)? updateTaskFailed,
+    TResult Function(_UpdateTaskCompleted value)? updateTaskCompleted,
+    TResult Function(_GetTaskByIdLoading value)? getTaskByIdLoading,
+    TResult Function(_GetTaskByIdFailed value)? getTaskByIdFailed,
+    TResult Function(_GetTaskByIdCompleted value)? getTaskByIdCompleted,
+    TResult Function(_CreateTaskLoading value)? createTaskLoading,
+    TResult Function(_CreateTaskFailed value)? createTaskFailed,
+    TResult Function(_CreateTaskCompleted value)? createTaskCompleted,
+    TResult Function(_DeleteTaskLoading value)? deleteTaskLoading,
+    TResult Function(_DeleteTaskFailed value)? deleteTaskFailed,
+    TResult Function(_DeleteTaskCompleted value)? deleteTaskCompleted,
+    required TResult orElse(),
+  }) {
+    if (deleteTaskFailed != null) {
+      return deleteTaskFailed(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _DeleteTaskFailed implements TaskViewmodelState {
+  factory _DeleteTaskFailed({required final String message}) =
+      _$DeleteTaskFailedImpl;
+
+  String get message;
+  @JsonKey(ignore: true)
+  _$$DeleteTaskFailedImplCopyWith<_$DeleteTaskFailedImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$DeleteTaskCompletedImplCopyWith<$Res> {
+  factory _$$DeleteTaskCompletedImplCopyWith(_$DeleteTaskCompletedImpl value,
+          $Res Function(_$DeleteTaskCompletedImpl) then) =
+      __$$DeleteTaskCompletedImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({TaskModel deletedTask});
+
+  $TaskModelCopyWith<$Res> get deletedTask;
+}
+
+/// @nodoc
+class __$$DeleteTaskCompletedImplCopyWithImpl<$Res>
+    extends _$TaskViewmodelStateCopyWithImpl<$Res, _$DeleteTaskCompletedImpl>
+    implements _$$DeleteTaskCompletedImplCopyWith<$Res> {
+  __$$DeleteTaskCompletedImplCopyWithImpl(_$DeleteTaskCompletedImpl _value,
+      $Res Function(_$DeleteTaskCompletedImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? deletedTask = null,
+  }) {
+    return _then(_$DeleteTaskCompletedImpl(
+      deletedTask: null == deletedTask
+          ? _value.deletedTask
+          : deletedTask // ignore: cast_nullable_to_non_nullable
+              as TaskModel,
+    ));
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $TaskModelCopyWith<$Res> get deletedTask {
+    return $TaskModelCopyWith<$Res>(_value.deletedTask, (value) {
+      return _then(_value.copyWith(deletedTask: value));
+    });
+  }
+}
+
+/// @nodoc
+
+class _$DeleteTaskCompletedImpl implements _DeleteTaskCompleted {
+  _$DeleteTaskCompletedImpl({required this.deletedTask});
+
+  @override
+  final TaskModel deletedTask;
+
+  @override
+  String toString() {
+    return 'TaskViewmodelState.deleteTaskCompleted(deletedTask: $deletedTask)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$DeleteTaskCompletedImpl &&
+            (identical(other.deletedTask, deletedTask) ||
+                other.deletedTask == deletedTask));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, deletedTask);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$DeleteTaskCompletedImplCopyWith<_$DeleteTaskCompletedImpl> get copyWith =>
+      __$$DeleteTaskCompletedImplCopyWithImpl<_$DeleteTaskCompletedImpl>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() allTasksLoading,
+    required TResult Function(List<TaskModel> allTasks) allTasksCompleted,
+    required TResult Function(String message) allTasksFailed,
+    required TResult Function() searchLoading,
+    required TResult Function(List<TaskModel> searchedTasks) searchCompleted,
+    required TResult Function(String message) searchFailed,
+    required TResult Function() getTotalEstimatedTimeLoading,
+    required TResult Function(Duration totalEstimatedTime)
+        getTotalEstimatedTimeCompleted,
+    required TResult Function(String message) getTotalEstimatedTimeFailed,
+    required TResult Function() updateTotalEstimatedTimeLoading,
+    required TResult Function(String message) updateTotalEstimatedTimeFailed,
+    required TResult Function(Duration totalEstimatedTime)
+        updateTotalEstimatedTimeCompleted,
+    required TResult Function() uploadTasksLoading,
+    required TResult Function(String message) uploadTasksFailed,
+    required TResult Function(TaskModel meupdatedTaskssage)
+        uploadTasksCompleted,
+    required TResult Function() downloadTasksLoading,
+    required TResult Function(String message) downloadTasksFailed,
+    required TResult Function(List<TaskModel> downloadedTasks)
+        downloadTasksCompleted,
+    required TResult Function() updateTaskLoading,
+    required TResult Function(String message) updateTaskFailed,
+    required TResult Function(TaskModel updatedTask) updateTaskCompleted,
+    required TResult Function() getTaskByIdLoading,
+    required TResult Function(String message) getTaskByIdFailed,
+    required TResult Function(TaskModel taskById) getTaskByIdCompleted,
+    required TResult Function() createTaskLoading,
+    required TResult Function(String message) createTaskFailed,
+    required TResult Function(TaskModel createdTask) createTaskCompleted,
+    required TResult Function() deleteTaskLoading,
+    required TResult Function(String message) deleteTaskFailed,
+    required TResult Function(TaskModel deletedTask) deleteTaskCompleted,
+  }) {
+    return deleteTaskCompleted(deletedTask);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? allTasksLoading,
+    TResult? Function(List<TaskModel> allTasks)? allTasksCompleted,
+    TResult? Function(String message)? allTasksFailed,
+    TResult? Function()? searchLoading,
+    TResult? Function(List<TaskModel> searchedTasks)? searchCompleted,
+    TResult? Function(String message)? searchFailed,
+    TResult? Function()? getTotalEstimatedTimeLoading,
+    TResult? Function(Duration totalEstimatedTime)?
+        getTotalEstimatedTimeCompleted,
+    TResult? Function(String message)? getTotalEstimatedTimeFailed,
+    TResult? Function()? updateTotalEstimatedTimeLoading,
+    TResult? Function(String message)? updateTotalEstimatedTimeFailed,
+    TResult? Function(Duration totalEstimatedTime)?
+        updateTotalEstimatedTimeCompleted,
+    TResult? Function()? uploadTasksLoading,
+    TResult? Function(String message)? uploadTasksFailed,
+    TResult? Function(TaskModel meupdatedTaskssage)? uploadTasksCompleted,
+    TResult? Function()? downloadTasksLoading,
+    TResult? Function(String message)? downloadTasksFailed,
+    TResult? Function(List<TaskModel> downloadedTasks)? downloadTasksCompleted,
+    TResult? Function()? updateTaskLoading,
+    TResult? Function(String message)? updateTaskFailed,
+    TResult? Function(TaskModel updatedTask)? updateTaskCompleted,
+    TResult? Function()? getTaskByIdLoading,
+    TResult? Function(String message)? getTaskByIdFailed,
+    TResult? Function(TaskModel taskById)? getTaskByIdCompleted,
+    TResult? Function()? createTaskLoading,
+    TResult? Function(String message)? createTaskFailed,
+    TResult? Function(TaskModel createdTask)? createTaskCompleted,
+    TResult? Function()? deleteTaskLoading,
+    TResult? Function(String message)? deleteTaskFailed,
+    TResult? Function(TaskModel deletedTask)? deleteTaskCompleted,
+  }) {
+    return deleteTaskCompleted?.call(deletedTask);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? allTasksLoading,
+    TResult Function(List<TaskModel> allTasks)? allTasksCompleted,
+    TResult Function(String message)? allTasksFailed,
+    TResult Function()? searchLoading,
+    TResult Function(List<TaskModel> searchedTasks)? searchCompleted,
+    TResult Function(String message)? searchFailed,
+    TResult Function()? getTotalEstimatedTimeLoading,
+    TResult Function(Duration totalEstimatedTime)?
+        getTotalEstimatedTimeCompleted,
+    TResult Function(String message)? getTotalEstimatedTimeFailed,
+    TResult Function()? updateTotalEstimatedTimeLoading,
+    TResult Function(String message)? updateTotalEstimatedTimeFailed,
+    TResult Function(Duration totalEstimatedTime)?
+        updateTotalEstimatedTimeCompleted,
+    TResult Function()? uploadTasksLoading,
+    TResult Function(String message)? uploadTasksFailed,
+    TResult Function(TaskModel meupdatedTaskssage)? uploadTasksCompleted,
+    TResult Function()? downloadTasksLoading,
+    TResult Function(String message)? downloadTasksFailed,
+    TResult Function(List<TaskModel> downloadedTasks)? downloadTasksCompleted,
+    TResult Function()? updateTaskLoading,
+    TResult Function(String message)? updateTaskFailed,
+    TResult Function(TaskModel updatedTask)? updateTaskCompleted,
+    TResult Function()? getTaskByIdLoading,
+    TResult Function(String message)? getTaskByIdFailed,
+    TResult Function(TaskModel taskById)? getTaskByIdCompleted,
+    TResult Function()? createTaskLoading,
+    TResult Function(String message)? createTaskFailed,
+    TResult Function(TaskModel createdTask)? createTaskCompleted,
+    TResult Function()? deleteTaskLoading,
+    TResult Function(String message)? deleteTaskFailed,
+    TResult Function(TaskModel deletedTask)? deleteTaskCompleted,
+    required TResult orElse(),
+  }) {
+    if (deleteTaskCompleted != null) {
+      return deleteTaskCompleted(deletedTask);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(_AllTasksLoading value) allTasksLoading,
+    required TResult Function(_AllTasksCompleted value) allTasksCompleted,
+    required TResult Function(_AllTasksFailed value) allTasksFailed,
+    required TResult Function(_SearchLoading value) searchLoading,
+    required TResult Function(_SearchCompleted value) searchCompleted,
+    required TResult Function(_SearchFailed value) searchFailed,
+    required TResult Function(_GetTotalEstimatedTimeLoading value)
+        getTotalEstimatedTimeLoading,
+    required TResult Function(_GetTotalEstimatedTimeCompleted value)
+        getTotalEstimatedTimeCompleted,
+    required TResult Function(_GetTotalEstimatedTimeFailed value)
+        getTotalEstimatedTimeFailed,
+    required TResult Function(_UpdateTotalEstimatedTimeLoading value)
+        updateTotalEstimatedTimeLoading,
+    required TResult Function(_UpdateTotalEstimatedTimeFailed value)
+        updateTotalEstimatedTimeFailed,
+    required TResult Function(_UpdateTotalEstimatedTimeCompleted value)
+        updateTotalEstimatedTimeCompleted,
+    required TResult Function(_UploadTasksLoading value) uploadTasksLoading,
+    required TResult Function(_UploadTasksFailed value) uploadTasksFailed,
+    required TResult Function(_UploadTasksCompleted value) uploadTasksCompleted,
+    required TResult Function(_DownloadTasksLoading value) downloadTasksLoading,
+    required TResult Function(_DownloadTasksFailed value) downloadTasksFailed,
+    required TResult Function(_DownloadTasksCompleted value)
+        downloadTasksCompleted,
+    required TResult Function(_UpdateTaskLoading value) updateTaskLoading,
+    required TResult Function(_UpdateTaskFailed value) updateTaskFailed,
+    required TResult Function(_UpdateTaskCompleted value) updateTaskCompleted,
+    required TResult Function(_GetTaskByIdLoading value) getTaskByIdLoading,
+    required TResult Function(_GetTaskByIdFailed value) getTaskByIdFailed,
+    required TResult Function(_GetTaskByIdCompleted value) getTaskByIdCompleted,
+    required TResult Function(_CreateTaskLoading value) createTaskLoading,
+    required TResult Function(_CreateTaskFailed value) createTaskFailed,
+    required TResult Function(_CreateTaskCompleted value) createTaskCompleted,
+    required TResult Function(_DeleteTaskLoading value) deleteTaskLoading,
+    required TResult Function(_DeleteTaskFailed value) deleteTaskFailed,
+    required TResult Function(_DeleteTaskCompleted value) deleteTaskCompleted,
+  }) {
+    return deleteTaskCompleted(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_AllTasksLoading value)? allTasksLoading,
+    TResult? Function(_AllTasksCompleted value)? allTasksCompleted,
+    TResult? Function(_AllTasksFailed value)? allTasksFailed,
+    TResult? Function(_SearchLoading value)? searchLoading,
+    TResult? Function(_SearchCompleted value)? searchCompleted,
+    TResult? Function(_SearchFailed value)? searchFailed,
+    TResult? Function(_GetTotalEstimatedTimeLoading value)?
+        getTotalEstimatedTimeLoading,
+    TResult? Function(_GetTotalEstimatedTimeCompleted value)?
+        getTotalEstimatedTimeCompleted,
+    TResult? Function(_GetTotalEstimatedTimeFailed value)?
+        getTotalEstimatedTimeFailed,
+    TResult? Function(_UpdateTotalEstimatedTimeLoading value)?
+        updateTotalEstimatedTimeLoading,
+    TResult? Function(_UpdateTotalEstimatedTimeFailed value)?
+        updateTotalEstimatedTimeFailed,
+    TResult? Function(_UpdateTotalEstimatedTimeCompleted value)?
+        updateTotalEstimatedTimeCompleted,
+    TResult? Function(_UploadTasksLoading value)? uploadTasksLoading,
+    TResult? Function(_UploadTasksFailed value)? uploadTasksFailed,
+    TResult? Function(_UploadTasksCompleted value)? uploadTasksCompleted,
+    TResult? Function(_DownloadTasksLoading value)? downloadTasksLoading,
+    TResult? Function(_DownloadTasksFailed value)? downloadTasksFailed,
+    TResult? Function(_DownloadTasksCompleted value)? downloadTasksCompleted,
+    TResult? Function(_UpdateTaskLoading value)? updateTaskLoading,
+    TResult? Function(_UpdateTaskFailed value)? updateTaskFailed,
+    TResult? Function(_UpdateTaskCompleted value)? updateTaskCompleted,
+    TResult? Function(_GetTaskByIdLoading value)? getTaskByIdLoading,
+    TResult? Function(_GetTaskByIdFailed value)? getTaskByIdFailed,
+    TResult? Function(_GetTaskByIdCompleted value)? getTaskByIdCompleted,
+    TResult? Function(_CreateTaskLoading value)? createTaskLoading,
+    TResult? Function(_CreateTaskFailed value)? createTaskFailed,
+    TResult? Function(_CreateTaskCompleted value)? createTaskCompleted,
+    TResult? Function(_DeleteTaskLoading value)? deleteTaskLoading,
+    TResult? Function(_DeleteTaskFailed value)? deleteTaskFailed,
+    TResult? Function(_DeleteTaskCompleted value)? deleteTaskCompleted,
+  }) {
+    return deleteTaskCompleted?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_AllTasksLoading value)? allTasksLoading,
+    TResult Function(_AllTasksCompleted value)? allTasksCompleted,
+    TResult Function(_AllTasksFailed value)? allTasksFailed,
+    TResult Function(_SearchLoading value)? searchLoading,
+    TResult Function(_SearchCompleted value)? searchCompleted,
+    TResult Function(_SearchFailed value)? searchFailed,
+    TResult Function(_GetTotalEstimatedTimeLoading value)?
+        getTotalEstimatedTimeLoading,
+    TResult Function(_GetTotalEstimatedTimeCompleted value)?
+        getTotalEstimatedTimeCompleted,
+    TResult Function(_GetTotalEstimatedTimeFailed value)?
+        getTotalEstimatedTimeFailed,
+    TResult Function(_UpdateTotalEstimatedTimeLoading value)?
+        updateTotalEstimatedTimeLoading,
+    TResult Function(_UpdateTotalEstimatedTimeFailed value)?
+        updateTotalEstimatedTimeFailed,
+    TResult Function(_UpdateTotalEstimatedTimeCompleted value)?
+        updateTotalEstimatedTimeCompleted,
+    TResult Function(_UploadTasksLoading value)? uploadTasksLoading,
+    TResult Function(_UploadTasksFailed value)? uploadTasksFailed,
+    TResult Function(_UploadTasksCompleted value)? uploadTasksCompleted,
+    TResult Function(_DownloadTasksLoading value)? downloadTasksLoading,
+    TResult Function(_DownloadTasksFailed value)? downloadTasksFailed,
+    TResult Function(_DownloadTasksCompleted value)? downloadTasksCompleted,
+    TResult Function(_UpdateTaskLoading value)? updateTaskLoading,
+    TResult Function(_UpdateTaskFailed value)? updateTaskFailed,
+    TResult Function(_UpdateTaskCompleted value)? updateTaskCompleted,
+    TResult Function(_GetTaskByIdLoading value)? getTaskByIdLoading,
+    TResult Function(_GetTaskByIdFailed value)? getTaskByIdFailed,
+    TResult Function(_GetTaskByIdCompleted value)? getTaskByIdCompleted,
+    TResult Function(_CreateTaskLoading value)? createTaskLoading,
+    TResult Function(_CreateTaskFailed value)? createTaskFailed,
+    TResult Function(_CreateTaskCompleted value)? createTaskCompleted,
+    TResult Function(_DeleteTaskLoading value)? deleteTaskLoading,
+    TResult Function(_DeleteTaskFailed value)? deleteTaskFailed,
+    TResult Function(_DeleteTaskCompleted value)? deleteTaskCompleted,
+    required TResult orElse(),
+  }) {
+    if (deleteTaskCompleted != null) {
+      return deleteTaskCompleted(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _DeleteTaskCompleted implements TaskViewmodelState {
+  factory _DeleteTaskCompleted({required final TaskModel deletedTask}) =
+      _$DeleteTaskCompletedImpl;
+
+  TaskModel get deletedTask;
+  @JsonKey(ignore: true)
+  _$$DeleteTaskCompletedImplCopyWith<_$DeleteTaskCompletedImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

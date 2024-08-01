@@ -213,12 +213,12 @@ class _$TaskModelImpl implements _TaskModel {
       {required this.title,
       required this.body,
       @JsonKey(name: 'sub_tasks')
-      final List<({bool completed, String title})> subTasks = const [],
+      final List<({bool completed, String title})> subTasks = const <SubTask>[],
       required this.id,
       @JsonKey(name: 'created_at') required this.createdAt,
       @JsonKey(name: 'updated_at') this.updatedAt,
       @JsonKey(name: 'elapsed_time') this.elapsedTime = Duration.zero,
-      this.status = TaskStatus.none,
+      this.status = TaskStatus.created,
       this.backup = false})
       : _subTasks = subTasks;
 

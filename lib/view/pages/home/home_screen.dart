@@ -1,6 +1,7 @@
 import 'package:better_one/config/navigation/app_navigation.dart';
 import 'package:better_one/config/navigation/routes_enum.dart';
 import 'package:better_one/core/utils/dependency_locator/dependency_injection.dart';
+import 'package:better_one/core/utils/methods/methods.dart';
 import 'package:better_one/core/utils/shared_widgets/failed.dart';
 import 'package:better_one/core/utils/shared_widgets/lottie_indicator.dart';
 import 'package:better_one/view/widgets/duration_widget.dart';
@@ -38,7 +39,9 @@ class _HomeScreenState extends State<HomeScreen> with RouteAware {
   didChangeDependencies() {
     routeObserver.subscribe(this, ModalRoute.of(context)!);
     context.read<TaskViewmodel>().getTasks();
-    context.read<TaskViewmodel>().getTotalEstimatedTime();
+    kDebugPrint(
+      '-----------------didChangeDependencies: home -----------------------',
+    );
     super.didChangeDependencies();
   }
 
@@ -67,6 +70,7 @@ class _HomeScreenState extends State<HomeScreen> with RouteAware {
 
   @override
   Widget build(BuildContext context) {
+    var taskViewmodel = context.read<TaskViewmodel>();
     return Scaffold(
       body: Container(
         padding: EdgeInsets.only(top: 35.h, bottom: 5.h),
@@ -75,54 +79,66 @@ class _HomeScreenState extends State<HomeScreen> with RouteAware {
           children: [
             BlocBuilder<TaskViewmodel, TaskViewmodelState>(
               builder: (context, state) {
-                if (state.isGetAllTasksLoading) {
-                  return const Center(
-                    child: LottieIndicator(
-                      statusAssets: LottieAssets.loadingFromToDatabase,
-                    ),
-                  );
-                } else if (state.isGetAllTasksFailed) {
-                  return Center(
-                    child: Failed(
-                      failedAsset: LottieAssets.error,
-                      errorMessage: state.errorMessage,
-                      retry: () {
-                        context.read<TaskViewmodel>().getTasks();
-                      },
-                    ),
-                  );
-                } else {
-                  return state.allTasks.isEmpty
-                      ? Center(
-                          child: Column(
-                            mainAxisSize: MainAxisSize.max,
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            crossAxisAlignment: CrossAxisAlignment.center,
-                            children: [
-                              const LottieIndicator(
-                                statusAssets: LottieAssets.noDataFound,
-                              ),
-                              Text('task.empty'.tr()),
-                            ],
-                          ),
-                        )
-                      : CustomScrollView(
-                          physics: const BouncingScrollPhysics(),
-                          key: listKey,
-                          controller: state.scrollController,
-                          slivers: [
-                            SliverPersistentHeader(
-                              floating: true,
-                              pinned: true,
-                              delegate: SliverHeaderDelegate(
-                                maxHeight:
-                                    MediaQuery.of(context).size.height * 0.1,
-                                minHeight:
-                                    MediaQuery.of(context).size.height * 0.1,
-                                child: state.isGetTotalEstimatedTimeCompleted ||
-                                        state
-                                            .isUpdateTotalEstimatedTimeCompleted
-                                    ? FittedBox(
+                return state.maybeWhen(
+                  allTasksLoading: () {
+                    kDebugPrint("allTasksLoading");
+                    return const Center(
+                      child: LottieIndicator(
+                        statusAssets: LottieAssets.loadingFromToDatabase,
+                      ),
+                    );
+                  },
+                  allTasksFailed: (message) {
+                    return Center(
+                      child: Failed(
+                        failedAsset: LottieAssets.error,
+                        errorMessage: message,
+                        retry: () {
+                          context.read<TaskViewmodel>().getTasks();
+                        },
+                      ),
+                    );
+                  },
+                  orElse: () {
+                    kDebugPrint("allTasksCompleted");
+                    var allTasks = taskViewmodel.allTasks;
+                    return allTasks.isEmpty
+                        ? Center(
+                            child: Column(
+                              mainAxisSize: MainAxisSize.max,
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              crossAxisAlignment: CrossAxisAlignment.center,
+                              children: [
+                                const LottieIndicator(
+                                  statusAssets: LottieAssets.noDataFound,
+                                ),
+                                Text('task.empty'.tr()),
+                              ],
+                            ),
+                          )
+                        : CustomScrollView(
+                            physics: const BouncingScrollPhysics(),
+                            key: listKey,
+                            controller:
+                                context.read<TaskViewmodel>().scrollController,
+                            slivers: [
+                              SliverPersistentHeader(
+                                floating: true,
+                                pinned: true,
+                                delegate: SliverHeaderDelegate(
+                                  maxHeight:
+                                      MediaQuery.of(context).size.height * 0.1,
+                                  minHeight:
+                                      MediaQuery.of(context).size.height * 0.1,
+                                  child: state.maybeWhen(
+                                    getTotalEstimatedTimeLoading: () {
+                                      return const SizedBox();
+                                    },
+                                    updateTotalEstimatedTimeLoading: () {
+                                      return const SizedBox();
+                                    },
+                                    orElse: () {
+                                      return FittedBox(
                                         fit: BoxFit.scaleDown,
                                         child: Material(
                                           shape: RoundedRectangleBorder(
@@ -134,32 +150,34 @@ class _HomeScreenState extends State<HomeScreen> with RouteAware {
                                           child: Padding(
                                             padding: const EdgeInsets.all(10),
                                             child: DurationTime(
-                                              duration:
-                                                  state.totalEstimatedTime,
+                                              duration: taskViewmodel
+                                                  .totalEstimatedTime,
                                               style: Theme.of(context)
                                                   .textTheme
                                                   .titleLarge,
                                             ),
                                           ),
                                         ),
-                                      )
-                                    : const SizedBox(),
+                                      );
+                                    },
+                                  ),
+                                ),
                               ),
-                            ),
-                            SliverList(
-                              delegate: SliverChildBuilderDelegate(
-                                childCount: state.allTasks.length,
-                                (context, index) {
-                                  return CardTask(
-                                    key: ValueKey(state.allTasks[index].id),
-                                    task: state.allTasks[index],
-                                  );
-                                },
+                              SliverList(
+                                delegate: SliverChildBuilderDelegate(
+                                  childCount: allTasks.length,
+                                  (context, index) {
+                                    return CardTask(
+                                      key: ValueKey(allTasks[index].id),
+                                      task: allTasks[index],
+                                    );
+                                  },
+                                ),
                               ),
-                            ),
-                          ],
-                        );
-                }
+                            ],
+                          );
+                  },
+                );
               },
             ),
             Align(

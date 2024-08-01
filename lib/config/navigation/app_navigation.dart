@@ -64,13 +64,13 @@ class AppNavigation {
             },
           ),
           GoRoute(
-            path: "${Routes.taskDetail.path}/:task_id",
+            path: Routes.taskDetail.path,
             name: Routes.taskDetail.name,
             pageBuilder: (context, state) {
               activeRoute = Routes.taskDetail.path;
               return CustomTransitionPage(
                 child: TaskDetailsScreen(
-                  taskId: state.pathParameters['task_id'] as String,
+                  taskId: state.uri.queryParameters['id'] as String,
                 ),
                 transitionsBuilder:
                     (context, animation, secondaryAnimation, child) {

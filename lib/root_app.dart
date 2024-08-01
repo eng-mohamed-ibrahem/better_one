@@ -1,4 +1,4 @@
-import 'package:better_one/config/app_thems.dart';
+import 'package:better_one/config/themes/app_thems.dart';
 import 'package:better_one/config/navigation/app_navigation.dart';
 import 'package:better_one/core/constants/constants.dart';
 import 'package:better_one/core/utils/dependency_locator/dependency_injection.dart';
