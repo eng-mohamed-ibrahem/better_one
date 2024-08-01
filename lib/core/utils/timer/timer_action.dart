@@ -1,8 +1,6 @@
-// ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'dart:async';
-import 'dart:ui';
 
-import 'package:better_one/core/utils/methods/methods.dart';
+import 'package:flutter/foundation.dart';
 
 /// Manages periodic actions.
 ///
@@ -60,20 +58,16 @@ class PeriodicActionManager {
         }
       },
     );
-    kDebugPrint("_timer in start $_timer, ${_stopwatch.isRunning}");
   }
 
   /// [stop] stop the action calling and stop timer without deleting the elabsed time
   void stop() {
-    kDebugPrint("_timer in stop $_timer, ${_stopwatch.isRunning}");
-    if (_timer == null && _stopwatch.isRunning == false) {
+    if (_timer == null) {
       return;
     }
-
     _stopwatch.stop();
     _timer!.cancel();
     _timer = null;
-    kDebugPrint("timer is stoped, ${_stopwatch.isRunning}");
   }
 
   /// [reset] reset the timer to 0 counts and waiting for starting again
@@ -83,7 +77,7 @@ class PeriodicActionManager {
     stop();
   }
 
-  /// [resetAndStart] combine star and reset methods
+  /// [resetAndStart] combine start and reset methods
   void resetAndStart() {
     reset();
     start();
@@ -91,6 +85,6 @@ class PeriodicActionManager {
 
   @override
   String toString() {
-    return 'PeriodicActionManager(_stopwatch: $_stopwatch, periodicDuration: $periodicDuration, action: $action)';
+    return 'PeriodicActionManager(_stopwatch: $_stopwatch, elapsed: ${_stopwatch.elapsed} ,status: ${_stopwatch.isRunning} ,periodicDuration: $periodicDuration, action: $action, _noOfExecutes: $_noOfExecutes, _timer: $_timer)';
   }
 }

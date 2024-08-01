@@ -57,13 +57,13 @@ class _TaskScreenState extends State<TaskDetailsScreen>
   @override
   void initState() {
     WidgetsBinding.instance.addObserver(this);
+    context.read<TaskViewmodel>().getTaskById(widget.taskId);
+    QuoteViewmode.get(context).getRandomQuote();
     super.initState();
   }
 
   @override
   void didChangeDependencies() {
-    context.read<TaskViewmodel>().getTaskById(widget.taskId);
-    QuoteViewmode.get(context).getRandomQuote();
     routeObserver.subscribe(this, ModalRoute.of(context)!);
     super.didChangeDependencies();
   }
@@ -74,7 +74,6 @@ class _TaskScreenState extends State<TaskDetailsScreen>
       /// using [Isolate] to avoid memory leaks
       /// user_repo to implement task
     }
-    kDebugPrint("didChangeAppLifecycleState: $state");
   }
 
   @override
@@ -93,7 +92,6 @@ class _TaskScreenState extends State<TaskDetailsScreen>
 
   @override
   void dispose() {
-    kDebugPrint("dispose: ${periodicActionManager.elapsed}");
     routeObserver.unsubscribe(this);
     task != null ? periodicActionManager.stop() : null;
     streamController.close();

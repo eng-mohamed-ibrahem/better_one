@@ -37,6 +37,7 @@ class TaskViewmodel extends Cubit<TaskViewmodelState> {
         emit(
           TaskViewmodelState.allTasksCompleted(allTasks: allTasks = tasks),
         );
+        getTotalEstimatedTime();
       },
       failure: (error) {
         emit(TaskViewmodelState.allTasksFailed(

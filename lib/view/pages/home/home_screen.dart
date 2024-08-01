@@ -1,6 +1,7 @@
 import 'package:better_one/config/navigation/app_navigation.dart';
 import 'package:better_one/config/navigation/routes_enum.dart';
 import 'package:better_one/core/utils/dependency_locator/dependency_injection.dart';
+import 'package:better_one/core/utils/methods/methods.dart';
 import 'package:better_one/core/utils/shared_widgets/failed.dart';
 import 'package:better_one/core/utils/shared_widgets/lottie_indicator.dart';
 import 'package:better_one/view/widgets/duration_widget.dart';
@@ -31,14 +32,16 @@ class _HomeScreenState extends State<HomeScreen> with RouteAware {
     WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
       settingRepo.setOnBoardingSeen(true);
     });
-    context.read<TaskViewmodel>().getTasks();
-    context.read<TaskViewmodel>().getTotalEstimatedTime();
     super.initState();
   }
 
   @override
   didChangeDependencies() {
     routeObserver.subscribe(this, ModalRoute.of(context)!);
+    context.read<TaskViewmodel>().getTasks();
+    kDebugPrint(
+      '-----------------didChangeDependencies: home -----------------------',
+    );
     super.didChangeDependencies();
   }
 
@@ -78,6 +81,7 @@ class _HomeScreenState extends State<HomeScreen> with RouteAware {
               builder: (context, state) {
                 return state.maybeWhen(
                   allTasksLoading: () {
+                    kDebugPrint("allTasksLoading");
                     return const Center(
                       child: LottieIndicator(
                         statusAssets: LottieAssets.loadingFromToDatabase,
@@ -96,6 +100,7 @@ class _HomeScreenState extends State<HomeScreen> with RouteAware {
                     );
                   },
                   orElse: () {
+                    kDebugPrint("allTasksCompleted");
                     var allTasks = taskViewmodel.allTasks;
                     return allTasks.isEmpty
                         ? Center(
