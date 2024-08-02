@@ -1,15 +1,8 @@
-import 'package:better_one/config/themes/app_thems.dart';
 import 'package:better_one/config/navigation/app_navigation.dart';
+import 'package:better_one/config/themes/app_thems.dart';
 import 'package:better_one/core/constants/constants.dart';
 import 'package:better_one/core/utils/dependency_locator/dependency_injection.dart';
-import 'package:better_one/data_source/auth_data_source/supabase_auth_impl.dart';
-import 'package:better_one/repositories/auth_repo/auth_repo_impl.dart';
-import 'package:better_one/view_models/auth_viewmodel/auth_viewmodel.dart';
-import 'package:better_one/view_models/task_viewmodel/task_viewmodel.dart';
-import 'package:better_one/view_models/quote_viewmodel/quote_viewmodel.dart';
-import 'package:better_one/view_models/setting_viewmodel/setting_viewmode.dart';
 import 'package:better_one/view_models/theme_viewmodel/theme_viewmodel.dart';
-import 'package:better_one/view_models/user_viewmodel/user_viewmodel.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:feedback/feedback.dart';
 import 'package:flutter/material.dart';
@@ -26,30 +19,8 @@ class RootApp extends StatelessWidget {
     return MultiBlocProvider(
       providers: [
         BlocProvider(
-            create: (context) =>
-                TaskViewmodel(taskRepo: taskRepo, userRepo: kUserRepo)),
-        BlocProvider(
-          create: (context) => QuoteViewmode(quoteRepo: quoteRepo),
-        ),
-        BlocProvider(
-          create: (context) => SettingViewModel(settingsRepo: settingRepo)
-            ..getLanguage()
-            ..getSearchSettings()
-            ..getNotificationSettings(),
-        ),
-        BlocProvider(
           create: (context) =>
               ThemeViewModel(settingsRepo: settingRepo)..getTheme(),
-        ),
-        BlocProvider(
-          create: (context) => UserViewmodel(userRepo: kUserRepo),
-        ),
-        BlocProvider(
-          create: (context) => AuthViewmodel(
-            authRepo: AuthRepoImpl(
-              authSource: SupabaseAuthImpl(),
-            ),
-          ),
         ),
       ],
       child: ScreenUtilInit(

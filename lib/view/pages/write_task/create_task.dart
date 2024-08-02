@@ -1,6 +1,7 @@
 import 'package:better_one/config/navigation/routes_enum.dart';
 import 'package:better_one/core/constants/ui_dimentions.dart';
 import 'package:better_one/core/utils/dependency_locator/dependency_injection.dart';
+import 'package:better_one/core/utils/dependency_locator/inject.dart';
 import 'package:better_one/core/utils/methods/methods.dart';
 import 'package:better_one/core/utils/shared_widgets/back_button_l10n.dart';
 import 'package:better_one/model/notification_model/notification_model.dart';
@@ -22,7 +23,7 @@ class CreateTaskScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var settingState = SettingViewModel.get(context).state;
+    var settingState = inject<SettingViewModel>().state;
     return Scaffold(
       appBar: AppBar(
         title: Text('task.create'.tr()),
@@ -57,8 +58,8 @@ class CreateTaskScreen extends StatelessWidget {
                         : null;
                     context.goNamed(
                       Routes.taskDetail.name,
-                      pathParameters: {
-                        'task_id': createdTask.id,
+                      queryParameters: {
+                        'id': createdTask.id,
                       },
                     );
                   },

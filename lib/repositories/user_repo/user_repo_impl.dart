@@ -64,10 +64,10 @@ class UserRepoImpl implements UserRepoInterface {
   @override
   Future<ResultHandler<TaskModel, Failure>> removeTask(
       TaskModel removedTask) async {
-    var connected = await NetworkConnection.isConnected();
-    if (connected) {
-      return await remoteUserSource.removeTask(removedTask);
-    }
+    // var connected = await NetworkConnection.isConnected();
+    // if (connected) {
+    //   return await remoteUserSource.removeTask(removedTask);
+    // }
     return await localeUserSource.removeTask(removedTask);
   }
 

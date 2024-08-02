@@ -16,6 +16,8 @@ import 'package:better_one/repositories/task_repo/task_repo_impl.dart';
 import 'package:better_one/repositories/task_repo/task_repo_interface.dart';
 import 'package:better_one/repositories/user_repo/user_repo_impl.dart';
 import 'package:better_one/repositories/user_repo/user_repo_intefrace.dart';
+import 'package:better_one/view_models/setting_viewmodel/setting_viewmode.dart';
+import 'package:better_one/view_models/task_viewmodel/task_viewmodel.dart';
 import 'package:flutter/material.dart';
 import 'package:get_it/get_it.dart';
 
@@ -37,6 +39,18 @@ Future<void> initDependency() async {
   quoteDependency();
   settingsDependency();
   userDependency();
+
+  /// inject cubits
+  // registerCubits();
+}
+
+void registerCubits() {
+  _getIt.registerSingleton(
+    TaskViewmodel(taskRepo: taskRepo, userRepo: kUserRepo),
+  );
+  _getIt.registerSingleton<SettingViewModel>(
+    SettingViewModel(settingsRepo: settingRepo),
+  );
 }
 
 Future<void> userAccountDependency() async {

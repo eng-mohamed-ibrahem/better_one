@@ -8,11 +8,13 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 part 'quote_viewmodel.freezed.dart';
 part 'quote_viewmodel_state.dart';
 
-class QuoteViewmode extends Cubit<QuoteViewmodelState> {
-  QuoteViewmode({required this.quoteRepo}) : super(const QuoteViewmodelState());
+class QuoteViewmodel extends Cubit<QuoteViewmodelState> {
+  QuoteViewmodel({required this.quoteRepo})
+      : super(const QuoteViewmodelState());
   final QuoteRepoInterface quoteRepo;
 
-  static QuoteViewmode get(context) => BlocProvider.of<QuoteViewmode>(context);
+  static QuoteViewmodel get(context) =>
+      BlocProvider.of<QuoteViewmodel>(context);
 
   /// get random quote from any data source
   void getRandomQuote() async {

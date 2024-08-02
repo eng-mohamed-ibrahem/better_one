@@ -1,5 +1,6 @@
 import 'package:better_one/config/navigation/routes_enum.dart';
 import 'package:better_one/core/constants/constants.dart';
+import 'package:better_one/core/utils/dependency_locator/dependency_injection.dart';
 import 'package:better_one/model/onboarding/onboarding_model.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
@@ -51,6 +52,7 @@ class OnboardingScreen extends StatelessWidget {
                           ? const Text('')
                           : TextButton(
                               onPressed: () {
+                                settingRepo.setOnBoardingSeen(true);
                                 context.go(Routes.home.path);
                               },
                               child: Text('core.get_started'.tr()),
