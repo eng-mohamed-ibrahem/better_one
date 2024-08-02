@@ -1,8 +1,16 @@
 import 'package:better_one/config/navigation/routes_enum.dart';
 import 'package:better_one/core/utils/dependency_locator/dependency_injection.dart';
+import 'package:better_one/core/utils/dependency_locator/inject.dart';
+import 'package:better_one/data_source/auth_data_source/supabase_auth_impl.dart';
+import 'package:better_one/repositories/auth_repo/auth_repo_impl.dart';
 import 'package:better_one/view/pages/pages.dart';
-import 'package:easy_localization/easy_localization.dart';
+import 'package:better_one/view_models/auth_viewmodel/auth_viewmodel.dart';
+import 'package:better_one/view_models/quote_viewmodel/quote_viewmodel.dart';
+import 'package:better_one/view_models/setting_viewmodel/setting_viewmode.dart';
+import 'package:better_one/view_models/task_viewmodel/task_viewmodel.dart';
+import 'package:better_one/view_models/user_viewmodel/user_viewmodel.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import "package:go_router/go_router.dart";
 
 class AppNavigation {
@@ -38,7 +46,22 @@ class AppNavigation {
         name: Routes.home.name,
         builder: (context, state) {
           activeRoute = Routes.home.path;
-          return const HomeScreen();
+          return MultiBlocProvider(
+            providers: [
+              BlocProvider(
+                create: (context) =>
+                    TaskViewmodel(taskRepo: taskRepo, userRepo: kUserRepo),
+              ),
+              BlocProvider(
+                lazy: false,
+                create: (context) => SettingViewModel(settingsRepo: settingRepo)
+                  ..getLanguage()
+                  ..getSearchSettings()
+                  ..getNotificationSettings(),
+              ),
+            ],
+            child: const HomeScreen(),
+          );
         },
         routes: [
           GoRoute(
@@ -47,18 +70,13 @@ class AppNavigation {
             pageBuilder: (context, state) {
               activeRoute = Routes.task.path;
               return CustomTransitionPage(
-                child: CreateTaskScreen(),
+                child: BlocProvider.value(
+                  value: inject<TaskViewmodel>(),
+                  child: CreateTaskScreen(),
+                ),
                 transitionsBuilder:
                     (context, animation, secondaryAnimation, child) {
-                  return SlideTransition(
-                    position: Tween<Offset>(
-                      begin: context.locale.languageCode == 'en'
-                          ? const Offset(1.0, 0)
-                          : const Offset(-1.0, 0),
-                      end: Offset.zero,
-                    ).animate(animation),
-                    child: child,
-                  );
+                  return pageTransition(context, animation, child);
                 },
               );
             },
@@ -69,20 +87,22 @@ class AppNavigation {
             pageBuilder: (context, state) {
               activeRoute = Routes.taskDetail.path;
               return CustomTransitionPage(
-                child: TaskDetailsScreen(
-                  taskId: state.uri.queryParameters['id'] as String,
+                child: MultiBlocProvider(
+                  providers: [
+                    BlocProvider(
+                      create: (context) => QuoteViewmodel(quoteRepo: quoteRepo),
+                    ),
+                    BlocProvider.value(
+                      value: inject<TaskViewmodel>(),
+                    ),
+                  ],
+                  child: TaskDetailsScreen(
+                    taskId: state.uri.queryParameters['id'] as String,
+                  ),
                 ),
                 transitionsBuilder:
                     (context, animation, secondaryAnimation, child) {
-                  return SlideTransition(
-                    position: Tween<Offset>(
-                      begin: context.locale.languageCode == 'en'
-                          ? const Offset(1.0, 0)
-                          : const Offset(-1.0, 0),
-                      end: Offset.zero,
-                    ).animate(animation),
-                    child: child,
-                  );
+                  return pageTransition(context, animation, child);
                 },
               );
             },
@@ -92,7 +112,10 @@ class AppNavigation {
             name: Routes.settings.name,
             builder: (context, state) {
               activeRoute = Routes.settings.path;
-              return const SettingScreen();
+              return BlocProvider.value(
+                value: inject<SettingViewModel>(),
+                child: const SettingScreen(),
+              );
             },
 
             /// 3 paths {profile{login, signup}, searc-setting, notification-setting}
@@ -102,8 +125,10 @@ class AppNavigation {
                 name: Routes.searchSetting.name,
                 builder: (context, state) {
                   activeRoute = Routes.searchSetting.path;
-
-                  return const SearchSettingScreen();
+                  return BlocProvider.value(
+                    value: inject<SettingViewModel>(),
+                    child: const SearchSettingScreen(),
+                  );
                 },
               ),
               GoRoute(
@@ -111,7 +136,10 @@ class AppNavigation {
                 name: Routes.notificationSetting.name,
                 builder: (context, state) {
                   activeRoute = Routes.notificationSetting.path;
-                  return const NotificationSettingScreen();
+                  return BlocProvider.value(
+                    value: inject<SettingViewModel>(),
+                    child: const NotificationSettingScreen(),
+                  );
                 },
               ),
               GoRoute(
@@ -119,7 +147,21 @@ class AppNavigation {
                 name: Routes.profile.name,
                 builder: (context, state) {
                   activeRoute = Routes.profile.path;
-                  return const AccountSettingScreen();
+                  return MultiBlocProvider(
+                    providers: [
+                      BlocProvider(
+                        create: (context) => UserViewmodel(userRepo: kUserRepo),
+                      ),
+                      BlocProvider(
+                        create: (context) => AuthViewmodel(
+                          authRepo: AuthRepoImpl(
+                            authSource: SupabaseAuthImpl(),
+                          ),
+                        ),
+                      ),
+                    ],
+                    child: const AccountSettingScreen(),
+                  );
                 },
                 redirect: (context, state) {
                   return userLocaleDatabase.getUserIdFromLocale() != null
@@ -160,4 +202,17 @@ class AppNavigation {
       );
     },
   );
+
+  static SlideTransition pageTransition(
+      BuildContext context, Animation<double> animation, Widget child) {
+    return SlideTransition(
+      position: Tween<Offset>(
+        begin: Directionality.of(context) == TextDirection.ltr
+            ? const Offset(1.0, 0)
+            : const Offset(-1.0, 0),
+        end: Offset.zero,
+      ).animate(animation),
+      child: child,
+    );
+  }
 }

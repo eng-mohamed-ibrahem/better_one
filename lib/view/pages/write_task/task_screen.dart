@@ -1,10 +1,9 @@
 import 'dart:async';
 import 'dart:ui' as ui;
 
-import 'package:better_one/config/navigation/app_navigation.dart';
-import 'package:better_one/config/navigation/routes_enum.dart';
 import 'package:better_one/core/enum/task_status.dart';
 import 'package:better_one/core/utils/dependency_locator/dependency_injection.dart';
+import 'package:better_one/core/utils/dependency_locator/inject.dart';
 import 'package:better_one/core/utils/methods/methods.dart';
 import 'package:better_one/core/utils/shared_widgets/back_button_l10n.dart';
 import 'package:better_one/core/utils/shared_widgets/failed.dart';
@@ -21,6 +20,7 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:go_router/go_router.dart';
 
 import '../../../core/constants/constants.dart';
 
@@ -33,7 +33,7 @@ class TaskDetailsScreen extends StatefulWidget {
 }
 
 class _TaskScreenState extends State<TaskDetailsScreen>
-    with RouteAware, TickerProviderStateMixin, WidgetsBindingObserver {
+    with TickerProviderStateMixin, WidgetsBindingObserver {
   final TextEditingController titleController = TextEditingController();
   final TextEditingController descriptionController = TextEditingController();
 
@@ -50,21 +50,15 @@ class _TaskScreenState extends State<TaskDetailsScreen>
   StreamController<Duration> streamController = StreamController<Duration>();
 
   @override
-  void didPopNext() {
-    AppNavigation.activeRoute = Routes.taskDetail.path;
-  }
-
-  @override
   void initState() {
     WidgetsBinding.instance.addObserver(this);
-    context.read<TaskViewmodel>().getTaskById(widget.taskId);
-    QuoteViewmode.get(context).getRandomQuote();
     super.initState();
   }
 
   @override
   void didChangeDependencies() {
-    routeObserver.subscribe(this, ModalRoute.of(context)!);
+    context.read<TaskViewmodel>().getTaskById(widget.taskId);
+    QuoteViewmodel.get(context).getRandomQuote();
     super.didChangeDependencies();
   }
 
@@ -92,7 +86,6 @@ class _TaskScreenState extends State<TaskDetailsScreen>
 
   @override
   void dispose() {
-    routeObserver.unsubscribe(this);
     task != null ? periodicActionManager.stop() : null;
     streamController.close();
     WidgetsBinding.instance.removeObserver(this);
@@ -101,7 +94,7 @@ class _TaskScreenState extends State<TaskDetailsScreen>
 
   @override
   Widget build(BuildContext context) {
-    var settingState = SettingViewModel.get(context).state;
+    var settingState = inject<SettingViewModel>().state;
     return Scaffold(
       body: BlocConsumer<TaskViewmodel, TaskViewmodelState>(
         listener: (context, state) {
@@ -115,8 +108,6 @@ class _TaskScreenState extends State<TaskDetailsScreen>
               periodicActionManager = PeriodicActionManager(
                 periodicDuration: const Duration(seconds: 1),
                 action: () {
-                  kDebugPrint(
-                      "periodicActionManager: ${periodicActionManager.elapsed}");
                   if (!streamController.isClosed) {
                     streamController
                         .add(periodicActionManager.elapsed + task!.elapsedTime);
@@ -208,7 +199,7 @@ class _TaskScreenState extends State<TaskDetailsScreen>
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       SizedBox(height: AppMetrices.verticalGap.h),
-                      BlocBuilder<QuoteViewmode, QuoteViewmodelState>(
+                      BlocBuilder<QuoteViewmodel, QuoteViewmodelState>(
                         builder: (context, state) {
                           if (state.quote == null) {
                             return const SizedBox();
@@ -364,6 +355,7 @@ class _TaskScreenState extends State<TaskDetailsScreen>
                                     context,
                                     message: 'task.remove'.tr(),
                                   );
+                                  context.pop();
                                 },
                               );
                             },

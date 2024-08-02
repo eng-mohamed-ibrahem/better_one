@@ -1,5 +1,6 @@
 import 'package:better_one/core/constants/constants.dart';
 import 'package:better_one/core/enum/language_enum.dart';
+import 'package:better_one/core/utils/dependency_locator/inject.dart';
 import 'package:better_one/view_models/setting_viewmodel/setting_viewmode.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
@@ -19,12 +20,10 @@ class LanguageSetting extends StatelessWidget {
           Text('setting.language.title'.tr()),
           const SizedBox(width: 10),
           DropdownMenu<String>(
-            initialSelection: SettingViewModel.get(context)
-                .state
-                .currentLanguage!
-                .languageCode,
+            initialSelection:
+                inject<SettingViewModel>().state.currentLanguage!.languageCode,
             onSelected: (value) async {
-              SettingViewModel.get(context).changeLanguage(Locale(value!));
+              inject<SettingViewModel>().changeLanguage(Locale(value!));
               await context
                   .setLocale(Locale(value))
                   .whenComplete(() => context.pop());

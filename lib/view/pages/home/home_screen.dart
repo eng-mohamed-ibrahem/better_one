@@ -1,4 +1,3 @@
-import 'package:better_one/config/navigation/app_navigation.dart';
 import 'package:better_one/config/navigation/routes_enum.dart';
 import 'package:better_one/core/utils/dependency_locator/dependency_injection.dart';
 import 'package:better_one/core/utils/methods/methods.dart';
@@ -29,19 +28,13 @@ class _HomeScreenState extends State<HomeScreen> with RouteAware {
   @override
   void initState() {
     _handleNotification();
-    WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
-      settingRepo.setOnBoardingSeen(true);
-    });
+    context.read<TaskViewmodel>().getTasks();
     super.initState();
   }
 
   @override
   didChangeDependencies() {
     routeObserver.subscribe(this, ModalRoute.of(context)!);
-    context.read<TaskViewmodel>().getTasks();
-    kDebugPrint(
-      '-----------------didChangeDependencies: home -----------------------',
-    );
     super.didChangeDependencies();
   }
 
@@ -51,15 +44,10 @@ class _HomeScreenState extends State<HomeScreen> with RouteAware {
       (payload) {
         if (payload!.isNotEmpty) {
           context.goNamed(Routes.taskDetail.name,
-              pathParameters: {'task_id': payload});
+              queryParameters: {'id': payload});
         }
       },
     );
-  }
-
-  @override
-  void didPopNext() {
-    AppNavigation.activeRoute = Routes.home.path;
   }
 
   @override
@@ -100,7 +88,6 @@ class _HomeScreenState extends State<HomeScreen> with RouteAware {
                     );
                   },
                   orElse: () {
-                    kDebugPrint("allTasksCompleted");
                     var allTasks = taskViewmodel.allTasks;
                     return allTasks.isEmpty
                         ? Center(
@@ -132,9 +119,6 @@ class _HomeScreenState extends State<HomeScreen> with RouteAware {
                                       MediaQuery.of(context).size.height * 0.1,
                                   child: state.maybeWhen(
                                     getTotalEstimatedTimeLoading: () {
-                                      return const SizedBox();
-                                    },
-                                    updateTotalEstimatedTimeLoading: () {
                                       return const SizedBox();
                                     },
                                     orElse: () {

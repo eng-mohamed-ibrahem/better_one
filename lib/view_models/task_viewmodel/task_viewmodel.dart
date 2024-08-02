@@ -7,6 +7,7 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:get_it/get_it.dart';
 
 part 'task_viewmodel.freezed.dart';
 part 'task_viewmodel_state.dart';
@@ -15,6 +16,7 @@ class TaskViewmodel extends Cubit<TaskViewmodelState> {
   TaskViewmodel({required this.taskRepo, required this.userRepo})
       : super(TaskViewmodelState.initial()) {
     scrollController = ScrollController();
+    GetIt.I.registerSingleton<TaskViewmodel>(this);
   }
   final TaskRepoInterface taskRepo;
   final UserRepoInterface userRepo;
@@ -52,6 +54,7 @@ class TaskViewmodel extends Cubit<TaskViewmodelState> {
     var result = await userRepo.addTask(task);
     result.when(
       success: (task) {
+        allTasks.add(task);
         emit(
           TaskViewmodelState.createTaskCompleted(createdTask: task),
         );
@@ -71,7 +74,10 @@ class TaskViewmodel extends Cubit<TaskViewmodelState> {
     var result = await userRepo.updateTask(oldTask, newTask);
     result.when(
       success: (updatedTask) {
+        int index = allTasks.indexOf(oldTask);
+        allTasks[index] = newTask;
         emit(TaskViewmodelState.updateTaskCompleted(updatedTask: updatedTask));
+        getTotalEstimatedTime();
       },
       failure: (error) {
         emit(
@@ -88,9 +94,11 @@ class TaskViewmodel extends Cubit<TaskViewmodelState> {
     var result = await userRepo.removeTask(deletedTask);
     result.when(
       success: (task) {
+        allTasks.remove(task);
         emit(
           TaskViewmodelState.deleteTaskCompleted(deletedTask: task),
         );
+        getTotalEstimatedTime();
       },
       failure: (error) {
         emit(
@@ -122,6 +130,7 @@ class TaskViewmodel extends Cubit<TaskViewmodelState> {
   }
 
   void getTotalEstimatedTime() async {
+    emit(TaskViewmodelState.getTotalEstimatedTimeLoading());
     var result = await taskRepo.getTotoalEstimatedTime();
     result.when(
       success: (totalTime) {
