@@ -22,7 +22,7 @@
                 <action android:name="android.intent.action.VIEW" />
                 <category android:name="android.intent.category.DEFAULT" />
                 <category android:name="android.intent.category.BROWSABLE" />
-                <data android:scheme="http" android:host="https://eng-mohamed-ibrahem.github.io/better_one" />
+                <data android:scheme="http" android:host="eng-mohamed-ibrahem.github.io/better_one" />
                 <data android:scheme="https" />
             </intent-filter>
 
