@@ -1,0 +1,14 @@
+[
+    {
+        "relation": [
+            "delegate_permission/common.handle_all_urls"
+        ],
+        "target": {
+            "namespace": "android_app",
+            "package_name": "com.example.better_one",
+            "sha256_cert_fingerprints": [
+                "B7:8A:6D:87:7C:AE:A1:F8:86:07:4D:18:A8:22:FF:5E:CF:09:2A:34:2F:1C:61:48:D4:83:EF:5B:7D:BE:09:50"
+            ]
+        }
+    }
+]

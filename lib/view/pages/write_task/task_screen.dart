@@ -355,6 +355,7 @@ class _TaskScreenState extends State<TaskDetailsScreen>
                                     context,
                                     message: 'task.remove'.tr(),
                                   );
+                                  // todo delete notification by id
                                   context.pop();
                                 },
                               );
