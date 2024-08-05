@@ -20,6 +20,7 @@ class CreateTaskScreen extends StatelessWidget {
   CreateTaskScreen({super.key});
   final TextEditingController titleController = TextEditingController();
   final TextEditingController descriptionController = TextEditingController();
+  final List<SubTask> subTasks = [];
 
   @override
   Widget build(BuildContext context) {
@@ -40,6 +41,7 @@ class CreateTaskScreen extends StatelessWidget {
             WriteTaskArea(
               titleController: titleController,
               descriptionController: descriptionController,
+              subTasks: subTasks,
             ),
             SizedBox(height: 150.h),
             BlocConsumer<TaskViewmodel, TaskViewmodelState>(
@@ -80,11 +82,11 @@ class CreateTaskScreen extends StatelessWidget {
                     return FilledButton.icon(
                       onPressed: () {
                         if (titleController.text.isNotEmpty &&
-                            descriptionController.text.isNotEmpty) {
+                            subTasks.isNotEmpty) {
                           var newTask = TaskModel(
                             id: const Uuid().v4(),
                             title: titleController.text,
-                            body: descriptionController.text,
+                            subTasks: subTasks,
                             createdAt: DateTime.now(),
                           );
                           context.read<TaskViewmodel>().createTask(newTask);

@@ -102,7 +102,6 @@ class _TaskScreenState extends State<TaskDetailsScreen>
             getTaskByIdCompleted: (taskById) {
               task = taskById;
               titleController.text = task!.title;
-              descriptionController.text = task!.body;
 
               /// initialize the timer action and assign action
               periodicActionManager = PeriodicActionManager(
@@ -233,6 +232,7 @@ class _TaskScreenState extends State<TaskDetailsScreen>
                       WriteTaskArea(
                         titleController: titleController,
                         descriptionController: descriptionController,
+                        subTasks: task!.subTasks,
                         onChanged: (value) {
                           isTaskModified
                               ? null
@@ -251,11 +251,10 @@ class _TaskScreenState extends State<TaskDetailsScreen>
                               ? FilledButton(
                                   onPressed: () {
                                     if (titleController.text.isNotEmpty &&
-                                        descriptionController.text.isNotEmpty) {
+                                        task!.subTasks.isNotEmpty) {
                                       // create new task and change the status to paused
                                       var newTask = task!.copyWith(
                                         title: titleController.text,
-                                        body: descriptionController.text,
                                         updatedAt: DateTime.now(),
                                         // elapsedTime:
                                         //     periodicActionManager.elapsed + task!.elapsedTime,
