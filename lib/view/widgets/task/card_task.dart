@@ -59,12 +59,15 @@ class CardTask extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.start,
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text(
-                      task.body,
-                      style: Theme.of(context).textTheme.bodyMedium,
-                      overflow: TextOverflow.fade,
-                      maxLines: 5,
-                    ),
+                    ...() {
+                      return List.generate(
+                        task.subTasks.length,
+                        (index) => Text(
+                          task.subTasks[index].title,
+                          style: Theme.of(context).textTheme.bodySmall,
+                        ),
+                      );
+                    }(),
                     SizedBox(
                       height: 10.h,
                     ),

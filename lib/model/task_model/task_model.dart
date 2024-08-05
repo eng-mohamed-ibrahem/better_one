@@ -4,12 +4,11 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 part 'task_model.freezed.dart';
 part 'task_model.g.dart';
 
-@freezed
+@Freezed(makeCollectionsUnmodifiable: false)
 class TaskModel with _$TaskModel {
   const factory TaskModel({
     required String title,
-    required String body,
-    @JsonKey(name: 'sub_tasks') @Default(<SubTask>[]) List<SubTask> subTasks,
+    @JsonKey(name: 'sub_tasks') required List<SubTask> subTasks,
     required String id,
     @JsonKey(name: 'created_at') required DateTime createdAt,
     @JsonKey(name: 'updated_at') DateTime? updatedAt,
@@ -22,4 +21,13 @@ class TaskModel with _$TaskModel {
       _$TaskModelFromJson(json);
 }
 
-typedef SubTask = ({String title, bool completed});
+@freezed
+class SubTask with _$SubTask {
+  const factory SubTask({
+    @Default(false) bool completed,
+    required String title,
+  }) = _SubTask;
+
+  factory SubTask.fromJson(Map<String, dynamic> json) =>
+      _$SubTaskFromJson(json);
+}

@@ -21,10 +21,8 @@ TaskModel _$TaskModelFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$TaskModel {
   String get title => throw _privateConstructorUsedError;
-  String get body => throw _privateConstructorUsedError;
   @JsonKey(name: 'sub_tasks')
-  List<({bool completed, String title})> get subTasks =>
-      throw _privateConstructorUsedError;
+  List<SubTask> get subTasks => throw _privateConstructorUsedError;
   String get id => throw _privateConstructorUsedError;
   @JsonKey(name: 'created_at')
   DateTime get createdAt => throw _privateConstructorUsedError;
@@ -48,9 +46,7 @@ abstract class $TaskModelCopyWith<$Res> {
   @useResult
   $Res call(
       {String title,
-      String body,
-      @JsonKey(name: 'sub_tasks')
-      List<({bool completed, String title})> subTasks,
+      @JsonKey(name: 'sub_tasks') List<SubTask> subTasks,
       String id,
       @JsonKey(name: 'created_at') DateTime createdAt,
       @JsonKey(name: 'updated_at') DateTime? updatedAt,
@@ -73,7 +69,6 @@ class _$TaskModelCopyWithImpl<$Res, $Val extends TaskModel>
   @override
   $Res call({
     Object? title = null,
-    Object? body = null,
     Object? subTasks = null,
     Object? id = null,
     Object? createdAt = null,
@@ -87,14 +82,10 @@ class _$TaskModelCopyWithImpl<$Res, $Val extends TaskModel>
           ? _value.title
           : title // ignore: cast_nullable_to_non_nullable
               as String,
-      body: null == body
-          ? _value.body
-          : body // ignore: cast_nullable_to_non_nullable
-              as String,
       subTasks: null == subTasks
           ? _value.subTasks
           : subTasks // ignore: cast_nullable_to_non_nullable
-              as List<({bool completed, String title})>,
+              as List<SubTask>,
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
@@ -133,9 +124,7 @@ abstract class _$$TaskModelImplCopyWith<$Res>
   @useResult
   $Res call(
       {String title,
-      String body,
-      @JsonKey(name: 'sub_tasks')
-      List<({bool completed, String title})> subTasks,
+      @JsonKey(name: 'sub_tasks') List<SubTask> subTasks,
       String id,
       @JsonKey(name: 'created_at') DateTime createdAt,
       @JsonKey(name: 'updated_at') DateTime? updatedAt,
@@ -156,7 +145,6 @@ class __$$TaskModelImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? title = null,
-    Object? body = null,
     Object? subTasks = null,
     Object? id = null,
     Object? createdAt = null,
@@ -170,14 +158,10 @@ class __$$TaskModelImplCopyWithImpl<$Res>
           ? _value.title
           : title // ignore: cast_nullable_to_non_nullable
               as String,
-      body: null == body
-          ? _value.body
-          : body // ignore: cast_nullable_to_non_nullable
-              as String,
       subTasks: null == subTasks
-          ? _value._subTasks
+          ? _value.subTasks
           : subTasks // ignore: cast_nullable_to_non_nullable
-              as List<({bool completed, String title})>,
+              as List<SubTask>,
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
@@ -211,16 +195,13 @@ class __$$TaskModelImplCopyWithImpl<$Res>
 class _$TaskModelImpl implements _TaskModel {
   const _$TaskModelImpl(
       {required this.title,
-      required this.body,
-      @JsonKey(name: 'sub_tasks')
-      final List<({bool completed, String title})> subTasks = const <SubTask>[],
+      @JsonKey(name: 'sub_tasks') required this.subTasks,
       required this.id,
       @JsonKey(name: 'created_at') required this.createdAt,
       @JsonKey(name: 'updated_at') this.updatedAt,
       @JsonKey(name: 'elapsed_time') this.elapsedTime = Duration.zero,
       this.status = TaskStatus.created,
-      this.backup = false})
-      : _subTasks = subTasks;
+      this.backup = false});
 
   factory _$TaskModelImpl.fromJson(Map<String, dynamic> json) =>
       _$$TaskModelImplFromJson(json);
@@ -228,16 +209,8 @@ class _$TaskModelImpl implements _TaskModel {
   @override
   final String title;
   @override
-  final String body;
-  final List<({bool completed, String title})> _subTasks;
-  @override
   @JsonKey(name: 'sub_tasks')
-  List<({bool completed, String title})> get subTasks {
-    if (_subTasks is EqualUnmodifiableListView) return _subTasks;
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_subTasks);
-  }
-
+  final List<SubTask> subTasks;
   @override
   final String id;
   @override
@@ -258,7 +231,7 @@ class _$TaskModelImpl implements _TaskModel {
 
   @override
   String toString() {
-    return 'TaskModel(title: $title, body: $body, subTasks: $subTasks, id: $id, createdAt: $createdAt, updatedAt: $updatedAt, elapsedTime: $elapsedTime, status: $status, backup: $backup)';
+    return 'TaskModel(title: $title, subTasks: $subTasks, id: $id, createdAt: $createdAt, updatedAt: $updatedAt, elapsedTime: $elapsedTime, status: $status, backup: $backup)';
   }
 
   @override
@@ -267,8 +240,7 @@ class _$TaskModelImpl implements _TaskModel {
         (other.runtimeType == runtimeType &&
             other is _$TaskModelImpl &&
             (identical(other.title, title) || other.title == title) &&
-            (identical(other.body, body) || other.body == body) &&
-            const DeepCollectionEquality().equals(other._subTasks, _subTasks) &&
+            const DeepCollectionEquality().equals(other.subTasks, subTasks) &&
             (identical(other.id, id) || other.id == id) &&
             (identical(other.createdAt, createdAt) ||
                 other.createdAt == createdAt) &&
@@ -285,8 +257,7 @@ class _$TaskModelImpl implements _TaskModel {
   int get hashCode => Object.hash(
       runtimeType,
       title,
-      body,
-      const DeepCollectionEquality().hash(_subTasks),
+      const DeepCollectionEquality().hash(subTasks),
       id,
       createdAt,
       updatedAt,
@@ -311,9 +282,7 @@ class _$TaskModelImpl implements _TaskModel {
 abstract class _TaskModel implements TaskModel {
   const factory _TaskModel(
       {required final String title,
-      required final String body,
-      @JsonKey(name: 'sub_tasks')
-      final List<({bool completed, String title})> subTasks,
+      @JsonKey(name: 'sub_tasks') required final List<SubTask> subTasks,
       required final String id,
       @JsonKey(name: 'created_at') required final DateTime createdAt,
       @JsonKey(name: 'updated_at') final DateTime? updatedAt,
@@ -327,10 +296,8 @@ abstract class _TaskModel implements TaskModel {
   @override
   String get title;
   @override
-  String get body;
-  @override
   @JsonKey(name: 'sub_tasks')
-  List<({bool completed, String title})> get subTasks;
+  List<SubTask> get subTasks;
   @override
   String get id;
   @override
@@ -349,5 +316,156 @@ abstract class _TaskModel implements TaskModel {
   @override
   @JsonKey(ignore: true)
   _$$TaskModelImplCopyWith<_$TaskModelImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+SubTask _$SubTaskFromJson(Map<String, dynamic> json) {
+  return _SubTask.fromJson(json);
+}
+
+/// @nodoc
+mixin _$SubTask {
+  bool get completed => throw _privateConstructorUsedError;
+  String get title => throw _privateConstructorUsedError;
+
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  $SubTaskCopyWith<SubTask> get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $SubTaskCopyWith<$Res> {
+  factory $SubTaskCopyWith(SubTask value, $Res Function(SubTask) then) =
+      _$SubTaskCopyWithImpl<$Res, SubTask>;
+  @useResult
+  $Res call({bool completed, String title});
+}
+
+/// @nodoc
+class _$SubTaskCopyWithImpl<$Res, $Val extends SubTask>
+    implements $SubTaskCopyWith<$Res> {
+  _$SubTaskCopyWithImpl(this._value, this._then);
+
+  // ignore: unused_field
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? completed = null,
+    Object? title = null,
+  }) {
+    return _then(_value.copyWith(
+      completed: null == completed
+          ? _value.completed
+          : completed // ignore: cast_nullable_to_non_nullable
+              as bool,
+      title: null == title
+          ? _value.title
+          : title // ignore: cast_nullable_to_non_nullable
+              as String,
+    ) as $Val);
+  }
+}
+
+/// @nodoc
+abstract class _$$SubTaskImplCopyWith<$Res> implements $SubTaskCopyWith<$Res> {
+  factory _$$SubTaskImplCopyWith(
+          _$SubTaskImpl value, $Res Function(_$SubTaskImpl) then) =
+      __$$SubTaskImplCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call({bool completed, String title});
+}
+
+/// @nodoc
+class __$$SubTaskImplCopyWithImpl<$Res>
+    extends _$SubTaskCopyWithImpl<$Res, _$SubTaskImpl>
+    implements _$$SubTaskImplCopyWith<$Res> {
+  __$$SubTaskImplCopyWithImpl(
+      _$SubTaskImpl _value, $Res Function(_$SubTaskImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? completed = null,
+    Object? title = null,
+  }) {
+    return _then(_$SubTaskImpl(
+      completed: null == completed
+          ? _value.completed
+          : completed // ignore: cast_nullable_to_non_nullable
+              as bool,
+      title: null == title
+          ? _value.title
+          : title // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+@JsonSerializable()
+class _$SubTaskImpl implements _SubTask {
+  const _$SubTaskImpl({this.completed = false, required this.title});
+
+  factory _$SubTaskImpl.fromJson(Map<String, dynamic> json) =>
+      _$$SubTaskImplFromJson(json);
+
+  @override
+  @JsonKey()
+  final bool completed;
+  @override
+  final String title;
+
+  @override
+  String toString() {
+    return 'SubTask(completed: $completed, title: $title)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$SubTaskImpl &&
+            (identical(other.completed, completed) ||
+                other.completed == completed) &&
+            (identical(other.title, title) || other.title == title));
+  }
+
+  @JsonKey(ignore: true)
+  @override
+  int get hashCode => Object.hash(runtimeType, completed, title);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$SubTaskImplCopyWith<_$SubTaskImpl> get copyWith =>
+      __$$SubTaskImplCopyWithImpl<_$SubTaskImpl>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$SubTaskImplToJson(
+      this,
+    );
+  }
+}
+
+abstract class _SubTask implements SubTask {
+  const factory _SubTask({final bool completed, required final String title}) =
+      _$SubTaskImpl;
+
+  factory _SubTask.fromJson(Map<String, dynamic> json) = _$SubTaskImpl.fromJson;
+
+  @override
+  bool get completed;
+  @override
+  String get title;
+  @override
+  @JsonKey(ignore: true)
+  _$$SubTaskImplCopyWith<_$SubTaskImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

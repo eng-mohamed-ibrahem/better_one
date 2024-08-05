@@ -6,7 +6,7 @@ import '../../../core/constants/constants.dart';
 class TaskField extends StatelessWidget {
   const TaskField({
     super.key,
-    required this.controller,
+    this.controller,
     this.minLines,
     this.maxLines,
     this.hintText,
@@ -15,8 +15,9 @@ class TaskField extends StatelessWidget {
     this.prefixIcon,
     this.validator,
     this.onChanged,
+    this.initialValue,
   });
-  final TextEditingController controller;
+  final TextEditingController? controller;
   final int? minLines;
   final int? maxLines;
   final String? hintText;
@@ -25,6 +26,7 @@ class TaskField extends StatelessWidget {
   final Widget? prefixIcon;
   final String? Function(String?)? validator;
   final Function(String)? onChanged;
+  final String? initialValue;
 
   @override
   Widget build(BuildContext context) {
@@ -33,6 +35,7 @@ class TaskField extends StatelessWidget {
         horizontal: AppMetrices.horizontalGap2.w,
       ),
       child: TextFormField(
+        initialValue: initialValue,
         controller: controller,
         validator: validator,
         onChanged: onChanged,

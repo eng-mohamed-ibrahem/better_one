@@ -12,7 +12,7 @@
         "ex_session": "Session is Expired",
         "login_req": "Login is required firstly",
         "wrong": "Something went wrong. Please try again later",
-        "error":"Oobs, there something unexpected happened. Please try again later"
+        "error": "Oobs, there something unexpected happened. Please try again later"
     },
     "onboarding": {
         "1": {
@@ -40,6 +40,7 @@
         "create": "Create Task",
         "empty": "No tasks found",
         "add": "Add Task",
+        "add_sub_task": "Add sub-task",
         "title": "your task which you will achieve",
         "description": "feel free to say what you want to achieve",
         "motive_add": "Let's Finish What We Start",
