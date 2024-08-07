@@ -69,6 +69,11 @@ class CacheFailure extends Failure {
   CacheFailure({required super.message});
 }
 
+class FirebaseFailure extends Failure {
+  final String code;
+  FirebaseFailure({required this.code, required super.message});
+}
+
 class NoInternetFailure extends Failure {
   NoInternetFailure({required super.message});
 }

@@ -14,6 +14,9 @@ class UserRepoImpl implements UserRepoInterface {
       {required this.localeUserSource, required this.remoteUserSource});
   final LocaleUserSource localeUserSource;
   final RemoteUserSource remoteUserSource;
+
+  /// [getUserDetails] to get user details
+  ///
   @override
   Future<ResultHandler<UserModel?, Failure>> getUserDetails() async {
     var connected = await NetworkConnection.isConnected();
@@ -25,6 +28,8 @@ class UserRepoImpl implements UserRepoInterface {
     }
   }
 
+  /// [logOut] to log out user
+  /// only if user is connected
   @override
   Future<ResultHandler<bool, Failure>> logOut() async {
     var connected = await NetworkConnection.isConnected();
@@ -36,6 +41,8 @@ class UserRepoImpl implements UserRepoInterface {
     }
   }
 
+  /// [updateUserDetails] to update user details
+  /// only if user is connected
   @override
   Future<ResultHandler<UserModel?, Failure>> updateUserDetails(
       {String? newEmail, String? newPassword, String? newDisplayName}) async {
@@ -52,41 +59,93 @@ class UserRepoImpl implements UserRepoInterface {
     }
   }
 
+  /// [addTask] to add task
+  ///
+  /// This function add task to database and also to server if user is connected to internet
+  ///
   @override
   Future<ResultHandler<TaskModel, Failure>> addTask(TaskModel task) async {
-    // var connected = await NetworkConnection.isConnected();
-    // if (connected) {
-    //   return await remoteUserSource.addTask(task);
-    // }
-    return await localeUserSource.addTask(task);
+    var connected = await NetworkConnection.isConnected();
+    if (connected) {
+      var result = await remoteUserSource.addTask(task);
+      return result.when(
+        success: (addedTask) async {
+          /// add task to locale database after adding task to server
+          await localeUserSource.addTask(task);
+          return ResultHandler.success(data: addedTask);
+        },
+        failure: (failure) async {
+          return await localeUserSource.addTask(task);
+        },
+      );
+    } else {
+      return await localeUserSource.addTask(task);
+    }
   }
 
+  /// [removeTask] to remove task
+  ///
+  /// This function remove task from database and also from server if user is connected to internet
   @override
   Future<ResultHandler<TaskModel, Failure>> removeTask(
       TaskModel removedTask) async {
-    // var connected = await NetworkConnection.isConnected();
-    // if (connected) {
-    //   return await remoteUserSource.removeTask(removedTask);
-    // }
-    return await localeUserSource.removeTask(removedTask);
+    var connected = await NetworkConnection.isConnected();
+    if (connected) {
+      var result = await remoteUserSource.removeTask(removedTask);
+      return result.when(
+        success: (removedTask) async {
+          await localeUserSource.removeTask(removedTask);
+          return ResultHandler.success(data: removedTask);
+        },
+        failure: (failure) async {
+          return await localeUserSource.removeTask(removedTask);
+        },
+      );
+    } else {
+      return await localeUserSource.removeTask(removedTask);
+    }
   }
 
+  /// [updateTask] to update task
+  ///
+  /// This function update task in database and also in server if user is connected to internet
   @override
   Future<ResultHandler<TaskModel, Failure>> updateTask(
       TaskModel oldTask, TaskModel newTask) async {
-    // var connected = await NetworkConnection.isConnected();
-    // if (connected) {
-    //   return await remoteUserSource.updateTask(oldTask, newTask);
-    // }
+    var connected = await NetworkConnection.isConnected();
+    if (connected) {
+      var result = await remoteUserSource.updateTask(oldTask, newTask);
+      return result.when(
+        success: (updatedTask) async {
+          await localeUserSource.updateTask(oldTask, newTask);
+          return ResultHandler.success(data: updatedTask);
+        },
+        failure: (failure) async {
+          return await localeUserSource.updateTask(oldTask, newTask);
+        },
+      );
+    }
     return await localeUserSource.updateTask(oldTask, newTask);
   }
 
+  /// [getTaskById] to get task by id
+  ///
+  /// in case of internet get from server else, get task from database
   @override
   Future<ResultHandler<TaskModel?, Failure>> getTaskById(String id) async {
-    // var connected = await NetworkConnection.isConnected();
-    // if (connected) {
-    //   return await remoteUserSource.getTaskById(id);
-    // }
-    return await localeUserSource.getTaskById(id);
+    var connected = await NetworkConnection.isConnected();
+    if (connected) {
+      var result = await remoteUserSource.getTaskById(id);
+      return result.when(
+        success: (task) async {
+          return ResultHandler.success(data: task);
+        },
+        failure: (failure) async {
+          return await localeUserSource.getTaskById(id);
+        },
+      );
+    } else {
+      return await localeUserSource.getTaskById(id);
+    }
   }
 }

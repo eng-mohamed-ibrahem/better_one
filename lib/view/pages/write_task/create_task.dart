@@ -40,7 +40,6 @@ class CreateTaskScreen extends StatelessWidget {
             SizedBox(height: 20.h),
             WriteTaskArea(
               titleController: titleController,
-              descriptionController: descriptionController,
               subTasks: subTasks,
             ),
             SizedBox(height: 150.h),

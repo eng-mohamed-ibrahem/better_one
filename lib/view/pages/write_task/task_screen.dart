@@ -35,7 +35,6 @@ class TaskDetailsScreen extends StatefulWidget {
 class _TaskScreenState extends State<TaskDetailsScreen>
     with TickerProviderStateMixin, WidgetsBindingObserver {
   final TextEditingController titleController = TextEditingController();
-  final TextEditingController descriptionController = TextEditingController();
 
   /// [task] is the corresponding task to id
   TaskModel? task;
@@ -231,7 +230,6 @@ class _TaskScreenState extends State<TaskDetailsScreen>
                       SizedBox(height: AppMetrices.verticalGap2.h),
                       WriteTaskArea(
                         titleController: titleController,
-                        descriptionController: descriptionController,
                         subTasks: task!.subTasks,
                         onChanged: (value) {
                           isTaskModified

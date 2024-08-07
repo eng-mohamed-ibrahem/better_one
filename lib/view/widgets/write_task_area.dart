@@ -9,13 +9,11 @@ class WriteTaskArea extends StatefulWidget {
   const WriteTaskArea({
     super.key,
     required this.titleController,
-    required this.descriptionController,
     required this.subTasks,
     this.onChanged,
   });
 
   final TextEditingController titleController;
-  final TextEditingController descriptionController;
   final dynamic Function(String)? onChanged;
   final List<SubTask> subTasks;
 

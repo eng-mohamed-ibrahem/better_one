@@ -109,7 +109,6 @@ class _SettingScreenState extends State<SettingScreen> with RouteAware {
             separatorBuilder: (context, index) => const Divider(
               thickness: 2,
               color: AppColors.secondColor,
-              height: 10,
               indent: 20,
               endIndent: 20,
             ),

@@ -11,14 +11,14 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 
-class AccountSettingScreen extends StatefulWidget {
-  const AccountSettingScreen({super.key});
+class ProfileSettingScreen extends StatefulWidget {
+  const ProfileSettingScreen({super.key});
 
   @override
-  State<AccountSettingScreen> createState() => _AccountSettingScreenState();
+  State<ProfileSettingScreen> createState() => _ProfileSettingScreenState();
 }
 
-class _AccountSettingScreenState extends State<AccountSettingScreen> {
+class _ProfileSettingScreenState extends State<ProfileSettingScreen> {
   final TextEditingController controller = TextEditingController();
   @override
   void initState() {
@@ -46,7 +46,6 @@ class _AccountSettingScreenState extends State<AccountSettingScreen> {
         }
         if (state.isLogoutSuccess) {
           context.pop();
-
           userLocaleDatabase.deleteUser();
           context.goNamed(Routes.login.name);
         }
