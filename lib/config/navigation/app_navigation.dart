@@ -165,9 +165,11 @@ class AppNavigation {
                   );
                 },
                 redirect: (context, state) {
-                  return userLocaleDatabase.getUserIdFromLocale() != null
-                      ? null
-                      : state.namedLocation(Routes.login.name);
+                  return state.topRoute!.path.contains(Routes.profile.path)
+                      ? userLocaleDatabase.getUserIdFromLocale() != null
+                          ? null
+                          : state.namedLocation(Routes.login.name)
+                      : null;
                 },
                 routes: [
                   GoRoute(

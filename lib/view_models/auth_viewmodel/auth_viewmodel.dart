@@ -5,15 +5,12 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:get_it/get_it.dart';
 
 part 'auth_viewmodel.freezed.dart';
 part 'auth_viewmodel_state.dart';
 
 class AuthViewmodel extends Cubit<AuthViewmodelState> {
-  AuthViewmodel({required this.authRepo}) : super(const AuthViewmodelState()) {
-    GetIt.I.registerSingleton<AuthViewmodel>(this);
-  }
+  AuthViewmodel({required this.authRepo}) : super(const AuthViewmodelState()) ;
   final AuthRepoInterface authRepo;
   static AuthViewmodel get(BuildContext context) =>
       BlocProvider.of<AuthViewmodel>(context);

@@ -7,16 +7,16 @@ environment:
   sdk: '>=3.2.6 <4.0.0'
 
 dependencies:
-  connectivity_plus: ^2.3.8
+  connectivity_plus: ^6.0.4
   dio: ^5.4.1
   easy_localization: ^3.0.4
   flutter:
     sdk: flutter
   flutter_bloc: ^8.1.4
-  flutter_local_notifications: ^16.3.2
+  flutter_local_notifications: ^17.2.1+2
   flutter_screenutil: ^5.9.0
   flutter_svg: ^2.0.10+1
-  flutter_timezone: ^1.0.8
+  flutter_timezone: ^2.1.0
   font_awesome_flutter: ^10.7.0
   freezed_annotation: ^2.4.1
   get_it: ^7.6.7
@@ -30,19 +30,19 @@ dependencies:
   shared_preferences: ^2.2.2
   shimmer: ^3.0.0
   feedback: ^3.0.1
-  device_info_plus: ^9.1.2
-  package_info_plus: ^5.0.1
+  device_info_plus: ^10.1.1
+  package_info_plus: ^8.0.1
   uuid: ^4.4.0
   go_router: ^14.2.1
-  firebase_core: ^2.27.0
-  firebase_auth: ^4.17.8
-  firebase_messaging: 
-  cloud_firestore: ^4.15.8
+  firebase_core: ^3.3.0
+  firebase_auth: ^5.1.4
+  firebase_messaging: ^15.0.4
+  cloud_firestore: ^5.2.1
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  flutter_lints: ^3.0.1
+  flutter_lints: ^4.0.0
   build_runner: ^2.4.8
   freezed: ^2.4.7
   json_serializable: ^6.7.1

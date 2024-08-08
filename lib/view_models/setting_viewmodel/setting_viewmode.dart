@@ -5,7 +5,6 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:get_it/get_it.dart';
 
 import '../../core/constants/constants.dart';
 
@@ -14,9 +13,7 @@ part 'setting_viewmode_state.dart';
 
 class SettingViewModel extends Cubit<SettingViewModelState> {
   SettingViewModel({required this.settingsRepo})
-      : super(const SettingViewModelState()) {
-    GetIt.I.registerSingleton<SettingViewModel>(this);
-  }
+      : super(const SettingViewModelState());
   final SettingsRepoInterface settingsRepo;
 
   static SettingViewModel get(context) =>
