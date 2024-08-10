@@ -36,77 +36,94 @@ class _ProfileSettingScreenState extends State<ProfileSettingScreen> {
   Widget build(BuildContext context) {
     return BlocConsumer<UserViewmodel, UserViewmodelState>(
       listener: (context, state) {
-        if (state.isGetUserDetailsSuccess && state.user == null) {
-          showSnackBar(context, message: 'core.ex_session'.tr());
-          userLocaleDatabase.deleteUser();
-          context.goNamed(Routes.login.name);
-        }
-        if (state.isLogoutLoading) {
-          showLoadingDialog(context);
-        }
-        if (state.isLogoutSuccess) {
-          context.pop();
-          userLocaleDatabase.deleteUser();
-          context.goNamed(Routes.login.name);
-        }
+        state.whenOrNull(
+          getUserDetailsSuccess: (user) {
+            if (user == null) {
+              showSnackBar(context, message: 'core.ex_session'.tr());
+              userLocaleDatabase.deleteUser();
+              context.goNamed(Routes.login.name);
+            }
+          },
+          logoutLoading: () {
+            showLoadingDialog(context);
+          },
+          logoutSuccess: () {
+            context.pop();
+            userLocaleDatabase.deleteUser();
+            context.goNamed(Routes.login.name);
+          },
+        );
       },
       builder: (context, state) {
-        return Scaffold(
-          appBar: (state.isGetUserDetailsSuccess && state.user != null)
-              ? AppBar(
-                  centerTitle: false,
-                  automaticallyImplyLeading: false,
-                  backgroundColor: Theme.of(context).secondaryHeaderColor,
-                  title: Text(
-                    'setting.account.welcome'
-                        .tr(namedArgs: {"name": state.user!.name}),
-                    style: Theme.of(context).textTheme.titleLarge,
-                  ),
-                  actions: [
-                    IconButton(
-                      onPressed: () {
-                        showLogoutDialog(context, onConfirm: () {
-                          context.read<UserViewmodel>().logout();
-                        });
-                      },
-                      icon: const Icon(Icons.logout_rounded),
+        return state.maybeWhen(
+          getUserDetailsFailed: (message) {
+            return Scaffold(
+              body: Center(
+                child: Failed(
+                  failedAsset: LottieAssets.error,
+                  retry: () {
+                    context.read<UserViewmodel>().getUserDetails();
+                  },
+                  errorMessage: message,
+                ),
+              ),
+            );
+          },
+          getUserDetailsLoading: () {
+            return const Scaffold(
+              body: Center(
+                child: LottieIndicator(
+                  statusAssets: LottieAssets.loadingFromToDatabase,
+                ),
+              ),
+            );
+          },
+          orElse: () {
+            return SingleChildScrollView(
+              padding: const EdgeInsets.all(AppMetrices.padding),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  AppBar(
+                    centerTitle: false,
+                    automaticallyImplyLeading: false,
+                    backgroundColor: Theme.of(context).secondaryHeaderColor,
+                    title: Text(
+                      'setting.account.welcome'.tr(namedArgs: {
+                        "name":
+                            context.read<UserViewmodel>().user?.name ?? 'name'
+                      }),
+                      style: Theme.of(context).textTheme.titleLarge,
                     ),
-                  ],
-                )
-              : null,
-          body: (state.isGetUserDetailsSuccess && state.user != null)
-              ? SingleChildScrollView(
-                  padding: const EdgeInsets.all(AppMetrices.padding),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      const SizedBox(height: AppMetrices.verticalGap),
-                      AuthField(
-                        controller: controller..text = state.user!.email,
-                        readOnly: true,
-                        prefixIcon: Icon(Icons.email_rounded,
-                            color: Theme.of(context).iconTheme.color),
-                        validator: Validators.validateEmail,
+                    actions: [
+                      IconButton(
+                        onPressed: () {
+                          showLogoutDialog(
+                            context,
+                            onConfirm: () {
+                              context.read<UserViewmodel>().logout();
+                            },
+                          );
+                        },
+                        icon: const Icon(Icons.logout_rounded),
                       ),
-                      const SizedBox(height: AppMetrices.verticalGap),
                     ],
                   ),
-                )
-              : (state.isGetUserDetailsFailed)
-                  ? Center(
-                      child: Failed(
-                        failedAsset: LottieAssets.error,
-                        retry: () {
-                          context.read<UserViewmodel>().getUserDetails();
-                        },
-                        errorMessage: state.errorMessage,
-                      ),
-                    )
-                  : const Center(
-                      child: LottieIndicator(
-                        statusAssets: LottieAssets.loadingFromToDatabase,
-                      ),
-                    ),
+                  const SizedBox(height: AppMetrices.verticalGap),
+                  AuthField(
+                    controller: controller
+                      ..text =
+                          context.read<UserViewmodel>().user?.email ?? 'email',
+                    readOnly: true,
+                    prefixIcon: Icon(Icons.email_rounded,
+                        color: Theme.of(context).iconTheme.color),
+                    validator: Validators.validateEmail,
+                  ),
+                  const SizedBox(height: AppMetrices.verticalGap),
+                ],
+              ),
+            );
+          },
         );
       },
     );

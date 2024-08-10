@@ -273,6 +273,9 @@ class _$TaskViewmodelStateCopyWithImpl<$Res, $Val extends TaskViewmodelState>
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
+
+  /// Create a copy of TaskViewmodelState
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -289,12 +292,15 @@ class __$$InitialImplCopyWithImpl<$Res>
   __$$InitialImplCopyWithImpl(
       _$InitialImpl _value, $Res Function(_$InitialImpl) _then)
       : super(_value, _then);
+
+  /// Create a copy of TaskViewmodelState
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
 
 class _$InitialImpl implements _Initial {
-  _$InitialImpl();
+  const _$InitialImpl();
 
   @override
   String toString() {
@@ -575,7 +581,7 @@ class _$InitialImpl implements _Initial {
 }
 
 abstract class _Initial implements TaskViewmodelState {
-  factory _Initial() = _$InitialImpl;
+  const factory _Initial() = _$InitialImpl;
 }
 
 /// @nodoc
@@ -592,12 +598,15 @@ class __$$AllTasksLoadingImplCopyWithImpl<$Res>
   __$$AllTasksLoadingImplCopyWithImpl(
       _$AllTasksLoadingImpl _value, $Res Function(_$AllTasksLoadingImpl) _then)
       : super(_value, _then);
+
+  /// Create a copy of TaskViewmodelState
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
 
 class _$AllTasksLoadingImpl implements _AllTasksLoading {
-  _$AllTasksLoadingImpl();
+  const _$AllTasksLoadingImpl();
 
   @override
   String toString() {
@@ -878,7 +887,7 @@ class _$AllTasksLoadingImpl implements _AllTasksLoading {
 }
 
 abstract class _AllTasksLoading implements TaskViewmodelState {
-  factory _AllTasksLoading() = _$AllTasksLoadingImpl;
+  const factory _AllTasksLoading() = _$AllTasksLoadingImpl;
 }
 
 /// @nodoc
@@ -898,6 +907,8 @@ class __$$AllTasksCompletedImplCopyWithImpl<$Res>
       $Res Function(_$AllTasksCompletedImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of TaskViewmodelState
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -915,7 +926,7 @@ class __$$AllTasksCompletedImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$AllTasksCompletedImpl implements _AllTasksCompleted {
-  _$AllTasksCompletedImpl({required this.allTasks});
+  const _$AllTasksCompletedImpl({required this.allTasks});
 
   @override
   final List<TaskModel> allTasks;
@@ -937,7 +948,9 @@ class _$AllTasksCompletedImpl implements _AllTasksCompleted {
   int get hashCode =>
       Object.hash(runtimeType, const DeepCollectionEquality().hash(allTasks));
 
-  @JsonKey(ignore: true)
+  /// Create a copy of TaskViewmodelState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$AllTasksCompletedImplCopyWith<_$AllTasksCompletedImpl> get copyWith =>
@@ -1209,11 +1222,14 @@ class _$AllTasksCompletedImpl implements _AllTasksCompleted {
 }
 
 abstract class _AllTasksCompleted implements TaskViewmodelState {
-  factory _AllTasksCompleted({required final List<TaskModel> allTasks}) =
+  const factory _AllTasksCompleted({required final List<TaskModel> allTasks}) =
       _$AllTasksCompletedImpl;
 
   List<TaskModel> get allTasks;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of TaskViewmodelState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$AllTasksCompletedImplCopyWith<_$AllTasksCompletedImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -1235,6 +1251,8 @@ class __$$AllTasksFailedImplCopyWithImpl<$Res>
       _$AllTasksFailedImpl _value, $Res Function(_$AllTasksFailedImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of TaskViewmodelState
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -1252,7 +1270,7 @@ class __$$AllTasksFailedImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$AllTasksFailedImpl implements _AllTasksFailed {
-  _$AllTasksFailedImpl({required this.message});
+  const _$AllTasksFailedImpl({required this.message});
 
   @override
   final String message;
@@ -1273,7 +1291,9 @@ class _$AllTasksFailedImpl implements _AllTasksFailed {
   @override
   int get hashCode => Object.hash(runtimeType, message);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of TaskViewmodelState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$AllTasksFailedImplCopyWith<_$AllTasksFailedImpl> get copyWith =>
@@ -1545,11 +1565,14 @@ class _$AllTasksFailedImpl implements _AllTasksFailed {
 }
 
 abstract class _AllTasksFailed implements TaskViewmodelState {
-  factory _AllTasksFailed({required final String message}) =
+  const factory _AllTasksFailed({required final String message}) =
       _$AllTasksFailedImpl;
 
   String get message;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of TaskViewmodelState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$AllTasksFailedImplCopyWith<_$AllTasksFailedImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -1568,12 +1591,15 @@ class __$$SearchLoadingImplCopyWithImpl<$Res>
   __$$SearchLoadingImplCopyWithImpl(
       _$SearchLoadingImpl _value, $Res Function(_$SearchLoadingImpl) _then)
       : super(_value, _then);
+
+  /// Create a copy of TaskViewmodelState
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
 
 class _$SearchLoadingImpl implements _SearchLoading {
-  _$SearchLoadingImpl();
+  const _$SearchLoadingImpl();
 
   @override
   String toString() {
@@ -1854,7 +1880,7 @@ class _$SearchLoadingImpl implements _SearchLoading {
 }
 
 abstract class _SearchLoading implements TaskViewmodelState {
-  factory _SearchLoading() = _$SearchLoadingImpl;
+  const factory _SearchLoading() = _$SearchLoadingImpl;
 }
 
 /// @nodoc
@@ -1874,6 +1900,8 @@ class __$$SearchCompletedImplCopyWithImpl<$Res>
       _$SearchCompletedImpl _value, $Res Function(_$SearchCompletedImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of TaskViewmodelState
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -1891,7 +1919,7 @@ class __$$SearchCompletedImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$SearchCompletedImpl implements _SearchCompleted {
-  _$SearchCompletedImpl({required this.searchedTasks});
+  const _$SearchCompletedImpl({required this.searchedTasks});
 
   @override
   final List<TaskModel> searchedTasks;
@@ -1914,7 +1942,9 @@ class _$SearchCompletedImpl implements _SearchCompleted {
   int get hashCode => Object.hash(
       runtimeType, const DeepCollectionEquality().hash(searchedTasks));
 
-  @JsonKey(ignore: true)
+  /// Create a copy of TaskViewmodelState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$SearchCompletedImplCopyWith<_$SearchCompletedImpl> get copyWith =>
@@ -2186,11 +2216,14 @@ class _$SearchCompletedImpl implements _SearchCompleted {
 }
 
 abstract class _SearchCompleted implements TaskViewmodelState {
-  factory _SearchCompleted({required final List<TaskModel> searchedTasks}) =
-      _$SearchCompletedImpl;
+  const factory _SearchCompleted(
+      {required final List<TaskModel> searchedTasks}) = _$SearchCompletedImpl;
 
   List<TaskModel> get searchedTasks;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of TaskViewmodelState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$SearchCompletedImplCopyWith<_$SearchCompletedImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -2212,6 +2245,8 @@ class __$$SearchFailedImplCopyWithImpl<$Res>
       _$SearchFailedImpl _value, $Res Function(_$SearchFailedImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of TaskViewmodelState
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -2229,7 +2264,7 @@ class __$$SearchFailedImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$SearchFailedImpl implements _SearchFailed {
-  _$SearchFailedImpl({required this.message});
+  const _$SearchFailedImpl({required this.message});
 
   @override
   final String message;
@@ -2250,7 +2285,9 @@ class _$SearchFailedImpl implements _SearchFailed {
   @override
   int get hashCode => Object.hash(runtimeType, message);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of TaskViewmodelState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$SearchFailedImplCopyWith<_$SearchFailedImpl> get copyWith =>
@@ -2521,10 +2558,14 @@ class _$SearchFailedImpl implements _SearchFailed {
 }
 
 abstract class _SearchFailed implements TaskViewmodelState {
-  factory _SearchFailed({required final String message}) = _$SearchFailedImpl;
+  const factory _SearchFailed({required final String message}) =
+      _$SearchFailedImpl;
 
   String get message;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of TaskViewmodelState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$SearchFailedImplCopyWith<_$SearchFailedImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -2546,13 +2587,16 @@ class __$$GetTotalEstimatedTimeLoadingImplCopyWithImpl<$Res>
       _$GetTotalEstimatedTimeLoadingImpl _value,
       $Res Function(_$GetTotalEstimatedTimeLoadingImpl) _then)
       : super(_value, _then);
+
+  /// Create a copy of TaskViewmodelState
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
 
 class _$GetTotalEstimatedTimeLoadingImpl
     implements _GetTotalEstimatedTimeLoading {
-  _$GetTotalEstimatedTimeLoadingImpl();
+  const _$GetTotalEstimatedTimeLoadingImpl();
 
   @override
   String toString() {
@@ -2834,7 +2878,8 @@ class _$GetTotalEstimatedTimeLoadingImpl
 }
 
 abstract class _GetTotalEstimatedTimeLoading implements TaskViewmodelState {
-  factory _GetTotalEstimatedTimeLoading() = _$GetTotalEstimatedTimeLoadingImpl;
+  const factory _GetTotalEstimatedTimeLoading() =
+      _$GetTotalEstimatedTimeLoadingImpl;
 }
 
 /// @nodoc
@@ -2857,6 +2902,8 @@ class __$$GetTotalEstimatedTimeCompletedImplCopyWithImpl<$Res>
       $Res Function(_$GetTotalEstimatedTimeCompletedImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of TaskViewmodelState
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -2875,7 +2922,8 @@ class __$$GetTotalEstimatedTimeCompletedImplCopyWithImpl<$Res>
 
 class _$GetTotalEstimatedTimeCompletedImpl
     implements _GetTotalEstimatedTimeCompleted {
-  _$GetTotalEstimatedTimeCompletedImpl({required this.totalEstimatedTime});
+  const _$GetTotalEstimatedTimeCompletedImpl(
+      {required this.totalEstimatedTime});
 
   @override
   final Duration totalEstimatedTime;
@@ -2897,7 +2945,9 @@ class _$GetTotalEstimatedTimeCompletedImpl
   @override
   int get hashCode => Object.hash(runtimeType, totalEstimatedTime);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of TaskViewmodelState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$GetTotalEstimatedTimeCompletedImplCopyWith<
@@ -3170,12 +3220,15 @@ class _$GetTotalEstimatedTimeCompletedImpl
 }
 
 abstract class _GetTotalEstimatedTimeCompleted implements TaskViewmodelState {
-  factory _GetTotalEstimatedTimeCompleted(
+  const factory _GetTotalEstimatedTimeCompleted(
           {required final Duration totalEstimatedTime}) =
       _$GetTotalEstimatedTimeCompletedImpl;
 
   Duration get totalEstimatedTime;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of TaskViewmodelState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$GetTotalEstimatedTimeCompletedImplCopyWith<
           _$GetTotalEstimatedTimeCompletedImpl>
       get copyWith => throw _privateConstructorUsedError;
@@ -3201,6 +3254,8 @@ class __$$GetTotalEstimatedTimeFailedImplCopyWithImpl<$Res>
       $Res Function(_$GetTotalEstimatedTimeFailedImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of TaskViewmodelState
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -3219,7 +3274,7 @@ class __$$GetTotalEstimatedTimeFailedImplCopyWithImpl<$Res>
 
 class _$GetTotalEstimatedTimeFailedImpl
     implements _GetTotalEstimatedTimeFailed {
-  _$GetTotalEstimatedTimeFailedImpl({required this.message});
+  const _$GetTotalEstimatedTimeFailedImpl({required this.message});
 
   @override
   final String message;
@@ -3240,7 +3295,9 @@ class _$GetTotalEstimatedTimeFailedImpl
   @override
   int get hashCode => Object.hash(runtimeType, message);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of TaskViewmodelState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$GetTotalEstimatedTimeFailedImplCopyWith<_$GetTotalEstimatedTimeFailedImpl>
@@ -3512,11 +3569,14 @@ class _$GetTotalEstimatedTimeFailedImpl
 }
 
 abstract class _GetTotalEstimatedTimeFailed implements TaskViewmodelState {
-  factory _GetTotalEstimatedTimeFailed({required final String message}) =
+  const factory _GetTotalEstimatedTimeFailed({required final String message}) =
       _$GetTotalEstimatedTimeFailedImpl;
 
   String get message;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of TaskViewmodelState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$GetTotalEstimatedTimeFailedImplCopyWith<_$GetTotalEstimatedTimeFailedImpl>
       get copyWith => throw _privateConstructorUsedError;
 }
@@ -3538,13 +3598,16 @@ class __$$UpdateTotalEstimatedTimeLoadingImplCopyWithImpl<$Res>
       _$UpdateTotalEstimatedTimeLoadingImpl _value,
       $Res Function(_$UpdateTotalEstimatedTimeLoadingImpl) _then)
       : super(_value, _then);
+
+  /// Create a copy of TaskViewmodelState
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
 
 class _$UpdateTotalEstimatedTimeLoadingImpl
     implements _UpdateTotalEstimatedTimeLoading {
-  _$UpdateTotalEstimatedTimeLoadingImpl();
+  const _$UpdateTotalEstimatedTimeLoadingImpl();
 
   @override
   String toString() {
@@ -3826,7 +3889,7 @@ class _$UpdateTotalEstimatedTimeLoadingImpl
 }
 
 abstract class _UpdateTotalEstimatedTimeLoading implements TaskViewmodelState {
-  factory _UpdateTotalEstimatedTimeLoading() =
+  const factory _UpdateTotalEstimatedTimeLoading() =
       _$UpdateTotalEstimatedTimeLoadingImpl;
 }
 
@@ -3850,6 +3913,8 @@ class __$$UpdateTotalEstimatedTimeFailedImplCopyWithImpl<$Res>
       $Res Function(_$UpdateTotalEstimatedTimeFailedImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of TaskViewmodelState
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -3868,7 +3933,7 @@ class __$$UpdateTotalEstimatedTimeFailedImplCopyWithImpl<$Res>
 
 class _$UpdateTotalEstimatedTimeFailedImpl
     implements _UpdateTotalEstimatedTimeFailed {
-  _$UpdateTotalEstimatedTimeFailedImpl({required this.message});
+  const _$UpdateTotalEstimatedTimeFailedImpl({required this.message});
 
   @override
   final String message;
@@ -3889,7 +3954,9 @@ class _$UpdateTotalEstimatedTimeFailedImpl
   @override
   int get hashCode => Object.hash(runtimeType, message);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of TaskViewmodelState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$UpdateTotalEstimatedTimeFailedImplCopyWith<
@@ -4162,11 +4229,14 @@ class _$UpdateTotalEstimatedTimeFailedImpl
 }
 
 abstract class _UpdateTotalEstimatedTimeFailed implements TaskViewmodelState {
-  factory _UpdateTotalEstimatedTimeFailed({required final String message}) =
-      _$UpdateTotalEstimatedTimeFailedImpl;
+  const factory _UpdateTotalEstimatedTimeFailed(
+      {required final String message}) = _$UpdateTotalEstimatedTimeFailedImpl;
 
   String get message;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of TaskViewmodelState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$UpdateTotalEstimatedTimeFailedImplCopyWith<
           _$UpdateTotalEstimatedTimeFailedImpl>
       get copyWith => throw _privateConstructorUsedError;
@@ -4192,6 +4262,8 @@ class __$$UpdateTotalEstimatedTimeCompletedImplCopyWithImpl<$Res>
       $Res Function(_$UpdateTotalEstimatedTimeCompletedImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of TaskViewmodelState
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -4210,7 +4282,8 @@ class __$$UpdateTotalEstimatedTimeCompletedImplCopyWithImpl<$Res>
 
 class _$UpdateTotalEstimatedTimeCompletedImpl
     implements _UpdateTotalEstimatedTimeCompleted {
-  _$UpdateTotalEstimatedTimeCompletedImpl({required this.totalEstimatedTime});
+  const _$UpdateTotalEstimatedTimeCompletedImpl(
+      {required this.totalEstimatedTime});
 
   @override
   final Duration totalEstimatedTime;
@@ -4232,7 +4305,9 @@ class _$UpdateTotalEstimatedTimeCompletedImpl
   @override
   int get hashCode => Object.hash(runtimeType, totalEstimatedTime);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of TaskViewmodelState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$UpdateTotalEstimatedTimeCompletedImplCopyWith<
@@ -4506,12 +4581,15 @@ class _$UpdateTotalEstimatedTimeCompletedImpl
 
 abstract class _UpdateTotalEstimatedTimeCompleted
     implements TaskViewmodelState {
-  factory _UpdateTotalEstimatedTimeCompleted(
+  const factory _UpdateTotalEstimatedTimeCompleted(
           {required final Duration totalEstimatedTime}) =
       _$UpdateTotalEstimatedTimeCompletedImpl;
 
   Duration get totalEstimatedTime;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of TaskViewmodelState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$UpdateTotalEstimatedTimeCompletedImplCopyWith<
           _$UpdateTotalEstimatedTimeCompletedImpl>
       get copyWith => throw _privateConstructorUsedError;
@@ -4531,12 +4609,15 @@ class __$$UploadTasksLoadingImplCopyWithImpl<$Res>
   __$$UploadTasksLoadingImplCopyWithImpl(_$UploadTasksLoadingImpl _value,
       $Res Function(_$UploadTasksLoadingImpl) _then)
       : super(_value, _then);
+
+  /// Create a copy of TaskViewmodelState
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
 
 class _$UploadTasksLoadingImpl implements _UploadTasksLoading {
-  _$UploadTasksLoadingImpl();
+  const _$UploadTasksLoadingImpl();
 
   @override
   String toString() {
@@ -4817,7 +4898,7 @@ class _$UploadTasksLoadingImpl implements _UploadTasksLoading {
 }
 
 abstract class _UploadTasksLoading implements TaskViewmodelState {
-  factory _UploadTasksLoading() = _$UploadTasksLoadingImpl;
+  const factory _UploadTasksLoading() = _$UploadTasksLoadingImpl;
 }
 
 /// @nodoc
@@ -4837,6 +4918,8 @@ class __$$UploadTasksFailedImplCopyWithImpl<$Res>
       $Res Function(_$UploadTasksFailedImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of TaskViewmodelState
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -4854,7 +4937,7 @@ class __$$UploadTasksFailedImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$UploadTasksFailedImpl implements _UploadTasksFailed {
-  _$UploadTasksFailedImpl({required this.message});
+  const _$UploadTasksFailedImpl({required this.message});
 
   @override
   final String message;
@@ -4875,7 +4958,9 @@ class _$UploadTasksFailedImpl implements _UploadTasksFailed {
   @override
   int get hashCode => Object.hash(runtimeType, message);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of TaskViewmodelState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$UploadTasksFailedImplCopyWith<_$UploadTasksFailedImpl> get copyWith =>
@@ -5147,11 +5232,14 @@ class _$UploadTasksFailedImpl implements _UploadTasksFailed {
 }
 
 abstract class _UploadTasksFailed implements TaskViewmodelState {
-  factory _UploadTasksFailed({required final String message}) =
+  const factory _UploadTasksFailed({required final String message}) =
       _$UploadTasksFailedImpl;
 
   String get message;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of TaskViewmodelState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$UploadTasksFailedImplCopyWith<_$UploadTasksFailedImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -5175,6 +5263,8 @@ class __$$UploadTasksCompletedImplCopyWithImpl<$Res>
       $Res Function(_$UploadTasksCompletedImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of TaskViewmodelState
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -5188,6 +5278,8 @@ class __$$UploadTasksCompletedImplCopyWithImpl<$Res>
     ));
   }
 
+  /// Create a copy of TaskViewmodelState
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $TaskModelCopyWith<$Res> get meupdatedTaskssage {
@@ -5200,7 +5292,7 @@ class __$$UploadTasksCompletedImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$UploadTasksCompletedImpl implements _UploadTasksCompleted {
-  _$UploadTasksCompletedImpl({required this.meupdatedTaskssage});
+  const _$UploadTasksCompletedImpl({required this.meupdatedTaskssage});
 
   @override
   final TaskModel meupdatedTaskssage;
@@ -5222,7 +5314,9 @@ class _$UploadTasksCompletedImpl implements _UploadTasksCompleted {
   @override
   int get hashCode => Object.hash(runtimeType, meupdatedTaskssage);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of TaskViewmodelState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$UploadTasksCompletedImplCopyWith<_$UploadTasksCompletedImpl>
@@ -5495,11 +5589,15 @@ class _$UploadTasksCompletedImpl implements _UploadTasksCompleted {
 }
 
 abstract class _UploadTasksCompleted implements TaskViewmodelState {
-  factory _UploadTasksCompleted({required final TaskModel meupdatedTaskssage}) =
+  const factory _UploadTasksCompleted(
+          {required final TaskModel meupdatedTaskssage}) =
       _$UploadTasksCompletedImpl;
 
   TaskModel get meupdatedTaskssage;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of TaskViewmodelState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$UploadTasksCompletedImplCopyWith<_$UploadTasksCompletedImpl>
       get copyWith => throw _privateConstructorUsedError;
 }
@@ -5518,12 +5616,15 @@ class __$$DownloadTasksLoadingImplCopyWithImpl<$Res>
   __$$DownloadTasksLoadingImplCopyWithImpl(_$DownloadTasksLoadingImpl _value,
       $Res Function(_$DownloadTasksLoadingImpl) _then)
       : super(_value, _then);
+
+  /// Create a copy of TaskViewmodelState
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
 
 class _$DownloadTasksLoadingImpl implements _DownloadTasksLoading {
-  _$DownloadTasksLoadingImpl();
+  const _$DownloadTasksLoadingImpl();
 
   @override
   String toString() {
@@ -5805,7 +5906,7 @@ class _$DownloadTasksLoadingImpl implements _DownloadTasksLoading {
 }
 
 abstract class _DownloadTasksLoading implements TaskViewmodelState {
-  factory _DownloadTasksLoading() = _$DownloadTasksLoadingImpl;
+  const factory _DownloadTasksLoading() = _$DownloadTasksLoadingImpl;
 }
 
 /// @nodoc
@@ -5825,6 +5926,8 @@ class __$$DownloadTasksFailedImplCopyWithImpl<$Res>
       $Res Function(_$DownloadTasksFailedImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of TaskViewmodelState
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -5842,7 +5945,7 @@ class __$$DownloadTasksFailedImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$DownloadTasksFailedImpl implements _DownloadTasksFailed {
-  _$DownloadTasksFailedImpl({required this.message});
+  const _$DownloadTasksFailedImpl({required this.message});
 
   @override
   final String message;
@@ -5863,7 +5966,9 @@ class _$DownloadTasksFailedImpl implements _DownloadTasksFailed {
   @override
   int get hashCode => Object.hash(runtimeType, message);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of TaskViewmodelState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$DownloadTasksFailedImplCopyWith<_$DownloadTasksFailedImpl> get copyWith =>
@@ -6135,11 +6240,14 @@ class _$DownloadTasksFailedImpl implements _DownloadTasksFailed {
 }
 
 abstract class _DownloadTasksFailed implements TaskViewmodelState {
-  factory _DownloadTasksFailed({required final String message}) =
+  const factory _DownloadTasksFailed({required final String message}) =
       _$DownloadTasksFailedImpl;
 
   String get message;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of TaskViewmodelState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$DownloadTasksFailedImplCopyWith<_$DownloadTasksFailedImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -6163,6 +6271,8 @@ class __$$DownloadTasksCompletedImplCopyWithImpl<$Res>
       $Res Function(_$DownloadTasksCompletedImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of TaskViewmodelState
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -6180,7 +6290,7 @@ class __$$DownloadTasksCompletedImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$DownloadTasksCompletedImpl implements _DownloadTasksCompleted {
-  _$DownloadTasksCompletedImpl({required this.downloadedTasks});
+  const _$DownloadTasksCompletedImpl({required this.downloadedTasks});
 
   @override
   final List<TaskModel> downloadedTasks;
@@ -6203,7 +6313,9 @@ class _$DownloadTasksCompletedImpl implements _DownloadTasksCompleted {
   int get hashCode => Object.hash(
       runtimeType, const DeepCollectionEquality().hash(downloadedTasks));
 
-  @JsonKey(ignore: true)
+  /// Create a copy of TaskViewmodelState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$DownloadTasksCompletedImplCopyWith<_$DownloadTasksCompletedImpl>
@@ -6475,12 +6587,15 @@ class _$DownloadTasksCompletedImpl implements _DownloadTasksCompleted {
 }
 
 abstract class _DownloadTasksCompleted implements TaskViewmodelState {
-  factory _DownloadTasksCompleted(
+  const factory _DownloadTasksCompleted(
           {required final List<TaskModel> downloadedTasks}) =
       _$DownloadTasksCompletedImpl;
 
   List<TaskModel> get downloadedTasks;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of TaskViewmodelState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$DownloadTasksCompletedImplCopyWith<_$DownloadTasksCompletedImpl>
       get copyWith => throw _privateConstructorUsedError;
 }
@@ -6499,12 +6614,15 @@ class __$$UpdateTaskLoadingImplCopyWithImpl<$Res>
   __$$UpdateTaskLoadingImplCopyWithImpl(_$UpdateTaskLoadingImpl _value,
       $Res Function(_$UpdateTaskLoadingImpl) _then)
       : super(_value, _then);
+
+  /// Create a copy of TaskViewmodelState
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
 
 class _$UpdateTaskLoadingImpl implements _UpdateTaskLoading {
-  _$UpdateTaskLoadingImpl();
+  const _$UpdateTaskLoadingImpl();
 
   @override
   String toString() {
@@ -6785,7 +6903,7 @@ class _$UpdateTaskLoadingImpl implements _UpdateTaskLoading {
 }
 
 abstract class _UpdateTaskLoading implements TaskViewmodelState {
-  factory _UpdateTaskLoading() = _$UpdateTaskLoadingImpl;
+  const factory _UpdateTaskLoading() = _$UpdateTaskLoadingImpl;
 }
 
 /// @nodoc
@@ -6805,6 +6923,8 @@ class __$$UpdateTaskFailedImplCopyWithImpl<$Res>
       $Res Function(_$UpdateTaskFailedImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of TaskViewmodelState
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -6822,7 +6942,7 @@ class __$$UpdateTaskFailedImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$UpdateTaskFailedImpl implements _UpdateTaskFailed {
-  _$UpdateTaskFailedImpl({required this.message});
+  const _$UpdateTaskFailedImpl({required this.message});
 
   @override
   final String message;
@@ -6843,7 +6963,9 @@ class _$UpdateTaskFailedImpl implements _UpdateTaskFailed {
   @override
   int get hashCode => Object.hash(runtimeType, message);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of TaskViewmodelState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$UpdateTaskFailedImplCopyWith<_$UpdateTaskFailedImpl> get copyWith =>
@@ -7115,11 +7237,14 @@ class _$UpdateTaskFailedImpl implements _UpdateTaskFailed {
 }
 
 abstract class _UpdateTaskFailed implements TaskViewmodelState {
-  factory _UpdateTaskFailed({required final String message}) =
+  const factory _UpdateTaskFailed({required final String message}) =
       _$UpdateTaskFailedImpl;
 
   String get message;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of TaskViewmodelState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$UpdateTaskFailedImplCopyWith<_$UpdateTaskFailedImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -7143,6 +7268,8 @@ class __$$UpdateTaskCompletedImplCopyWithImpl<$Res>
       $Res Function(_$UpdateTaskCompletedImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of TaskViewmodelState
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -7156,6 +7283,8 @@ class __$$UpdateTaskCompletedImplCopyWithImpl<$Res>
     ));
   }
 
+  /// Create a copy of TaskViewmodelState
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $TaskModelCopyWith<$Res> get updatedTask {
@@ -7168,7 +7297,7 @@ class __$$UpdateTaskCompletedImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$UpdateTaskCompletedImpl implements _UpdateTaskCompleted {
-  _$UpdateTaskCompletedImpl({required this.updatedTask});
+  const _$UpdateTaskCompletedImpl({required this.updatedTask});
 
   @override
   final TaskModel updatedTask;
@@ -7190,7 +7319,9 @@ class _$UpdateTaskCompletedImpl implements _UpdateTaskCompleted {
   @override
   int get hashCode => Object.hash(runtimeType, updatedTask);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of TaskViewmodelState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$UpdateTaskCompletedImplCopyWith<_$UpdateTaskCompletedImpl> get copyWith =>
@@ -7462,11 +7593,14 @@ class _$UpdateTaskCompletedImpl implements _UpdateTaskCompleted {
 }
 
 abstract class _UpdateTaskCompleted implements TaskViewmodelState {
-  factory _UpdateTaskCompleted({required final TaskModel updatedTask}) =
+  const factory _UpdateTaskCompleted({required final TaskModel updatedTask}) =
       _$UpdateTaskCompletedImpl;
 
   TaskModel get updatedTask;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of TaskViewmodelState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$UpdateTaskCompletedImplCopyWith<_$UpdateTaskCompletedImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -7485,12 +7619,15 @@ class __$$GetTaskByIdLoadingImplCopyWithImpl<$Res>
   __$$GetTaskByIdLoadingImplCopyWithImpl(_$GetTaskByIdLoadingImpl _value,
       $Res Function(_$GetTaskByIdLoadingImpl) _then)
       : super(_value, _then);
+
+  /// Create a copy of TaskViewmodelState
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
 
 class _$GetTaskByIdLoadingImpl implements _GetTaskByIdLoading {
-  _$GetTaskByIdLoadingImpl();
+  const _$GetTaskByIdLoadingImpl();
 
   @override
   String toString() {
@@ -7771,7 +7908,7 @@ class _$GetTaskByIdLoadingImpl implements _GetTaskByIdLoading {
 }
 
 abstract class _GetTaskByIdLoading implements TaskViewmodelState {
-  factory _GetTaskByIdLoading() = _$GetTaskByIdLoadingImpl;
+  const factory _GetTaskByIdLoading() = _$GetTaskByIdLoadingImpl;
 }
 
 /// @nodoc
@@ -7791,6 +7928,8 @@ class __$$GetTaskByIdFailedImplCopyWithImpl<$Res>
       $Res Function(_$GetTaskByIdFailedImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of TaskViewmodelState
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -7808,7 +7947,7 @@ class __$$GetTaskByIdFailedImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$GetTaskByIdFailedImpl implements _GetTaskByIdFailed {
-  _$GetTaskByIdFailedImpl({required this.message});
+  const _$GetTaskByIdFailedImpl({required this.message});
 
   @override
   final String message;
@@ -7829,7 +7968,9 @@ class _$GetTaskByIdFailedImpl implements _GetTaskByIdFailed {
   @override
   int get hashCode => Object.hash(runtimeType, message);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of TaskViewmodelState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$GetTaskByIdFailedImplCopyWith<_$GetTaskByIdFailedImpl> get copyWith =>
@@ -8101,11 +8242,14 @@ class _$GetTaskByIdFailedImpl implements _GetTaskByIdFailed {
 }
 
 abstract class _GetTaskByIdFailed implements TaskViewmodelState {
-  factory _GetTaskByIdFailed({required final String message}) =
+  const factory _GetTaskByIdFailed({required final String message}) =
       _$GetTaskByIdFailedImpl;
 
   String get message;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of TaskViewmodelState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$GetTaskByIdFailedImplCopyWith<_$GetTaskByIdFailedImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -8129,6 +8273,8 @@ class __$$GetTaskByIdCompletedImplCopyWithImpl<$Res>
       $Res Function(_$GetTaskByIdCompletedImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of TaskViewmodelState
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -8142,6 +8288,8 @@ class __$$GetTaskByIdCompletedImplCopyWithImpl<$Res>
     ));
   }
 
+  /// Create a copy of TaskViewmodelState
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $TaskModelCopyWith<$Res> get taskById {
@@ -8154,7 +8302,7 @@ class __$$GetTaskByIdCompletedImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$GetTaskByIdCompletedImpl implements _GetTaskByIdCompleted {
-  _$GetTaskByIdCompletedImpl({required this.taskById});
+  const _$GetTaskByIdCompletedImpl({required this.taskById});
 
   @override
   final TaskModel taskById;
@@ -8176,7 +8324,9 @@ class _$GetTaskByIdCompletedImpl implements _GetTaskByIdCompleted {
   @override
   int get hashCode => Object.hash(runtimeType, taskById);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of TaskViewmodelState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$GetTaskByIdCompletedImplCopyWith<_$GetTaskByIdCompletedImpl>
@@ -8449,11 +8599,14 @@ class _$GetTaskByIdCompletedImpl implements _GetTaskByIdCompleted {
 }
 
 abstract class _GetTaskByIdCompleted implements TaskViewmodelState {
-  factory _GetTaskByIdCompleted({required final TaskModel taskById}) =
+  const factory _GetTaskByIdCompleted({required final TaskModel taskById}) =
       _$GetTaskByIdCompletedImpl;
 
   TaskModel get taskById;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of TaskViewmodelState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$GetTaskByIdCompletedImplCopyWith<_$GetTaskByIdCompletedImpl>
       get copyWith => throw _privateConstructorUsedError;
 }
@@ -8472,12 +8625,15 @@ class __$$CreateTaskLoadingImplCopyWithImpl<$Res>
   __$$CreateTaskLoadingImplCopyWithImpl(_$CreateTaskLoadingImpl _value,
       $Res Function(_$CreateTaskLoadingImpl) _then)
       : super(_value, _then);
+
+  /// Create a copy of TaskViewmodelState
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
 
 class _$CreateTaskLoadingImpl implements _CreateTaskLoading {
-  _$CreateTaskLoadingImpl();
+  const _$CreateTaskLoadingImpl();
 
   @override
   String toString() {
@@ -8758,7 +8914,7 @@ class _$CreateTaskLoadingImpl implements _CreateTaskLoading {
 }
 
 abstract class _CreateTaskLoading implements TaskViewmodelState {
-  factory _CreateTaskLoading() = _$CreateTaskLoadingImpl;
+  const factory _CreateTaskLoading() = _$CreateTaskLoadingImpl;
 }
 
 /// @nodoc
@@ -8778,6 +8934,8 @@ class __$$CreateTaskFailedImplCopyWithImpl<$Res>
       $Res Function(_$CreateTaskFailedImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of TaskViewmodelState
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -8795,7 +8953,7 @@ class __$$CreateTaskFailedImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$CreateTaskFailedImpl implements _CreateTaskFailed {
-  _$CreateTaskFailedImpl({required this.message});
+  const _$CreateTaskFailedImpl({required this.message});
 
   @override
   final String message;
@@ -8816,7 +8974,9 @@ class _$CreateTaskFailedImpl implements _CreateTaskFailed {
   @override
   int get hashCode => Object.hash(runtimeType, message);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of TaskViewmodelState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$CreateTaskFailedImplCopyWith<_$CreateTaskFailedImpl> get copyWith =>
@@ -9088,11 +9248,14 @@ class _$CreateTaskFailedImpl implements _CreateTaskFailed {
 }
 
 abstract class _CreateTaskFailed implements TaskViewmodelState {
-  factory _CreateTaskFailed({required final String message}) =
+  const factory _CreateTaskFailed({required final String message}) =
       _$CreateTaskFailedImpl;
 
   String get message;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of TaskViewmodelState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$CreateTaskFailedImplCopyWith<_$CreateTaskFailedImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -9116,6 +9279,8 @@ class __$$CreateTaskCompletedImplCopyWithImpl<$Res>
       $Res Function(_$CreateTaskCompletedImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of TaskViewmodelState
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -9129,6 +9294,8 @@ class __$$CreateTaskCompletedImplCopyWithImpl<$Res>
     ));
   }
 
+  /// Create a copy of TaskViewmodelState
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $TaskModelCopyWith<$Res> get createdTask {
@@ -9141,7 +9308,7 @@ class __$$CreateTaskCompletedImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$CreateTaskCompletedImpl implements _CreateTaskCompleted {
-  _$CreateTaskCompletedImpl({required this.createdTask});
+  const _$CreateTaskCompletedImpl({required this.createdTask});
 
   @override
   final TaskModel createdTask;
@@ -9163,7 +9330,9 @@ class _$CreateTaskCompletedImpl implements _CreateTaskCompleted {
   @override
   int get hashCode => Object.hash(runtimeType, createdTask);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of TaskViewmodelState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$CreateTaskCompletedImplCopyWith<_$CreateTaskCompletedImpl> get copyWith =>
@@ -9435,11 +9604,14 @@ class _$CreateTaskCompletedImpl implements _CreateTaskCompleted {
 }
 
 abstract class _CreateTaskCompleted implements TaskViewmodelState {
-  factory _CreateTaskCompleted({required final TaskModel createdTask}) =
+  const factory _CreateTaskCompleted({required final TaskModel createdTask}) =
       _$CreateTaskCompletedImpl;
 
   TaskModel get createdTask;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of TaskViewmodelState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$CreateTaskCompletedImplCopyWith<_$CreateTaskCompletedImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -9458,12 +9630,15 @@ class __$$DeleteTaskLoadingImplCopyWithImpl<$Res>
   __$$DeleteTaskLoadingImplCopyWithImpl(_$DeleteTaskLoadingImpl _value,
       $Res Function(_$DeleteTaskLoadingImpl) _then)
       : super(_value, _then);
+
+  /// Create a copy of TaskViewmodelState
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
 
 class _$DeleteTaskLoadingImpl implements _DeleteTaskLoading {
-  _$DeleteTaskLoadingImpl();
+  const _$DeleteTaskLoadingImpl();
 
   @override
   String toString() {
@@ -9744,7 +9919,7 @@ class _$DeleteTaskLoadingImpl implements _DeleteTaskLoading {
 }
 
 abstract class _DeleteTaskLoading implements TaskViewmodelState {
-  factory _DeleteTaskLoading() = _$DeleteTaskLoadingImpl;
+  const factory _DeleteTaskLoading() = _$DeleteTaskLoadingImpl;
 }
 
 /// @nodoc
@@ -9764,6 +9939,8 @@ class __$$DeleteTaskFailedImplCopyWithImpl<$Res>
       $Res Function(_$DeleteTaskFailedImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of TaskViewmodelState
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -9781,7 +9958,7 @@ class __$$DeleteTaskFailedImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$DeleteTaskFailedImpl implements _DeleteTaskFailed {
-  _$DeleteTaskFailedImpl({required this.message});
+  const _$DeleteTaskFailedImpl({required this.message});
 
   @override
   final String message;
@@ -9802,7 +9979,9 @@ class _$DeleteTaskFailedImpl implements _DeleteTaskFailed {
   @override
   int get hashCode => Object.hash(runtimeType, message);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of TaskViewmodelState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$DeleteTaskFailedImplCopyWith<_$DeleteTaskFailedImpl> get copyWith =>
@@ -10074,11 +10253,14 @@ class _$DeleteTaskFailedImpl implements _DeleteTaskFailed {
 }
 
 abstract class _DeleteTaskFailed implements TaskViewmodelState {
-  factory _DeleteTaskFailed({required final String message}) =
+  const factory _DeleteTaskFailed({required final String message}) =
       _$DeleteTaskFailedImpl;
 
   String get message;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of TaskViewmodelState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$DeleteTaskFailedImplCopyWith<_$DeleteTaskFailedImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -10102,6 +10284,8 @@ class __$$DeleteTaskCompletedImplCopyWithImpl<$Res>
       $Res Function(_$DeleteTaskCompletedImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of TaskViewmodelState
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -10115,6 +10299,8 @@ class __$$DeleteTaskCompletedImplCopyWithImpl<$Res>
     ));
   }
 
+  /// Create a copy of TaskViewmodelState
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $TaskModelCopyWith<$Res> get deletedTask {
@@ -10127,7 +10313,7 @@ class __$$DeleteTaskCompletedImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$DeleteTaskCompletedImpl implements _DeleteTaskCompleted {
-  _$DeleteTaskCompletedImpl({required this.deletedTask});
+  const _$DeleteTaskCompletedImpl({required this.deletedTask});
 
   @override
   final TaskModel deletedTask;
@@ -10149,7 +10335,9 @@ class _$DeleteTaskCompletedImpl implements _DeleteTaskCompleted {
   @override
   int get hashCode => Object.hash(runtimeType, deletedTask);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of TaskViewmodelState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$DeleteTaskCompletedImplCopyWith<_$DeleteTaskCompletedImpl> get copyWith =>
@@ -10421,11 +10609,14 @@ class _$DeleteTaskCompletedImpl implements _DeleteTaskCompleted {
 }
 
 abstract class _DeleteTaskCompleted implements TaskViewmodelState {
-  factory _DeleteTaskCompleted({required final TaskModel deletedTask}) =
+  const factory _DeleteTaskCompleted({required final TaskModel deletedTask}) =
       _$DeleteTaskCompletedImpl;
 
   TaskModel get deletedTask;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of TaskViewmodelState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$DeleteTaskCompletedImplCopyWith<_$DeleteTaskCompletedImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

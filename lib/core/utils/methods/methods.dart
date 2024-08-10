@@ -193,15 +193,13 @@ void showLoadingDialog(BuildContext context) {
     builder: (context) {
       return BlocConsumer<UserViewmodel, UserViewmodelState>(
         listener: (context, state) {
-          if (!state.isLogoutLoading) {
-            debugPrint("isLogoutLoading listener: ${state.isLogoutLoading}");
-            context.pop();
-          }
+          state.maybeWhen(
+              logoutLoading: () => null, orElse: () => context.pop());
         },
         builder: (context, state) {
-          debugPrint("isLogoutLoading builder: ${state.isLogoutLoading}");
           return PopScope(
-            canPop: !state.isLogoutLoading,
+            canPop:
+                state.maybeWhen(orElse: () => true, logoutLoading: () => false),
             child: const AlertDialog(
               content: SizedBox(
                 height: 100,

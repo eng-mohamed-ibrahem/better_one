@@ -2,18 +2,19 @@ part of 'auth_viewmodel.dart';
 
 @freezed
 class AuthViewmodelState with _$AuthViewmodelState {
-  const factory AuthViewmodelState({
-    @Default(true) bool isInitial,
-    @Default(false) bool isSignupLoading,
-    @Default(false) bool isSignupSuccess,
-    @Default(false) bool isSignupFailed,
-    @Default(false) bool isLoginLoading,
-    @Default(false) bool isLoginSuccess,
-    @Default(false) bool isLoginFailed,
-    @Default(null) UserModel? userModel,
-    @Default(false) bool isLogoutLoading,
-    @Default(false) bool isLogoutSuccess,
-    @Default(false) bool isLogoutFailed,
-    @Default(null) String? errorMessage,
-  }) = _AuthViewmodelState;
+  const factory AuthViewmodelState.initial() = _Initial;
+
+  const factory AuthViewmodelState.signupLoading() = _SignupLoading;
+
+  const factory AuthViewmodelState.signupSuccess({required UserModel user}) = _SignupSuccess;
+
+  const factory AuthViewmodelState.signupFailed({required String message}) =
+      _SignupFailed;
+
+  const factory AuthViewmodelState.loginLoading() = _LoginLoading;
+
+  const factory AuthViewmodelState.loginSuccess({required UserModel user}) = _LoginSuccess;
+
+  const factory AuthViewmodelState.loginFailed({required String message}) =
+      _LoginFailed;
 }

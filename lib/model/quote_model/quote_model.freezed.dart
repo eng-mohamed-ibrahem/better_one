@@ -27,8 +27,12 @@ mixin _$QuoteModel {
   String? get dateAdded => throw _privateConstructorUsedError;
   String? get dateModified => throw _privateConstructorUsedError;
 
+  /// Serializes this QuoteModel to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of QuoteModel
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $QuoteModelCopyWith<QuoteModel> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -58,6 +62,8 @@ class _$QuoteModelCopyWithImpl<$Res, $Val extends QuoteModel>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of QuoteModel
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -122,6 +128,8 @@ class __$$QuoteModelImplCopyWithImpl<$Res>
       _$QuoteModelImpl _value, $Res Function(_$QuoteModelImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of QuoteModel
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -209,12 +217,14 @@ class _$QuoteModelImpl implements _QuoteModel {
                 other.dateModified == dateModified));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(runtimeType, content, author, authorSlug,
       length, dateAdded, dateModified);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of QuoteModel
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$QuoteModelImplCopyWith<_$QuoteModelImpl> get copyWith =>
@@ -252,8 +262,11 @@ abstract class _QuoteModel implements QuoteModel {
   String? get dateAdded;
   @override
   String? get dateModified;
+
+  /// Create a copy of QuoteModel
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$QuoteModelImplCopyWith<_$QuoteModelImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

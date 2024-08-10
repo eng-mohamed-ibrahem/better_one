@@ -22,10 +22,7 @@ class FirebaseAuthImpl implements AuthInterface {
       );
     } on FirebaseAuthException catch (e) {
       return ResultHandler.failure(
-        error: FirebaseFailure(
-          code: e.code,
-          message: e.message!,
-        ),
+        error: FirebaseFailure.fromCode(e.code),
       );
     } catch (e) {
       return ResultHandler.failure(error: OtherFailure(message: e.toString()));
@@ -56,10 +53,7 @@ class FirebaseAuthImpl implements AuthInterface {
       );
     } on FirebaseAuthException catch (e) {
       return ResultHandler.failure(
-        error: FirebaseFailure(
-          code: e.code,
-          message: e.message!,
-        ),
+        error: FirebaseFailure.fromCode(e.code),
       );
     } catch (e) {
       return ResultHandler.failure(error: OtherFailure(message: e.toString()));

@@ -72,6 +72,44 @@ class CacheFailure extends Failure {
 class FirebaseFailure extends Failure {
   final String code;
   FirebaseFailure({required this.code, required super.message});
+  factory FirebaseFailure.fromCode(String code) {
+    switch (code) {
+      case 'weak-password':
+        {
+          return FirebaseFailure(
+            code: 'weak-password',
+            message: 'The password is too weak.',
+          );
+        }
+      case 'invalid-email':
+        {
+          return FirebaseFailure(
+            code: 'invalid-email',
+            message: 'The email address is badly formatted.',
+          );
+        }
+      case 'email-already-in-use':
+        {
+          return FirebaseFailure(
+            code: 'email-already-in-use',
+            message: 'The account already exists for that email.',
+          );
+        }
+      case 'invalid-credential':
+        {
+          return FirebaseFailure(
+            code: 'invalid-credential',
+            message: 'The email address is not has been linked.',
+          );
+        }
+
+      default:
+        return FirebaseFailure(
+          code: code,
+          message: 'Something went wrong.',
+        );
+    }
+  }
 }
 
 class NoInternetFailure extends Failure {
