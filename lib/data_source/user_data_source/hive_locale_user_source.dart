@@ -6,6 +6,7 @@ import 'package:better_one/core/errors/failure.dart';
 import 'package:better_one/core/result_handler/result_handler.dart';
 import 'package:better_one/core/utils/cache_service/cache_service.dart';
 import 'package:better_one/core/utils/dependency_locator/inject.dart';
+import 'package:better_one/core/utils/methods/methods.dart';
 import 'package:better_one/data_source/user_data_source/locale_user_source.dart';
 import 'package:better_one/model/task_model/task_model.dart';
 
@@ -93,6 +94,7 @@ class HiveLocaleUser implements LocaleUserSource {
     try {
       var tasks =
           _convertToTaskList(inject<HiveInit>().appBox.get(CacheKeys.tasks));
+      kDebugPrint(tasks.toString());
       int index = tasks.indexOf(oldTask);
       tasks[index] = newTask;
       await inject<HiveInit>()

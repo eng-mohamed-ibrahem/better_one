@@ -1,5 +1,6 @@
 import 'package:better_one/core/errors/failure.dart';
 import 'package:better_one/core/result_handler/result_handler.dart';
+import 'package:better_one/core/utils/dependency_locator/dependency_injection.dart';
 import 'package:better_one/data_source/user_data_source/locale_user_source.dart';
 import 'package:better_one/data_source/user_data_source/remote_user_source.dart';
 import 'package:better_one/model/task_model/task_model.dart';
@@ -66,7 +67,8 @@ class UserRepoImpl implements UserRepoInterface {
   @override
   Future<ResultHandler<TaskModel, Failure>> addTask(TaskModel task) async {
     var connected = await NetworkConnection.isConnected();
-    if (connected) {
+    var userId = userLocaleDatabase.getUserIdFromLocale();
+    if (connected && userId != null) {
       var result = await remoteUserSource.addTask(task);
       return result.when(
         success: (addedTask) async {
@@ -90,7 +92,8 @@ class UserRepoImpl implements UserRepoInterface {
   Future<ResultHandler<TaskModel, Failure>> removeTask(
       TaskModel removedTask) async {
     var connected = await NetworkConnection.isConnected();
-    if (connected) {
+    var userId = userLocaleDatabase.getUserIdFromLocale();
+    if (connected && userId != null) {
       var result = await remoteUserSource.removeTask(removedTask);
       return result.when(
         success: (removedTask) async {
@@ -113,7 +116,8 @@ class UserRepoImpl implements UserRepoInterface {
   Future<ResultHandler<TaskModel, Failure>> updateTask(
       TaskModel oldTask, TaskModel newTask) async {
     var connected = await NetworkConnection.isConnected();
-    if (connected) {
+    var userId = userLocaleDatabase.getUserIdFromLocale();
+    if (connected && userId != null) {
       var result = await remoteUserSource.updateTask(oldTask, newTask);
       return result.when(
         success: (updatedTask) async {
@@ -134,7 +138,8 @@ class UserRepoImpl implements UserRepoInterface {
   @override
   Future<ResultHandler<TaskModel?, Failure>> getTaskById(String id) async {
     var connected = await NetworkConnection.isConnected();
-    if (connected) {
+    var userId = userLocaleDatabase.getUserIdFromLocale();
+    if (connected && userId != null) {
       var result = await remoteUserSource.getTaskById(id);
       return result.when(
         success: (task) async {

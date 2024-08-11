@@ -51,6 +51,8 @@ class FirebaseRemoteUserSource implements RemoteUserSource {
           message: e.message!,
         ),
       );
+    } on FormatException catch (e) {
+      return ResultHandler.failure(error: ParserFailure(message: e.message));
     } catch (e) {
       return ResultHandler.failure(error: OtherFailure(message: e.toString()));
     }

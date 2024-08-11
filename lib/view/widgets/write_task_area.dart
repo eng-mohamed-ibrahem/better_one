@@ -24,17 +24,43 @@ class WriteTaskArea extends StatefulWidget {
 class _WriteTaskAreaState extends State<WriteTaskArea> {
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
   late int formCount;
+  late final List<SubTaskConfig> subTaskConfig;
   @override
   void initState() {
     widget.subTasks.isEmpty
         ? formCount = 1
         : formCount = widget.subTasks.length;
+    subTaskConfig = List.generate(
+      formCount,
+      (index) => SubTaskConfig(
+        controller: TextEditingController(
+          text: widget.subTasks.elementAtOrNull(index)?.title,
+        ),
+        focusNode: FocusNode(),
+      ),
+    );
+
     super.initState();
+  }
+
+  @override
+  void dispose() {
+    for (var element in subTaskConfig) {
+      element.controller.dispose();
+      element.focusNode.dispose();
+    }
+    super.dispose();
   }
 
   @override
   Widget build(BuildContext context) {
     return Card(
+      elevation: 0,
+      shape: const RoundedRectangleBorder(
+        side: BorderSide(
+          width: 0,
+        ),
+      ),
       child: Padding(
         padding: EdgeInsets.symmetric(
             vertical: AppMetrices.verticalGap.h,
@@ -42,6 +68,7 @@ class _WriteTaskAreaState extends State<WriteTaskArea> {
         child: Form(
           key: _formKey,
           child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               TaskField(
                 controller: widget.titleController,
@@ -50,7 +77,7 @@ class _WriteTaskAreaState extends State<WriteTaskArea> {
                 textFieldHeight: 1.3,
                 maxLines: 3,
                 minLines: 1,
-                prefixIcon: const Icon(Icons.task),
+                textAlign: TextAlign.center,
               ),
               Divider(
                 indent: AppMetrices.horizontalGap2.w,
@@ -63,7 +90,7 @@ class _WriteTaskAreaState extends State<WriteTaskArea> {
                 itemCount: formCount,
                 separatorBuilder: (context, index) {
                   return Divider(
-                    height: 5.h,
+                    height: 20.h,
                     color: Theme.of(context).secondaryHeaderColor,
                     indent: AppMetrices.horizontalGap2.w,
                     endIndent: AppMetrices.horizontalGap2.w,
@@ -71,52 +98,126 @@ class _WriteTaskAreaState extends State<WriteTaskArea> {
                 },
                 itemBuilder: (context, index) {
                   SubTask? subTask = widget.subTasks.elementAtOrNull(index);
-                  return CheckboxListTile(
-                    value: subTask?.completed,
-                    contentPadding: EdgeInsets.zero,
-                    dense: true,
-                    tristate: true,
-                    onChanged: (isComeleted) {
-                      setState(() {
-                        subTask != null
-                            ? widget.subTasks[index] = subTask.copyWith(
-                                completed: isComeleted ?? false)
-                            : null;
-                      });
-                    },
-                    title: TaskField(
-                      initialValue: subTask?.title,
-                      onChanged: (text) {
-                        widget.onChanged?.call(text);
-                        widget.subTasks.elementAtOrNull(index) == null
-                            ? widget.subTasks.add(
-                                SubTask(title: text),
-                              )
-                            : widget.subTasks[index] =
-                                widget.subTasks[index].copyWith(title: text);
-                      },
-                      hintText: 'task.description'.tr(),
-                      minLines: 1,
+                  return IntrinsicHeight(
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Column(
+                          children: [
+                            Expanded(
+                              child: Container(
+                                width: 5.w,
+                                decoration: BoxDecoration(
+                                  color: Theme.of(context).secondaryHeaderColor,
+                                ),
+                              ),
+                            ),
+                            SizedBox(height: AppMetrices.verticalGap.h),
+                            GestureDetector(
+                              onTap: () {
+                                /// remove sub task
+                                index <= widget.subTasks.length - 1
+                                    ? setState(
+                                        () {
+                                          widget.subTasks.removeAt(index);
+                                          formCount--;
+                                          subTaskConfig
+                                              .removeItemAndConfigAt(index);
+                                        },
+                                      )
+                                    : null;
+                              },
+                              child: Icon(
+                                Icons.remove_circle_outline,
+                                color: Colors.red[900],
+                              ),
+                            )
+                          ],
+                        ),
+                        Expanded(
+                          child: TaskField(
+                            controller: subTaskConfig[index].controller,
+                            focusNode: subTaskConfig[index].focusNode,
+                            style: subTask?.completed ?? false
+                                ? Theme.of(context)
+                                    .textTheme
+                                    .titleMedium!
+                                    .copyWith(
+                                      decoration: TextDecoration.lineThrough,
+                                      decorationThickness: 2,
+                                      decorationColor: Theme.of(context)
+                                          .secondaryHeaderColor,
+                                    )
+                                : null,
+                            onChanged: (text) {
+                              widget.onChanged?.call(text);
+                              widget.subTasks.elementAtOrNull(index) == null
+                                  ? widget.subTasks.add(
+                                      SubTask(title: text),
+                                    )
+                                  : widget.subTasks[index] = widget
+                                      .subTasks[index]
+                                      .copyWith(title: text);
+                            },
+                            hintText: 'task.description'.tr(),
+                            minLines: 1,
+                          ),
+                        ),
+                        Checkbox(
+                          value: subTask?.completed ?? false,
+                          onChanged: (isComeleted) {
+                            setState(() {
+                              subTask != null
+                                  ? widget.subTasks[index] = subTask.copyWith(
+                                      completed: isComeleted ?? false)
+                                  : null;
+                            });
+                          },
+                        ),
+                      ],
                     ),
                   );
                 },
               ),
-              SizedBox(height: AppMetrices.verticalGap.h),
-              FilledButton.icon(
+              SizedBox(height: AppMetrices.verticalGap2.h),
+              IconButton(
                 onPressed: () {
                   widget.subTasks.length == formCount
                       ? setState(() {
                           formCount++;
+                          subTaskConfig.add(
+                            SubTaskConfig(
+                              controller: TextEditingController(),
+                              focusNode: FocusNode()..requestFocus(),
+                            ),
+                          );
                         })
                       : null;
                 },
                 icon: const Icon(Icons.my_library_add_outlined),
-                label: Text('task.add_sub_task'.tr()),
               ),
             ],
           ),
         ),
       ),
     );
+  }
+}
+
+class SubTaskConfig {
+  final TextEditingController controller;
+  final FocusNode focusNode;
+
+  SubTaskConfig({
+    required this.controller,
+    required this.focusNode,
+  });
+}
+
+extension on List<SubTaskConfig> {
+  SubTaskConfig removeItemAndConfigAt(int index) {
+    this[index].controller.dispose();
+    this[index].focusNode.dispose();
+    return removeAt(index);
   }
 }

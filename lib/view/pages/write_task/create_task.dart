@@ -19,7 +19,6 @@ import 'package:uuid/uuid.dart';
 class CreateTaskScreen extends StatelessWidget {
   CreateTaskScreen({super.key});
   final TextEditingController titleController = TextEditingController();
-  final TextEditingController descriptionController = TextEditingController();
   final List<SubTask> subTasks = [];
 
   @override
