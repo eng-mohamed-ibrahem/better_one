@@ -27,24 +27,43 @@ class CardTask extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Card(
-              color: Theme.of(context).secondaryHeaderColor,
-              shape: const RoundedRectangleBorder(
-                borderRadius: BorderRadius.only(
-                  topRight: Radius.circular(AppMetrices.borderRadius1),
-                  topLeft: Radius.circular(AppMetrices.borderRadius1),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Card(
+                  color: Theme.of(context).secondaryHeaderColor,
+                  shape: const RoundedRectangleBorder(
+                    borderRadius: BorderRadius.only(
+                      topRight: Radius.circular(AppMetrices.borderRadius1),
+                      topLeft: Radius.circular(AppMetrices.borderRadius1),
+                    ),
+                  ),
+                  child: Container(
+                    width: MediaQuery.sizeOf(context).width * .4,
+                    padding: EdgeInsets.all(5.r),
+                    child: Text(
+                      task.title,
+                      style: Theme.of(context).textTheme.titleMedium,
+                      overflow: TextOverflow.ellipsis,
+                      maxLines: 1,
+                    ),
+                  ),
                 ),
-              ),
-              child: Container(
-                width: MediaQuery.sizeOf(context).width * .4,
-                padding: EdgeInsets.all(5.r),
-                child: Text(
-                  task.title,
-                  style: Theme.of(context).textTheme.titleMedium,
-                  overflow: TextOverflow.ellipsis,
-                  maxLines: 1,
+
+                /// task status
+                DecoratedSliver(
+                  decoration: BoxDecoration(
+                    color: task.status.color,
+                    borderRadius: BorderRadius.circular(10.r),
+                  ),
+                  sliver: Text(
+                    "task.status.${task.status.name}".tr(),
+                    style: Theme.of(context).textTheme.bodySmall!.copyWith(
+                          color: Colors.white,
+                        ),
+                  ),
                 ),
-              ),
+              ],
             ),
             Card(
               shape: const RoundedRectangleBorder(
@@ -86,10 +105,10 @@ class CardTask extends StatelessWidget {
                     ),
                     Row(
                       children: [
-                        Text(
-                          "task.status.${task.status.name}".tr(),
-                          style: Theme.of(context).textTheme.bodySmall,
-                        ),
+                        // Text(
+                        //   "task.status.${task.status.name}".tr(),
+                        //   style: Theme.of(context).textTheme.bodySmall,
+                        // ),
                         const Spacer(),
                         DurationTime(duration: task.elapsedTime),
                       ],

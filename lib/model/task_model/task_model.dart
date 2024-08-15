@@ -4,7 +4,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 part 'task_model.freezed.dart';
 part 'task_model.g.dart';
 
-@Freezed(makeCollectionsUnmodifiable: false)
+@Freezed(makeCollectionsUnmodifiable: false, toJson: true)
 class TaskModel with _$TaskModel {
   const factory TaskModel({
     required String title,

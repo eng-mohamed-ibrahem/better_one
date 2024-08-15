@@ -72,7 +72,7 @@ class TaskViewmodel extends Cubit<TaskViewmodelState> {
     var result = await userRepo.updateTask(oldTask, newTask);
     result.when(
       success: (updatedTask) {
-        int index = allTasks.indexOf(oldTask);
+        int index = allTasks.indexWhere((element) => element.id == oldTask.id);
         allTasks[index] = newTask;
         emit(_UpdateTaskCompleted(updatedTask: updatedTask));
         getTotalEstimatedTime();

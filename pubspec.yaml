@@ -56,7 +56,7 @@ flutter:
   uses-material-design: true
 
   assets:
-    - lib/l10n/translation/
+    - lib/config/l10n/translation/
     - assets/lottie/
     - assets/images/
 
@@ -66,3 +66,6 @@ flutter:
         - asset: assets/fonts/Tajawal/Tajawal-Regular.ttf
         - asset: assets/fonts/Tajawal/Tajawal-Black.ttf
         - asset: assets/fonts/Tajawal/Tajawal-Medium.ttf
+    - family: Cairo
+      fonts:
+        - asset: assets/fonts/cairo/Cairo-VariableFont_slnt,wght.ttf
