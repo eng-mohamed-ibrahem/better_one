@@ -60,30 +60,18 @@ class SearchSettingScreen extends StatelessWidget {
                         .searchOn(isSearchByBody: isSelected);
                   },
                 ),
-                CheckboxListTile(
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(15.r),
-                  ),
-                  title: Text('setting.search.on.date'.tr()),
-                  contentPadding: EdgeInsets.zero,
-                  value: state.isSearchByDate,
-                  onChanged: (isSelected) {
-                    SettingViewModel.get(context)
-                        .searchOn(isSearchByDate: isSelected);
-                  },
-                ),
-                CheckboxListTile(
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(15.r),
-                  ),
-                  title: Text('setting.search.on.status'.tr()),
-                  contentPadding: EdgeInsets.zero,
-                  value: state.isSearchByStatus,
-                  onChanged: (isSelected) {
-                    SettingViewModel.get(context)
-                        .searchOn(isSearchByStatus: isSelected);
-                  },
-                ),
+                // CheckboxListTile(
+                //   shape: RoundedRectangleBorder(
+                //     borderRadius: BorderRadius.circular(15.r),
+                //   ),
+                //   title: Text('setting.search.on.date'.tr()),
+                //   contentPadding: EdgeInsets.zero,
+                //   value: state.isSearchByDate,
+                //   onChanged: (isSelected) {
+                //     SettingViewModel.get(context)
+                //         .searchOn(isSearchByDate: isSelected);
+                //   },
+                // ),
               ],
             );
           },

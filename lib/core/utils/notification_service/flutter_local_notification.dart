@@ -18,7 +18,11 @@ class FlutterLocalNotification implements NotificationRepoInterface {
   Future<void> init() async {
     AndroidInitializationSettings android =
         const AndroidInitializationSettings('@mipmap/ic_launcher');
-    DarwinInitializationSettings ios = const DarwinInitializationSettings();
+    DarwinInitializationSettings ios = DarwinInitializationSettings(
+      onDidReceiveLocalNotification: (id, title, body, payload) {
+        _ontTapNotificationStreamController.add(payload);
+      },
+    );
     InitializationSettings settings = InitializationSettings(
       android: android,
       iOS: ios,

@@ -74,6 +74,9 @@ class _$ResultHandlerCopyWithImpl<Data, Error, $Res,
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
+
+  /// Create a copy of ResultHandler
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -94,6 +97,8 @@ class __$$SuccessImplCopyWithImpl<Data, Error, $Res>
       $Res Function(_$SuccessImpl<Data, Error>) _then)
       : super(_value, _then);
 
+  /// Create a copy of ResultHandler
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -133,7 +138,9 @@ class _$SuccessImpl<Data, Error> implements _Success<Data, Error> {
   int get hashCode =>
       Object.hash(runtimeType, const DeepCollectionEquality().hash(data));
 
-  @JsonKey(ignore: true)
+  /// Create a copy of ResultHandler
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$SuccessImplCopyWith<Data, Error, _$SuccessImpl<Data, Error>>
@@ -209,7 +216,10 @@ abstract class _Success<Data, Error> implements ResultHandler<Data, Error> {
       _$SuccessImpl<Data, Error>;
 
   Data get data;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of ResultHandler
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$SuccessImplCopyWith<Data, Error, _$SuccessImpl<Data, Error>>
       get copyWith => throw _privateConstructorUsedError;
 }
@@ -232,6 +242,8 @@ class __$$FailureImplCopyWithImpl<Data, Error, $Res>
       $Res Function(_$FailureImpl<Data, Error>) _then)
       : super(_value, _then);
 
+  /// Create a copy of ResultHandler
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -271,7 +283,9 @@ class _$FailureImpl<Data, Error> implements _Failure<Data, Error> {
   int get hashCode =>
       Object.hash(runtimeType, const DeepCollectionEquality().hash(error));
 
-  @JsonKey(ignore: true)
+  /// Create a copy of ResultHandler
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$FailureImplCopyWith<Data, Error, _$FailureImpl<Data, Error>>
@@ -347,7 +361,10 @@ abstract class _Failure<Data, Error> implements ResultHandler<Data, Error> {
       _$FailureImpl<Data, Error>;
 
   Error get error;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of ResultHandler
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$FailureImplCopyWith<Data, Error, _$FailureImpl<Data, Error>>
       get copyWith => throw _privateConstructorUsedError;
 }

@@ -16,32 +16,75 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$UserViewmodelState {
-  bool get isInitialized => throw _privateConstructorUsedError;
-
-  /// logout
-  bool get isLogoutLoading => throw _privateConstructorUsedError;
-  bool get isLogoutSuccess => throw _privateConstructorUsedError;
-  bool get isLogoutFailed => throw _privateConstructorUsedError;
-
-  /// user details
-  bool get isGetUserDetailsLoading => throw _privateConstructorUsedError;
-  bool get isGetUserDetailsSuccess => throw _privateConstructorUsedError;
-  bool get isGetUserDetailsFailed => throw _privateConstructorUsedError;
-
-  /// the current user
-  UserModel? get user => throw _privateConstructorUsedError;
-
-  /// check activity of user
-  bool get isUserActiveLoading => throw _privateConstructorUsedError;
-  bool get isUserActiveSuccess => throw _privateConstructorUsedError;
-  bool get isUserActiveFailed => throw _privateConstructorUsedError;
-  bool get isActive => throw _privateConstructorUsedError;
-
-  /// error
-  String? get errorMessage => throw _privateConstructorUsedError;
-
-  @JsonKey(ignore: true)
-  $UserViewmodelStateCopyWith<UserViewmodelState> get copyWith =>
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() logoutLoading,
+    required TResult Function() logoutSuccess,
+    required TResult Function(String message) logoutFailed,
+    required TResult Function() getUserDetailsLoading,
+    required TResult Function(UserModel? user) getUserDetailsSuccess,
+    required TResult Function(String message) getUserDetailsFailed,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? logoutLoading,
+    TResult? Function()? logoutSuccess,
+    TResult? Function(String message)? logoutFailed,
+    TResult? Function()? getUserDetailsLoading,
+    TResult? Function(UserModel? user)? getUserDetailsSuccess,
+    TResult? Function(String message)? getUserDetailsFailed,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? logoutLoading,
+    TResult Function()? logoutSuccess,
+    TResult Function(String message)? logoutFailed,
+    TResult Function()? getUserDetailsLoading,
+    TResult Function(UserModel? user)? getUserDetailsSuccess,
+    TResult Function(String message)? getUserDetailsFailed,
+    required TResult orElse(),
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(_LogoutLoading value) logoutLoading,
+    required TResult Function(_LogoutSuccess value) logoutSuccess,
+    required TResult Function(_LogoutFailed value) logoutFailed,
+    required TResult Function(_GetUserDetailsLoading value)
+        getUserDetailsLoading,
+    required TResult Function(_GetUserDetailsSuccess value)
+        getUserDetailsSuccess,
+    required TResult Function(_GetUserDetailsFailed value) getUserDetailsFailed,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_LogoutLoading value)? logoutLoading,
+    TResult? Function(_LogoutSuccess value)? logoutSuccess,
+    TResult? Function(_LogoutFailed value)? logoutFailed,
+    TResult? Function(_GetUserDetailsLoading value)? getUserDetailsLoading,
+    TResult? Function(_GetUserDetailsSuccess value)? getUserDetailsSuccess,
+    TResult? Function(_GetUserDetailsFailed value)? getUserDetailsFailed,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_LogoutLoading value)? logoutLoading,
+    TResult Function(_LogoutSuccess value)? logoutSuccess,
+    TResult Function(_LogoutFailed value)? logoutFailed,
+    TResult Function(_GetUserDetailsLoading value)? getUserDetailsLoading,
+    TResult Function(_GetUserDetailsSuccess value)? getUserDetailsSuccess,
+    TResult Function(_GetUserDetailsFailed value)? getUserDetailsFailed,
+    required TResult orElse(),
+  }) =>
       throw _privateConstructorUsedError;
 }
 
@@ -50,23 +93,6 @@ abstract class $UserViewmodelStateCopyWith<$Res> {
   factory $UserViewmodelStateCopyWith(
           UserViewmodelState value, $Res Function(UserViewmodelState) then) =
       _$UserViewmodelStateCopyWithImpl<$Res, UserViewmodelState>;
-  @useResult
-  $Res call(
-      {bool isInitialized,
-      bool isLogoutLoading,
-      bool isLogoutSuccess,
-      bool isLogoutFailed,
-      bool isGetUserDetailsLoading,
-      bool isGetUserDetailsSuccess,
-      bool isGetUserDetailsFailed,
-      UserModel? user,
-      bool isUserActiveLoading,
-      bool isUserActiveSuccess,
-      bool isUserActiveFailed,
-      bool isActive,
-      String? errorMessage});
-
-  $UserModelCopyWith<$Res>? get user;
 }
 
 /// @nodoc
@@ -79,79 +105,770 @@ class _$UserViewmodelStateCopyWithImpl<$Res, $Val extends UserViewmodelState>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of UserViewmodelState
+  /// with the given fields replaced by the non-null parameter values.
+}
+
+/// @nodoc
+abstract class _$$InitialImplCopyWith<$Res> {
+  factory _$$InitialImplCopyWith(
+          _$InitialImpl value, $Res Function(_$InitialImpl) then) =
+      __$$InitialImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$InitialImplCopyWithImpl<$Res>
+    extends _$UserViewmodelStateCopyWithImpl<$Res, _$InitialImpl>
+    implements _$$InitialImplCopyWith<$Res> {
+  __$$InitialImplCopyWithImpl(
+      _$InitialImpl _value, $Res Function(_$InitialImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of UserViewmodelState
+  /// with the given fields replaced by the non-null parameter values.
+}
+
+/// @nodoc
+
+class _$InitialImpl implements _Initial {
+  const _$InitialImpl();
+
+  @override
+  String toString() {
+    return 'UserViewmodelState.initial()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$InitialImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() logoutLoading,
+    required TResult Function() logoutSuccess,
+    required TResult Function(String message) logoutFailed,
+    required TResult Function() getUserDetailsLoading,
+    required TResult Function(UserModel? user) getUserDetailsSuccess,
+    required TResult Function(String message) getUserDetailsFailed,
+  }) {
+    return initial();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? logoutLoading,
+    TResult? Function()? logoutSuccess,
+    TResult? Function(String message)? logoutFailed,
+    TResult? Function()? getUserDetailsLoading,
+    TResult? Function(UserModel? user)? getUserDetailsSuccess,
+    TResult? Function(String message)? getUserDetailsFailed,
+  }) {
+    return initial?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? logoutLoading,
+    TResult Function()? logoutSuccess,
+    TResult Function(String message)? logoutFailed,
+    TResult Function()? getUserDetailsLoading,
+    TResult Function(UserModel? user)? getUserDetailsSuccess,
+    TResult Function(String message)? getUserDetailsFailed,
+    required TResult orElse(),
+  }) {
+    if (initial != null) {
+      return initial();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(_LogoutLoading value) logoutLoading,
+    required TResult Function(_LogoutSuccess value) logoutSuccess,
+    required TResult Function(_LogoutFailed value) logoutFailed,
+    required TResult Function(_GetUserDetailsLoading value)
+        getUserDetailsLoading,
+    required TResult Function(_GetUserDetailsSuccess value)
+        getUserDetailsSuccess,
+    required TResult Function(_GetUserDetailsFailed value) getUserDetailsFailed,
+  }) {
+    return initial(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_LogoutLoading value)? logoutLoading,
+    TResult? Function(_LogoutSuccess value)? logoutSuccess,
+    TResult? Function(_LogoutFailed value)? logoutFailed,
+    TResult? Function(_GetUserDetailsLoading value)? getUserDetailsLoading,
+    TResult? Function(_GetUserDetailsSuccess value)? getUserDetailsSuccess,
+    TResult? Function(_GetUserDetailsFailed value)? getUserDetailsFailed,
+  }) {
+    return initial?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_LogoutLoading value)? logoutLoading,
+    TResult Function(_LogoutSuccess value)? logoutSuccess,
+    TResult Function(_LogoutFailed value)? logoutFailed,
+    TResult Function(_GetUserDetailsLoading value)? getUserDetailsLoading,
+    TResult Function(_GetUserDetailsSuccess value)? getUserDetailsSuccess,
+    TResult Function(_GetUserDetailsFailed value)? getUserDetailsFailed,
+    required TResult orElse(),
+  }) {
+    if (initial != null) {
+      return initial(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _Initial implements UserViewmodelState {
+  const factory _Initial() = _$InitialImpl;
+}
+
+/// @nodoc
+abstract class _$$LogoutLoadingImplCopyWith<$Res> {
+  factory _$$LogoutLoadingImplCopyWith(
+          _$LogoutLoadingImpl value, $Res Function(_$LogoutLoadingImpl) then) =
+      __$$LogoutLoadingImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$LogoutLoadingImplCopyWithImpl<$Res>
+    extends _$UserViewmodelStateCopyWithImpl<$Res, _$LogoutLoadingImpl>
+    implements _$$LogoutLoadingImplCopyWith<$Res> {
+  __$$LogoutLoadingImplCopyWithImpl(
+      _$LogoutLoadingImpl _value, $Res Function(_$LogoutLoadingImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of UserViewmodelState
+  /// with the given fields replaced by the non-null parameter values.
+}
+
+/// @nodoc
+
+class _$LogoutLoadingImpl implements _LogoutLoading {
+  const _$LogoutLoadingImpl();
+
+  @override
+  String toString() {
+    return 'UserViewmodelState.logoutLoading()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$LogoutLoadingImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() logoutLoading,
+    required TResult Function() logoutSuccess,
+    required TResult Function(String message) logoutFailed,
+    required TResult Function() getUserDetailsLoading,
+    required TResult Function(UserModel? user) getUserDetailsSuccess,
+    required TResult Function(String message) getUserDetailsFailed,
+  }) {
+    return logoutLoading();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? logoutLoading,
+    TResult? Function()? logoutSuccess,
+    TResult? Function(String message)? logoutFailed,
+    TResult? Function()? getUserDetailsLoading,
+    TResult? Function(UserModel? user)? getUserDetailsSuccess,
+    TResult? Function(String message)? getUserDetailsFailed,
+  }) {
+    return logoutLoading?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? logoutLoading,
+    TResult Function()? logoutSuccess,
+    TResult Function(String message)? logoutFailed,
+    TResult Function()? getUserDetailsLoading,
+    TResult Function(UserModel? user)? getUserDetailsSuccess,
+    TResult Function(String message)? getUserDetailsFailed,
+    required TResult orElse(),
+  }) {
+    if (logoutLoading != null) {
+      return logoutLoading();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(_LogoutLoading value) logoutLoading,
+    required TResult Function(_LogoutSuccess value) logoutSuccess,
+    required TResult Function(_LogoutFailed value) logoutFailed,
+    required TResult Function(_GetUserDetailsLoading value)
+        getUserDetailsLoading,
+    required TResult Function(_GetUserDetailsSuccess value)
+        getUserDetailsSuccess,
+    required TResult Function(_GetUserDetailsFailed value) getUserDetailsFailed,
+  }) {
+    return logoutLoading(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_LogoutLoading value)? logoutLoading,
+    TResult? Function(_LogoutSuccess value)? logoutSuccess,
+    TResult? Function(_LogoutFailed value)? logoutFailed,
+    TResult? Function(_GetUserDetailsLoading value)? getUserDetailsLoading,
+    TResult? Function(_GetUserDetailsSuccess value)? getUserDetailsSuccess,
+    TResult? Function(_GetUserDetailsFailed value)? getUserDetailsFailed,
+  }) {
+    return logoutLoading?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_LogoutLoading value)? logoutLoading,
+    TResult Function(_LogoutSuccess value)? logoutSuccess,
+    TResult Function(_LogoutFailed value)? logoutFailed,
+    TResult Function(_GetUserDetailsLoading value)? getUserDetailsLoading,
+    TResult Function(_GetUserDetailsSuccess value)? getUserDetailsSuccess,
+    TResult Function(_GetUserDetailsFailed value)? getUserDetailsFailed,
+    required TResult orElse(),
+  }) {
+    if (logoutLoading != null) {
+      return logoutLoading(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _LogoutLoading implements UserViewmodelState {
+  const factory _LogoutLoading() = _$LogoutLoadingImpl;
+}
+
+/// @nodoc
+abstract class _$$LogoutSuccessImplCopyWith<$Res> {
+  factory _$$LogoutSuccessImplCopyWith(
+          _$LogoutSuccessImpl value, $Res Function(_$LogoutSuccessImpl) then) =
+      __$$LogoutSuccessImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$LogoutSuccessImplCopyWithImpl<$Res>
+    extends _$UserViewmodelStateCopyWithImpl<$Res, _$LogoutSuccessImpl>
+    implements _$$LogoutSuccessImplCopyWith<$Res> {
+  __$$LogoutSuccessImplCopyWithImpl(
+      _$LogoutSuccessImpl _value, $Res Function(_$LogoutSuccessImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of UserViewmodelState
+  /// with the given fields replaced by the non-null parameter values.
+}
+
+/// @nodoc
+
+class _$LogoutSuccessImpl implements _LogoutSuccess {
+  const _$LogoutSuccessImpl();
+
+  @override
+  String toString() {
+    return 'UserViewmodelState.logoutSuccess()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$LogoutSuccessImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() logoutLoading,
+    required TResult Function() logoutSuccess,
+    required TResult Function(String message) logoutFailed,
+    required TResult Function() getUserDetailsLoading,
+    required TResult Function(UserModel? user) getUserDetailsSuccess,
+    required TResult Function(String message) getUserDetailsFailed,
+  }) {
+    return logoutSuccess();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? logoutLoading,
+    TResult? Function()? logoutSuccess,
+    TResult? Function(String message)? logoutFailed,
+    TResult? Function()? getUserDetailsLoading,
+    TResult? Function(UserModel? user)? getUserDetailsSuccess,
+    TResult? Function(String message)? getUserDetailsFailed,
+  }) {
+    return logoutSuccess?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? logoutLoading,
+    TResult Function()? logoutSuccess,
+    TResult Function(String message)? logoutFailed,
+    TResult Function()? getUserDetailsLoading,
+    TResult Function(UserModel? user)? getUserDetailsSuccess,
+    TResult Function(String message)? getUserDetailsFailed,
+    required TResult orElse(),
+  }) {
+    if (logoutSuccess != null) {
+      return logoutSuccess();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(_LogoutLoading value) logoutLoading,
+    required TResult Function(_LogoutSuccess value) logoutSuccess,
+    required TResult Function(_LogoutFailed value) logoutFailed,
+    required TResult Function(_GetUserDetailsLoading value)
+        getUserDetailsLoading,
+    required TResult Function(_GetUserDetailsSuccess value)
+        getUserDetailsSuccess,
+    required TResult Function(_GetUserDetailsFailed value) getUserDetailsFailed,
+  }) {
+    return logoutSuccess(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_LogoutLoading value)? logoutLoading,
+    TResult? Function(_LogoutSuccess value)? logoutSuccess,
+    TResult? Function(_LogoutFailed value)? logoutFailed,
+    TResult? Function(_GetUserDetailsLoading value)? getUserDetailsLoading,
+    TResult? Function(_GetUserDetailsSuccess value)? getUserDetailsSuccess,
+    TResult? Function(_GetUserDetailsFailed value)? getUserDetailsFailed,
+  }) {
+    return logoutSuccess?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_LogoutLoading value)? logoutLoading,
+    TResult Function(_LogoutSuccess value)? logoutSuccess,
+    TResult Function(_LogoutFailed value)? logoutFailed,
+    TResult Function(_GetUserDetailsLoading value)? getUserDetailsLoading,
+    TResult Function(_GetUserDetailsSuccess value)? getUserDetailsSuccess,
+    TResult Function(_GetUserDetailsFailed value)? getUserDetailsFailed,
+    required TResult orElse(),
+  }) {
+    if (logoutSuccess != null) {
+      return logoutSuccess(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _LogoutSuccess implements UserViewmodelState {
+  const factory _LogoutSuccess() = _$LogoutSuccessImpl;
+}
+
+/// @nodoc
+abstract class _$$LogoutFailedImplCopyWith<$Res> {
+  factory _$$LogoutFailedImplCopyWith(
+          _$LogoutFailedImpl value, $Res Function(_$LogoutFailedImpl) then) =
+      __$$LogoutFailedImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String message});
+}
+
+/// @nodoc
+class __$$LogoutFailedImplCopyWithImpl<$Res>
+    extends _$UserViewmodelStateCopyWithImpl<$Res, _$LogoutFailedImpl>
+    implements _$$LogoutFailedImplCopyWith<$Res> {
+  __$$LogoutFailedImplCopyWithImpl(
+      _$LogoutFailedImpl _value, $Res Function(_$LogoutFailedImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of UserViewmodelState
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? isInitialized = null,
-    Object? isLogoutLoading = null,
-    Object? isLogoutSuccess = null,
-    Object? isLogoutFailed = null,
-    Object? isGetUserDetailsLoading = null,
-    Object? isGetUserDetailsSuccess = null,
-    Object? isGetUserDetailsFailed = null,
-    Object? user = freezed,
-    Object? isUserActiveLoading = null,
-    Object? isUserActiveSuccess = null,
-    Object? isUserActiveFailed = null,
-    Object? isActive = null,
-    Object? errorMessage = freezed,
+    Object? message = null,
   }) {
-    return _then(_value.copyWith(
-      isInitialized: null == isInitialized
-          ? _value.isInitialized
-          : isInitialized // ignore: cast_nullable_to_non_nullable
-              as bool,
-      isLogoutLoading: null == isLogoutLoading
-          ? _value.isLogoutLoading
-          : isLogoutLoading // ignore: cast_nullable_to_non_nullable
-              as bool,
-      isLogoutSuccess: null == isLogoutSuccess
-          ? _value.isLogoutSuccess
-          : isLogoutSuccess // ignore: cast_nullable_to_non_nullable
-              as bool,
-      isLogoutFailed: null == isLogoutFailed
-          ? _value.isLogoutFailed
-          : isLogoutFailed // ignore: cast_nullable_to_non_nullable
-              as bool,
-      isGetUserDetailsLoading: null == isGetUserDetailsLoading
-          ? _value.isGetUserDetailsLoading
-          : isGetUserDetailsLoading // ignore: cast_nullable_to_non_nullable
-              as bool,
-      isGetUserDetailsSuccess: null == isGetUserDetailsSuccess
-          ? _value.isGetUserDetailsSuccess
-          : isGetUserDetailsSuccess // ignore: cast_nullable_to_non_nullable
-              as bool,
-      isGetUserDetailsFailed: null == isGetUserDetailsFailed
-          ? _value.isGetUserDetailsFailed
-          : isGetUserDetailsFailed // ignore: cast_nullable_to_non_nullable
-              as bool,
+    return _then(_$LogoutFailedImpl(
+      message: null == message
+          ? _value.message
+          : message // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$LogoutFailedImpl implements _LogoutFailed {
+  const _$LogoutFailedImpl({required this.message});
+
+  @override
+  final String message;
+
+  @override
+  String toString() {
+    return 'UserViewmodelState.logoutFailed(message: $message)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$LogoutFailedImpl &&
+            (identical(other.message, message) || other.message == message));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, message);
+
+  /// Create a copy of UserViewmodelState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$LogoutFailedImplCopyWith<_$LogoutFailedImpl> get copyWith =>
+      __$$LogoutFailedImplCopyWithImpl<_$LogoutFailedImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() logoutLoading,
+    required TResult Function() logoutSuccess,
+    required TResult Function(String message) logoutFailed,
+    required TResult Function() getUserDetailsLoading,
+    required TResult Function(UserModel? user) getUserDetailsSuccess,
+    required TResult Function(String message) getUserDetailsFailed,
+  }) {
+    return logoutFailed(message);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? logoutLoading,
+    TResult? Function()? logoutSuccess,
+    TResult? Function(String message)? logoutFailed,
+    TResult? Function()? getUserDetailsLoading,
+    TResult? Function(UserModel? user)? getUserDetailsSuccess,
+    TResult? Function(String message)? getUserDetailsFailed,
+  }) {
+    return logoutFailed?.call(message);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? logoutLoading,
+    TResult Function()? logoutSuccess,
+    TResult Function(String message)? logoutFailed,
+    TResult Function()? getUserDetailsLoading,
+    TResult Function(UserModel? user)? getUserDetailsSuccess,
+    TResult Function(String message)? getUserDetailsFailed,
+    required TResult orElse(),
+  }) {
+    if (logoutFailed != null) {
+      return logoutFailed(message);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(_LogoutLoading value) logoutLoading,
+    required TResult Function(_LogoutSuccess value) logoutSuccess,
+    required TResult Function(_LogoutFailed value) logoutFailed,
+    required TResult Function(_GetUserDetailsLoading value)
+        getUserDetailsLoading,
+    required TResult Function(_GetUserDetailsSuccess value)
+        getUserDetailsSuccess,
+    required TResult Function(_GetUserDetailsFailed value) getUserDetailsFailed,
+  }) {
+    return logoutFailed(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_LogoutLoading value)? logoutLoading,
+    TResult? Function(_LogoutSuccess value)? logoutSuccess,
+    TResult? Function(_LogoutFailed value)? logoutFailed,
+    TResult? Function(_GetUserDetailsLoading value)? getUserDetailsLoading,
+    TResult? Function(_GetUserDetailsSuccess value)? getUserDetailsSuccess,
+    TResult? Function(_GetUserDetailsFailed value)? getUserDetailsFailed,
+  }) {
+    return logoutFailed?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_LogoutLoading value)? logoutLoading,
+    TResult Function(_LogoutSuccess value)? logoutSuccess,
+    TResult Function(_LogoutFailed value)? logoutFailed,
+    TResult Function(_GetUserDetailsLoading value)? getUserDetailsLoading,
+    TResult Function(_GetUserDetailsSuccess value)? getUserDetailsSuccess,
+    TResult Function(_GetUserDetailsFailed value)? getUserDetailsFailed,
+    required TResult orElse(),
+  }) {
+    if (logoutFailed != null) {
+      return logoutFailed(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _LogoutFailed implements UserViewmodelState {
+  const factory _LogoutFailed({required final String message}) =
+      _$LogoutFailedImpl;
+
+  String get message;
+
+  /// Create a copy of UserViewmodelState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$LogoutFailedImplCopyWith<_$LogoutFailedImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$GetUserDetailsLoadingImplCopyWith<$Res> {
+  factory _$$GetUserDetailsLoadingImplCopyWith(
+          _$GetUserDetailsLoadingImpl value,
+          $Res Function(_$GetUserDetailsLoadingImpl) then) =
+      __$$GetUserDetailsLoadingImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$GetUserDetailsLoadingImplCopyWithImpl<$Res>
+    extends _$UserViewmodelStateCopyWithImpl<$Res, _$GetUserDetailsLoadingImpl>
+    implements _$$GetUserDetailsLoadingImplCopyWith<$Res> {
+  __$$GetUserDetailsLoadingImplCopyWithImpl(_$GetUserDetailsLoadingImpl _value,
+      $Res Function(_$GetUserDetailsLoadingImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of UserViewmodelState
+  /// with the given fields replaced by the non-null parameter values.
+}
+
+/// @nodoc
+
+class _$GetUserDetailsLoadingImpl implements _GetUserDetailsLoading {
+  const _$GetUserDetailsLoadingImpl();
+
+  @override
+  String toString() {
+    return 'UserViewmodelState.getUserDetailsLoading()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$GetUserDetailsLoadingImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() logoutLoading,
+    required TResult Function() logoutSuccess,
+    required TResult Function(String message) logoutFailed,
+    required TResult Function() getUserDetailsLoading,
+    required TResult Function(UserModel? user) getUserDetailsSuccess,
+    required TResult Function(String message) getUserDetailsFailed,
+  }) {
+    return getUserDetailsLoading();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? logoutLoading,
+    TResult? Function()? logoutSuccess,
+    TResult? Function(String message)? logoutFailed,
+    TResult? Function()? getUserDetailsLoading,
+    TResult? Function(UserModel? user)? getUserDetailsSuccess,
+    TResult? Function(String message)? getUserDetailsFailed,
+  }) {
+    return getUserDetailsLoading?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? logoutLoading,
+    TResult Function()? logoutSuccess,
+    TResult Function(String message)? logoutFailed,
+    TResult Function()? getUserDetailsLoading,
+    TResult Function(UserModel? user)? getUserDetailsSuccess,
+    TResult Function(String message)? getUserDetailsFailed,
+    required TResult orElse(),
+  }) {
+    if (getUserDetailsLoading != null) {
+      return getUserDetailsLoading();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(_LogoutLoading value) logoutLoading,
+    required TResult Function(_LogoutSuccess value) logoutSuccess,
+    required TResult Function(_LogoutFailed value) logoutFailed,
+    required TResult Function(_GetUserDetailsLoading value)
+        getUserDetailsLoading,
+    required TResult Function(_GetUserDetailsSuccess value)
+        getUserDetailsSuccess,
+    required TResult Function(_GetUserDetailsFailed value) getUserDetailsFailed,
+  }) {
+    return getUserDetailsLoading(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_LogoutLoading value)? logoutLoading,
+    TResult? Function(_LogoutSuccess value)? logoutSuccess,
+    TResult? Function(_LogoutFailed value)? logoutFailed,
+    TResult? Function(_GetUserDetailsLoading value)? getUserDetailsLoading,
+    TResult? Function(_GetUserDetailsSuccess value)? getUserDetailsSuccess,
+    TResult? Function(_GetUserDetailsFailed value)? getUserDetailsFailed,
+  }) {
+    return getUserDetailsLoading?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_LogoutLoading value)? logoutLoading,
+    TResult Function(_LogoutSuccess value)? logoutSuccess,
+    TResult Function(_LogoutFailed value)? logoutFailed,
+    TResult Function(_GetUserDetailsLoading value)? getUserDetailsLoading,
+    TResult Function(_GetUserDetailsSuccess value)? getUserDetailsSuccess,
+    TResult Function(_GetUserDetailsFailed value)? getUserDetailsFailed,
+    required TResult orElse(),
+  }) {
+    if (getUserDetailsLoading != null) {
+      return getUserDetailsLoading(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _GetUserDetailsLoading implements UserViewmodelState {
+  const factory _GetUserDetailsLoading() = _$GetUserDetailsLoadingImpl;
+}
+
+/// @nodoc
+abstract class _$$GetUserDetailsSuccessImplCopyWith<$Res> {
+  factory _$$GetUserDetailsSuccessImplCopyWith(
+          _$GetUserDetailsSuccessImpl value,
+          $Res Function(_$GetUserDetailsSuccessImpl) then) =
+      __$$GetUserDetailsSuccessImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({UserModel? user});
+
+  $UserModelCopyWith<$Res>? get user;
+}
+
+/// @nodoc
+class __$$GetUserDetailsSuccessImplCopyWithImpl<$Res>
+    extends _$UserViewmodelStateCopyWithImpl<$Res, _$GetUserDetailsSuccessImpl>
+    implements _$$GetUserDetailsSuccessImplCopyWith<$Res> {
+  __$$GetUserDetailsSuccessImplCopyWithImpl(_$GetUserDetailsSuccessImpl _value,
+      $Res Function(_$GetUserDetailsSuccessImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of UserViewmodelState
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? user = freezed,
+  }) {
+    return _then(_$GetUserDetailsSuccessImpl(
       user: freezed == user
           ? _value.user
           : user // ignore: cast_nullable_to_non_nullable
               as UserModel?,
-      isUserActiveLoading: null == isUserActiveLoading
-          ? _value.isUserActiveLoading
-          : isUserActiveLoading // ignore: cast_nullable_to_non_nullable
-              as bool,
-      isUserActiveSuccess: null == isUserActiveSuccess
-          ? _value.isUserActiveSuccess
-          : isUserActiveSuccess // ignore: cast_nullable_to_non_nullable
-              as bool,
-      isUserActiveFailed: null == isUserActiveFailed
-          ? _value.isUserActiveFailed
-          : isUserActiveFailed // ignore: cast_nullable_to_non_nullable
-              as bool,
-      isActive: null == isActive
-          ? _value.isActive
-          : isActive // ignore: cast_nullable_to_non_nullable
-              as bool,
-      errorMessage: freezed == errorMessage
-          ? _value.errorMessage
-          : errorMessage // ignore: cast_nullable_to_non_nullable
-              as String?,
-    ) as $Val);
+    ));
   }
 
+  /// Create a copy of UserViewmodelState
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $UserModelCopyWith<$Res>? get user {
@@ -160,306 +877,323 @@ class _$UserViewmodelStateCopyWithImpl<$Res, $Val extends UserViewmodelState>
     }
 
     return $UserModelCopyWith<$Res>(_value.user!, (value) {
-      return _then(_value.copyWith(user: value) as $Val);
+      return _then(_value.copyWith(user: value));
     });
   }
 }
 
 /// @nodoc
-abstract class _$$UserViewmodelStateImplCopyWith<$Res>
-    implements $UserViewmodelStateCopyWith<$Res> {
-  factory _$$UserViewmodelStateImplCopyWith(_$UserViewmodelStateImpl value,
-          $Res Function(_$UserViewmodelStateImpl) then) =
-      __$$UserViewmodelStateImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call(
-      {bool isInitialized,
-      bool isLogoutLoading,
-      bool isLogoutSuccess,
-      bool isLogoutFailed,
-      bool isGetUserDetailsLoading,
-      bool isGetUserDetailsSuccess,
-      bool isGetUserDetailsFailed,
-      UserModel? user,
-      bool isUserActiveLoading,
-      bool isUserActiveSuccess,
-      bool isUserActiveFailed,
-      bool isActive,
-      String? errorMessage});
+
+class _$GetUserDetailsSuccessImpl implements _GetUserDetailsSuccess {
+  const _$GetUserDetailsSuccessImpl({required this.user});
 
   @override
-  $UserModelCopyWith<$Res>? get user;
-}
-
-/// @nodoc
-class __$$UserViewmodelStateImplCopyWithImpl<$Res>
-    extends _$UserViewmodelStateCopyWithImpl<$Res, _$UserViewmodelStateImpl>
-    implements _$$UserViewmodelStateImplCopyWith<$Res> {
-  __$$UserViewmodelStateImplCopyWithImpl(_$UserViewmodelStateImpl _value,
-      $Res Function(_$UserViewmodelStateImpl) _then)
-      : super(_value, _then);
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? isInitialized = null,
-    Object? isLogoutLoading = null,
-    Object? isLogoutSuccess = null,
-    Object? isLogoutFailed = null,
-    Object? isGetUserDetailsLoading = null,
-    Object? isGetUserDetailsSuccess = null,
-    Object? isGetUserDetailsFailed = null,
-    Object? user = freezed,
-    Object? isUserActiveLoading = null,
-    Object? isUserActiveSuccess = null,
-    Object? isUserActiveFailed = null,
-    Object? isActive = null,
-    Object? errorMessage = freezed,
-  }) {
-    return _then(_$UserViewmodelStateImpl(
-      isInitialized: null == isInitialized
-          ? _value.isInitialized
-          : isInitialized // ignore: cast_nullable_to_non_nullable
-              as bool,
-      isLogoutLoading: null == isLogoutLoading
-          ? _value.isLogoutLoading
-          : isLogoutLoading // ignore: cast_nullable_to_non_nullable
-              as bool,
-      isLogoutSuccess: null == isLogoutSuccess
-          ? _value.isLogoutSuccess
-          : isLogoutSuccess // ignore: cast_nullable_to_non_nullable
-              as bool,
-      isLogoutFailed: null == isLogoutFailed
-          ? _value.isLogoutFailed
-          : isLogoutFailed // ignore: cast_nullable_to_non_nullable
-              as bool,
-      isGetUserDetailsLoading: null == isGetUserDetailsLoading
-          ? _value.isGetUserDetailsLoading
-          : isGetUserDetailsLoading // ignore: cast_nullable_to_non_nullable
-              as bool,
-      isGetUserDetailsSuccess: null == isGetUserDetailsSuccess
-          ? _value.isGetUserDetailsSuccess
-          : isGetUserDetailsSuccess // ignore: cast_nullable_to_non_nullable
-              as bool,
-      isGetUserDetailsFailed: null == isGetUserDetailsFailed
-          ? _value.isGetUserDetailsFailed
-          : isGetUserDetailsFailed // ignore: cast_nullable_to_non_nullable
-              as bool,
-      user: freezed == user
-          ? _value.user
-          : user // ignore: cast_nullable_to_non_nullable
-              as UserModel?,
-      isUserActiveLoading: null == isUserActiveLoading
-          ? _value.isUserActiveLoading
-          : isUserActiveLoading // ignore: cast_nullable_to_non_nullable
-              as bool,
-      isUserActiveSuccess: null == isUserActiveSuccess
-          ? _value.isUserActiveSuccess
-          : isUserActiveSuccess // ignore: cast_nullable_to_non_nullable
-              as bool,
-      isUserActiveFailed: null == isUserActiveFailed
-          ? _value.isUserActiveFailed
-          : isUserActiveFailed // ignore: cast_nullable_to_non_nullable
-              as bool,
-      isActive: null == isActive
-          ? _value.isActive
-          : isActive // ignore: cast_nullable_to_non_nullable
-              as bool,
-      errorMessage: freezed == errorMessage
-          ? _value.errorMessage
-          : errorMessage // ignore: cast_nullable_to_non_nullable
-              as String?,
-    ));
-  }
-}
-
-/// @nodoc
-
-class _$UserViewmodelStateImpl implements _UserViewmodelState {
-  const _$UserViewmodelStateImpl(
-      {this.isInitialized = true,
-      this.isLogoutLoading = false,
-      this.isLogoutSuccess = false,
-      this.isLogoutFailed = false,
-      this.isGetUserDetailsLoading = false,
-      this.isGetUserDetailsSuccess = false,
-      this.isGetUserDetailsFailed = false,
-      this.user = null,
-      this.isUserActiveLoading = false,
-      this.isUserActiveSuccess = false,
-      this.isUserActiveFailed = false,
-      this.isActive = false,
-      this.errorMessage = null});
-
-  @override
-  @JsonKey()
-  final bool isInitialized;
-
-  /// logout
-  @override
-  @JsonKey()
-  final bool isLogoutLoading;
-  @override
-  @JsonKey()
-  final bool isLogoutSuccess;
-  @override
-  @JsonKey()
-  final bool isLogoutFailed;
-
-  /// user details
-  @override
-  @JsonKey()
-  final bool isGetUserDetailsLoading;
-  @override
-  @JsonKey()
-  final bool isGetUserDetailsSuccess;
-  @override
-  @JsonKey()
-  final bool isGetUserDetailsFailed;
-
-  /// the current user
-  @override
-  @JsonKey()
   final UserModel? user;
-
-  /// check activity of user
-  @override
-  @JsonKey()
-  final bool isUserActiveLoading;
-  @override
-  @JsonKey()
-  final bool isUserActiveSuccess;
-  @override
-  @JsonKey()
-  final bool isUserActiveFailed;
-  @override
-  @JsonKey()
-  final bool isActive;
-
-  /// error
-  @override
-  @JsonKey()
-  final String? errorMessage;
 
   @override
   String toString() {
-    return 'UserViewmodelState(isInitialized: $isInitialized, isLogoutLoading: $isLogoutLoading, isLogoutSuccess: $isLogoutSuccess, isLogoutFailed: $isLogoutFailed, isGetUserDetailsLoading: $isGetUserDetailsLoading, isGetUserDetailsSuccess: $isGetUserDetailsSuccess, isGetUserDetailsFailed: $isGetUserDetailsFailed, user: $user, isUserActiveLoading: $isUserActiveLoading, isUserActiveSuccess: $isUserActiveSuccess, isUserActiveFailed: $isUserActiveFailed, isActive: $isActive, errorMessage: $errorMessage)';
+    return 'UserViewmodelState.getUserDetailsSuccess(user: $user)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$UserViewmodelStateImpl &&
-            (identical(other.isInitialized, isInitialized) ||
-                other.isInitialized == isInitialized) &&
-            (identical(other.isLogoutLoading, isLogoutLoading) ||
-                other.isLogoutLoading == isLogoutLoading) &&
-            (identical(other.isLogoutSuccess, isLogoutSuccess) ||
-                other.isLogoutSuccess == isLogoutSuccess) &&
-            (identical(other.isLogoutFailed, isLogoutFailed) ||
-                other.isLogoutFailed == isLogoutFailed) &&
-            (identical(
-                    other.isGetUserDetailsLoading, isGetUserDetailsLoading) ||
-                other.isGetUserDetailsLoading == isGetUserDetailsLoading) &&
-            (identical(
-                    other.isGetUserDetailsSuccess, isGetUserDetailsSuccess) ||
-                other.isGetUserDetailsSuccess == isGetUserDetailsSuccess) &&
-            (identical(other.isGetUserDetailsFailed, isGetUserDetailsFailed) ||
-                other.isGetUserDetailsFailed == isGetUserDetailsFailed) &&
-            (identical(other.user, user) || other.user == user) &&
-            (identical(other.isUserActiveLoading, isUserActiveLoading) ||
-                other.isUserActiveLoading == isUserActiveLoading) &&
-            (identical(other.isUserActiveSuccess, isUserActiveSuccess) ||
-                other.isUserActiveSuccess == isUserActiveSuccess) &&
-            (identical(other.isUserActiveFailed, isUserActiveFailed) ||
-                other.isUserActiveFailed == isUserActiveFailed) &&
-            (identical(other.isActive, isActive) ||
-                other.isActive == isActive) &&
-            (identical(other.errorMessage, errorMessage) ||
-                other.errorMessage == errorMessage));
+            other is _$GetUserDetailsSuccessImpl &&
+            (identical(other.user, user) || other.user == user));
   }
 
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      isInitialized,
-      isLogoutLoading,
-      isLogoutSuccess,
-      isLogoutFailed,
-      isGetUserDetailsLoading,
-      isGetUserDetailsSuccess,
-      isGetUserDetailsFailed,
-      user,
-      isUserActiveLoading,
-      isUserActiveSuccess,
-      isUserActiveFailed,
-      isActive,
-      errorMessage);
+  int get hashCode => Object.hash(runtimeType, user);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of UserViewmodelState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
-  _$$UserViewmodelStateImplCopyWith<_$UserViewmodelStateImpl> get copyWith =>
-      __$$UserViewmodelStateImplCopyWithImpl<_$UserViewmodelStateImpl>(
-          this, _$identity);
+  _$$GetUserDetailsSuccessImplCopyWith<_$GetUserDetailsSuccessImpl>
+      get copyWith => __$$GetUserDetailsSuccessImplCopyWithImpl<
+          _$GetUserDetailsSuccessImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() logoutLoading,
+    required TResult Function() logoutSuccess,
+    required TResult Function(String message) logoutFailed,
+    required TResult Function() getUserDetailsLoading,
+    required TResult Function(UserModel? user) getUserDetailsSuccess,
+    required TResult Function(String message) getUserDetailsFailed,
+  }) {
+    return getUserDetailsSuccess(user);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? logoutLoading,
+    TResult? Function()? logoutSuccess,
+    TResult? Function(String message)? logoutFailed,
+    TResult? Function()? getUserDetailsLoading,
+    TResult? Function(UserModel? user)? getUserDetailsSuccess,
+    TResult? Function(String message)? getUserDetailsFailed,
+  }) {
+    return getUserDetailsSuccess?.call(user);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? logoutLoading,
+    TResult Function()? logoutSuccess,
+    TResult Function(String message)? logoutFailed,
+    TResult Function()? getUserDetailsLoading,
+    TResult Function(UserModel? user)? getUserDetailsSuccess,
+    TResult Function(String message)? getUserDetailsFailed,
+    required TResult orElse(),
+  }) {
+    if (getUserDetailsSuccess != null) {
+      return getUserDetailsSuccess(user);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(_LogoutLoading value) logoutLoading,
+    required TResult Function(_LogoutSuccess value) logoutSuccess,
+    required TResult Function(_LogoutFailed value) logoutFailed,
+    required TResult Function(_GetUserDetailsLoading value)
+        getUserDetailsLoading,
+    required TResult Function(_GetUserDetailsSuccess value)
+        getUserDetailsSuccess,
+    required TResult Function(_GetUserDetailsFailed value) getUserDetailsFailed,
+  }) {
+    return getUserDetailsSuccess(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_LogoutLoading value)? logoutLoading,
+    TResult? Function(_LogoutSuccess value)? logoutSuccess,
+    TResult? Function(_LogoutFailed value)? logoutFailed,
+    TResult? Function(_GetUserDetailsLoading value)? getUserDetailsLoading,
+    TResult? Function(_GetUserDetailsSuccess value)? getUserDetailsSuccess,
+    TResult? Function(_GetUserDetailsFailed value)? getUserDetailsFailed,
+  }) {
+    return getUserDetailsSuccess?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_LogoutLoading value)? logoutLoading,
+    TResult Function(_LogoutSuccess value)? logoutSuccess,
+    TResult Function(_LogoutFailed value)? logoutFailed,
+    TResult Function(_GetUserDetailsLoading value)? getUserDetailsLoading,
+    TResult Function(_GetUserDetailsSuccess value)? getUserDetailsSuccess,
+    TResult Function(_GetUserDetailsFailed value)? getUserDetailsFailed,
+    required TResult orElse(),
+  }) {
+    if (getUserDetailsSuccess != null) {
+      return getUserDetailsSuccess(this);
+    }
+    return orElse();
+  }
 }
 
-abstract class _UserViewmodelState implements UserViewmodelState {
-  const factory _UserViewmodelState(
-      {final bool isInitialized,
-      final bool isLogoutLoading,
-      final bool isLogoutSuccess,
-      final bool isLogoutFailed,
-      final bool isGetUserDetailsLoading,
-      final bool isGetUserDetailsSuccess,
-      final bool isGetUserDetailsFailed,
-      final UserModel? user,
-      final bool isUserActiveLoading,
-      final bool isUserActiveSuccess,
-      final bool isUserActiveFailed,
-      final bool isActive,
-      final String? errorMessage}) = _$UserViewmodelStateImpl;
+abstract class _GetUserDetailsSuccess implements UserViewmodelState {
+  const factory _GetUserDetailsSuccess({required final UserModel? user}) =
+      _$GetUserDetailsSuccessImpl;
 
-  @override
-  bool get isInitialized;
-  @override
-
-  /// logout
-  bool get isLogoutLoading;
-  @override
-  bool get isLogoutSuccess;
-  @override
-  bool get isLogoutFailed;
-  @override
-
-  /// user details
-  bool get isGetUserDetailsLoading;
-  @override
-  bool get isGetUserDetailsSuccess;
-  @override
-  bool get isGetUserDetailsFailed;
-  @override
-
-  /// the current user
   UserModel? get user;
-  @override
 
-  /// check activity of user
-  bool get isUserActiveLoading;
-  @override
-  bool get isUserActiveSuccess;
-  @override
-  bool get isUserActiveFailed;
-  @override
-  bool get isActive;
-  @override
+  /// Create a copy of UserViewmodelState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$GetUserDetailsSuccessImplCopyWith<_$GetUserDetailsSuccessImpl>
+      get copyWith => throw _privateConstructorUsedError;
+}
 
-  /// error
-  String? get errorMessage;
+/// @nodoc
+abstract class _$$GetUserDetailsFailedImplCopyWith<$Res> {
+  factory _$$GetUserDetailsFailedImplCopyWith(_$GetUserDetailsFailedImpl value,
+          $Res Function(_$GetUserDetailsFailedImpl) then) =
+      __$$GetUserDetailsFailedImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String message});
+}
+
+/// @nodoc
+class __$$GetUserDetailsFailedImplCopyWithImpl<$Res>
+    extends _$UserViewmodelStateCopyWithImpl<$Res, _$GetUserDetailsFailedImpl>
+    implements _$$GetUserDetailsFailedImplCopyWith<$Res> {
+  __$$GetUserDetailsFailedImplCopyWithImpl(_$GetUserDetailsFailedImpl _value,
+      $Res Function(_$GetUserDetailsFailedImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of UserViewmodelState
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
   @override
-  @JsonKey(ignore: true)
-  _$$UserViewmodelStateImplCopyWith<_$UserViewmodelStateImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+  $Res call({
+    Object? message = null,
+  }) {
+    return _then(_$GetUserDetailsFailedImpl(
+      message: null == message
+          ? _value.message
+          : message // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$GetUserDetailsFailedImpl implements _GetUserDetailsFailed {
+  const _$GetUserDetailsFailedImpl({required this.message});
+
+  @override
+  final String message;
+
+  @override
+  String toString() {
+    return 'UserViewmodelState.getUserDetailsFailed(message: $message)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$GetUserDetailsFailedImpl &&
+            (identical(other.message, message) || other.message == message));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, message);
+
+  /// Create a copy of UserViewmodelState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$GetUserDetailsFailedImplCopyWith<_$GetUserDetailsFailedImpl>
+      get copyWith =>
+          __$$GetUserDetailsFailedImplCopyWithImpl<_$GetUserDetailsFailedImpl>(
+              this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() logoutLoading,
+    required TResult Function() logoutSuccess,
+    required TResult Function(String message) logoutFailed,
+    required TResult Function() getUserDetailsLoading,
+    required TResult Function(UserModel? user) getUserDetailsSuccess,
+    required TResult Function(String message) getUserDetailsFailed,
+  }) {
+    return getUserDetailsFailed(message);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? logoutLoading,
+    TResult? Function()? logoutSuccess,
+    TResult? Function(String message)? logoutFailed,
+    TResult? Function()? getUserDetailsLoading,
+    TResult? Function(UserModel? user)? getUserDetailsSuccess,
+    TResult? Function(String message)? getUserDetailsFailed,
+  }) {
+    return getUserDetailsFailed?.call(message);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? logoutLoading,
+    TResult Function()? logoutSuccess,
+    TResult Function(String message)? logoutFailed,
+    TResult Function()? getUserDetailsLoading,
+    TResult Function(UserModel? user)? getUserDetailsSuccess,
+    TResult Function(String message)? getUserDetailsFailed,
+    required TResult orElse(),
+  }) {
+    if (getUserDetailsFailed != null) {
+      return getUserDetailsFailed(message);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(_LogoutLoading value) logoutLoading,
+    required TResult Function(_LogoutSuccess value) logoutSuccess,
+    required TResult Function(_LogoutFailed value) logoutFailed,
+    required TResult Function(_GetUserDetailsLoading value)
+        getUserDetailsLoading,
+    required TResult Function(_GetUserDetailsSuccess value)
+        getUserDetailsSuccess,
+    required TResult Function(_GetUserDetailsFailed value) getUserDetailsFailed,
+  }) {
+    return getUserDetailsFailed(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_LogoutLoading value)? logoutLoading,
+    TResult? Function(_LogoutSuccess value)? logoutSuccess,
+    TResult? Function(_LogoutFailed value)? logoutFailed,
+    TResult? Function(_GetUserDetailsLoading value)? getUserDetailsLoading,
+    TResult? Function(_GetUserDetailsSuccess value)? getUserDetailsSuccess,
+    TResult? Function(_GetUserDetailsFailed value)? getUserDetailsFailed,
+  }) {
+    return getUserDetailsFailed?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_LogoutLoading value)? logoutLoading,
+    TResult Function(_LogoutSuccess value)? logoutSuccess,
+    TResult Function(_LogoutFailed value)? logoutFailed,
+    TResult Function(_GetUserDetailsLoading value)? getUserDetailsLoading,
+    TResult Function(_GetUserDetailsSuccess value)? getUserDetailsSuccess,
+    TResult Function(_GetUserDetailsFailed value)? getUserDetailsFailed,
+    required TResult orElse(),
+  }) {
+    if (getUserDetailsFailed != null) {
+      return getUserDetailsFailed(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _GetUserDetailsFailed implements UserViewmodelState {
+  const factory _GetUserDetailsFailed({required final String message}) =
+      _$GetUserDetailsFailedImpl;
+
+  String get message;
+
+  /// Create a copy of UserViewmodelState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$GetUserDetailsFailedImplCopyWith<_$GetUserDetailsFailedImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }

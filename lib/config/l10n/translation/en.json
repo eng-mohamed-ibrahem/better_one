@@ -41,8 +41,8 @@
         "empty": "No tasks found",
         "add": "Add Task",
         "add_sub_task": "Add sub-task",
-        "title": "your task which you will achieve",
-        "description": "feel free to say what you want to achieve",
+        "title": "Your Task Title",
+        "description": "Something you want to achieve",
         "motive_add": "Let's Finish What We Start",
         "motive_update": "Good Job!, Keep Going",
         "motive_complete": "Congratulations!, You have completed this task as were promised",
@@ -57,10 +57,14 @@
         "pause": "Pause",
         "start": "Start",
         "status": {
-            "none": "Just Created",
-            "inprogress": "Working...",
+            "created": "Created",
+            "inprogress": "Working on it",
             "paused": "Paused",
             "done": "Completed"
+        },
+        "filter": {
+            "all": "All",
+            "apply": "Apply"
         }
     },
     "setting": {
@@ -110,6 +114,11 @@
             "email_backup": "Your tasks backed up at",
             "welcome": "Hello, {name} 👋"
         }
+    },
+    "search":{
+        "hint": "Search",
+        "empty": "No tasks found",
+        "init": "Search for tasks by title, or subtask"
     },
     "auth": {
         "cr_account": "Create Account",

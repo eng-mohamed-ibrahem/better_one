@@ -3,11 +3,11 @@
 #
 
 list(APPEND FLUTTER_PLUGIN_LIST
-  app_links
-  connectivity_plus_windows
+  cloud_firestore
+  connectivity_plus
   firebase_auth
   firebase_core
-  url_launcher_windows
+  flutter_timezone
 )
 
 list(APPEND FLUTTER_FFI_PLUGIN_LIST

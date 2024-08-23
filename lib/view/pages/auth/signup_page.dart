@@ -122,30 +122,34 @@ class _SignUpState extends State<SignUp> {
             ),
             BlocConsumer<AuthViewmodel, AuthViewmodelState>(
               listener: (context, state) {
-                if (state.isSignupFailed) {
-                  showSnackBar(context, message: state.errorMessage!);
-                }
-                if (state.isSignupSuccess) {
-                  showSnackBar(context, message: 'auth.signup_succ'.tr());
-                  context.goNamed(Routes.login.name);
-                }
+                state.whenOrNull(
+                  signupFailed: (errorMessage) {
+                    showSnackBar(context, message: errorMessage);
+                  },
+                  signupSuccess: (user) {
+                    showSnackBar(context, message: 'auth.signup_succ'.tr());
+                    context.goNamed(Routes.login.name);
+                  },
+                );
               },
               builder: (context, state) {
-                if (state.isSignupLoading) {
-                  return const CircularProgressIndicator();
-                }
-                return FilledButton(
-                  onPressed: () {
-                    if (_globalFormKey.currentState!.validate()) {
-                      AuthViewmodel.get(context).signup(
-                          email: email.text,
-                          password: password.text,
-                          name: userName.text);
-                    }
+                return state.maybeWhen(
+                  signupLoading: () => const CircularProgressIndicator(),
+                  orElse: () {
+                    return FilledButton(
+                      onPressed: () {
+                        if (_globalFormKey.currentState!.validate()) {
+                          AuthViewmodel.get(context).signup(
+                              email: email.text,
+                              password: password.text,
+                              name: userName.text);
+                        }
+                      },
+                      child: Text(
+                        'auth.signup'.tr(),
+                      ),
+                    );
                   },
-                  child: Text(
-                    'auth.signup'.tr(),
-                  ),
                 );
               },
             ),

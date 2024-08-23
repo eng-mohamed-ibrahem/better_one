@@ -4,7 +4,6 @@ import 'package:better_one/core/utils/dependency_locator/dependency_injection.da
 import 'package:better_one/core/utils/methods/methods.dart';
 import 'package:better_one/core/utils/shared_widgets/back_button_l10n.dart';
 import 'package:better_one/core/utils/shared_widgets/loading_data.dart';
-import 'package:better_one/core/utils/shared_widgets/show_bottom_sheet.dart';
 import 'package:better_one/model/settings_item_model/setting_item_model.dart';
 import 'package:better_one/view/widgets/setting_widgets/language_setting_widget.dart';
 import 'package:better_one/view/widgets/setting_widgets/setting_item_widget.dart';
@@ -109,7 +108,6 @@ class _SettingScreenState extends State<SettingScreen> with RouteAware {
             separatorBuilder: (context, index) => const Divider(
               thickness: 2,
               color: AppColors.secondColor,
-              height: 10,
               indent: 20,
               endIndent: 20,
             ),

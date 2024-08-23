@@ -2,29 +2,21 @@ part of 'user_viewmodel.dart';
 
 @freezed
 class UserViewmodelState with _$UserViewmodelState {
-  const factory UserViewmodelState({
-    @Default(true) bool isInitialized,
+  const factory UserViewmodelState.initial() = _Initial;
 
-    /// logout
-    @Default(false) bool isLogoutLoading,
-    @Default(false) bool isLogoutSuccess,
-    @Default(false) bool isLogoutFailed,
+  const factory UserViewmodelState.logoutLoading() = _LogoutLoading;
 
-    /// user details
-    @Default(false) bool isGetUserDetailsLoading,
-    @Default(false) bool isGetUserDetailsSuccess,
-    @Default(false) bool isGetUserDetailsFailed,
+  const factory UserViewmodelState.logoutSuccess() = _LogoutSuccess;
 
-    /// the current user
-    @Default(null) UserModel? user,
+  const factory UserViewmodelState.logoutFailed({required String message}) =
+      _LogoutFailed;
 
-    /// check activity of user
-    @Default(false) bool isUserActiveLoading,
-    @Default(false) bool isUserActiveSuccess,
-    @Default(false) bool isUserActiveFailed,
-    @Default(false) bool isActive,
+  const factory UserViewmodelState.getUserDetailsLoading() =
+      _GetUserDetailsLoading;
 
-    /// error
-    @Default(null) String? errorMessage,
-  }) = _UserViewmodelState;
+  const factory UserViewmodelState.getUserDetailsSuccess(
+      {required UserModel? user}) = _GetUserDetailsSuccess;
+
+  const factory UserViewmodelState.getUserDetailsFailed(
+      {required String message}) = _GetUserDetailsFailed;
 }

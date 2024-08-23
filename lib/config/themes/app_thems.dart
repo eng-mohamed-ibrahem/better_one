@@ -9,7 +9,7 @@ class AppThemes {
     scaffoldBackgroundColor: AppColors.primaryColor,
     colorScheme:
         ColorScheme.fromSwatch().copyWith(secondary: AppColors.primaryColor),
-    fontFamily: 'Tajawal',
+    fontFamily: 'Cairo',
     buttonTheme: buttonTheme(),
     appBarTheme: appBarTheme(),
     textTheme: textTheme(),
@@ -246,7 +246,7 @@ class AppThemes {
     scaffoldBackgroundColor: AppColors.lightPrimaryColor,
     colorScheme: ColorScheme.fromSwatch()
         .copyWith(secondary: AppColors.lightSecondColor),
-    fontFamily: 'Tajawal',
+    fontFamily: 'Cairo',
     buttonTheme: lightButtonTheme(),
     appBarTheme: lightAppBarTheme(),
     textTheme: lightTextTheme(),

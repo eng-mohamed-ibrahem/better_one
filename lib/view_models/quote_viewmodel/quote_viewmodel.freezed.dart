@@ -23,7 +23,9 @@ mixin _$QuoteViewmodelState {
   bool get isFailed => throw _privateConstructorUsedError;
   String? get errorMessage => throw _privateConstructorUsedError;
 
-  @JsonKey(ignore: true)
+  /// Create a copy of QuoteViewmodelState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $QuoteViewmodelStateCopyWith<QuoteViewmodelState> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -55,6 +57,8 @@ class _$QuoteViewmodelStateCopyWithImpl<$Res, $Val extends QuoteViewmodelState>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of QuoteViewmodelState
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -93,6 +97,8 @@ class _$QuoteViewmodelStateCopyWithImpl<$Res, $Val extends QuoteViewmodelState>
     ) as $Val);
   }
 
+  /// Create a copy of QuoteViewmodelState
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $QuoteModelCopyWith<$Res>? get quote {
@@ -134,6 +140,8 @@ class __$$QuoteViewmodelStateImplCopyWithImpl<$Res>
       $Res Function(_$QuoteViewmodelStateImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of QuoteViewmodelState
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -230,7 +238,9 @@ class _$QuoteViewmodelStateImpl implements _QuoteViewmodelState {
   int get hashCode => Object.hash(runtimeType, isInitial, isLoading,
       isCompleted, quote, isFailed, errorMessage);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of QuoteViewmodelState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$QuoteViewmodelStateImplCopyWith<_$QuoteViewmodelStateImpl> get copyWith =>
@@ -259,8 +269,11 @@ abstract class _QuoteViewmodelState implements QuoteViewmodelState {
   bool get isFailed;
   @override
   String? get errorMessage;
+
+  /// Create a copy of QuoteViewmodelState
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$QuoteViewmodelStateImplCopyWith<_$QuoteViewmodelStateImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

@@ -9,7 +9,8 @@ enum Routes {
   taskDetail("task-detail", "task_detail"),
   profile("profile", "profile"),
   notificationSetting("notification-setting", "notification_setting"),
-  searchSetting("search-setting", "search_setting");
+  searchSetting("search-setting", "search_setting"),
+  search("search", "search");
 
   final String path;
   final String name;

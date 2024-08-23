@@ -16,6 +16,10 @@ class TaskField extends StatelessWidget {
     this.validator,
     this.onChanged,
     this.initialValue,
+    this.style,
+    this.textAlign,
+    this.focusNode,
+    this.autofocus = false,
   });
   final TextEditingController? controller;
   final int? minLines;
@@ -25,8 +29,12 @@ class TaskField extends StatelessWidget {
   final double? textFieldHeight;
   final Widget? prefixIcon;
   final String? Function(String?)? validator;
-  final Function(String)? onChanged;
+  final Function(String text)? onChanged;
   final String? initialValue;
+  final TextStyle? style;
+  final TextAlign? textAlign;
+  final FocusNode? focusNode;
+  final bool autofocus;
 
   @override
   Widget build(BuildContext context) {
@@ -41,22 +49,22 @@ class TaskField extends StatelessWidget {
         onChanged: onChanged,
         maxLines: maxLines,
         minLines: minLines,
+        focusNode: focusNode,
+        autofocus: autofocus,
         autovalidateMode: AutovalidateMode.onUserInteraction,
         decoration: InputDecoration(
           labelText: labelText,
           hintText: hintText,
           hintStyle: Theme.of(context).textTheme.bodySmall,
           labelStyle: Theme.of(context).textTheme.bodySmall,
-          border: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(10.0),
+          border: const OutlineInputBorder(
             borderSide: BorderSide.none,
           ),
           iconColor: Theme.of(context).iconTheme.color,
           icon: prefixIcon,
         ),
-        style: Theme.of(context).textTheme.titleMedium!.copyWith(
-              height: textFieldHeight,
-            ),
+        textAlign: textAlign ?? TextAlign.start,
+        style: style ?? Theme.of(context).textTheme.titleMedium!.copyWith(),
       ),
     );
   }

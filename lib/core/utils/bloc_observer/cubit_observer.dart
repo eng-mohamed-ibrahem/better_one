@@ -1,6 +1,10 @@
 import 'dart:developer';
 
+import 'package:better_one/view_models/auth_viewmodel/auth_viewmodel.dart';
+import 'package:better_one/view_models/setting_viewmodel/setting_viewmode.dart';
+import 'package:better_one/view_models/task_viewmodel/task_viewmodel.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:get_it/get_it.dart';
 
 class CubitObserver extends BlocObserver {
   @override
@@ -12,6 +16,16 @@ class CubitObserver extends BlocObserver {
   @override
   void onClose(BlocBase bloc) {
     log("${bloc.runtimeType} closed");
+    if (bloc is TaskViewmodel) {
+      GetIt.I.unregister<TaskViewmodel>();
+    }
+    if (bloc is SettingViewModel) {
+      GetIt.I.unregister<SettingViewModel>();
+    }
+    if (bloc is AuthViewmodel) {
+      GetIt.I.unregister<AuthViewmodel>();
+    }
+
     super.onClose(bloc);
   }
 
@@ -19,14 +33,15 @@ class CubitObserver extends BlocObserver {
   void onCreate(BlocBase bloc) {
     log("${bloc.runtimeType} created");
 
-    /// could be used register here if needed
-    /// but take care for lazy attribute in cubit becuase it created if called first time
-    // if (bloc.runtimeType == TaskViewmodel) {
-    //   GetIt.I.registerSingleton<TaskViewmodel>(bloc as TaskViewmodel);
-    // }
-    // if (bloc.runtimeType == SettingViewModel) {
-    //   GetIt.I.registerSingleton<SettingViewModel>(bloc as SettingViewModel);
-    // }
+    if (bloc is TaskViewmodel) {
+      GetIt.I.registerSingleton<TaskViewmodel>(bloc);
+    }
+    if (bloc is SettingViewModel) {
+      GetIt.I.registerSingleton<SettingViewModel>(bloc);
+    }
+    if (bloc is AuthViewmodel) {
+      GetIt.I.registerSingleton<AuthViewmodel>(bloc);
+    }
     super.onCreate(bloc);
   }
 }

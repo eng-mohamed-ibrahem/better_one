@@ -1,5 +1,7 @@
+import 'package:better_one/core/errors/failure.dart';
 import 'package:better_one/model/user_model/user_model.dart';
 import 'package:better_one/repositories/user_repo/user_repo_intefrace.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
@@ -7,26 +9,21 @@ part 'user_viewmodel.freezed.dart';
 part 'user_viewmodel_state.dart';
 
 class UserViewmodel extends Cubit<UserViewmodelState> {
-  UserViewmodel({required this.userRepo}) : super(const UserViewmodelState());
+  UserViewmodel({required this.userRepo}) : super(const _Initial());
   final UserRepoInterface userRepo;
+  UserModel? user;
   void logout() async {
-    emit(state.copyWith(isLogoutLoading: true, isLogoutFailed: false));
+    emit(const _LogoutLoading());
     var result = await userRepo.logOut();
     result.when(
       success: (loggedOut) {
-        emit(
-          state.copyWith(
-            isLogoutLoading: false,
-            isLogoutSuccess: loggedOut,
-          ),
-        );
+        emit(const _LogoutSuccess());
       },
       failure: (failure) {
         emit(
-          state.copyWith(
-            isLogoutLoading: false,
-            isLogoutFailed: true,
-            errorMessage: failure.message,
+          _LogoutFailed(
+            message:
+                failure is OtherFailure ? "core.error".tr() : failure.message,
           ),
         );
       },
@@ -34,25 +31,19 @@ class UserViewmodel extends Cubit<UserViewmodelState> {
   }
 
   void getUserDetails() async {
-    emit(state.copyWith(
-        isGetUserDetailsLoading: true, isGetUserDetailsFailed: false));
+    emit(const _GetUserDetailsLoading());
     var userData = await userRepo.getUserDetails();
     userData.when(
       success: (user) {
         emit(
-          state.copyWith(
-            isGetUserDetailsLoading: false,
-            isGetUserDetailsSuccess: true,
-            user: user,
-          ),
+          _GetUserDetailsSuccess(user: this.user = user),
         );
       },
       failure: (failure) {
         emit(
-          state.copyWith(
-            isGetUserDetailsLoading: false,
-            isGetUserDetailsFailed: true,
-            errorMessage: failure.message,
+          _GetUserDetailsFailed(
+            message:
+                failure is OtherFailure ? "core.error".tr() : failure.message,
           ),
         );
       },

@@ -10,7 +10,7 @@ part 'auth_viewmodel.freezed.dart';
 part 'auth_viewmodel_state.dart';
 
 class AuthViewmodel extends Cubit<AuthViewmodelState> {
-  AuthViewmodel({required this.authRepo}) : super(const AuthViewmodelState());
+  AuthViewmodel({required this.authRepo}) : super(const _Initial());
   final AuthRepoInterface authRepo;
   static AuthViewmodel get(BuildContext context) =>
       BlocProvider.of<AuthViewmodel>(context);
@@ -19,18 +19,14 @@ class AuthViewmodel extends Cubit<AuthViewmodelState> {
       {required String email,
       required String password,
       required String name}) async {
-    emit(release().copyWith(isSignupLoading: true));
+    emit(const _SignupLoading());
     var result =
         await authRepo.signUp(email: email, password: password, name: name);
     result.when(
       success: (userModel) {
         debugPrint(userModel.toString());
         emit(
-          state.copyWith(
-            isSignupLoading: false,
-            isSignupSuccess: true,
-            userModel: userModel,
-          ),
+          _SignupSuccess(user: userModel),
         );
       },
       failure: (failure) {
@@ -38,78 +34,39 @@ class AuthViewmodel extends Cubit<AuthViewmodelState> {
           debugPrint(
               "=====================================\n${failure.toString()}\n===================================");
           emit(
-            state.copyWith(
-              isSignupLoading: false,
-              isSignupSuccess: false,
-              isSignupFailed: true,
-              errorMessage: 'core.wrong'.tr(),
+            _SignupFailed(
+              message: 'core.wrong'.tr(),
             ),
           );
           return;
         }
         emit(
-          state.copyWith(
-            isSignupLoading: false,
-            isSignupSuccess: false,
-            isSignupFailed: true,
-            errorMessage: failure.message,
-          ),
+          _SignupFailed(message: failure.message),
         );
       },
     );
   }
 
   void login({required String email, required String password}) async {
-    emit(release().copyWith(isLoginLoading: true));
+    emit(const _LoginLoading());
     var result = await authRepo.logIn(email: email, password: password);
     result.when(
       success: (userModel) {
-        emit(
-          state.copyWith(
-            isLoginLoading: false,
-            isLoginSuccess: true,
-            userModel: userModel,
-          ),
-        );
+        emit( _LoginSuccess(user: userModel));
       },
       failure: (failure) {
         if (failure is ParserFailure || failure is OtherFailure) {
           debugPrint(
               "=====================================\n${failure.toString()}\n===================================");
           emit(
-            state.copyWith(
-              isLoginLoading: false,
-              isLoginSuccess: false,
-              isLoginFailed: true,
-              errorMessage: 'core.wrong'.tr(),
-            ),
+            _LoginFailed(message: 'core.wrong'.tr()),
           );
           return;
         }
         emit(
-          state.copyWith(
-            isLoginLoading: false,
-            isLoginSuccess: false,
-            isLoginFailed: true,
-            errorMessage: failure.message,
-          ),
+          _LoginFailed(message: failure.message),
         );
       },
-    );
-  }
-
-  AuthViewmodelState release() {
-    return state.copyWith(
-      isLoginFailed: false,
-      isLoginLoading: false,
-      isLoginSuccess: false,
-      isSignupFailed: false,
-      isSignupLoading: false,
-      isSignupSuccess: false,
-      isLogoutFailed: false,
-      isLogoutLoading: false,
-      isLogoutSuccess: false,
-      errorMessage: null,
     );
   }
 }

@@ -61,11 +61,36 @@ class CardTask extends StatelessWidget {
                   children: [
                     ...() {
                       return List.generate(
-                        task.subTasks.length,
-                        (index) => Text(
-                          task.subTasks[index].title,
-                          style: Theme.of(context).textTheme.bodySmall,
-                        ),
+                        task.subTasks.length >= 5 ? 5 : task.subTasks.length,
+                        (index) => index != 4
+                            ? Row(
+                                children: [
+                                  CircleAvatar(
+                                    radius: 5.r,
+                                    backgroundColor:
+                                        Theme.of(context).primaryColor,
+                                    child: Icon(
+                                      task.subTasks[index].completed
+                                          ? Icons.check
+                                          : Icons.check_box_outline_blank,
+                                      color: AppColors.lightHightlightColor,
+                                      size: 10,
+                                    ),
+                                  ),
+                                  SizedBox(
+                                    width: AppMetrices.horizontalGap.w,
+                                  ),
+                                  Flexible(
+                                    child: Text(
+                                      task.subTasks[index].title,
+                                      style:
+                                          Theme.of(context).textTheme.bodySmall,
+                                    ),
+                                  ),
+                                ],
+                              )
+                            : Text('...',
+                                style: Theme.of(context).textTheme.bodySmall),
                       );
                     }(),
                     SizedBox(
@@ -86,9 +111,21 @@ class CardTask extends StatelessWidget {
                     ),
                     Row(
                       children: [
-                        Text(
-                          "task.status.${task.status.name}".tr(),
-                          style: Theme.of(context).textTheme.bodySmall,
+                        /// task status
+                        Container(
+                          padding: EdgeInsets.symmetric(
+                              horizontal: 8.r, vertical: 2.r),
+                          decoration: BoxDecoration(
+                            color: task.status.color,
+                            borderRadius: BorderRadius.circular(10.r),
+                          ),
+                          child: Text(
+                            "task.status.${task.status.name}".tr(),
+                            style:
+                                Theme.of(context).textTheme.bodySmall!.copyWith(
+                                      color: Colors.white,
+                                    ),
+                          ),
                         ),
                         const Spacer(),
                         DurationTime(duration: task.elapsedTime),

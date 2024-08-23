@@ -1,3 +1,4 @@
+import 'package:better_one/core/enum/task_status.dart';
 import 'package:better_one/core/errors/failure.dart';
 import 'package:better_one/core/utils/methods/methods.dart';
 import 'package:better_one/model/task_model/task_model.dart';
@@ -7,16 +8,14 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:get_it/get_it.dart';
 
 part 'task_viewmodel.freezed.dart';
 part 'task_viewmodel_state.dart';
 
 class TaskViewmodel extends Cubit<TaskViewmodelState> {
   TaskViewmodel({required this.taskRepo, required this.userRepo})
-      : super(TaskViewmodelState.initial()) {
+      : super(const _Initial()) {
     scrollController = ScrollController();
-    GetIt.I.registerSingleton<TaskViewmodel>(this);
   }
   final TaskRepoInterface taskRepo;
   final UserRepoInterface userRepo;
@@ -25,24 +24,26 @@ class TaskViewmodel extends Cubit<TaskViewmodelState> {
   late ScrollController scrollController;
 
   /// all tasks
-  List<TaskModel> allTasks = [];
+  Map<String, TaskModel> tasks = {};
 
   /// total estimated time
   Duration totalEstimatedTime = Duration.zero;
 
   /// [getTasks] to get all tasks
   void getTasks() async {
-    emit(TaskViewmodelState.allTasksLoading());
+    emit(const _AllTasksLoading());
     var result = await taskRepo.getAllTasks();
     result.when(
       success: (tasks) {
+        this.tasks.addEntries(
+            tasks.map<MapEntry<String, TaskModel>>((e) => MapEntry(e.id, e)));
         emit(
-          TaskViewmodelState.allTasksCompleted(allTasks: allTasks = tasks),
+          _AllTasksCompleted(allTasks: tasks),
         );
         getTotalEstimatedTime();
       },
       failure: (error) {
-        emit(TaskViewmodelState.allTasksFailed(
+        emit(_AllTasksFailed(
             message:
                 error is OtherFailure ? "core.error".tr() : error.message));
       },
@@ -50,18 +51,18 @@ class TaskViewmodel extends Cubit<TaskViewmodelState> {
   }
 
   void createTask(TaskModel task) async {
-    emit(TaskViewmodelState.createTaskLoading());
+    emit(const _CreateTaskLoading());
     var result = await userRepo.addTask(task);
     result.when(
       success: (task) {
-        allTasks.add(task);
+        tasks[task.id] = task;
         emit(
-          TaskViewmodelState.createTaskCompleted(createdTask: task),
+          _CreateTaskCompleted(createdTask: task),
         );
       },
       failure: (error) {
         emit(
-          TaskViewmodelState.createTaskFailed(
+          _CreateTaskFailed(
               message:
                   error is OtherFailure ? "core.error".tr() : error.message),
         );
@@ -70,18 +71,17 @@ class TaskViewmodel extends Cubit<TaskViewmodelState> {
   }
 
   void updateTask(TaskModel oldTask, TaskModel newTask) async {
-    emit(TaskViewmodelState.updateTaskLoading());
+    emit(const _UpdateTaskLoading());
     var result = await userRepo.updateTask(oldTask, newTask);
     result.when(
       success: (updatedTask) {
-        int index = allTasks.indexOf(oldTask);
-        allTasks[index] = newTask;
-        emit(TaskViewmodelState.updateTaskCompleted(updatedTask: updatedTask));
+        tasks[oldTask.id] = newTask;
+        emit(_UpdateTaskCompleted(updatedTask: updatedTask));
         getTotalEstimatedTime();
       },
       failure: (error) {
         emit(
-          TaskViewmodelState.updateTaskFailed(
+          _UpdateTaskFailed(
               message:
                   error is OtherFailure ? "core.error".tr() : error.message),
         );
@@ -90,19 +90,19 @@ class TaskViewmodel extends Cubit<TaskViewmodelState> {
   }
 
   void deleteTask(TaskModel deletedTask) async {
-    emit(TaskViewmodelState.deleteTaskLoading());
+    emit(const _DeleteTaskLoading());
     var result = await userRepo.removeTask(deletedTask);
     result.when(
       success: (task) {
-        allTasks.remove(task);
+        tasks.remove(deletedTask.id);
         emit(
-          TaskViewmodelState.deleteTaskCompleted(deletedTask: task),
+          _DeleteTaskCompleted(deletedTask: task),
         );
         getTotalEstimatedTime();
       },
       failure: (error) {
         emit(
-          TaskViewmodelState.deleteTaskFailed(
+          _DeleteTaskFailed(
               message:
                   error is OtherFailure ? "core.error".tr() : error.message),
         );
@@ -111,17 +111,17 @@ class TaskViewmodel extends Cubit<TaskViewmodelState> {
   }
 
   void getTaskById(String id) async {
-    emit(TaskViewmodelState.getTaskByIdLoading());
+    emit(const _GetTaskByIdLoading());
     var result = await userRepo.getTaskById(id);
     result.when(
       success: (task) {
         emit(
-          TaskViewmodelState.getTaskByIdCompleted(taskById: task!),
+          _GetTaskByIdCompleted(taskById: task!),
         );
       },
       failure: (error) {
         emit(
-          TaskViewmodelState.getTaskByIdFailed(
+          _GetTaskByIdFailed(
               message:
                   error is OtherFailure ? "core.error".tr() : error.message),
         );
@@ -130,12 +130,12 @@ class TaskViewmodel extends Cubit<TaskViewmodelState> {
   }
 
   void getTotalEstimatedTime() async {
-    emit(TaskViewmodelState.getTotalEstimatedTimeLoading());
+    emit(const _GetTotalEstimatedTimeLoading());
     var result = await taskRepo.getTotoalEstimatedTime();
     result.when(
       success: (totalTime) {
         emit(
-          TaskViewmodelState.getTotalEstimatedTimeCompleted(
+          _GetTotalEstimatedTimeCompleted(
               totalEstimatedTime: totalEstimatedTime =
                   Duration(microseconds: totalTime)),
         );
@@ -143,7 +143,26 @@ class TaskViewmodel extends Cubit<TaskViewmodelState> {
       failure: (error) {
         kDebugPrint(error.message);
         emit(
-          TaskViewmodelState.getTotalEstimatedTimeFailed(
+          _GetTotalEstimatedTimeFailed(
+              message:
+                  error is OtherFailure ? "core.error".tr() : error.message),
+        );
+      },
+    );
+  }
+
+  void filterWithStatuses(Set<TaskStatus> statuses) async {
+    emit(const _FilterTasksLoading());
+    var result = await userRepo.filterWithStatuses(statuses);
+    result.when(
+      success: (filteredTasks) {
+        emit(
+          _FilterTasksCompleted(filteredTasks: filteredTasks),
+        );
+      },
+      failure: (error) {
+        emit(
+          _FilterTasksFailed(
               message:
                   error is OtherFailure ? "core.error".tr() : error.message),
         );

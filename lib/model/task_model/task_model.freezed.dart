@@ -33,8 +33,12 @@ mixin _$TaskModel {
   TaskStatus get status => throw _privateConstructorUsedError;
   bool get backup => throw _privateConstructorUsedError;
 
+  /// Serializes this TaskModel to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of TaskModel
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $TaskModelCopyWith<TaskModel> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -65,6 +69,8 @@ class _$TaskModelCopyWithImpl<$Res, $Val extends TaskModel>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of TaskModel
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -141,6 +147,8 @@ class __$$TaskModelImplCopyWithImpl<$Res>
       _$TaskModelImpl _value, $Res Function(_$TaskModelImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of TaskModel
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -252,7 +260,7 @@ class _$TaskModelImpl implements _TaskModel {
             (identical(other.backup, backup) || other.backup == backup));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(
       runtimeType,
@@ -265,7 +273,9 @@ class _$TaskModelImpl implements _TaskModel {
       status,
       backup);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of TaskModel
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$TaskModelImplCopyWith<_$TaskModelImpl> get copyWith =>
@@ -313,8 +323,11 @@ abstract class _TaskModel implements TaskModel {
   TaskStatus get status;
   @override
   bool get backup;
+
+  /// Create a copy of TaskModel
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$TaskModelImplCopyWith<_$TaskModelImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -328,8 +341,12 @@ mixin _$SubTask {
   bool get completed => throw _privateConstructorUsedError;
   String get title => throw _privateConstructorUsedError;
 
+  /// Serializes this SubTask to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of SubTask
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $SubTaskCopyWith<SubTask> get copyWith => throw _privateConstructorUsedError;
 }
 
@@ -351,6 +368,8 @@ class _$SubTaskCopyWithImpl<$Res, $Val extends SubTask>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of SubTask
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -388,6 +407,8 @@ class __$$SubTaskImplCopyWithImpl<$Res>
       _$SubTaskImpl _value, $Res Function(_$SubTaskImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of SubTask
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -436,11 +457,13 @@ class _$SubTaskImpl implements _SubTask {
             (identical(other.title, title) || other.title == title));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(runtimeType, completed, title);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of SubTask
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$SubTaskImplCopyWith<_$SubTaskImpl> get copyWith =>
@@ -464,8 +487,11 @@ abstract class _SubTask implements SubTask {
   bool get completed;
   @override
   String get title;
+
+  /// Create a copy of SubTask
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$SubTaskImplCopyWith<_$SubTaskImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

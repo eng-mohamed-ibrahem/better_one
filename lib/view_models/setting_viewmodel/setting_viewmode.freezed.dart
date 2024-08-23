@@ -50,7 +50,9 @@ mixin _$SettingViewModelState {
       throw _privateConstructorUsedError; //* error message
   String? get errorMessage => throw _privateConstructorUsedError;
 
-  @JsonKey(ignore: true)
+  /// Create a copy of SettingViewModelState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $SettingViewModelStateCopyWith<SettingViewModelState> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -101,6 +103,8 @@ class _$SettingViewModelStateCopyWithImpl<$Res,
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of SettingViewModelState
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -287,6 +291,8 @@ class __$$SettingViewModelStateImplCopyWithImpl<$Res>
       $Res Function(_$SettingViewModelStateImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of SettingViewModelState
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -637,7 +643,9 @@ class _$SettingViewModelStateImpl implements _SettingViewModelState {
         errorMessage
       ]);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of SettingViewModelState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$SettingViewModelStateImplCopyWith<_$SettingViewModelStateImpl>
@@ -675,38 +683,38 @@ abstract class _SettingViewModelState implements SettingViewModelState {
       final String? errorMessage}) = _$SettingViewModelStateImpl;
 
   @override
-  bool get isInitial;
-  @override //* change language
+  bool get isInitial; //* change language
+  @override
   bool get isChangeLanguageLoading;
   @override
   bool get isChangeLanguageCompleted;
   @override
-  bool get isChangeLanguageFailed;
-  @override //* get current language
+  bool get isChangeLanguageFailed; //* get current language
+  @override
   bool get isGetLanguageLoading;
   @override
   bool get isGetLanguageCompleted;
   @override
   bool get isGetLanguageFailed;
   @override
-  Locale? get currentLanguage;
-  @override //* search settings
+  Locale? get currentLanguage; //* search settings
+  @override
   bool get isSearchByTitle;
   @override
   bool get isSearchByBody;
   @override
   bool get isSearchByDate;
   @override
-  bool get isSearchByStatus;
-  @override //* set search settings
+  bool get isSearchByStatus; //* set search settings
+  @override
   bool get isSetSearchSettingsCompleted;
   @override
-  bool get isSetSearchSettingsFailed;
-  @override //* get search settings
+  bool get isSetSearchSettingsFailed; //* get search settings
+  @override
   bool get isGetSearchSettingsCompleted;
   @override
-  bool get isGetSearchSettingsFailed;
-  @override //* notification settings
+  bool get isGetSearchSettingsFailed; //* notification settings
+  @override
   bool get isNotificationOnAdd;
   @override
   bool get isNotificationOnUpdate;
@@ -723,11 +731,14 @@ abstract class _SettingViewModelState implements SettingViewModelState {
   @override
   bool get isNotificationSettingsCompleted;
   @override
-  bool get isNotificationSettingsFailed;
-  @override //* error message
-  String? get errorMessage;
+  bool get isNotificationSettingsFailed; //* error message
   @override
-  @JsonKey(ignore: true)
+  String? get errorMessage;
+
+  /// Create a copy of SettingViewModelState
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$SettingViewModelStateImplCopyWith<_$SettingViewModelStateImpl>
       get copyWith => throw _privateConstructorUsedError;
 }

@@ -93,31 +93,35 @@ class _LoginState extends State<LogIn> {
             ),
             BlocConsumer<AuthViewmodel, AuthViewmodelState>(
               listener: (context, state) {
-                if (state.isLoginFailed) {
-                  showSnackBar(context, message: state.errorMessage!);
-                }
-                if (state.isLoginSuccess) {
-                  showSnackBar(context, message: 'auth.login_succ'.tr());
-                  userLocaleDatabase.setUserIdToLocale(
-                    userId: state.userModel!.id,
-                  );
-                  context.goNamed(Routes.profile.name);
-                }
+                state.whenOrNull(
+                  loginFailed: (message) {
+                    showSnackBar(context, message: message);
+                  },
+                  loginSuccess: (user) {
+                    showSnackBar(context, message: 'auth.login_succ'.tr());
+                    userLocaleDatabase.setUserIdToLocale(
+                      userId: user.id,
+                    );
+                    context.goNamed(Routes.profile.name);
+                  },
+                );
               },
               builder: (context, state) {
-                if (state.isLoginLoading) {
-                  return const CircularProgressIndicator();
-                }
-                return FilledButton(
-                  onPressed: () {
-                    if (_globalFormKey.currentState!.validate()) {
-                      AuthViewmodel.get(context)
-                          .login(email: email.text, password: password.text);
-                    }
+                return state.maybeWhen(
+                  loginLoading: () => const CircularProgressIndicator(),
+                  orElse: () {
+                    return FilledButton(
+                      onPressed: () {
+                        if (_globalFormKey.currentState!.validate()) {
+                          AuthViewmodel.get(context).login(
+                              email: email.text, password: password.text);
+                        }
+                      },
+                      child: Text(
+                        'auth.login'.tr(),
+                      ),
+                    );
                   },
-                  child: Text(
-                    'auth.login'.tr(),
-                  ),
                 );
               },
             ),

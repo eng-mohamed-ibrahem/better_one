@@ -1,23 +1,20 @@
 import 'package:better_one/core/utils/notification_service/notification_interface.dart';
 import 'package:better_one/core/utils/remote_service/api_consumer/api_consumer.dart';
 import 'package:better_one/core/utils/remote_service/api_consumer/dio_consumer.dart';
-import 'package:better_one/core/utils/remote_service/supabase_service/supabase_service.dart';
 import 'package:better_one/data_source/quote_data_source/quote_source_interface.dart';
 import 'package:better_one/data_source/quote_data_source/remote_quote_data_source.dart';
 import 'package:better_one/data_source/settings_data_source/local_settings_data_source.dart';
 import 'package:better_one/data_source/settings_data_source/settings_source_interface.dart';
 import 'package:better_one/data_source/task_data_source/local_task_data_source.dart';
 import 'package:better_one/data_source/task_data_source/task_source_interface.dart';
+import 'package:better_one/data_source/user_data_source/firebase_remote_user_source.dart';
 import 'package:better_one/data_source/user_data_source/hive_locale_user_source.dart';
-import 'package:better_one/data_source/user_data_source/supabase_remote_user_source.dart';
 import 'package:better_one/repositories/quote_repo/quote_repo.dart';
 import 'package:better_one/repositories/quote_repo/quote_repo_interface.dart';
 import 'package:better_one/repositories/task_repo/task_repo_impl.dart';
 import 'package:better_one/repositories/task_repo/task_repo_interface.dart';
 import 'package:better_one/repositories/user_repo/user_repo_impl.dart';
 import 'package:better_one/repositories/user_repo/user_repo_intefrace.dart';
-import 'package:better_one/view_models/setting_viewmodel/setting_viewmode.dart';
-import 'package:better_one/view_models/task_viewmodel/task_viewmodel.dart';
 import 'package:flutter/material.dart';
 import 'package:get_it/get_it.dart';
 
@@ -32,32 +29,12 @@ Future<void> initDependency() async {
   routeObserver = _getIt.registerSingleton<RouteObserver<ModalRoute>>(
     RouteObserver(),
   );
-  await userAccountDependency();
   await notificationDependency();
   await cacheInitDependency();
   taskDependency();
   quoteDependency();
   settingsDependency();
   userDependency();
-
-  /// inject cubits
-  // registerCubits();
-}
-
-void registerCubits() {
-  _getIt.registerSingleton(
-    TaskViewmodel(taskRepo: taskRepo, userRepo: kUserRepo),
-  );
-  _getIt.registerSingleton<SettingViewModel>(
-    SettingViewModel(settingsRepo: settingRepo),
-  );
-}
-
-Future<void> userAccountDependency() async {
-  client = _getIt.registerSingleton<SupabaseService>(
-    SupabaseService(),
-  );
-  await _getIt<SupabaseService>().init();
 }
 
 void userDependency() {
@@ -69,7 +46,7 @@ void userDependency() {
   kUserRepo = _getIt.registerSingleton<UserRepoInterface>(
     UserRepoImpl(
       localeUserSource: HiveLocaleUser(),
-      remoteUserSource: SupabaseRemoteUser(),
+      remoteUserSource: FirebaseRemoteUserSource(),
     ),
   );
 }
@@ -156,5 +133,4 @@ late QuoteSource quoteSource;
 late QuoteRepoInterface quoteRepo;
 late RouteObserver<ModalRoute> routeObserver;
 late LocaleUserInfo userLocaleDatabase;
-late SupabaseService client;
 late UserRepoInterface kUserRepo;
