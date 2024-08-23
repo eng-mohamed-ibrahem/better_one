@@ -5,14 +5,18 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-part 'search_viewmodel_state.dart';
 part 'search_viewmodel.freezed.dart';
+part 'search_viewmodel_state.dart';
 
 class SearchViewmodel extends Cubit<SearchViewmodelState> {
   SearchViewmodel({required this.userRepo}) : super(const _Initial());
- final UserRepoInterface userRepo;
+  final UserRepoInterface userRepo;
 
-   void search (String query) async {
+  void search(String query) async {
+    if (query.isEmpty) {
+      emit(const _Initial());
+      return;
+    }
     emit(const _SearchLoading());
     var result = await userRepo.search(query);
     result.when(

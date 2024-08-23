@@ -39,15 +39,7 @@ class _DropIconsState extends State<DropIcons>
     super.initState();
   }
 
-  @override
-  didChangeDependencies() {
-    WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
-      getButtonInfo();
-    });
-    super.didChangeDependencies();
-  }
-
-  getButtonInfo() {
+  void getButtonInfo() {
     RenderBox renderBox = _key.currentContext!.findRenderObject() as RenderBox;
     buttonSize = renderBox.size;
     buttonPosition = renderBox.localToGlobal(Offset.zero);
@@ -68,6 +60,7 @@ class _DropIconsState extends State<DropIcons>
   }
 
   void openMenu() {
+    getButtonInfo();
     Overlay.of(context).insert(_overlayEntry);
     isMenuOpen = true;
   }

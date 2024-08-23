@@ -14,3 +14,5 @@ export 'splash/splash_screen.dart';
 export 'write_task/task_screen.dart';
 
 export 'write_task/create_task.dart';
+
+export 'search/search_screen.dart';

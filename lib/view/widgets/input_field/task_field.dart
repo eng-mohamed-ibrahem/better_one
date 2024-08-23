@@ -19,6 +19,7 @@ class TaskField extends StatelessWidget {
     this.style,
     this.textAlign,
     this.focusNode,
+    this.autofocus = false,
   });
   final TextEditingController? controller;
   final int? minLines;
@@ -33,6 +34,7 @@ class TaskField extends StatelessWidget {
   final TextStyle? style;
   final TextAlign? textAlign;
   final FocusNode? focusNode;
+  final bool autofocus;
 
   @override
   Widget build(BuildContext context) {
@@ -48,6 +50,7 @@ class TaskField extends StatelessWidget {
         maxLines: maxLines,
         minLines: minLines,
         focusNode: focusNode,
+        autofocus: autofocus,
         autovalidateMode: AutovalidateMode.onUserInteraction,
         decoration: InputDecoration(
           labelText: labelText,

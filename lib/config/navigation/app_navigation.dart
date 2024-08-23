@@ -4,7 +4,6 @@ import 'package:better_one/core/utils/dependency_locator/inject.dart';
 import 'package:better_one/data_source/auth_data_source/firebase_auth_impl.dart';
 import 'package:better_one/repositories/auth_repo/auth_repo_impl.dart';
 import 'package:better_one/view/pages/pages.dart';
-import 'package:better_one/view/pages/search/search_screen.dart';
 import 'package:better_one/view_models/auth_viewmodel/auth_viewmodel.dart';
 import 'package:better_one/view_models/quote_viewmodel/quote_viewmodel.dart';
 import 'package:better_one/view_models/search_viewmodel/search_viewmodel.dart';
@@ -115,6 +114,7 @@ class AppNavigation {
             builder: (context, state) {
               activeRoute = Routes.search.path;
               return BlocProvider(
+                lazy: false,
                 create: (context) => SearchViewmodel(userRepo: kUserRepo),
                 child: const SearchScreen(),
               );
