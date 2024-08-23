@@ -22,9 +22,6 @@ mixin _$TaskViewmodelState {
     required TResult Function() allTasksLoading,
     required TResult Function(List<TaskModel> allTasks) allTasksCompleted,
     required TResult Function(String message) allTasksFailed,
-    required TResult Function() searchLoading,
-    required TResult Function(List<TaskModel> searchedTasks) searchCompleted,
-    required TResult Function(String message) searchFailed,
     required TResult Function() getTotalEstimatedTimeLoading,
     required TResult Function(Duration totalEstimatedTime)
         getTotalEstimatedTimeCompleted,
@@ -53,6 +50,10 @@ mixin _$TaskViewmodelState {
     required TResult Function() deleteTaskLoading,
     required TResult Function(String message) deleteTaskFailed,
     required TResult Function(TaskModel deletedTask) deleteTaskCompleted,
+    required TResult Function() filterTasksLoading,
+    required TResult Function(List<TaskModel> filteredTasks)
+        filterTasksCompleted,
+    required TResult Function(String message) filterTasksFailed,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -61,9 +62,6 @@ mixin _$TaskViewmodelState {
     TResult? Function()? allTasksLoading,
     TResult? Function(List<TaskModel> allTasks)? allTasksCompleted,
     TResult? Function(String message)? allTasksFailed,
-    TResult? Function()? searchLoading,
-    TResult? Function(List<TaskModel> searchedTasks)? searchCompleted,
-    TResult? Function(String message)? searchFailed,
     TResult? Function()? getTotalEstimatedTimeLoading,
     TResult? Function(Duration totalEstimatedTime)?
         getTotalEstimatedTimeCompleted,
@@ -90,6 +88,9 @@ mixin _$TaskViewmodelState {
     TResult? Function()? deleteTaskLoading,
     TResult? Function(String message)? deleteTaskFailed,
     TResult? Function(TaskModel deletedTask)? deleteTaskCompleted,
+    TResult? Function()? filterTasksLoading,
+    TResult? Function(List<TaskModel> filteredTasks)? filterTasksCompleted,
+    TResult? Function(String message)? filterTasksFailed,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -98,9 +99,6 @@ mixin _$TaskViewmodelState {
     TResult Function()? allTasksLoading,
     TResult Function(List<TaskModel> allTasks)? allTasksCompleted,
     TResult Function(String message)? allTasksFailed,
-    TResult Function()? searchLoading,
-    TResult Function(List<TaskModel> searchedTasks)? searchCompleted,
-    TResult Function(String message)? searchFailed,
     TResult Function()? getTotalEstimatedTimeLoading,
     TResult Function(Duration totalEstimatedTime)?
         getTotalEstimatedTimeCompleted,
@@ -127,6 +125,9 @@ mixin _$TaskViewmodelState {
     TResult Function()? deleteTaskLoading,
     TResult Function(String message)? deleteTaskFailed,
     TResult Function(TaskModel deletedTask)? deleteTaskCompleted,
+    TResult Function()? filterTasksLoading,
+    TResult Function(List<TaskModel> filteredTasks)? filterTasksCompleted,
+    TResult Function(String message)? filterTasksFailed,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -136,9 +137,6 @@ mixin _$TaskViewmodelState {
     required TResult Function(_AllTasksLoading value) allTasksLoading,
     required TResult Function(_AllTasksCompleted value) allTasksCompleted,
     required TResult Function(_AllTasksFailed value) allTasksFailed,
-    required TResult Function(_SearchLoading value) searchLoading,
-    required TResult Function(_SearchCompleted value) searchCompleted,
-    required TResult Function(_SearchFailed value) searchFailed,
     required TResult Function(_GetTotalEstimatedTimeLoading value)
         getTotalEstimatedTimeLoading,
     required TResult Function(_GetTotalEstimatedTimeCompleted value)
@@ -170,6 +168,9 @@ mixin _$TaskViewmodelState {
     required TResult Function(_DeleteTaskLoading value) deleteTaskLoading,
     required TResult Function(_DeleteTaskFailed value) deleteTaskFailed,
     required TResult Function(_DeleteTaskCompleted value) deleteTaskCompleted,
+    required TResult Function(_FilterTasksLoading value) filterTasksLoading,
+    required TResult Function(_FilterTasksCompleted value) filterTasksCompleted,
+    required TResult Function(_FilterTasksFailed value) filterTasksFailed,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -178,9 +179,6 @@ mixin _$TaskViewmodelState {
     TResult? Function(_AllTasksLoading value)? allTasksLoading,
     TResult? Function(_AllTasksCompleted value)? allTasksCompleted,
     TResult? Function(_AllTasksFailed value)? allTasksFailed,
-    TResult? Function(_SearchLoading value)? searchLoading,
-    TResult? Function(_SearchCompleted value)? searchCompleted,
-    TResult? Function(_SearchFailed value)? searchFailed,
     TResult? Function(_GetTotalEstimatedTimeLoading value)?
         getTotalEstimatedTimeLoading,
     TResult? Function(_GetTotalEstimatedTimeCompleted value)?
@@ -211,6 +209,9 @@ mixin _$TaskViewmodelState {
     TResult? Function(_DeleteTaskLoading value)? deleteTaskLoading,
     TResult? Function(_DeleteTaskFailed value)? deleteTaskFailed,
     TResult? Function(_DeleteTaskCompleted value)? deleteTaskCompleted,
+    TResult? Function(_FilterTasksLoading value)? filterTasksLoading,
+    TResult? Function(_FilterTasksCompleted value)? filterTasksCompleted,
+    TResult? Function(_FilterTasksFailed value)? filterTasksFailed,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -219,9 +220,6 @@ mixin _$TaskViewmodelState {
     TResult Function(_AllTasksLoading value)? allTasksLoading,
     TResult Function(_AllTasksCompleted value)? allTasksCompleted,
     TResult Function(_AllTasksFailed value)? allTasksFailed,
-    TResult Function(_SearchLoading value)? searchLoading,
-    TResult Function(_SearchCompleted value)? searchCompleted,
-    TResult Function(_SearchFailed value)? searchFailed,
     TResult Function(_GetTotalEstimatedTimeLoading value)?
         getTotalEstimatedTimeLoading,
     TResult Function(_GetTotalEstimatedTimeCompleted value)?
@@ -252,6 +250,9 @@ mixin _$TaskViewmodelState {
     TResult Function(_DeleteTaskLoading value)? deleteTaskLoading,
     TResult Function(_DeleteTaskFailed value)? deleteTaskFailed,
     TResult Function(_DeleteTaskCompleted value)? deleteTaskCompleted,
+    TResult Function(_FilterTasksLoading value)? filterTasksLoading,
+    TResult Function(_FilterTasksCompleted value)? filterTasksCompleted,
+    TResult Function(_FilterTasksFailed value)? filterTasksFailed,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -323,9 +324,6 @@ class _$InitialImpl implements _Initial {
     required TResult Function() allTasksLoading,
     required TResult Function(List<TaskModel> allTasks) allTasksCompleted,
     required TResult Function(String message) allTasksFailed,
-    required TResult Function() searchLoading,
-    required TResult Function(List<TaskModel> searchedTasks) searchCompleted,
-    required TResult Function(String message) searchFailed,
     required TResult Function() getTotalEstimatedTimeLoading,
     required TResult Function(Duration totalEstimatedTime)
         getTotalEstimatedTimeCompleted,
@@ -354,6 +352,10 @@ class _$InitialImpl implements _Initial {
     required TResult Function() deleteTaskLoading,
     required TResult Function(String message) deleteTaskFailed,
     required TResult Function(TaskModel deletedTask) deleteTaskCompleted,
+    required TResult Function() filterTasksLoading,
+    required TResult Function(List<TaskModel> filteredTasks)
+        filterTasksCompleted,
+    required TResult Function(String message) filterTasksFailed,
   }) {
     return initial();
   }
@@ -365,9 +367,6 @@ class _$InitialImpl implements _Initial {
     TResult? Function()? allTasksLoading,
     TResult? Function(List<TaskModel> allTasks)? allTasksCompleted,
     TResult? Function(String message)? allTasksFailed,
-    TResult? Function()? searchLoading,
-    TResult? Function(List<TaskModel> searchedTasks)? searchCompleted,
-    TResult? Function(String message)? searchFailed,
     TResult? Function()? getTotalEstimatedTimeLoading,
     TResult? Function(Duration totalEstimatedTime)?
         getTotalEstimatedTimeCompleted,
@@ -394,6 +393,9 @@ class _$InitialImpl implements _Initial {
     TResult? Function()? deleteTaskLoading,
     TResult? Function(String message)? deleteTaskFailed,
     TResult? Function(TaskModel deletedTask)? deleteTaskCompleted,
+    TResult? Function()? filterTasksLoading,
+    TResult? Function(List<TaskModel> filteredTasks)? filterTasksCompleted,
+    TResult? Function(String message)? filterTasksFailed,
   }) {
     return initial?.call();
   }
@@ -405,9 +407,6 @@ class _$InitialImpl implements _Initial {
     TResult Function()? allTasksLoading,
     TResult Function(List<TaskModel> allTasks)? allTasksCompleted,
     TResult Function(String message)? allTasksFailed,
-    TResult Function()? searchLoading,
-    TResult Function(List<TaskModel> searchedTasks)? searchCompleted,
-    TResult Function(String message)? searchFailed,
     TResult Function()? getTotalEstimatedTimeLoading,
     TResult Function(Duration totalEstimatedTime)?
         getTotalEstimatedTimeCompleted,
@@ -434,6 +433,9 @@ class _$InitialImpl implements _Initial {
     TResult Function()? deleteTaskLoading,
     TResult Function(String message)? deleteTaskFailed,
     TResult Function(TaskModel deletedTask)? deleteTaskCompleted,
+    TResult Function()? filterTasksLoading,
+    TResult Function(List<TaskModel> filteredTasks)? filterTasksCompleted,
+    TResult Function(String message)? filterTasksFailed,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -449,9 +451,6 @@ class _$InitialImpl implements _Initial {
     required TResult Function(_AllTasksLoading value) allTasksLoading,
     required TResult Function(_AllTasksCompleted value) allTasksCompleted,
     required TResult Function(_AllTasksFailed value) allTasksFailed,
-    required TResult Function(_SearchLoading value) searchLoading,
-    required TResult Function(_SearchCompleted value) searchCompleted,
-    required TResult Function(_SearchFailed value) searchFailed,
     required TResult Function(_GetTotalEstimatedTimeLoading value)
         getTotalEstimatedTimeLoading,
     required TResult Function(_GetTotalEstimatedTimeCompleted value)
@@ -483,6 +482,9 @@ class _$InitialImpl implements _Initial {
     required TResult Function(_DeleteTaskLoading value) deleteTaskLoading,
     required TResult Function(_DeleteTaskFailed value) deleteTaskFailed,
     required TResult Function(_DeleteTaskCompleted value) deleteTaskCompleted,
+    required TResult Function(_FilterTasksLoading value) filterTasksLoading,
+    required TResult Function(_FilterTasksCompleted value) filterTasksCompleted,
+    required TResult Function(_FilterTasksFailed value) filterTasksFailed,
   }) {
     return initial(this);
   }
@@ -494,9 +496,6 @@ class _$InitialImpl implements _Initial {
     TResult? Function(_AllTasksLoading value)? allTasksLoading,
     TResult? Function(_AllTasksCompleted value)? allTasksCompleted,
     TResult? Function(_AllTasksFailed value)? allTasksFailed,
-    TResult? Function(_SearchLoading value)? searchLoading,
-    TResult? Function(_SearchCompleted value)? searchCompleted,
-    TResult? Function(_SearchFailed value)? searchFailed,
     TResult? Function(_GetTotalEstimatedTimeLoading value)?
         getTotalEstimatedTimeLoading,
     TResult? Function(_GetTotalEstimatedTimeCompleted value)?
@@ -527,6 +526,9 @@ class _$InitialImpl implements _Initial {
     TResult? Function(_DeleteTaskLoading value)? deleteTaskLoading,
     TResult? Function(_DeleteTaskFailed value)? deleteTaskFailed,
     TResult? Function(_DeleteTaskCompleted value)? deleteTaskCompleted,
+    TResult? Function(_FilterTasksLoading value)? filterTasksLoading,
+    TResult? Function(_FilterTasksCompleted value)? filterTasksCompleted,
+    TResult? Function(_FilterTasksFailed value)? filterTasksFailed,
   }) {
     return initial?.call(this);
   }
@@ -538,9 +540,6 @@ class _$InitialImpl implements _Initial {
     TResult Function(_AllTasksLoading value)? allTasksLoading,
     TResult Function(_AllTasksCompleted value)? allTasksCompleted,
     TResult Function(_AllTasksFailed value)? allTasksFailed,
-    TResult Function(_SearchLoading value)? searchLoading,
-    TResult Function(_SearchCompleted value)? searchCompleted,
-    TResult Function(_SearchFailed value)? searchFailed,
     TResult Function(_GetTotalEstimatedTimeLoading value)?
         getTotalEstimatedTimeLoading,
     TResult Function(_GetTotalEstimatedTimeCompleted value)?
@@ -571,6 +570,9 @@ class _$InitialImpl implements _Initial {
     TResult Function(_DeleteTaskLoading value)? deleteTaskLoading,
     TResult Function(_DeleteTaskFailed value)? deleteTaskFailed,
     TResult Function(_DeleteTaskCompleted value)? deleteTaskCompleted,
+    TResult Function(_FilterTasksLoading value)? filterTasksLoading,
+    TResult Function(_FilterTasksCompleted value)? filterTasksCompleted,
+    TResult Function(_FilterTasksFailed value)? filterTasksFailed,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -629,9 +631,6 @@ class _$AllTasksLoadingImpl implements _AllTasksLoading {
     required TResult Function() allTasksLoading,
     required TResult Function(List<TaskModel> allTasks) allTasksCompleted,
     required TResult Function(String message) allTasksFailed,
-    required TResult Function() searchLoading,
-    required TResult Function(List<TaskModel> searchedTasks) searchCompleted,
-    required TResult Function(String message) searchFailed,
     required TResult Function() getTotalEstimatedTimeLoading,
     required TResult Function(Duration totalEstimatedTime)
         getTotalEstimatedTimeCompleted,
@@ -660,6 +659,10 @@ class _$AllTasksLoadingImpl implements _AllTasksLoading {
     required TResult Function() deleteTaskLoading,
     required TResult Function(String message) deleteTaskFailed,
     required TResult Function(TaskModel deletedTask) deleteTaskCompleted,
+    required TResult Function() filterTasksLoading,
+    required TResult Function(List<TaskModel> filteredTasks)
+        filterTasksCompleted,
+    required TResult Function(String message) filterTasksFailed,
   }) {
     return allTasksLoading();
   }
@@ -671,9 +674,6 @@ class _$AllTasksLoadingImpl implements _AllTasksLoading {
     TResult? Function()? allTasksLoading,
     TResult? Function(List<TaskModel> allTasks)? allTasksCompleted,
     TResult? Function(String message)? allTasksFailed,
-    TResult? Function()? searchLoading,
-    TResult? Function(List<TaskModel> searchedTasks)? searchCompleted,
-    TResult? Function(String message)? searchFailed,
     TResult? Function()? getTotalEstimatedTimeLoading,
     TResult? Function(Duration totalEstimatedTime)?
         getTotalEstimatedTimeCompleted,
@@ -700,6 +700,9 @@ class _$AllTasksLoadingImpl implements _AllTasksLoading {
     TResult? Function()? deleteTaskLoading,
     TResult? Function(String message)? deleteTaskFailed,
     TResult? Function(TaskModel deletedTask)? deleteTaskCompleted,
+    TResult? Function()? filterTasksLoading,
+    TResult? Function(List<TaskModel> filteredTasks)? filterTasksCompleted,
+    TResult? Function(String message)? filterTasksFailed,
   }) {
     return allTasksLoading?.call();
   }
@@ -711,9 +714,6 @@ class _$AllTasksLoadingImpl implements _AllTasksLoading {
     TResult Function()? allTasksLoading,
     TResult Function(List<TaskModel> allTasks)? allTasksCompleted,
     TResult Function(String message)? allTasksFailed,
-    TResult Function()? searchLoading,
-    TResult Function(List<TaskModel> searchedTasks)? searchCompleted,
-    TResult Function(String message)? searchFailed,
     TResult Function()? getTotalEstimatedTimeLoading,
     TResult Function(Duration totalEstimatedTime)?
         getTotalEstimatedTimeCompleted,
@@ -740,6 +740,9 @@ class _$AllTasksLoadingImpl implements _AllTasksLoading {
     TResult Function()? deleteTaskLoading,
     TResult Function(String message)? deleteTaskFailed,
     TResult Function(TaskModel deletedTask)? deleteTaskCompleted,
+    TResult Function()? filterTasksLoading,
+    TResult Function(List<TaskModel> filteredTasks)? filterTasksCompleted,
+    TResult Function(String message)? filterTasksFailed,
     required TResult orElse(),
   }) {
     if (allTasksLoading != null) {
@@ -755,9 +758,6 @@ class _$AllTasksLoadingImpl implements _AllTasksLoading {
     required TResult Function(_AllTasksLoading value) allTasksLoading,
     required TResult Function(_AllTasksCompleted value) allTasksCompleted,
     required TResult Function(_AllTasksFailed value) allTasksFailed,
-    required TResult Function(_SearchLoading value) searchLoading,
-    required TResult Function(_SearchCompleted value) searchCompleted,
-    required TResult Function(_SearchFailed value) searchFailed,
     required TResult Function(_GetTotalEstimatedTimeLoading value)
         getTotalEstimatedTimeLoading,
     required TResult Function(_GetTotalEstimatedTimeCompleted value)
@@ -789,6 +789,9 @@ class _$AllTasksLoadingImpl implements _AllTasksLoading {
     required TResult Function(_DeleteTaskLoading value) deleteTaskLoading,
     required TResult Function(_DeleteTaskFailed value) deleteTaskFailed,
     required TResult Function(_DeleteTaskCompleted value) deleteTaskCompleted,
+    required TResult Function(_FilterTasksLoading value) filterTasksLoading,
+    required TResult Function(_FilterTasksCompleted value) filterTasksCompleted,
+    required TResult Function(_FilterTasksFailed value) filterTasksFailed,
   }) {
     return allTasksLoading(this);
   }
@@ -800,9 +803,6 @@ class _$AllTasksLoadingImpl implements _AllTasksLoading {
     TResult? Function(_AllTasksLoading value)? allTasksLoading,
     TResult? Function(_AllTasksCompleted value)? allTasksCompleted,
     TResult? Function(_AllTasksFailed value)? allTasksFailed,
-    TResult? Function(_SearchLoading value)? searchLoading,
-    TResult? Function(_SearchCompleted value)? searchCompleted,
-    TResult? Function(_SearchFailed value)? searchFailed,
     TResult? Function(_GetTotalEstimatedTimeLoading value)?
         getTotalEstimatedTimeLoading,
     TResult? Function(_GetTotalEstimatedTimeCompleted value)?
@@ -833,6 +833,9 @@ class _$AllTasksLoadingImpl implements _AllTasksLoading {
     TResult? Function(_DeleteTaskLoading value)? deleteTaskLoading,
     TResult? Function(_DeleteTaskFailed value)? deleteTaskFailed,
     TResult? Function(_DeleteTaskCompleted value)? deleteTaskCompleted,
+    TResult? Function(_FilterTasksLoading value)? filterTasksLoading,
+    TResult? Function(_FilterTasksCompleted value)? filterTasksCompleted,
+    TResult? Function(_FilterTasksFailed value)? filterTasksFailed,
   }) {
     return allTasksLoading?.call(this);
   }
@@ -844,9 +847,6 @@ class _$AllTasksLoadingImpl implements _AllTasksLoading {
     TResult Function(_AllTasksLoading value)? allTasksLoading,
     TResult Function(_AllTasksCompleted value)? allTasksCompleted,
     TResult Function(_AllTasksFailed value)? allTasksFailed,
-    TResult Function(_SearchLoading value)? searchLoading,
-    TResult Function(_SearchCompleted value)? searchCompleted,
-    TResult Function(_SearchFailed value)? searchFailed,
     TResult Function(_GetTotalEstimatedTimeLoading value)?
         getTotalEstimatedTimeLoading,
     TResult Function(_GetTotalEstimatedTimeCompleted value)?
@@ -877,6 +877,9 @@ class _$AllTasksLoadingImpl implements _AllTasksLoading {
     TResult Function(_DeleteTaskLoading value)? deleteTaskLoading,
     TResult Function(_DeleteTaskFailed value)? deleteTaskFailed,
     TResult Function(_DeleteTaskCompleted value)? deleteTaskCompleted,
+    TResult Function(_FilterTasksLoading value)? filterTasksLoading,
+    TResult Function(_FilterTasksCompleted value)? filterTasksCompleted,
+    TResult Function(_FilterTasksFailed value)? filterTasksFailed,
     required TResult orElse(),
   }) {
     if (allTasksLoading != null) {
@@ -964,9 +967,6 @@ class _$AllTasksCompletedImpl implements _AllTasksCompleted {
     required TResult Function() allTasksLoading,
     required TResult Function(List<TaskModel> allTasks) allTasksCompleted,
     required TResult Function(String message) allTasksFailed,
-    required TResult Function() searchLoading,
-    required TResult Function(List<TaskModel> searchedTasks) searchCompleted,
-    required TResult Function(String message) searchFailed,
     required TResult Function() getTotalEstimatedTimeLoading,
     required TResult Function(Duration totalEstimatedTime)
         getTotalEstimatedTimeCompleted,
@@ -995,6 +995,10 @@ class _$AllTasksCompletedImpl implements _AllTasksCompleted {
     required TResult Function() deleteTaskLoading,
     required TResult Function(String message) deleteTaskFailed,
     required TResult Function(TaskModel deletedTask) deleteTaskCompleted,
+    required TResult Function() filterTasksLoading,
+    required TResult Function(List<TaskModel> filteredTasks)
+        filterTasksCompleted,
+    required TResult Function(String message) filterTasksFailed,
   }) {
     return allTasksCompleted(allTasks);
   }
@@ -1006,9 +1010,6 @@ class _$AllTasksCompletedImpl implements _AllTasksCompleted {
     TResult? Function()? allTasksLoading,
     TResult? Function(List<TaskModel> allTasks)? allTasksCompleted,
     TResult? Function(String message)? allTasksFailed,
-    TResult? Function()? searchLoading,
-    TResult? Function(List<TaskModel> searchedTasks)? searchCompleted,
-    TResult? Function(String message)? searchFailed,
     TResult? Function()? getTotalEstimatedTimeLoading,
     TResult? Function(Duration totalEstimatedTime)?
         getTotalEstimatedTimeCompleted,
@@ -1035,6 +1036,9 @@ class _$AllTasksCompletedImpl implements _AllTasksCompleted {
     TResult? Function()? deleteTaskLoading,
     TResult? Function(String message)? deleteTaskFailed,
     TResult? Function(TaskModel deletedTask)? deleteTaskCompleted,
+    TResult? Function()? filterTasksLoading,
+    TResult? Function(List<TaskModel> filteredTasks)? filterTasksCompleted,
+    TResult? Function(String message)? filterTasksFailed,
   }) {
     return allTasksCompleted?.call(allTasks);
   }
@@ -1046,9 +1050,6 @@ class _$AllTasksCompletedImpl implements _AllTasksCompleted {
     TResult Function()? allTasksLoading,
     TResult Function(List<TaskModel> allTasks)? allTasksCompleted,
     TResult Function(String message)? allTasksFailed,
-    TResult Function()? searchLoading,
-    TResult Function(List<TaskModel> searchedTasks)? searchCompleted,
-    TResult Function(String message)? searchFailed,
     TResult Function()? getTotalEstimatedTimeLoading,
     TResult Function(Duration totalEstimatedTime)?
         getTotalEstimatedTimeCompleted,
@@ -1075,6 +1076,9 @@ class _$AllTasksCompletedImpl implements _AllTasksCompleted {
     TResult Function()? deleteTaskLoading,
     TResult Function(String message)? deleteTaskFailed,
     TResult Function(TaskModel deletedTask)? deleteTaskCompleted,
+    TResult Function()? filterTasksLoading,
+    TResult Function(List<TaskModel> filteredTasks)? filterTasksCompleted,
+    TResult Function(String message)? filterTasksFailed,
     required TResult orElse(),
   }) {
     if (allTasksCompleted != null) {
@@ -1090,9 +1094,6 @@ class _$AllTasksCompletedImpl implements _AllTasksCompleted {
     required TResult Function(_AllTasksLoading value) allTasksLoading,
     required TResult Function(_AllTasksCompleted value) allTasksCompleted,
     required TResult Function(_AllTasksFailed value) allTasksFailed,
-    required TResult Function(_SearchLoading value) searchLoading,
-    required TResult Function(_SearchCompleted value) searchCompleted,
-    required TResult Function(_SearchFailed value) searchFailed,
     required TResult Function(_GetTotalEstimatedTimeLoading value)
         getTotalEstimatedTimeLoading,
     required TResult Function(_GetTotalEstimatedTimeCompleted value)
@@ -1124,6 +1125,9 @@ class _$AllTasksCompletedImpl implements _AllTasksCompleted {
     required TResult Function(_DeleteTaskLoading value) deleteTaskLoading,
     required TResult Function(_DeleteTaskFailed value) deleteTaskFailed,
     required TResult Function(_DeleteTaskCompleted value) deleteTaskCompleted,
+    required TResult Function(_FilterTasksLoading value) filterTasksLoading,
+    required TResult Function(_FilterTasksCompleted value) filterTasksCompleted,
+    required TResult Function(_FilterTasksFailed value) filterTasksFailed,
   }) {
     return allTasksCompleted(this);
   }
@@ -1135,9 +1139,6 @@ class _$AllTasksCompletedImpl implements _AllTasksCompleted {
     TResult? Function(_AllTasksLoading value)? allTasksLoading,
     TResult? Function(_AllTasksCompleted value)? allTasksCompleted,
     TResult? Function(_AllTasksFailed value)? allTasksFailed,
-    TResult? Function(_SearchLoading value)? searchLoading,
-    TResult? Function(_SearchCompleted value)? searchCompleted,
-    TResult? Function(_SearchFailed value)? searchFailed,
     TResult? Function(_GetTotalEstimatedTimeLoading value)?
         getTotalEstimatedTimeLoading,
     TResult? Function(_GetTotalEstimatedTimeCompleted value)?
@@ -1168,6 +1169,9 @@ class _$AllTasksCompletedImpl implements _AllTasksCompleted {
     TResult? Function(_DeleteTaskLoading value)? deleteTaskLoading,
     TResult? Function(_DeleteTaskFailed value)? deleteTaskFailed,
     TResult? Function(_DeleteTaskCompleted value)? deleteTaskCompleted,
+    TResult? Function(_FilterTasksLoading value)? filterTasksLoading,
+    TResult? Function(_FilterTasksCompleted value)? filterTasksCompleted,
+    TResult? Function(_FilterTasksFailed value)? filterTasksFailed,
   }) {
     return allTasksCompleted?.call(this);
   }
@@ -1179,9 +1183,6 @@ class _$AllTasksCompletedImpl implements _AllTasksCompleted {
     TResult Function(_AllTasksLoading value)? allTasksLoading,
     TResult Function(_AllTasksCompleted value)? allTasksCompleted,
     TResult Function(_AllTasksFailed value)? allTasksFailed,
-    TResult Function(_SearchLoading value)? searchLoading,
-    TResult Function(_SearchCompleted value)? searchCompleted,
-    TResult Function(_SearchFailed value)? searchFailed,
     TResult Function(_GetTotalEstimatedTimeLoading value)?
         getTotalEstimatedTimeLoading,
     TResult Function(_GetTotalEstimatedTimeCompleted value)?
@@ -1212,6 +1213,9 @@ class _$AllTasksCompletedImpl implements _AllTasksCompleted {
     TResult Function(_DeleteTaskLoading value)? deleteTaskLoading,
     TResult Function(_DeleteTaskFailed value)? deleteTaskFailed,
     TResult Function(_DeleteTaskCompleted value)? deleteTaskCompleted,
+    TResult Function(_FilterTasksLoading value)? filterTasksLoading,
+    TResult Function(_FilterTasksCompleted value)? filterTasksCompleted,
+    TResult Function(_FilterTasksFailed value)? filterTasksFailed,
     required TResult orElse(),
   }) {
     if (allTasksCompleted != null) {
@@ -1307,9 +1311,6 @@ class _$AllTasksFailedImpl implements _AllTasksFailed {
     required TResult Function() allTasksLoading,
     required TResult Function(List<TaskModel> allTasks) allTasksCompleted,
     required TResult Function(String message) allTasksFailed,
-    required TResult Function() searchLoading,
-    required TResult Function(List<TaskModel> searchedTasks) searchCompleted,
-    required TResult Function(String message) searchFailed,
     required TResult Function() getTotalEstimatedTimeLoading,
     required TResult Function(Duration totalEstimatedTime)
         getTotalEstimatedTimeCompleted,
@@ -1338,6 +1339,10 @@ class _$AllTasksFailedImpl implements _AllTasksFailed {
     required TResult Function() deleteTaskLoading,
     required TResult Function(String message) deleteTaskFailed,
     required TResult Function(TaskModel deletedTask) deleteTaskCompleted,
+    required TResult Function() filterTasksLoading,
+    required TResult Function(List<TaskModel> filteredTasks)
+        filterTasksCompleted,
+    required TResult Function(String message) filterTasksFailed,
   }) {
     return allTasksFailed(message);
   }
@@ -1349,9 +1354,6 @@ class _$AllTasksFailedImpl implements _AllTasksFailed {
     TResult? Function()? allTasksLoading,
     TResult? Function(List<TaskModel> allTasks)? allTasksCompleted,
     TResult? Function(String message)? allTasksFailed,
-    TResult? Function()? searchLoading,
-    TResult? Function(List<TaskModel> searchedTasks)? searchCompleted,
-    TResult? Function(String message)? searchFailed,
     TResult? Function()? getTotalEstimatedTimeLoading,
     TResult? Function(Duration totalEstimatedTime)?
         getTotalEstimatedTimeCompleted,
@@ -1378,6 +1380,9 @@ class _$AllTasksFailedImpl implements _AllTasksFailed {
     TResult? Function()? deleteTaskLoading,
     TResult? Function(String message)? deleteTaskFailed,
     TResult? Function(TaskModel deletedTask)? deleteTaskCompleted,
+    TResult? Function()? filterTasksLoading,
+    TResult? Function(List<TaskModel> filteredTasks)? filterTasksCompleted,
+    TResult? Function(String message)? filterTasksFailed,
   }) {
     return allTasksFailed?.call(message);
   }
@@ -1389,9 +1394,6 @@ class _$AllTasksFailedImpl implements _AllTasksFailed {
     TResult Function()? allTasksLoading,
     TResult Function(List<TaskModel> allTasks)? allTasksCompleted,
     TResult Function(String message)? allTasksFailed,
-    TResult Function()? searchLoading,
-    TResult Function(List<TaskModel> searchedTasks)? searchCompleted,
-    TResult Function(String message)? searchFailed,
     TResult Function()? getTotalEstimatedTimeLoading,
     TResult Function(Duration totalEstimatedTime)?
         getTotalEstimatedTimeCompleted,
@@ -1418,6 +1420,9 @@ class _$AllTasksFailedImpl implements _AllTasksFailed {
     TResult Function()? deleteTaskLoading,
     TResult Function(String message)? deleteTaskFailed,
     TResult Function(TaskModel deletedTask)? deleteTaskCompleted,
+    TResult Function()? filterTasksLoading,
+    TResult Function(List<TaskModel> filteredTasks)? filterTasksCompleted,
+    TResult Function(String message)? filterTasksFailed,
     required TResult orElse(),
   }) {
     if (allTasksFailed != null) {
@@ -1433,9 +1438,6 @@ class _$AllTasksFailedImpl implements _AllTasksFailed {
     required TResult Function(_AllTasksLoading value) allTasksLoading,
     required TResult Function(_AllTasksCompleted value) allTasksCompleted,
     required TResult Function(_AllTasksFailed value) allTasksFailed,
-    required TResult Function(_SearchLoading value) searchLoading,
-    required TResult Function(_SearchCompleted value) searchCompleted,
-    required TResult Function(_SearchFailed value) searchFailed,
     required TResult Function(_GetTotalEstimatedTimeLoading value)
         getTotalEstimatedTimeLoading,
     required TResult Function(_GetTotalEstimatedTimeCompleted value)
@@ -1467,6 +1469,9 @@ class _$AllTasksFailedImpl implements _AllTasksFailed {
     required TResult Function(_DeleteTaskLoading value) deleteTaskLoading,
     required TResult Function(_DeleteTaskFailed value) deleteTaskFailed,
     required TResult Function(_DeleteTaskCompleted value) deleteTaskCompleted,
+    required TResult Function(_FilterTasksLoading value) filterTasksLoading,
+    required TResult Function(_FilterTasksCompleted value) filterTasksCompleted,
+    required TResult Function(_FilterTasksFailed value) filterTasksFailed,
   }) {
     return allTasksFailed(this);
   }
@@ -1478,9 +1483,6 @@ class _$AllTasksFailedImpl implements _AllTasksFailed {
     TResult? Function(_AllTasksLoading value)? allTasksLoading,
     TResult? Function(_AllTasksCompleted value)? allTasksCompleted,
     TResult? Function(_AllTasksFailed value)? allTasksFailed,
-    TResult? Function(_SearchLoading value)? searchLoading,
-    TResult? Function(_SearchCompleted value)? searchCompleted,
-    TResult? Function(_SearchFailed value)? searchFailed,
     TResult? Function(_GetTotalEstimatedTimeLoading value)?
         getTotalEstimatedTimeLoading,
     TResult? Function(_GetTotalEstimatedTimeCompleted value)?
@@ -1511,6 +1513,9 @@ class _$AllTasksFailedImpl implements _AllTasksFailed {
     TResult? Function(_DeleteTaskLoading value)? deleteTaskLoading,
     TResult? Function(_DeleteTaskFailed value)? deleteTaskFailed,
     TResult? Function(_DeleteTaskCompleted value)? deleteTaskCompleted,
+    TResult? Function(_FilterTasksLoading value)? filterTasksLoading,
+    TResult? Function(_FilterTasksCompleted value)? filterTasksCompleted,
+    TResult? Function(_FilterTasksFailed value)? filterTasksFailed,
   }) {
     return allTasksFailed?.call(this);
   }
@@ -1522,9 +1527,6 @@ class _$AllTasksFailedImpl implements _AllTasksFailed {
     TResult Function(_AllTasksLoading value)? allTasksLoading,
     TResult Function(_AllTasksCompleted value)? allTasksCompleted,
     TResult Function(_AllTasksFailed value)? allTasksFailed,
-    TResult Function(_SearchLoading value)? searchLoading,
-    TResult Function(_SearchCompleted value)? searchCompleted,
-    TResult Function(_SearchFailed value)? searchFailed,
     TResult Function(_GetTotalEstimatedTimeLoading value)?
         getTotalEstimatedTimeLoading,
     TResult Function(_GetTotalEstimatedTimeCompleted value)?
@@ -1555,6 +1557,9 @@ class _$AllTasksFailedImpl implements _AllTasksFailed {
     TResult Function(_DeleteTaskLoading value)? deleteTaskLoading,
     TResult Function(_DeleteTaskFailed value)? deleteTaskFailed,
     TResult Function(_DeleteTaskCompleted value)? deleteTaskCompleted,
+    TResult Function(_FilterTasksLoading value)? filterTasksLoading,
+    TResult Function(_FilterTasksCompleted value)? filterTasksCompleted,
+    TResult Function(_FilterTasksFailed value)? filterTasksFailed,
     required TResult orElse(),
   }) {
     if (allTasksFailed != null) {
@@ -1574,999 +1579,6 @@ abstract class _AllTasksFailed implements TaskViewmodelState {
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
   _$$AllTasksFailedImplCopyWith<_$AllTasksFailedImpl> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class _$$SearchLoadingImplCopyWith<$Res> {
-  factory _$$SearchLoadingImplCopyWith(
-          _$SearchLoadingImpl value, $Res Function(_$SearchLoadingImpl) then) =
-      __$$SearchLoadingImplCopyWithImpl<$Res>;
-}
-
-/// @nodoc
-class __$$SearchLoadingImplCopyWithImpl<$Res>
-    extends _$TaskViewmodelStateCopyWithImpl<$Res, _$SearchLoadingImpl>
-    implements _$$SearchLoadingImplCopyWith<$Res> {
-  __$$SearchLoadingImplCopyWithImpl(
-      _$SearchLoadingImpl _value, $Res Function(_$SearchLoadingImpl) _then)
-      : super(_value, _then);
-
-  /// Create a copy of TaskViewmodelState
-  /// with the given fields replaced by the non-null parameter values.
-}
-
-/// @nodoc
-
-class _$SearchLoadingImpl implements _SearchLoading {
-  const _$SearchLoadingImpl();
-
-  @override
-  String toString() {
-    return 'TaskViewmodelState.searchLoading()';
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$SearchLoadingImpl);
-  }
-
-  @override
-  int get hashCode => runtimeType.hashCode;
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() initial,
-    required TResult Function() allTasksLoading,
-    required TResult Function(List<TaskModel> allTasks) allTasksCompleted,
-    required TResult Function(String message) allTasksFailed,
-    required TResult Function() searchLoading,
-    required TResult Function(List<TaskModel> searchedTasks) searchCompleted,
-    required TResult Function(String message) searchFailed,
-    required TResult Function() getTotalEstimatedTimeLoading,
-    required TResult Function(Duration totalEstimatedTime)
-        getTotalEstimatedTimeCompleted,
-    required TResult Function(String message) getTotalEstimatedTimeFailed,
-    required TResult Function() updateTotalEstimatedTimeLoading,
-    required TResult Function(String message) updateTotalEstimatedTimeFailed,
-    required TResult Function(Duration totalEstimatedTime)
-        updateTotalEstimatedTimeCompleted,
-    required TResult Function() uploadTasksLoading,
-    required TResult Function(String message) uploadTasksFailed,
-    required TResult Function(TaskModel meupdatedTaskssage)
-        uploadTasksCompleted,
-    required TResult Function() downloadTasksLoading,
-    required TResult Function(String message) downloadTasksFailed,
-    required TResult Function(List<TaskModel> downloadedTasks)
-        downloadTasksCompleted,
-    required TResult Function() updateTaskLoading,
-    required TResult Function(String message) updateTaskFailed,
-    required TResult Function(TaskModel updatedTask) updateTaskCompleted,
-    required TResult Function() getTaskByIdLoading,
-    required TResult Function(String message) getTaskByIdFailed,
-    required TResult Function(TaskModel taskById) getTaskByIdCompleted,
-    required TResult Function() createTaskLoading,
-    required TResult Function(String message) createTaskFailed,
-    required TResult Function(TaskModel createdTask) createTaskCompleted,
-    required TResult Function() deleteTaskLoading,
-    required TResult Function(String message) deleteTaskFailed,
-    required TResult Function(TaskModel deletedTask) deleteTaskCompleted,
-  }) {
-    return searchLoading();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? initial,
-    TResult? Function()? allTasksLoading,
-    TResult? Function(List<TaskModel> allTasks)? allTasksCompleted,
-    TResult? Function(String message)? allTasksFailed,
-    TResult? Function()? searchLoading,
-    TResult? Function(List<TaskModel> searchedTasks)? searchCompleted,
-    TResult? Function(String message)? searchFailed,
-    TResult? Function()? getTotalEstimatedTimeLoading,
-    TResult? Function(Duration totalEstimatedTime)?
-        getTotalEstimatedTimeCompleted,
-    TResult? Function(String message)? getTotalEstimatedTimeFailed,
-    TResult? Function()? updateTotalEstimatedTimeLoading,
-    TResult? Function(String message)? updateTotalEstimatedTimeFailed,
-    TResult? Function(Duration totalEstimatedTime)?
-        updateTotalEstimatedTimeCompleted,
-    TResult? Function()? uploadTasksLoading,
-    TResult? Function(String message)? uploadTasksFailed,
-    TResult? Function(TaskModel meupdatedTaskssage)? uploadTasksCompleted,
-    TResult? Function()? downloadTasksLoading,
-    TResult? Function(String message)? downloadTasksFailed,
-    TResult? Function(List<TaskModel> downloadedTasks)? downloadTasksCompleted,
-    TResult? Function()? updateTaskLoading,
-    TResult? Function(String message)? updateTaskFailed,
-    TResult? Function(TaskModel updatedTask)? updateTaskCompleted,
-    TResult? Function()? getTaskByIdLoading,
-    TResult? Function(String message)? getTaskByIdFailed,
-    TResult? Function(TaskModel taskById)? getTaskByIdCompleted,
-    TResult? Function()? createTaskLoading,
-    TResult? Function(String message)? createTaskFailed,
-    TResult? Function(TaskModel createdTask)? createTaskCompleted,
-    TResult? Function()? deleteTaskLoading,
-    TResult? Function(String message)? deleteTaskFailed,
-    TResult? Function(TaskModel deletedTask)? deleteTaskCompleted,
-  }) {
-    return searchLoading?.call();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? initial,
-    TResult Function()? allTasksLoading,
-    TResult Function(List<TaskModel> allTasks)? allTasksCompleted,
-    TResult Function(String message)? allTasksFailed,
-    TResult Function()? searchLoading,
-    TResult Function(List<TaskModel> searchedTasks)? searchCompleted,
-    TResult Function(String message)? searchFailed,
-    TResult Function()? getTotalEstimatedTimeLoading,
-    TResult Function(Duration totalEstimatedTime)?
-        getTotalEstimatedTimeCompleted,
-    TResult Function(String message)? getTotalEstimatedTimeFailed,
-    TResult Function()? updateTotalEstimatedTimeLoading,
-    TResult Function(String message)? updateTotalEstimatedTimeFailed,
-    TResult Function(Duration totalEstimatedTime)?
-        updateTotalEstimatedTimeCompleted,
-    TResult Function()? uploadTasksLoading,
-    TResult Function(String message)? uploadTasksFailed,
-    TResult Function(TaskModel meupdatedTaskssage)? uploadTasksCompleted,
-    TResult Function()? downloadTasksLoading,
-    TResult Function(String message)? downloadTasksFailed,
-    TResult Function(List<TaskModel> downloadedTasks)? downloadTasksCompleted,
-    TResult Function()? updateTaskLoading,
-    TResult Function(String message)? updateTaskFailed,
-    TResult Function(TaskModel updatedTask)? updateTaskCompleted,
-    TResult Function()? getTaskByIdLoading,
-    TResult Function(String message)? getTaskByIdFailed,
-    TResult Function(TaskModel taskById)? getTaskByIdCompleted,
-    TResult Function()? createTaskLoading,
-    TResult Function(String message)? createTaskFailed,
-    TResult Function(TaskModel createdTask)? createTaskCompleted,
-    TResult Function()? deleteTaskLoading,
-    TResult Function(String message)? deleteTaskFailed,
-    TResult Function(TaskModel deletedTask)? deleteTaskCompleted,
-    required TResult orElse(),
-  }) {
-    if (searchLoading != null) {
-      return searchLoading();
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_Initial value) initial,
-    required TResult Function(_AllTasksLoading value) allTasksLoading,
-    required TResult Function(_AllTasksCompleted value) allTasksCompleted,
-    required TResult Function(_AllTasksFailed value) allTasksFailed,
-    required TResult Function(_SearchLoading value) searchLoading,
-    required TResult Function(_SearchCompleted value) searchCompleted,
-    required TResult Function(_SearchFailed value) searchFailed,
-    required TResult Function(_GetTotalEstimatedTimeLoading value)
-        getTotalEstimatedTimeLoading,
-    required TResult Function(_GetTotalEstimatedTimeCompleted value)
-        getTotalEstimatedTimeCompleted,
-    required TResult Function(_GetTotalEstimatedTimeFailed value)
-        getTotalEstimatedTimeFailed,
-    required TResult Function(_UpdateTotalEstimatedTimeLoading value)
-        updateTotalEstimatedTimeLoading,
-    required TResult Function(_UpdateTotalEstimatedTimeFailed value)
-        updateTotalEstimatedTimeFailed,
-    required TResult Function(_UpdateTotalEstimatedTimeCompleted value)
-        updateTotalEstimatedTimeCompleted,
-    required TResult Function(_UploadTasksLoading value) uploadTasksLoading,
-    required TResult Function(_UploadTasksFailed value) uploadTasksFailed,
-    required TResult Function(_UploadTasksCompleted value) uploadTasksCompleted,
-    required TResult Function(_DownloadTasksLoading value) downloadTasksLoading,
-    required TResult Function(_DownloadTasksFailed value) downloadTasksFailed,
-    required TResult Function(_DownloadTasksCompleted value)
-        downloadTasksCompleted,
-    required TResult Function(_UpdateTaskLoading value) updateTaskLoading,
-    required TResult Function(_UpdateTaskFailed value) updateTaskFailed,
-    required TResult Function(_UpdateTaskCompleted value) updateTaskCompleted,
-    required TResult Function(_GetTaskByIdLoading value) getTaskByIdLoading,
-    required TResult Function(_GetTaskByIdFailed value) getTaskByIdFailed,
-    required TResult Function(_GetTaskByIdCompleted value) getTaskByIdCompleted,
-    required TResult Function(_CreateTaskLoading value) createTaskLoading,
-    required TResult Function(_CreateTaskFailed value) createTaskFailed,
-    required TResult Function(_CreateTaskCompleted value) createTaskCompleted,
-    required TResult Function(_DeleteTaskLoading value) deleteTaskLoading,
-    required TResult Function(_DeleteTaskFailed value) deleteTaskFailed,
-    required TResult Function(_DeleteTaskCompleted value) deleteTaskCompleted,
-  }) {
-    return searchLoading(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Initial value)? initial,
-    TResult? Function(_AllTasksLoading value)? allTasksLoading,
-    TResult? Function(_AllTasksCompleted value)? allTasksCompleted,
-    TResult? Function(_AllTasksFailed value)? allTasksFailed,
-    TResult? Function(_SearchLoading value)? searchLoading,
-    TResult? Function(_SearchCompleted value)? searchCompleted,
-    TResult? Function(_SearchFailed value)? searchFailed,
-    TResult? Function(_GetTotalEstimatedTimeLoading value)?
-        getTotalEstimatedTimeLoading,
-    TResult? Function(_GetTotalEstimatedTimeCompleted value)?
-        getTotalEstimatedTimeCompleted,
-    TResult? Function(_GetTotalEstimatedTimeFailed value)?
-        getTotalEstimatedTimeFailed,
-    TResult? Function(_UpdateTotalEstimatedTimeLoading value)?
-        updateTotalEstimatedTimeLoading,
-    TResult? Function(_UpdateTotalEstimatedTimeFailed value)?
-        updateTotalEstimatedTimeFailed,
-    TResult? Function(_UpdateTotalEstimatedTimeCompleted value)?
-        updateTotalEstimatedTimeCompleted,
-    TResult? Function(_UploadTasksLoading value)? uploadTasksLoading,
-    TResult? Function(_UploadTasksFailed value)? uploadTasksFailed,
-    TResult? Function(_UploadTasksCompleted value)? uploadTasksCompleted,
-    TResult? Function(_DownloadTasksLoading value)? downloadTasksLoading,
-    TResult? Function(_DownloadTasksFailed value)? downloadTasksFailed,
-    TResult? Function(_DownloadTasksCompleted value)? downloadTasksCompleted,
-    TResult? Function(_UpdateTaskLoading value)? updateTaskLoading,
-    TResult? Function(_UpdateTaskFailed value)? updateTaskFailed,
-    TResult? Function(_UpdateTaskCompleted value)? updateTaskCompleted,
-    TResult? Function(_GetTaskByIdLoading value)? getTaskByIdLoading,
-    TResult? Function(_GetTaskByIdFailed value)? getTaskByIdFailed,
-    TResult? Function(_GetTaskByIdCompleted value)? getTaskByIdCompleted,
-    TResult? Function(_CreateTaskLoading value)? createTaskLoading,
-    TResult? Function(_CreateTaskFailed value)? createTaskFailed,
-    TResult? Function(_CreateTaskCompleted value)? createTaskCompleted,
-    TResult? Function(_DeleteTaskLoading value)? deleteTaskLoading,
-    TResult? Function(_DeleteTaskFailed value)? deleteTaskFailed,
-    TResult? Function(_DeleteTaskCompleted value)? deleteTaskCompleted,
-  }) {
-    return searchLoading?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Initial value)? initial,
-    TResult Function(_AllTasksLoading value)? allTasksLoading,
-    TResult Function(_AllTasksCompleted value)? allTasksCompleted,
-    TResult Function(_AllTasksFailed value)? allTasksFailed,
-    TResult Function(_SearchLoading value)? searchLoading,
-    TResult Function(_SearchCompleted value)? searchCompleted,
-    TResult Function(_SearchFailed value)? searchFailed,
-    TResult Function(_GetTotalEstimatedTimeLoading value)?
-        getTotalEstimatedTimeLoading,
-    TResult Function(_GetTotalEstimatedTimeCompleted value)?
-        getTotalEstimatedTimeCompleted,
-    TResult Function(_GetTotalEstimatedTimeFailed value)?
-        getTotalEstimatedTimeFailed,
-    TResult Function(_UpdateTotalEstimatedTimeLoading value)?
-        updateTotalEstimatedTimeLoading,
-    TResult Function(_UpdateTotalEstimatedTimeFailed value)?
-        updateTotalEstimatedTimeFailed,
-    TResult Function(_UpdateTotalEstimatedTimeCompleted value)?
-        updateTotalEstimatedTimeCompleted,
-    TResult Function(_UploadTasksLoading value)? uploadTasksLoading,
-    TResult Function(_UploadTasksFailed value)? uploadTasksFailed,
-    TResult Function(_UploadTasksCompleted value)? uploadTasksCompleted,
-    TResult Function(_DownloadTasksLoading value)? downloadTasksLoading,
-    TResult Function(_DownloadTasksFailed value)? downloadTasksFailed,
-    TResult Function(_DownloadTasksCompleted value)? downloadTasksCompleted,
-    TResult Function(_UpdateTaskLoading value)? updateTaskLoading,
-    TResult Function(_UpdateTaskFailed value)? updateTaskFailed,
-    TResult Function(_UpdateTaskCompleted value)? updateTaskCompleted,
-    TResult Function(_GetTaskByIdLoading value)? getTaskByIdLoading,
-    TResult Function(_GetTaskByIdFailed value)? getTaskByIdFailed,
-    TResult Function(_GetTaskByIdCompleted value)? getTaskByIdCompleted,
-    TResult Function(_CreateTaskLoading value)? createTaskLoading,
-    TResult Function(_CreateTaskFailed value)? createTaskFailed,
-    TResult Function(_CreateTaskCompleted value)? createTaskCompleted,
-    TResult Function(_DeleteTaskLoading value)? deleteTaskLoading,
-    TResult Function(_DeleteTaskFailed value)? deleteTaskFailed,
-    TResult Function(_DeleteTaskCompleted value)? deleteTaskCompleted,
-    required TResult orElse(),
-  }) {
-    if (searchLoading != null) {
-      return searchLoading(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class _SearchLoading implements TaskViewmodelState {
-  const factory _SearchLoading() = _$SearchLoadingImpl;
-}
-
-/// @nodoc
-abstract class _$$SearchCompletedImplCopyWith<$Res> {
-  factory _$$SearchCompletedImplCopyWith(_$SearchCompletedImpl value,
-          $Res Function(_$SearchCompletedImpl) then) =
-      __$$SearchCompletedImplCopyWithImpl<$Res>;
-  @useResult
-  $Res call({List<TaskModel> searchedTasks});
-}
-
-/// @nodoc
-class __$$SearchCompletedImplCopyWithImpl<$Res>
-    extends _$TaskViewmodelStateCopyWithImpl<$Res, _$SearchCompletedImpl>
-    implements _$$SearchCompletedImplCopyWith<$Res> {
-  __$$SearchCompletedImplCopyWithImpl(
-      _$SearchCompletedImpl _value, $Res Function(_$SearchCompletedImpl) _then)
-      : super(_value, _then);
-
-  /// Create a copy of TaskViewmodelState
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? searchedTasks = null,
-  }) {
-    return _then(_$SearchCompletedImpl(
-      searchedTasks: null == searchedTasks
-          ? _value.searchedTasks
-          : searchedTasks // ignore: cast_nullable_to_non_nullable
-              as List<TaskModel>,
-    ));
-  }
-}
-
-/// @nodoc
-
-class _$SearchCompletedImpl implements _SearchCompleted {
-  const _$SearchCompletedImpl({required this.searchedTasks});
-
-  @override
-  final List<TaskModel> searchedTasks;
-
-  @override
-  String toString() {
-    return 'TaskViewmodelState.searchCompleted(searchedTasks: $searchedTasks)';
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$SearchCompletedImpl &&
-            const DeepCollectionEquality()
-                .equals(other.searchedTasks, searchedTasks));
-  }
-
-  @override
-  int get hashCode => Object.hash(
-      runtimeType, const DeepCollectionEquality().hash(searchedTasks));
-
-  /// Create a copy of TaskViewmodelState
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$SearchCompletedImplCopyWith<_$SearchCompletedImpl> get copyWith =>
-      __$$SearchCompletedImplCopyWithImpl<_$SearchCompletedImpl>(
-          this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() initial,
-    required TResult Function() allTasksLoading,
-    required TResult Function(List<TaskModel> allTasks) allTasksCompleted,
-    required TResult Function(String message) allTasksFailed,
-    required TResult Function() searchLoading,
-    required TResult Function(List<TaskModel> searchedTasks) searchCompleted,
-    required TResult Function(String message) searchFailed,
-    required TResult Function() getTotalEstimatedTimeLoading,
-    required TResult Function(Duration totalEstimatedTime)
-        getTotalEstimatedTimeCompleted,
-    required TResult Function(String message) getTotalEstimatedTimeFailed,
-    required TResult Function() updateTotalEstimatedTimeLoading,
-    required TResult Function(String message) updateTotalEstimatedTimeFailed,
-    required TResult Function(Duration totalEstimatedTime)
-        updateTotalEstimatedTimeCompleted,
-    required TResult Function() uploadTasksLoading,
-    required TResult Function(String message) uploadTasksFailed,
-    required TResult Function(TaskModel meupdatedTaskssage)
-        uploadTasksCompleted,
-    required TResult Function() downloadTasksLoading,
-    required TResult Function(String message) downloadTasksFailed,
-    required TResult Function(List<TaskModel> downloadedTasks)
-        downloadTasksCompleted,
-    required TResult Function() updateTaskLoading,
-    required TResult Function(String message) updateTaskFailed,
-    required TResult Function(TaskModel updatedTask) updateTaskCompleted,
-    required TResult Function() getTaskByIdLoading,
-    required TResult Function(String message) getTaskByIdFailed,
-    required TResult Function(TaskModel taskById) getTaskByIdCompleted,
-    required TResult Function() createTaskLoading,
-    required TResult Function(String message) createTaskFailed,
-    required TResult Function(TaskModel createdTask) createTaskCompleted,
-    required TResult Function() deleteTaskLoading,
-    required TResult Function(String message) deleteTaskFailed,
-    required TResult Function(TaskModel deletedTask) deleteTaskCompleted,
-  }) {
-    return searchCompleted(searchedTasks);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? initial,
-    TResult? Function()? allTasksLoading,
-    TResult? Function(List<TaskModel> allTasks)? allTasksCompleted,
-    TResult? Function(String message)? allTasksFailed,
-    TResult? Function()? searchLoading,
-    TResult? Function(List<TaskModel> searchedTasks)? searchCompleted,
-    TResult? Function(String message)? searchFailed,
-    TResult? Function()? getTotalEstimatedTimeLoading,
-    TResult? Function(Duration totalEstimatedTime)?
-        getTotalEstimatedTimeCompleted,
-    TResult? Function(String message)? getTotalEstimatedTimeFailed,
-    TResult? Function()? updateTotalEstimatedTimeLoading,
-    TResult? Function(String message)? updateTotalEstimatedTimeFailed,
-    TResult? Function(Duration totalEstimatedTime)?
-        updateTotalEstimatedTimeCompleted,
-    TResult? Function()? uploadTasksLoading,
-    TResult? Function(String message)? uploadTasksFailed,
-    TResult? Function(TaskModel meupdatedTaskssage)? uploadTasksCompleted,
-    TResult? Function()? downloadTasksLoading,
-    TResult? Function(String message)? downloadTasksFailed,
-    TResult? Function(List<TaskModel> downloadedTasks)? downloadTasksCompleted,
-    TResult? Function()? updateTaskLoading,
-    TResult? Function(String message)? updateTaskFailed,
-    TResult? Function(TaskModel updatedTask)? updateTaskCompleted,
-    TResult? Function()? getTaskByIdLoading,
-    TResult? Function(String message)? getTaskByIdFailed,
-    TResult? Function(TaskModel taskById)? getTaskByIdCompleted,
-    TResult? Function()? createTaskLoading,
-    TResult? Function(String message)? createTaskFailed,
-    TResult? Function(TaskModel createdTask)? createTaskCompleted,
-    TResult? Function()? deleteTaskLoading,
-    TResult? Function(String message)? deleteTaskFailed,
-    TResult? Function(TaskModel deletedTask)? deleteTaskCompleted,
-  }) {
-    return searchCompleted?.call(searchedTasks);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? initial,
-    TResult Function()? allTasksLoading,
-    TResult Function(List<TaskModel> allTasks)? allTasksCompleted,
-    TResult Function(String message)? allTasksFailed,
-    TResult Function()? searchLoading,
-    TResult Function(List<TaskModel> searchedTasks)? searchCompleted,
-    TResult Function(String message)? searchFailed,
-    TResult Function()? getTotalEstimatedTimeLoading,
-    TResult Function(Duration totalEstimatedTime)?
-        getTotalEstimatedTimeCompleted,
-    TResult Function(String message)? getTotalEstimatedTimeFailed,
-    TResult Function()? updateTotalEstimatedTimeLoading,
-    TResult Function(String message)? updateTotalEstimatedTimeFailed,
-    TResult Function(Duration totalEstimatedTime)?
-        updateTotalEstimatedTimeCompleted,
-    TResult Function()? uploadTasksLoading,
-    TResult Function(String message)? uploadTasksFailed,
-    TResult Function(TaskModel meupdatedTaskssage)? uploadTasksCompleted,
-    TResult Function()? downloadTasksLoading,
-    TResult Function(String message)? downloadTasksFailed,
-    TResult Function(List<TaskModel> downloadedTasks)? downloadTasksCompleted,
-    TResult Function()? updateTaskLoading,
-    TResult Function(String message)? updateTaskFailed,
-    TResult Function(TaskModel updatedTask)? updateTaskCompleted,
-    TResult Function()? getTaskByIdLoading,
-    TResult Function(String message)? getTaskByIdFailed,
-    TResult Function(TaskModel taskById)? getTaskByIdCompleted,
-    TResult Function()? createTaskLoading,
-    TResult Function(String message)? createTaskFailed,
-    TResult Function(TaskModel createdTask)? createTaskCompleted,
-    TResult Function()? deleteTaskLoading,
-    TResult Function(String message)? deleteTaskFailed,
-    TResult Function(TaskModel deletedTask)? deleteTaskCompleted,
-    required TResult orElse(),
-  }) {
-    if (searchCompleted != null) {
-      return searchCompleted(searchedTasks);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_Initial value) initial,
-    required TResult Function(_AllTasksLoading value) allTasksLoading,
-    required TResult Function(_AllTasksCompleted value) allTasksCompleted,
-    required TResult Function(_AllTasksFailed value) allTasksFailed,
-    required TResult Function(_SearchLoading value) searchLoading,
-    required TResult Function(_SearchCompleted value) searchCompleted,
-    required TResult Function(_SearchFailed value) searchFailed,
-    required TResult Function(_GetTotalEstimatedTimeLoading value)
-        getTotalEstimatedTimeLoading,
-    required TResult Function(_GetTotalEstimatedTimeCompleted value)
-        getTotalEstimatedTimeCompleted,
-    required TResult Function(_GetTotalEstimatedTimeFailed value)
-        getTotalEstimatedTimeFailed,
-    required TResult Function(_UpdateTotalEstimatedTimeLoading value)
-        updateTotalEstimatedTimeLoading,
-    required TResult Function(_UpdateTotalEstimatedTimeFailed value)
-        updateTotalEstimatedTimeFailed,
-    required TResult Function(_UpdateTotalEstimatedTimeCompleted value)
-        updateTotalEstimatedTimeCompleted,
-    required TResult Function(_UploadTasksLoading value) uploadTasksLoading,
-    required TResult Function(_UploadTasksFailed value) uploadTasksFailed,
-    required TResult Function(_UploadTasksCompleted value) uploadTasksCompleted,
-    required TResult Function(_DownloadTasksLoading value) downloadTasksLoading,
-    required TResult Function(_DownloadTasksFailed value) downloadTasksFailed,
-    required TResult Function(_DownloadTasksCompleted value)
-        downloadTasksCompleted,
-    required TResult Function(_UpdateTaskLoading value) updateTaskLoading,
-    required TResult Function(_UpdateTaskFailed value) updateTaskFailed,
-    required TResult Function(_UpdateTaskCompleted value) updateTaskCompleted,
-    required TResult Function(_GetTaskByIdLoading value) getTaskByIdLoading,
-    required TResult Function(_GetTaskByIdFailed value) getTaskByIdFailed,
-    required TResult Function(_GetTaskByIdCompleted value) getTaskByIdCompleted,
-    required TResult Function(_CreateTaskLoading value) createTaskLoading,
-    required TResult Function(_CreateTaskFailed value) createTaskFailed,
-    required TResult Function(_CreateTaskCompleted value) createTaskCompleted,
-    required TResult Function(_DeleteTaskLoading value) deleteTaskLoading,
-    required TResult Function(_DeleteTaskFailed value) deleteTaskFailed,
-    required TResult Function(_DeleteTaskCompleted value) deleteTaskCompleted,
-  }) {
-    return searchCompleted(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Initial value)? initial,
-    TResult? Function(_AllTasksLoading value)? allTasksLoading,
-    TResult? Function(_AllTasksCompleted value)? allTasksCompleted,
-    TResult? Function(_AllTasksFailed value)? allTasksFailed,
-    TResult? Function(_SearchLoading value)? searchLoading,
-    TResult? Function(_SearchCompleted value)? searchCompleted,
-    TResult? Function(_SearchFailed value)? searchFailed,
-    TResult? Function(_GetTotalEstimatedTimeLoading value)?
-        getTotalEstimatedTimeLoading,
-    TResult? Function(_GetTotalEstimatedTimeCompleted value)?
-        getTotalEstimatedTimeCompleted,
-    TResult? Function(_GetTotalEstimatedTimeFailed value)?
-        getTotalEstimatedTimeFailed,
-    TResult? Function(_UpdateTotalEstimatedTimeLoading value)?
-        updateTotalEstimatedTimeLoading,
-    TResult? Function(_UpdateTotalEstimatedTimeFailed value)?
-        updateTotalEstimatedTimeFailed,
-    TResult? Function(_UpdateTotalEstimatedTimeCompleted value)?
-        updateTotalEstimatedTimeCompleted,
-    TResult? Function(_UploadTasksLoading value)? uploadTasksLoading,
-    TResult? Function(_UploadTasksFailed value)? uploadTasksFailed,
-    TResult? Function(_UploadTasksCompleted value)? uploadTasksCompleted,
-    TResult? Function(_DownloadTasksLoading value)? downloadTasksLoading,
-    TResult? Function(_DownloadTasksFailed value)? downloadTasksFailed,
-    TResult? Function(_DownloadTasksCompleted value)? downloadTasksCompleted,
-    TResult? Function(_UpdateTaskLoading value)? updateTaskLoading,
-    TResult? Function(_UpdateTaskFailed value)? updateTaskFailed,
-    TResult? Function(_UpdateTaskCompleted value)? updateTaskCompleted,
-    TResult? Function(_GetTaskByIdLoading value)? getTaskByIdLoading,
-    TResult? Function(_GetTaskByIdFailed value)? getTaskByIdFailed,
-    TResult? Function(_GetTaskByIdCompleted value)? getTaskByIdCompleted,
-    TResult? Function(_CreateTaskLoading value)? createTaskLoading,
-    TResult? Function(_CreateTaskFailed value)? createTaskFailed,
-    TResult? Function(_CreateTaskCompleted value)? createTaskCompleted,
-    TResult? Function(_DeleteTaskLoading value)? deleteTaskLoading,
-    TResult? Function(_DeleteTaskFailed value)? deleteTaskFailed,
-    TResult? Function(_DeleteTaskCompleted value)? deleteTaskCompleted,
-  }) {
-    return searchCompleted?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Initial value)? initial,
-    TResult Function(_AllTasksLoading value)? allTasksLoading,
-    TResult Function(_AllTasksCompleted value)? allTasksCompleted,
-    TResult Function(_AllTasksFailed value)? allTasksFailed,
-    TResult Function(_SearchLoading value)? searchLoading,
-    TResult Function(_SearchCompleted value)? searchCompleted,
-    TResult Function(_SearchFailed value)? searchFailed,
-    TResult Function(_GetTotalEstimatedTimeLoading value)?
-        getTotalEstimatedTimeLoading,
-    TResult Function(_GetTotalEstimatedTimeCompleted value)?
-        getTotalEstimatedTimeCompleted,
-    TResult Function(_GetTotalEstimatedTimeFailed value)?
-        getTotalEstimatedTimeFailed,
-    TResult Function(_UpdateTotalEstimatedTimeLoading value)?
-        updateTotalEstimatedTimeLoading,
-    TResult Function(_UpdateTotalEstimatedTimeFailed value)?
-        updateTotalEstimatedTimeFailed,
-    TResult Function(_UpdateTotalEstimatedTimeCompleted value)?
-        updateTotalEstimatedTimeCompleted,
-    TResult Function(_UploadTasksLoading value)? uploadTasksLoading,
-    TResult Function(_UploadTasksFailed value)? uploadTasksFailed,
-    TResult Function(_UploadTasksCompleted value)? uploadTasksCompleted,
-    TResult Function(_DownloadTasksLoading value)? downloadTasksLoading,
-    TResult Function(_DownloadTasksFailed value)? downloadTasksFailed,
-    TResult Function(_DownloadTasksCompleted value)? downloadTasksCompleted,
-    TResult Function(_UpdateTaskLoading value)? updateTaskLoading,
-    TResult Function(_UpdateTaskFailed value)? updateTaskFailed,
-    TResult Function(_UpdateTaskCompleted value)? updateTaskCompleted,
-    TResult Function(_GetTaskByIdLoading value)? getTaskByIdLoading,
-    TResult Function(_GetTaskByIdFailed value)? getTaskByIdFailed,
-    TResult Function(_GetTaskByIdCompleted value)? getTaskByIdCompleted,
-    TResult Function(_CreateTaskLoading value)? createTaskLoading,
-    TResult Function(_CreateTaskFailed value)? createTaskFailed,
-    TResult Function(_CreateTaskCompleted value)? createTaskCompleted,
-    TResult Function(_DeleteTaskLoading value)? deleteTaskLoading,
-    TResult Function(_DeleteTaskFailed value)? deleteTaskFailed,
-    TResult Function(_DeleteTaskCompleted value)? deleteTaskCompleted,
-    required TResult orElse(),
-  }) {
-    if (searchCompleted != null) {
-      return searchCompleted(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class _SearchCompleted implements TaskViewmodelState {
-  const factory _SearchCompleted(
-      {required final List<TaskModel> searchedTasks}) = _$SearchCompletedImpl;
-
-  List<TaskModel> get searchedTasks;
-
-  /// Create a copy of TaskViewmodelState
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$SearchCompletedImplCopyWith<_$SearchCompletedImpl> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class _$$SearchFailedImplCopyWith<$Res> {
-  factory _$$SearchFailedImplCopyWith(
-          _$SearchFailedImpl value, $Res Function(_$SearchFailedImpl) then) =
-      __$$SearchFailedImplCopyWithImpl<$Res>;
-  @useResult
-  $Res call({String message});
-}
-
-/// @nodoc
-class __$$SearchFailedImplCopyWithImpl<$Res>
-    extends _$TaskViewmodelStateCopyWithImpl<$Res, _$SearchFailedImpl>
-    implements _$$SearchFailedImplCopyWith<$Res> {
-  __$$SearchFailedImplCopyWithImpl(
-      _$SearchFailedImpl _value, $Res Function(_$SearchFailedImpl) _then)
-      : super(_value, _then);
-
-  /// Create a copy of TaskViewmodelState
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? message = null,
-  }) {
-    return _then(_$SearchFailedImpl(
-      message: null == message
-          ? _value.message
-          : message // ignore: cast_nullable_to_non_nullable
-              as String,
-    ));
-  }
-}
-
-/// @nodoc
-
-class _$SearchFailedImpl implements _SearchFailed {
-  const _$SearchFailedImpl({required this.message});
-
-  @override
-  final String message;
-
-  @override
-  String toString() {
-    return 'TaskViewmodelState.searchFailed(message: $message)';
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$SearchFailedImpl &&
-            (identical(other.message, message) || other.message == message));
-  }
-
-  @override
-  int get hashCode => Object.hash(runtimeType, message);
-
-  /// Create a copy of TaskViewmodelState
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$SearchFailedImplCopyWith<_$SearchFailedImpl> get copyWith =>
-      __$$SearchFailedImplCopyWithImpl<_$SearchFailedImpl>(this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() initial,
-    required TResult Function() allTasksLoading,
-    required TResult Function(List<TaskModel> allTasks) allTasksCompleted,
-    required TResult Function(String message) allTasksFailed,
-    required TResult Function() searchLoading,
-    required TResult Function(List<TaskModel> searchedTasks) searchCompleted,
-    required TResult Function(String message) searchFailed,
-    required TResult Function() getTotalEstimatedTimeLoading,
-    required TResult Function(Duration totalEstimatedTime)
-        getTotalEstimatedTimeCompleted,
-    required TResult Function(String message) getTotalEstimatedTimeFailed,
-    required TResult Function() updateTotalEstimatedTimeLoading,
-    required TResult Function(String message) updateTotalEstimatedTimeFailed,
-    required TResult Function(Duration totalEstimatedTime)
-        updateTotalEstimatedTimeCompleted,
-    required TResult Function() uploadTasksLoading,
-    required TResult Function(String message) uploadTasksFailed,
-    required TResult Function(TaskModel meupdatedTaskssage)
-        uploadTasksCompleted,
-    required TResult Function() downloadTasksLoading,
-    required TResult Function(String message) downloadTasksFailed,
-    required TResult Function(List<TaskModel> downloadedTasks)
-        downloadTasksCompleted,
-    required TResult Function() updateTaskLoading,
-    required TResult Function(String message) updateTaskFailed,
-    required TResult Function(TaskModel updatedTask) updateTaskCompleted,
-    required TResult Function() getTaskByIdLoading,
-    required TResult Function(String message) getTaskByIdFailed,
-    required TResult Function(TaskModel taskById) getTaskByIdCompleted,
-    required TResult Function() createTaskLoading,
-    required TResult Function(String message) createTaskFailed,
-    required TResult Function(TaskModel createdTask) createTaskCompleted,
-    required TResult Function() deleteTaskLoading,
-    required TResult Function(String message) deleteTaskFailed,
-    required TResult Function(TaskModel deletedTask) deleteTaskCompleted,
-  }) {
-    return searchFailed(message);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? initial,
-    TResult? Function()? allTasksLoading,
-    TResult? Function(List<TaskModel> allTasks)? allTasksCompleted,
-    TResult? Function(String message)? allTasksFailed,
-    TResult? Function()? searchLoading,
-    TResult? Function(List<TaskModel> searchedTasks)? searchCompleted,
-    TResult? Function(String message)? searchFailed,
-    TResult? Function()? getTotalEstimatedTimeLoading,
-    TResult? Function(Duration totalEstimatedTime)?
-        getTotalEstimatedTimeCompleted,
-    TResult? Function(String message)? getTotalEstimatedTimeFailed,
-    TResult? Function()? updateTotalEstimatedTimeLoading,
-    TResult? Function(String message)? updateTotalEstimatedTimeFailed,
-    TResult? Function(Duration totalEstimatedTime)?
-        updateTotalEstimatedTimeCompleted,
-    TResult? Function()? uploadTasksLoading,
-    TResult? Function(String message)? uploadTasksFailed,
-    TResult? Function(TaskModel meupdatedTaskssage)? uploadTasksCompleted,
-    TResult? Function()? downloadTasksLoading,
-    TResult? Function(String message)? downloadTasksFailed,
-    TResult? Function(List<TaskModel> downloadedTasks)? downloadTasksCompleted,
-    TResult? Function()? updateTaskLoading,
-    TResult? Function(String message)? updateTaskFailed,
-    TResult? Function(TaskModel updatedTask)? updateTaskCompleted,
-    TResult? Function()? getTaskByIdLoading,
-    TResult? Function(String message)? getTaskByIdFailed,
-    TResult? Function(TaskModel taskById)? getTaskByIdCompleted,
-    TResult? Function()? createTaskLoading,
-    TResult? Function(String message)? createTaskFailed,
-    TResult? Function(TaskModel createdTask)? createTaskCompleted,
-    TResult? Function()? deleteTaskLoading,
-    TResult? Function(String message)? deleteTaskFailed,
-    TResult? Function(TaskModel deletedTask)? deleteTaskCompleted,
-  }) {
-    return searchFailed?.call(message);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? initial,
-    TResult Function()? allTasksLoading,
-    TResult Function(List<TaskModel> allTasks)? allTasksCompleted,
-    TResult Function(String message)? allTasksFailed,
-    TResult Function()? searchLoading,
-    TResult Function(List<TaskModel> searchedTasks)? searchCompleted,
-    TResult Function(String message)? searchFailed,
-    TResult Function()? getTotalEstimatedTimeLoading,
-    TResult Function(Duration totalEstimatedTime)?
-        getTotalEstimatedTimeCompleted,
-    TResult Function(String message)? getTotalEstimatedTimeFailed,
-    TResult Function()? updateTotalEstimatedTimeLoading,
-    TResult Function(String message)? updateTotalEstimatedTimeFailed,
-    TResult Function(Duration totalEstimatedTime)?
-        updateTotalEstimatedTimeCompleted,
-    TResult Function()? uploadTasksLoading,
-    TResult Function(String message)? uploadTasksFailed,
-    TResult Function(TaskModel meupdatedTaskssage)? uploadTasksCompleted,
-    TResult Function()? downloadTasksLoading,
-    TResult Function(String message)? downloadTasksFailed,
-    TResult Function(List<TaskModel> downloadedTasks)? downloadTasksCompleted,
-    TResult Function()? updateTaskLoading,
-    TResult Function(String message)? updateTaskFailed,
-    TResult Function(TaskModel updatedTask)? updateTaskCompleted,
-    TResult Function()? getTaskByIdLoading,
-    TResult Function(String message)? getTaskByIdFailed,
-    TResult Function(TaskModel taskById)? getTaskByIdCompleted,
-    TResult Function()? createTaskLoading,
-    TResult Function(String message)? createTaskFailed,
-    TResult Function(TaskModel createdTask)? createTaskCompleted,
-    TResult Function()? deleteTaskLoading,
-    TResult Function(String message)? deleteTaskFailed,
-    TResult Function(TaskModel deletedTask)? deleteTaskCompleted,
-    required TResult orElse(),
-  }) {
-    if (searchFailed != null) {
-      return searchFailed(message);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_Initial value) initial,
-    required TResult Function(_AllTasksLoading value) allTasksLoading,
-    required TResult Function(_AllTasksCompleted value) allTasksCompleted,
-    required TResult Function(_AllTasksFailed value) allTasksFailed,
-    required TResult Function(_SearchLoading value) searchLoading,
-    required TResult Function(_SearchCompleted value) searchCompleted,
-    required TResult Function(_SearchFailed value) searchFailed,
-    required TResult Function(_GetTotalEstimatedTimeLoading value)
-        getTotalEstimatedTimeLoading,
-    required TResult Function(_GetTotalEstimatedTimeCompleted value)
-        getTotalEstimatedTimeCompleted,
-    required TResult Function(_GetTotalEstimatedTimeFailed value)
-        getTotalEstimatedTimeFailed,
-    required TResult Function(_UpdateTotalEstimatedTimeLoading value)
-        updateTotalEstimatedTimeLoading,
-    required TResult Function(_UpdateTotalEstimatedTimeFailed value)
-        updateTotalEstimatedTimeFailed,
-    required TResult Function(_UpdateTotalEstimatedTimeCompleted value)
-        updateTotalEstimatedTimeCompleted,
-    required TResult Function(_UploadTasksLoading value) uploadTasksLoading,
-    required TResult Function(_UploadTasksFailed value) uploadTasksFailed,
-    required TResult Function(_UploadTasksCompleted value) uploadTasksCompleted,
-    required TResult Function(_DownloadTasksLoading value) downloadTasksLoading,
-    required TResult Function(_DownloadTasksFailed value) downloadTasksFailed,
-    required TResult Function(_DownloadTasksCompleted value)
-        downloadTasksCompleted,
-    required TResult Function(_UpdateTaskLoading value) updateTaskLoading,
-    required TResult Function(_UpdateTaskFailed value) updateTaskFailed,
-    required TResult Function(_UpdateTaskCompleted value) updateTaskCompleted,
-    required TResult Function(_GetTaskByIdLoading value) getTaskByIdLoading,
-    required TResult Function(_GetTaskByIdFailed value) getTaskByIdFailed,
-    required TResult Function(_GetTaskByIdCompleted value) getTaskByIdCompleted,
-    required TResult Function(_CreateTaskLoading value) createTaskLoading,
-    required TResult Function(_CreateTaskFailed value) createTaskFailed,
-    required TResult Function(_CreateTaskCompleted value) createTaskCompleted,
-    required TResult Function(_DeleteTaskLoading value) deleteTaskLoading,
-    required TResult Function(_DeleteTaskFailed value) deleteTaskFailed,
-    required TResult Function(_DeleteTaskCompleted value) deleteTaskCompleted,
-  }) {
-    return searchFailed(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Initial value)? initial,
-    TResult? Function(_AllTasksLoading value)? allTasksLoading,
-    TResult? Function(_AllTasksCompleted value)? allTasksCompleted,
-    TResult? Function(_AllTasksFailed value)? allTasksFailed,
-    TResult? Function(_SearchLoading value)? searchLoading,
-    TResult? Function(_SearchCompleted value)? searchCompleted,
-    TResult? Function(_SearchFailed value)? searchFailed,
-    TResult? Function(_GetTotalEstimatedTimeLoading value)?
-        getTotalEstimatedTimeLoading,
-    TResult? Function(_GetTotalEstimatedTimeCompleted value)?
-        getTotalEstimatedTimeCompleted,
-    TResult? Function(_GetTotalEstimatedTimeFailed value)?
-        getTotalEstimatedTimeFailed,
-    TResult? Function(_UpdateTotalEstimatedTimeLoading value)?
-        updateTotalEstimatedTimeLoading,
-    TResult? Function(_UpdateTotalEstimatedTimeFailed value)?
-        updateTotalEstimatedTimeFailed,
-    TResult? Function(_UpdateTotalEstimatedTimeCompleted value)?
-        updateTotalEstimatedTimeCompleted,
-    TResult? Function(_UploadTasksLoading value)? uploadTasksLoading,
-    TResult? Function(_UploadTasksFailed value)? uploadTasksFailed,
-    TResult? Function(_UploadTasksCompleted value)? uploadTasksCompleted,
-    TResult? Function(_DownloadTasksLoading value)? downloadTasksLoading,
-    TResult? Function(_DownloadTasksFailed value)? downloadTasksFailed,
-    TResult? Function(_DownloadTasksCompleted value)? downloadTasksCompleted,
-    TResult? Function(_UpdateTaskLoading value)? updateTaskLoading,
-    TResult? Function(_UpdateTaskFailed value)? updateTaskFailed,
-    TResult? Function(_UpdateTaskCompleted value)? updateTaskCompleted,
-    TResult? Function(_GetTaskByIdLoading value)? getTaskByIdLoading,
-    TResult? Function(_GetTaskByIdFailed value)? getTaskByIdFailed,
-    TResult? Function(_GetTaskByIdCompleted value)? getTaskByIdCompleted,
-    TResult? Function(_CreateTaskLoading value)? createTaskLoading,
-    TResult? Function(_CreateTaskFailed value)? createTaskFailed,
-    TResult? Function(_CreateTaskCompleted value)? createTaskCompleted,
-    TResult? Function(_DeleteTaskLoading value)? deleteTaskLoading,
-    TResult? Function(_DeleteTaskFailed value)? deleteTaskFailed,
-    TResult? Function(_DeleteTaskCompleted value)? deleteTaskCompleted,
-  }) {
-    return searchFailed?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Initial value)? initial,
-    TResult Function(_AllTasksLoading value)? allTasksLoading,
-    TResult Function(_AllTasksCompleted value)? allTasksCompleted,
-    TResult Function(_AllTasksFailed value)? allTasksFailed,
-    TResult Function(_SearchLoading value)? searchLoading,
-    TResult Function(_SearchCompleted value)? searchCompleted,
-    TResult Function(_SearchFailed value)? searchFailed,
-    TResult Function(_GetTotalEstimatedTimeLoading value)?
-        getTotalEstimatedTimeLoading,
-    TResult Function(_GetTotalEstimatedTimeCompleted value)?
-        getTotalEstimatedTimeCompleted,
-    TResult Function(_GetTotalEstimatedTimeFailed value)?
-        getTotalEstimatedTimeFailed,
-    TResult Function(_UpdateTotalEstimatedTimeLoading value)?
-        updateTotalEstimatedTimeLoading,
-    TResult Function(_UpdateTotalEstimatedTimeFailed value)?
-        updateTotalEstimatedTimeFailed,
-    TResult Function(_UpdateTotalEstimatedTimeCompleted value)?
-        updateTotalEstimatedTimeCompleted,
-    TResult Function(_UploadTasksLoading value)? uploadTasksLoading,
-    TResult Function(_UploadTasksFailed value)? uploadTasksFailed,
-    TResult Function(_UploadTasksCompleted value)? uploadTasksCompleted,
-    TResult Function(_DownloadTasksLoading value)? downloadTasksLoading,
-    TResult Function(_DownloadTasksFailed value)? downloadTasksFailed,
-    TResult Function(_DownloadTasksCompleted value)? downloadTasksCompleted,
-    TResult Function(_UpdateTaskLoading value)? updateTaskLoading,
-    TResult Function(_UpdateTaskFailed value)? updateTaskFailed,
-    TResult Function(_UpdateTaskCompleted value)? updateTaskCompleted,
-    TResult Function(_GetTaskByIdLoading value)? getTaskByIdLoading,
-    TResult Function(_GetTaskByIdFailed value)? getTaskByIdFailed,
-    TResult Function(_GetTaskByIdCompleted value)? getTaskByIdCompleted,
-    TResult Function(_CreateTaskLoading value)? createTaskLoading,
-    TResult Function(_CreateTaskFailed value)? createTaskFailed,
-    TResult Function(_CreateTaskCompleted value)? createTaskCompleted,
-    TResult Function(_DeleteTaskLoading value)? deleteTaskLoading,
-    TResult Function(_DeleteTaskFailed value)? deleteTaskFailed,
-    TResult Function(_DeleteTaskCompleted value)? deleteTaskCompleted,
-    required TResult orElse(),
-  }) {
-    if (searchFailed != null) {
-      return searchFailed(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class _SearchFailed implements TaskViewmodelState {
-  const factory _SearchFailed({required final String message}) =
-      _$SearchFailedImpl;
-
-  String get message;
-
-  /// Create a copy of TaskViewmodelState
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$SearchFailedImplCopyWith<_$SearchFailedImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -2620,9 +1632,6 @@ class _$GetTotalEstimatedTimeLoadingImpl
     required TResult Function() allTasksLoading,
     required TResult Function(List<TaskModel> allTasks) allTasksCompleted,
     required TResult Function(String message) allTasksFailed,
-    required TResult Function() searchLoading,
-    required TResult Function(List<TaskModel> searchedTasks) searchCompleted,
-    required TResult Function(String message) searchFailed,
     required TResult Function() getTotalEstimatedTimeLoading,
     required TResult Function(Duration totalEstimatedTime)
         getTotalEstimatedTimeCompleted,
@@ -2651,6 +1660,10 @@ class _$GetTotalEstimatedTimeLoadingImpl
     required TResult Function() deleteTaskLoading,
     required TResult Function(String message) deleteTaskFailed,
     required TResult Function(TaskModel deletedTask) deleteTaskCompleted,
+    required TResult Function() filterTasksLoading,
+    required TResult Function(List<TaskModel> filteredTasks)
+        filterTasksCompleted,
+    required TResult Function(String message) filterTasksFailed,
   }) {
     return getTotalEstimatedTimeLoading();
   }
@@ -2662,9 +1675,6 @@ class _$GetTotalEstimatedTimeLoadingImpl
     TResult? Function()? allTasksLoading,
     TResult? Function(List<TaskModel> allTasks)? allTasksCompleted,
     TResult? Function(String message)? allTasksFailed,
-    TResult? Function()? searchLoading,
-    TResult? Function(List<TaskModel> searchedTasks)? searchCompleted,
-    TResult? Function(String message)? searchFailed,
     TResult? Function()? getTotalEstimatedTimeLoading,
     TResult? Function(Duration totalEstimatedTime)?
         getTotalEstimatedTimeCompleted,
@@ -2691,6 +1701,9 @@ class _$GetTotalEstimatedTimeLoadingImpl
     TResult? Function()? deleteTaskLoading,
     TResult? Function(String message)? deleteTaskFailed,
     TResult? Function(TaskModel deletedTask)? deleteTaskCompleted,
+    TResult? Function()? filterTasksLoading,
+    TResult? Function(List<TaskModel> filteredTasks)? filterTasksCompleted,
+    TResult? Function(String message)? filterTasksFailed,
   }) {
     return getTotalEstimatedTimeLoading?.call();
   }
@@ -2702,9 +1715,6 @@ class _$GetTotalEstimatedTimeLoadingImpl
     TResult Function()? allTasksLoading,
     TResult Function(List<TaskModel> allTasks)? allTasksCompleted,
     TResult Function(String message)? allTasksFailed,
-    TResult Function()? searchLoading,
-    TResult Function(List<TaskModel> searchedTasks)? searchCompleted,
-    TResult Function(String message)? searchFailed,
     TResult Function()? getTotalEstimatedTimeLoading,
     TResult Function(Duration totalEstimatedTime)?
         getTotalEstimatedTimeCompleted,
@@ -2731,6 +1741,9 @@ class _$GetTotalEstimatedTimeLoadingImpl
     TResult Function()? deleteTaskLoading,
     TResult Function(String message)? deleteTaskFailed,
     TResult Function(TaskModel deletedTask)? deleteTaskCompleted,
+    TResult Function()? filterTasksLoading,
+    TResult Function(List<TaskModel> filteredTasks)? filterTasksCompleted,
+    TResult Function(String message)? filterTasksFailed,
     required TResult orElse(),
   }) {
     if (getTotalEstimatedTimeLoading != null) {
@@ -2746,9 +1759,6 @@ class _$GetTotalEstimatedTimeLoadingImpl
     required TResult Function(_AllTasksLoading value) allTasksLoading,
     required TResult Function(_AllTasksCompleted value) allTasksCompleted,
     required TResult Function(_AllTasksFailed value) allTasksFailed,
-    required TResult Function(_SearchLoading value) searchLoading,
-    required TResult Function(_SearchCompleted value) searchCompleted,
-    required TResult Function(_SearchFailed value) searchFailed,
     required TResult Function(_GetTotalEstimatedTimeLoading value)
         getTotalEstimatedTimeLoading,
     required TResult Function(_GetTotalEstimatedTimeCompleted value)
@@ -2780,6 +1790,9 @@ class _$GetTotalEstimatedTimeLoadingImpl
     required TResult Function(_DeleteTaskLoading value) deleteTaskLoading,
     required TResult Function(_DeleteTaskFailed value) deleteTaskFailed,
     required TResult Function(_DeleteTaskCompleted value) deleteTaskCompleted,
+    required TResult Function(_FilterTasksLoading value) filterTasksLoading,
+    required TResult Function(_FilterTasksCompleted value) filterTasksCompleted,
+    required TResult Function(_FilterTasksFailed value) filterTasksFailed,
   }) {
     return getTotalEstimatedTimeLoading(this);
   }
@@ -2791,9 +1804,6 @@ class _$GetTotalEstimatedTimeLoadingImpl
     TResult? Function(_AllTasksLoading value)? allTasksLoading,
     TResult? Function(_AllTasksCompleted value)? allTasksCompleted,
     TResult? Function(_AllTasksFailed value)? allTasksFailed,
-    TResult? Function(_SearchLoading value)? searchLoading,
-    TResult? Function(_SearchCompleted value)? searchCompleted,
-    TResult? Function(_SearchFailed value)? searchFailed,
     TResult? Function(_GetTotalEstimatedTimeLoading value)?
         getTotalEstimatedTimeLoading,
     TResult? Function(_GetTotalEstimatedTimeCompleted value)?
@@ -2824,6 +1834,9 @@ class _$GetTotalEstimatedTimeLoadingImpl
     TResult? Function(_DeleteTaskLoading value)? deleteTaskLoading,
     TResult? Function(_DeleteTaskFailed value)? deleteTaskFailed,
     TResult? Function(_DeleteTaskCompleted value)? deleteTaskCompleted,
+    TResult? Function(_FilterTasksLoading value)? filterTasksLoading,
+    TResult? Function(_FilterTasksCompleted value)? filterTasksCompleted,
+    TResult? Function(_FilterTasksFailed value)? filterTasksFailed,
   }) {
     return getTotalEstimatedTimeLoading?.call(this);
   }
@@ -2835,9 +1848,6 @@ class _$GetTotalEstimatedTimeLoadingImpl
     TResult Function(_AllTasksLoading value)? allTasksLoading,
     TResult Function(_AllTasksCompleted value)? allTasksCompleted,
     TResult Function(_AllTasksFailed value)? allTasksFailed,
-    TResult Function(_SearchLoading value)? searchLoading,
-    TResult Function(_SearchCompleted value)? searchCompleted,
-    TResult Function(_SearchFailed value)? searchFailed,
     TResult Function(_GetTotalEstimatedTimeLoading value)?
         getTotalEstimatedTimeLoading,
     TResult Function(_GetTotalEstimatedTimeCompleted value)?
@@ -2868,6 +1878,9 @@ class _$GetTotalEstimatedTimeLoadingImpl
     TResult Function(_DeleteTaskLoading value)? deleteTaskLoading,
     TResult Function(_DeleteTaskFailed value)? deleteTaskFailed,
     TResult Function(_DeleteTaskCompleted value)? deleteTaskCompleted,
+    TResult Function(_FilterTasksLoading value)? filterTasksLoading,
+    TResult Function(_FilterTasksCompleted value)? filterTasksCompleted,
+    TResult Function(_FilterTasksFailed value)? filterTasksFailed,
     required TResult orElse(),
   }) {
     if (getTotalEstimatedTimeLoading != null) {
@@ -2962,9 +1975,6 @@ class _$GetTotalEstimatedTimeCompletedImpl
     required TResult Function() allTasksLoading,
     required TResult Function(List<TaskModel> allTasks) allTasksCompleted,
     required TResult Function(String message) allTasksFailed,
-    required TResult Function() searchLoading,
-    required TResult Function(List<TaskModel> searchedTasks) searchCompleted,
-    required TResult Function(String message) searchFailed,
     required TResult Function() getTotalEstimatedTimeLoading,
     required TResult Function(Duration totalEstimatedTime)
         getTotalEstimatedTimeCompleted,
@@ -2993,6 +2003,10 @@ class _$GetTotalEstimatedTimeCompletedImpl
     required TResult Function() deleteTaskLoading,
     required TResult Function(String message) deleteTaskFailed,
     required TResult Function(TaskModel deletedTask) deleteTaskCompleted,
+    required TResult Function() filterTasksLoading,
+    required TResult Function(List<TaskModel> filteredTasks)
+        filterTasksCompleted,
+    required TResult Function(String message) filterTasksFailed,
   }) {
     return getTotalEstimatedTimeCompleted(totalEstimatedTime);
   }
@@ -3004,9 +2018,6 @@ class _$GetTotalEstimatedTimeCompletedImpl
     TResult? Function()? allTasksLoading,
     TResult? Function(List<TaskModel> allTasks)? allTasksCompleted,
     TResult? Function(String message)? allTasksFailed,
-    TResult? Function()? searchLoading,
-    TResult? Function(List<TaskModel> searchedTasks)? searchCompleted,
-    TResult? Function(String message)? searchFailed,
     TResult? Function()? getTotalEstimatedTimeLoading,
     TResult? Function(Duration totalEstimatedTime)?
         getTotalEstimatedTimeCompleted,
@@ -3033,6 +2044,9 @@ class _$GetTotalEstimatedTimeCompletedImpl
     TResult? Function()? deleteTaskLoading,
     TResult? Function(String message)? deleteTaskFailed,
     TResult? Function(TaskModel deletedTask)? deleteTaskCompleted,
+    TResult? Function()? filterTasksLoading,
+    TResult? Function(List<TaskModel> filteredTasks)? filterTasksCompleted,
+    TResult? Function(String message)? filterTasksFailed,
   }) {
     return getTotalEstimatedTimeCompleted?.call(totalEstimatedTime);
   }
@@ -3044,9 +2058,6 @@ class _$GetTotalEstimatedTimeCompletedImpl
     TResult Function()? allTasksLoading,
     TResult Function(List<TaskModel> allTasks)? allTasksCompleted,
     TResult Function(String message)? allTasksFailed,
-    TResult Function()? searchLoading,
-    TResult Function(List<TaskModel> searchedTasks)? searchCompleted,
-    TResult Function(String message)? searchFailed,
     TResult Function()? getTotalEstimatedTimeLoading,
     TResult Function(Duration totalEstimatedTime)?
         getTotalEstimatedTimeCompleted,
@@ -3073,6 +2084,9 @@ class _$GetTotalEstimatedTimeCompletedImpl
     TResult Function()? deleteTaskLoading,
     TResult Function(String message)? deleteTaskFailed,
     TResult Function(TaskModel deletedTask)? deleteTaskCompleted,
+    TResult Function()? filterTasksLoading,
+    TResult Function(List<TaskModel> filteredTasks)? filterTasksCompleted,
+    TResult Function(String message)? filterTasksFailed,
     required TResult orElse(),
   }) {
     if (getTotalEstimatedTimeCompleted != null) {
@@ -3088,9 +2102,6 @@ class _$GetTotalEstimatedTimeCompletedImpl
     required TResult Function(_AllTasksLoading value) allTasksLoading,
     required TResult Function(_AllTasksCompleted value) allTasksCompleted,
     required TResult Function(_AllTasksFailed value) allTasksFailed,
-    required TResult Function(_SearchLoading value) searchLoading,
-    required TResult Function(_SearchCompleted value) searchCompleted,
-    required TResult Function(_SearchFailed value) searchFailed,
     required TResult Function(_GetTotalEstimatedTimeLoading value)
         getTotalEstimatedTimeLoading,
     required TResult Function(_GetTotalEstimatedTimeCompleted value)
@@ -3122,6 +2133,9 @@ class _$GetTotalEstimatedTimeCompletedImpl
     required TResult Function(_DeleteTaskLoading value) deleteTaskLoading,
     required TResult Function(_DeleteTaskFailed value) deleteTaskFailed,
     required TResult Function(_DeleteTaskCompleted value) deleteTaskCompleted,
+    required TResult Function(_FilterTasksLoading value) filterTasksLoading,
+    required TResult Function(_FilterTasksCompleted value) filterTasksCompleted,
+    required TResult Function(_FilterTasksFailed value) filterTasksFailed,
   }) {
     return getTotalEstimatedTimeCompleted(this);
   }
@@ -3133,9 +2147,6 @@ class _$GetTotalEstimatedTimeCompletedImpl
     TResult? Function(_AllTasksLoading value)? allTasksLoading,
     TResult? Function(_AllTasksCompleted value)? allTasksCompleted,
     TResult? Function(_AllTasksFailed value)? allTasksFailed,
-    TResult? Function(_SearchLoading value)? searchLoading,
-    TResult? Function(_SearchCompleted value)? searchCompleted,
-    TResult? Function(_SearchFailed value)? searchFailed,
     TResult? Function(_GetTotalEstimatedTimeLoading value)?
         getTotalEstimatedTimeLoading,
     TResult? Function(_GetTotalEstimatedTimeCompleted value)?
@@ -3166,6 +2177,9 @@ class _$GetTotalEstimatedTimeCompletedImpl
     TResult? Function(_DeleteTaskLoading value)? deleteTaskLoading,
     TResult? Function(_DeleteTaskFailed value)? deleteTaskFailed,
     TResult? Function(_DeleteTaskCompleted value)? deleteTaskCompleted,
+    TResult? Function(_FilterTasksLoading value)? filterTasksLoading,
+    TResult? Function(_FilterTasksCompleted value)? filterTasksCompleted,
+    TResult? Function(_FilterTasksFailed value)? filterTasksFailed,
   }) {
     return getTotalEstimatedTimeCompleted?.call(this);
   }
@@ -3177,9 +2191,6 @@ class _$GetTotalEstimatedTimeCompletedImpl
     TResult Function(_AllTasksLoading value)? allTasksLoading,
     TResult Function(_AllTasksCompleted value)? allTasksCompleted,
     TResult Function(_AllTasksFailed value)? allTasksFailed,
-    TResult Function(_SearchLoading value)? searchLoading,
-    TResult Function(_SearchCompleted value)? searchCompleted,
-    TResult Function(_SearchFailed value)? searchFailed,
     TResult Function(_GetTotalEstimatedTimeLoading value)?
         getTotalEstimatedTimeLoading,
     TResult Function(_GetTotalEstimatedTimeCompleted value)?
@@ -3210,6 +2221,9 @@ class _$GetTotalEstimatedTimeCompletedImpl
     TResult Function(_DeleteTaskLoading value)? deleteTaskLoading,
     TResult Function(_DeleteTaskFailed value)? deleteTaskFailed,
     TResult Function(_DeleteTaskCompleted value)? deleteTaskCompleted,
+    TResult Function(_FilterTasksLoading value)? filterTasksLoading,
+    TResult Function(_FilterTasksCompleted value)? filterTasksCompleted,
+    TResult Function(_FilterTasksFailed value)? filterTasksFailed,
     required TResult orElse(),
   }) {
     if (getTotalEstimatedTimeCompleted != null) {
@@ -3311,9 +2325,6 @@ class _$GetTotalEstimatedTimeFailedImpl
     required TResult Function() allTasksLoading,
     required TResult Function(List<TaskModel> allTasks) allTasksCompleted,
     required TResult Function(String message) allTasksFailed,
-    required TResult Function() searchLoading,
-    required TResult Function(List<TaskModel> searchedTasks) searchCompleted,
-    required TResult Function(String message) searchFailed,
     required TResult Function() getTotalEstimatedTimeLoading,
     required TResult Function(Duration totalEstimatedTime)
         getTotalEstimatedTimeCompleted,
@@ -3342,6 +2353,10 @@ class _$GetTotalEstimatedTimeFailedImpl
     required TResult Function() deleteTaskLoading,
     required TResult Function(String message) deleteTaskFailed,
     required TResult Function(TaskModel deletedTask) deleteTaskCompleted,
+    required TResult Function() filterTasksLoading,
+    required TResult Function(List<TaskModel> filteredTasks)
+        filterTasksCompleted,
+    required TResult Function(String message) filterTasksFailed,
   }) {
     return getTotalEstimatedTimeFailed(message);
   }
@@ -3353,9 +2368,6 @@ class _$GetTotalEstimatedTimeFailedImpl
     TResult? Function()? allTasksLoading,
     TResult? Function(List<TaskModel> allTasks)? allTasksCompleted,
     TResult? Function(String message)? allTasksFailed,
-    TResult? Function()? searchLoading,
-    TResult? Function(List<TaskModel> searchedTasks)? searchCompleted,
-    TResult? Function(String message)? searchFailed,
     TResult? Function()? getTotalEstimatedTimeLoading,
     TResult? Function(Duration totalEstimatedTime)?
         getTotalEstimatedTimeCompleted,
@@ -3382,6 +2394,9 @@ class _$GetTotalEstimatedTimeFailedImpl
     TResult? Function()? deleteTaskLoading,
     TResult? Function(String message)? deleteTaskFailed,
     TResult? Function(TaskModel deletedTask)? deleteTaskCompleted,
+    TResult? Function()? filterTasksLoading,
+    TResult? Function(List<TaskModel> filteredTasks)? filterTasksCompleted,
+    TResult? Function(String message)? filterTasksFailed,
   }) {
     return getTotalEstimatedTimeFailed?.call(message);
   }
@@ -3393,9 +2408,6 @@ class _$GetTotalEstimatedTimeFailedImpl
     TResult Function()? allTasksLoading,
     TResult Function(List<TaskModel> allTasks)? allTasksCompleted,
     TResult Function(String message)? allTasksFailed,
-    TResult Function()? searchLoading,
-    TResult Function(List<TaskModel> searchedTasks)? searchCompleted,
-    TResult Function(String message)? searchFailed,
     TResult Function()? getTotalEstimatedTimeLoading,
     TResult Function(Duration totalEstimatedTime)?
         getTotalEstimatedTimeCompleted,
@@ -3422,6 +2434,9 @@ class _$GetTotalEstimatedTimeFailedImpl
     TResult Function()? deleteTaskLoading,
     TResult Function(String message)? deleteTaskFailed,
     TResult Function(TaskModel deletedTask)? deleteTaskCompleted,
+    TResult Function()? filterTasksLoading,
+    TResult Function(List<TaskModel> filteredTasks)? filterTasksCompleted,
+    TResult Function(String message)? filterTasksFailed,
     required TResult orElse(),
   }) {
     if (getTotalEstimatedTimeFailed != null) {
@@ -3437,9 +2452,6 @@ class _$GetTotalEstimatedTimeFailedImpl
     required TResult Function(_AllTasksLoading value) allTasksLoading,
     required TResult Function(_AllTasksCompleted value) allTasksCompleted,
     required TResult Function(_AllTasksFailed value) allTasksFailed,
-    required TResult Function(_SearchLoading value) searchLoading,
-    required TResult Function(_SearchCompleted value) searchCompleted,
-    required TResult Function(_SearchFailed value) searchFailed,
     required TResult Function(_GetTotalEstimatedTimeLoading value)
         getTotalEstimatedTimeLoading,
     required TResult Function(_GetTotalEstimatedTimeCompleted value)
@@ -3471,6 +2483,9 @@ class _$GetTotalEstimatedTimeFailedImpl
     required TResult Function(_DeleteTaskLoading value) deleteTaskLoading,
     required TResult Function(_DeleteTaskFailed value) deleteTaskFailed,
     required TResult Function(_DeleteTaskCompleted value) deleteTaskCompleted,
+    required TResult Function(_FilterTasksLoading value) filterTasksLoading,
+    required TResult Function(_FilterTasksCompleted value) filterTasksCompleted,
+    required TResult Function(_FilterTasksFailed value) filterTasksFailed,
   }) {
     return getTotalEstimatedTimeFailed(this);
   }
@@ -3482,9 +2497,6 @@ class _$GetTotalEstimatedTimeFailedImpl
     TResult? Function(_AllTasksLoading value)? allTasksLoading,
     TResult? Function(_AllTasksCompleted value)? allTasksCompleted,
     TResult? Function(_AllTasksFailed value)? allTasksFailed,
-    TResult? Function(_SearchLoading value)? searchLoading,
-    TResult? Function(_SearchCompleted value)? searchCompleted,
-    TResult? Function(_SearchFailed value)? searchFailed,
     TResult? Function(_GetTotalEstimatedTimeLoading value)?
         getTotalEstimatedTimeLoading,
     TResult? Function(_GetTotalEstimatedTimeCompleted value)?
@@ -3515,6 +2527,9 @@ class _$GetTotalEstimatedTimeFailedImpl
     TResult? Function(_DeleteTaskLoading value)? deleteTaskLoading,
     TResult? Function(_DeleteTaskFailed value)? deleteTaskFailed,
     TResult? Function(_DeleteTaskCompleted value)? deleteTaskCompleted,
+    TResult? Function(_FilterTasksLoading value)? filterTasksLoading,
+    TResult? Function(_FilterTasksCompleted value)? filterTasksCompleted,
+    TResult? Function(_FilterTasksFailed value)? filterTasksFailed,
   }) {
     return getTotalEstimatedTimeFailed?.call(this);
   }
@@ -3526,9 +2541,6 @@ class _$GetTotalEstimatedTimeFailedImpl
     TResult Function(_AllTasksLoading value)? allTasksLoading,
     TResult Function(_AllTasksCompleted value)? allTasksCompleted,
     TResult Function(_AllTasksFailed value)? allTasksFailed,
-    TResult Function(_SearchLoading value)? searchLoading,
-    TResult Function(_SearchCompleted value)? searchCompleted,
-    TResult Function(_SearchFailed value)? searchFailed,
     TResult Function(_GetTotalEstimatedTimeLoading value)?
         getTotalEstimatedTimeLoading,
     TResult Function(_GetTotalEstimatedTimeCompleted value)?
@@ -3559,6 +2571,9 @@ class _$GetTotalEstimatedTimeFailedImpl
     TResult Function(_DeleteTaskLoading value)? deleteTaskLoading,
     TResult Function(_DeleteTaskFailed value)? deleteTaskFailed,
     TResult Function(_DeleteTaskCompleted value)? deleteTaskCompleted,
+    TResult Function(_FilterTasksLoading value)? filterTasksLoading,
+    TResult Function(_FilterTasksCompleted value)? filterTasksCompleted,
+    TResult Function(_FilterTasksFailed value)? filterTasksFailed,
     required TResult orElse(),
   }) {
     if (getTotalEstimatedTimeFailed != null) {
@@ -3631,9 +2646,6 @@ class _$UpdateTotalEstimatedTimeLoadingImpl
     required TResult Function() allTasksLoading,
     required TResult Function(List<TaskModel> allTasks) allTasksCompleted,
     required TResult Function(String message) allTasksFailed,
-    required TResult Function() searchLoading,
-    required TResult Function(List<TaskModel> searchedTasks) searchCompleted,
-    required TResult Function(String message) searchFailed,
     required TResult Function() getTotalEstimatedTimeLoading,
     required TResult Function(Duration totalEstimatedTime)
         getTotalEstimatedTimeCompleted,
@@ -3662,6 +2674,10 @@ class _$UpdateTotalEstimatedTimeLoadingImpl
     required TResult Function() deleteTaskLoading,
     required TResult Function(String message) deleteTaskFailed,
     required TResult Function(TaskModel deletedTask) deleteTaskCompleted,
+    required TResult Function() filterTasksLoading,
+    required TResult Function(List<TaskModel> filteredTasks)
+        filterTasksCompleted,
+    required TResult Function(String message) filterTasksFailed,
   }) {
     return updateTotalEstimatedTimeLoading();
   }
@@ -3673,9 +2689,6 @@ class _$UpdateTotalEstimatedTimeLoadingImpl
     TResult? Function()? allTasksLoading,
     TResult? Function(List<TaskModel> allTasks)? allTasksCompleted,
     TResult? Function(String message)? allTasksFailed,
-    TResult? Function()? searchLoading,
-    TResult? Function(List<TaskModel> searchedTasks)? searchCompleted,
-    TResult? Function(String message)? searchFailed,
     TResult? Function()? getTotalEstimatedTimeLoading,
     TResult? Function(Duration totalEstimatedTime)?
         getTotalEstimatedTimeCompleted,
@@ -3702,6 +2715,9 @@ class _$UpdateTotalEstimatedTimeLoadingImpl
     TResult? Function()? deleteTaskLoading,
     TResult? Function(String message)? deleteTaskFailed,
     TResult? Function(TaskModel deletedTask)? deleteTaskCompleted,
+    TResult? Function()? filterTasksLoading,
+    TResult? Function(List<TaskModel> filteredTasks)? filterTasksCompleted,
+    TResult? Function(String message)? filterTasksFailed,
   }) {
     return updateTotalEstimatedTimeLoading?.call();
   }
@@ -3713,9 +2729,6 @@ class _$UpdateTotalEstimatedTimeLoadingImpl
     TResult Function()? allTasksLoading,
     TResult Function(List<TaskModel> allTasks)? allTasksCompleted,
     TResult Function(String message)? allTasksFailed,
-    TResult Function()? searchLoading,
-    TResult Function(List<TaskModel> searchedTasks)? searchCompleted,
-    TResult Function(String message)? searchFailed,
     TResult Function()? getTotalEstimatedTimeLoading,
     TResult Function(Duration totalEstimatedTime)?
         getTotalEstimatedTimeCompleted,
@@ -3742,6 +2755,9 @@ class _$UpdateTotalEstimatedTimeLoadingImpl
     TResult Function()? deleteTaskLoading,
     TResult Function(String message)? deleteTaskFailed,
     TResult Function(TaskModel deletedTask)? deleteTaskCompleted,
+    TResult Function()? filterTasksLoading,
+    TResult Function(List<TaskModel> filteredTasks)? filterTasksCompleted,
+    TResult Function(String message)? filterTasksFailed,
     required TResult orElse(),
   }) {
     if (updateTotalEstimatedTimeLoading != null) {
@@ -3757,9 +2773,6 @@ class _$UpdateTotalEstimatedTimeLoadingImpl
     required TResult Function(_AllTasksLoading value) allTasksLoading,
     required TResult Function(_AllTasksCompleted value) allTasksCompleted,
     required TResult Function(_AllTasksFailed value) allTasksFailed,
-    required TResult Function(_SearchLoading value) searchLoading,
-    required TResult Function(_SearchCompleted value) searchCompleted,
-    required TResult Function(_SearchFailed value) searchFailed,
     required TResult Function(_GetTotalEstimatedTimeLoading value)
         getTotalEstimatedTimeLoading,
     required TResult Function(_GetTotalEstimatedTimeCompleted value)
@@ -3791,6 +2804,9 @@ class _$UpdateTotalEstimatedTimeLoadingImpl
     required TResult Function(_DeleteTaskLoading value) deleteTaskLoading,
     required TResult Function(_DeleteTaskFailed value) deleteTaskFailed,
     required TResult Function(_DeleteTaskCompleted value) deleteTaskCompleted,
+    required TResult Function(_FilterTasksLoading value) filterTasksLoading,
+    required TResult Function(_FilterTasksCompleted value) filterTasksCompleted,
+    required TResult Function(_FilterTasksFailed value) filterTasksFailed,
   }) {
     return updateTotalEstimatedTimeLoading(this);
   }
@@ -3802,9 +2818,6 @@ class _$UpdateTotalEstimatedTimeLoadingImpl
     TResult? Function(_AllTasksLoading value)? allTasksLoading,
     TResult? Function(_AllTasksCompleted value)? allTasksCompleted,
     TResult? Function(_AllTasksFailed value)? allTasksFailed,
-    TResult? Function(_SearchLoading value)? searchLoading,
-    TResult? Function(_SearchCompleted value)? searchCompleted,
-    TResult? Function(_SearchFailed value)? searchFailed,
     TResult? Function(_GetTotalEstimatedTimeLoading value)?
         getTotalEstimatedTimeLoading,
     TResult? Function(_GetTotalEstimatedTimeCompleted value)?
@@ -3835,6 +2848,9 @@ class _$UpdateTotalEstimatedTimeLoadingImpl
     TResult? Function(_DeleteTaskLoading value)? deleteTaskLoading,
     TResult? Function(_DeleteTaskFailed value)? deleteTaskFailed,
     TResult? Function(_DeleteTaskCompleted value)? deleteTaskCompleted,
+    TResult? Function(_FilterTasksLoading value)? filterTasksLoading,
+    TResult? Function(_FilterTasksCompleted value)? filterTasksCompleted,
+    TResult? Function(_FilterTasksFailed value)? filterTasksFailed,
   }) {
     return updateTotalEstimatedTimeLoading?.call(this);
   }
@@ -3846,9 +2862,6 @@ class _$UpdateTotalEstimatedTimeLoadingImpl
     TResult Function(_AllTasksLoading value)? allTasksLoading,
     TResult Function(_AllTasksCompleted value)? allTasksCompleted,
     TResult Function(_AllTasksFailed value)? allTasksFailed,
-    TResult Function(_SearchLoading value)? searchLoading,
-    TResult Function(_SearchCompleted value)? searchCompleted,
-    TResult Function(_SearchFailed value)? searchFailed,
     TResult Function(_GetTotalEstimatedTimeLoading value)?
         getTotalEstimatedTimeLoading,
     TResult Function(_GetTotalEstimatedTimeCompleted value)?
@@ -3879,6 +2892,9 @@ class _$UpdateTotalEstimatedTimeLoadingImpl
     TResult Function(_DeleteTaskLoading value)? deleteTaskLoading,
     TResult Function(_DeleteTaskFailed value)? deleteTaskFailed,
     TResult Function(_DeleteTaskCompleted value)? deleteTaskCompleted,
+    TResult Function(_FilterTasksLoading value)? filterTasksLoading,
+    TResult Function(_FilterTasksCompleted value)? filterTasksCompleted,
+    TResult Function(_FilterTasksFailed value)? filterTasksFailed,
     required TResult orElse(),
   }) {
     if (updateTotalEstimatedTimeLoading != null) {
@@ -3971,9 +2987,6 @@ class _$UpdateTotalEstimatedTimeFailedImpl
     required TResult Function() allTasksLoading,
     required TResult Function(List<TaskModel> allTasks) allTasksCompleted,
     required TResult Function(String message) allTasksFailed,
-    required TResult Function() searchLoading,
-    required TResult Function(List<TaskModel> searchedTasks) searchCompleted,
-    required TResult Function(String message) searchFailed,
     required TResult Function() getTotalEstimatedTimeLoading,
     required TResult Function(Duration totalEstimatedTime)
         getTotalEstimatedTimeCompleted,
@@ -4002,6 +3015,10 @@ class _$UpdateTotalEstimatedTimeFailedImpl
     required TResult Function() deleteTaskLoading,
     required TResult Function(String message) deleteTaskFailed,
     required TResult Function(TaskModel deletedTask) deleteTaskCompleted,
+    required TResult Function() filterTasksLoading,
+    required TResult Function(List<TaskModel> filteredTasks)
+        filterTasksCompleted,
+    required TResult Function(String message) filterTasksFailed,
   }) {
     return updateTotalEstimatedTimeFailed(message);
   }
@@ -4013,9 +3030,6 @@ class _$UpdateTotalEstimatedTimeFailedImpl
     TResult? Function()? allTasksLoading,
     TResult? Function(List<TaskModel> allTasks)? allTasksCompleted,
     TResult? Function(String message)? allTasksFailed,
-    TResult? Function()? searchLoading,
-    TResult? Function(List<TaskModel> searchedTasks)? searchCompleted,
-    TResult? Function(String message)? searchFailed,
     TResult? Function()? getTotalEstimatedTimeLoading,
     TResult? Function(Duration totalEstimatedTime)?
         getTotalEstimatedTimeCompleted,
@@ -4042,6 +3056,9 @@ class _$UpdateTotalEstimatedTimeFailedImpl
     TResult? Function()? deleteTaskLoading,
     TResult? Function(String message)? deleteTaskFailed,
     TResult? Function(TaskModel deletedTask)? deleteTaskCompleted,
+    TResult? Function()? filterTasksLoading,
+    TResult? Function(List<TaskModel> filteredTasks)? filterTasksCompleted,
+    TResult? Function(String message)? filterTasksFailed,
   }) {
     return updateTotalEstimatedTimeFailed?.call(message);
   }
@@ -4053,9 +3070,6 @@ class _$UpdateTotalEstimatedTimeFailedImpl
     TResult Function()? allTasksLoading,
     TResult Function(List<TaskModel> allTasks)? allTasksCompleted,
     TResult Function(String message)? allTasksFailed,
-    TResult Function()? searchLoading,
-    TResult Function(List<TaskModel> searchedTasks)? searchCompleted,
-    TResult Function(String message)? searchFailed,
     TResult Function()? getTotalEstimatedTimeLoading,
     TResult Function(Duration totalEstimatedTime)?
         getTotalEstimatedTimeCompleted,
@@ -4082,6 +3096,9 @@ class _$UpdateTotalEstimatedTimeFailedImpl
     TResult Function()? deleteTaskLoading,
     TResult Function(String message)? deleteTaskFailed,
     TResult Function(TaskModel deletedTask)? deleteTaskCompleted,
+    TResult Function()? filterTasksLoading,
+    TResult Function(List<TaskModel> filteredTasks)? filterTasksCompleted,
+    TResult Function(String message)? filterTasksFailed,
     required TResult orElse(),
   }) {
     if (updateTotalEstimatedTimeFailed != null) {
@@ -4097,9 +3114,6 @@ class _$UpdateTotalEstimatedTimeFailedImpl
     required TResult Function(_AllTasksLoading value) allTasksLoading,
     required TResult Function(_AllTasksCompleted value) allTasksCompleted,
     required TResult Function(_AllTasksFailed value) allTasksFailed,
-    required TResult Function(_SearchLoading value) searchLoading,
-    required TResult Function(_SearchCompleted value) searchCompleted,
-    required TResult Function(_SearchFailed value) searchFailed,
     required TResult Function(_GetTotalEstimatedTimeLoading value)
         getTotalEstimatedTimeLoading,
     required TResult Function(_GetTotalEstimatedTimeCompleted value)
@@ -4131,6 +3145,9 @@ class _$UpdateTotalEstimatedTimeFailedImpl
     required TResult Function(_DeleteTaskLoading value) deleteTaskLoading,
     required TResult Function(_DeleteTaskFailed value) deleteTaskFailed,
     required TResult Function(_DeleteTaskCompleted value) deleteTaskCompleted,
+    required TResult Function(_FilterTasksLoading value) filterTasksLoading,
+    required TResult Function(_FilterTasksCompleted value) filterTasksCompleted,
+    required TResult Function(_FilterTasksFailed value) filterTasksFailed,
   }) {
     return updateTotalEstimatedTimeFailed(this);
   }
@@ -4142,9 +3159,6 @@ class _$UpdateTotalEstimatedTimeFailedImpl
     TResult? Function(_AllTasksLoading value)? allTasksLoading,
     TResult? Function(_AllTasksCompleted value)? allTasksCompleted,
     TResult? Function(_AllTasksFailed value)? allTasksFailed,
-    TResult? Function(_SearchLoading value)? searchLoading,
-    TResult? Function(_SearchCompleted value)? searchCompleted,
-    TResult? Function(_SearchFailed value)? searchFailed,
     TResult? Function(_GetTotalEstimatedTimeLoading value)?
         getTotalEstimatedTimeLoading,
     TResult? Function(_GetTotalEstimatedTimeCompleted value)?
@@ -4175,6 +3189,9 @@ class _$UpdateTotalEstimatedTimeFailedImpl
     TResult? Function(_DeleteTaskLoading value)? deleteTaskLoading,
     TResult? Function(_DeleteTaskFailed value)? deleteTaskFailed,
     TResult? Function(_DeleteTaskCompleted value)? deleteTaskCompleted,
+    TResult? Function(_FilterTasksLoading value)? filterTasksLoading,
+    TResult? Function(_FilterTasksCompleted value)? filterTasksCompleted,
+    TResult? Function(_FilterTasksFailed value)? filterTasksFailed,
   }) {
     return updateTotalEstimatedTimeFailed?.call(this);
   }
@@ -4186,9 +3203,6 @@ class _$UpdateTotalEstimatedTimeFailedImpl
     TResult Function(_AllTasksLoading value)? allTasksLoading,
     TResult Function(_AllTasksCompleted value)? allTasksCompleted,
     TResult Function(_AllTasksFailed value)? allTasksFailed,
-    TResult Function(_SearchLoading value)? searchLoading,
-    TResult Function(_SearchCompleted value)? searchCompleted,
-    TResult Function(_SearchFailed value)? searchFailed,
     TResult Function(_GetTotalEstimatedTimeLoading value)?
         getTotalEstimatedTimeLoading,
     TResult Function(_GetTotalEstimatedTimeCompleted value)?
@@ -4219,6 +3233,9 @@ class _$UpdateTotalEstimatedTimeFailedImpl
     TResult Function(_DeleteTaskLoading value)? deleteTaskLoading,
     TResult Function(_DeleteTaskFailed value)? deleteTaskFailed,
     TResult Function(_DeleteTaskCompleted value)? deleteTaskCompleted,
+    TResult Function(_FilterTasksLoading value)? filterTasksLoading,
+    TResult Function(_FilterTasksCompleted value)? filterTasksCompleted,
+    TResult Function(_FilterTasksFailed value)? filterTasksFailed,
     required TResult orElse(),
   }) {
     if (updateTotalEstimatedTimeFailed != null) {
@@ -4322,9 +3339,6 @@ class _$UpdateTotalEstimatedTimeCompletedImpl
     required TResult Function() allTasksLoading,
     required TResult Function(List<TaskModel> allTasks) allTasksCompleted,
     required TResult Function(String message) allTasksFailed,
-    required TResult Function() searchLoading,
-    required TResult Function(List<TaskModel> searchedTasks) searchCompleted,
-    required TResult Function(String message) searchFailed,
     required TResult Function() getTotalEstimatedTimeLoading,
     required TResult Function(Duration totalEstimatedTime)
         getTotalEstimatedTimeCompleted,
@@ -4353,6 +3367,10 @@ class _$UpdateTotalEstimatedTimeCompletedImpl
     required TResult Function() deleteTaskLoading,
     required TResult Function(String message) deleteTaskFailed,
     required TResult Function(TaskModel deletedTask) deleteTaskCompleted,
+    required TResult Function() filterTasksLoading,
+    required TResult Function(List<TaskModel> filteredTasks)
+        filterTasksCompleted,
+    required TResult Function(String message) filterTasksFailed,
   }) {
     return updateTotalEstimatedTimeCompleted(totalEstimatedTime);
   }
@@ -4364,9 +3382,6 @@ class _$UpdateTotalEstimatedTimeCompletedImpl
     TResult? Function()? allTasksLoading,
     TResult? Function(List<TaskModel> allTasks)? allTasksCompleted,
     TResult? Function(String message)? allTasksFailed,
-    TResult? Function()? searchLoading,
-    TResult? Function(List<TaskModel> searchedTasks)? searchCompleted,
-    TResult? Function(String message)? searchFailed,
     TResult? Function()? getTotalEstimatedTimeLoading,
     TResult? Function(Duration totalEstimatedTime)?
         getTotalEstimatedTimeCompleted,
@@ -4393,6 +3408,9 @@ class _$UpdateTotalEstimatedTimeCompletedImpl
     TResult? Function()? deleteTaskLoading,
     TResult? Function(String message)? deleteTaskFailed,
     TResult? Function(TaskModel deletedTask)? deleteTaskCompleted,
+    TResult? Function()? filterTasksLoading,
+    TResult? Function(List<TaskModel> filteredTasks)? filterTasksCompleted,
+    TResult? Function(String message)? filterTasksFailed,
   }) {
     return updateTotalEstimatedTimeCompleted?.call(totalEstimatedTime);
   }
@@ -4404,9 +3422,6 @@ class _$UpdateTotalEstimatedTimeCompletedImpl
     TResult Function()? allTasksLoading,
     TResult Function(List<TaskModel> allTasks)? allTasksCompleted,
     TResult Function(String message)? allTasksFailed,
-    TResult Function()? searchLoading,
-    TResult Function(List<TaskModel> searchedTasks)? searchCompleted,
-    TResult Function(String message)? searchFailed,
     TResult Function()? getTotalEstimatedTimeLoading,
     TResult Function(Duration totalEstimatedTime)?
         getTotalEstimatedTimeCompleted,
@@ -4433,6 +3448,9 @@ class _$UpdateTotalEstimatedTimeCompletedImpl
     TResult Function()? deleteTaskLoading,
     TResult Function(String message)? deleteTaskFailed,
     TResult Function(TaskModel deletedTask)? deleteTaskCompleted,
+    TResult Function()? filterTasksLoading,
+    TResult Function(List<TaskModel> filteredTasks)? filterTasksCompleted,
+    TResult Function(String message)? filterTasksFailed,
     required TResult orElse(),
   }) {
     if (updateTotalEstimatedTimeCompleted != null) {
@@ -4448,9 +3466,6 @@ class _$UpdateTotalEstimatedTimeCompletedImpl
     required TResult Function(_AllTasksLoading value) allTasksLoading,
     required TResult Function(_AllTasksCompleted value) allTasksCompleted,
     required TResult Function(_AllTasksFailed value) allTasksFailed,
-    required TResult Function(_SearchLoading value) searchLoading,
-    required TResult Function(_SearchCompleted value) searchCompleted,
-    required TResult Function(_SearchFailed value) searchFailed,
     required TResult Function(_GetTotalEstimatedTimeLoading value)
         getTotalEstimatedTimeLoading,
     required TResult Function(_GetTotalEstimatedTimeCompleted value)
@@ -4482,6 +3497,9 @@ class _$UpdateTotalEstimatedTimeCompletedImpl
     required TResult Function(_DeleteTaskLoading value) deleteTaskLoading,
     required TResult Function(_DeleteTaskFailed value) deleteTaskFailed,
     required TResult Function(_DeleteTaskCompleted value) deleteTaskCompleted,
+    required TResult Function(_FilterTasksLoading value) filterTasksLoading,
+    required TResult Function(_FilterTasksCompleted value) filterTasksCompleted,
+    required TResult Function(_FilterTasksFailed value) filterTasksFailed,
   }) {
     return updateTotalEstimatedTimeCompleted(this);
   }
@@ -4493,9 +3511,6 @@ class _$UpdateTotalEstimatedTimeCompletedImpl
     TResult? Function(_AllTasksLoading value)? allTasksLoading,
     TResult? Function(_AllTasksCompleted value)? allTasksCompleted,
     TResult? Function(_AllTasksFailed value)? allTasksFailed,
-    TResult? Function(_SearchLoading value)? searchLoading,
-    TResult? Function(_SearchCompleted value)? searchCompleted,
-    TResult? Function(_SearchFailed value)? searchFailed,
     TResult? Function(_GetTotalEstimatedTimeLoading value)?
         getTotalEstimatedTimeLoading,
     TResult? Function(_GetTotalEstimatedTimeCompleted value)?
@@ -4526,6 +3541,9 @@ class _$UpdateTotalEstimatedTimeCompletedImpl
     TResult? Function(_DeleteTaskLoading value)? deleteTaskLoading,
     TResult? Function(_DeleteTaskFailed value)? deleteTaskFailed,
     TResult? Function(_DeleteTaskCompleted value)? deleteTaskCompleted,
+    TResult? Function(_FilterTasksLoading value)? filterTasksLoading,
+    TResult? Function(_FilterTasksCompleted value)? filterTasksCompleted,
+    TResult? Function(_FilterTasksFailed value)? filterTasksFailed,
   }) {
     return updateTotalEstimatedTimeCompleted?.call(this);
   }
@@ -4537,9 +3555,6 @@ class _$UpdateTotalEstimatedTimeCompletedImpl
     TResult Function(_AllTasksLoading value)? allTasksLoading,
     TResult Function(_AllTasksCompleted value)? allTasksCompleted,
     TResult Function(_AllTasksFailed value)? allTasksFailed,
-    TResult Function(_SearchLoading value)? searchLoading,
-    TResult Function(_SearchCompleted value)? searchCompleted,
-    TResult Function(_SearchFailed value)? searchFailed,
     TResult Function(_GetTotalEstimatedTimeLoading value)?
         getTotalEstimatedTimeLoading,
     TResult Function(_GetTotalEstimatedTimeCompleted value)?
@@ -4570,6 +3585,9 @@ class _$UpdateTotalEstimatedTimeCompletedImpl
     TResult Function(_DeleteTaskLoading value)? deleteTaskLoading,
     TResult Function(_DeleteTaskFailed value)? deleteTaskFailed,
     TResult Function(_DeleteTaskCompleted value)? deleteTaskCompleted,
+    TResult Function(_FilterTasksLoading value)? filterTasksLoading,
+    TResult Function(_FilterTasksCompleted value)? filterTasksCompleted,
+    TResult Function(_FilterTasksFailed value)? filterTasksFailed,
     required TResult orElse(),
   }) {
     if (updateTotalEstimatedTimeCompleted != null) {
@@ -4640,9 +3658,6 @@ class _$UploadTasksLoadingImpl implements _UploadTasksLoading {
     required TResult Function() allTasksLoading,
     required TResult Function(List<TaskModel> allTasks) allTasksCompleted,
     required TResult Function(String message) allTasksFailed,
-    required TResult Function() searchLoading,
-    required TResult Function(List<TaskModel> searchedTasks) searchCompleted,
-    required TResult Function(String message) searchFailed,
     required TResult Function() getTotalEstimatedTimeLoading,
     required TResult Function(Duration totalEstimatedTime)
         getTotalEstimatedTimeCompleted,
@@ -4671,6 +3686,10 @@ class _$UploadTasksLoadingImpl implements _UploadTasksLoading {
     required TResult Function() deleteTaskLoading,
     required TResult Function(String message) deleteTaskFailed,
     required TResult Function(TaskModel deletedTask) deleteTaskCompleted,
+    required TResult Function() filterTasksLoading,
+    required TResult Function(List<TaskModel> filteredTasks)
+        filterTasksCompleted,
+    required TResult Function(String message) filterTasksFailed,
   }) {
     return uploadTasksLoading();
   }
@@ -4682,9 +3701,6 @@ class _$UploadTasksLoadingImpl implements _UploadTasksLoading {
     TResult? Function()? allTasksLoading,
     TResult? Function(List<TaskModel> allTasks)? allTasksCompleted,
     TResult? Function(String message)? allTasksFailed,
-    TResult? Function()? searchLoading,
-    TResult? Function(List<TaskModel> searchedTasks)? searchCompleted,
-    TResult? Function(String message)? searchFailed,
     TResult? Function()? getTotalEstimatedTimeLoading,
     TResult? Function(Duration totalEstimatedTime)?
         getTotalEstimatedTimeCompleted,
@@ -4711,6 +3727,9 @@ class _$UploadTasksLoadingImpl implements _UploadTasksLoading {
     TResult? Function()? deleteTaskLoading,
     TResult? Function(String message)? deleteTaskFailed,
     TResult? Function(TaskModel deletedTask)? deleteTaskCompleted,
+    TResult? Function()? filterTasksLoading,
+    TResult? Function(List<TaskModel> filteredTasks)? filterTasksCompleted,
+    TResult? Function(String message)? filterTasksFailed,
   }) {
     return uploadTasksLoading?.call();
   }
@@ -4722,9 +3741,6 @@ class _$UploadTasksLoadingImpl implements _UploadTasksLoading {
     TResult Function()? allTasksLoading,
     TResult Function(List<TaskModel> allTasks)? allTasksCompleted,
     TResult Function(String message)? allTasksFailed,
-    TResult Function()? searchLoading,
-    TResult Function(List<TaskModel> searchedTasks)? searchCompleted,
-    TResult Function(String message)? searchFailed,
     TResult Function()? getTotalEstimatedTimeLoading,
     TResult Function(Duration totalEstimatedTime)?
         getTotalEstimatedTimeCompleted,
@@ -4751,6 +3767,9 @@ class _$UploadTasksLoadingImpl implements _UploadTasksLoading {
     TResult Function()? deleteTaskLoading,
     TResult Function(String message)? deleteTaskFailed,
     TResult Function(TaskModel deletedTask)? deleteTaskCompleted,
+    TResult Function()? filterTasksLoading,
+    TResult Function(List<TaskModel> filteredTasks)? filterTasksCompleted,
+    TResult Function(String message)? filterTasksFailed,
     required TResult orElse(),
   }) {
     if (uploadTasksLoading != null) {
@@ -4766,9 +3785,6 @@ class _$UploadTasksLoadingImpl implements _UploadTasksLoading {
     required TResult Function(_AllTasksLoading value) allTasksLoading,
     required TResult Function(_AllTasksCompleted value) allTasksCompleted,
     required TResult Function(_AllTasksFailed value) allTasksFailed,
-    required TResult Function(_SearchLoading value) searchLoading,
-    required TResult Function(_SearchCompleted value) searchCompleted,
-    required TResult Function(_SearchFailed value) searchFailed,
     required TResult Function(_GetTotalEstimatedTimeLoading value)
         getTotalEstimatedTimeLoading,
     required TResult Function(_GetTotalEstimatedTimeCompleted value)
@@ -4800,6 +3816,9 @@ class _$UploadTasksLoadingImpl implements _UploadTasksLoading {
     required TResult Function(_DeleteTaskLoading value) deleteTaskLoading,
     required TResult Function(_DeleteTaskFailed value) deleteTaskFailed,
     required TResult Function(_DeleteTaskCompleted value) deleteTaskCompleted,
+    required TResult Function(_FilterTasksLoading value) filterTasksLoading,
+    required TResult Function(_FilterTasksCompleted value) filterTasksCompleted,
+    required TResult Function(_FilterTasksFailed value) filterTasksFailed,
   }) {
     return uploadTasksLoading(this);
   }
@@ -4811,9 +3830,6 @@ class _$UploadTasksLoadingImpl implements _UploadTasksLoading {
     TResult? Function(_AllTasksLoading value)? allTasksLoading,
     TResult? Function(_AllTasksCompleted value)? allTasksCompleted,
     TResult? Function(_AllTasksFailed value)? allTasksFailed,
-    TResult? Function(_SearchLoading value)? searchLoading,
-    TResult? Function(_SearchCompleted value)? searchCompleted,
-    TResult? Function(_SearchFailed value)? searchFailed,
     TResult? Function(_GetTotalEstimatedTimeLoading value)?
         getTotalEstimatedTimeLoading,
     TResult? Function(_GetTotalEstimatedTimeCompleted value)?
@@ -4844,6 +3860,9 @@ class _$UploadTasksLoadingImpl implements _UploadTasksLoading {
     TResult? Function(_DeleteTaskLoading value)? deleteTaskLoading,
     TResult? Function(_DeleteTaskFailed value)? deleteTaskFailed,
     TResult? Function(_DeleteTaskCompleted value)? deleteTaskCompleted,
+    TResult? Function(_FilterTasksLoading value)? filterTasksLoading,
+    TResult? Function(_FilterTasksCompleted value)? filterTasksCompleted,
+    TResult? Function(_FilterTasksFailed value)? filterTasksFailed,
   }) {
     return uploadTasksLoading?.call(this);
   }
@@ -4855,9 +3874,6 @@ class _$UploadTasksLoadingImpl implements _UploadTasksLoading {
     TResult Function(_AllTasksLoading value)? allTasksLoading,
     TResult Function(_AllTasksCompleted value)? allTasksCompleted,
     TResult Function(_AllTasksFailed value)? allTasksFailed,
-    TResult Function(_SearchLoading value)? searchLoading,
-    TResult Function(_SearchCompleted value)? searchCompleted,
-    TResult Function(_SearchFailed value)? searchFailed,
     TResult Function(_GetTotalEstimatedTimeLoading value)?
         getTotalEstimatedTimeLoading,
     TResult Function(_GetTotalEstimatedTimeCompleted value)?
@@ -4888,6 +3904,9 @@ class _$UploadTasksLoadingImpl implements _UploadTasksLoading {
     TResult Function(_DeleteTaskLoading value)? deleteTaskLoading,
     TResult Function(_DeleteTaskFailed value)? deleteTaskFailed,
     TResult Function(_DeleteTaskCompleted value)? deleteTaskCompleted,
+    TResult Function(_FilterTasksLoading value)? filterTasksLoading,
+    TResult Function(_FilterTasksCompleted value)? filterTasksCompleted,
+    TResult Function(_FilterTasksFailed value)? filterTasksFailed,
     required TResult orElse(),
   }) {
     if (uploadTasksLoading != null) {
@@ -4974,9 +3993,6 @@ class _$UploadTasksFailedImpl implements _UploadTasksFailed {
     required TResult Function() allTasksLoading,
     required TResult Function(List<TaskModel> allTasks) allTasksCompleted,
     required TResult Function(String message) allTasksFailed,
-    required TResult Function() searchLoading,
-    required TResult Function(List<TaskModel> searchedTasks) searchCompleted,
-    required TResult Function(String message) searchFailed,
     required TResult Function() getTotalEstimatedTimeLoading,
     required TResult Function(Duration totalEstimatedTime)
         getTotalEstimatedTimeCompleted,
@@ -5005,6 +4021,10 @@ class _$UploadTasksFailedImpl implements _UploadTasksFailed {
     required TResult Function() deleteTaskLoading,
     required TResult Function(String message) deleteTaskFailed,
     required TResult Function(TaskModel deletedTask) deleteTaskCompleted,
+    required TResult Function() filterTasksLoading,
+    required TResult Function(List<TaskModel> filteredTasks)
+        filterTasksCompleted,
+    required TResult Function(String message) filterTasksFailed,
   }) {
     return uploadTasksFailed(message);
   }
@@ -5016,9 +4036,6 @@ class _$UploadTasksFailedImpl implements _UploadTasksFailed {
     TResult? Function()? allTasksLoading,
     TResult? Function(List<TaskModel> allTasks)? allTasksCompleted,
     TResult? Function(String message)? allTasksFailed,
-    TResult? Function()? searchLoading,
-    TResult? Function(List<TaskModel> searchedTasks)? searchCompleted,
-    TResult? Function(String message)? searchFailed,
     TResult? Function()? getTotalEstimatedTimeLoading,
     TResult? Function(Duration totalEstimatedTime)?
         getTotalEstimatedTimeCompleted,
@@ -5045,6 +4062,9 @@ class _$UploadTasksFailedImpl implements _UploadTasksFailed {
     TResult? Function()? deleteTaskLoading,
     TResult? Function(String message)? deleteTaskFailed,
     TResult? Function(TaskModel deletedTask)? deleteTaskCompleted,
+    TResult? Function()? filterTasksLoading,
+    TResult? Function(List<TaskModel> filteredTasks)? filterTasksCompleted,
+    TResult? Function(String message)? filterTasksFailed,
   }) {
     return uploadTasksFailed?.call(message);
   }
@@ -5056,9 +4076,6 @@ class _$UploadTasksFailedImpl implements _UploadTasksFailed {
     TResult Function()? allTasksLoading,
     TResult Function(List<TaskModel> allTasks)? allTasksCompleted,
     TResult Function(String message)? allTasksFailed,
-    TResult Function()? searchLoading,
-    TResult Function(List<TaskModel> searchedTasks)? searchCompleted,
-    TResult Function(String message)? searchFailed,
     TResult Function()? getTotalEstimatedTimeLoading,
     TResult Function(Duration totalEstimatedTime)?
         getTotalEstimatedTimeCompleted,
@@ -5085,6 +4102,9 @@ class _$UploadTasksFailedImpl implements _UploadTasksFailed {
     TResult Function()? deleteTaskLoading,
     TResult Function(String message)? deleteTaskFailed,
     TResult Function(TaskModel deletedTask)? deleteTaskCompleted,
+    TResult Function()? filterTasksLoading,
+    TResult Function(List<TaskModel> filteredTasks)? filterTasksCompleted,
+    TResult Function(String message)? filterTasksFailed,
     required TResult orElse(),
   }) {
     if (uploadTasksFailed != null) {
@@ -5100,9 +4120,6 @@ class _$UploadTasksFailedImpl implements _UploadTasksFailed {
     required TResult Function(_AllTasksLoading value) allTasksLoading,
     required TResult Function(_AllTasksCompleted value) allTasksCompleted,
     required TResult Function(_AllTasksFailed value) allTasksFailed,
-    required TResult Function(_SearchLoading value) searchLoading,
-    required TResult Function(_SearchCompleted value) searchCompleted,
-    required TResult Function(_SearchFailed value) searchFailed,
     required TResult Function(_GetTotalEstimatedTimeLoading value)
         getTotalEstimatedTimeLoading,
     required TResult Function(_GetTotalEstimatedTimeCompleted value)
@@ -5134,6 +4151,9 @@ class _$UploadTasksFailedImpl implements _UploadTasksFailed {
     required TResult Function(_DeleteTaskLoading value) deleteTaskLoading,
     required TResult Function(_DeleteTaskFailed value) deleteTaskFailed,
     required TResult Function(_DeleteTaskCompleted value) deleteTaskCompleted,
+    required TResult Function(_FilterTasksLoading value) filterTasksLoading,
+    required TResult Function(_FilterTasksCompleted value) filterTasksCompleted,
+    required TResult Function(_FilterTasksFailed value) filterTasksFailed,
   }) {
     return uploadTasksFailed(this);
   }
@@ -5145,9 +4165,6 @@ class _$UploadTasksFailedImpl implements _UploadTasksFailed {
     TResult? Function(_AllTasksLoading value)? allTasksLoading,
     TResult? Function(_AllTasksCompleted value)? allTasksCompleted,
     TResult? Function(_AllTasksFailed value)? allTasksFailed,
-    TResult? Function(_SearchLoading value)? searchLoading,
-    TResult? Function(_SearchCompleted value)? searchCompleted,
-    TResult? Function(_SearchFailed value)? searchFailed,
     TResult? Function(_GetTotalEstimatedTimeLoading value)?
         getTotalEstimatedTimeLoading,
     TResult? Function(_GetTotalEstimatedTimeCompleted value)?
@@ -5178,6 +4195,9 @@ class _$UploadTasksFailedImpl implements _UploadTasksFailed {
     TResult? Function(_DeleteTaskLoading value)? deleteTaskLoading,
     TResult? Function(_DeleteTaskFailed value)? deleteTaskFailed,
     TResult? Function(_DeleteTaskCompleted value)? deleteTaskCompleted,
+    TResult? Function(_FilterTasksLoading value)? filterTasksLoading,
+    TResult? Function(_FilterTasksCompleted value)? filterTasksCompleted,
+    TResult? Function(_FilterTasksFailed value)? filterTasksFailed,
   }) {
     return uploadTasksFailed?.call(this);
   }
@@ -5189,9 +4209,6 @@ class _$UploadTasksFailedImpl implements _UploadTasksFailed {
     TResult Function(_AllTasksLoading value)? allTasksLoading,
     TResult Function(_AllTasksCompleted value)? allTasksCompleted,
     TResult Function(_AllTasksFailed value)? allTasksFailed,
-    TResult Function(_SearchLoading value)? searchLoading,
-    TResult Function(_SearchCompleted value)? searchCompleted,
-    TResult Function(_SearchFailed value)? searchFailed,
     TResult Function(_GetTotalEstimatedTimeLoading value)?
         getTotalEstimatedTimeLoading,
     TResult Function(_GetTotalEstimatedTimeCompleted value)?
@@ -5222,6 +4239,9 @@ class _$UploadTasksFailedImpl implements _UploadTasksFailed {
     TResult Function(_DeleteTaskLoading value)? deleteTaskLoading,
     TResult Function(_DeleteTaskFailed value)? deleteTaskFailed,
     TResult Function(_DeleteTaskCompleted value)? deleteTaskCompleted,
+    TResult Function(_FilterTasksLoading value)? filterTasksLoading,
+    TResult Function(_FilterTasksCompleted value)? filterTasksCompleted,
+    TResult Function(_FilterTasksFailed value)? filterTasksFailed,
     required TResult orElse(),
   }) {
     if (uploadTasksFailed != null) {
@@ -5331,9 +4351,6 @@ class _$UploadTasksCompletedImpl implements _UploadTasksCompleted {
     required TResult Function() allTasksLoading,
     required TResult Function(List<TaskModel> allTasks) allTasksCompleted,
     required TResult Function(String message) allTasksFailed,
-    required TResult Function() searchLoading,
-    required TResult Function(List<TaskModel> searchedTasks) searchCompleted,
-    required TResult Function(String message) searchFailed,
     required TResult Function() getTotalEstimatedTimeLoading,
     required TResult Function(Duration totalEstimatedTime)
         getTotalEstimatedTimeCompleted,
@@ -5362,6 +4379,10 @@ class _$UploadTasksCompletedImpl implements _UploadTasksCompleted {
     required TResult Function() deleteTaskLoading,
     required TResult Function(String message) deleteTaskFailed,
     required TResult Function(TaskModel deletedTask) deleteTaskCompleted,
+    required TResult Function() filterTasksLoading,
+    required TResult Function(List<TaskModel> filteredTasks)
+        filterTasksCompleted,
+    required TResult Function(String message) filterTasksFailed,
   }) {
     return uploadTasksCompleted(meupdatedTaskssage);
   }
@@ -5373,9 +4394,6 @@ class _$UploadTasksCompletedImpl implements _UploadTasksCompleted {
     TResult? Function()? allTasksLoading,
     TResult? Function(List<TaskModel> allTasks)? allTasksCompleted,
     TResult? Function(String message)? allTasksFailed,
-    TResult? Function()? searchLoading,
-    TResult? Function(List<TaskModel> searchedTasks)? searchCompleted,
-    TResult? Function(String message)? searchFailed,
     TResult? Function()? getTotalEstimatedTimeLoading,
     TResult? Function(Duration totalEstimatedTime)?
         getTotalEstimatedTimeCompleted,
@@ -5402,6 +4420,9 @@ class _$UploadTasksCompletedImpl implements _UploadTasksCompleted {
     TResult? Function()? deleteTaskLoading,
     TResult? Function(String message)? deleteTaskFailed,
     TResult? Function(TaskModel deletedTask)? deleteTaskCompleted,
+    TResult? Function()? filterTasksLoading,
+    TResult? Function(List<TaskModel> filteredTasks)? filterTasksCompleted,
+    TResult? Function(String message)? filterTasksFailed,
   }) {
     return uploadTasksCompleted?.call(meupdatedTaskssage);
   }
@@ -5413,9 +4434,6 @@ class _$UploadTasksCompletedImpl implements _UploadTasksCompleted {
     TResult Function()? allTasksLoading,
     TResult Function(List<TaskModel> allTasks)? allTasksCompleted,
     TResult Function(String message)? allTasksFailed,
-    TResult Function()? searchLoading,
-    TResult Function(List<TaskModel> searchedTasks)? searchCompleted,
-    TResult Function(String message)? searchFailed,
     TResult Function()? getTotalEstimatedTimeLoading,
     TResult Function(Duration totalEstimatedTime)?
         getTotalEstimatedTimeCompleted,
@@ -5442,6 +4460,9 @@ class _$UploadTasksCompletedImpl implements _UploadTasksCompleted {
     TResult Function()? deleteTaskLoading,
     TResult Function(String message)? deleteTaskFailed,
     TResult Function(TaskModel deletedTask)? deleteTaskCompleted,
+    TResult Function()? filterTasksLoading,
+    TResult Function(List<TaskModel> filteredTasks)? filterTasksCompleted,
+    TResult Function(String message)? filterTasksFailed,
     required TResult orElse(),
   }) {
     if (uploadTasksCompleted != null) {
@@ -5457,9 +4478,6 @@ class _$UploadTasksCompletedImpl implements _UploadTasksCompleted {
     required TResult Function(_AllTasksLoading value) allTasksLoading,
     required TResult Function(_AllTasksCompleted value) allTasksCompleted,
     required TResult Function(_AllTasksFailed value) allTasksFailed,
-    required TResult Function(_SearchLoading value) searchLoading,
-    required TResult Function(_SearchCompleted value) searchCompleted,
-    required TResult Function(_SearchFailed value) searchFailed,
     required TResult Function(_GetTotalEstimatedTimeLoading value)
         getTotalEstimatedTimeLoading,
     required TResult Function(_GetTotalEstimatedTimeCompleted value)
@@ -5491,6 +4509,9 @@ class _$UploadTasksCompletedImpl implements _UploadTasksCompleted {
     required TResult Function(_DeleteTaskLoading value) deleteTaskLoading,
     required TResult Function(_DeleteTaskFailed value) deleteTaskFailed,
     required TResult Function(_DeleteTaskCompleted value) deleteTaskCompleted,
+    required TResult Function(_FilterTasksLoading value) filterTasksLoading,
+    required TResult Function(_FilterTasksCompleted value) filterTasksCompleted,
+    required TResult Function(_FilterTasksFailed value) filterTasksFailed,
   }) {
     return uploadTasksCompleted(this);
   }
@@ -5502,9 +4523,6 @@ class _$UploadTasksCompletedImpl implements _UploadTasksCompleted {
     TResult? Function(_AllTasksLoading value)? allTasksLoading,
     TResult? Function(_AllTasksCompleted value)? allTasksCompleted,
     TResult? Function(_AllTasksFailed value)? allTasksFailed,
-    TResult? Function(_SearchLoading value)? searchLoading,
-    TResult? Function(_SearchCompleted value)? searchCompleted,
-    TResult? Function(_SearchFailed value)? searchFailed,
     TResult? Function(_GetTotalEstimatedTimeLoading value)?
         getTotalEstimatedTimeLoading,
     TResult? Function(_GetTotalEstimatedTimeCompleted value)?
@@ -5535,6 +4553,9 @@ class _$UploadTasksCompletedImpl implements _UploadTasksCompleted {
     TResult? Function(_DeleteTaskLoading value)? deleteTaskLoading,
     TResult? Function(_DeleteTaskFailed value)? deleteTaskFailed,
     TResult? Function(_DeleteTaskCompleted value)? deleteTaskCompleted,
+    TResult? Function(_FilterTasksLoading value)? filterTasksLoading,
+    TResult? Function(_FilterTasksCompleted value)? filterTasksCompleted,
+    TResult? Function(_FilterTasksFailed value)? filterTasksFailed,
   }) {
     return uploadTasksCompleted?.call(this);
   }
@@ -5546,9 +4567,6 @@ class _$UploadTasksCompletedImpl implements _UploadTasksCompleted {
     TResult Function(_AllTasksLoading value)? allTasksLoading,
     TResult Function(_AllTasksCompleted value)? allTasksCompleted,
     TResult Function(_AllTasksFailed value)? allTasksFailed,
-    TResult Function(_SearchLoading value)? searchLoading,
-    TResult Function(_SearchCompleted value)? searchCompleted,
-    TResult Function(_SearchFailed value)? searchFailed,
     TResult Function(_GetTotalEstimatedTimeLoading value)?
         getTotalEstimatedTimeLoading,
     TResult Function(_GetTotalEstimatedTimeCompleted value)?
@@ -5579,6 +4597,9 @@ class _$UploadTasksCompletedImpl implements _UploadTasksCompleted {
     TResult Function(_DeleteTaskLoading value)? deleteTaskLoading,
     TResult Function(_DeleteTaskFailed value)? deleteTaskFailed,
     TResult Function(_DeleteTaskCompleted value)? deleteTaskCompleted,
+    TResult Function(_FilterTasksLoading value)? filterTasksLoading,
+    TResult Function(_FilterTasksCompleted value)? filterTasksCompleted,
+    TResult Function(_FilterTasksFailed value)? filterTasksFailed,
     required TResult orElse(),
   }) {
     if (uploadTasksCompleted != null) {
@@ -5648,9 +4669,6 @@ class _$DownloadTasksLoadingImpl implements _DownloadTasksLoading {
     required TResult Function() allTasksLoading,
     required TResult Function(List<TaskModel> allTasks) allTasksCompleted,
     required TResult Function(String message) allTasksFailed,
-    required TResult Function() searchLoading,
-    required TResult Function(List<TaskModel> searchedTasks) searchCompleted,
-    required TResult Function(String message) searchFailed,
     required TResult Function() getTotalEstimatedTimeLoading,
     required TResult Function(Duration totalEstimatedTime)
         getTotalEstimatedTimeCompleted,
@@ -5679,6 +4697,10 @@ class _$DownloadTasksLoadingImpl implements _DownloadTasksLoading {
     required TResult Function() deleteTaskLoading,
     required TResult Function(String message) deleteTaskFailed,
     required TResult Function(TaskModel deletedTask) deleteTaskCompleted,
+    required TResult Function() filterTasksLoading,
+    required TResult Function(List<TaskModel> filteredTasks)
+        filterTasksCompleted,
+    required TResult Function(String message) filterTasksFailed,
   }) {
     return downloadTasksLoading();
   }
@@ -5690,9 +4712,6 @@ class _$DownloadTasksLoadingImpl implements _DownloadTasksLoading {
     TResult? Function()? allTasksLoading,
     TResult? Function(List<TaskModel> allTasks)? allTasksCompleted,
     TResult? Function(String message)? allTasksFailed,
-    TResult? Function()? searchLoading,
-    TResult? Function(List<TaskModel> searchedTasks)? searchCompleted,
-    TResult? Function(String message)? searchFailed,
     TResult? Function()? getTotalEstimatedTimeLoading,
     TResult? Function(Duration totalEstimatedTime)?
         getTotalEstimatedTimeCompleted,
@@ -5719,6 +4738,9 @@ class _$DownloadTasksLoadingImpl implements _DownloadTasksLoading {
     TResult? Function()? deleteTaskLoading,
     TResult? Function(String message)? deleteTaskFailed,
     TResult? Function(TaskModel deletedTask)? deleteTaskCompleted,
+    TResult? Function()? filterTasksLoading,
+    TResult? Function(List<TaskModel> filteredTasks)? filterTasksCompleted,
+    TResult? Function(String message)? filterTasksFailed,
   }) {
     return downloadTasksLoading?.call();
   }
@@ -5730,9 +4752,6 @@ class _$DownloadTasksLoadingImpl implements _DownloadTasksLoading {
     TResult Function()? allTasksLoading,
     TResult Function(List<TaskModel> allTasks)? allTasksCompleted,
     TResult Function(String message)? allTasksFailed,
-    TResult Function()? searchLoading,
-    TResult Function(List<TaskModel> searchedTasks)? searchCompleted,
-    TResult Function(String message)? searchFailed,
     TResult Function()? getTotalEstimatedTimeLoading,
     TResult Function(Duration totalEstimatedTime)?
         getTotalEstimatedTimeCompleted,
@@ -5759,6 +4778,9 @@ class _$DownloadTasksLoadingImpl implements _DownloadTasksLoading {
     TResult Function()? deleteTaskLoading,
     TResult Function(String message)? deleteTaskFailed,
     TResult Function(TaskModel deletedTask)? deleteTaskCompleted,
+    TResult Function()? filterTasksLoading,
+    TResult Function(List<TaskModel> filteredTasks)? filterTasksCompleted,
+    TResult Function(String message)? filterTasksFailed,
     required TResult orElse(),
   }) {
     if (downloadTasksLoading != null) {
@@ -5774,9 +4796,6 @@ class _$DownloadTasksLoadingImpl implements _DownloadTasksLoading {
     required TResult Function(_AllTasksLoading value) allTasksLoading,
     required TResult Function(_AllTasksCompleted value) allTasksCompleted,
     required TResult Function(_AllTasksFailed value) allTasksFailed,
-    required TResult Function(_SearchLoading value) searchLoading,
-    required TResult Function(_SearchCompleted value) searchCompleted,
-    required TResult Function(_SearchFailed value) searchFailed,
     required TResult Function(_GetTotalEstimatedTimeLoading value)
         getTotalEstimatedTimeLoading,
     required TResult Function(_GetTotalEstimatedTimeCompleted value)
@@ -5808,6 +4827,9 @@ class _$DownloadTasksLoadingImpl implements _DownloadTasksLoading {
     required TResult Function(_DeleteTaskLoading value) deleteTaskLoading,
     required TResult Function(_DeleteTaskFailed value) deleteTaskFailed,
     required TResult Function(_DeleteTaskCompleted value) deleteTaskCompleted,
+    required TResult Function(_FilterTasksLoading value) filterTasksLoading,
+    required TResult Function(_FilterTasksCompleted value) filterTasksCompleted,
+    required TResult Function(_FilterTasksFailed value) filterTasksFailed,
   }) {
     return downloadTasksLoading(this);
   }
@@ -5819,9 +4841,6 @@ class _$DownloadTasksLoadingImpl implements _DownloadTasksLoading {
     TResult? Function(_AllTasksLoading value)? allTasksLoading,
     TResult? Function(_AllTasksCompleted value)? allTasksCompleted,
     TResult? Function(_AllTasksFailed value)? allTasksFailed,
-    TResult? Function(_SearchLoading value)? searchLoading,
-    TResult? Function(_SearchCompleted value)? searchCompleted,
-    TResult? Function(_SearchFailed value)? searchFailed,
     TResult? Function(_GetTotalEstimatedTimeLoading value)?
         getTotalEstimatedTimeLoading,
     TResult? Function(_GetTotalEstimatedTimeCompleted value)?
@@ -5852,6 +4871,9 @@ class _$DownloadTasksLoadingImpl implements _DownloadTasksLoading {
     TResult? Function(_DeleteTaskLoading value)? deleteTaskLoading,
     TResult? Function(_DeleteTaskFailed value)? deleteTaskFailed,
     TResult? Function(_DeleteTaskCompleted value)? deleteTaskCompleted,
+    TResult? Function(_FilterTasksLoading value)? filterTasksLoading,
+    TResult? Function(_FilterTasksCompleted value)? filterTasksCompleted,
+    TResult? Function(_FilterTasksFailed value)? filterTasksFailed,
   }) {
     return downloadTasksLoading?.call(this);
   }
@@ -5863,9 +4885,6 @@ class _$DownloadTasksLoadingImpl implements _DownloadTasksLoading {
     TResult Function(_AllTasksLoading value)? allTasksLoading,
     TResult Function(_AllTasksCompleted value)? allTasksCompleted,
     TResult Function(_AllTasksFailed value)? allTasksFailed,
-    TResult Function(_SearchLoading value)? searchLoading,
-    TResult Function(_SearchCompleted value)? searchCompleted,
-    TResult Function(_SearchFailed value)? searchFailed,
     TResult Function(_GetTotalEstimatedTimeLoading value)?
         getTotalEstimatedTimeLoading,
     TResult Function(_GetTotalEstimatedTimeCompleted value)?
@@ -5896,6 +4915,9 @@ class _$DownloadTasksLoadingImpl implements _DownloadTasksLoading {
     TResult Function(_DeleteTaskLoading value)? deleteTaskLoading,
     TResult Function(_DeleteTaskFailed value)? deleteTaskFailed,
     TResult Function(_DeleteTaskCompleted value)? deleteTaskCompleted,
+    TResult Function(_FilterTasksLoading value)? filterTasksLoading,
+    TResult Function(_FilterTasksCompleted value)? filterTasksCompleted,
+    TResult Function(_FilterTasksFailed value)? filterTasksFailed,
     required TResult orElse(),
   }) {
     if (downloadTasksLoading != null) {
@@ -5982,9 +5004,6 @@ class _$DownloadTasksFailedImpl implements _DownloadTasksFailed {
     required TResult Function() allTasksLoading,
     required TResult Function(List<TaskModel> allTasks) allTasksCompleted,
     required TResult Function(String message) allTasksFailed,
-    required TResult Function() searchLoading,
-    required TResult Function(List<TaskModel> searchedTasks) searchCompleted,
-    required TResult Function(String message) searchFailed,
     required TResult Function() getTotalEstimatedTimeLoading,
     required TResult Function(Duration totalEstimatedTime)
         getTotalEstimatedTimeCompleted,
@@ -6013,6 +5032,10 @@ class _$DownloadTasksFailedImpl implements _DownloadTasksFailed {
     required TResult Function() deleteTaskLoading,
     required TResult Function(String message) deleteTaskFailed,
     required TResult Function(TaskModel deletedTask) deleteTaskCompleted,
+    required TResult Function() filterTasksLoading,
+    required TResult Function(List<TaskModel> filteredTasks)
+        filterTasksCompleted,
+    required TResult Function(String message) filterTasksFailed,
   }) {
     return downloadTasksFailed(message);
   }
@@ -6024,9 +5047,6 @@ class _$DownloadTasksFailedImpl implements _DownloadTasksFailed {
     TResult? Function()? allTasksLoading,
     TResult? Function(List<TaskModel> allTasks)? allTasksCompleted,
     TResult? Function(String message)? allTasksFailed,
-    TResult? Function()? searchLoading,
-    TResult? Function(List<TaskModel> searchedTasks)? searchCompleted,
-    TResult? Function(String message)? searchFailed,
     TResult? Function()? getTotalEstimatedTimeLoading,
     TResult? Function(Duration totalEstimatedTime)?
         getTotalEstimatedTimeCompleted,
@@ -6053,6 +5073,9 @@ class _$DownloadTasksFailedImpl implements _DownloadTasksFailed {
     TResult? Function()? deleteTaskLoading,
     TResult? Function(String message)? deleteTaskFailed,
     TResult? Function(TaskModel deletedTask)? deleteTaskCompleted,
+    TResult? Function()? filterTasksLoading,
+    TResult? Function(List<TaskModel> filteredTasks)? filterTasksCompleted,
+    TResult? Function(String message)? filterTasksFailed,
   }) {
     return downloadTasksFailed?.call(message);
   }
@@ -6064,9 +5087,6 @@ class _$DownloadTasksFailedImpl implements _DownloadTasksFailed {
     TResult Function()? allTasksLoading,
     TResult Function(List<TaskModel> allTasks)? allTasksCompleted,
     TResult Function(String message)? allTasksFailed,
-    TResult Function()? searchLoading,
-    TResult Function(List<TaskModel> searchedTasks)? searchCompleted,
-    TResult Function(String message)? searchFailed,
     TResult Function()? getTotalEstimatedTimeLoading,
     TResult Function(Duration totalEstimatedTime)?
         getTotalEstimatedTimeCompleted,
@@ -6093,6 +5113,9 @@ class _$DownloadTasksFailedImpl implements _DownloadTasksFailed {
     TResult Function()? deleteTaskLoading,
     TResult Function(String message)? deleteTaskFailed,
     TResult Function(TaskModel deletedTask)? deleteTaskCompleted,
+    TResult Function()? filterTasksLoading,
+    TResult Function(List<TaskModel> filteredTasks)? filterTasksCompleted,
+    TResult Function(String message)? filterTasksFailed,
     required TResult orElse(),
   }) {
     if (downloadTasksFailed != null) {
@@ -6108,9 +5131,6 @@ class _$DownloadTasksFailedImpl implements _DownloadTasksFailed {
     required TResult Function(_AllTasksLoading value) allTasksLoading,
     required TResult Function(_AllTasksCompleted value) allTasksCompleted,
     required TResult Function(_AllTasksFailed value) allTasksFailed,
-    required TResult Function(_SearchLoading value) searchLoading,
-    required TResult Function(_SearchCompleted value) searchCompleted,
-    required TResult Function(_SearchFailed value) searchFailed,
     required TResult Function(_GetTotalEstimatedTimeLoading value)
         getTotalEstimatedTimeLoading,
     required TResult Function(_GetTotalEstimatedTimeCompleted value)
@@ -6142,6 +5162,9 @@ class _$DownloadTasksFailedImpl implements _DownloadTasksFailed {
     required TResult Function(_DeleteTaskLoading value) deleteTaskLoading,
     required TResult Function(_DeleteTaskFailed value) deleteTaskFailed,
     required TResult Function(_DeleteTaskCompleted value) deleteTaskCompleted,
+    required TResult Function(_FilterTasksLoading value) filterTasksLoading,
+    required TResult Function(_FilterTasksCompleted value) filterTasksCompleted,
+    required TResult Function(_FilterTasksFailed value) filterTasksFailed,
   }) {
     return downloadTasksFailed(this);
   }
@@ -6153,9 +5176,6 @@ class _$DownloadTasksFailedImpl implements _DownloadTasksFailed {
     TResult? Function(_AllTasksLoading value)? allTasksLoading,
     TResult? Function(_AllTasksCompleted value)? allTasksCompleted,
     TResult? Function(_AllTasksFailed value)? allTasksFailed,
-    TResult? Function(_SearchLoading value)? searchLoading,
-    TResult? Function(_SearchCompleted value)? searchCompleted,
-    TResult? Function(_SearchFailed value)? searchFailed,
     TResult? Function(_GetTotalEstimatedTimeLoading value)?
         getTotalEstimatedTimeLoading,
     TResult? Function(_GetTotalEstimatedTimeCompleted value)?
@@ -6186,6 +5206,9 @@ class _$DownloadTasksFailedImpl implements _DownloadTasksFailed {
     TResult? Function(_DeleteTaskLoading value)? deleteTaskLoading,
     TResult? Function(_DeleteTaskFailed value)? deleteTaskFailed,
     TResult? Function(_DeleteTaskCompleted value)? deleteTaskCompleted,
+    TResult? Function(_FilterTasksLoading value)? filterTasksLoading,
+    TResult? Function(_FilterTasksCompleted value)? filterTasksCompleted,
+    TResult? Function(_FilterTasksFailed value)? filterTasksFailed,
   }) {
     return downloadTasksFailed?.call(this);
   }
@@ -6197,9 +5220,6 @@ class _$DownloadTasksFailedImpl implements _DownloadTasksFailed {
     TResult Function(_AllTasksLoading value)? allTasksLoading,
     TResult Function(_AllTasksCompleted value)? allTasksCompleted,
     TResult Function(_AllTasksFailed value)? allTasksFailed,
-    TResult Function(_SearchLoading value)? searchLoading,
-    TResult Function(_SearchCompleted value)? searchCompleted,
-    TResult Function(_SearchFailed value)? searchFailed,
     TResult Function(_GetTotalEstimatedTimeLoading value)?
         getTotalEstimatedTimeLoading,
     TResult Function(_GetTotalEstimatedTimeCompleted value)?
@@ -6230,6 +5250,9 @@ class _$DownloadTasksFailedImpl implements _DownloadTasksFailed {
     TResult Function(_DeleteTaskLoading value)? deleteTaskLoading,
     TResult Function(_DeleteTaskFailed value)? deleteTaskFailed,
     TResult Function(_DeleteTaskCompleted value)? deleteTaskCompleted,
+    TResult Function(_FilterTasksLoading value)? filterTasksLoading,
+    TResult Function(_FilterTasksCompleted value)? filterTasksCompleted,
+    TResult Function(_FilterTasksFailed value)? filterTasksFailed,
     required TResult orElse(),
   }) {
     if (downloadTasksFailed != null) {
@@ -6329,9 +5352,6 @@ class _$DownloadTasksCompletedImpl implements _DownloadTasksCompleted {
     required TResult Function() allTasksLoading,
     required TResult Function(List<TaskModel> allTasks) allTasksCompleted,
     required TResult Function(String message) allTasksFailed,
-    required TResult Function() searchLoading,
-    required TResult Function(List<TaskModel> searchedTasks) searchCompleted,
-    required TResult Function(String message) searchFailed,
     required TResult Function() getTotalEstimatedTimeLoading,
     required TResult Function(Duration totalEstimatedTime)
         getTotalEstimatedTimeCompleted,
@@ -6360,6 +5380,10 @@ class _$DownloadTasksCompletedImpl implements _DownloadTasksCompleted {
     required TResult Function() deleteTaskLoading,
     required TResult Function(String message) deleteTaskFailed,
     required TResult Function(TaskModel deletedTask) deleteTaskCompleted,
+    required TResult Function() filterTasksLoading,
+    required TResult Function(List<TaskModel> filteredTasks)
+        filterTasksCompleted,
+    required TResult Function(String message) filterTasksFailed,
   }) {
     return downloadTasksCompleted(downloadedTasks);
   }
@@ -6371,9 +5395,6 @@ class _$DownloadTasksCompletedImpl implements _DownloadTasksCompleted {
     TResult? Function()? allTasksLoading,
     TResult? Function(List<TaskModel> allTasks)? allTasksCompleted,
     TResult? Function(String message)? allTasksFailed,
-    TResult? Function()? searchLoading,
-    TResult? Function(List<TaskModel> searchedTasks)? searchCompleted,
-    TResult? Function(String message)? searchFailed,
     TResult? Function()? getTotalEstimatedTimeLoading,
     TResult? Function(Duration totalEstimatedTime)?
         getTotalEstimatedTimeCompleted,
@@ -6400,6 +5421,9 @@ class _$DownloadTasksCompletedImpl implements _DownloadTasksCompleted {
     TResult? Function()? deleteTaskLoading,
     TResult? Function(String message)? deleteTaskFailed,
     TResult? Function(TaskModel deletedTask)? deleteTaskCompleted,
+    TResult? Function()? filterTasksLoading,
+    TResult? Function(List<TaskModel> filteredTasks)? filterTasksCompleted,
+    TResult? Function(String message)? filterTasksFailed,
   }) {
     return downloadTasksCompleted?.call(downloadedTasks);
   }
@@ -6411,9 +5435,6 @@ class _$DownloadTasksCompletedImpl implements _DownloadTasksCompleted {
     TResult Function()? allTasksLoading,
     TResult Function(List<TaskModel> allTasks)? allTasksCompleted,
     TResult Function(String message)? allTasksFailed,
-    TResult Function()? searchLoading,
-    TResult Function(List<TaskModel> searchedTasks)? searchCompleted,
-    TResult Function(String message)? searchFailed,
     TResult Function()? getTotalEstimatedTimeLoading,
     TResult Function(Duration totalEstimatedTime)?
         getTotalEstimatedTimeCompleted,
@@ -6440,6 +5461,9 @@ class _$DownloadTasksCompletedImpl implements _DownloadTasksCompleted {
     TResult Function()? deleteTaskLoading,
     TResult Function(String message)? deleteTaskFailed,
     TResult Function(TaskModel deletedTask)? deleteTaskCompleted,
+    TResult Function()? filterTasksLoading,
+    TResult Function(List<TaskModel> filteredTasks)? filterTasksCompleted,
+    TResult Function(String message)? filterTasksFailed,
     required TResult orElse(),
   }) {
     if (downloadTasksCompleted != null) {
@@ -6455,9 +5479,6 @@ class _$DownloadTasksCompletedImpl implements _DownloadTasksCompleted {
     required TResult Function(_AllTasksLoading value) allTasksLoading,
     required TResult Function(_AllTasksCompleted value) allTasksCompleted,
     required TResult Function(_AllTasksFailed value) allTasksFailed,
-    required TResult Function(_SearchLoading value) searchLoading,
-    required TResult Function(_SearchCompleted value) searchCompleted,
-    required TResult Function(_SearchFailed value) searchFailed,
     required TResult Function(_GetTotalEstimatedTimeLoading value)
         getTotalEstimatedTimeLoading,
     required TResult Function(_GetTotalEstimatedTimeCompleted value)
@@ -6489,6 +5510,9 @@ class _$DownloadTasksCompletedImpl implements _DownloadTasksCompleted {
     required TResult Function(_DeleteTaskLoading value) deleteTaskLoading,
     required TResult Function(_DeleteTaskFailed value) deleteTaskFailed,
     required TResult Function(_DeleteTaskCompleted value) deleteTaskCompleted,
+    required TResult Function(_FilterTasksLoading value) filterTasksLoading,
+    required TResult Function(_FilterTasksCompleted value) filterTasksCompleted,
+    required TResult Function(_FilterTasksFailed value) filterTasksFailed,
   }) {
     return downloadTasksCompleted(this);
   }
@@ -6500,9 +5524,6 @@ class _$DownloadTasksCompletedImpl implements _DownloadTasksCompleted {
     TResult? Function(_AllTasksLoading value)? allTasksLoading,
     TResult? Function(_AllTasksCompleted value)? allTasksCompleted,
     TResult? Function(_AllTasksFailed value)? allTasksFailed,
-    TResult? Function(_SearchLoading value)? searchLoading,
-    TResult? Function(_SearchCompleted value)? searchCompleted,
-    TResult? Function(_SearchFailed value)? searchFailed,
     TResult? Function(_GetTotalEstimatedTimeLoading value)?
         getTotalEstimatedTimeLoading,
     TResult? Function(_GetTotalEstimatedTimeCompleted value)?
@@ -6533,6 +5554,9 @@ class _$DownloadTasksCompletedImpl implements _DownloadTasksCompleted {
     TResult? Function(_DeleteTaskLoading value)? deleteTaskLoading,
     TResult? Function(_DeleteTaskFailed value)? deleteTaskFailed,
     TResult? Function(_DeleteTaskCompleted value)? deleteTaskCompleted,
+    TResult? Function(_FilterTasksLoading value)? filterTasksLoading,
+    TResult? Function(_FilterTasksCompleted value)? filterTasksCompleted,
+    TResult? Function(_FilterTasksFailed value)? filterTasksFailed,
   }) {
     return downloadTasksCompleted?.call(this);
   }
@@ -6544,9 +5568,6 @@ class _$DownloadTasksCompletedImpl implements _DownloadTasksCompleted {
     TResult Function(_AllTasksLoading value)? allTasksLoading,
     TResult Function(_AllTasksCompleted value)? allTasksCompleted,
     TResult Function(_AllTasksFailed value)? allTasksFailed,
-    TResult Function(_SearchLoading value)? searchLoading,
-    TResult Function(_SearchCompleted value)? searchCompleted,
-    TResult Function(_SearchFailed value)? searchFailed,
     TResult Function(_GetTotalEstimatedTimeLoading value)?
         getTotalEstimatedTimeLoading,
     TResult Function(_GetTotalEstimatedTimeCompleted value)?
@@ -6577,6 +5598,9 @@ class _$DownloadTasksCompletedImpl implements _DownloadTasksCompleted {
     TResult Function(_DeleteTaskLoading value)? deleteTaskLoading,
     TResult Function(_DeleteTaskFailed value)? deleteTaskFailed,
     TResult Function(_DeleteTaskCompleted value)? deleteTaskCompleted,
+    TResult Function(_FilterTasksLoading value)? filterTasksLoading,
+    TResult Function(_FilterTasksCompleted value)? filterTasksCompleted,
+    TResult Function(_FilterTasksFailed value)? filterTasksFailed,
     required TResult orElse(),
   }) {
     if (downloadTasksCompleted != null) {
@@ -6645,9 +5669,6 @@ class _$UpdateTaskLoadingImpl implements _UpdateTaskLoading {
     required TResult Function() allTasksLoading,
     required TResult Function(List<TaskModel> allTasks) allTasksCompleted,
     required TResult Function(String message) allTasksFailed,
-    required TResult Function() searchLoading,
-    required TResult Function(List<TaskModel> searchedTasks) searchCompleted,
-    required TResult Function(String message) searchFailed,
     required TResult Function() getTotalEstimatedTimeLoading,
     required TResult Function(Duration totalEstimatedTime)
         getTotalEstimatedTimeCompleted,
@@ -6676,6 +5697,10 @@ class _$UpdateTaskLoadingImpl implements _UpdateTaskLoading {
     required TResult Function() deleteTaskLoading,
     required TResult Function(String message) deleteTaskFailed,
     required TResult Function(TaskModel deletedTask) deleteTaskCompleted,
+    required TResult Function() filterTasksLoading,
+    required TResult Function(List<TaskModel> filteredTasks)
+        filterTasksCompleted,
+    required TResult Function(String message) filterTasksFailed,
   }) {
     return updateTaskLoading();
   }
@@ -6687,9 +5712,6 @@ class _$UpdateTaskLoadingImpl implements _UpdateTaskLoading {
     TResult? Function()? allTasksLoading,
     TResult? Function(List<TaskModel> allTasks)? allTasksCompleted,
     TResult? Function(String message)? allTasksFailed,
-    TResult? Function()? searchLoading,
-    TResult? Function(List<TaskModel> searchedTasks)? searchCompleted,
-    TResult? Function(String message)? searchFailed,
     TResult? Function()? getTotalEstimatedTimeLoading,
     TResult? Function(Duration totalEstimatedTime)?
         getTotalEstimatedTimeCompleted,
@@ -6716,6 +5738,9 @@ class _$UpdateTaskLoadingImpl implements _UpdateTaskLoading {
     TResult? Function()? deleteTaskLoading,
     TResult? Function(String message)? deleteTaskFailed,
     TResult? Function(TaskModel deletedTask)? deleteTaskCompleted,
+    TResult? Function()? filterTasksLoading,
+    TResult? Function(List<TaskModel> filteredTasks)? filterTasksCompleted,
+    TResult? Function(String message)? filterTasksFailed,
   }) {
     return updateTaskLoading?.call();
   }
@@ -6727,9 +5752,6 @@ class _$UpdateTaskLoadingImpl implements _UpdateTaskLoading {
     TResult Function()? allTasksLoading,
     TResult Function(List<TaskModel> allTasks)? allTasksCompleted,
     TResult Function(String message)? allTasksFailed,
-    TResult Function()? searchLoading,
-    TResult Function(List<TaskModel> searchedTasks)? searchCompleted,
-    TResult Function(String message)? searchFailed,
     TResult Function()? getTotalEstimatedTimeLoading,
     TResult Function(Duration totalEstimatedTime)?
         getTotalEstimatedTimeCompleted,
@@ -6756,6 +5778,9 @@ class _$UpdateTaskLoadingImpl implements _UpdateTaskLoading {
     TResult Function()? deleteTaskLoading,
     TResult Function(String message)? deleteTaskFailed,
     TResult Function(TaskModel deletedTask)? deleteTaskCompleted,
+    TResult Function()? filterTasksLoading,
+    TResult Function(List<TaskModel> filteredTasks)? filterTasksCompleted,
+    TResult Function(String message)? filterTasksFailed,
     required TResult orElse(),
   }) {
     if (updateTaskLoading != null) {
@@ -6771,9 +5796,6 @@ class _$UpdateTaskLoadingImpl implements _UpdateTaskLoading {
     required TResult Function(_AllTasksLoading value) allTasksLoading,
     required TResult Function(_AllTasksCompleted value) allTasksCompleted,
     required TResult Function(_AllTasksFailed value) allTasksFailed,
-    required TResult Function(_SearchLoading value) searchLoading,
-    required TResult Function(_SearchCompleted value) searchCompleted,
-    required TResult Function(_SearchFailed value) searchFailed,
     required TResult Function(_GetTotalEstimatedTimeLoading value)
         getTotalEstimatedTimeLoading,
     required TResult Function(_GetTotalEstimatedTimeCompleted value)
@@ -6805,6 +5827,9 @@ class _$UpdateTaskLoadingImpl implements _UpdateTaskLoading {
     required TResult Function(_DeleteTaskLoading value) deleteTaskLoading,
     required TResult Function(_DeleteTaskFailed value) deleteTaskFailed,
     required TResult Function(_DeleteTaskCompleted value) deleteTaskCompleted,
+    required TResult Function(_FilterTasksLoading value) filterTasksLoading,
+    required TResult Function(_FilterTasksCompleted value) filterTasksCompleted,
+    required TResult Function(_FilterTasksFailed value) filterTasksFailed,
   }) {
     return updateTaskLoading(this);
   }
@@ -6816,9 +5841,6 @@ class _$UpdateTaskLoadingImpl implements _UpdateTaskLoading {
     TResult? Function(_AllTasksLoading value)? allTasksLoading,
     TResult? Function(_AllTasksCompleted value)? allTasksCompleted,
     TResult? Function(_AllTasksFailed value)? allTasksFailed,
-    TResult? Function(_SearchLoading value)? searchLoading,
-    TResult? Function(_SearchCompleted value)? searchCompleted,
-    TResult? Function(_SearchFailed value)? searchFailed,
     TResult? Function(_GetTotalEstimatedTimeLoading value)?
         getTotalEstimatedTimeLoading,
     TResult? Function(_GetTotalEstimatedTimeCompleted value)?
@@ -6849,6 +5871,9 @@ class _$UpdateTaskLoadingImpl implements _UpdateTaskLoading {
     TResult? Function(_DeleteTaskLoading value)? deleteTaskLoading,
     TResult? Function(_DeleteTaskFailed value)? deleteTaskFailed,
     TResult? Function(_DeleteTaskCompleted value)? deleteTaskCompleted,
+    TResult? Function(_FilterTasksLoading value)? filterTasksLoading,
+    TResult? Function(_FilterTasksCompleted value)? filterTasksCompleted,
+    TResult? Function(_FilterTasksFailed value)? filterTasksFailed,
   }) {
     return updateTaskLoading?.call(this);
   }
@@ -6860,9 +5885,6 @@ class _$UpdateTaskLoadingImpl implements _UpdateTaskLoading {
     TResult Function(_AllTasksLoading value)? allTasksLoading,
     TResult Function(_AllTasksCompleted value)? allTasksCompleted,
     TResult Function(_AllTasksFailed value)? allTasksFailed,
-    TResult Function(_SearchLoading value)? searchLoading,
-    TResult Function(_SearchCompleted value)? searchCompleted,
-    TResult Function(_SearchFailed value)? searchFailed,
     TResult Function(_GetTotalEstimatedTimeLoading value)?
         getTotalEstimatedTimeLoading,
     TResult Function(_GetTotalEstimatedTimeCompleted value)?
@@ -6893,6 +5915,9 @@ class _$UpdateTaskLoadingImpl implements _UpdateTaskLoading {
     TResult Function(_DeleteTaskLoading value)? deleteTaskLoading,
     TResult Function(_DeleteTaskFailed value)? deleteTaskFailed,
     TResult Function(_DeleteTaskCompleted value)? deleteTaskCompleted,
+    TResult Function(_FilterTasksLoading value)? filterTasksLoading,
+    TResult Function(_FilterTasksCompleted value)? filterTasksCompleted,
+    TResult Function(_FilterTasksFailed value)? filterTasksFailed,
     required TResult orElse(),
   }) {
     if (updateTaskLoading != null) {
@@ -6979,9 +6004,6 @@ class _$UpdateTaskFailedImpl implements _UpdateTaskFailed {
     required TResult Function() allTasksLoading,
     required TResult Function(List<TaskModel> allTasks) allTasksCompleted,
     required TResult Function(String message) allTasksFailed,
-    required TResult Function() searchLoading,
-    required TResult Function(List<TaskModel> searchedTasks) searchCompleted,
-    required TResult Function(String message) searchFailed,
     required TResult Function() getTotalEstimatedTimeLoading,
     required TResult Function(Duration totalEstimatedTime)
         getTotalEstimatedTimeCompleted,
@@ -7010,6 +6032,10 @@ class _$UpdateTaskFailedImpl implements _UpdateTaskFailed {
     required TResult Function() deleteTaskLoading,
     required TResult Function(String message) deleteTaskFailed,
     required TResult Function(TaskModel deletedTask) deleteTaskCompleted,
+    required TResult Function() filterTasksLoading,
+    required TResult Function(List<TaskModel> filteredTasks)
+        filterTasksCompleted,
+    required TResult Function(String message) filterTasksFailed,
   }) {
     return updateTaskFailed(message);
   }
@@ -7021,9 +6047,6 @@ class _$UpdateTaskFailedImpl implements _UpdateTaskFailed {
     TResult? Function()? allTasksLoading,
     TResult? Function(List<TaskModel> allTasks)? allTasksCompleted,
     TResult? Function(String message)? allTasksFailed,
-    TResult? Function()? searchLoading,
-    TResult? Function(List<TaskModel> searchedTasks)? searchCompleted,
-    TResult? Function(String message)? searchFailed,
     TResult? Function()? getTotalEstimatedTimeLoading,
     TResult? Function(Duration totalEstimatedTime)?
         getTotalEstimatedTimeCompleted,
@@ -7050,6 +6073,9 @@ class _$UpdateTaskFailedImpl implements _UpdateTaskFailed {
     TResult? Function()? deleteTaskLoading,
     TResult? Function(String message)? deleteTaskFailed,
     TResult? Function(TaskModel deletedTask)? deleteTaskCompleted,
+    TResult? Function()? filterTasksLoading,
+    TResult? Function(List<TaskModel> filteredTasks)? filterTasksCompleted,
+    TResult? Function(String message)? filterTasksFailed,
   }) {
     return updateTaskFailed?.call(message);
   }
@@ -7061,9 +6087,6 @@ class _$UpdateTaskFailedImpl implements _UpdateTaskFailed {
     TResult Function()? allTasksLoading,
     TResult Function(List<TaskModel> allTasks)? allTasksCompleted,
     TResult Function(String message)? allTasksFailed,
-    TResult Function()? searchLoading,
-    TResult Function(List<TaskModel> searchedTasks)? searchCompleted,
-    TResult Function(String message)? searchFailed,
     TResult Function()? getTotalEstimatedTimeLoading,
     TResult Function(Duration totalEstimatedTime)?
         getTotalEstimatedTimeCompleted,
@@ -7090,6 +6113,9 @@ class _$UpdateTaskFailedImpl implements _UpdateTaskFailed {
     TResult Function()? deleteTaskLoading,
     TResult Function(String message)? deleteTaskFailed,
     TResult Function(TaskModel deletedTask)? deleteTaskCompleted,
+    TResult Function()? filterTasksLoading,
+    TResult Function(List<TaskModel> filteredTasks)? filterTasksCompleted,
+    TResult Function(String message)? filterTasksFailed,
     required TResult orElse(),
   }) {
     if (updateTaskFailed != null) {
@@ -7105,9 +6131,6 @@ class _$UpdateTaskFailedImpl implements _UpdateTaskFailed {
     required TResult Function(_AllTasksLoading value) allTasksLoading,
     required TResult Function(_AllTasksCompleted value) allTasksCompleted,
     required TResult Function(_AllTasksFailed value) allTasksFailed,
-    required TResult Function(_SearchLoading value) searchLoading,
-    required TResult Function(_SearchCompleted value) searchCompleted,
-    required TResult Function(_SearchFailed value) searchFailed,
     required TResult Function(_GetTotalEstimatedTimeLoading value)
         getTotalEstimatedTimeLoading,
     required TResult Function(_GetTotalEstimatedTimeCompleted value)
@@ -7139,6 +6162,9 @@ class _$UpdateTaskFailedImpl implements _UpdateTaskFailed {
     required TResult Function(_DeleteTaskLoading value) deleteTaskLoading,
     required TResult Function(_DeleteTaskFailed value) deleteTaskFailed,
     required TResult Function(_DeleteTaskCompleted value) deleteTaskCompleted,
+    required TResult Function(_FilterTasksLoading value) filterTasksLoading,
+    required TResult Function(_FilterTasksCompleted value) filterTasksCompleted,
+    required TResult Function(_FilterTasksFailed value) filterTasksFailed,
   }) {
     return updateTaskFailed(this);
   }
@@ -7150,9 +6176,6 @@ class _$UpdateTaskFailedImpl implements _UpdateTaskFailed {
     TResult? Function(_AllTasksLoading value)? allTasksLoading,
     TResult? Function(_AllTasksCompleted value)? allTasksCompleted,
     TResult? Function(_AllTasksFailed value)? allTasksFailed,
-    TResult? Function(_SearchLoading value)? searchLoading,
-    TResult? Function(_SearchCompleted value)? searchCompleted,
-    TResult? Function(_SearchFailed value)? searchFailed,
     TResult? Function(_GetTotalEstimatedTimeLoading value)?
         getTotalEstimatedTimeLoading,
     TResult? Function(_GetTotalEstimatedTimeCompleted value)?
@@ -7183,6 +6206,9 @@ class _$UpdateTaskFailedImpl implements _UpdateTaskFailed {
     TResult? Function(_DeleteTaskLoading value)? deleteTaskLoading,
     TResult? Function(_DeleteTaskFailed value)? deleteTaskFailed,
     TResult? Function(_DeleteTaskCompleted value)? deleteTaskCompleted,
+    TResult? Function(_FilterTasksLoading value)? filterTasksLoading,
+    TResult? Function(_FilterTasksCompleted value)? filterTasksCompleted,
+    TResult? Function(_FilterTasksFailed value)? filterTasksFailed,
   }) {
     return updateTaskFailed?.call(this);
   }
@@ -7194,9 +6220,6 @@ class _$UpdateTaskFailedImpl implements _UpdateTaskFailed {
     TResult Function(_AllTasksLoading value)? allTasksLoading,
     TResult Function(_AllTasksCompleted value)? allTasksCompleted,
     TResult Function(_AllTasksFailed value)? allTasksFailed,
-    TResult Function(_SearchLoading value)? searchLoading,
-    TResult Function(_SearchCompleted value)? searchCompleted,
-    TResult Function(_SearchFailed value)? searchFailed,
     TResult Function(_GetTotalEstimatedTimeLoading value)?
         getTotalEstimatedTimeLoading,
     TResult Function(_GetTotalEstimatedTimeCompleted value)?
@@ -7227,6 +6250,9 @@ class _$UpdateTaskFailedImpl implements _UpdateTaskFailed {
     TResult Function(_DeleteTaskLoading value)? deleteTaskLoading,
     TResult Function(_DeleteTaskFailed value)? deleteTaskFailed,
     TResult Function(_DeleteTaskCompleted value)? deleteTaskCompleted,
+    TResult Function(_FilterTasksLoading value)? filterTasksLoading,
+    TResult Function(_FilterTasksCompleted value)? filterTasksCompleted,
+    TResult Function(_FilterTasksFailed value)? filterTasksFailed,
     required TResult orElse(),
   }) {
     if (updateTaskFailed != null) {
@@ -7335,9 +6361,6 @@ class _$UpdateTaskCompletedImpl implements _UpdateTaskCompleted {
     required TResult Function() allTasksLoading,
     required TResult Function(List<TaskModel> allTasks) allTasksCompleted,
     required TResult Function(String message) allTasksFailed,
-    required TResult Function() searchLoading,
-    required TResult Function(List<TaskModel> searchedTasks) searchCompleted,
-    required TResult Function(String message) searchFailed,
     required TResult Function() getTotalEstimatedTimeLoading,
     required TResult Function(Duration totalEstimatedTime)
         getTotalEstimatedTimeCompleted,
@@ -7366,6 +6389,10 @@ class _$UpdateTaskCompletedImpl implements _UpdateTaskCompleted {
     required TResult Function() deleteTaskLoading,
     required TResult Function(String message) deleteTaskFailed,
     required TResult Function(TaskModel deletedTask) deleteTaskCompleted,
+    required TResult Function() filterTasksLoading,
+    required TResult Function(List<TaskModel> filteredTasks)
+        filterTasksCompleted,
+    required TResult Function(String message) filterTasksFailed,
   }) {
     return updateTaskCompleted(updatedTask);
   }
@@ -7377,9 +6404,6 @@ class _$UpdateTaskCompletedImpl implements _UpdateTaskCompleted {
     TResult? Function()? allTasksLoading,
     TResult? Function(List<TaskModel> allTasks)? allTasksCompleted,
     TResult? Function(String message)? allTasksFailed,
-    TResult? Function()? searchLoading,
-    TResult? Function(List<TaskModel> searchedTasks)? searchCompleted,
-    TResult? Function(String message)? searchFailed,
     TResult? Function()? getTotalEstimatedTimeLoading,
     TResult? Function(Duration totalEstimatedTime)?
         getTotalEstimatedTimeCompleted,
@@ -7406,6 +6430,9 @@ class _$UpdateTaskCompletedImpl implements _UpdateTaskCompleted {
     TResult? Function()? deleteTaskLoading,
     TResult? Function(String message)? deleteTaskFailed,
     TResult? Function(TaskModel deletedTask)? deleteTaskCompleted,
+    TResult? Function()? filterTasksLoading,
+    TResult? Function(List<TaskModel> filteredTasks)? filterTasksCompleted,
+    TResult? Function(String message)? filterTasksFailed,
   }) {
     return updateTaskCompleted?.call(updatedTask);
   }
@@ -7417,9 +6444,6 @@ class _$UpdateTaskCompletedImpl implements _UpdateTaskCompleted {
     TResult Function()? allTasksLoading,
     TResult Function(List<TaskModel> allTasks)? allTasksCompleted,
     TResult Function(String message)? allTasksFailed,
-    TResult Function()? searchLoading,
-    TResult Function(List<TaskModel> searchedTasks)? searchCompleted,
-    TResult Function(String message)? searchFailed,
     TResult Function()? getTotalEstimatedTimeLoading,
     TResult Function(Duration totalEstimatedTime)?
         getTotalEstimatedTimeCompleted,
@@ -7446,6 +6470,9 @@ class _$UpdateTaskCompletedImpl implements _UpdateTaskCompleted {
     TResult Function()? deleteTaskLoading,
     TResult Function(String message)? deleteTaskFailed,
     TResult Function(TaskModel deletedTask)? deleteTaskCompleted,
+    TResult Function()? filterTasksLoading,
+    TResult Function(List<TaskModel> filteredTasks)? filterTasksCompleted,
+    TResult Function(String message)? filterTasksFailed,
     required TResult orElse(),
   }) {
     if (updateTaskCompleted != null) {
@@ -7461,9 +6488,6 @@ class _$UpdateTaskCompletedImpl implements _UpdateTaskCompleted {
     required TResult Function(_AllTasksLoading value) allTasksLoading,
     required TResult Function(_AllTasksCompleted value) allTasksCompleted,
     required TResult Function(_AllTasksFailed value) allTasksFailed,
-    required TResult Function(_SearchLoading value) searchLoading,
-    required TResult Function(_SearchCompleted value) searchCompleted,
-    required TResult Function(_SearchFailed value) searchFailed,
     required TResult Function(_GetTotalEstimatedTimeLoading value)
         getTotalEstimatedTimeLoading,
     required TResult Function(_GetTotalEstimatedTimeCompleted value)
@@ -7495,6 +6519,9 @@ class _$UpdateTaskCompletedImpl implements _UpdateTaskCompleted {
     required TResult Function(_DeleteTaskLoading value) deleteTaskLoading,
     required TResult Function(_DeleteTaskFailed value) deleteTaskFailed,
     required TResult Function(_DeleteTaskCompleted value) deleteTaskCompleted,
+    required TResult Function(_FilterTasksLoading value) filterTasksLoading,
+    required TResult Function(_FilterTasksCompleted value) filterTasksCompleted,
+    required TResult Function(_FilterTasksFailed value) filterTasksFailed,
   }) {
     return updateTaskCompleted(this);
   }
@@ -7506,9 +6533,6 @@ class _$UpdateTaskCompletedImpl implements _UpdateTaskCompleted {
     TResult? Function(_AllTasksLoading value)? allTasksLoading,
     TResult? Function(_AllTasksCompleted value)? allTasksCompleted,
     TResult? Function(_AllTasksFailed value)? allTasksFailed,
-    TResult? Function(_SearchLoading value)? searchLoading,
-    TResult? Function(_SearchCompleted value)? searchCompleted,
-    TResult? Function(_SearchFailed value)? searchFailed,
     TResult? Function(_GetTotalEstimatedTimeLoading value)?
         getTotalEstimatedTimeLoading,
     TResult? Function(_GetTotalEstimatedTimeCompleted value)?
@@ -7539,6 +6563,9 @@ class _$UpdateTaskCompletedImpl implements _UpdateTaskCompleted {
     TResult? Function(_DeleteTaskLoading value)? deleteTaskLoading,
     TResult? Function(_DeleteTaskFailed value)? deleteTaskFailed,
     TResult? Function(_DeleteTaskCompleted value)? deleteTaskCompleted,
+    TResult? Function(_FilterTasksLoading value)? filterTasksLoading,
+    TResult? Function(_FilterTasksCompleted value)? filterTasksCompleted,
+    TResult? Function(_FilterTasksFailed value)? filterTasksFailed,
   }) {
     return updateTaskCompleted?.call(this);
   }
@@ -7550,9 +6577,6 @@ class _$UpdateTaskCompletedImpl implements _UpdateTaskCompleted {
     TResult Function(_AllTasksLoading value)? allTasksLoading,
     TResult Function(_AllTasksCompleted value)? allTasksCompleted,
     TResult Function(_AllTasksFailed value)? allTasksFailed,
-    TResult Function(_SearchLoading value)? searchLoading,
-    TResult Function(_SearchCompleted value)? searchCompleted,
-    TResult Function(_SearchFailed value)? searchFailed,
     TResult Function(_GetTotalEstimatedTimeLoading value)?
         getTotalEstimatedTimeLoading,
     TResult Function(_GetTotalEstimatedTimeCompleted value)?
@@ -7583,6 +6607,9 @@ class _$UpdateTaskCompletedImpl implements _UpdateTaskCompleted {
     TResult Function(_DeleteTaskLoading value)? deleteTaskLoading,
     TResult Function(_DeleteTaskFailed value)? deleteTaskFailed,
     TResult Function(_DeleteTaskCompleted value)? deleteTaskCompleted,
+    TResult Function(_FilterTasksLoading value)? filterTasksLoading,
+    TResult Function(_FilterTasksCompleted value)? filterTasksCompleted,
+    TResult Function(_FilterTasksFailed value)? filterTasksFailed,
     required TResult orElse(),
   }) {
     if (updateTaskCompleted != null) {
@@ -7650,9 +6677,6 @@ class _$GetTaskByIdLoadingImpl implements _GetTaskByIdLoading {
     required TResult Function() allTasksLoading,
     required TResult Function(List<TaskModel> allTasks) allTasksCompleted,
     required TResult Function(String message) allTasksFailed,
-    required TResult Function() searchLoading,
-    required TResult Function(List<TaskModel> searchedTasks) searchCompleted,
-    required TResult Function(String message) searchFailed,
     required TResult Function() getTotalEstimatedTimeLoading,
     required TResult Function(Duration totalEstimatedTime)
         getTotalEstimatedTimeCompleted,
@@ -7681,6 +6705,10 @@ class _$GetTaskByIdLoadingImpl implements _GetTaskByIdLoading {
     required TResult Function() deleteTaskLoading,
     required TResult Function(String message) deleteTaskFailed,
     required TResult Function(TaskModel deletedTask) deleteTaskCompleted,
+    required TResult Function() filterTasksLoading,
+    required TResult Function(List<TaskModel> filteredTasks)
+        filterTasksCompleted,
+    required TResult Function(String message) filterTasksFailed,
   }) {
     return getTaskByIdLoading();
   }
@@ -7692,9 +6720,6 @@ class _$GetTaskByIdLoadingImpl implements _GetTaskByIdLoading {
     TResult? Function()? allTasksLoading,
     TResult? Function(List<TaskModel> allTasks)? allTasksCompleted,
     TResult? Function(String message)? allTasksFailed,
-    TResult? Function()? searchLoading,
-    TResult? Function(List<TaskModel> searchedTasks)? searchCompleted,
-    TResult? Function(String message)? searchFailed,
     TResult? Function()? getTotalEstimatedTimeLoading,
     TResult? Function(Duration totalEstimatedTime)?
         getTotalEstimatedTimeCompleted,
@@ -7721,6 +6746,9 @@ class _$GetTaskByIdLoadingImpl implements _GetTaskByIdLoading {
     TResult? Function()? deleteTaskLoading,
     TResult? Function(String message)? deleteTaskFailed,
     TResult? Function(TaskModel deletedTask)? deleteTaskCompleted,
+    TResult? Function()? filterTasksLoading,
+    TResult? Function(List<TaskModel> filteredTasks)? filterTasksCompleted,
+    TResult? Function(String message)? filterTasksFailed,
   }) {
     return getTaskByIdLoading?.call();
   }
@@ -7732,9 +6760,6 @@ class _$GetTaskByIdLoadingImpl implements _GetTaskByIdLoading {
     TResult Function()? allTasksLoading,
     TResult Function(List<TaskModel> allTasks)? allTasksCompleted,
     TResult Function(String message)? allTasksFailed,
-    TResult Function()? searchLoading,
-    TResult Function(List<TaskModel> searchedTasks)? searchCompleted,
-    TResult Function(String message)? searchFailed,
     TResult Function()? getTotalEstimatedTimeLoading,
     TResult Function(Duration totalEstimatedTime)?
         getTotalEstimatedTimeCompleted,
@@ -7761,6 +6786,9 @@ class _$GetTaskByIdLoadingImpl implements _GetTaskByIdLoading {
     TResult Function()? deleteTaskLoading,
     TResult Function(String message)? deleteTaskFailed,
     TResult Function(TaskModel deletedTask)? deleteTaskCompleted,
+    TResult Function()? filterTasksLoading,
+    TResult Function(List<TaskModel> filteredTasks)? filterTasksCompleted,
+    TResult Function(String message)? filterTasksFailed,
     required TResult orElse(),
   }) {
     if (getTaskByIdLoading != null) {
@@ -7776,9 +6804,6 @@ class _$GetTaskByIdLoadingImpl implements _GetTaskByIdLoading {
     required TResult Function(_AllTasksLoading value) allTasksLoading,
     required TResult Function(_AllTasksCompleted value) allTasksCompleted,
     required TResult Function(_AllTasksFailed value) allTasksFailed,
-    required TResult Function(_SearchLoading value) searchLoading,
-    required TResult Function(_SearchCompleted value) searchCompleted,
-    required TResult Function(_SearchFailed value) searchFailed,
     required TResult Function(_GetTotalEstimatedTimeLoading value)
         getTotalEstimatedTimeLoading,
     required TResult Function(_GetTotalEstimatedTimeCompleted value)
@@ -7810,6 +6835,9 @@ class _$GetTaskByIdLoadingImpl implements _GetTaskByIdLoading {
     required TResult Function(_DeleteTaskLoading value) deleteTaskLoading,
     required TResult Function(_DeleteTaskFailed value) deleteTaskFailed,
     required TResult Function(_DeleteTaskCompleted value) deleteTaskCompleted,
+    required TResult Function(_FilterTasksLoading value) filterTasksLoading,
+    required TResult Function(_FilterTasksCompleted value) filterTasksCompleted,
+    required TResult Function(_FilterTasksFailed value) filterTasksFailed,
   }) {
     return getTaskByIdLoading(this);
   }
@@ -7821,9 +6849,6 @@ class _$GetTaskByIdLoadingImpl implements _GetTaskByIdLoading {
     TResult? Function(_AllTasksLoading value)? allTasksLoading,
     TResult? Function(_AllTasksCompleted value)? allTasksCompleted,
     TResult? Function(_AllTasksFailed value)? allTasksFailed,
-    TResult? Function(_SearchLoading value)? searchLoading,
-    TResult? Function(_SearchCompleted value)? searchCompleted,
-    TResult? Function(_SearchFailed value)? searchFailed,
     TResult? Function(_GetTotalEstimatedTimeLoading value)?
         getTotalEstimatedTimeLoading,
     TResult? Function(_GetTotalEstimatedTimeCompleted value)?
@@ -7854,6 +6879,9 @@ class _$GetTaskByIdLoadingImpl implements _GetTaskByIdLoading {
     TResult? Function(_DeleteTaskLoading value)? deleteTaskLoading,
     TResult? Function(_DeleteTaskFailed value)? deleteTaskFailed,
     TResult? Function(_DeleteTaskCompleted value)? deleteTaskCompleted,
+    TResult? Function(_FilterTasksLoading value)? filterTasksLoading,
+    TResult? Function(_FilterTasksCompleted value)? filterTasksCompleted,
+    TResult? Function(_FilterTasksFailed value)? filterTasksFailed,
   }) {
     return getTaskByIdLoading?.call(this);
   }
@@ -7865,9 +6893,6 @@ class _$GetTaskByIdLoadingImpl implements _GetTaskByIdLoading {
     TResult Function(_AllTasksLoading value)? allTasksLoading,
     TResult Function(_AllTasksCompleted value)? allTasksCompleted,
     TResult Function(_AllTasksFailed value)? allTasksFailed,
-    TResult Function(_SearchLoading value)? searchLoading,
-    TResult Function(_SearchCompleted value)? searchCompleted,
-    TResult Function(_SearchFailed value)? searchFailed,
     TResult Function(_GetTotalEstimatedTimeLoading value)?
         getTotalEstimatedTimeLoading,
     TResult Function(_GetTotalEstimatedTimeCompleted value)?
@@ -7898,6 +6923,9 @@ class _$GetTaskByIdLoadingImpl implements _GetTaskByIdLoading {
     TResult Function(_DeleteTaskLoading value)? deleteTaskLoading,
     TResult Function(_DeleteTaskFailed value)? deleteTaskFailed,
     TResult Function(_DeleteTaskCompleted value)? deleteTaskCompleted,
+    TResult Function(_FilterTasksLoading value)? filterTasksLoading,
+    TResult Function(_FilterTasksCompleted value)? filterTasksCompleted,
+    TResult Function(_FilterTasksFailed value)? filterTasksFailed,
     required TResult orElse(),
   }) {
     if (getTaskByIdLoading != null) {
@@ -7984,9 +7012,6 @@ class _$GetTaskByIdFailedImpl implements _GetTaskByIdFailed {
     required TResult Function() allTasksLoading,
     required TResult Function(List<TaskModel> allTasks) allTasksCompleted,
     required TResult Function(String message) allTasksFailed,
-    required TResult Function() searchLoading,
-    required TResult Function(List<TaskModel> searchedTasks) searchCompleted,
-    required TResult Function(String message) searchFailed,
     required TResult Function() getTotalEstimatedTimeLoading,
     required TResult Function(Duration totalEstimatedTime)
         getTotalEstimatedTimeCompleted,
@@ -8015,6 +7040,10 @@ class _$GetTaskByIdFailedImpl implements _GetTaskByIdFailed {
     required TResult Function() deleteTaskLoading,
     required TResult Function(String message) deleteTaskFailed,
     required TResult Function(TaskModel deletedTask) deleteTaskCompleted,
+    required TResult Function() filterTasksLoading,
+    required TResult Function(List<TaskModel> filteredTasks)
+        filterTasksCompleted,
+    required TResult Function(String message) filterTasksFailed,
   }) {
     return getTaskByIdFailed(message);
   }
@@ -8026,9 +7055,6 @@ class _$GetTaskByIdFailedImpl implements _GetTaskByIdFailed {
     TResult? Function()? allTasksLoading,
     TResult? Function(List<TaskModel> allTasks)? allTasksCompleted,
     TResult? Function(String message)? allTasksFailed,
-    TResult? Function()? searchLoading,
-    TResult? Function(List<TaskModel> searchedTasks)? searchCompleted,
-    TResult? Function(String message)? searchFailed,
     TResult? Function()? getTotalEstimatedTimeLoading,
     TResult? Function(Duration totalEstimatedTime)?
         getTotalEstimatedTimeCompleted,
@@ -8055,6 +7081,9 @@ class _$GetTaskByIdFailedImpl implements _GetTaskByIdFailed {
     TResult? Function()? deleteTaskLoading,
     TResult? Function(String message)? deleteTaskFailed,
     TResult? Function(TaskModel deletedTask)? deleteTaskCompleted,
+    TResult? Function()? filterTasksLoading,
+    TResult? Function(List<TaskModel> filteredTasks)? filterTasksCompleted,
+    TResult? Function(String message)? filterTasksFailed,
   }) {
     return getTaskByIdFailed?.call(message);
   }
@@ -8066,9 +7095,6 @@ class _$GetTaskByIdFailedImpl implements _GetTaskByIdFailed {
     TResult Function()? allTasksLoading,
     TResult Function(List<TaskModel> allTasks)? allTasksCompleted,
     TResult Function(String message)? allTasksFailed,
-    TResult Function()? searchLoading,
-    TResult Function(List<TaskModel> searchedTasks)? searchCompleted,
-    TResult Function(String message)? searchFailed,
     TResult Function()? getTotalEstimatedTimeLoading,
     TResult Function(Duration totalEstimatedTime)?
         getTotalEstimatedTimeCompleted,
@@ -8095,6 +7121,9 @@ class _$GetTaskByIdFailedImpl implements _GetTaskByIdFailed {
     TResult Function()? deleteTaskLoading,
     TResult Function(String message)? deleteTaskFailed,
     TResult Function(TaskModel deletedTask)? deleteTaskCompleted,
+    TResult Function()? filterTasksLoading,
+    TResult Function(List<TaskModel> filteredTasks)? filterTasksCompleted,
+    TResult Function(String message)? filterTasksFailed,
     required TResult orElse(),
   }) {
     if (getTaskByIdFailed != null) {
@@ -8110,9 +7139,6 @@ class _$GetTaskByIdFailedImpl implements _GetTaskByIdFailed {
     required TResult Function(_AllTasksLoading value) allTasksLoading,
     required TResult Function(_AllTasksCompleted value) allTasksCompleted,
     required TResult Function(_AllTasksFailed value) allTasksFailed,
-    required TResult Function(_SearchLoading value) searchLoading,
-    required TResult Function(_SearchCompleted value) searchCompleted,
-    required TResult Function(_SearchFailed value) searchFailed,
     required TResult Function(_GetTotalEstimatedTimeLoading value)
         getTotalEstimatedTimeLoading,
     required TResult Function(_GetTotalEstimatedTimeCompleted value)
@@ -8144,6 +7170,9 @@ class _$GetTaskByIdFailedImpl implements _GetTaskByIdFailed {
     required TResult Function(_DeleteTaskLoading value) deleteTaskLoading,
     required TResult Function(_DeleteTaskFailed value) deleteTaskFailed,
     required TResult Function(_DeleteTaskCompleted value) deleteTaskCompleted,
+    required TResult Function(_FilterTasksLoading value) filterTasksLoading,
+    required TResult Function(_FilterTasksCompleted value) filterTasksCompleted,
+    required TResult Function(_FilterTasksFailed value) filterTasksFailed,
   }) {
     return getTaskByIdFailed(this);
   }
@@ -8155,9 +7184,6 @@ class _$GetTaskByIdFailedImpl implements _GetTaskByIdFailed {
     TResult? Function(_AllTasksLoading value)? allTasksLoading,
     TResult? Function(_AllTasksCompleted value)? allTasksCompleted,
     TResult? Function(_AllTasksFailed value)? allTasksFailed,
-    TResult? Function(_SearchLoading value)? searchLoading,
-    TResult? Function(_SearchCompleted value)? searchCompleted,
-    TResult? Function(_SearchFailed value)? searchFailed,
     TResult? Function(_GetTotalEstimatedTimeLoading value)?
         getTotalEstimatedTimeLoading,
     TResult? Function(_GetTotalEstimatedTimeCompleted value)?
@@ -8188,6 +7214,9 @@ class _$GetTaskByIdFailedImpl implements _GetTaskByIdFailed {
     TResult? Function(_DeleteTaskLoading value)? deleteTaskLoading,
     TResult? Function(_DeleteTaskFailed value)? deleteTaskFailed,
     TResult? Function(_DeleteTaskCompleted value)? deleteTaskCompleted,
+    TResult? Function(_FilterTasksLoading value)? filterTasksLoading,
+    TResult? Function(_FilterTasksCompleted value)? filterTasksCompleted,
+    TResult? Function(_FilterTasksFailed value)? filterTasksFailed,
   }) {
     return getTaskByIdFailed?.call(this);
   }
@@ -8199,9 +7228,6 @@ class _$GetTaskByIdFailedImpl implements _GetTaskByIdFailed {
     TResult Function(_AllTasksLoading value)? allTasksLoading,
     TResult Function(_AllTasksCompleted value)? allTasksCompleted,
     TResult Function(_AllTasksFailed value)? allTasksFailed,
-    TResult Function(_SearchLoading value)? searchLoading,
-    TResult Function(_SearchCompleted value)? searchCompleted,
-    TResult Function(_SearchFailed value)? searchFailed,
     TResult Function(_GetTotalEstimatedTimeLoading value)?
         getTotalEstimatedTimeLoading,
     TResult Function(_GetTotalEstimatedTimeCompleted value)?
@@ -8232,6 +7258,9 @@ class _$GetTaskByIdFailedImpl implements _GetTaskByIdFailed {
     TResult Function(_DeleteTaskLoading value)? deleteTaskLoading,
     TResult Function(_DeleteTaskFailed value)? deleteTaskFailed,
     TResult Function(_DeleteTaskCompleted value)? deleteTaskCompleted,
+    TResult Function(_FilterTasksLoading value)? filterTasksLoading,
+    TResult Function(_FilterTasksCompleted value)? filterTasksCompleted,
+    TResult Function(_FilterTasksFailed value)? filterTasksFailed,
     required TResult orElse(),
   }) {
     if (getTaskByIdFailed != null) {
@@ -8341,9 +7370,6 @@ class _$GetTaskByIdCompletedImpl implements _GetTaskByIdCompleted {
     required TResult Function() allTasksLoading,
     required TResult Function(List<TaskModel> allTasks) allTasksCompleted,
     required TResult Function(String message) allTasksFailed,
-    required TResult Function() searchLoading,
-    required TResult Function(List<TaskModel> searchedTasks) searchCompleted,
-    required TResult Function(String message) searchFailed,
     required TResult Function() getTotalEstimatedTimeLoading,
     required TResult Function(Duration totalEstimatedTime)
         getTotalEstimatedTimeCompleted,
@@ -8372,6 +7398,10 @@ class _$GetTaskByIdCompletedImpl implements _GetTaskByIdCompleted {
     required TResult Function() deleteTaskLoading,
     required TResult Function(String message) deleteTaskFailed,
     required TResult Function(TaskModel deletedTask) deleteTaskCompleted,
+    required TResult Function() filterTasksLoading,
+    required TResult Function(List<TaskModel> filteredTasks)
+        filterTasksCompleted,
+    required TResult Function(String message) filterTasksFailed,
   }) {
     return getTaskByIdCompleted(taskById);
   }
@@ -8383,9 +7413,6 @@ class _$GetTaskByIdCompletedImpl implements _GetTaskByIdCompleted {
     TResult? Function()? allTasksLoading,
     TResult? Function(List<TaskModel> allTasks)? allTasksCompleted,
     TResult? Function(String message)? allTasksFailed,
-    TResult? Function()? searchLoading,
-    TResult? Function(List<TaskModel> searchedTasks)? searchCompleted,
-    TResult? Function(String message)? searchFailed,
     TResult? Function()? getTotalEstimatedTimeLoading,
     TResult? Function(Duration totalEstimatedTime)?
         getTotalEstimatedTimeCompleted,
@@ -8412,6 +7439,9 @@ class _$GetTaskByIdCompletedImpl implements _GetTaskByIdCompleted {
     TResult? Function()? deleteTaskLoading,
     TResult? Function(String message)? deleteTaskFailed,
     TResult? Function(TaskModel deletedTask)? deleteTaskCompleted,
+    TResult? Function()? filterTasksLoading,
+    TResult? Function(List<TaskModel> filteredTasks)? filterTasksCompleted,
+    TResult? Function(String message)? filterTasksFailed,
   }) {
     return getTaskByIdCompleted?.call(taskById);
   }
@@ -8423,9 +7453,6 @@ class _$GetTaskByIdCompletedImpl implements _GetTaskByIdCompleted {
     TResult Function()? allTasksLoading,
     TResult Function(List<TaskModel> allTasks)? allTasksCompleted,
     TResult Function(String message)? allTasksFailed,
-    TResult Function()? searchLoading,
-    TResult Function(List<TaskModel> searchedTasks)? searchCompleted,
-    TResult Function(String message)? searchFailed,
     TResult Function()? getTotalEstimatedTimeLoading,
     TResult Function(Duration totalEstimatedTime)?
         getTotalEstimatedTimeCompleted,
@@ -8452,6 +7479,9 @@ class _$GetTaskByIdCompletedImpl implements _GetTaskByIdCompleted {
     TResult Function()? deleteTaskLoading,
     TResult Function(String message)? deleteTaskFailed,
     TResult Function(TaskModel deletedTask)? deleteTaskCompleted,
+    TResult Function()? filterTasksLoading,
+    TResult Function(List<TaskModel> filteredTasks)? filterTasksCompleted,
+    TResult Function(String message)? filterTasksFailed,
     required TResult orElse(),
   }) {
     if (getTaskByIdCompleted != null) {
@@ -8467,9 +7497,6 @@ class _$GetTaskByIdCompletedImpl implements _GetTaskByIdCompleted {
     required TResult Function(_AllTasksLoading value) allTasksLoading,
     required TResult Function(_AllTasksCompleted value) allTasksCompleted,
     required TResult Function(_AllTasksFailed value) allTasksFailed,
-    required TResult Function(_SearchLoading value) searchLoading,
-    required TResult Function(_SearchCompleted value) searchCompleted,
-    required TResult Function(_SearchFailed value) searchFailed,
     required TResult Function(_GetTotalEstimatedTimeLoading value)
         getTotalEstimatedTimeLoading,
     required TResult Function(_GetTotalEstimatedTimeCompleted value)
@@ -8501,6 +7528,9 @@ class _$GetTaskByIdCompletedImpl implements _GetTaskByIdCompleted {
     required TResult Function(_DeleteTaskLoading value) deleteTaskLoading,
     required TResult Function(_DeleteTaskFailed value) deleteTaskFailed,
     required TResult Function(_DeleteTaskCompleted value) deleteTaskCompleted,
+    required TResult Function(_FilterTasksLoading value) filterTasksLoading,
+    required TResult Function(_FilterTasksCompleted value) filterTasksCompleted,
+    required TResult Function(_FilterTasksFailed value) filterTasksFailed,
   }) {
     return getTaskByIdCompleted(this);
   }
@@ -8512,9 +7542,6 @@ class _$GetTaskByIdCompletedImpl implements _GetTaskByIdCompleted {
     TResult? Function(_AllTasksLoading value)? allTasksLoading,
     TResult? Function(_AllTasksCompleted value)? allTasksCompleted,
     TResult? Function(_AllTasksFailed value)? allTasksFailed,
-    TResult? Function(_SearchLoading value)? searchLoading,
-    TResult? Function(_SearchCompleted value)? searchCompleted,
-    TResult? Function(_SearchFailed value)? searchFailed,
     TResult? Function(_GetTotalEstimatedTimeLoading value)?
         getTotalEstimatedTimeLoading,
     TResult? Function(_GetTotalEstimatedTimeCompleted value)?
@@ -8545,6 +7572,9 @@ class _$GetTaskByIdCompletedImpl implements _GetTaskByIdCompleted {
     TResult? Function(_DeleteTaskLoading value)? deleteTaskLoading,
     TResult? Function(_DeleteTaskFailed value)? deleteTaskFailed,
     TResult? Function(_DeleteTaskCompleted value)? deleteTaskCompleted,
+    TResult? Function(_FilterTasksLoading value)? filterTasksLoading,
+    TResult? Function(_FilterTasksCompleted value)? filterTasksCompleted,
+    TResult? Function(_FilterTasksFailed value)? filterTasksFailed,
   }) {
     return getTaskByIdCompleted?.call(this);
   }
@@ -8556,9 +7586,6 @@ class _$GetTaskByIdCompletedImpl implements _GetTaskByIdCompleted {
     TResult Function(_AllTasksLoading value)? allTasksLoading,
     TResult Function(_AllTasksCompleted value)? allTasksCompleted,
     TResult Function(_AllTasksFailed value)? allTasksFailed,
-    TResult Function(_SearchLoading value)? searchLoading,
-    TResult Function(_SearchCompleted value)? searchCompleted,
-    TResult Function(_SearchFailed value)? searchFailed,
     TResult Function(_GetTotalEstimatedTimeLoading value)?
         getTotalEstimatedTimeLoading,
     TResult Function(_GetTotalEstimatedTimeCompleted value)?
@@ -8589,6 +7616,9 @@ class _$GetTaskByIdCompletedImpl implements _GetTaskByIdCompleted {
     TResult Function(_DeleteTaskLoading value)? deleteTaskLoading,
     TResult Function(_DeleteTaskFailed value)? deleteTaskFailed,
     TResult Function(_DeleteTaskCompleted value)? deleteTaskCompleted,
+    TResult Function(_FilterTasksLoading value)? filterTasksLoading,
+    TResult Function(_FilterTasksCompleted value)? filterTasksCompleted,
+    TResult Function(_FilterTasksFailed value)? filterTasksFailed,
     required TResult orElse(),
   }) {
     if (getTaskByIdCompleted != null) {
@@ -8656,9 +7686,6 @@ class _$CreateTaskLoadingImpl implements _CreateTaskLoading {
     required TResult Function() allTasksLoading,
     required TResult Function(List<TaskModel> allTasks) allTasksCompleted,
     required TResult Function(String message) allTasksFailed,
-    required TResult Function() searchLoading,
-    required TResult Function(List<TaskModel> searchedTasks) searchCompleted,
-    required TResult Function(String message) searchFailed,
     required TResult Function() getTotalEstimatedTimeLoading,
     required TResult Function(Duration totalEstimatedTime)
         getTotalEstimatedTimeCompleted,
@@ -8687,6 +7714,10 @@ class _$CreateTaskLoadingImpl implements _CreateTaskLoading {
     required TResult Function() deleteTaskLoading,
     required TResult Function(String message) deleteTaskFailed,
     required TResult Function(TaskModel deletedTask) deleteTaskCompleted,
+    required TResult Function() filterTasksLoading,
+    required TResult Function(List<TaskModel> filteredTasks)
+        filterTasksCompleted,
+    required TResult Function(String message) filterTasksFailed,
   }) {
     return createTaskLoading();
   }
@@ -8698,9 +7729,6 @@ class _$CreateTaskLoadingImpl implements _CreateTaskLoading {
     TResult? Function()? allTasksLoading,
     TResult? Function(List<TaskModel> allTasks)? allTasksCompleted,
     TResult? Function(String message)? allTasksFailed,
-    TResult? Function()? searchLoading,
-    TResult? Function(List<TaskModel> searchedTasks)? searchCompleted,
-    TResult? Function(String message)? searchFailed,
     TResult? Function()? getTotalEstimatedTimeLoading,
     TResult? Function(Duration totalEstimatedTime)?
         getTotalEstimatedTimeCompleted,
@@ -8727,6 +7755,9 @@ class _$CreateTaskLoadingImpl implements _CreateTaskLoading {
     TResult? Function()? deleteTaskLoading,
     TResult? Function(String message)? deleteTaskFailed,
     TResult? Function(TaskModel deletedTask)? deleteTaskCompleted,
+    TResult? Function()? filterTasksLoading,
+    TResult? Function(List<TaskModel> filteredTasks)? filterTasksCompleted,
+    TResult? Function(String message)? filterTasksFailed,
   }) {
     return createTaskLoading?.call();
   }
@@ -8738,9 +7769,6 @@ class _$CreateTaskLoadingImpl implements _CreateTaskLoading {
     TResult Function()? allTasksLoading,
     TResult Function(List<TaskModel> allTasks)? allTasksCompleted,
     TResult Function(String message)? allTasksFailed,
-    TResult Function()? searchLoading,
-    TResult Function(List<TaskModel> searchedTasks)? searchCompleted,
-    TResult Function(String message)? searchFailed,
     TResult Function()? getTotalEstimatedTimeLoading,
     TResult Function(Duration totalEstimatedTime)?
         getTotalEstimatedTimeCompleted,
@@ -8767,6 +7795,9 @@ class _$CreateTaskLoadingImpl implements _CreateTaskLoading {
     TResult Function()? deleteTaskLoading,
     TResult Function(String message)? deleteTaskFailed,
     TResult Function(TaskModel deletedTask)? deleteTaskCompleted,
+    TResult Function()? filterTasksLoading,
+    TResult Function(List<TaskModel> filteredTasks)? filterTasksCompleted,
+    TResult Function(String message)? filterTasksFailed,
     required TResult orElse(),
   }) {
     if (createTaskLoading != null) {
@@ -8782,9 +7813,6 @@ class _$CreateTaskLoadingImpl implements _CreateTaskLoading {
     required TResult Function(_AllTasksLoading value) allTasksLoading,
     required TResult Function(_AllTasksCompleted value) allTasksCompleted,
     required TResult Function(_AllTasksFailed value) allTasksFailed,
-    required TResult Function(_SearchLoading value) searchLoading,
-    required TResult Function(_SearchCompleted value) searchCompleted,
-    required TResult Function(_SearchFailed value) searchFailed,
     required TResult Function(_GetTotalEstimatedTimeLoading value)
         getTotalEstimatedTimeLoading,
     required TResult Function(_GetTotalEstimatedTimeCompleted value)
@@ -8816,6 +7844,9 @@ class _$CreateTaskLoadingImpl implements _CreateTaskLoading {
     required TResult Function(_DeleteTaskLoading value) deleteTaskLoading,
     required TResult Function(_DeleteTaskFailed value) deleteTaskFailed,
     required TResult Function(_DeleteTaskCompleted value) deleteTaskCompleted,
+    required TResult Function(_FilterTasksLoading value) filterTasksLoading,
+    required TResult Function(_FilterTasksCompleted value) filterTasksCompleted,
+    required TResult Function(_FilterTasksFailed value) filterTasksFailed,
   }) {
     return createTaskLoading(this);
   }
@@ -8827,9 +7858,6 @@ class _$CreateTaskLoadingImpl implements _CreateTaskLoading {
     TResult? Function(_AllTasksLoading value)? allTasksLoading,
     TResult? Function(_AllTasksCompleted value)? allTasksCompleted,
     TResult? Function(_AllTasksFailed value)? allTasksFailed,
-    TResult? Function(_SearchLoading value)? searchLoading,
-    TResult? Function(_SearchCompleted value)? searchCompleted,
-    TResult? Function(_SearchFailed value)? searchFailed,
     TResult? Function(_GetTotalEstimatedTimeLoading value)?
         getTotalEstimatedTimeLoading,
     TResult? Function(_GetTotalEstimatedTimeCompleted value)?
@@ -8860,6 +7888,9 @@ class _$CreateTaskLoadingImpl implements _CreateTaskLoading {
     TResult? Function(_DeleteTaskLoading value)? deleteTaskLoading,
     TResult? Function(_DeleteTaskFailed value)? deleteTaskFailed,
     TResult? Function(_DeleteTaskCompleted value)? deleteTaskCompleted,
+    TResult? Function(_FilterTasksLoading value)? filterTasksLoading,
+    TResult? Function(_FilterTasksCompleted value)? filterTasksCompleted,
+    TResult? Function(_FilterTasksFailed value)? filterTasksFailed,
   }) {
     return createTaskLoading?.call(this);
   }
@@ -8871,9 +7902,6 @@ class _$CreateTaskLoadingImpl implements _CreateTaskLoading {
     TResult Function(_AllTasksLoading value)? allTasksLoading,
     TResult Function(_AllTasksCompleted value)? allTasksCompleted,
     TResult Function(_AllTasksFailed value)? allTasksFailed,
-    TResult Function(_SearchLoading value)? searchLoading,
-    TResult Function(_SearchCompleted value)? searchCompleted,
-    TResult Function(_SearchFailed value)? searchFailed,
     TResult Function(_GetTotalEstimatedTimeLoading value)?
         getTotalEstimatedTimeLoading,
     TResult Function(_GetTotalEstimatedTimeCompleted value)?
@@ -8904,6 +7932,9 @@ class _$CreateTaskLoadingImpl implements _CreateTaskLoading {
     TResult Function(_DeleteTaskLoading value)? deleteTaskLoading,
     TResult Function(_DeleteTaskFailed value)? deleteTaskFailed,
     TResult Function(_DeleteTaskCompleted value)? deleteTaskCompleted,
+    TResult Function(_FilterTasksLoading value)? filterTasksLoading,
+    TResult Function(_FilterTasksCompleted value)? filterTasksCompleted,
+    TResult Function(_FilterTasksFailed value)? filterTasksFailed,
     required TResult orElse(),
   }) {
     if (createTaskLoading != null) {
@@ -8990,9 +8021,6 @@ class _$CreateTaskFailedImpl implements _CreateTaskFailed {
     required TResult Function() allTasksLoading,
     required TResult Function(List<TaskModel> allTasks) allTasksCompleted,
     required TResult Function(String message) allTasksFailed,
-    required TResult Function() searchLoading,
-    required TResult Function(List<TaskModel> searchedTasks) searchCompleted,
-    required TResult Function(String message) searchFailed,
     required TResult Function() getTotalEstimatedTimeLoading,
     required TResult Function(Duration totalEstimatedTime)
         getTotalEstimatedTimeCompleted,
@@ -9021,6 +8049,10 @@ class _$CreateTaskFailedImpl implements _CreateTaskFailed {
     required TResult Function() deleteTaskLoading,
     required TResult Function(String message) deleteTaskFailed,
     required TResult Function(TaskModel deletedTask) deleteTaskCompleted,
+    required TResult Function() filterTasksLoading,
+    required TResult Function(List<TaskModel> filteredTasks)
+        filterTasksCompleted,
+    required TResult Function(String message) filterTasksFailed,
   }) {
     return createTaskFailed(message);
   }
@@ -9032,9 +8064,6 @@ class _$CreateTaskFailedImpl implements _CreateTaskFailed {
     TResult? Function()? allTasksLoading,
     TResult? Function(List<TaskModel> allTasks)? allTasksCompleted,
     TResult? Function(String message)? allTasksFailed,
-    TResult? Function()? searchLoading,
-    TResult? Function(List<TaskModel> searchedTasks)? searchCompleted,
-    TResult? Function(String message)? searchFailed,
     TResult? Function()? getTotalEstimatedTimeLoading,
     TResult? Function(Duration totalEstimatedTime)?
         getTotalEstimatedTimeCompleted,
@@ -9061,6 +8090,9 @@ class _$CreateTaskFailedImpl implements _CreateTaskFailed {
     TResult? Function()? deleteTaskLoading,
     TResult? Function(String message)? deleteTaskFailed,
     TResult? Function(TaskModel deletedTask)? deleteTaskCompleted,
+    TResult? Function()? filterTasksLoading,
+    TResult? Function(List<TaskModel> filteredTasks)? filterTasksCompleted,
+    TResult? Function(String message)? filterTasksFailed,
   }) {
     return createTaskFailed?.call(message);
   }
@@ -9072,9 +8104,6 @@ class _$CreateTaskFailedImpl implements _CreateTaskFailed {
     TResult Function()? allTasksLoading,
     TResult Function(List<TaskModel> allTasks)? allTasksCompleted,
     TResult Function(String message)? allTasksFailed,
-    TResult Function()? searchLoading,
-    TResult Function(List<TaskModel> searchedTasks)? searchCompleted,
-    TResult Function(String message)? searchFailed,
     TResult Function()? getTotalEstimatedTimeLoading,
     TResult Function(Duration totalEstimatedTime)?
         getTotalEstimatedTimeCompleted,
@@ -9101,6 +8130,9 @@ class _$CreateTaskFailedImpl implements _CreateTaskFailed {
     TResult Function()? deleteTaskLoading,
     TResult Function(String message)? deleteTaskFailed,
     TResult Function(TaskModel deletedTask)? deleteTaskCompleted,
+    TResult Function()? filterTasksLoading,
+    TResult Function(List<TaskModel> filteredTasks)? filterTasksCompleted,
+    TResult Function(String message)? filterTasksFailed,
     required TResult orElse(),
   }) {
     if (createTaskFailed != null) {
@@ -9116,9 +8148,6 @@ class _$CreateTaskFailedImpl implements _CreateTaskFailed {
     required TResult Function(_AllTasksLoading value) allTasksLoading,
     required TResult Function(_AllTasksCompleted value) allTasksCompleted,
     required TResult Function(_AllTasksFailed value) allTasksFailed,
-    required TResult Function(_SearchLoading value) searchLoading,
-    required TResult Function(_SearchCompleted value) searchCompleted,
-    required TResult Function(_SearchFailed value) searchFailed,
     required TResult Function(_GetTotalEstimatedTimeLoading value)
         getTotalEstimatedTimeLoading,
     required TResult Function(_GetTotalEstimatedTimeCompleted value)
@@ -9150,6 +8179,9 @@ class _$CreateTaskFailedImpl implements _CreateTaskFailed {
     required TResult Function(_DeleteTaskLoading value) deleteTaskLoading,
     required TResult Function(_DeleteTaskFailed value) deleteTaskFailed,
     required TResult Function(_DeleteTaskCompleted value) deleteTaskCompleted,
+    required TResult Function(_FilterTasksLoading value) filterTasksLoading,
+    required TResult Function(_FilterTasksCompleted value) filterTasksCompleted,
+    required TResult Function(_FilterTasksFailed value) filterTasksFailed,
   }) {
     return createTaskFailed(this);
   }
@@ -9161,9 +8193,6 @@ class _$CreateTaskFailedImpl implements _CreateTaskFailed {
     TResult? Function(_AllTasksLoading value)? allTasksLoading,
     TResult? Function(_AllTasksCompleted value)? allTasksCompleted,
     TResult? Function(_AllTasksFailed value)? allTasksFailed,
-    TResult? Function(_SearchLoading value)? searchLoading,
-    TResult? Function(_SearchCompleted value)? searchCompleted,
-    TResult? Function(_SearchFailed value)? searchFailed,
     TResult? Function(_GetTotalEstimatedTimeLoading value)?
         getTotalEstimatedTimeLoading,
     TResult? Function(_GetTotalEstimatedTimeCompleted value)?
@@ -9194,6 +8223,9 @@ class _$CreateTaskFailedImpl implements _CreateTaskFailed {
     TResult? Function(_DeleteTaskLoading value)? deleteTaskLoading,
     TResult? Function(_DeleteTaskFailed value)? deleteTaskFailed,
     TResult? Function(_DeleteTaskCompleted value)? deleteTaskCompleted,
+    TResult? Function(_FilterTasksLoading value)? filterTasksLoading,
+    TResult? Function(_FilterTasksCompleted value)? filterTasksCompleted,
+    TResult? Function(_FilterTasksFailed value)? filterTasksFailed,
   }) {
     return createTaskFailed?.call(this);
   }
@@ -9205,9 +8237,6 @@ class _$CreateTaskFailedImpl implements _CreateTaskFailed {
     TResult Function(_AllTasksLoading value)? allTasksLoading,
     TResult Function(_AllTasksCompleted value)? allTasksCompleted,
     TResult Function(_AllTasksFailed value)? allTasksFailed,
-    TResult Function(_SearchLoading value)? searchLoading,
-    TResult Function(_SearchCompleted value)? searchCompleted,
-    TResult Function(_SearchFailed value)? searchFailed,
     TResult Function(_GetTotalEstimatedTimeLoading value)?
         getTotalEstimatedTimeLoading,
     TResult Function(_GetTotalEstimatedTimeCompleted value)?
@@ -9238,6 +8267,9 @@ class _$CreateTaskFailedImpl implements _CreateTaskFailed {
     TResult Function(_DeleteTaskLoading value)? deleteTaskLoading,
     TResult Function(_DeleteTaskFailed value)? deleteTaskFailed,
     TResult Function(_DeleteTaskCompleted value)? deleteTaskCompleted,
+    TResult Function(_FilterTasksLoading value)? filterTasksLoading,
+    TResult Function(_FilterTasksCompleted value)? filterTasksCompleted,
+    TResult Function(_FilterTasksFailed value)? filterTasksFailed,
     required TResult orElse(),
   }) {
     if (createTaskFailed != null) {
@@ -9346,9 +8378,6 @@ class _$CreateTaskCompletedImpl implements _CreateTaskCompleted {
     required TResult Function() allTasksLoading,
     required TResult Function(List<TaskModel> allTasks) allTasksCompleted,
     required TResult Function(String message) allTasksFailed,
-    required TResult Function() searchLoading,
-    required TResult Function(List<TaskModel> searchedTasks) searchCompleted,
-    required TResult Function(String message) searchFailed,
     required TResult Function() getTotalEstimatedTimeLoading,
     required TResult Function(Duration totalEstimatedTime)
         getTotalEstimatedTimeCompleted,
@@ -9377,6 +8406,10 @@ class _$CreateTaskCompletedImpl implements _CreateTaskCompleted {
     required TResult Function() deleteTaskLoading,
     required TResult Function(String message) deleteTaskFailed,
     required TResult Function(TaskModel deletedTask) deleteTaskCompleted,
+    required TResult Function() filterTasksLoading,
+    required TResult Function(List<TaskModel> filteredTasks)
+        filterTasksCompleted,
+    required TResult Function(String message) filterTasksFailed,
   }) {
     return createTaskCompleted(createdTask);
   }
@@ -9388,9 +8421,6 @@ class _$CreateTaskCompletedImpl implements _CreateTaskCompleted {
     TResult? Function()? allTasksLoading,
     TResult? Function(List<TaskModel> allTasks)? allTasksCompleted,
     TResult? Function(String message)? allTasksFailed,
-    TResult? Function()? searchLoading,
-    TResult? Function(List<TaskModel> searchedTasks)? searchCompleted,
-    TResult? Function(String message)? searchFailed,
     TResult? Function()? getTotalEstimatedTimeLoading,
     TResult? Function(Duration totalEstimatedTime)?
         getTotalEstimatedTimeCompleted,
@@ -9417,6 +8447,9 @@ class _$CreateTaskCompletedImpl implements _CreateTaskCompleted {
     TResult? Function()? deleteTaskLoading,
     TResult? Function(String message)? deleteTaskFailed,
     TResult? Function(TaskModel deletedTask)? deleteTaskCompleted,
+    TResult? Function()? filterTasksLoading,
+    TResult? Function(List<TaskModel> filteredTasks)? filterTasksCompleted,
+    TResult? Function(String message)? filterTasksFailed,
   }) {
     return createTaskCompleted?.call(createdTask);
   }
@@ -9428,9 +8461,6 @@ class _$CreateTaskCompletedImpl implements _CreateTaskCompleted {
     TResult Function()? allTasksLoading,
     TResult Function(List<TaskModel> allTasks)? allTasksCompleted,
     TResult Function(String message)? allTasksFailed,
-    TResult Function()? searchLoading,
-    TResult Function(List<TaskModel> searchedTasks)? searchCompleted,
-    TResult Function(String message)? searchFailed,
     TResult Function()? getTotalEstimatedTimeLoading,
     TResult Function(Duration totalEstimatedTime)?
         getTotalEstimatedTimeCompleted,
@@ -9457,6 +8487,9 @@ class _$CreateTaskCompletedImpl implements _CreateTaskCompleted {
     TResult Function()? deleteTaskLoading,
     TResult Function(String message)? deleteTaskFailed,
     TResult Function(TaskModel deletedTask)? deleteTaskCompleted,
+    TResult Function()? filterTasksLoading,
+    TResult Function(List<TaskModel> filteredTasks)? filterTasksCompleted,
+    TResult Function(String message)? filterTasksFailed,
     required TResult orElse(),
   }) {
     if (createTaskCompleted != null) {
@@ -9472,9 +8505,6 @@ class _$CreateTaskCompletedImpl implements _CreateTaskCompleted {
     required TResult Function(_AllTasksLoading value) allTasksLoading,
     required TResult Function(_AllTasksCompleted value) allTasksCompleted,
     required TResult Function(_AllTasksFailed value) allTasksFailed,
-    required TResult Function(_SearchLoading value) searchLoading,
-    required TResult Function(_SearchCompleted value) searchCompleted,
-    required TResult Function(_SearchFailed value) searchFailed,
     required TResult Function(_GetTotalEstimatedTimeLoading value)
         getTotalEstimatedTimeLoading,
     required TResult Function(_GetTotalEstimatedTimeCompleted value)
@@ -9506,6 +8536,9 @@ class _$CreateTaskCompletedImpl implements _CreateTaskCompleted {
     required TResult Function(_DeleteTaskLoading value) deleteTaskLoading,
     required TResult Function(_DeleteTaskFailed value) deleteTaskFailed,
     required TResult Function(_DeleteTaskCompleted value) deleteTaskCompleted,
+    required TResult Function(_FilterTasksLoading value) filterTasksLoading,
+    required TResult Function(_FilterTasksCompleted value) filterTasksCompleted,
+    required TResult Function(_FilterTasksFailed value) filterTasksFailed,
   }) {
     return createTaskCompleted(this);
   }
@@ -9517,9 +8550,6 @@ class _$CreateTaskCompletedImpl implements _CreateTaskCompleted {
     TResult? Function(_AllTasksLoading value)? allTasksLoading,
     TResult? Function(_AllTasksCompleted value)? allTasksCompleted,
     TResult? Function(_AllTasksFailed value)? allTasksFailed,
-    TResult? Function(_SearchLoading value)? searchLoading,
-    TResult? Function(_SearchCompleted value)? searchCompleted,
-    TResult? Function(_SearchFailed value)? searchFailed,
     TResult? Function(_GetTotalEstimatedTimeLoading value)?
         getTotalEstimatedTimeLoading,
     TResult? Function(_GetTotalEstimatedTimeCompleted value)?
@@ -9550,6 +8580,9 @@ class _$CreateTaskCompletedImpl implements _CreateTaskCompleted {
     TResult? Function(_DeleteTaskLoading value)? deleteTaskLoading,
     TResult? Function(_DeleteTaskFailed value)? deleteTaskFailed,
     TResult? Function(_DeleteTaskCompleted value)? deleteTaskCompleted,
+    TResult? Function(_FilterTasksLoading value)? filterTasksLoading,
+    TResult? Function(_FilterTasksCompleted value)? filterTasksCompleted,
+    TResult? Function(_FilterTasksFailed value)? filterTasksFailed,
   }) {
     return createTaskCompleted?.call(this);
   }
@@ -9561,9 +8594,6 @@ class _$CreateTaskCompletedImpl implements _CreateTaskCompleted {
     TResult Function(_AllTasksLoading value)? allTasksLoading,
     TResult Function(_AllTasksCompleted value)? allTasksCompleted,
     TResult Function(_AllTasksFailed value)? allTasksFailed,
-    TResult Function(_SearchLoading value)? searchLoading,
-    TResult Function(_SearchCompleted value)? searchCompleted,
-    TResult Function(_SearchFailed value)? searchFailed,
     TResult Function(_GetTotalEstimatedTimeLoading value)?
         getTotalEstimatedTimeLoading,
     TResult Function(_GetTotalEstimatedTimeCompleted value)?
@@ -9594,6 +8624,9 @@ class _$CreateTaskCompletedImpl implements _CreateTaskCompleted {
     TResult Function(_DeleteTaskLoading value)? deleteTaskLoading,
     TResult Function(_DeleteTaskFailed value)? deleteTaskFailed,
     TResult Function(_DeleteTaskCompleted value)? deleteTaskCompleted,
+    TResult Function(_FilterTasksLoading value)? filterTasksLoading,
+    TResult Function(_FilterTasksCompleted value)? filterTasksCompleted,
+    TResult Function(_FilterTasksFailed value)? filterTasksFailed,
     required TResult orElse(),
   }) {
     if (createTaskCompleted != null) {
@@ -9661,9 +8694,6 @@ class _$DeleteTaskLoadingImpl implements _DeleteTaskLoading {
     required TResult Function() allTasksLoading,
     required TResult Function(List<TaskModel> allTasks) allTasksCompleted,
     required TResult Function(String message) allTasksFailed,
-    required TResult Function() searchLoading,
-    required TResult Function(List<TaskModel> searchedTasks) searchCompleted,
-    required TResult Function(String message) searchFailed,
     required TResult Function() getTotalEstimatedTimeLoading,
     required TResult Function(Duration totalEstimatedTime)
         getTotalEstimatedTimeCompleted,
@@ -9692,6 +8722,10 @@ class _$DeleteTaskLoadingImpl implements _DeleteTaskLoading {
     required TResult Function() deleteTaskLoading,
     required TResult Function(String message) deleteTaskFailed,
     required TResult Function(TaskModel deletedTask) deleteTaskCompleted,
+    required TResult Function() filterTasksLoading,
+    required TResult Function(List<TaskModel> filteredTasks)
+        filterTasksCompleted,
+    required TResult Function(String message) filterTasksFailed,
   }) {
     return deleteTaskLoading();
   }
@@ -9703,9 +8737,6 @@ class _$DeleteTaskLoadingImpl implements _DeleteTaskLoading {
     TResult? Function()? allTasksLoading,
     TResult? Function(List<TaskModel> allTasks)? allTasksCompleted,
     TResult? Function(String message)? allTasksFailed,
-    TResult? Function()? searchLoading,
-    TResult? Function(List<TaskModel> searchedTasks)? searchCompleted,
-    TResult? Function(String message)? searchFailed,
     TResult? Function()? getTotalEstimatedTimeLoading,
     TResult? Function(Duration totalEstimatedTime)?
         getTotalEstimatedTimeCompleted,
@@ -9732,6 +8763,9 @@ class _$DeleteTaskLoadingImpl implements _DeleteTaskLoading {
     TResult? Function()? deleteTaskLoading,
     TResult? Function(String message)? deleteTaskFailed,
     TResult? Function(TaskModel deletedTask)? deleteTaskCompleted,
+    TResult? Function()? filterTasksLoading,
+    TResult? Function(List<TaskModel> filteredTasks)? filterTasksCompleted,
+    TResult? Function(String message)? filterTasksFailed,
   }) {
     return deleteTaskLoading?.call();
   }
@@ -9743,9 +8777,6 @@ class _$DeleteTaskLoadingImpl implements _DeleteTaskLoading {
     TResult Function()? allTasksLoading,
     TResult Function(List<TaskModel> allTasks)? allTasksCompleted,
     TResult Function(String message)? allTasksFailed,
-    TResult Function()? searchLoading,
-    TResult Function(List<TaskModel> searchedTasks)? searchCompleted,
-    TResult Function(String message)? searchFailed,
     TResult Function()? getTotalEstimatedTimeLoading,
     TResult Function(Duration totalEstimatedTime)?
         getTotalEstimatedTimeCompleted,
@@ -9772,6 +8803,9 @@ class _$DeleteTaskLoadingImpl implements _DeleteTaskLoading {
     TResult Function()? deleteTaskLoading,
     TResult Function(String message)? deleteTaskFailed,
     TResult Function(TaskModel deletedTask)? deleteTaskCompleted,
+    TResult Function()? filterTasksLoading,
+    TResult Function(List<TaskModel> filteredTasks)? filterTasksCompleted,
+    TResult Function(String message)? filterTasksFailed,
     required TResult orElse(),
   }) {
     if (deleteTaskLoading != null) {
@@ -9787,9 +8821,6 @@ class _$DeleteTaskLoadingImpl implements _DeleteTaskLoading {
     required TResult Function(_AllTasksLoading value) allTasksLoading,
     required TResult Function(_AllTasksCompleted value) allTasksCompleted,
     required TResult Function(_AllTasksFailed value) allTasksFailed,
-    required TResult Function(_SearchLoading value) searchLoading,
-    required TResult Function(_SearchCompleted value) searchCompleted,
-    required TResult Function(_SearchFailed value) searchFailed,
     required TResult Function(_GetTotalEstimatedTimeLoading value)
         getTotalEstimatedTimeLoading,
     required TResult Function(_GetTotalEstimatedTimeCompleted value)
@@ -9821,6 +8852,9 @@ class _$DeleteTaskLoadingImpl implements _DeleteTaskLoading {
     required TResult Function(_DeleteTaskLoading value) deleteTaskLoading,
     required TResult Function(_DeleteTaskFailed value) deleteTaskFailed,
     required TResult Function(_DeleteTaskCompleted value) deleteTaskCompleted,
+    required TResult Function(_FilterTasksLoading value) filterTasksLoading,
+    required TResult Function(_FilterTasksCompleted value) filterTasksCompleted,
+    required TResult Function(_FilterTasksFailed value) filterTasksFailed,
   }) {
     return deleteTaskLoading(this);
   }
@@ -9832,9 +8866,6 @@ class _$DeleteTaskLoadingImpl implements _DeleteTaskLoading {
     TResult? Function(_AllTasksLoading value)? allTasksLoading,
     TResult? Function(_AllTasksCompleted value)? allTasksCompleted,
     TResult? Function(_AllTasksFailed value)? allTasksFailed,
-    TResult? Function(_SearchLoading value)? searchLoading,
-    TResult? Function(_SearchCompleted value)? searchCompleted,
-    TResult? Function(_SearchFailed value)? searchFailed,
     TResult? Function(_GetTotalEstimatedTimeLoading value)?
         getTotalEstimatedTimeLoading,
     TResult? Function(_GetTotalEstimatedTimeCompleted value)?
@@ -9865,6 +8896,9 @@ class _$DeleteTaskLoadingImpl implements _DeleteTaskLoading {
     TResult? Function(_DeleteTaskLoading value)? deleteTaskLoading,
     TResult? Function(_DeleteTaskFailed value)? deleteTaskFailed,
     TResult? Function(_DeleteTaskCompleted value)? deleteTaskCompleted,
+    TResult? Function(_FilterTasksLoading value)? filterTasksLoading,
+    TResult? Function(_FilterTasksCompleted value)? filterTasksCompleted,
+    TResult? Function(_FilterTasksFailed value)? filterTasksFailed,
   }) {
     return deleteTaskLoading?.call(this);
   }
@@ -9876,9 +8910,6 @@ class _$DeleteTaskLoadingImpl implements _DeleteTaskLoading {
     TResult Function(_AllTasksLoading value)? allTasksLoading,
     TResult Function(_AllTasksCompleted value)? allTasksCompleted,
     TResult Function(_AllTasksFailed value)? allTasksFailed,
-    TResult Function(_SearchLoading value)? searchLoading,
-    TResult Function(_SearchCompleted value)? searchCompleted,
-    TResult Function(_SearchFailed value)? searchFailed,
     TResult Function(_GetTotalEstimatedTimeLoading value)?
         getTotalEstimatedTimeLoading,
     TResult Function(_GetTotalEstimatedTimeCompleted value)?
@@ -9909,6 +8940,9 @@ class _$DeleteTaskLoadingImpl implements _DeleteTaskLoading {
     TResult Function(_DeleteTaskLoading value)? deleteTaskLoading,
     TResult Function(_DeleteTaskFailed value)? deleteTaskFailed,
     TResult Function(_DeleteTaskCompleted value)? deleteTaskCompleted,
+    TResult Function(_FilterTasksLoading value)? filterTasksLoading,
+    TResult Function(_FilterTasksCompleted value)? filterTasksCompleted,
+    TResult Function(_FilterTasksFailed value)? filterTasksFailed,
     required TResult orElse(),
   }) {
     if (deleteTaskLoading != null) {
@@ -9995,9 +9029,6 @@ class _$DeleteTaskFailedImpl implements _DeleteTaskFailed {
     required TResult Function() allTasksLoading,
     required TResult Function(List<TaskModel> allTasks) allTasksCompleted,
     required TResult Function(String message) allTasksFailed,
-    required TResult Function() searchLoading,
-    required TResult Function(List<TaskModel> searchedTasks) searchCompleted,
-    required TResult Function(String message) searchFailed,
     required TResult Function() getTotalEstimatedTimeLoading,
     required TResult Function(Duration totalEstimatedTime)
         getTotalEstimatedTimeCompleted,
@@ -10026,6 +9057,10 @@ class _$DeleteTaskFailedImpl implements _DeleteTaskFailed {
     required TResult Function() deleteTaskLoading,
     required TResult Function(String message) deleteTaskFailed,
     required TResult Function(TaskModel deletedTask) deleteTaskCompleted,
+    required TResult Function() filterTasksLoading,
+    required TResult Function(List<TaskModel> filteredTasks)
+        filterTasksCompleted,
+    required TResult Function(String message) filterTasksFailed,
   }) {
     return deleteTaskFailed(message);
   }
@@ -10037,9 +9072,6 @@ class _$DeleteTaskFailedImpl implements _DeleteTaskFailed {
     TResult? Function()? allTasksLoading,
     TResult? Function(List<TaskModel> allTasks)? allTasksCompleted,
     TResult? Function(String message)? allTasksFailed,
-    TResult? Function()? searchLoading,
-    TResult? Function(List<TaskModel> searchedTasks)? searchCompleted,
-    TResult? Function(String message)? searchFailed,
     TResult? Function()? getTotalEstimatedTimeLoading,
     TResult? Function(Duration totalEstimatedTime)?
         getTotalEstimatedTimeCompleted,
@@ -10066,6 +9098,9 @@ class _$DeleteTaskFailedImpl implements _DeleteTaskFailed {
     TResult? Function()? deleteTaskLoading,
     TResult? Function(String message)? deleteTaskFailed,
     TResult? Function(TaskModel deletedTask)? deleteTaskCompleted,
+    TResult? Function()? filterTasksLoading,
+    TResult? Function(List<TaskModel> filteredTasks)? filterTasksCompleted,
+    TResult? Function(String message)? filterTasksFailed,
   }) {
     return deleteTaskFailed?.call(message);
   }
@@ -10077,9 +9112,6 @@ class _$DeleteTaskFailedImpl implements _DeleteTaskFailed {
     TResult Function()? allTasksLoading,
     TResult Function(List<TaskModel> allTasks)? allTasksCompleted,
     TResult Function(String message)? allTasksFailed,
-    TResult Function()? searchLoading,
-    TResult Function(List<TaskModel> searchedTasks)? searchCompleted,
-    TResult Function(String message)? searchFailed,
     TResult Function()? getTotalEstimatedTimeLoading,
     TResult Function(Duration totalEstimatedTime)?
         getTotalEstimatedTimeCompleted,
@@ -10106,6 +9138,9 @@ class _$DeleteTaskFailedImpl implements _DeleteTaskFailed {
     TResult Function()? deleteTaskLoading,
     TResult Function(String message)? deleteTaskFailed,
     TResult Function(TaskModel deletedTask)? deleteTaskCompleted,
+    TResult Function()? filterTasksLoading,
+    TResult Function(List<TaskModel> filteredTasks)? filterTasksCompleted,
+    TResult Function(String message)? filterTasksFailed,
     required TResult orElse(),
   }) {
     if (deleteTaskFailed != null) {
@@ -10121,9 +9156,6 @@ class _$DeleteTaskFailedImpl implements _DeleteTaskFailed {
     required TResult Function(_AllTasksLoading value) allTasksLoading,
     required TResult Function(_AllTasksCompleted value) allTasksCompleted,
     required TResult Function(_AllTasksFailed value) allTasksFailed,
-    required TResult Function(_SearchLoading value) searchLoading,
-    required TResult Function(_SearchCompleted value) searchCompleted,
-    required TResult Function(_SearchFailed value) searchFailed,
     required TResult Function(_GetTotalEstimatedTimeLoading value)
         getTotalEstimatedTimeLoading,
     required TResult Function(_GetTotalEstimatedTimeCompleted value)
@@ -10155,6 +9187,9 @@ class _$DeleteTaskFailedImpl implements _DeleteTaskFailed {
     required TResult Function(_DeleteTaskLoading value) deleteTaskLoading,
     required TResult Function(_DeleteTaskFailed value) deleteTaskFailed,
     required TResult Function(_DeleteTaskCompleted value) deleteTaskCompleted,
+    required TResult Function(_FilterTasksLoading value) filterTasksLoading,
+    required TResult Function(_FilterTasksCompleted value) filterTasksCompleted,
+    required TResult Function(_FilterTasksFailed value) filterTasksFailed,
   }) {
     return deleteTaskFailed(this);
   }
@@ -10166,9 +9201,6 @@ class _$DeleteTaskFailedImpl implements _DeleteTaskFailed {
     TResult? Function(_AllTasksLoading value)? allTasksLoading,
     TResult? Function(_AllTasksCompleted value)? allTasksCompleted,
     TResult? Function(_AllTasksFailed value)? allTasksFailed,
-    TResult? Function(_SearchLoading value)? searchLoading,
-    TResult? Function(_SearchCompleted value)? searchCompleted,
-    TResult? Function(_SearchFailed value)? searchFailed,
     TResult? Function(_GetTotalEstimatedTimeLoading value)?
         getTotalEstimatedTimeLoading,
     TResult? Function(_GetTotalEstimatedTimeCompleted value)?
@@ -10199,6 +9231,9 @@ class _$DeleteTaskFailedImpl implements _DeleteTaskFailed {
     TResult? Function(_DeleteTaskLoading value)? deleteTaskLoading,
     TResult? Function(_DeleteTaskFailed value)? deleteTaskFailed,
     TResult? Function(_DeleteTaskCompleted value)? deleteTaskCompleted,
+    TResult? Function(_FilterTasksLoading value)? filterTasksLoading,
+    TResult? Function(_FilterTasksCompleted value)? filterTasksCompleted,
+    TResult? Function(_FilterTasksFailed value)? filterTasksFailed,
   }) {
     return deleteTaskFailed?.call(this);
   }
@@ -10210,9 +9245,6 @@ class _$DeleteTaskFailedImpl implements _DeleteTaskFailed {
     TResult Function(_AllTasksLoading value)? allTasksLoading,
     TResult Function(_AllTasksCompleted value)? allTasksCompleted,
     TResult Function(_AllTasksFailed value)? allTasksFailed,
-    TResult Function(_SearchLoading value)? searchLoading,
-    TResult Function(_SearchCompleted value)? searchCompleted,
-    TResult Function(_SearchFailed value)? searchFailed,
     TResult Function(_GetTotalEstimatedTimeLoading value)?
         getTotalEstimatedTimeLoading,
     TResult Function(_GetTotalEstimatedTimeCompleted value)?
@@ -10243,6 +9275,9 @@ class _$DeleteTaskFailedImpl implements _DeleteTaskFailed {
     TResult Function(_DeleteTaskLoading value)? deleteTaskLoading,
     TResult Function(_DeleteTaskFailed value)? deleteTaskFailed,
     TResult Function(_DeleteTaskCompleted value)? deleteTaskCompleted,
+    TResult Function(_FilterTasksLoading value)? filterTasksLoading,
+    TResult Function(_FilterTasksCompleted value)? filterTasksCompleted,
+    TResult Function(_FilterTasksFailed value)? filterTasksFailed,
     required TResult orElse(),
   }) {
     if (deleteTaskFailed != null) {
@@ -10351,9 +9386,6 @@ class _$DeleteTaskCompletedImpl implements _DeleteTaskCompleted {
     required TResult Function() allTasksLoading,
     required TResult Function(List<TaskModel> allTasks) allTasksCompleted,
     required TResult Function(String message) allTasksFailed,
-    required TResult Function() searchLoading,
-    required TResult Function(List<TaskModel> searchedTasks) searchCompleted,
-    required TResult Function(String message) searchFailed,
     required TResult Function() getTotalEstimatedTimeLoading,
     required TResult Function(Duration totalEstimatedTime)
         getTotalEstimatedTimeCompleted,
@@ -10382,6 +9414,10 @@ class _$DeleteTaskCompletedImpl implements _DeleteTaskCompleted {
     required TResult Function() deleteTaskLoading,
     required TResult Function(String message) deleteTaskFailed,
     required TResult Function(TaskModel deletedTask) deleteTaskCompleted,
+    required TResult Function() filterTasksLoading,
+    required TResult Function(List<TaskModel> filteredTasks)
+        filterTasksCompleted,
+    required TResult Function(String message) filterTasksFailed,
   }) {
     return deleteTaskCompleted(deletedTask);
   }
@@ -10393,9 +9429,6 @@ class _$DeleteTaskCompletedImpl implements _DeleteTaskCompleted {
     TResult? Function()? allTasksLoading,
     TResult? Function(List<TaskModel> allTasks)? allTasksCompleted,
     TResult? Function(String message)? allTasksFailed,
-    TResult? Function()? searchLoading,
-    TResult? Function(List<TaskModel> searchedTasks)? searchCompleted,
-    TResult? Function(String message)? searchFailed,
     TResult? Function()? getTotalEstimatedTimeLoading,
     TResult? Function(Duration totalEstimatedTime)?
         getTotalEstimatedTimeCompleted,
@@ -10422,6 +9455,9 @@ class _$DeleteTaskCompletedImpl implements _DeleteTaskCompleted {
     TResult? Function()? deleteTaskLoading,
     TResult? Function(String message)? deleteTaskFailed,
     TResult? Function(TaskModel deletedTask)? deleteTaskCompleted,
+    TResult? Function()? filterTasksLoading,
+    TResult? Function(List<TaskModel> filteredTasks)? filterTasksCompleted,
+    TResult? Function(String message)? filterTasksFailed,
   }) {
     return deleteTaskCompleted?.call(deletedTask);
   }
@@ -10433,9 +9469,6 @@ class _$DeleteTaskCompletedImpl implements _DeleteTaskCompleted {
     TResult Function()? allTasksLoading,
     TResult Function(List<TaskModel> allTasks)? allTasksCompleted,
     TResult Function(String message)? allTasksFailed,
-    TResult Function()? searchLoading,
-    TResult Function(List<TaskModel> searchedTasks)? searchCompleted,
-    TResult Function(String message)? searchFailed,
     TResult Function()? getTotalEstimatedTimeLoading,
     TResult Function(Duration totalEstimatedTime)?
         getTotalEstimatedTimeCompleted,
@@ -10462,6 +9495,9 @@ class _$DeleteTaskCompletedImpl implements _DeleteTaskCompleted {
     TResult Function()? deleteTaskLoading,
     TResult Function(String message)? deleteTaskFailed,
     TResult Function(TaskModel deletedTask)? deleteTaskCompleted,
+    TResult Function()? filterTasksLoading,
+    TResult Function(List<TaskModel> filteredTasks)? filterTasksCompleted,
+    TResult Function(String message)? filterTasksFailed,
     required TResult orElse(),
   }) {
     if (deleteTaskCompleted != null) {
@@ -10477,9 +9513,6 @@ class _$DeleteTaskCompletedImpl implements _DeleteTaskCompleted {
     required TResult Function(_AllTasksLoading value) allTasksLoading,
     required TResult Function(_AllTasksCompleted value) allTasksCompleted,
     required TResult Function(_AllTasksFailed value) allTasksFailed,
-    required TResult Function(_SearchLoading value) searchLoading,
-    required TResult Function(_SearchCompleted value) searchCompleted,
-    required TResult Function(_SearchFailed value) searchFailed,
     required TResult Function(_GetTotalEstimatedTimeLoading value)
         getTotalEstimatedTimeLoading,
     required TResult Function(_GetTotalEstimatedTimeCompleted value)
@@ -10511,6 +9544,9 @@ class _$DeleteTaskCompletedImpl implements _DeleteTaskCompleted {
     required TResult Function(_DeleteTaskLoading value) deleteTaskLoading,
     required TResult Function(_DeleteTaskFailed value) deleteTaskFailed,
     required TResult Function(_DeleteTaskCompleted value) deleteTaskCompleted,
+    required TResult Function(_FilterTasksLoading value) filterTasksLoading,
+    required TResult Function(_FilterTasksCompleted value) filterTasksCompleted,
+    required TResult Function(_FilterTasksFailed value) filterTasksFailed,
   }) {
     return deleteTaskCompleted(this);
   }
@@ -10522,9 +9558,6 @@ class _$DeleteTaskCompletedImpl implements _DeleteTaskCompleted {
     TResult? Function(_AllTasksLoading value)? allTasksLoading,
     TResult? Function(_AllTasksCompleted value)? allTasksCompleted,
     TResult? Function(_AllTasksFailed value)? allTasksFailed,
-    TResult? Function(_SearchLoading value)? searchLoading,
-    TResult? Function(_SearchCompleted value)? searchCompleted,
-    TResult? Function(_SearchFailed value)? searchFailed,
     TResult? Function(_GetTotalEstimatedTimeLoading value)?
         getTotalEstimatedTimeLoading,
     TResult? Function(_GetTotalEstimatedTimeCompleted value)?
@@ -10555,6 +9588,9 @@ class _$DeleteTaskCompletedImpl implements _DeleteTaskCompleted {
     TResult? Function(_DeleteTaskLoading value)? deleteTaskLoading,
     TResult? Function(_DeleteTaskFailed value)? deleteTaskFailed,
     TResult? Function(_DeleteTaskCompleted value)? deleteTaskCompleted,
+    TResult? Function(_FilterTasksLoading value)? filterTasksLoading,
+    TResult? Function(_FilterTasksCompleted value)? filterTasksCompleted,
+    TResult? Function(_FilterTasksFailed value)? filterTasksFailed,
   }) {
     return deleteTaskCompleted?.call(this);
   }
@@ -10566,9 +9602,6 @@ class _$DeleteTaskCompletedImpl implements _DeleteTaskCompleted {
     TResult Function(_AllTasksLoading value)? allTasksLoading,
     TResult Function(_AllTasksCompleted value)? allTasksCompleted,
     TResult Function(_AllTasksFailed value)? allTasksFailed,
-    TResult Function(_SearchLoading value)? searchLoading,
-    TResult Function(_SearchCompleted value)? searchCompleted,
-    TResult Function(_SearchFailed value)? searchFailed,
     TResult Function(_GetTotalEstimatedTimeLoading value)?
         getTotalEstimatedTimeLoading,
     TResult Function(_GetTotalEstimatedTimeCompleted value)?
@@ -10599,6 +9632,9 @@ class _$DeleteTaskCompletedImpl implements _DeleteTaskCompleted {
     TResult Function(_DeleteTaskLoading value)? deleteTaskLoading,
     TResult Function(_DeleteTaskFailed value)? deleteTaskFailed,
     TResult Function(_DeleteTaskCompleted value)? deleteTaskCompleted,
+    TResult Function(_FilterTasksLoading value)? filterTasksLoading,
+    TResult Function(_FilterTasksCompleted value)? filterTasksCompleted,
+    TResult Function(_FilterTasksFailed value)? filterTasksFailed,
     required TResult orElse(),
   }) {
     if (deleteTaskCompleted != null) {
@@ -10618,5 +9654,1004 @@ abstract class _DeleteTaskCompleted implements TaskViewmodelState {
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
   _$$DeleteTaskCompletedImplCopyWith<_$DeleteTaskCompletedImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$FilterTasksLoadingImplCopyWith<$Res> {
+  factory _$$FilterTasksLoadingImplCopyWith(_$FilterTasksLoadingImpl value,
+          $Res Function(_$FilterTasksLoadingImpl) then) =
+      __$$FilterTasksLoadingImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$FilterTasksLoadingImplCopyWithImpl<$Res>
+    extends _$TaskViewmodelStateCopyWithImpl<$Res, _$FilterTasksLoadingImpl>
+    implements _$$FilterTasksLoadingImplCopyWith<$Res> {
+  __$$FilterTasksLoadingImplCopyWithImpl(_$FilterTasksLoadingImpl _value,
+      $Res Function(_$FilterTasksLoadingImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of TaskViewmodelState
+  /// with the given fields replaced by the non-null parameter values.
+}
+
+/// @nodoc
+
+class _$FilterTasksLoadingImpl implements _FilterTasksLoading {
+  const _$FilterTasksLoadingImpl();
+
+  @override
+  String toString() {
+    return 'TaskViewmodelState.filterTasksLoading()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$FilterTasksLoadingImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() allTasksLoading,
+    required TResult Function(List<TaskModel> allTasks) allTasksCompleted,
+    required TResult Function(String message) allTasksFailed,
+    required TResult Function() getTotalEstimatedTimeLoading,
+    required TResult Function(Duration totalEstimatedTime)
+        getTotalEstimatedTimeCompleted,
+    required TResult Function(String message) getTotalEstimatedTimeFailed,
+    required TResult Function() updateTotalEstimatedTimeLoading,
+    required TResult Function(String message) updateTotalEstimatedTimeFailed,
+    required TResult Function(Duration totalEstimatedTime)
+        updateTotalEstimatedTimeCompleted,
+    required TResult Function() uploadTasksLoading,
+    required TResult Function(String message) uploadTasksFailed,
+    required TResult Function(TaskModel meupdatedTaskssage)
+        uploadTasksCompleted,
+    required TResult Function() downloadTasksLoading,
+    required TResult Function(String message) downloadTasksFailed,
+    required TResult Function(List<TaskModel> downloadedTasks)
+        downloadTasksCompleted,
+    required TResult Function() updateTaskLoading,
+    required TResult Function(String message) updateTaskFailed,
+    required TResult Function(TaskModel updatedTask) updateTaskCompleted,
+    required TResult Function() getTaskByIdLoading,
+    required TResult Function(String message) getTaskByIdFailed,
+    required TResult Function(TaskModel taskById) getTaskByIdCompleted,
+    required TResult Function() createTaskLoading,
+    required TResult Function(String message) createTaskFailed,
+    required TResult Function(TaskModel createdTask) createTaskCompleted,
+    required TResult Function() deleteTaskLoading,
+    required TResult Function(String message) deleteTaskFailed,
+    required TResult Function(TaskModel deletedTask) deleteTaskCompleted,
+    required TResult Function() filterTasksLoading,
+    required TResult Function(List<TaskModel> filteredTasks)
+        filterTasksCompleted,
+    required TResult Function(String message) filterTasksFailed,
+  }) {
+    return filterTasksLoading();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? allTasksLoading,
+    TResult? Function(List<TaskModel> allTasks)? allTasksCompleted,
+    TResult? Function(String message)? allTasksFailed,
+    TResult? Function()? getTotalEstimatedTimeLoading,
+    TResult? Function(Duration totalEstimatedTime)?
+        getTotalEstimatedTimeCompleted,
+    TResult? Function(String message)? getTotalEstimatedTimeFailed,
+    TResult? Function()? updateTotalEstimatedTimeLoading,
+    TResult? Function(String message)? updateTotalEstimatedTimeFailed,
+    TResult? Function(Duration totalEstimatedTime)?
+        updateTotalEstimatedTimeCompleted,
+    TResult? Function()? uploadTasksLoading,
+    TResult? Function(String message)? uploadTasksFailed,
+    TResult? Function(TaskModel meupdatedTaskssage)? uploadTasksCompleted,
+    TResult? Function()? downloadTasksLoading,
+    TResult? Function(String message)? downloadTasksFailed,
+    TResult? Function(List<TaskModel> downloadedTasks)? downloadTasksCompleted,
+    TResult? Function()? updateTaskLoading,
+    TResult? Function(String message)? updateTaskFailed,
+    TResult? Function(TaskModel updatedTask)? updateTaskCompleted,
+    TResult? Function()? getTaskByIdLoading,
+    TResult? Function(String message)? getTaskByIdFailed,
+    TResult? Function(TaskModel taskById)? getTaskByIdCompleted,
+    TResult? Function()? createTaskLoading,
+    TResult? Function(String message)? createTaskFailed,
+    TResult? Function(TaskModel createdTask)? createTaskCompleted,
+    TResult? Function()? deleteTaskLoading,
+    TResult? Function(String message)? deleteTaskFailed,
+    TResult? Function(TaskModel deletedTask)? deleteTaskCompleted,
+    TResult? Function()? filterTasksLoading,
+    TResult? Function(List<TaskModel> filteredTasks)? filterTasksCompleted,
+    TResult? Function(String message)? filterTasksFailed,
+  }) {
+    return filterTasksLoading?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? allTasksLoading,
+    TResult Function(List<TaskModel> allTasks)? allTasksCompleted,
+    TResult Function(String message)? allTasksFailed,
+    TResult Function()? getTotalEstimatedTimeLoading,
+    TResult Function(Duration totalEstimatedTime)?
+        getTotalEstimatedTimeCompleted,
+    TResult Function(String message)? getTotalEstimatedTimeFailed,
+    TResult Function()? updateTotalEstimatedTimeLoading,
+    TResult Function(String message)? updateTotalEstimatedTimeFailed,
+    TResult Function(Duration totalEstimatedTime)?
+        updateTotalEstimatedTimeCompleted,
+    TResult Function()? uploadTasksLoading,
+    TResult Function(String message)? uploadTasksFailed,
+    TResult Function(TaskModel meupdatedTaskssage)? uploadTasksCompleted,
+    TResult Function()? downloadTasksLoading,
+    TResult Function(String message)? downloadTasksFailed,
+    TResult Function(List<TaskModel> downloadedTasks)? downloadTasksCompleted,
+    TResult Function()? updateTaskLoading,
+    TResult Function(String message)? updateTaskFailed,
+    TResult Function(TaskModel updatedTask)? updateTaskCompleted,
+    TResult Function()? getTaskByIdLoading,
+    TResult Function(String message)? getTaskByIdFailed,
+    TResult Function(TaskModel taskById)? getTaskByIdCompleted,
+    TResult Function()? createTaskLoading,
+    TResult Function(String message)? createTaskFailed,
+    TResult Function(TaskModel createdTask)? createTaskCompleted,
+    TResult Function()? deleteTaskLoading,
+    TResult Function(String message)? deleteTaskFailed,
+    TResult Function(TaskModel deletedTask)? deleteTaskCompleted,
+    TResult Function()? filterTasksLoading,
+    TResult Function(List<TaskModel> filteredTasks)? filterTasksCompleted,
+    TResult Function(String message)? filterTasksFailed,
+    required TResult orElse(),
+  }) {
+    if (filterTasksLoading != null) {
+      return filterTasksLoading();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(_AllTasksLoading value) allTasksLoading,
+    required TResult Function(_AllTasksCompleted value) allTasksCompleted,
+    required TResult Function(_AllTasksFailed value) allTasksFailed,
+    required TResult Function(_GetTotalEstimatedTimeLoading value)
+        getTotalEstimatedTimeLoading,
+    required TResult Function(_GetTotalEstimatedTimeCompleted value)
+        getTotalEstimatedTimeCompleted,
+    required TResult Function(_GetTotalEstimatedTimeFailed value)
+        getTotalEstimatedTimeFailed,
+    required TResult Function(_UpdateTotalEstimatedTimeLoading value)
+        updateTotalEstimatedTimeLoading,
+    required TResult Function(_UpdateTotalEstimatedTimeFailed value)
+        updateTotalEstimatedTimeFailed,
+    required TResult Function(_UpdateTotalEstimatedTimeCompleted value)
+        updateTotalEstimatedTimeCompleted,
+    required TResult Function(_UploadTasksLoading value) uploadTasksLoading,
+    required TResult Function(_UploadTasksFailed value) uploadTasksFailed,
+    required TResult Function(_UploadTasksCompleted value) uploadTasksCompleted,
+    required TResult Function(_DownloadTasksLoading value) downloadTasksLoading,
+    required TResult Function(_DownloadTasksFailed value) downloadTasksFailed,
+    required TResult Function(_DownloadTasksCompleted value)
+        downloadTasksCompleted,
+    required TResult Function(_UpdateTaskLoading value) updateTaskLoading,
+    required TResult Function(_UpdateTaskFailed value) updateTaskFailed,
+    required TResult Function(_UpdateTaskCompleted value) updateTaskCompleted,
+    required TResult Function(_GetTaskByIdLoading value) getTaskByIdLoading,
+    required TResult Function(_GetTaskByIdFailed value) getTaskByIdFailed,
+    required TResult Function(_GetTaskByIdCompleted value) getTaskByIdCompleted,
+    required TResult Function(_CreateTaskLoading value) createTaskLoading,
+    required TResult Function(_CreateTaskFailed value) createTaskFailed,
+    required TResult Function(_CreateTaskCompleted value) createTaskCompleted,
+    required TResult Function(_DeleteTaskLoading value) deleteTaskLoading,
+    required TResult Function(_DeleteTaskFailed value) deleteTaskFailed,
+    required TResult Function(_DeleteTaskCompleted value) deleteTaskCompleted,
+    required TResult Function(_FilterTasksLoading value) filterTasksLoading,
+    required TResult Function(_FilterTasksCompleted value) filterTasksCompleted,
+    required TResult Function(_FilterTasksFailed value) filterTasksFailed,
+  }) {
+    return filterTasksLoading(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_AllTasksLoading value)? allTasksLoading,
+    TResult? Function(_AllTasksCompleted value)? allTasksCompleted,
+    TResult? Function(_AllTasksFailed value)? allTasksFailed,
+    TResult? Function(_GetTotalEstimatedTimeLoading value)?
+        getTotalEstimatedTimeLoading,
+    TResult? Function(_GetTotalEstimatedTimeCompleted value)?
+        getTotalEstimatedTimeCompleted,
+    TResult? Function(_GetTotalEstimatedTimeFailed value)?
+        getTotalEstimatedTimeFailed,
+    TResult? Function(_UpdateTotalEstimatedTimeLoading value)?
+        updateTotalEstimatedTimeLoading,
+    TResult? Function(_UpdateTotalEstimatedTimeFailed value)?
+        updateTotalEstimatedTimeFailed,
+    TResult? Function(_UpdateTotalEstimatedTimeCompleted value)?
+        updateTotalEstimatedTimeCompleted,
+    TResult? Function(_UploadTasksLoading value)? uploadTasksLoading,
+    TResult? Function(_UploadTasksFailed value)? uploadTasksFailed,
+    TResult? Function(_UploadTasksCompleted value)? uploadTasksCompleted,
+    TResult? Function(_DownloadTasksLoading value)? downloadTasksLoading,
+    TResult? Function(_DownloadTasksFailed value)? downloadTasksFailed,
+    TResult? Function(_DownloadTasksCompleted value)? downloadTasksCompleted,
+    TResult? Function(_UpdateTaskLoading value)? updateTaskLoading,
+    TResult? Function(_UpdateTaskFailed value)? updateTaskFailed,
+    TResult? Function(_UpdateTaskCompleted value)? updateTaskCompleted,
+    TResult? Function(_GetTaskByIdLoading value)? getTaskByIdLoading,
+    TResult? Function(_GetTaskByIdFailed value)? getTaskByIdFailed,
+    TResult? Function(_GetTaskByIdCompleted value)? getTaskByIdCompleted,
+    TResult? Function(_CreateTaskLoading value)? createTaskLoading,
+    TResult? Function(_CreateTaskFailed value)? createTaskFailed,
+    TResult? Function(_CreateTaskCompleted value)? createTaskCompleted,
+    TResult? Function(_DeleteTaskLoading value)? deleteTaskLoading,
+    TResult? Function(_DeleteTaskFailed value)? deleteTaskFailed,
+    TResult? Function(_DeleteTaskCompleted value)? deleteTaskCompleted,
+    TResult? Function(_FilterTasksLoading value)? filterTasksLoading,
+    TResult? Function(_FilterTasksCompleted value)? filterTasksCompleted,
+    TResult? Function(_FilterTasksFailed value)? filterTasksFailed,
+  }) {
+    return filterTasksLoading?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_AllTasksLoading value)? allTasksLoading,
+    TResult Function(_AllTasksCompleted value)? allTasksCompleted,
+    TResult Function(_AllTasksFailed value)? allTasksFailed,
+    TResult Function(_GetTotalEstimatedTimeLoading value)?
+        getTotalEstimatedTimeLoading,
+    TResult Function(_GetTotalEstimatedTimeCompleted value)?
+        getTotalEstimatedTimeCompleted,
+    TResult Function(_GetTotalEstimatedTimeFailed value)?
+        getTotalEstimatedTimeFailed,
+    TResult Function(_UpdateTotalEstimatedTimeLoading value)?
+        updateTotalEstimatedTimeLoading,
+    TResult Function(_UpdateTotalEstimatedTimeFailed value)?
+        updateTotalEstimatedTimeFailed,
+    TResult Function(_UpdateTotalEstimatedTimeCompleted value)?
+        updateTotalEstimatedTimeCompleted,
+    TResult Function(_UploadTasksLoading value)? uploadTasksLoading,
+    TResult Function(_UploadTasksFailed value)? uploadTasksFailed,
+    TResult Function(_UploadTasksCompleted value)? uploadTasksCompleted,
+    TResult Function(_DownloadTasksLoading value)? downloadTasksLoading,
+    TResult Function(_DownloadTasksFailed value)? downloadTasksFailed,
+    TResult Function(_DownloadTasksCompleted value)? downloadTasksCompleted,
+    TResult Function(_UpdateTaskLoading value)? updateTaskLoading,
+    TResult Function(_UpdateTaskFailed value)? updateTaskFailed,
+    TResult Function(_UpdateTaskCompleted value)? updateTaskCompleted,
+    TResult Function(_GetTaskByIdLoading value)? getTaskByIdLoading,
+    TResult Function(_GetTaskByIdFailed value)? getTaskByIdFailed,
+    TResult Function(_GetTaskByIdCompleted value)? getTaskByIdCompleted,
+    TResult Function(_CreateTaskLoading value)? createTaskLoading,
+    TResult Function(_CreateTaskFailed value)? createTaskFailed,
+    TResult Function(_CreateTaskCompleted value)? createTaskCompleted,
+    TResult Function(_DeleteTaskLoading value)? deleteTaskLoading,
+    TResult Function(_DeleteTaskFailed value)? deleteTaskFailed,
+    TResult Function(_DeleteTaskCompleted value)? deleteTaskCompleted,
+    TResult Function(_FilterTasksLoading value)? filterTasksLoading,
+    TResult Function(_FilterTasksCompleted value)? filterTasksCompleted,
+    TResult Function(_FilterTasksFailed value)? filterTasksFailed,
+    required TResult orElse(),
+  }) {
+    if (filterTasksLoading != null) {
+      return filterTasksLoading(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _FilterTasksLoading implements TaskViewmodelState {
+  const factory _FilterTasksLoading() = _$FilterTasksLoadingImpl;
+}
+
+/// @nodoc
+abstract class _$$FilterTasksCompletedImplCopyWith<$Res> {
+  factory _$$FilterTasksCompletedImplCopyWith(_$FilterTasksCompletedImpl value,
+          $Res Function(_$FilterTasksCompletedImpl) then) =
+      __$$FilterTasksCompletedImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({List<TaskModel> filteredTasks});
+}
+
+/// @nodoc
+class __$$FilterTasksCompletedImplCopyWithImpl<$Res>
+    extends _$TaskViewmodelStateCopyWithImpl<$Res, _$FilterTasksCompletedImpl>
+    implements _$$FilterTasksCompletedImplCopyWith<$Res> {
+  __$$FilterTasksCompletedImplCopyWithImpl(_$FilterTasksCompletedImpl _value,
+      $Res Function(_$FilterTasksCompletedImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of TaskViewmodelState
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? filteredTasks = null,
+  }) {
+    return _then(_$FilterTasksCompletedImpl(
+      filteredTasks: null == filteredTasks
+          ? _value.filteredTasks
+          : filteredTasks // ignore: cast_nullable_to_non_nullable
+              as List<TaskModel>,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$FilterTasksCompletedImpl implements _FilterTasksCompleted {
+  const _$FilterTasksCompletedImpl({required this.filteredTasks});
+
+  @override
+  final List<TaskModel> filteredTasks;
+
+  @override
+  String toString() {
+    return 'TaskViewmodelState.filterTasksCompleted(filteredTasks: $filteredTasks)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$FilterTasksCompletedImpl &&
+            const DeepCollectionEquality()
+                .equals(other.filteredTasks, filteredTasks));
+  }
+
+  @override
+  int get hashCode => Object.hash(
+      runtimeType, const DeepCollectionEquality().hash(filteredTasks));
+
+  /// Create a copy of TaskViewmodelState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$FilterTasksCompletedImplCopyWith<_$FilterTasksCompletedImpl>
+      get copyWith =>
+          __$$FilterTasksCompletedImplCopyWithImpl<_$FilterTasksCompletedImpl>(
+              this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() allTasksLoading,
+    required TResult Function(List<TaskModel> allTasks) allTasksCompleted,
+    required TResult Function(String message) allTasksFailed,
+    required TResult Function() getTotalEstimatedTimeLoading,
+    required TResult Function(Duration totalEstimatedTime)
+        getTotalEstimatedTimeCompleted,
+    required TResult Function(String message) getTotalEstimatedTimeFailed,
+    required TResult Function() updateTotalEstimatedTimeLoading,
+    required TResult Function(String message) updateTotalEstimatedTimeFailed,
+    required TResult Function(Duration totalEstimatedTime)
+        updateTotalEstimatedTimeCompleted,
+    required TResult Function() uploadTasksLoading,
+    required TResult Function(String message) uploadTasksFailed,
+    required TResult Function(TaskModel meupdatedTaskssage)
+        uploadTasksCompleted,
+    required TResult Function() downloadTasksLoading,
+    required TResult Function(String message) downloadTasksFailed,
+    required TResult Function(List<TaskModel> downloadedTasks)
+        downloadTasksCompleted,
+    required TResult Function() updateTaskLoading,
+    required TResult Function(String message) updateTaskFailed,
+    required TResult Function(TaskModel updatedTask) updateTaskCompleted,
+    required TResult Function() getTaskByIdLoading,
+    required TResult Function(String message) getTaskByIdFailed,
+    required TResult Function(TaskModel taskById) getTaskByIdCompleted,
+    required TResult Function() createTaskLoading,
+    required TResult Function(String message) createTaskFailed,
+    required TResult Function(TaskModel createdTask) createTaskCompleted,
+    required TResult Function() deleteTaskLoading,
+    required TResult Function(String message) deleteTaskFailed,
+    required TResult Function(TaskModel deletedTask) deleteTaskCompleted,
+    required TResult Function() filterTasksLoading,
+    required TResult Function(List<TaskModel> filteredTasks)
+        filterTasksCompleted,
+    required TResult Function(String message) filterTasksFailed,
+  }) {
+    return filterTasksCompleted(filteredTasks);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? allTasksLoading,
+    TResult? Function(List<TaskModel> allTasks)? allTasksCompleted,
+    TResult? Function(String message)? allTasksFailed,
+    TResult? Function()? getTotalEstimatedTimeLoading,
+    TResult? Function(Duration totalEstimatedTime)?
+        getTotalEstimatedTimeCompleted,
+    TResult? Function(String message)? getTotalEstimatedTimeFailed,
+    TResult? Function()? updateTotalEstimatedTimeLoading,
+    TResult? Function(String message)? updateTotalEstimatedTimeFailed,
+    TResult? Function(Duration totalEstimatedTime)?
+        updateTotalEstimatedTimeCompleted,
+    TResult? Function()? uploadTasksLoading,
+    TResult? Function(String message)? uploadTasksFailed,
+    TResult? Function(TaskModel meupdatedTaskssage)? uploadTasksCompleted,
+    TResult? Function()? downloadTasksLoading,
+    TResult? Function(String message)? downloadTasksFailed,
+    TResult? Function(List<TaskModel> downloadedTasks)? downloadTasksCompleted,
+    TResult? Function()? updateTaskLoading,
+    TResult? Function(String message)? updateTaskFailed,
+    TResult? Function(TaskModel updatedTask)? updateTaskCompleted,
+    TResult? Function()? getTaskByIdLoading,
+    TResult? Function(String message)? getTaskByIdFailed,
+    TResult? Function(TaskModel taskById)? getTaskByIdCompleted,
+    TResult? Function()? createTaskLoading,
+    TResult? Function(String message)? createTaskFailed,
+    TResult? Function(TaskModel createdTask)? createTaskCompleted,
+    TResult? Function()? deleteTaskLoading,
+    TResult? Function(String message)? deleteTaskFailed,
+    TResult? Function(TaskModel deletedTask)? deleteTaskCompleted,
+    TResult? Function()? filterTasksLoading,
+    TResult? Function(List<TaskModel> filteredTasks)? filterTasksCompleted,
+    TResult? Function(String message)? filterTasksFailed,
+  }) {
+    return filterTasksCompleted?.call(filteredTasks);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? allTasksLoading,
+    TResult Function(List<TaskModel> allTasks)? allTasksCompleted,
+    TResult Function(String message)? allTasksFailed,
+    TResult Function()? getTotalEstimatedTimeLoading,
+    TResult Function(Duration totalEstimatedTime)?
+        getTotalEstimatedTimeCompleted,
+    TResult Function(String message)? getTotalEstimatedTimeFailed,
+    TResult Function()? updateTotalEstimatedTimeLoading,
+    TResult Function(String message)? updateTotalEstimatedTimeFailed,
+    TResult Function(Duration totalEstimatedTime)?
+        updateTotalEstimatedTimeCompleted,
+    TResult Function()? uploadTasksLoading,
+    TResult Function(String message)? uploadTasksFailed,
+    TResult Function(TaskModel meupdatedTaskssage)? uploadTasksCompleted,
+    TResult Function()? downloadTasksLoading,
+    TResult Function(String message)? downloadTasksFailed,
+    TResult Function(List<TaskModel> downloadedTasks)? downloadTasksCompleted,
+    TResult Function()? updateTaskLoading,
+    TResult Function(String message)? updateTaskFailed,
+    TResult Function(TaskModel updatedTask)? updateTaskCompleted,
+    TResult Function()? getTaskByIdLoading,
+    TResult Function(String message)? getTaskByIdFailed,
+    TResult Function(TaskModel taskById)? getTaskByIdCompleted,
+    TResult Function()? createTaskLoading,
+    TResult Function(String message)? createTaskFailed,
+    TResult Function(TaskModel createdTask)? createTaskCompleted,
+    TResult Function()? deleteTaskLoading,
+    TResult Function(String message)? deleteTaskFailed,
+    TResult Function(TaskModel deletedTask)? deleteTaskCompleted,
+    TResult Function()? filterTasksLoading,
+    TResult Function(List<TaskModel> filteredTasks)? filterTasksCompleted,
+    TResult Function(String message)? filterTasksFailed,
+    required TResult orElse(),
+  }) {
+    if (filterTasksCompleted != null) {
+      return filterTasksCompleted(filteredTasks);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(_AllTasksLoading value) allTasksLoading,
+    required TResult Function(_AllTasksCompleted value) allTasksCompleted,
+    required TResult Function(_AllTasksFailed value) allTasksFailed,
+    required TResult Function(_GetTotalEstimatedTimeLoading value)
+        getTotalEstimatedTimeLoading,
+    required TResult Function(_GetTotalEstimatedTimeCompleted value)
+        getTotalEstimatedTimeCompleted,
+    required TResult Function(_GetTotalEstimatedTimeFailed value)
+        getTotalEstimatedTimeFailed,
+    required TResult Function(_UpdateTotalEstimatedTimeLoading value)
+        updateTotalEstimatedTimeLoading,
+    required TResult Function(_UpdateTotalEstimatedTimeFailed value)
+        updateTotalEstimatedTimeFailed,
+    required TResult Function(_UpdateTotalEstimatedTimeCompleted value)
+        updateTotalEstimatedTimeCompleted,
+    required TResult Function(_UploadTasksLoading value) uploadTasksLoading,
+    required TResult Function(_UploadTasksFailed value) uploadTasksFailed,
+    required TResult Function(_UploadTasksCompleted value) uploadTasksCompleted,
+    required TResult Function(_DownloadTasksLoading value) downloadTasksLoading,
+    required TResult Function(_DownloadTasksFailed value) downloadTasksFailed,
+    required TResult Function(_DownloadTasksCompleted value)
+        downloadTasksCompleted,
+    required TResult Function(_UpdateTaskLoading value) updateTaskLoading,
+    required TResult Function(_UpdateTaskFailed value) updateTaskFailed,
+    required TResult Function(_UpdateTaskCompleted value) updateTaskCompleted,
+    required TResult Function(_GetTaskByIdLoading value) getTaskByIdLoading,
+    required TResult Function(_GetTaskByIdFailed value) getTaskByIdFailed,
+    required TResult Function(_GetTaskByIdCompleted value) getTaskByIdCompleted,
+    required TResult Function(_CreateTaskLoading value) createTaskLoading,
+    required TResult Function(_CreateTaskFailed value) createTaskFailed,
+    required TResult Function(_CreateTaskCompleted value) createTaskCompleted,
+    required TResult Function(_DeleteTaskLoading value) deleteTaskLoading,
+    required TResult Function(_DeleteTaskFailed value) deleteTaskFailed,
+    required TResult Function(_DeleteTaskCompleted value) deleteTaskCompleted,
+    required TResult Function(_FilterTasksLoading value) filterTasksLoading,
+    required TResult Function(_FilterTasksCompleted value) filterTasksCompleted,
+    required TResult Function(_FilterTasksFailed value) filterTasksFailed,
+  }) {
+    return filterTasksCompleted(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_AllTasksLoading value)? allTasksLoading,
+    TResult? Function(_AllTasksCompleted value)? allTasksCompleted,
+    TResult? Function(_AllTasksFailed value)? allTasksFailed,
+    TResult? Function(_GetTotalEstimatedTimeLoading value)?
+        getTotalEstimatedTimeLoading,
+    TResult? Function(_GetTotalEstimatedTimeCompleted value)?
+        getTotalEstimatedTimeCompleted,
+    TResult? Function(_GetTotalEstimatedTimeFailed value)?
+        getTotalEstimatedTimeFailed,
+    TResult? Function(_UpdateTotalEstimatedTimeLoading value)?
+        updateTotalEstimatedTimeLoading,
+    TResult? Function(_UpdateTotalEstimatedTimeFailed value)?
+        updateTotalEstimatedTimeFailed,
+    TResult? Function(_UpdateTotalEstimatedTimeCompleted value)?
+        updateTotalEstimatedTimeCompleted,
+    TResult? Function(_UploadTasksLoading value)? uploadTasksLoading,
+    TResult? Function(_UploadTasksFailed value)? uploadTasksFailed,
+    TResult? Function(_UploadTasksCompleted value)? uploadTasksCompleted,
+    TResult? Function(_DownloadTasksLoading value)? downloadTasksLoading,
+    TResult? Function(_DownloadTasksFailed value)? downloadTasksFailed,
+    TResult? Function(_DownloadTasksCompleted value)? downloadTasksCompleted,
+    TResult? Function(_UpdateTaskLoading value)? updateTaskLoading,
+    TResult? Function(_UpdateTaskFailed value)? updateTaskFailed,
+    TResult? Function(_UpdateTaskCompleted value)? updateTaskCompleted,
+    TResult? Function(_GetTaskByIdLoading value)? getTaskByIdLoading,
+    TResult? Function(_GetTaskByIdFailed value)? getTaskByIdFailed,
+    TResult? Function(_GetTaskByIdCompleted value)? getTaskByIdCompleted,
+    TResult? Function(_CreateTaskLoading value)? createTaskLoading,
+    TResult? Function(_CreateTaskFailed value)? createTaskFailed,
+    TResult? Function(_CreateTaskCompleted value)? createTaskCompleted,
+    TResult? Function(_DeleteTaskLoading value)? deleteTaskLoading,
+    TResult? Function(_DeleteTaskFailed value)? deleteTaskFailed,
+    TResult? Function(_DeleteTaskCompleted value)? deleteTaskCompleted,
+    TResult? Function(_FilterTasksLoading value)? filterTasksLoading,
+    TResult? Function(_FilterTasksCompleted value)? filterTasksCompleted,
+    TResult? Function(_FilterTasksFailed value)? filterTasksFailed,
+  }) {
+    return filterTasksCompleted?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_AllTasksLoading value)? allTasksLoading,
+    TResult Function(_AllTasksCompleted value)? allTasksCompleted,
+    TResult Function(_AllTasksFailed value)? allTasksFailed,
+    TResult Function(_GetTotalEstimatedTimeLoading value)?
+        getTotalEstimatedTimeLoading,
+    TResult Function(_GetTotalEstimatedTimeCompleted value)?
+        getTotalEstimatedTimeCompleted,
+    TResult Function(_GetTotalEstimatedTimeFailed value)?
+        getTotalEstimatedTimeFailed,
+    TResult Function(_UpdateTotalEstimatedTimeLoading value)?
+        updateTotalEstimatedTimeLoading,
+    TResult Function(_UpdateTotalEstimatedTimeFailed value)?
+        updateTotalEstimatedTimeFailed,
+    TResult Function(_UpdateTotalEstimatedTimeCompleted value)?
+        updateTotalEstimatedTimeCompleted,
+    TResult Function(_UploadTasksLoading value)? uploadTasksLoading,
+    TResult Function(_UploadTasksFailed value)? uploadTasksFailed,
+    TResult Function(_UploadTasksCompleted value)? uploadTasksCompleted,
+    TResult Function(_DownloadTasksLoading value)? downloadTasksLoading,
+    TResult Function(_DownloadTasksFailed value)? downloadTasksFailed,
+    TResult Function(_DownloadTasksCompleted value)? downloadTasksCompleted,
+    TResult Function(_UpdateTaskLoading value)? updateTaskLoading,
+    TResult Function(_UpdateTaskFailed value)? updateTaskFailed,
+    TResult Function(_UpdateTaskCompleted value)? updateTaskCompleted,
+    TResult Function(_GetTaskByIdLoading value)? getTaskByIdLoading,
+    TResult Function(_GetTaskByIdFailed value)? getTaskByIdFailed,
+    TResult Function(_GetTaskByIdCompleted value)? getTaskByIdCompleted,
+    TResult Function(_CreateTaskLoading value)? createTaskLoading,
+    TResult Function(_CreateTaskFailed value)? createTaskFailed,
+    TResult Function(_CreateTaskCompleted value)? createTaskCompleted,
+    TResult Function(_DeleteTaskLoading value)? deleteTaskLoading,
+    TResult Function(_DeleteTaskFailed value)? deleteTaskFailed,
+    TResult Function(_DeleteTaskCompleted value)? deleteTaskCompleted,
+    TResult Function(_FilterTasksLoading value)? filterTasksLoading,
+    TResult Function(_FilterTasksCompleted value)? filterTasksCompleted,
+    TResult Function(_FilterTasksFailed value)? filterTasksFailed,
+    required TResult orElse(),
+  }) {
+    if (filterTasksCompleted != null) {
+      return filterTasksCompleted(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _FilterTasksCompleted implements TaskViewmodelState {
+  const factory _FilterTasksCompleted(
+          {required final List<TaskModel> filteredTasks}) =
+      _$FilterTasksCompletedImpl;
+
+  List<TaskModel> get filteredTasks;
+
+  /// Create a copy of TaskViewmodelState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$FilterTasksCompletedImplCopyWith<_$FilterTasksCompletedImpl>
+      get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$FilterTasksFailedImplCopyWith<$Res> {
+  factory _$$FilterTasksFailedImplCopyWith(_$FilterTasksFailedImpl value,
+          $Res Function(_$FilterTasksFailedImpl) then) =
+      __$$FilterTasksFailedImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String message});
+}
+
+/// @nodoc
+class __$$FilterTasksFailedImplCopyWithImpl<$Res>
+    extends _$TaskViewmodelStateCopyWithImpl<$Res, _$FilterTasksFailedImpl>
+    implements _$$FilterTasksFailedImplCopyWith<$Res> {
+  __$$FilterTasksFailedImplCopyWithImpl(_$FilterTasksFailedImpl _value,
+      $Res Function(_$FilterTasksFailedImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of TaskViewmodelState
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? message = null,
+  }) {
+    return _then(_$FilterTasksFailedImpl(
+      message: null == message
+          ? _value.message
+          : message // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$FilterTasksFailedImpl implements _FilterTasksFailed {
+  const _$FilterTasksFailedImpl({required this.message});
+
+  @override
+  final String message;
+
+  @override
+  String toString() {
+    return 'TaskViewmodelState.filterTasksFailed(message: $message)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$FilterTasksFailedImpl &&
+            (identical(other.message, message) || other.message == message));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, message);
+
+  /// Create a copy of TaskViewmodelState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$FilterTasksFailedImplCopyWith<_$FilterTasksFailedImpl> get copyWith =>
+      __$$FilterTasksFailedImplCopyWithImpl<_$FilterTasksFailedImpl>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() allTasksLoading,
+    required TResult Function(List<TaskModel> allTasks) allTasksCompleted,
+    required TResult Function(String message) allTasksFailed,
+    required TResult Function() getTotalEstimatedTimeLoading,
+    required TResult Function(Duration totalEstimatedTime)
+        getTotalEstimatedTimeCompleted,
+    required TResult Function(String message) getTotalEstimatedTimeFailed,
+    required TResult Function() updateTotalEstimatedTimeLoading,
+    required TResult Function(String message) updateTotalEstimatedTimeFailed,
+    required TResult Function(Duration totalEstimatedTime)
+        updateTotalEstimatedTimeCompleted,
+    required TResult Function() uploadTasksLoading,
+    required TResult Function(String message) uploadTasksFailed,
+    required TResult Function(TaskModel meupdatedTaskssage)
+        uploadTasksCompleted,
+    required TResult Function() downloadTasksLoading,
+    required TResult Function(String message) downloadTasksFailed,
+    required TResult Function(List<TaskModel> downloadedTasks)
+        downloadTasksCompleted,
+    required TResult Function() updateTaskLoading,
+    required TResult Function(String message) updateTaskFailed,
+    required TResult Function(TaskModel updatedTask) updateTaskCompleted,
+    required TResult Function() getTaskByIdLoading,
+    required TResult Function(String message) getTaskByIdFailed,
+    required TResult Function(TaskModel taskById) getTaskByIdCompleted,
+    required TResult Function() createTaskLoading,
+    required TResult Function(String message) createTaskFailed,
+    required TResult Function(TaskModel createdTask) createTaskCompleted,
+    required TResult Function() deleteTaskLoading,
+    required TResult Function(String message) deleteTaskFailed,
+    required TResult Function(TaskModel deletedTask) deleteTaskCompleted,
+    required TResult Function() filterTasksLoading,
+    required TResult Function(List<TaskModel> filteredTasks)
+        filterTasksCompleted,
+    required TResult Function(String message) filterTasksFailed,
+  }) {
+    return filterTasksFailed(message);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? allTasksLoading,
+    TResult? Function(List<TaskModel> allTasks)? allTasksCompleted,
+    TResult? Function(String message)? allTasksFailed,
+    TResult? Function()? getTotalEstimatedTimeLoading,
+    TResult? Function(Duration totalEstimatedTime)?
+        getTotalEstimatedTimeCompleted,
+    TResult? Function(String message)? getTotalEstimatedTimeFailed,
+    TResult? Function()? updateTotalEstimatedTimeLoading,
+    TResult? Function(String message)? updateTotalEstimatedTimeFailed,
+    TResult? Function(Duration totalEstimatedTime)?
+        updateTotalEstimatedTimeCompleted,
+    TResult? Function()? uploadTasksLoading,
+    TResult? Function(String message)? uploadTasksFailed,
+    TResult? Function(TaskModel meupdatedTaskssage)? uploadTasksCompleted,
+    TResult? Function()? downloadTasksLoading,
+    TResult? Function(String message)? downloadTasksFailed,
+    TResult? Function(List<TaskModel> downloadedTasks)? downloadTasksCompleted,
+    TResult? Function()? updateTaskLoading,
+    TResult? Function(String message)? updateTaskFailed,
+    TResult? Function(TaskModel updatedTask)? updateTaskCompleted,
+    TResult? Function()? getTaskByIdLoading,
+    TResult? Function(String message)? getTaskByIdFailed,
+    TResult? Function(TaskModel taskById)? getTaskByIdCompleted,
+    TResult? Function()? createTaskLoading,
+    TResult? Function(String message)? createTaskFailed,
+    TResult? Function(TaskModel createdTask)? createTaskCompleted,
+    TResult? Function()? deleteTaskLoading,
+    TResult? Function(String message)? deleteTaskFailed,
+    TResult? Function(TaskModel deletedTask)? deleteTaskCompleted,
+    TResult? Function()? filterTasksLoading,
+    TResult? Function(List<TaskModel> filteredTasks)? filterTasksCompleted,
+    TResult? Function(String message)? filterTasksFailed,
+  }) {
+    return filterTasksFailed?.call(message);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? allTasksLoading,
+    TResult Function(List<TaskModel> allTasks)? allTasksCompleted,
+    TResult Function(String message)? allTasksFailed,
+    TResult Function()? getTotalEstimatedTimeLoading,
+    TResult Function(Duration totalEstimatedTime)?
+        getTotalEstimatedTimeCompleted,
+    TResult Function(String message)? getTotalEstimatedTimeFailed,
+    TResult Function()? updateTotalEstimatedTimeLoading,
+    TResult Function(String message)? updateTotalEstimatedTimeFailed,
+    TResult Function(Duration totalEstimatedTime)?
+        updateTotalEstimatedTimeCompleted,
+    TResult Function()? uploadTasksLoading,
+    TResult Function(String message)? uploadTasksFailed,
+    TResult Function(TaskModel meupdatedTaskssage)? uploadTasksCompleted,
+    TResult Function()? downloadTasksLoading,
+    TResult Function(String message)? downloadTasksFailed,
+    TResult Function(List<TaskModel> downloadedTasks)? downloadTasksCompleted,
+    TResult Function()? updateTaskLoading,
+    TResult Function(String message)? updateTaskFailed,
+    TResult Function(TaskModel updatedTask)? updateTaskCompleted,
+    TResult Function()? getTaskByIdLoading,
+    TResult Function(String message)? getTaskByIdFailed,
+    TResult Function(TaskModel taskById)? getTaskByIdCompleted,
+    TResult Function()? createTaskLoading,
+    TResult Function(String message)? createTaskFailed,
+    TResult Function(TaskModel createdTask)? createTaskCompleted,
+    TResult Function()? deleteTaskLoading,
+    TResult Function(String message)? deleteTaskFailed,
+    TResult Function(TaskModel deletedTask)? deleteTaskCompleted,
+    TResult Function()? filterTasksLoading,
+    TResult Function(List<TaskModel> filteredTasks)? filterTasksCompleted,
+    TResult Function(String message)? filterTasksFailed,
+    required TResult orElse(),
+  }) {
+    if (filterTasksFailed != null) {
+      return filterTasksFailed(message);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(_AllTasksLoading value) allTasksLoading,
+    required TResult Function(_AllTasksCompleted value) allTasksCompleted,
+    required TResult Function(_AllTasksFailed value) allTasksFailed,
+    required TResult Function(_GetTotalEstimatedTimeLoading value)
+        getTotalEstimatedTimeLoading,
+    required TResult Function(_GetTotalEstimatedTimeCompleted value)
+        getTotalEstimatedTimeCompleted,
+    required TResult Function(_GetTotalEstimatedTimeFailed value)
+        getTotalEstimatedTimeFailed,
+    required TResult Function(_UpdateTotalEstimatedTimeLoading value)
+        updateTotalEstimatedTimeLoading,
+    required TResult Function(_UpdateTotalEstimatedTimeFailed value)
+        updateTotalEstimatedTimeFailed,
+    required TResult Function(_UpdateTotalEstimatedTimeCompleted value)
+        updateTotalEstimatedTimeCompleted,
+    required TResult Function(_UploadTasksLoading value) uploadTasksLoading,
+    required TResult Function(_UploadTasksFailed value) uploadTasksFailed,
+    required TResult Function(_UploadTasksCompleted value) uploadTasksCompleted,
+    required TResult Function(_DownloadTasksLoading value) downloadTasksLoading,
+    required TResult Function(_DownloadTasksFailed value) downloadTasksFailed,
+    required TResult Function(_DownloadTasksCompleted value)
+        downloadTasksCompleted,
+    required TResult Function(_UpdateTaskLoading value) updateTaskLoading,
+    required TResult Function(_UpdateTaskFailed value) updateTaskFailed,
+    required TResult Function(_UpdateTaskCompleted value) updateTaskCompleted,
+    required TResult Function(_GetTaskByIdLoading value) getTaskByIdLoading,
+    required TResult Function(_GetTaskByIdFailed value) getTaskByIdFailed,
+    required TResult Function(_GetTaskByIdCompleted value) getTaskByIdCompleted,
+    required TResult Function(_CreateTaskLoading value) createTaskLoading,
+    required TResult Function(_CreateTaskFailed value) createTaskFailed,
+    required TResult Function(_CreateTaskCompleted value) createTaskCompleted,
+    required TResult Function(_DeleteTaskLoading value) deleteTaskLoading,
+    required TResult Function(_DeleteTaskFailed value) deleteTaskFailed,
+    required TResult Function(_DeleteTaskCompleted value) deleteTaskCompleted,
+    required TResult Function(_FilterTasksLoading value) filterTasksLoading,
+    required TResult Function(_FilterTasksCompleted value) filterTasksCompleted,
+    required TResult Function(_FilterTasksFailed value) filterTasksFailed,
+  }) {
+    return filterTasksFailed(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_AllTasksLoading value)? allTasksLoading,
+    TResult? Function(_AllTasksCompleted value)? allTasksCompleted,
+    TResult? Function(_AllTasksFailed value)? allTasksFailed,
+    TResult? Function(_GetTotalEstimatedTimeLoading value)?
+        getTotalEstimatedTimeLoading,
+    TResult? Function(_GetTotalEstimatedTimeCompleted value)?
+        getTotalEstimatedTimeCompleted,
+    TResult? Function(_GetTotalEstimatedTimeFailed value)?
+        getTotalEstimatedTimeFailed,
+    TResult? Function(_UpdateTotalEstimatedTimeLoading value)?
+        updateTotalEstimatedTimeLoading,
+    TResult? Function(_UpdateTotalEstimatedTimeFailed value)?
+        updateTotalEstimatedTimeFailed,
+    TResult? Function(_UpdateTotalEstimatedTimeCompleted value)?
+        updateTotalEstimatedTimeCompleted,
+    TResult? Function(_UploadTasksLoading value)? uploadTasksLoading,
+    TResult? Function(_UploadTasksFailed value)? uploadTasksFailed,
+    TResult? Function(_UploadTasksCompleted value)? uploadTasksCompleted,
+    TResult? Function(_DownloadTasksLoading value)? downloadTasksLoading,
+    TResult? Function(_DownloadTasksFailed value)? downloadTasksFailed,
+    TResult? Function(_DownloadTasksCompleted value)? downloadTasksCompleted,
+    TResult? Function(_UpdateTaskLoading value)? updateTaskLoading,
+    TResult? Function(_UpdateTaskFailed value)? updateTaskFailed,
+    TResult? Function(_UpdateTaskCompleted value)? updateTaskCompleted,
+    TResult? Function(_GetTaskByIdLoading value)? getTaskByIdLoading,
+    TResult? Function(_GetTaskByIdFailed value)? getTaskByIdFailed,
+    TResult? Function(_GetTaskByIdCompleted value)? getTaskByIdCompleted,
+    TResult? Function(_CreateTaskLoading value)? createTaskLoading,
+    TResult? Function(_CreateTaskFailed value)? createTaskFailed,
+    TResult? Function(_CreateTaskCompleted value)? createTaskCompleted,
+    TResult? Function(_DeleteTaskLoading value)? deleteTaskLoading,
+    TResult? Function(_DeleteTaskFailed value)? deleteTaskFailed,
+    TResult? Function(_DeleteTaskCompleted value)? deleteTaskCompleted,
+    TResult? Function(_FilterTasksLoading value)? filterTasksLoading,
+    TResult? Function(_FilterTasksCompleted value)? filterTasksCompleted,
+    TResult? Function(_FilterTasksFailed value)? filterTasksFailed,
+  }) {
+    return filterTasksFailed?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_AllTasksLoading value)? allTasksLoading,
+    TResult Function(_AllTasksCompleted value)? allTasksCompleted,
+    TResult Function(_AllTasksFailed value)? allTasksFailed,
+    TResult Function(_GetTotalEstimatedTimeLoading value)?
+        getTotalEstimatedTimeLoading,
+    TResult Function(_GetTotalEstimatedTimeCompleted value)?
+        getTotalEstimatedTimeCompleted,
+    TResult Function(_GetTotalEstimatedTimeFailed value)?
+        getTotalEstimatedTimeFailed,
+    TResult Function(_UpdateTotalEstimatedTimeLoading value)?
+        updateTotalEstimatedTimeLoading,
+    TResult Function(_UpdateTotalEstimatedTimeFailed value)?
+        updateTotalEstimatedTimeFailed,
+    TResult Function(_UpdateTotalEstimatedTimeCompleted value)?
+        updateTotalEstimatedTimeCompleted,
+    TResult Function(_UploadTasksLoading value)? uploadTasksLoading,
+    TResult Function(_UploadTasksFailed value)? uploadTasksFailed,
+    TResult Function(_UploadTasksCompleted value)? uploadTasksCompleted,
+    TResult Function(_DownloadTasksLoading value)? downloadTasksLoading,
+    TResult Function(_DownloadTasksFailed value)? downloadTasksFailed,
+    TResult Function(_DownloadTasksCompleted value)? downloadTasksCompleted,
+    TResult Function(_UpdateTaskLoading value)? updateTaskLoading,
+    TResult Function(_UpdateTaskFailed value)? updateTaskFailed,
+    TResult Function(_UpdateTaskCompleted value)? updateTaskCompleted,
+    TResult Function(_GetTaskByIdLoading value)? getTaskByIdLoading,
+    TResult Function(_GetTaskByIdFailed value)? getTaskByIdFailed,
+    TResult Function(_GetTaskByIdCompleted value)? getTaskByIdCompleted,
+    TResult Function(_CreateTaskLoading value)? createTaskLoading,
+    TResult Function(_CreateTaskFailed value)? createTaskFailed,
+    TResult Function(_CreateTaskCompleted value)? createTaskCompleted,
+    TResult Function(_DeleteTaskLoading value)? deleteTaskLoading,
+    TResult Function(_DeleteTaskFailed value)? deleteTaskFailed,
+    TResult Function(_DeleteTaskCompleted value)? deleteTaskCompleted,
+    TResult Function(_FilterTasksLoading value)? filterTasksLoading,
+    TResult Function(_FilterTasksCompleted value)? filterTasksCompleted,
+    TResult Function(_FilterTasksFailed value)? filterTasksFailed,
+    required TResult orElse(),
+  }) {
+    if (filterTasksFailed != null) {
+      return filterTasksFailed(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _FilterTasksFailed implements TaskViewmodelState {
+  const factory _FilterTasksFailed({required final String message}) =
+      _$FilterTasksFailedImpl;
+
+  String get message;
+
+  /// Create a copy of TaskViewmodelState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$FilterTasksFailedImplCopyWith<_$FilterTasksFailedImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

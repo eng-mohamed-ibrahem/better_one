@@ -28,7 +28,7 @@ class TaskField extends StatelessWidget {
   final double? textFieldHeight;
   final Widget? prefixIcon;
   final String? Function(String?)? validator;
-  final Function(String)? onChanged;
+  final Function(String text)? onChanged;
   final String? initialValue;
   final TextStyle? style;
   final TextAlign? textAlign;

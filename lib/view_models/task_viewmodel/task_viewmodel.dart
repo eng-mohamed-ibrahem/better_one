@@ -1,3 +1,4 @@
+import 'package:better_one/core/enum/task_status.dart';
 import 'package:better_one/core/errors/failure.dart';
 import 'package:better_one/core/utils/methods/methods.dart';
 import 'package:better_one/model/task_model/task_model.dart';
@@ -23,7 +24,7 @@ class TaskViewmodel extends Cubit<TaskViewmodelState> {
   late ScrollController scrollController;
 
   /// all tasks
-  List<TaskModel> allTasks = [];
+  Map<String, TaskModel> tasks = {};
 
   /// total estimated time
   Duration totalEstimatedTime = Duration.zero;
@@ -34,8 +35,10 @@ class TaskViewmodel extends Cubit<TaskViewmodelState> {
     var result = await taskRepo.getAllTasks();
     result.when(
       success: (tasks) {
+        this.tasks.addEntries(
+            tasks.map<MapEntry<String, TaskModel>>((e) => MapEntry(e.id, e)));
         emit(
-          _AllTasksCompleted(allTasks: allTasks = tasks),
+          _AllTasksCompleted(allTasks: tasks),
         );
         getTotalEstimatedTime();
       },
@@ -52,7 +55,7 @@ class TaskViewmodel extends Cubit<TaskViewmodelState> {
     var result = await userRepo.addTask(task);
     result.when(
       success: (task) {
-        allTasks.add(task);
+        tasks[task.id] = task;
         emit(
           _CreateTaskCompleted(createdTask: task),
         );
@@ -72,8 +75,7 @@ class TaskViewmodel extends Cubit<TaskViewmodelState> {
     var result = await userRepo.updateTask(oldTask, newTask);
     result.when(
       success: (updatedTask) {
-        int index = allTasks.indexWhere((element) => element.id == oldTask.id);
-        allTasks[index] = newTask;
+        tasks[oldTask.id] = newTask;
         emit(_UpdateTaskCompleted(updatedTask: updatedTask));
         getTotalEstimatedTime();
       },
@@ -92,7 +94,7 @@ class TaskViewmodel extends Cubit<TaskViewmodelState> {
     var result = await userRepo.removeTask(deletedTask);
     result.when(
       success: (task) {
-        allTasks.remove(task);
+        tasks.remove(deletedTask.id);
         emit(
           _DeleteTaskCompleted(deletedTask: task),
         );
@@ -142,6 +144,25 @@ class TaskViewmodel extends Cubit<TaskViewmodelState> {
         kDebugPrint(error.message);
         emit(
           _GetTotalEstimatedTimeFailed(
+              message:
+                  error is OtherFailure ? "core.error".tr() : error.message),
+        );
+      },
+    );
+  }
+
+  void filterWithStatuses(Set<TaskStatus> statuses) async {
+    emit(const _FilterTasksLoading());
+    var result = await userRepo.filterWithStatuses(statuses);
+    result.when(
+      success: (filteredTasks) {
+        emit(
+          _FilterTasksCompleted(filteredTasks: filteredTasks),
+        );
+      },
+      failure: (error) {
+        emit(
+          _FilterTasksFailed(
               message:
                   error is OtherFailure ? "core.error".tr() : error.message),
         );

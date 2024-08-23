@@ -48,6 +48,8 @@ class _TaskScreenState extends State<TaskDetailsScreen>
   /// [streamController] is the stream controller to update the running time
   StreamController<Duration> streamController = StreamController<Duration>();
 
+  bool isTaskDeleted = false;
+
   @override
   void initState() {
     WidgetsBinding.instance.addObserver(this);
@@ -71,11 +73,10 @@ class _TaskScreenState extends State<TaskDetailsScreen>
 
   @override
   void deactivate() {
-    if (task != null) {
+    if (task != null && !isTaskDeleted) {
       context.read<TaskViewmodel>().updateTask(
             task!,
             task!.copyWith(
-              status: TaskStatus.paused,
               elapsedTime: periodicActionManager.elapsed + task!.elapsedTime,
             ),
           );
@@ -328,6 +329,14 @@ class _TaskScreenState extends State<TaskDetailsScreen>
                             label: Text('task.status.done'.tr()),
                             selected: task!.status == TaskStatus.done,
                             onSelected: (value) {
+                              if (value) {
+                                for (int i = 0;
+                                    i < task!.subTasks.length;
+                                    i++) {
+                                  task!.subTasks[i] = task!.subTasks[i]
+                                      .copyWith(completed: true);
+                                }
+                              }
                               context.read<TaskViewmodel>().updateTask(
                                     task!,
                                     task!.copyWith(
@@ -352,6 +361,7 @@ class _TaskScreenState extends State<TaskDetailsScreen>
                                     context,
                                     message: 'task.remove'.tr(),
                                   );
+                                  isTaskDeleted = true;
                                   // todo delete notification by id
                                   context.pop();
                                 },

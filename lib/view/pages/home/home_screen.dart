@@ -1,9 +1,12 @@
 import 'package:better_one/config/navigation/routes_enum.dart';
+import 'package:better_one/core/enum/task_status.dart';
 import 'package:better_one/core/utils/dependency_locator/dependency_injection.dart';
 import 'package:better_one/core/utils/methods/methods.dart';
 import 'package:better_one/core/utils/shared_widgets/failed.dart';
 import 'package:better_one/core/utils/shared_widgets/lottie_indicator.dart';
+import 'package:better_one/model/task_model/task_model.dart';
 import 'package:better_one/view/widgets/duration_widget.dart';
+import 'package:better_one/view/widgets/overlay_widget.dart';
 import 'package:better_one/view/widgets/sliver_header.dart';
 import 'package:better_one/view/widgets/task/card_task.dart';
 import 'package:better_one/view_models/task_viewmodel/task_viewmodel.dart';
@@ -45,6 +48,8 @@ class _HomeScreenState extends State<HomeScreen> with RouteAware {
         if (payload!.isNotEmpty) {
           context.goNamed(Routes.taskDetail.name,
               queryParameters: {'id': payload});
+          kDebugPrint(
+              "location of ${Routes.taskDetail.name}: ${GoRouterState.of(context).namedLocation(Routes.taskDetail.name)}");
         }
       },
     );
@@ -61,15 +66,22 @@ class _HomeScreenState extends State<HomeScreen> with RouteAware {
     var taskViewmodel = context.read<TaskViewmodel>();
     return Scaffold(
       body: Container(
-        padding: EdgeInsets.only(top: 35.h, bottom: 5.h),
+        padding: EdgeInsets.only(
+            top: MediaQuery.of(context).padding.top, bottom: 5.h),
         child: Stack(
           alignment: AlignmentDirectional.bottomCenter,
           children: [
-            BlocBuilder<TaskViewmodel, TaskViewmodelState>(
+            BlocConsumer<TaskViewmodel, TaskViewmodelState>(
+              listener: (context, state) {
+                state.whenOrNull(
+                  filterTasksFailed: (message) {
+                    showSnackBar(message: message, context);
+                  },
+                );
+              },
               builder: (context, state) {
                 return state.maybeWhen(
                   allTasksLoading: () {
-                    kDebugPrint("allTasksLoading");
                     return const Center(
                       child: LottieIndicator(
                         statusAssets: LottieAssets.loadingFromToDatabase,
@@ -87,93 +99,133 @@ class _HomeScreenState extends State<HomeScreen> with RouteAware {
                       ),
                     );
                   },
+                  filterTasksLoading: () {
+                    return const Center(
+                      child: CircularProgressIndicator(),
+                    );
+                  },
+                  filterTasksCompleted: (filteredTasks) {
+                    return displayTasks(
+                        filteredTasks, context, state, taskViewmodel);
+                  },
                   orElse: () {
-                    var allTasks = taskViewmodel.allTasks;
-                    return allTasks.isEmpty
-                        ? Center(
-                            child: Column(
-                              mainAxisSize: MainAxisSize.max,
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              crossAxisAlignment: CrossAxisAlignment.center,
-                              children: [
-                                const LottieIndicator(
-                                  statusAssets: LottieAssets.noDataFound,
-                                ),
-                                Text('task.empty'.tr()),
-                              ],
-                            ),
-                          )
-                        : CustomScrollView(
-                            physics: const BouncingScrollPhysics(),
-                            key: listKey,
-                            controller:
-                                context.read<TaskViewmodel>().scrollController,
-                            slivers: [
-                              SliverPersistentHeader(
-                                floating: true,
-                                pinned: true,
-                                delegate: SliverHeaderDelegate(
-                                  maxHeight:
-                                      MediaQuery.of(context).size.height * 0.1,
-                                  minHeight:
-                                      MediaQuery.of(context).size.height * 0.1,
-                                  child: state.maybeWhen(
-                                    getTotalEstimatedTimeLoading: () {
-                                      return const SizedBox();
-                                    },
-                                    orElse: () {
-                                      return FittedBox(
-                                        fit: BoxFit.scaleDown,
-                                        child: Material(
-                                          shape: RoundedRectangleBorder(
-                                            borderRadius: BorderRadius.circular(
-                                              AppMetrices.borderRadius1.w,
-                                            ),
-                                          ),
-                                          color: Theme.of(context).primaryColor,
-                                          child: Padding(
-                                            padding: const EdgeInsets.all(10),
-                                            child: DurationTime(
-                                              duration: taskViewmodel
-                                                  .totalEstimatedTime,
-                                              style: Theme.of(context)
-                                                  .textTheme
-                                                  .titleLarge,
-                                            ),
-                                          ),
-                                        ),
-                                      );
-                                    },
-                                  ),
-                                ),
-                              ),
-                              SliverList(
-                                delegate: SliverChildBuilderDelegate(
-                                  childCount: allTasks.length,
-                                  (context, index) {
-                                    return CardTask(
-                                      key: ValueKey(allTasks[index].id),
-                                      task: allTasks[index],
-                                    );
-                                  },
-                                ),
-                              ),
-                            ],
-                          );
+                    var allTasks = taskViewmodel.tasks.values.toList();
+                    return displayTasks(
+                        allTasks, context, state, taskViewmodel);
                   },
                 );
               },
             ),
             Align(
               alignment: AlignmentDirectional.topEnd,
-              child: Hero(
-                tag: 'app_settings',
-                child: IconButton(
-                  onPressed: () {
+              child: DropIcons(
+                button: const Icon(Icons.segment_outlined, color: Colors.white),
+                iconsText: const [
+                  Hero(
+                    tag: 'app_settings',
+                    child: Icon(Icons.settings_outlined),
+                  ),
+                  Icon(Icons.tune_rounded),
+                  Icon(Icons.search),
+                ],
+                onSelectIcon: (index) {
+                  if (index == 0) {
                     context.goNamed(Routes.settings.name);
-                  },
-                  icon: const Icon(Icons.settings_outlined),
-                ),
+                  }
+                  if (index == 1) {
+                    Set<TaskStatus> selectedStatus = {};
+                    // show filters as modal bottom sheet
+                    showSheet(
+                      context,
+                      content: StatefulBuilder(
+                        builder: (_, setState) {
+                          return Column(
+                            mainAxisSize: MainAxisSize.min,
+                            children: [
+                              Wrap(
+                                alignment: WrapAlignment.center,
+                                runAlignment: WrapAlignment.center,
+                                crossAxisAlignment: WrapCrossAlignment.center,
+                                spacing: 10.w,
+                                runSpacing: 10.h,
+                                children: [
+                                  InkWell(
+                                    onTap: () {
+                                      context.read<TaskViewmodel>().getTasks();
+                                      Navigator.pop(context);
+                                    },
+                                    child: Container(
+                                      padding: EdgeInsets.symmetric(
+                                        horizontal: 10.w,
+                                        vertical: 8.h,
+                                      ),
+                                      decoration: BoxDecoration(
+                                        color: Colors.white,
+                                        borderRadius:
+                                            BorderRadius.circular(10.r),
+                                        gradient: LinearGradient(
+                                          colors: TaskStatus.values
+                                              .map(
+                                                (status) => status.color,
+                                              )
+                                              .toList(),
+                                          begin: Alignment.topLeft,
+                                          end: Alignment.bottomRight,
+                                        ),
+                                      ),
+                                      child: Text(
+                                        'task.status.filter.all'.tr(),
+                                        style: Theme.of(context)
+                                            .textTheme
+                                            .bodyMedium,
+                                      ),
+                                    ),
+                                  ),
+                                  ...() {
+                                    return TaskStatus.values.map(
+                                      (status) => ChoiceChip(
+                                        selected:
+                                            selectedStatus.contains(status),
+                                        label: Text(
+                                          'task.status.${status.name}'.tr(),
+                                          style: Theme.of(context)
+                                              .textTheme
+                                              .bodyMedium,
+                                        ),
+                                        selectedColor: status.color,
+                                        backgroundColor: status.color,
+                                        onSelected: (value) {
+                                          setState(
+                                            () {
+                                              if (value) {
+                                                selectedStatus.add(status);
+                                              } else {
+                                                selectedStatus.remove(status);
+                                              }
+                                              context
+                                                  .read<TaskViewmodel>()
+                                                  .filterWithStatuses(
+                                                      selectedStatus);
+                                            },
+                                          );
+                                        },
+                                      ),
+                                    );
+                                  }()
+                                ],
+                              ),
+                              SizedBox(height: 10.h),
+                            ],
+                          );
+                        },
+                      ),
+                    );
+                  }
+                  if (index == 2) {
+                    context.goNamed(Routes.search.name);
+                  }
+                },
+                borderRadius: BorderRadius.circular(15.r),
               ),
             ),
             Padding(
@@ -204,5 +256,71 @@ class _HomeScreenState extends State<HomeScreen> with RouteAware {
         ),
       ),
     );
+  }
+
+  Widget displayTasks(List<TaskModel> allTasks, BuildContext context,
+      TaskViewmodelState state, TaskViewmodel taskViewmodel) {
+    return allTasks.isEmpty
+        ? Center(
+            child: Column(
+              mainAxisSize: MainAxisSize.max,
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                const LottieIndicator(
+                  statusAssets: LottieAssets.noDataFound,
+                ),
+                Text('task.empty'.tr()),
+              ],
+            ),
+          )
+        : CustomScrollView(
+            physics: const BouncingScrollPhysics(),
+            key: listKey,
+            controller: context.read<TaskViewmodel>().scrollController,
+            slivers: [
+              SliverPersistentHeader(
+                floating: true,
+                pinned: true,
+                delegate: SliverHeaderDelegate(
+                  maxHeight: MediaQuery.of(context).size.height * 0.1,
+                  minHeight: MediaQuery.of(context).size.height * 0.1,
+                  child: state.maybeWhen(
+                    getTotalEstimatedTimeLoading: () {
+                      return const SizedBox();
+                    },
+                    orElse: () {
+                      return FittedBox(
+                        fit: BoxFit.scaleDown,
+                        child: Material(
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(
+                              AppMetrices.borderRadius1.w,
+                            ),
+                          ),
+                          color: Theme.of(context).primaryColor,
+                          child: Padding(
+                            padding: const EdgeInsets.all(10),
+                            child: DurationTime(
+                              duration: taskViewmodel.totalEstimatedTime,
+                              style: Theme.of(context).textTheme.titleLarge,
+                            ),
+                          ),
+                        ),
+                      );
+                    },
+                  ),
+                ),
+              ),
+              SliverList.builder(
+                itemBuilder: (context, index) {
+                  return CardTask(
+                    key: ValueKey(allTasks[index].id),
+                    task: allTasks[index],
+                  );
+                },
+              ),
+            ],
+          );
   }
 }

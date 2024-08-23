@@ -231,3 +231,24 @@ void kDebugPrint(String message) {
     print(message);
   }
 }
+
+/// show model bottom sheet
+showSheet(BuildContext context, {required Widget content}) {
+  showModalBottomSheet(
+    context: context,
+    isDismissible: true,
+    isScrollControlled: true,
+    enableDrag: true,
+    shape: const RoundedRectangleBorder(
+      borderRadius: BorderRadius.vertical(
+        top: Radius.circular(AppMetrices.borderRadius1),
+      ),
+    ),
+    constraints: BoxConstraints(
+        minHeight: MediaQuery.sizeOf(context).height * .2,
+        minWidth: double.infinity),
+    builder: (context) {
+      return content;
+    },
+  );
+}

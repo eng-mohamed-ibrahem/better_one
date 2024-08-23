@@ -1,5 +1,6 @@
-import 'package:easy_localization/easy_localization.dart';
+import 'package:easy_localization/easy_localization.dart' hide TextDirection;
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class DurationTime extends StatelessWidget {
   const DurationTime({
@@ -12,33 +13,48 @@ class DurationTime extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.center,
-      crossAxisAlignment: CrossAxisAlignment.end,
-      children: [
-        Column(
-          children: [
-            Text(duration.inHours.toString().padLeft(2, '0'), style: style),
-            Text('time.hour'.tr(), style: style),
-          ],
-        ),
-        const SizedBox(width: 10),
-        Column(
-          children: [
-            Text(duration.inMinutes.remainder(60).toString().padLeft(2, '0'),
-                style: style),
-            Text('time.minute'.tr(), style: style),
-          ],
-        ),
-        const SizedBox(width: 10),
-        Column(
-          children: [
-            Text(duration.inSeconds.remainder(60).toString().padLeft(2, '0'),
-                style: style),
-            Text('time.second'.tr(), style: style),
-          ],
-        ),
-      ],
+    return Directionality(
+      textDirection: TextDirection.ltr,
+      child: Column(
+        children: [
+          duration.inMinutes == 0 && duration.inHours == 0
+              ? const SizedBox.shrink()
+              : Transform.translate(
+                  offset: Offset(-10.w, 0),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text(duration.inMinutes.remainder(60).toString(),
+                          style: style),
+                      SizedBox(width: 4.w),
+                      Text('time.minute'.tr(), style: style),
+                      SizedBox(width: 10.w),
+                      duration.inHours == 0
+                          ? const SizedBox.shrink()
+                          : Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                Text(duration.inHours.toString(), style: style),
+                                SizedBox(width: 4.w),
+                                Text('time.hour'.tr(), style: style),
+                              ],
+                            ),
+                    ],
+                  ),
+                ),
+          Align(
+            alignment: Alignment.centerRight,
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Text(duration.inSeconds.remainder(60).toString(), style: style),
+                SizedBox(width: 4.w),
+                Text('time.second'.tr(), style: style),
+              ],
+            ),
+          ),
+        ],
+      ),
     );
   }
 }

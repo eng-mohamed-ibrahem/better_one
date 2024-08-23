@@ -1,3 +1,4 @@
+import 'package:better_one/core/enum/task_status.dart';
 import 'package:better_one/core/errors/failure.dart';
 import 'package:better_one/core/result_handler/result_handler.dart';
 import 'package:better_one/core/utils/dependency_locator/dependency_injection.dart';
@@ -134,7 +135,7 @@ class UserRepoImpl implements UserRepoInterface {
 
   /// [getTaskById] to get task by id
   ///
-  /// in case of internet get from server else, get task from database
+  /// in case of internet get from server. else, get task from database
   @override
   Future<ResultHandler<TaskModel?, Failure>> getTaskById(String id) async {
     var connected = await NetworkConnection.isConnected();
@@ -152,5 +153,16 @@ class UserRepoImpl implements UserRepoInterface {
     } else {
       return await localeUserSource.getTaskById(id);
     }
+  }
+
+  @override
+  Future<ResultHandler<List<TaskModel>, Failure>> filterWithStatuses(
+      Set<TaskStatus> statuses) async {
+    return await localeUserSource.filterWithStatuses(statuses);
+  }
+
+  @override
+  Future<ResultHandler<List<TaskModel>, Failure>> search(String query) async {
+    return await localeUserSource.search(query);
   }
 }

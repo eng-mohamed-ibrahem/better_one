@@ -2,8 +2,7 @@ part of 'task_viewmodel.dart';
 
 @Freezed(makeCollectionsUnmodifiable: false)
 class TaskViewmodelState with _$TaskViewmodelState {
-  
- const factory TaskViewmodelState.initial() = _Initial;
+  const factory TaskViewmodelState.initial() = _Initial;
 
   /// get all tasks
   const factory TaskViewmodelState.allTasksLoading() = _AllTasksLoading;
@@ -11,13 +10,6 @@ class TaskViewmodelState with _$TaskViewmodelState {
       {required List<TaskModel> allTasks}) = _AllTasksCompleted;
   const factory TaskViewmodelState.allTasksFailed({required String message}) =
       _AllTasksFailed;
-
-  /// search
-  const factory TaskViewmodelState.searchLoading() = _SearchLoading;
-  const factory TaskViewmodelState.searchCompleted(
-      {required List<TaskModel> searchedTasks}) = _SearchCompleted;
-  const factory TaskViewmodelState.searchFailed({required String message}) =
-      _SearchFailed;
 
   /// get total estimated time
   const factory TaskViewmodelState.getTotalEstimatedTimeLoading() =
@@ -38,15 +30,16 @@ class TaskViewmodelState with _$TaskViewmodelState {
 
   /// upload tasks
   const factory TaskViewmodelState.uploadTasksLoading() = _UploadTasksLoading;
-  const factory TaskViewmodelState.uploadTasksFailed({required String message}) =
-      _UploadTasksFailed;
+  const factory TaskViewmodelState.uploadTasksFailed(
+      {required String message}) = _UploadTasksFailed;
   const factory TaskViewmodelState.uploadTasksCompleted(
       {required TaskModel meupdatedTaskssage}) = _UploadTasksCompleted;
 
   /// download tasks
-  const factory TaskViewmodelState.downloadTasksLoading() = _DownloadTasksLoading;
-  const factory TaskViewmodelState.downloadTasksFailed({required String message}) =
-      _DownloadTasksFailed;
+  const factory TaskViewmodelState.downloadTasksLoading() =
+      _DownloadTasksLoading;
+  const factory TaskViewmodelState.downloadTasksFailed(
+      {required String message}) = _DownloadTasksFailed;
   const factory TaskViewmodelState.downloadTasksCompleted(
       {required List<TaskModel> downloadedTasks}) = _DownloadTasksCompleted;
 
@@ -59,8 +52,8 @@ class TaskViewmodelState with _$TaskViewmodelState {
 
   /// get task
   const factory TaskViewmodelState.getTaskByIdLoading() = _GetTaskByIdLoading;
-  const factory TaskViewmodelState.getTaskByIdFailed({required String message}) =
-      _GetTaskByIdFailed;
+  const factory TaskViewmodelState.getTaskByIdFailed(
+      {required String message}) = _GetTaskByIdFailed;
   const factory TaskViewmodelState.getTaskByIdCompleted(
       {required TaskModel taskById}) = _GetTaskByIdCompleted;
 
@@ -77,4 +70,11 @@ class TaskViewmodelState with _$TaskViewmodelState {
       _DeleteTaskFailed;
   const factory TaskViewmodelState.deleteTaskCompleted(
       {required TaskModel deletedTask}) = _DeleteTaskCompleted;
+
+  /// filter tasks
+  const factory TaskViewmodelState.filterTasksLoading() = _FilterTasksLoading;
+  const factory TaskViewmodelState.filterTasksCompleted(
+      {required List<TaskModel> filteredTasks}) = _FilterTasksCompleted;
+  const factory TaskViewmodelState.filterTasksFailed(
+      {required String message}) = _FilterTasksFailed;
 }

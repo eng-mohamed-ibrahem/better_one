@@ -4,8 +4,10 @@ import 'package:better_one/core/utils/dependency_locator/inject.dart';
 import 'package:better_one/data_source/auth_data_source/firebase_auth_impl.dart';
 import 'package:better_one/repositories/auth_repo/auth_repo_impl.dart';
 import 'package:better_one/view/pages/pages.dart';
+import 'package:better_one/view/pages/search/search_screen.dart';
 import 'package:better_one/view_models/auth_viewmodel/auth_viewmodel.dart';
 import 'package:better_one/view_models/quote_viewmodel/quote_viewmodel.dart';
+import 'package:better_one/view_models/search_viewmodel/search_viewmodel.dart';
 import 'package:better_one/view_models/setting_viewmodel/setting_viewmode.dart';
 import 'package:better_one/view_models/task_viewmodel/task_viewmodel.dart';
 import 'package:better_one/view_models/user_viewmodel/user_viewmodel.dart';
@@ -104,6 +106,17 @@ class AppNavigation {
                     (context, animation, secondaryAnimation, child) {
                   return pageTransition(context, animation, child);
                 },
+              );
+            },
+          ),
+          GoRoute(
+            path: Routes.search.path,
+            name: Routes.search.name,
+            builder: (context, state) {
+              activeRoute = Routes.search.path;
+              return BlocProvider(
+                create: (context) => SearchViewmodel(userRepo: kUserRepo),
+                child: const SearchScreen(),
               );
             },
           ),

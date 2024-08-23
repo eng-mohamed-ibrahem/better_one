@@ -27,43 +27,24 @@ class CardTask extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Card(
-                  color: Theme.of(context).secondaryHeaderColor,
-                  shape: const RoundedRectangleBorder(
-                    borderRadius: BorderRadius.only(
-                      topRight: Radius.circular(AppMetrices.borderRadius1),
-                      topLeft: Radius.circular(AppMetrices.borderRadius1),
-                    ),
-                  ),
-                  child: Container(
-                    width: MediaQuery.sizeOf(context).width * .4,
-                    padding: EdgeInsets.all(5.r),
-                    child: Text(
-                      task.title,
-                      style: Theme.of(context).textTheme.titleMedium,
-                      overflow: TextOverflow.ellipsis,
-                      maxLines: 1,
-                    ),
-                  ),
+            Card(
+              color: Theme.of(context).secondaryHeaderColor,
+              shape: const RoundedRectangleBorder(
+                borderRadius: BorderRadius.only(
+                  topRight: Radius.circular(AppMetrices.borderRadius1),
+                  topLeft: Radius.circular(AppMetrices.borderRadius1),
                 ),
-
-                /// task status
-                DecoratedSliver(
-                  decoration: BoxDecoration(
-                    color: task.status.color,
-                    borderRadius: BorderRadius.circular(10.r),
-                  ),
-                  sliver: Text(
-                    "task.status.${task.status.name}".tr(),
-                    style: Theme.of(context).textTheme.bodySmall!.copyWith(
-                          color: Colors.white,
-                        ),
-                  ),
+              ),
+              child: Container(
+                width: MediaQuery.sizeOf(context).width * .4,
+                padding: EdgeInsets.all(5.r),
+                child: Text(
+                  task.title,
+                  style: Theme.of(context).textTheme.titleMedium,
+                  overflow: TextOverflow.ellipsis,
+                  maxLines: 1,
                 ),
-              ],
+              ),
             ),
             Card(
               shape: const RoundedRectangleBorder(
@@ -80,11 +61,36 @@ class CardTask extends StatelessWidget {
                   children: [
                     ...() {
                       return List.generate(
-                        task.subTasks.length,
-                        (index) => Text(
-                          task.subTasks[index].title,
-                          style: Theme.of(context).textTheme.bodySmall,
-                        ),
+                        task.subTasks.length >= 5 ? 5 : task.subTasks.length,
+                        (index) => index != 4
+                            ? Row(
+                                children: [
+                                  CircleAvatar(
+                                    radius: 5.r,
+                                    backgroundColor:
+                                        Theme.of(context).primaryColor,
+                                    child: Icon(
+                                      task.subTasks[index].completed
+                                          ? Icons.check
+                                          : Icons.check_box_outline_blank,
+                                      color: AppColors.lightHightlightColor,
+                                      size: 10,
+                                    ),
+                                  ),
+                                  SizedBox(
+                                    width: AppMetrices.horizontalGap.w,
+                                  ),
+                                  Flexible(
+                                    child: Text(
+                                      task.subTasks[index].title,
+                                      style:
+                                          Theme.of(context).textTheme.bodySmall,
+                                    ),
+                                  ),
+                                ],
+                              )
+                            : Text('...',
+                                style: Theme.of(context).textTheme.bodySmall),
                       );
                     }(),
                     SizedBox(
@@ -105,10 +111,22 @@ class CardTask extends StatelessWidget {
                     ),
                     Row(
                       children: [
-                        // Text(
-                        //   "task.status.${task.status.name}".tr(),
-                        //   style: Theme.of(context).textTheme.bodySmall,
-                        // ),
+                        /// task status
+                        Container(
+                          padding: EdgeInsets.symmetric(
+                              horizontal: 8.r, vertical: 2.r),
+                          decoration: BoxDecoration(
+                            color: task.status.color,
+                            borderRadius: BorderRadius.circular(10.r),
+                          ),
+                          child: Text(
+                            "task.status.${task.status.name}".tr(),
+                            style:
+                                Theme.of(context).textTheme.bodySmall!.copyWith(
+                                      color: Colors.white,
+                                    ),
+                          ),
+                        ),
                         const Spacer(),
                         DurationTime(duration: task.elapsedTime),
                       ],

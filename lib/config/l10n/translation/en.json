@@ -57,10 +57,14 @@
         "pause": "Pause",
         "start": "Start",
         "status": {
-            "none": "Just Created",
-            "inprogress": "Working...",
+            "created": "Created",
+            "inprogress": "Working on it",
             "paused": "Paused",
             "done": "Completed"
+        },
+        "filter": {
+            "all": "All",
+            "apply": "Apply"
         }
     },
     "setting": {
@@ -110,6 +114,9 @@
             "email_backup": "Your tasks backed up at",
             "welcome": "Hello, {name} 👋"
         }
+    },
+    "search":{
+        "hint": "Search"
     },
     "auth": {
         "cr_account": "Create Account",
