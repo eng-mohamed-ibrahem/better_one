@@ -37,6 +37,7 @@ class SearchSettingScreen extends StatelessWidget {
               ),
               children: [
                 CheckboxListTile(
+                  enabled: false,
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(15.r),
                   ),

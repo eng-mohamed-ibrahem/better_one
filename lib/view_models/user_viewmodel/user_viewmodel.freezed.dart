@@ -23,7 +23,8 @@ mixin _$UserViewmodelState {
     required TResult Function() logoutSuccess,
     required TResult Function(String message) logoutFailed,
     required TResult Function() getUserDetailsLoading,
-    required TResult Function(UserModel? user) getUserDetailsSuccess,
+    required TResult Function(UserModel user) getUserDetailsSuccess,
+    required TResult Function(String message) noUserFound,
     required TResult Function(String message) getUserDetailsFailed,
   }) =>
       throw _privateConstructorUsedError;
@@ -34,7 +35,8 @@ mixin _$UserViewmodelState {
     TResult? Function()? logoutSuccess,
     TResult? Function(String message)? logoutFailed,
     TResult? Function()? getUserDetailsLoading,
-    TResult? Function(UserModel? user)? getUserDetailsSuccess,
+    TResult? Function(UserModel user)? getUserDetailsSuccess,
+    TResult? Function(String message)? noUserFound,
     TResult? Function(String message)? getUserDetailsFailed,
   }) =>
       throw _privateConstructorUsedError;
@@ -45,7 +47,8 @@ mixin _$UserViewmodelState {
     TResult Function()? logoutSuccess,
     TResult Function(String message)? logoutFailed,
     TResult Function()? getUserDetailsLoading,
-    TResult Function(UserModel? user)? getUserDetailsSuccess,
+    TResult Function(UserModel user)? getUserDetailsSuccess,
+    TResult Function(String message)? noUserFound,
     TResult Function(String message)? getUserDetailsFailed,
     required TResult orElse(),
   }) =>
@@ -60,6 +63,7 @@ mixin _$UserViewmodelState {
         getUserDetailsLoading,
     required TResult Function(_GetUserDetailsSuccess value)
         getUserDetailsSuccess,
+    required TResult Function(_NoUserFound value) noUserFound,
     required TResult Function(_GetUserDetailsFailed value) getUserDetailsFailed,
   }) =>
       throw _privateConstructorUsedError;
@@ -71,6 +75,7 @@ mixin _$UserViewmodelState {
     TResult? Function(_LogoutFailed value)? logoutFailed,
     TResult? Function(_GetUserDetailsLoading value)? getUserDetailsLoading,
     TResult? Function(_GetUserDetailsSuccess value)? getUserDetailsSuccess,
+    TResult? Function(_NoUserFound value)? noUserFound,
     TResult? Function(_GetUserDetailsFailed value)? getUserDetailsFailed,
   }) =>
       throw _privateConstructorUsedError;
@@ -82,6 +87,7 @@ mixin _$UserViewmodelState {
     TResult Function(_LogoutFailed value)? logoutFailed,
     TResult Function(_GetUserDetailsLoading value)? getUserDetailsLoading,
     TResult Function(_GetUserDetailsSuccess value)? getUserDetailsSuccess,
+    TResult Function(_NoUserFound value)? noUserFound,
     TResult Function(_GetUserDetailsFailed value)? getUserDetailsFailed,
     required TResult orElse(),
   }) =>
@@ -155,7 +161,8 @@ class _$InitialImpl implements _Initial {
     required TResult Function() logoutSuccess,
     required TResult Function(String message) logoutFailed,
     required TResult Function() getUserDetailsLoading,
-    required TResult Function(UserModel? user) getUserDetailsSuccess,
+    required TResult Function(UserModel user) getUserDetailsSuccess,
+    required TResult Function(String message) noUserFound,
     required TResult Function(String message) getUserDetailsFailed,
   }) {
     return initial();
@@ -169,7 +176,8 @@ class _$InitialImpl implements _Initial {
     TResult? Function()? logoutSuccess,
     TResult? Function(String message)? logoutFailed,
     TResult? Function()? getUserDetailsLoading,
-    TResult? Function(UserModel? user)? getUserDetailsSuccess,
+    TResult? Function(UserModel user)? getUserDetailsSuccess,
+    TResult? Function(String message)? noUserFound,
     TResult? Function(String message)? getUserDetailsFailed,
   }) {
     return initial?.call();
@@ -183,7 +191,8 @@ class _$InitialImpl implements _Initial {
     TResult Function()? logoutSuccess,
     TResult Function(String message)? logoutFailed,
     TResult Function()? getUserDetailsLoading,
-    TResult Function(UserModel? user)? getUserDetailsSuccess,
+    TResult Function(UserModel user)? getUserDetailsSuccess,
+    TResult Function(String message)? noUserFound,
     TResult Function(String message)? getUserDetailsFailed,
     required TResult orElse(),
   }) {
@@ -204,6 +213,7 @@ class _$InitialImpl implements _Initial {
         getUserDetailsLoading,
     required TResult Function(_GetUserDetailsSuccess value)
         getUserDetailsSuccess,
+    required TResult Function(_NoUserFound value) noUserFound,
     required TResult Function(_GetUserDetailsFailed value) getUserDetailsFailed,
   }) {
     return initial(this);
@@ -218,6 +228,7 @@ class _$InitialImpl implements _Initial {
     TResult? Function(_LogoutFailed value)? logoutFailed,
     TResult? Function(_GetUserDetailsLoading value)? getUserDetailsLoading,
     TResult? Function(_GetUserDetailsSuccess value)? getUserDetailsSuccess,
+    TResult? Function(_NoUserFound value)? noUserFound,
     TResult? Function(_GetUserDetailsFailed value)? getUserDetailsFailed,
   }) {
     return initial?.call(this);
@@ -232,6 +243,7 @@ class _$InitialImpl implements _Initial {
     TResult Function(_LogoutFailed value)? logoutFailed,
     TResult Function(_GetUserDetailsLoading value)? getUserDetailsLoading,
     TResult Function(_GetUserDetailsSuccess value)? getUserDetailsSuccess,
+    TResult Function(_NoUserFound value)? noUserFound,
     TResult Function(_GetUserDetailsFailed value)? getUserDetailsFailed,
     required TResult orElse(),
   }) {
@@ -292,7 +304,8 @@ class _$LogoutLoadingImpl implements _LogoutLoading {
     required TResult Function() logoutSuccess,
     required TResult Function(String message) logoutFailed,
     required TResult Function() getUserDetailsLoading,
-    required TResult Function(UserModel? user) getUserDetailsSuccess,
+    required TResult Function(UserModel user) getUserDetailsSuccess,
+    required TResult Function(String message) noUserFound,
     required TResult Function(String message) getUserDetailsFailed,
   }) {
     return logoutLoading();
@@ -306,7 +319,8 @@ class _$LogoutLoadingImpl implements _LogoutLoading {
     TResult? Function()? logoutSuccess,
     TResult? Function(String message)? logoutFailed,
     TResult? Function()? getUserDetailsLoading,
-    TResult? Function(UserModel? user)? getUserDetailsSuccess,
+    TResult? Function(UserModel user)? getUserDetailsSuccess,
+    TResult? Function(String message)? noUserFound,
     TResult? Function(String message)? getUserDetailsFailed,
   }) {
     return logoutLoading?.call();
@@ -320,7 +334,8 @@ class _$LogoutLoadingImpl implements _LogoutLoading {
     TResult Function()? logoutSuccess,
     TResult Function(String message)? logoutFailed,
     TResult Function()? getUserDetailsLoading,
-    TResult Function(UserModel? user)? getUserDetailsSuccess,
+    TResult Function(UserModel user)? getUserDetailsSuccess,
+    TResult Function(String message)? noUserFound,
     TResult Function(String message)? getUserDetailsFailed,
     required TResult orElse(),
   }) {
@@ -341,6 +356,7 @@ class _$LogoutLoadingImpl implements _LogoutLoading {
         getUserDetailsLoading,
     required TResult Function(_GetUserDetailsSuccess value)
         getUserDetailsSuccess,
+    required TResult Function(_NoUserFound value) noUserFound,
     required TResult Function(_GetUserDetailsFailed value) getUserDetailsFailed,
   }) {
     return logoutLoading(this);
@@ -355,6 +371,7 @@ class _$LogoutLoadingImpl implements _LogoutLoading {
     TResult? Function(_LogoutFailed value)? logoutFailed,
     TResult? Function(_GetUserDetailsLoading value)? getUserDetailsLoading,
     TResult? Function(_GetUserDetailsSuccess value)? getUserDetailsSuccess,
+    TResult? Function(_NoUserFound value)? noUserFound,
     TResult? Function(_GetUserDetailsFailed value)? getUserDetailsFailed,
   }) {
     return logoutLoading?.call(this);
@@ -369,6 +386,7 @@ class _$LogoutLoadingImpl implements _LogoutLoading {
     TResult Function(_LogoutFailed value)? logoutFailed,
     TResult Function(_GetUserDetailsLoading value)? getUserDetailsLoading,
     TResult Function(_GetUserDetailsSuccess value)? getUserDetailsSuccess,
+    TResult Function(_NoUserFound value)? noUserFound,
     TResult Function(_GetUserDetailsFailed value)? getUserDetailsFailed,
     required TResult orElse(),
   }) {
@@ -429,7 +447,8 @@ class _$LogoutSuccessImpl implements _LogoutSuccess {
     required TResult Function() logoutSuccess,
     required TResult Function(String message) logoutFailed,
     required TResult Function() getUserDetailsLoading,
-    required TResult Function(UserModel? user) getUserDetailsSuccess,
+    required TResult Function(UserModel user) getUserDetailsSuccess,
+    required TResult Function(String message) noUserFound,
     required TResult Function(String message) getUserDetailsFailed,
   }) {
     return logoutSuccess();
@@ -443,7 +462,8 @@ class _$LogoutSuccessImpl implements _LogoutSuccess {
     TResult? Function()? logoutSuccess,
     TResult? Function(String message)? logoutFailed,
     TResult? Function()? getUserDetailsLoading,
-    TResult? Function(UserModel? user)? getUserDetailsSuccess,
+    TResult? Function(UserModel user)? getUserDetailsSuccess,
+    TResult? Function(String message)? noUserFound,
     TResult? Function(String message)? getUserDetailsFailed,
   }) {
     return logoutSuccess?.call();
@@ -457,7 +477,8 @@ class _$LogoutSuccessImpl implements _LogoutSuccess {
     TResult Function()? logoutSuccess,
     TResult Function(String message)? logoutFailed,
     TResult Function()? getUserDetailsLoading,
-    TResult Function(UserModel? user)? getUserDetailsSuccess,
+    TResult Function(UserModel user)? getUserDetailsSuccess,
+    TResult Function(String message)? noUserFound,
     TResult Function(String message)? getUserDetailsFailed,
     required TResult orElse(),
   }) {
@@ -478,6 +499,7 @@ class _$LogoutSuccessImpl implements _LogoutSuccess {
         getUserDetailsLoading,
     required TResult Function(_GetUserDetailsSuccess value)
         getUserDetailsSuccess,
+    required TResult Function(_NoUserFound value) noUserFound,
     required TResult Function(_GetUserDetailsFailed value) getUserDetailsFailed,
   }) {
     return logoutSuccess(this);
@@ -492,6 +514,7 @@ class _$LogoutSuccessImpl implements _LogoutSuccess {
     TResult? Function(_LogoutFailed value)? logoutFailed,
     TResult? Function(_GetUserDetailsLoading value)? getUserDetailsLoading,
     TResult? Function(_GetUserDetailsSuccess value)? getUserDetailsSuccess,
+    TResult? Function(_NoUserFound value)? noUserFound,
     TResult? Function(_GetUserDetailsFailed value)? getUserDetailsFailed,
   }) {
     return logoutSuccess?.call(this);
@@ -506,6 +529,7 @@ class _$LogoutSuccessImpl implements _LogoutSuccess {
     TResult Function(_LogoutFailed value)? logoutFailed,
     TResult Function(_GetUserDetailsLoading value)? getUserDetailsLoading,
     TResult Function(_GetUserDetailsSuccess value)? getUserDetailsSuccess,
+    TResult Function(_NoUserFound value)? noUserFound,
     TResult Function(_GetUserDetailsFailed value)? getUserDetailsFailed,
     required TResult orElse(),
   }) {
@@ -593,7 +617,8 @@ class _$LogoutFailedImpl implements _LogoutFailed {
     required TResult Function() logoutSuccess,
     required TResult Function(String message) logoutFailed,
     required TResult Function() getUserDetailsLoading,
-    required TResult Function(UserModel? user) getUserDetailsSuccess,
+    required TResult Function(UserModel user) getUserDetailsSuccess,
+    required TResult Function(String message) noUserFound,
     required TResult Function(String message) getUserDetailsFailed,
   }) {
     return logoutFailed(message);
@@ -607,7 +632,8 @@ class _$LogoutFailedImpl implements _LogoutFailed {
     TResult? Function()? logoutSuccess,
     TResult? Function(String message)? logoutFailed,
     TResult? Function()? getUserDetailsLoading,
-    TResult? Function(UserModel? user)? getUserDetailsSuccess,
+    TResult? Function(UserModel user)? getUserDetailsSuccess,
+    TResult? Function(String message)? noUserFound,
     TResult? Function(String message)? getUserDetailsFailed,
   }) {
     return logoutFailed?.call(message);
@@ -621,7 +647,8 @@ class _$LogoutFailedImpl implements _LogoutFailed {
     TResult Function()? logoutSuccess,
     TResult Function(String message)? logoutFailed,
     TResult Function()? getUserDetailsLoading,
-    TResult Function(UserModel? user)? getUserDetailsSuccess,
+    TResult Function(UserModel user)? getUserDetailsSuccess,
+    TResult Function(String message)? noUserFound,
     TResult Function(String message)? getUserDetailsFailed,
     required TResult orElse(),
   }) {
@@ -642,6 +669,7 @@ class _$LogoutFailedImpl implements _LogoutFailed {
         getUserDetailsLoading,
     required TResult Function(_GetUserDetailsSuccess value)
         getUserDetailsSuccess,
+    required TResult Function(_NoUserFound value) noUserFound,
     required TResult Function(_GetUserDetailsFailed value) getUserDetailsFailed,
   }) {
     return logoutFailed(this);
@@ -656,6 +684,7 @@ class _$LogoutFailedImpl implements _LogoutFailed {
     TResult? Function(_LogoutFailed value)? logoutFailed,
     TResult? Function(_GetUserDetailsLoading value)? getUserDetailsLoading,
     TResult? Function(_GetUserDetailsSuccess value)? getUserDetailsSuccess,
+    TResult? Function(_NoUserFound value)? noUserFound,
     TResult? Function(_GetUserDetailsFailed value)? getUserDetailsFailed,
   }) {
     return logoutFailed?.call(this);
@@ -670,6 +699,7 @@ class _$LogoutFailedImpl implements _LogoutFailed {
     TResult Function(_LogoutFailed value)? logoutFailed,
     TResult Function(_GetUserDetailsLoading value)? getUserDetailsLoading,
     TResult Function(_GetUserDetailsSuccess value)? getUserDetailsSuccess,
+    TResult Function(_NoUserFound value)? noUserFound,
     TResult Function(_GetUserDetailsFailed value)? getUserDetailsFailed,
     required TResult orElse(),
   }) {
@@ -741,7 +771,8 @@ class _$GetUserDetailsLoadingImpl implements _GetUserDetailsLoading {
     required TResult Function() logoutSuccess,
     required TResult Function(String message) logoutFailed,
     required TResult Function() getUserDetailsLoading,
-    required TResult Function(UserModel? user) getUserDetailsSuccess,
+    required TResult Function(UserModel user) getUserDetailsSuccess,
+    required TResult Function(String message) noUserFound,
     required TResult Function(String message) getUserDetailsFailed,
   }) {
     return getUserDetailsLoading();
@@ -755,7 +786,8 @@ class _$GetUserDetailsLoadingImpl implements _GetUserDetailsLoading {
     TResult? Function()? logoutSuccess,
     TResult? Function(String message)? logoutFailed,
     TResult? Function()? getUserDetailsLoading,
-    TResult? Function(UserModel? user)? getUserDetailsSuccess,
+    TResult? Function(UserModel user)? getUserDetailsSuccess,
+    TResult? Function(String message)? noUserFound,
     TResult? Function(String message)? getUserDetailsFailed,
   }) {
     return getUserDetailsLoading?.call();
@@ -769,7 +801,8 @@ class _$GetUserDetailsLoadingImpl implements _GetUserDetailsLoading {
     TResult Function()? logoutSuccess,
     TResult Function(String message)? logoutFailed,
     TResult Function()? getUserDetailsLoading,
-    TResult Function(UserModel? user)? getUserDetailsSuccess,
+    TResult Function(UserModel user)? getUserDetailsSuccess,
+    TResult Function(String message)? noUserFound,
     TResult Function(String message)? getUserDetailsFailed,
     required TResult orElse(),
   }) {
@@ -790,6 +823,7 @@ class _$GetUserDetailsLoadingImpl implements _GetUserDetailsLoading {
         getUserDetailsLoading,
     required TResult Function(_GetUserDetailsSuccess value)
         getUserDetailsSuccess,
+    required TResult Function(_NoUserFound value) noUserFound,
     required TResult Function(_GetUserDetailsFailed value) getUserDetailsFailed,
   }) {
     return getUserDetailsLoading(this);
@@ -804,6 +838,7 @@ class _$GetUserDetailsLoadingImpl implements _GetUserDetailsLoading {
     TResult? Function(_LogoutFailed value)? logoutFailed,
     TResult? Function(_GetUserDetailsLoading value)? getUserDetailsLoading,
     TResult? Function(_GetUserDetailsSuccess value)? getUserDetailsSuccess,
+    TResult? Function(_NoUserFound value)? noUserFound,
     TResult? Function(_GetUserDetailsFailed value)? getUserDetailsFailed,
   }) {
     return getUserDetailsLoading?.call(this);
@@ -818,6 +853,7 @@ class _$GetUserDetailsLoadingImpl implements _GetUserDetailsLoading {
     TResult Function(_LogoutFailed value)? logoutFailed,
     TResult Function(_GetUserDetailsLoading value)? getUserDetailsLoading,
     TResult Function(_GetUserDetailsSuccess value)? getUserDetailsSuccess,
+    TResult Function(_NoUserFound value)? noUserFound,
     TResult Function(_GetUserDetailsFailed value)? getUserDetailsFailed,
     required TResult orElse(),
   }) {
@@ -839,9 +875,9 @@ abstract class _$$GetUserDetailsSuccessImplCopyWith<$Res> {
           $Res Function(_$GetUserDetailsSuccessImpl) then) =
       __$$GetUserDetailsSuccessImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({UserModel? user});
+  $Res call({UserModel user});
 
-  $UserModelCopyWith<$Res>? get user;
+  $UserModelCopyWith<$Res> get user;
 }
 
 /// @nodoc
@@ -857,13 +893,13 @@ class __$$GetUserDetailsSuccessImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? user = freezed,
+    Object? user = null,
   }) {
     return _then(_$GetUserDetailsSuccessImpl(
-      user: freezed == user
+      user: null == user
           ? _value.user
           : user // ignore: cast_nullable_to_non_nullable
-              as UserModel?,
+              as UserModel,
     ));
   }
 
@@ -871,12 +907,8 @@ class __$$GetUserDetailsSuccessImplCopyWithImpl<$Res>
   /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
-  $UserModelCopyWith<$Res>? get user {
-    if (_value.user == null) {
-      return null;
-    }
-
-    return $UserModelCopyWith<$Res>(_value.user!, (value) {
+  $UserModelCopyWith<$Res> get user {
+    return $UserModelCopyWith<$Res>(_value.user, (value) {
       return _then(_value.copyWith(user: value));
     });
   }
@@ -888,7 +920,7 @@ class _$GetUserDetailsSuccessImpl implements _GetUserDetailsSuccess {
   const _$GetUserDetailsSuccessImpl({required this.user});
 
   @override
-  final UserModel? user;
+  final UserModel user;
 
   @override
   String toString() {
@@ -923,7 +955,8 @@ class _$GetUserDetailsSuccessImpl implements _GetUserDetailsSuccess {
     required TResult Function() logoutSuccess,
     required TResult Function(String message) logoutFailed,
     required TResult Function() getUserDetailsLoading,
-    required TResult Function(UserModel? user) getUserDetailsSuccess,
+    required TResult Function(UserModel user) getUserDetailsSuccess,
+    required TResult Function(String message) noUserFound,
     required TResult Function(String message) getUserDetailsFailed,
   }) {
     return getUserDetailsSuccess(user);
@@ -937,7 +970,8 @@ class _$GetUserDetailsSuccessImpl implements _GetUserDetailsSuccess {
     TResult? Function()? logoutSuccess,
     TResult? Function(String message)? logoutFailed,
     TResult? Function()? getUserDetailsLoading,
-    TResult? Function(UserModel? user)? getUserDetailsSuccess,
+    TResult? Function(UserModel user)? getUserDetailsSuccess,
+    TResult? Function(String message)? noUserFound,
     TResult? Function(String message)? getUserDetailsFailed,
   }) {
     return getUserDetailsSuccess?.call(user);
@@ -951,7 +985,8 @@ class _$GetUserDetailsSuccessImpl implements _GetUserDetailsSuccess {
     TResult Function()? logoutSuccess,
     TResult Function(String message)? logoutFailed,
     TResult Function()? getUserDetailsLoading,
-    TResult Function(UserModel? user)? getUserDetailsSuccess,
+    TResult Function(UserModel user)? getUserDetailsSuccess,
+    TResult Function(String message)? noUserFound,
     TResult Function(String message)? getUserDetailsFailed,
     required TResult orElse(),
   }) {
@@ -972,6 +1007,7 @@ class _$GetUserDetailsSuccessImpl implements _GetUserDetailsSuccess {
         getUserDetailsLoading,
     required TResult Function(_GetUserDetailsSuccess value)
         getUserDetailsSuccess,
+    required TResult Function(_NoUserFound value) noUserFound,
     required TResult Function(_GetUserDetailsFailed value) getUserDetailsFailed,
   }) {
     return getUserDetailsSuccess(this);
@@ -986,6 +1022,7 @@ class _$GetUserDetailsSuccessImpl implements _GetUserDetailsSuccess {
     TResult? Function(_LogoutFailed value)? logoutFailed,
     TResult? Function(_GetUserDetailsLoading value)? getUserDetailsLoading,
     TResult? Function(_GetUserDetailsSuccess value)? getUserDetailsSuccess,
+    TResult? Function(_NoUserFound value)? noUserFound,
     TResult? Function(_GetUserDetailsFailed value)? getUserDetailsFailed,
   }) {
     return getUserDetailsSuccess?.call(this);
@@ -1000,6 +1037,7 @@ class _$GetUserDetailsSuccessImpl implements _GetUserDetailsSuccess {
     TResult Function(_LogoutFailed value)? logoutFailed,
     TResult Function(_GetUserDetailsLoading value)? getUserDetailsLoading,
     TResult Function(_GetUserDetailsSuccess value)? getUserDetailsSuccess,
+    TResult Function(_NoUserFound value)? noUserFound,
     TResult Function(_GetUserDetailsFailed value)? getUserDetailsFailed,
     required TResult orElse(),
   }) {
@@ -1011,16 +1049,195 @@ class _$GetUserDetailsSuccessImpl implements _GetUserDetailsSuccess {
 }
 
 abstract class _GetUserDetailsSuccess implements UserViewmodelState {
-  const factory _GetUserDetailsSuccess({required final UserModel? user}) =
+  const factory _GetUserDetailsSuccess({required final UserModel user}) =
       _$GetUserDetailsSuccessImpl;
 
-  UserModel? get user;
+  UserModel get user;
 
   /// Create a copy of UserViewmodelState
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
   _$$GetUserDetailsSuccessImplCopyWith<_$GetUserDetailsSuccessImpl>
       get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$NoUserFoundImplCopyWith<$Res> {
+  factory _$$NoUserFoundImplCopyWith(
+          _$NoUserFoundImpl value, $Res Function(_$NoUserFoundImpl) then) =
+      __$$NoUserFoundImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String message});
+}
+
+/// @nodoc
+class __$$NoUserFoundImplCopyWithImpl<$Res>
+    extends _$UserViewmodelStateCopyWithImpl<$Res, _$NoUserFoundImpl>
+    implements _$$NoUserFoundImplCopyWith<$Res> {
+  __$$NoUserFoundImplCopyWithImpl(
+      _$NoUserFoundImpl _value, $Res Function(_$NoUserFoundImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of UserViewmodelState
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? message = null,
+  }) {
+    return _then(_$NoUserFoundImpl(
+      message: null == message
+          ? _value.message
+          : message // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$NoUserFoundImpl implements _NoUserFound {
+  const _$NoUserFoundImpl({required this.message});
+
+  @override
+  final String message;
+
+  @override
+  String toString() {
+    return 'UserViewmodelState.noUserFound(message: $message)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$NoUserFoundImpl &&
+            (identical(other.message, message) || other.message == message));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, message);
+
+  /// Create a copy of UserViewmodelState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$NoUserFoundImplCopyWith<_$NoUserFoundImpl> get copyWith =>
+      __$$NoUserFoundImplCopyWithImpl<_$NoUserFoundImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() logoutLoading,
+    required TResult Function() logoutSuccess,
+    required TResult Function(String message) logoutFailed,
+    required TResult Function() getUserDetailsLoading,
+    required TResult Function(UserModel user) getUserDetailsSuccess,
+    required TResult Function(String message) noUserFound,
+    required TResult Function(String message) getUserDetailsFailed,
+  }) {
+    return noUserFound(message);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? logoutLoading,
+    TResult? Function()? logoutSuccess,
+    TResult? Function(String message)? logoutFailed,
+    TResult? Function()? getUserDetailsLoading,
+    TResult? Function(UserModel user)? getUserDetailsSuccess,
+    TResult? Function(String message)? noUserFound,
+    TResult? Function(String message)? getUserDetailsFailed,
+  }) {
+    return noUserFound?.call(message);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? logoutLoading,
+    TResult Function()? logoutSuccess,
+    TResult Function(String message)? logoutFailed,
+    TResult Function()? getUserDetailsLoading,
+    TResult Function(UserModel user)? getUserDetailsSuccess,
+    TResult Function(String message)? noUserFound,
+    TResult Function(String message)? getUserDetailsFailed,
+    required TResult orElse(),
+  }) {
+    if (noUserFound != null) {
+      return noUserFound(message);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(_LogoutLoading value) logoutLoading,
+    required TResult Function(_LogoutSuccess value) logoutSuccess,
+    required TResult Function(_LogoutFailed value) logoutFailed,
+    required TResult Function(_GetUserDetailsLoading value)
+        getUserDetailsLoading,
+    required TResult Function(_GetUserDetailsSuccess value)
+        getUserDetailsSuccess,
+    required TResult Function(_NoUserFound value) noUserFound,
+    required TResult Function(_GetUserDetailsFailed value) getUserDetailsFailed,
+  }) {
+    return noUserFound(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_LogoutLoading value)? logoutLoading,
+    TResult? Function(_LogoutSuccess value)? logoutSuccess,
+    TResult? Function(_LogoutFailed value)? logoutFailed,
+    TResult? Function(_GetUserDetailsLoading value)? getUserDetailsLoading,
+    TResult? Function(_GetUserDetailsSuccess value)? getUserDetailsSuccess,
+    TResult? Function(_NoUserFound value)? noUserFound,
+    TResult? Function(_GetUserDetailsFailed value)? getUserDetailsFailed,
+  }) {
+    return noUserFound?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_LogoutLoading value)? logoutLoading,
+    TResult Function(_LogoutSuccess value)? logoutSuccess,
+    TResult Function(_LogoutFailed value)? logoutFailed,
+    TResult Function(_GetUserDetailsLoading value)? getUserDetailsLoading,
+    TResult Function(_GetUserDetailsSuccess value)? getUserDetailsSuccess,
+    TResult Function(_NoUserFound value)? noUserFound,
+    TResult Function(_GetUserDetailsFailed value)? getUserDetailsFailed,
+    required TResult orElse(),
+  }) {
+    if (noUserFound != null) {
+      return noUserFound(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _NoUserFound implements UserViewmodelState {
+  const factory _NoUserFound({required final String message}) =
+      _$NoUserFoundImpl;
+
+  String get message;
+
+  /// Create a copy of UserViewmodelState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$NoUserFoundImplCopyWith<_$NoUserFoundImpl> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -1098,7 +1315,8 @@ class _$GetUserDetailsFailedImpl implements _GetUserDetailsFailed {
     required TResult Function() logoutSuccess,
     required TResult Function(String message) logoutFailed,
     required TResult Function() getUserDetailsLoading,
-    required TResult Function(UserModel? user) getUserDetailsSuccess,
+    required TResult Function(UserModel user) getUserDetailsSuccess,
+    required TResult Function(String message) noUserFound,
     required TResult Function(String message) getUserDetailsFailed,
   }) {
     return getUserDetailsFailed(message);
@@ -1112,7 +1330,8 @@ class _$GetUserDetailsFailedImpl implements _GetUserDetailsFailed {
     TResult? Function()? logoutSuccess,
     TResult? Function(String message)? logoutFailed,
     TResult? Function()? getUserDetailsLoading,
-    TResult? Function(UserModel? user)? getUserDetailsSuccess,
+    TResult? Function(UserModel user)? getUserDetailsSuccess,
+    TResult? Function(String message)? noUserFound,
     TResult? Function(String message)? getUserDetailsFailed,
   }) {
     return getUserDetailsFailed?.call(message);
@@ -1126,7 +1345,8 @@ class _$GetUserDetailsFailedImpl implements _GetUserDetailsFailed {
     TResult Function()? logoutSuccess,
     TResult Function(String message)? logoutFailed,
     TResult Function()? getUserDetailsLoading,
-    TResult Function(UserModel? user)? getUserDetailsSuccess,
+    TResult Function(UserModel user)? getUserDetailsSuccess,
+    TResult Function(String message)? noUserFound,
     TResult Function(String message)? getUserDetailsFailed,
     required TResult orElse(),
   }) {
@@ -1147,6 +1367,7 @@ class _$GetUserDetailsFailedImpl implements _GetUserDetailsFailed {
         getUserDetailsLoading,
     required TResult Function(_GetUserDetailsSuccess value)
         getUserDetailsSuccess,
+    required TResult Function(_NoUserFound value) noUserFound,
     required TResult Function(_GetUserDetailsFailed value) getUserDetailsFailed,
   }) {
     return getUserDetailsFailed(this);
@@ -1161,6 +1382,7 @@ class _$GetUserDetailsFailedImpl implements _GetUserDetailsFailed {
     TResult? Function(_LogoutFailed value)? logoutFailed,
     TResult? Function(_GetUserDetailsLoading value)? getUserDetailsLoading,
     TResult? Function(_GetUserDetailsSuccess value)? getUserDetailsSuccess,
+    TResult? Function(_NoUserFound value)? noUserFound,
     TResult? Function(_GetUserDetailsFailed value)? getUserDetailsFailed,
   }) {
     return getUserDetailsFailed?.call(this);
@@ -1175,6 +1397,7 @@ class _$GetUserDetailsFailedImpl implements _GetUserDetailsFailed {
     TResult Function(_LogoutFailed value)? logoutFailed,
     TResult Function(_GetUserDetailsLoading value)? getUserDetailsLoading,
     TResult Function(_GetUserDetailsSuccess value)? getUserDetailsSuccess,
+    TResult Function(_NoUserFound value)? noUserFound,
     TResult Function(_GetUserDetailsFailed value)? getUserDetailsFailed,
     required TResult orElse(),
   }) {

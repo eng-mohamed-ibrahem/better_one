@@ -20,7 +20,7 @@ class UserRepoImpl implements UserRepoInterface {
   /// [getUserDetails] to get user details
   ///
   @override
-  Future<ResultHandler<UserModel?, Failure>> getUserDetails() async {
+  Future<ResultHandler<UserModel, Failure>> getUserDetails() async {
     var connected = await NetworkConnection.isConnected();
     if (connected) {
       return await remoteUserSource.getUserDetails();
@@ -46,7 +46,7 @@ class UserRepoImpl implements UserRepoInterface {
   /// [updateUserDetails] to update user details
   /// only if user is connected
   @override
-  Future<ResultHandler<UserModel?, Failure>> updateUserDetails(
+  Future<ResultHandler<UserModel, Failure>> updateUserDetails(
       {String? newEmail, String? newPassword, String? newDisplayName}) async {
     var connected = await NetworkConnection.isConnected();
     if (connected) {

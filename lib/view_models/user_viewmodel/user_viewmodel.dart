@@ -11,7 +11,7 @@ part 'user_viewmodel_state.dart';
 class UserViewmodel extends Cubit<UserViewmodelState> {
   UserViewmodel({required this.userRepo}) : super(const _Initial());
   final UserRepoInterface userRepo;
-  UserModel? user;
+  late UserModel currentUser;
   void logout() async {
     emit(const _LogoutLoading());
     var result = await userRepo.logOut();
@@ -36,10 +36,16 @@ class UserViewmodel extends Cubit<UserViewmodelState> {
     userData.when(
       success: (user) {
         emit(
-          _GetUserDetailsSuccess(user: this.user = user),
+          _GetUserDetailsSuccess(user: currentUser = user),
         );
       },
       failure: (failure) {
+        if (failure is FirebaseFailure) {
+          if (failure.code == "no_user") {
+            emit(_NoUserFound(message: "auth.${failure.code}".tr()));
+            return;
+          }
+        }
         emit(
           _GetUserDetailsFailed(
             message:

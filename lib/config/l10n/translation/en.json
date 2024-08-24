@@ -115,7 +115,7 @@
             "welcome": "Hello, {name} 👋"
         }
     },
-    "search":{
+    "search": {
         "hint": "Search",
         "empty": "No tasks found",
         "init": "Search for tasks by title, or subtask"
@@ -143,7 +143,8 @@
         "login_succ": "Login Successfully",
         "logout_succ": "Logout Successfully",
         "logout": "Logout",
-        "logout_msg": "Are you sure you want to logout?"
+        "logout_msg": "Are you sure you want to logout?",
+        "no_user": "No logged user found, please login"
     },
     "time": {
         "hour": "hour",
