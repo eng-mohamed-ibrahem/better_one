@@ -1,6 +1,7 @@
 import 'package:better_one/config/navigation/routes_enum.dart';
 import 'package:better_one/core/utils/dependency_locator/dependency_injection.dart';
 import 'package:better_one/core/utils/dependency_locator/inject.dart';
+import 'package:better_one/core/utils/methods/methods.dart';
 import 'package:better_one/data_source/auth_data_source/firebase_auth_impl.dart';
 import 'package:better_one/repositories/auth_repo/auth_repo_impl.dart';
 import 'package:better_one/view/pages/pages.dart';
@@ -178,6 +179,9 @@ class AppNavigation {
                   );
                 },
                 redirect: (context, state) {
+                  kDebugPrint('------------------------------------');
+                  kDebugPrint(state.topRoute!.path);
+                  kDebugPrint('------------------------------------');
                   return state.topRoute!.path.contains(Routes.profile.path)
                       ? userLocaleDatabase.getUserIdFromLocale() != null
                           ? null
@@ -199,6 +203,9 @@ class AppNavigation {
                   GoRoute(
                     path: Routes.signup.path,
                     name: Routes.signup.name,
+                    redirect: (context, state) {
+                      return null;
+                    },
                     builder: (context, state) {
                       activeRoute = Routes.signup.path;
                       return BlocProvider.value(

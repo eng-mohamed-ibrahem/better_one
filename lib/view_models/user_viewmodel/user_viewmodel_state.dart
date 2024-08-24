@@ -15,7 +15,10 @@ class UserViewmodelState with _$UserViewmodelState {
       _GetUserDetailsLoading;
 
   const factory UserViewmodelState.getUserDetailsSuccess(
-      {required UserModel? user}) = _GetUserDetailsSuccess;
+      {required UserModel user}) = _GetUserDetailsSuccess;
+
+  const factory UserViewmodelState.noUserFound({required String message}) =
+      _NoUserFound;
 
   const factory UserViewmodelState.getUserDetailsFailed(
       {required String message}) = _GetUserDetailsFailed;

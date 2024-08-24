@@ -59,11 +59,12 @@ class FirebaseRemoteUserSource implements RemoteUserSource {
   }
 
   @override
-  Future<ResultHandler<UserModel?, Failure>> getUserDetails() async {
+  Future<ResultHandler<UserModel, Failure>> getUserDetails() async {
     try {
       var user = FirebaseAuth.instance.currentUser;
       if (user == null) {
-        return const ResultHandler.success(data: null);
+        return ResultHandler.failure(
+            error: FirebaseFailure(code: "no_user", message: "No user found"));
       }
       UserModel userModel = UserModel(
         id: user.uid,
@@ -153,7 +154,7 @@ class FirebaseRemoteUserSource implements RemoteUserSource {
   }
 
   @override
-  Future<ResultHandler<UserModel?, Failure>> updateUserDetails(
+  Future<ResultHandler<UserModel, Failure>> updateUserDetails(
       {String? newEmail, String? newPassword, String? newDisplayName}) {
     throw UnimplementedError();
   }

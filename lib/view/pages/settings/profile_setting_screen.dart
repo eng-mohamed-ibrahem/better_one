@@ -37,18 +37,15 @@ class _ProfileSettingScreenState extends State<ProfileSettingScreen> {
     return BlocConsumer<UserViewmodel, UserViewmodelState>(
       listener: (context, state) {
         state.whenOrNull(
-          getUserDetailsSuccess: (user) {
-            if (user == null) {
-              showSnackBar(context, message: 'core.ex_session'.tr());
-              userLocaleDatabase.deleteUser();
-              context.goNamed(Routes.login.name);
-            }
+          noUserFound: (message) {
+            showSnackBar(context, message: message);
+            userLocaleDatabase.deleteUser();
+            context.goNamed(Routes.login.name);
           },
           logoutLoading: () {
             showLoadingDialog(context);
           },
           logoutSuccess: () {
-            context.pop();
             userLocaleDatabase.deleteUser();
             context.goNamed(Routes.login.name);
           },
@@ -57,8 +54,8 @@ class _ProfileSettingScreenState extends State<ProfileSettingScreen> {
       builder: (context, state) {
         return state.maybeWhen(
           getUserDetailsFailed: (message) {
-            return Scaffold(
-              body: Center(
+            return Material(
+              child: Center(
                 child: Failed(
                   failedAsset: LottieAssets.error,
                   retry: () {
@@ -70,57 +67,63 @@ class _ProfileSettingScreenState extends State<ProfileSettingScreen> {
             );
           },
           getUserDetailsLoading: () {
-            return const Scaffold(
-              body: Center(
+            return const Material(
+              child: Center(
                 child: LottieIndicator(
                   statusAssets: LottieAssets.loadingFromToDatabase,
                 ),
               ),
             );
           },
+          noUserFound: (message) {
+            return const Material(
+              child: SizedBox.shrink(),
+            );
+          },
           orElse: () {
-            return SingleChildScrollView(
-              padding: const EdgeInsets.all(AppMetrices.padding),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  AppBar(
-                    centerTitle: false,
-                    automaticallyImplyLeading: false,
-                    backgroundColor: Theme.of(context).secondaryHeaderColor,
-                    title: Text(
-                      'setting.account.welcome'.tr(namedArgs: {
-                        "name":
-                            context.read<UserViewmodel>().user?.name ?? 'name'
-                      }),
-                      style: Theme.of(context).textTheme.titleLarge,
-                    ),
-                    actions: [
-                      IconButton(
-                        onPressed: () {
-                          showLogoutDialog(
-                            context,
-                            onConfirm: () {
-                              context.read<UserViewmodel>().logout();
-                            },
-                          );
+            return Scaffold(
+              appBar: AppBar(
+                centerTitle: false,
+                automaticallyImplyLeading: false,
+                backgroundColor: Theme.of(context).secondaryHeaderColor,
+                title: Text(
+                  'setting.account.welcome'.tr(namedArgs: {
+                    "name": context.read<UserViewmodel>().currentUser.name
+                  }),
+                  style: Theme.of(context).textTheme.titleLarge,
+                ),
+                actions: [
+                  IconButton(
+                    onPressed: () {
+                      showLogoutDialog(
+                        context,
+                        onConfirm: () {
+                          context.read<UserViewmodel>().logout();
                         },
-                        icon: const Icon(Icons.logout_rounded),
-                      ),
-                    ],
+                      );
+                    },
+                    icon: const Icon(Icons.logout_rounded),
                   ),
-                  const SizedBox(height: AppMetrices.verticalGap),
-                  AuthField(
-                    controller: controller
-                      ..text =
-                          context.read<UserViewmodel>().user?.email ?? 'email',
-                    readOnly: true,
-                    prefixIcon: Icon(Icons.email_rounded,
-                        color: Theme.of(context).iconTheme.color),
-                    validator: Validators.validateEmail,
-                  ),
-                  const SizedBox(height: AppMetrices.verticalGap),
                 ],
+              ),
+              body: SingleChildScrollView(
+                padding: const EdgeInsets.all(AppMetrices.padding),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    const SizedBox(height: AppMetrices.verticalGap),
+                    AuthField(
+                      controller: controller
+                        ..text =
+                            context.read<UserViewmodel>().currentUser.email,
+                      readOnly: true,
+                      prefixIcon: Icon(Icons.email_rounded,
+                          color: Theme.of(context).iconTheme.color),
+                      validator: Validators.validateEmail,
+                    ),
+                    const SizedBox(height: AppMetrices.verticalGap),
+                  ],
+                ),
               ),
             );
           },

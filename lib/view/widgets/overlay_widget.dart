@@ -36,6 +36,9 @@ class _DropIconsState extends State<DropIcons>
   void initState() {
     _borderRadius = widget.borderRadius;
     _key = LabeledGlobalKey("button_icon");
+    WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
+      getButtonInfo();
+    });
     super.initState();
   }
 
@@ -44,6 +47,12 @@ class _DropIconsState extends State<DropIcons>
     buttonSize = renderBox.size;
     buttonPosition = renderBox.localToGlobal(Offset.zero);
     _overlayEntry = _overlayEntryBuilder();
+  }
+
+  @override
+  void didUpdateWidget(covariant DropIcons oldWidget) {
+    getButtonInfo();
+    super.didUpdateWidget(oldWidget);
   }
 
   @override
@@ -60,7 +69,6 @@ class _DropIconsState extends State<DropIcons>
   }
 
   void openMenu() {
-    getButtonInfo();
     Overlay.of(context).insert(_overlayEntry);
     isMenuOpen = true;
   }
