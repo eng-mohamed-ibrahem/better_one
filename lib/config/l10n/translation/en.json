@@ -139,7 +139,7 @@
             "email": "Invalid Email",
             "pass": "Invalid Password"
         },
-        "signup_succ": "Signup Successfully",
+        "signup_succ": "Signup Successfully, please verify your email",
         "login_succ": "Login Successfully",
         "logout_succ": "Logout Successfully",
         "logout": "Logout",

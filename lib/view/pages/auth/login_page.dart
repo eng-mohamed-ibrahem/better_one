@@ -8,6 +8,7 @@ import 'package:better_one/view_models/auth_viewmodel/auth_viewmodel.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
 
 class LogIn extends StatefulWidget {
@@ -107,21 +108,27 @@ class _LoginState extends State<LogIn> {
                 );
               },
               builder: (context, state) {
-                return state.maybeWhen(
-                  loginLoading: () => const CircularProgressIndicator(),
-                  orElse: () {
-                    return FilledButton(
-                      onPressed: () {
-                        if (_globalFormKey.currentState!.validate()) {
-                          AuthViewmodel.get(context).login(
-                              email: email.text, password: password.text);
-                        }
-                      },
-                      child: Text(
-                        'auth.login'.tr(),
-                      ),
-                    );
+                return FilledButton.icon(
+                  onPressed: () {
+                    if (_globalFormKey.currentState!.validate()) {
+                      AuthViewmodel.get(context)
+                          .login(email: email.text, password: password.text);
+                    }
                   },
+                  label: Text(
+                    'auth.login'.tr(),
+                  ),
+                  iconAlignment: IconAlignment.end,
+                  icon: state.maybeWhen(
+                    loginLoading: () => SizedBox(
+                      height: 20.h,
+                      width: 20.w,
+                      child: const CircularProgressIndicator(
+                        strokeWidth: 2,
+                      ),
+                    ),
+                    orElse: () => null,
+                  ),
                 );
               },
             ),

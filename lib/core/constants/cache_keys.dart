@@ -27,4 +27,5 @@ class CacheKeys {
 
   // user data
   static const userId = 'user_id';
+  static const isVerified = 'is_verified';
 }

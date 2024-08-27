@@ -1,5 +1,6 @@
 import 'package:better_one/config/navigation/routes_enum.dart';
 import 'package:better_one/core/constants/constants.dart';
+import 'package:better_one/core/errors/failure.dart';
 import 'package:better_one/core/utils/dependency_locator/dependency_injection.dart';
 import 'package:better_one/core/utils/methods/methods.dart';
 import 'package:better_one/core/utils/shared_widgets/failed.dart';
@@ -53,11 +54,13 @@ class _ProfileSettingScreenState extends State<ProfileSettingScreen> {
       },
       builder: (context, state) {
         return state.maybeWhen(
-          getUserDetailsFailed: (message) {
+          getUserDetailsFailed: (message, failure) {
             return Material(
               child: Center(
                 child: Failed(
-                  failedAsset: LottieAssets.error,
+                  failedAsset: failure is NoInternetFailure
+                      ? LottieAssets.noInternet
+                      : LottieAssets.error,
                   retry: () {
                     context.read<UserViewmodel>().getUserDetails();
                   },

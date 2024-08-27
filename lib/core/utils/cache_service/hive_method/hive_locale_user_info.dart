@@ -7,6 +7,7 @@ class HiveLocaleUserInfo implements LocaleUserInfo {
   @override
   Future<bool> deleteUser() async {
     await initHive.appBox.delete(CacheKeys.userId);
+    await initHive.appBox.delete(CacheKeys.isVerified);
     return true;
   }
 
@@ -19,5 +20,15 @@ class HiveLocaleUserInfo implements LocaleUserInfo {
   Future<bool> setUserIdToLocale({required String userId}) async {
     await initHive.appBox.put(CacheKeys.userId, userId);
     return true;
+  }
+
+  @override
+  bool isVerified() {
+    return initHive.appBox.get(CacheKeys.isVerified, defaultValue: false);
+  }
+
+  @override
+  Future<void> setVerified({required bool isVerified}) async {
+    return await initHive.appBox.put(CacheKeys.isVerified, isVerified);
   }
 }

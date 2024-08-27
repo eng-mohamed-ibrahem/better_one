@@ -24,6 +24,7 @@ class UserViewmodel extends Cubit<UserViewmodelState> {
           _LogoutFailed(
             message:
                 failure is OtherFailure ? "core.error".tr() : failure.message,
+            failure: failure,
           ),
         );
       },
@@ -50,6 +51,7 @@ class UserViewmodel extends Cubit<UserViewmodelState> {
           _GetUserDetailsFailed(
             message:
                 failure is OtherFailure ? "core.error".tr() : failure.message,
+            failure: failure,
           ),
         );
       },

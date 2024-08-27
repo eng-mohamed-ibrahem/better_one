@@ -8,8 +8,8 @@ class UserViewmodelState with _$UserViewmodelState {
 
   const factory UserViewmodelState.logoutSuccess() = _LogoutSuccess;
 
-  const factory UserViewmodelState.logoutFailed({required String message}) =
-      _LogoutFailed;
+  const factory UserViewmodelState.logoutFailed(
+      {required String message, required Failure failure}) = _LogoutFailed;
 
   const factory UserViewmodelState.getUserDetailsLoading() =
       _GetUserDetailsLoading;
@@ -21,5 +21,6 @@ class UserViewmodelState with _$UserViewmodelState {
       _NoUserFound;
 
   const factory UserViewmodelState.getUserDetailsFailed(
-      {required String message}) = _GetUserDetailsFailed;
+      {required String message,
+      required Failure failure}) = _GetUserDetailsFailed;
 }

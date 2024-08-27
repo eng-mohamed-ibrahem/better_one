@@ -26,7 +26,7 @@ class HiveLocaleTask implements LocaleTaskInterface {
         error: ParserFailure(message: e.message),
       );
     } catch (e) {
-      kDebugPrint(e.toString());
+      kDebugPrint("from hive locale task: $e");
       return ResultHandler.failure(
         error: OtherFailure(message: e.toString()),
       );

@@ -18,11 +18,13 @@ class HiveLocaleUser implements LocaleUserSource {
       /// set tasks as key and values are tasks map
       // 1: get the tasks as map
       Map? tasks = inject<HiveInit>().appBox.get(CacheKeys.tasks);
-
-      await inject<HiveInit>().appBox.put(CacheKeys.tasks, {
-        ...?tasks,
-        newTask.id: jsonEncode(newTask.toJson()),
-      });
+      await inject<HiveInit>().appBox.put(
+        CacheKeys.tasks,
+        {
+          ...?tasks,
+          newTask.id: jsonEncode(newTask.toJson()),
+        },
+      );
       return ResultHandler.success(data: newTask);
     } on FileSystemException catch (e) {
       return ResultHandler.failure(
@@ -91,7 +93,7 @@ class HiveLocaleUser implements LocaleUserSource {
       var tasks = (inject<HiveInit>().appBox.get(CacheKeys.tasks) as Map);
 
       tasks[oldTask.id] = jsonEncode(newTask.toJson());
-      await inject<HiveInit>().appBox.put(CacheKeys.tasks, {...tasks});
+      await inject<HiveInit>().appBox.put(CacheKeys.tasks, tasks);
       return ResultHandler.success(data: newTask);
     } on FileSystemException catch (e) {
       return ResultHandler.failure(

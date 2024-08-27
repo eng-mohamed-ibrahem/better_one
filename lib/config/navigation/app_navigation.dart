@@ -1,7 +1,6 @@
 import 'package:better_one/config/navigation/routes_enum.dart';
 import 'package:better_one/core/utils/dependency_locator/dependency_injection.dart';
 import 'package:better_one/core/utils/dependency_locator/inject.dart';
-import 'package:better_one/core/utils/methods/methods.dart';
 import 'package:better_one/data_source/auth_data_source/firebase_auth_impl.dart';
 import 'package:better_one/repositories/auth_repo/auth_repo_impl.dart';
 import 'package:better_one/view/pages/pages.dart';
@@ -126,13 +125,25 @@ class AppNavigation {
             name: Routes.settings.name,
             builder: (context, state) {
               activeRoute = Routes.settings.path;
-              return BlocProvider.value(
-                value: inject<SettingViewModel>(),
+              return MultiBlocProvider(
+                providers: [
+                  BlocProvider.value(
+                    value: inject<SettingViewModel>(),
+                  ),
+                  BlocProvider(
+                    lazy: false,
+                    create: (context) => AuthViewmodel(
+                      authRepo: AuthRepoImpl(
+                        authSource: FirebaseAuthImpl(),
+                      ),
+                    ),
+                  ),
+                ],
                 child: const SettingScreen(),
               );
             },
 
-            /// 3 paths {profile{login, signup}, searc-setting, notification-setting}
+            /// 3 paths {profile, search-setting, notification-setting}
             routes: [
               GoRoute(
                 path: Routes.searchSetting.path,
@@ -161,60 +172,39 @@ class AppNavigation {
                 name: Routes.profile.name,
                 builder: (context, state) {
                   activeRoute = Routes.profile.path;
-                  return MultiBlocProvider(
-                    providers: [
-                      BlocProvider(
-                        create: (context) => UserViewmodel(userRepo: kUserRepo),
-                      ),
-                      BlocProvider(
-                        lazy: false,
-                        create: (context) => AuthViewmodel(
-                          authRepo: AuthRepoImpl(
-                            authSource: FirebaseAuthImpl(),
-                          ),
-                        ),
-                      ),
-                    ],
+                  return BlocProvider(
+                    create: (context) => UserViewmodel(userRepo: kUserRepo),
                     child: const ProfileSettingScreen(),
                   );
                 },
-                redirect: (context, state) {
-                  kDebugPrint('------------------------------------');
-                  kDebugPrint(state.topRoute!.path);
-                  kDebugPrint('------------------------------------');
-                  return state.topRoute!.path.contains(Routes.profile.path)
-                      ? userLocaleDatabase.getUserIdFromLocale() != null
-                          ? null
-                          : state.namedLocation(Routes.login.name)
-                      : null;
+                redirect: (context, state) async {
+                  return userLocaleDatabase.getUserIdFromLocale() != null &&
+                          userLocaleDatabase.isVerified()
+                      ? null
+                      : state.namedLocation(Routes.login.name);
                 },
-                routes: [
-                  GoRoute(
-                    path: Routes.login.path,
-                    name: Routes.login.name,
-                    builder: (context, state) {
-                      activeRoute = Routes.login.path;
-                      return BlocProvider.value(
-                        value: inject<AuthViewmodel>(),
-                        child: const LogIn(),
-                      );
-                    },
-                  ),
-                  GoRoute(
-                    path: Routes.signup.path,
-                    name: Routes.signup.name,
-                    redirect: (context, state) {
-                      return null;
-                    },
-                    builder: (context, state) {
-                      activeRoute = Routes.signup.path;
-                      return BlocProvider.value(
-                        value: inject<AuthViewmodel>(),
-                        child: const SignUp(),
-                      );
-                    },
-                  )
-                ],
+              ),
+              GoRoute(
+                path: Routes.login.path,
+                name: Routes.login.name,
+                builder: (context, state) {
+                  activeRoute = Routes.login.path;
+                  return BlocProvider.value(
+                    value: inject<AuthViewmodel>(),
+                    child: const LogIn(),
+                  );
+                },
+              ),
+              GoRoute(
+                path: Routes.signup.path,
+                name: Routes.signup.name,
+                builder: (context, state) {
+                  activeRoute = Routes.signup.path;
+                  return BlocProvider.value(
+                    value: inject<AuthViewmodel>(),
+                    child: const SignUp(),
+                  );
+                },
               ),
             ],
           ),
