@@ -20,10 +20,6 @@ class FirebaseRemoteUserSource implements RemoteUserSource {
           .doc(newTask.id)
           .set(newTask.copyWith(backup: true).toJson());
       return ResultHandler.success(data: newTask);
-    } on FirebaseAuthException catch (e) {
-      return ResultHandler.failure(
-        error: FirebaseFailure.fromCode(e.code),
-      );
     } catch (e) {
       return ResultHandler.failure(error: OtherFailure(message: e.toString()));
     }
@@ -41,10 +37,6 @@ class FirebaseRemoteUserSource implements RemoteUserSource {
           .doc(id)
           .get();
       return ResultHandler.success(data: TaskModel.fromJson(doc.data()!));
-    } on FirebaseAuthException catch (e) {
-      return ResultHandler.failure(
-        error: FirebaseFailure.fromCode(e.code),
-      );
     } on FormatException catch (e) {
       return ResultHandler.failure(error: ParserFailure(message: e.message));
     } catch (e) {
@@ -102,10 +94,6 @@ class FirebaseRemoteUserSource implements RemoteUserSource {
           .doc(removedTask.id)
           .delete();
       return ResultHandler.success(data: removedTask);
-    } on FirebaseAuthException catch (e) {
-      return ResultHandler.failure(
-        error: FirebaseFailure.fromCode(e.code),
-      );
     } catch (e) {
       return ResultHandler.failure(error: OtherFailure(message: e.toString()));
     }
@@ -125,10 +113,6 @@ class FirebaseRemoteUserSource implements RemoteUserSource {
           .set(newTask.copyWith(backup: true).toJson());
 
       return ResultHandler.success(data: newTask);
-    } on FirebaseAuthException catch (e) {
-      return ResultHandler.failure(
-        error: FirebaseFailure.fromCode(e.code),
-      );
     } catch (e) {
       return ResultHandler.failure(error: OtherFailure(message: e.toString()));
     }

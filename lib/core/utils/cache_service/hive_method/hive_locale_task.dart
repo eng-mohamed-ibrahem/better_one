@@ -5,7 +5,6 @@ import 'package:better_one/core/constants/constants.dart';
 import 'package:better_one/core/errors/failure.dart';
 import 'package:better_one/core/result_handler/result_handler.dart';
 import 'package:better_one/core/utils/cache_service/cache_service.dart';
-import 'package:better_one/core/utils/methods/methods.dart';
 import 'package:better_one/model/task_model/task_model.dart';
 
 class HiveLocaleTask implements LocaleTaskInterface {
@@ -26,7 +25,6 @@ class HiveLocaleTask implements LocaleTaskInterface {
         error: ParserFailure(message: e.message),
       );
     } catch (e) {
-      kDebugPrint("from hive locale task: $e");
       return ResultHandler.failure(
         error: OtherFailure(message: e.toString()),
       );

@@ -172,8 +172,15 @@ class AppNavigation {
                 name: Routes.profile.name,
                 builder: (context, state) {
                   activeRoute = Routes.profile.path;
-                  return BlocProvider(
-                    create: (context) => UserViewmodel(userRepo: kUserRepo),
+                  return MultiBlocProvider(
+                    providers: [
+                      BlocProvider(
+                        create: (context) => UserViewmodel(userRepo: kUserRepo),
+                      ),
+                      BlocProvider.value(
+                        value: inject<TaskViewmodel>(),
+                      ),
+                    ],
                     child: const ProfileSettingScreen(),
                   );
                 },

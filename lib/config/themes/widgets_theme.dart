@@ -1,7 +1,6 @@
 part of 'app_thems.dart';
 
-
- class _WidgetsTheme {
+class _WidgetsTheme {
   static BottomSheetThemeData bottomSheetTheme() {
     return BottomSheetThemeData(
       backgroundColor: AppColors.primaryColor,
@@ -103,6 +102,11 @@ part of 'app_thems.dart';
       iconTheme: iconTheme(),
       titleTextStyle: textTheme().titleMedium,
       centerTitle: true,
+      shape: const RoundedRectangleBorder(
+        borderRadius: BorderRadius.vertical(
+          bottom: Radius.circular(AppMetrices.borderRadius3),
+        ),
+      ),
     );
   }
 

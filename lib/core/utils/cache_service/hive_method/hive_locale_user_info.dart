@@ -8,6 +8,7 @@ class HiveLocaleUserInfo implements LocaleUserInfo {
   Future<bool> deleteUser() async {
     await initHive.appBox.delete(CacheKeys.userId);
     await initHive.appBox.delete(CacheKeys.isVerified);
+    await deleteService(download: true, upload: true);
     return true;
   }
 
@@ -30,5 +31,22 @@ class HiveLocaleUserInfo implements LocaleUserInfo {
   @override
   Future<void> setVerified({required bool isVerified}) async {
     return await initHive.appBox.put(CacheKeys.isVerified, isVerified);
+  }
+
+  @override
+  bool? isDownloadedTasks() {
+    return initHive.appBox.get(CacheKeys.downloadService);
+  }
+
+  @override
+  bool? isUploadedTasks() {
+    return initHive.appBox.get(CacheKeys.uploadService);
+  }
+
+  Future<void> deleteService(
+      {bool download = false, bool upload = false}) async {
+    download ? await initHive.appBox.delete(CacheKeys.downloadService) : null;
+
+    upload ? await initHive.appBox.delete(CacheKeys.uploadService) : null;
   }
 }

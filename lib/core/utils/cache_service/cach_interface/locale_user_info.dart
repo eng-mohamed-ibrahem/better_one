@@ -4,4 +4,6 @@ abstract class LocaleUserInfo {
   Future<bool> deleteUser();
   Future<void> setVerified({required bool isVerified});
   bool isVerified();
+  bool? isDownloadedTasks();
+  bool? isUploadedTasks();
 }

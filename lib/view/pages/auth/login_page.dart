@@ -1,5 +1,6 @@
 import 'package:better_one/config/navigation/routes_enum.dart';
 import 'package:better_one/core/constants/constants.dart';
+import 'package:better_one/core/utils/background_service/tasks_background_service.dart';
 import 'package:better_one/core/utils/dependency_locator/dependency_injection.dart';
 import 'package:better_one/core/utils/methods/methods.dart';
 import 'package:better_one/core/utils/shared_widgets/back_button_l10n.dart';
@@ -7,6 +8,7 @@ import 'package:better_one/view/widgets/input_field/auth_field.dart';
 import 'package:better_one/view_models/auth_viewmodel/auth_viewmodel.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
@@ -98,11 +100,15 @@ class _LoginState extends State<LogIn> {
                   loginFailed: (message) {
                     showSnackBar(context, message: message);
                   },
-                  loginSuccess: (user) {
-                    showSnackBar(context, message: 'auth.login_succ'.tr());
-                    userLocaleDatabase.setUserIdToLocale(
+                  loginSuccess: (user) async {
+                    await userLocaleDatabase.setUserIdToLocale(
                       userId: user.id,
                     );
+                    showSnackBar(context, message: 'auth.login_succ'.tr());
+
+                    /// fetch tasks from firebase in the background
+                    TasksBackgroundService.downloadTasks(
+                        ServicesBinding.rootIsolateToken);
                     context.goNamed(Routes.profile.name);
                   },
                 );

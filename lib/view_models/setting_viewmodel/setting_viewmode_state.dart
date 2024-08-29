@@ -37,4 +37,20 @@ class SettingViewModelState with _$SettingViewModelState {
     //* error message
     @Default(null) String? errorMessage,
   }) = _SettingViewModelState;
+
+  // /// intial
+  // const factory SettingViewModelState.initial() = _initial;
+
+  // /// get language
+  // const factory SettingViewModelState.getLanguageLoading() =
+  //     _GetLanguageLoading;
+  // const factory SettingViewModelState.getLanguageCompleted(
+  //     {required Locale? currentLanguage}) = _GetLanguageCompleted;
+
+  // const factory SettingViewModelState.getLanguageFailed() = _GetLanguageFailed;
+
+  // /// change language
+  // const factory SettingViewModelState.changeLanguageLoading() =
+  //     _ChangeLanguageLoading;
+
 }
