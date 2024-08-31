@@ -45,7 +45,8 @@ class SearchSettingScreen extends StatelessWidget {
                   contentPadding: EdgeInsets.zero,
                   value: state.isSearchByTitle,
                   onChanged: (isSelected) {
-                    SettingViewModel.get(context)
+                    context
+                        .read<SettingViewModel>()
                         .searchOn(isSearchByTitle: isSelected);
                   },
                 ),
@@ -57,7 +58,8 @@ class SearchSettingScreen extends StatelessWidget {
                   contentPadding: EdgeInsets.zero,
                   value: state.isSearchByBody,
                   onChanged: (isSelected) {
-                    SettingViewModel.get(context)
+                    context
+                        .read<SettingViewModel>()
                         .searchOn(isSearchByBody: isSelected);
                   },
                 ),

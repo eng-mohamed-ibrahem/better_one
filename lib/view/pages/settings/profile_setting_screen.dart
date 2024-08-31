@@ -9,6 +9,7 @@ import 'package:better_one/core/utils/shared_widgets/failed.dart';
 import 'package:better_one/core/utils/shared_widgets/lottie_indicator.dart';
 import 'package:better_one/view_models/task_viewmodel/task_viewmodel.dart';
 import 'package:better_one/view_models/user_viewmodel/user_viewmodel.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -44,11 +45,9 @@ class _ProfileSettingScreenState extends State<ProfileSettingScreen> {
                   message is bool && message
                       ? () {
                           if (mounted) {
-                            setState(() {
-                              showSnackBar(context,
-                                  message: "Tasks Downloaded Successfully");
-                              context.read<TaskViewmodel>().getTasks();
-                            });
+                            showSnackBar(context,
+                                message: "Tasks Downloaded Successfully");
+                            context.read<TaskViewmodel>().getTasks();
                           }
                         }()
                       : null;
@@ -57,6 +56,20 @@ class _ProfileSettingScreenState extends State<ProfileSettingScreen> {
               GetIt.I.registerSingleton<bool>(true);
             }();
     });
+
+    /// if something go wrong while download tasks
+    var download = userLocaleDatabase.isDownloadedTasks();
+    download != null && download == false
+        ? TasksBackgroundService.downloadTasks(ServicesBinding.rootIsolateToken)
+        : null;
+
+    /// if something go wrong while uploading tasks
+    var upload = userLocaleDatabase.isUploadedTasks();
+    upload != null && upload == false
+        ? TasksBackgroundService.uploadTasks(ServicesBinding.rootIsolateToken)
+        : null;
+    kDebugPrint("upload: $upload, download: $download");
+
     super.didChangeDependencies();
   }
 
@@ -175,41 +188,20 @@ class _ProfileSettingScreenState extends State<ProfileSettingScreen> {
                                 textAlign: TextAlign.center,
                               ),
                               const SizedBox(height: AppMetrices.verticalGap),
-                              () {
-                                if (userLocaleDatabase.isDownloadedTasks() !=
-                                    null) {
-                                  return userLocaleDatabase.isDownloadedTasks()!
-                                      ? Row(
-                                          mainAxisAlignment:
-                                              MainAxisAlignment.center,
-                                          children: [
-                                            const Icon(Icons.sync),
-                                            SizedBox(
-                                              width: 5.w,
-                                            ),
-                                            const Icon(Icons.check),
-                                          ],
-                                        )
-                                      : IconButton(
-                                          onPressed: () {
-                                            TasksBackgroundService
-                                                .downloadTasks(ServicesBinding
-                                                    .rootIsolateToken);
-                                          },
-                                          icon: const Icon(
-                                              Icons.sync_problem_rounded),
-                                        );
-                                } else {
-                                  return SizedBox(
-                                    width: 30.w,
-                                    height: 30.h,
-                                    child: const LottieIndicator(
-                                      statusAssets: LottieAssets.cloudSync,
-                                    ),
-                                  );
-                                  // return const Icon(Icons.cloud_sync_outlined);
-                                }
-                              }(),
+                              Row(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  const Icon(Icons.cloud_sync_outlined),
+                                  SizedBox(
+                                    width: 5.w,
+                                  ),
+                                  Text(
+                                    'core.sync'.tr(),
+                                    style:
+                                        Theme.of(context).textTheme.titleSmall,
+                                  ),
+                                ],
+                              ),
                             ],
                           ),
                         ),

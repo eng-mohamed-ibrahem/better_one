@@ -123,7 +123,7 @@ class _TaskScreenState extends State<TaskDetailsScreen>
                 settingState.isNotificationOnUpdate
                     ? localNotification.display(
                         notification: NotificationModel(
-                          id: task!.id.hashCode,
+                          displayId: task!.id.hashCode,
                           title: 'task.motive_update'.tr(),
                           body: task!.title,
                           payload: task!.id,
@@ -141,14 +141,16 @@ class _TaskScreenState extends State<TaskDetailsScreen>
                   )..forward(),
                 );
                 settingState.isNotificationOnComplete
-                    ? localNotification.display(
-                        notification: NotificationModel(
-                          id: DateTime.now().microsecond,
-                          title: 'task.motive_complete'.tr(),
-                          body: task!.title,
-                          payload: task!.id,
-                        ),
-                      )
+                    ? () {
+                        localNotification.display(
+                          notification: NotificationModel(
+                            displayId: DateTime.now().microsecond,
+                            title: 'task.motive_complete'.tr(),
+                            body: task!.title,
+                            payload: task!.id,
+                          ),
+                        );
+                      }()
                     : null;
               }
             },

@@ -2,7 +2,6 @@ import 'dart:convert';
 import 'dart:isolate';
 
 import 'package:better_one/core/constants/cache_keys.dart';
-import 'package:better_one/core/utils/cache_service/cache_service.dart';
 import 'package:better_one/core/utils/methods/methods.dart';
 import 'package:better_one/firebase_options.dart';
 import 'package:better_one/model/task_model/task_model.dart';
@@ -38,42 +37,40 @@ class TasksBackgroundService {
     await Firebase.initializeApp(
       options: DefaultFirebaseOptions.currentPlatform,
     );
-    kDebugPrint("3");
+    kDebugPrint("2");
 
     var appDir = await getApplicationDocumentsDirectory();
     Hive.init(appDir.path);
     var appBox = await Hive.openBox("user_data");
-    kDebugPrint("5");
+    kDebugPrint("3");
 
     try {
       kDebugPrint("start loading tasks");
-      List<TaskModel> tasks = [];
+      List<TaskModel> downloadedTasks = [];
 
       String? userId = appBox.get(CacheKeys.userId);
       var db = FirebaseFirestore.instance;
       var collection =
           await db.collection("users").doc(userId).collection("tasks").get();
-      tasks = collection.docs.map(
+      downloadedTasks = collection.docs.map(
         (element) {
           return TaskModel.fromJson(element.data());
         },
       ).toList();
+      var localeTasks = appBox.get(CacheKeys.tasks) as Map?;
       await appBox.put(
         CacheKeys.tasks,
         {
-          for (var task in tasks) task.id: jsonEncode(task.toJson()),
+          ...?localeTasks,
+          for (var task in downloadedTasks) task.id: jsonEncode(task.toJson()),
         },
       );
-
-      /// downloaded tasks
       await appBox.put(CacheKeys.downloadService, true);
       (args['send_port'] as SendPort).send(true);
-      kDebugPrint(
-          "complete loading tasks: ${appBox.get(CacheKeys.downloadService)}");
+      uploadTasks((args['token'] as RootIsolateToken));
     } catch (e) {
-      appBox.put(CacheKeys.downloadService, false);
+      await appBox.put(CacheKeys.downloadService, false);
       (args['send_port'] as SendPort).send(false);
-      kDebugPrint("error loading tasks :${e.toString()}");
     }
   }
 
@@ -81,37 +78,53 @@ class TasksBackgroundService {
     uploadIsolate = await Isolate.spawn(
       _uploadEntryPoint,
       {
-        "send_port": downloadReceiverPort.sendPort,
+        "send_port": uploadReceiverPort.sendPort,
         "token": token,
       },
     );
   }
 
   static void _uploadEntryPoint(Map<String, dynamic> args) async {
-    var hive = HiveInit();
-    await hive.init();
+    kDebugPrint("1");
+    BackgroundIsolateBinaryMessenger.ensureInitialized(
+        (args['token'] as RootIsolateToken));
 
+    await Firebase.initializeApp(
+      options: DefaultFirebaseOptions.currentPlatform,
+    );
+    kDebugPrint("2");
+
+    var appDir = await getApplicationDocumentsDirectory();
+    Hive.init(appDir.path);
+    var appBox = await Hive.openBox("user_data");
+    kDebugPrint("3");
     try {
-      List<TaskModel> tasks = [];
-      tasks = _convertToTaskList(
-          (hive.appBox.get(CacheKeys.tasks) as Map?)?.values.toList());
-
-      final userLocaleDatabase = HiveLocaleUserInfo(initHive: hive);
-      String? userId = userLocaleDatabase.getUserIdFromLocale();
+      List<TaskModel> uploadedTasks = [];
+      uploadedTasks = _convertToTaskList(
+          (appBox.get(CacheKeys.tasks) as Map?)?.values.toList());
+      String? userId = appBox.get(CacheKeys.userId);
       var db = FirebaseFirestore.instance;
       var collectionRef =
           db.collection("users").doc(userId).collection("tasks");
-      for (var task in tasks) {
+      for (var task in uploadedTasks) {
         await collectionRef
             .doc(task.id)
             .set(task.copyWith(backup: true).toJson());
       }
 
       /// uploaded tasks
-      hive.appBox.put(CacheKeys.uploadService, true);
+      await appBox.put(CacheKeys.uploadService, true);
+      (args['send_port'] as SendPort).send(true);
+      kDebugPrint("complete uploading tasks");
     } catch (e) {
-      hive.appBox.put(CacheKeys.uploadService, false);
+      await appBox.put(CacheKeys.uploadService, false);
+      (args['send_port'] as SendPort).send(false);
+      kDebugPrint("error uploading tasks :${e.toString()}");
     }
+  }
+
+  static void syncTasks(RootIsolateToken? token) {
+    TasksBackgroundService.downloadTasks(token);
   }
 
   static List<TaskModel> _convertToTaskList(List<dynamic>? list) {

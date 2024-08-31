@@ -49,7 +49,7 @@ class CreateTaskScreen extends StatelessWidget {
                     settingState.isNotificationOnAdd
                         ? localNotification.display(
                             notification: NotificationModel(
-                              id: DateTime.now().microsecond,
+                              displayId: DateTime.now().microsecond,
                               title: 'task.motive_add'.tr(),
                               body: createdTask.title,
                               payload: createdTask.id,

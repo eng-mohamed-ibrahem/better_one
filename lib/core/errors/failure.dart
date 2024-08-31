@@ -130,6 +130,13 @@ class FirebaseFailure extends Failure {
             message: 'No user found',
           );
         }
+      case "requires-recent-login":
+        {
+          return FirebaseFailure(
+            code: code,
+            message: 'Requires recent login',
+          );
+        }
       default:
         return FirebaseFailure(
           code: code,

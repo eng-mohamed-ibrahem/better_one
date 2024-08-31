@@ -47,10 +47,16 @@ class SettingViewModelState with _$SettingViewModelState {
   // const factory SettingViewModelState.getLanguageCompleted(
   //     {required Locale? currentLanguage}) = _GetLanguageCompleted;
 
-  // const factory SettingViewModelState.getLanguageFailed() = _GetLanguageFailed;
+  // const factory SettingViewModelState.getLanguageFailed(
+  //     {required String message, required Failure failure}) = _GetLanguageFailed;
 
   // /// change language
   // const factory SettingViewModelState.changeLanguageLoading() =
   //     _ChangeLanguageLoading;
+  // const factory SettingViewModelState.changeLanguageCompleted(
+  //     {required Locale? currentLanguage}) = _ChangeLanguageCompleted;
 
+  // const factory SettingViewModelState.changeLanguageFailed(
+  //     {required String message,
+  //     required Failure failure}) = _ChangeLanguageLoading;
 }

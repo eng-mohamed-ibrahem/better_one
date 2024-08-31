@@ -105,9 +105,7 @@ class _LoginState extends State<LogIn> {
                       userId: user.id,
                     );
                     showSnackBar(context, message: 'auth.login_succ'.tr());
-
-                    /// fetch tasks from firebase in the background
-                    TasksBackgroundService.downloadTasks(
+                    TasksBackgroundService.syncTasks(
                         ServicesBinding.rootIsolateToken);
                     context.goNamed(Routes.profile.name);
                   },

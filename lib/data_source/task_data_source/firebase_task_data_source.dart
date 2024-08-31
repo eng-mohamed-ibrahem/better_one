@@ -1,3 +1,4 @@
+import 'package:better_one/core/constants/firebase_constants.dart';
 import 'package:better_one/core/errors/failure.dart';
 import 'package:better_one/core/result_handler/result_handler.dart';
 import 'package:better_one/core/utils/dependency_locator/dependency_injection.dart';
@@ -16,8 +17,11 @@ class FirebaseTaskDataSource implements TaskSource {
     try {
       String? userId = userLocaleDatabase.getUserIdFromLocale();
       var db = FirebaseFirestore.instance;
-      var collection =
-          await db.collection("users").doc(userId).collection("tasks").get();
+      var collection = await db
+          .collection(FirebaseConstants.users)
+          .doc(userId)
+          .collection(FirebaseConstants.tasks)
+          .get();
       return ResultHandler.success(
         data: tasks = collection.docs.map(
           (element) {

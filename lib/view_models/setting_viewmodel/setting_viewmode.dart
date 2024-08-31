@@ -16,8 +16,8 @@ class SettingViewModel extends Cubit<SettingViewModelState> {
       : super(const SettingViewModelState());
   final SettingsRepoInterface settingsRepo;
 
-  static SettingViewModel get(context) =>
-      BlocProvider.of<SettingViewModel>(context);
+  /// here will be settings like notification and search
+  Locale? currentLanguage;
 
   void changeLanguage(Locale language) async {
     emit(release().copyWith(isChangeLanguageLoading: true));
@@ -222,7 +222,7 @@ class SettingViewModel extends Cubit<SettingViewModelState> {
             repeatDaysWithSameTime: state.repeatReminder,
             scheduleTime: state.reminderDateTime!,
             notification: NotificationModel(
-              id: NotificaitonConstants.scheduleNotificationId,
+              displayId: NotificaitonConstants.scheduleNotificationId,
               title: 'task.motive_reminder'.tr(),
               body: 'task.motive_reminder_body'.tr(),
             ),
