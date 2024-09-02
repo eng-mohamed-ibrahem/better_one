@@ -121,6 +121,12 @@
         "empty": "No tasks found",
         "init": "Search for tasks by title, or subtask"
     },
+    "notification": {
+        "title": "Notifications",
+        "empty": "No notifications found",
+        "loading": "Loading notifications...",
+        "init": "Notifications will be shown here"
+    },
     "auth": {
         "cr_account": "Create Account",
         "access_account": "Login to your account",

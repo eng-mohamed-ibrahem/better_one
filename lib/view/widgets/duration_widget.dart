@@ -13,48 +13,49 @@ class DurationTime extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Directionality(
-      textDirection: TextDirection.ltr,
-      child: Column(
-        children: [
-          duration.inMinutes == 0 && duration.inHours == 0
-              ? const SizedBox.shrink()
-              : Transform.translate(
-                  offset: Offset(-10.w, 0),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Text(duration.inMinutes.remainder(60).toString(),
-                          style: style),
-                      SizedBox(width: 4.w),
-                      Text('time.minute'.tr(), style: style),
-                      SizedBox(width: 10.w),
-                      duration.inHours == 0
-                          ? const SizedBox.shrink()
-                          : Row(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                Text(duration.inHours.toString(), style: style),
-                                SizedBox(width: 4.w),
-                                Text('time.hour'.tr(), style: style),
-                              ],
-                            ),
-                    ],
-                  ),
+    return Column(
+      children: [
+        duration.inMinutes == 0 && duration.inHours == 0
+            ? const SizedBox.shrink()
+            : Transform.translate(
+                offset: Offset(-10.w, 0),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    // Text(duration.inMinutes.remainder(60).toString(),
+                    //     style: style),
+                    Text(
+                        NumberFormat.decimalPattern(context.locale.countryCode)
+                            .format(duration.inMinutes.remainder(60)),
+                        style: style),
+                    SizedBox(width: 4.w),
+                    Text('time.minute'.tr(), style: style),
+                    SizedBox(width: 10.w),
+                    duration.inHours == 0
+                        ? const SizedBox.shrink()
+                        : Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Text(duration.inHours.toString(), style: style),
+                              SizedBox(width: 4.w),
+                              Text('time.hour'.tr(), style: style),
+                            ],
+                          ),
+                  ],
                 ),
-          Align(
-            alignment: Alignment.centerRight,
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Text(duration.inSeconds.remainder(60).toString(), style: style),
-                SizedBox(width: 4.w),
-                Text('time.second'.tr(), style: style),
-              ],
-            ),
+              ),
+        Align(
+          alignment: Alignment.centerRight,
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Text(duration.inSeconds.remainder(60).toString(), style: style),
+              SizedBox(width: 4.w),
+              Text('time.second'.tr(), style: style),
+            ],
           ),
-        ],
-      ),
+        ),
+      ],
     );
   }
 }

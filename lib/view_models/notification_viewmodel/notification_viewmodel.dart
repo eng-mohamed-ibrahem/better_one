@@ -1,6 +1,7 @@
 import 'package:better_one/core/errors/failure.dart';
 import 'package:better_one/model/notification_model/notification_model.dart';
 import 'package:better_one/repositories/user_repo/user_repo_intefrace.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
@@ -12,6 +13,8 @@ class NotificationViewmodel extends Cubit<NotificationViewmodelState> {
       : _userRepo = userRepo,
         super(const NotificationViewmodelState.initial());
   final UserRepoInterface _userRepo;
+  late final Stream<List<NotificationModel>> tasksStream;
+  final List<QueryDocumentSnapshot<Object?>> list = [];
 
   void sendNotification(NotificationModel notification) async {
     emit(const _SendNotificationloading());
@@ -31,11 +34,39 @@ class NotificationViewmodel extends Cubit<NotificationViewmodelState> {
     emit(const _GetNotificationStreamloading());
     var result = await _userRepo.listenNotifications();
     result.when(
-      success: (stream) => emit(
-        _GetNotificationStreamSuccess(stream: stream),
-      ),
+      success: (stream) {
+        tasksStream = stream;
+        emit(
+          _GetNotificationStreamSuccess(stream: stream),
+        );
+      },
       failure: (failure) => emit(
         _GetNotificationStreamFailed(
+          failure: failure,
+          message: failure.message,
+        ),
+      ),
+    );
+  }
+
+  QueryDocumentSnapshot<Object?>? lastDocument;
+  void getNotification() async {
+    emit(
+      lastDocument == null
+          ? const _GetNotificationloading()
+          : const _GetNewNotificationloading(),
+    );
+    var result = await _userRepo.getNotifications(10, startAfter: lastDocument);
+    result.when(
+      success: (docs) {
+        docs.isNotEmpty ? lastDocument = list.last : null;
+        list.addAll(docs);
+        emit(
+          _GetNotificationSuccess(list: list),
+        );
+      },
+      failure: (failure) => emit(
+        _GetNotificationFailed(
           failure: failure,
           message: failure.message,
         ),

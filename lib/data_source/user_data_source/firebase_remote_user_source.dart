@@ -165,8 +165,10 @@ class FirebaseRemoteUserSource implements RemoteUserSource {
       listenNotifications() async {
     try {
       var db = FirebaseFirestore.instance;
-      var stream =
-          db.collection(FirebaseConstants.completeNotifications).snapshots().map(
+      var stream = db
+          .collection(FirebaseConstants.completeNotifications)
+          .snapshots()
+          .map(
         (event) {
           return event.docs
               .map((e) => NotificationModel.fromJson(e.data()))
@@ -174,6 +176,27 @@ class FirebaseRemoteUserSource implements RemoteUserSource {
         },
       );
       return ResultHandler.success(data: stream);
+    } catch (e) {
+      return ResultHandler.failure(error: OtherFailure(message: e.toString()));
+    }
+  }
+
+  @override
+  Future<ResultHandler<List<QueryDocumentSnapshot>, Failure>> getNotifications(
+    int limit, {
+    QueryDocumentSnapshot? startAfter,
+  }) async {
+    try {
+      var db = FirebaseFirestore.instance;
+      var query =
+          db.collection(FirebaseConstants.completeNotifications).limit(limit);
+
+      if (startAfter != null) {
+        query = query.startAfterDocument(startAfter);
+      }
+      var querySnapshot = await query.get();
+
+      return ResultHandler.success(data: querySnapshot.docs);
     } catch (e) {
       return ResultHandler.failure(error: OtherFailure(message: e.toString()));
     }

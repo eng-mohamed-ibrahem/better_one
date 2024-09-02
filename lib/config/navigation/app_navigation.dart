@@ -3,6 +3,7 @@ import 'package:better_one/core/utils/dependency_locator/dependency_injection.da
 import 'package:better_one/core/utils/dependency_locator/inject.dart';
 import 'package:better_one/data_source/auth_data_source/firebase_auth_impl.dart';
 import 'package:better_one/repositories/auth_repo/auth_repo_impl.dart';
+import 'package:better_one/view/pages/notification/notification_screen.dart';
 import 'package:better_one/view/pages/pages.dart';
 import 'package:better_one/view_models/auth_viewmodel/auth_viewmodel.dart';
 import 'package:better_one/view_models/notification_viewmodel/notification_viewmodel.dart';
@@ -55,7 +56,9 @@ class AppNavigation {
                     TaskViewmodel(taskRepo: taskRepo, userRepo: kUserRepo),
               ),
               BlocProvider(
-                create: (context) => NotificationViewmodel(userRepo: kUserRepo),
+                lazy: false,
+                create: (context) => NotificationViewmodel(userRepo: kUserRepo)
+                  ..getNotification(),
               ),
               BlocProvider(
                 lazy: false,
@@ -109,6 +112,17 @@ class AppNavigation {
                     (context, animation, secondaryAnimation, child) {
                   return pageTransition(context, animation, child);
                 },
+              );
+            },
+          ),
+          GoRoute(
+            path: Routes.notification.path,
+            name: Routes.notification.name,
+            builder: (context, state) {
+              activeRoute = Routes.notification.path;
+              return BlocProvider.value(
+                value: inject<NotificationViewmodel>(),
+                child: const NotificationScreen(),
               );
             },
           ),

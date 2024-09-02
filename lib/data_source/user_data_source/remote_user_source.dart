@@ -4,6 +4,7 @@ import 'package:better_one/data_source/user_data_source/crud_task_mixin.dart';
 import 'package:better_one/model/notification_model/notification_model.dart';
 import 'package:better_one/model/task_model/task_model.dart';
 import 'package:better_one/model/user_model/user_model.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 
 abstract class RemoteUserSource with CRUDTaskMixin {
   Future<ResultHandler<UserModel, Failure>> getUserDetails();
@@ -19,4 +20,6 @@ abstract class RemoteUserSource with CRUDTaskMixin {
       NotificationModel notification);
   Future<ResultHandler<Stream<List<NotificationModel>>, Failure>>
       listenNotifications();
+  Future<ResultHandler<List<QueryDocumentSnapshot>, Failure>> getNotifications(int limit,
+      {QueryDocumentSnapshot? startAfter});
 }

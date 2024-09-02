@@ -14,6 +14,7 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../../core/constants/constants.dart';
@@ -121,119 +122,19 @@ class _HomeScreenState extends State<HomeScreen> with RouteAware {
               child: Padding(
                 padding: EdgeInsets.only(
                     right: MediaQuery.of(context).systemGestureInsets.right),
-                child: DropIcons(
-                  button:
-                      const Icon(Icons.segment_outlined, color: Colors.white),
-                  iconsText: const [
+                child: Row(
+                  children: [
+                    settingIcons(context),
                     Hero(
-                      tag: 'app_settings',
-                      child: Icon(Icons.settings_outlined),
-                    ),
-                    Icon(Icons.tune_rounded),
-                    Icon(Icons.search),
+                      tag: 'app_notification',
+                      child: IconButton(
+                        onPressed: () {
+                          context.goNamed(Routes.notification.name);
+                        },
+                        icon: const Icon(FontAwesomeIcons.bell),
+                      ),
+                    )
                   ],
-                  onSelectIcon: (index) {
-                    if (index == 0) {
-                      context.goNamed(Routes.settings.name);
-                    }
-                    if (index == 1) {
-                      Set<TaskStatus> selectedStatus = {};
-                      // show filters as modal bottom sheet
-                      showSheet(
-                        context,
-                        content: StatefulBuilder(
-                          builder: (_, setState) {
-                            return Column(
-                              mainAxisSize: MainAxisSize.min,
-                              children: [
-                                Wrap(
-                                  alignment: WrapAlignment.center,
-                                  runAlignment: WrapAlignment.center,
-                                  crossAxisAlignment: WrapCrossAlignment.center,
-                                  spacing: 10.w,
-                                  runSpacing: 10.h,
-                                  children: [
-                                    InkWell(
-                                      onTap: () {
-                                        context
-                                            .read<TaskViewmodel>()
-                                            .getTasks();
-                                        Navigator.pop(context);
-                                      },
-                                      child: Container(
-                                        padding: EdgeInsets.symmetric(
-                                          horizontal: 10.w,
-                                          vertical: 8.h,
-                                        ),
-                                        decoration: BoxDecoration(
-                                          color: Colors.white,
-                                          borderRadius:
-                                              BorderRadius.circular(10.r),
-                                          gradient: LinearGradient(
-                                            colors: TaskStatus.values
-                                                .map(
-                                                  (status) => status.color,
-                                                )
-                                                .toList(),
-                                            begin: Alignment.topLeft,
-                                            end: Alignment.bottomRight,
-                                          ),
-                                        ),
-                                        child: Text(
-                                          'task.filter.all'.tr(),
-                                          style: Theme.of(context)
-                                              .textTheme
-                                              .bodyMedium,
-                                        ),
-                                      ),
-                                    ),
-                                    ...() {
-                                      return TaskStatus.values.map(
-                                        (status) => ChoiceChip(
-                                          selected:
-                                              selectedStatus.contains(status),
-                                          label: Text(
-                                            'task.status.${status.name}'.tr(),
-                                            style: Theme.of(context)
-                                                .textTheme
-                                                .bodyMedium,
-                                          ),
-                                          color: WidgetStatePropertyAll(
-                                              status.color),
-                                          selectedColor: status.color,
-                                          backgroundColor: status.color,
-                                          onSelected: (value) {
-                                            setState(
-                                              () {
-                                                if (value) {
-                                                  selectedStatus.add(status);
-                                                } else {
-                                                  selectedStatus.remove(status);
-                                                }
-                                                context
-                                                    .read<TaskViewmodel>()
-                                                    .filterWithStatuses(
-                                                        selectedStatus);
-                                              },
-                                            );
-                                          },
-                                        ),
-                                      );
-                                    }()
-                                  ],
-                                ),
-                                SizedBox(height: 10.h),
-                              ],
-                            );
-                          },
-                        ),
-                      );
-                    }
-                    if (index == 2) {
-                      context.goNamed(Routes.search.name);
-                    }
-                  },
-                  borderRadius: BorderRadius.circular(15.r),
                 ),
               ),
             ),
@@ -264,6 +165,112 @@ class _HomeScreenState extends State<HomeScreen> with RouteAware {
           ],
         ),
       ),
+    );
+  }
+
+  DropIcons settingIcons(BuildContext context) {
+    return DropIcons(
+      button: const Icon(Icons.segment_outlined),
+      iconsText: const [
+        Hero(
+          tag: 'app_settings',
+          child: Icon(Icons.settings_outlined),
+        ),
+        Icon(Icons.tune_rounded),
+        Icon(Icons.search),
+      ],
+      onSelectIcon: (index) {
+        if (index == 0) {
+          context.goNamed(Routes.settings.name);
+        }
+        if (index == 1) {
+          Set<TaskStatus> selectedStatus = {};
+          // show filters as modal bottom sheet
+          showSheet(
+            context,
+            content: StatefulBuilder(
+              builder: (_, setState) {
+                return Column(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    Wrap(
+                      alignment: WrapAlignment.center,
+                      runAlignment: WrapAlignment.center,
+                      crossAxisAlignment: WrapCrossAlignment.center,
+                      spacing: 10.w,
+                      runSpacing: 10.h,
+                      children: [
+                        InkWell(
+                          onTap: () {
+                            context.read<TaskViewmodel>().getTasks();
+                            Navigator.pop(context);
+                          },
+                          child: Container(
+                            padding: EdgeInsets.symmetric(
+                              horizontal: 10.w,
+                              vertical: 8.h,
+                            ),
+                            decoration: BoxDecoration(
+                              color: Colors.white,
+                              borderRadius: BorderRadius.circular(10.r),
+                              gradient: LinearGradient(
+                                colors: TaskStatus.values
+                                    .map(
+                                      (status) => status.color,
+                                    )
+                                    .toList(),
+                                begin: Alignment.topLeft,
+                                end: Alignment.bottomRight,
+                              ),
+                            ),
+                            child: Text(
+                              'task.filter.all'.tr(),
+                              style: Theme.of(context).textTheme.bodyMedium,
+                            ),
+                          ),
+                        ),
+                        ...() {
+                          return TaskStatus.values.map(
+                            (status) => ChoiceChip(
+                              selected: selectedStatus.contains(status),
+                              label: Text(
+                                'task.status.${status.name}'.tr(),
+                                style: Theme.of(context).textTheme.bodyMedium,
+                              ),
+                              color: WidgetStatePropertyAll(status.color),
+                              selectedColor: status.color,
+                              backgroundColor: status.color,
+                              onSelected: (value) {
+                                setState(
+                                  () {
+                                    if (value) {
+                                      selectedStatus.add(status);
+                                    } else {
+                                      selectedStatus.remove(status);
+                                    }
+                                    context
+                                        .read<TaskViewmodel>()
+                                        .filterWithStatuses(selectedStatus);
+                                  },
+                                );
+                              },
+                            ),
+                          );
+                        }()
+                      ],
+                    ),
+                    SizedBox(height: 10.h),
+                  ],
+                );
+              },
+            ),
+          );
+        }
+        if (index == 2) {
+          context.goNamed(Routes.search.name);
+        }
+      },
+      borderRadius: BorderRadius.circular(15.r),
     );
   }
 

@@ -13,6 +13,7 @@ import 'package:better_one/model/notification_model/notification_model.dart';
 import 'package:better_one/model/task_model/task_model.dart';
 import 'package:better_one/view/widgets/duration_widget.dart';
 import 'package:better_one/view/widgets/write_task_area.dart';
+import 'package:better_one/view_models/notification_viewmodel/notification_viewmodel.dart';
 import 'package:better_one/view_models/quote_viewmodel/quote_viewmodel.dart';
 import 'package:better_one/view_models/setting_viewmodel/setting_viewmode.dart';
 import 'package:better_one/view_models/task_viewmodel/task_viewmodel.dart';
@@ -142,14 +143,22 @@ class _TaskScreenState extends State<TaskDetailsScreen>
                 );
                 settingState.isNotificationOnComplete
                     ? () {
-                        localNotification.display(
-                          notification: NotificationModel(
+                        inject<NotificationViewmodel>().sendNotification(
+                          NotificationModel(
                             displayId: DateTime.now().microsecond,
                             title: 'task.motive_complete'.tr(),
                             body: task!.title,
                             payload: task!.id,
                           ),
                         );
+                        // localNotification.display(
+                        //   notification: NotificationModel(
+                        //     displayId: DateTime.now().microsecond,
+                        //     title: 'task.motive_complete'.tr(),
+                        //     body: task!.title,
+                        //     payload: task!.id,
+                        //   ),
+                        // );
                       }()
                     : null;
               }

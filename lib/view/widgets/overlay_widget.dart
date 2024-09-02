@@ -82,26 +82,18 @@ class _DropIconsState extends State<DropIcons>
           closeMenu();
         }
       },
-      child: Container(
-        key: _key,
-        padding: const EdgeInsets.all(5),
-        margin: const EdgeInsets.all(5),
-        decoration: BoxDecoration(
-          color: Colors.green,
-          borderRadius: _borderRadius ?? BorderRadius.circular(15.r),
-        ),
-        child: FittedBox(
-          fit: BoxFit.contain,
-          child: InkWell(
-            onTap: () {
-              if (isMenuOpen) {
-                closeMenu();
-              } else {
-                openMenu();
-              }
-            },
-            child: widget.button,
-          ),
+      child: FittedBox(
+        fit: BoxFit.contain,
+        child: IconButton(
+          key: _key,
+          onPressed: () {
+            if (isMenuOpen) {
+              closeMenu();
+            } else {
+              openMenu();
+            }
+          },
+          icon: widget.button,
         ),
       ),
     );
@@ -133,7 +125,8 @@ class _DropIconsState extends State<DropIcons>
                     margin: const EdgeInsets.only(top: 15.0),
                     padding: const EdgeInsets.symmetric(horizontal: 2.5),
                     decoration: BoxDecoration(
-                      color: Theme.of(context).primaryColor,
+                      color: Colors.transparent,
+                      // color: Theme.of(context).primaryColor,
                       borderRadius:
                           _borderRadius ?? BorderRadius.circular(15.r),
                     ),

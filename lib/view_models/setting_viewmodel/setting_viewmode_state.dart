@@ -27,7 +27,7 @@ class SettingViewModelState with _$SettingViewModelState {
     //* notification settings
     @Default(true) bool isNotificationOnAdd,
     @Default(false) bool isNotificationOnUpdate,
-    @Default(false) bool isNotificationOnComplete,
+    @Default(true) bool isNotificationOnComplete,
     @Default(false) bool isNotificationOnReminder,
     @Default(null) DateTime? reminderDateTime,
     @Default(false) bool repeatReminder,

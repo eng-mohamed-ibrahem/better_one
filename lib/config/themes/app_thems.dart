@@ -1,3 +1,4 @@
+import 'package:better_one/config/themes/app_text_styles.dart';
 import 'package:better_one/core/constants/app_colors.dart';
 import 'package:better_one/core/constants/ui_dimentions.dart';
 import 'package:flutter/material.dart';

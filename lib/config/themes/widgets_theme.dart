@@ -183,34 +183,13 @@ class _WidgetsTheme {
   }
 
   static TextTheme textTheme() {
-    return const TextTheme(
-      titleLarge: TextStyle(
-        color: AppColors.white,
-        fontSize: 20,
-        fontWeight: FontWeight.bold,
-      ),
-      titleSmall: TextStyle(
-        color: AppColors.white,
-        fontSize: 16,
-        fontWeight: FontWeight.bold,
-      ),
-      titleMedium: TextStyle(
-        color: AppColors.white,
-        fontSize: 18,
-        fontWeight: FontWeight.bold,
-      ),
-      bodyMedium: TextStyle(
-        color: AppColors.white,
-        fontSize: 18,
-        fontWeight: FontWeight.normal,
-        height: 1.2,
-      ),
-      bodySmall: TextStyle(
-        color: AppColors.white,
-        fontSize: 16,
-        fontWeight: FontWeight.normal,
-        height: 1.2,
-      ),
+    return TextTheme(
+      titleLarge: AppTextStyles.titleLarge,
+      titleSmall: AppTextStyles.titleSmall,
+      titleMedium: AppTextStyles.titleMedium,
+      bodyLarge: AppTextStyles.bodyLarge,
+      bodyMedium: AppTextStyles.bodyMedium,
+      bodySmall: AppTextStyles.bodySmall,
     );
   }
 
@@ -238,22 +217,25 @@ class _WidgetsTheme {
   }
 
   static TextTheme lightTextTheme() {
-    return textTheme().copyWith(
-      titleLarge: textTheme().titleLarge!.copyWith(
-            color: AppColors.lightWhite,
-          ),
-      titleSmall: textTheme().titleSmall!.copyWith(
-            color: AppColors.lightWhite,
-          ),
-      titleMedium: textTheme().titleMedium!.copyWith(
-            color: AppColors.lightWhite,
-          ),
-      bodyMedium: textTheme().bodyMedium!.copyWith(
-            color: AppColors.lightWhite,
-          ),
-      bodySmall: textTheme().bodySmall!.copyWith(
-            color: AppColors.lightWhite,
-          ),
+    return TextTheme(
+      titleLarge: AppTextStyles.titleLarge.copyWith(
+        color: AppColors.lightWhite,
+      ),
+      titleSmall: AppTextStyles.titleSmall.copyWith(
+        color: AppColors.lightWhite,
+      ),
+      titleMedium: AppTextStyles.titleMedium.copyWith(
+        color: AppColors.lightWhite,
+      ),
+      bodyLarge: AppTextStyles.bodyLarge.copyWith(
+        color: AppColors.lightWhite,
+      ),
+      bodyMedium: AppTextStyles.bodyMedium.copyWith(
+        color: AppColors.lightWhite,
+      ),
+      bodySmall: AppTextStyles.bodySmall.copyWith(
+        color: AppColors.lightWhite,
+      ),
     );
   }
 }

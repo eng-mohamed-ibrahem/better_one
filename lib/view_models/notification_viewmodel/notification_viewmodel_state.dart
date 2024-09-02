@@ -29,4 +29,24 @@ class NotificationViewmodelState with _$NotificationViewmodelState {
   const factory NotificationViewmodelState.getNotificationStreamSuccess({
     required Stream<List<NotificationModel>> stream,
   }) = _GetNotificationStreamSuccess;
+
+  /// get notification
+  const factory NotificationViewmodelState.getNotificationloading() =
+      _GetNotificationloading;
+
+  const factory NotificationViewmodelState.getNewNotificationloading() =
+      _GetNewNotificationloading;
+
+  const factory NotificationViewmodelState.getNotificationFailed({
+    required Failure failure,
+    required String message,
+  }) = _GetNotificationFailed;
+
+  const factory NotificationViewmodelState.getNewNotificationFailed({
+    required String message,
+  }) = _GetNewNotificationFailed;
+
+  const factory NotificationViewmodelState.getNotificationSuccess({
+    required List<QueryDocumentSnapshot<Object?>> list,
+  }) = _GetNotificationSuccess;
 }
