@@ -308,6 +308,7 @@ class _HomeScreenState extends State<HomeScreen> with RouteAware {
                     orElse: () {
                       return FittedBox(
                         fit: BoxFit.scaleDown,
+                        alignment: AlignmentDirectional.centerEnd,
                         child: Material(
                           shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(

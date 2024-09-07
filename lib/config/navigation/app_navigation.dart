@@ -3,7 +3,6 @@ import 'package:better_one/core/utils/dependency_locator/dependency_injection.da
 import 'package:better_one/core/utils/dependency_locator/inject.dart';
 import 'package:better_one/data_source/auth_data_source/firebase_auth_impl.dart';
 import 'package:better_one/repositories/auth_repo/auth_repo_impl.dart';
-import 'package:better_one/view/pages/notification/notification_screen.dart';
 import 'package:better_one/view/pages/pages.dart';
 import 'package:better_one/view_models/auth_viewmodel/auth_viewmodel.dart';
 import 'package:better_one/view_models/notification_viewmodel/notification_viewmodel.dart';
@@ -193,13 +192,14 @@ class AppNavigation {
                   return MultiBlocProvider(
                     providers: [
                       BlocProvider(
+                        lazy: false,
                         create: (context) => UserViewmodel(userRepo: kUserRepo),
                       ),
                       BlocProvider.value(
                         value: inject<TaskViewmodel>(),
                       ),
                     ],
-                    child: const ProfileSettingScreen(),
+                    child: const ProfileScreen(),
                   );
                 },
                 redirect: (context, state) async {
@@ -208,6 +208,41 @@ class AppNavigation {
                       ? null
                       : state.namedLocation(Routes.login.name);
                 },
+                routes: [
+                  GoRoute(
+                    path: Routes.changeName.path,
+                    name: Routes.changeName.name,
+                    builder: (context, state) {
+                      activeRoute = Routes.changeName.path;
+                      return BlocProvider.value(
+                        value: inject<UserViewmodel>(),
+                        child: const ChangeNameScreen(),
+                      );
+                    },
+                  ),
+                  GoRoute(
+                    path: Routes.changeEmail.path,
+                    name: Routes.changeEmail.name,
+                    builder: (context, state) {
+                      activeRoute = Routes.changeEmail.path;
+                      return BlocProvider.value(
+                        value: inject<UserViewmodel>(),
+                        child: const ChangeEmailScreen(),
+                      );
+                    },
+                  ),
+                  GoRoute(
+                    path: Routes.changePassword.path,
+                    name: Routes.changePassword.name,
+                    builder: (context, state) {
+                      activeRoute = Routes.changePassword.path;
+                      return BlocProvider.value(
+                        value: inject<UserViewmodel>(),
+                        child: const ChangePasswordScreen(),
+                      );
+                    },
+                  ),
+                ],
               ),
               GoRoute(
                 path: Routes.login.path,

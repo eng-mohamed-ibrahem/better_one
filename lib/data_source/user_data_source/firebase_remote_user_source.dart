@@ -128,6 +128,24 @@ class FirebaseRemoteUserSource implements RemoteUserSource {
       if (user == null) {
         throw FirebaseAuthException(code: 'no-user');
       }
+      if (newEmail != null) {
+        await user.verifyBeforeUpdateEmail(newEmail);
+      }
+      if (newPassword != null) {
+        await user.updatePassword(newPassword);
+      }
+      if (newDisplayName != null) {
+        await user.updateDisplayName(newDisplayName);
+      }
+      await user.reload();
+      user = FirebaseAuth.instance.currentUser;
+      UserModel userModel = UserModel(
+        id: user!.uid,
+        name: user.displayName!,
+        email: user.email!,
+        createdAt: user.metadata.creationTime!,
+      );
+      return ResultHandler.success(data: userModel);
     } on FirebaseAuthException catch (e) {
       return ResultHandler.failure(
         error: FirebaseFailure.fromCode(e.code),
@@ -135,8 +153,6 @@ class FirebaseRemoteUserSource implements RemoteUserSource {
     } catch (e) {
       return ResultHandler.failure(error: OtherFailure(message: e.toString()));
     }
-
-    throw UnimplementedError();
   }
 
   @override

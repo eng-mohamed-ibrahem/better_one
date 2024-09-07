@@ -20,6 +20,7 @@ abstract class RemoteUserSource with CRUDTaskMixin {
       NotificationModel notification);
   Future<ResultHandler<Stream<List<NotificationModel>>, Failure>>
       listenNotifications();
-  Future<ResultHandler<List<QueryDocumentSnapshot>, Failure>> getNotifications(int limit,
+  Future<ResultHandler<List<QueryDocumentSnapshot>, Failure>> getNotifications(
+      int limit,
       {QueryDocumentSnapshot? startAfter});
 }

@@ -2,6 +2,7 @@ import 'package:better_one/config/themes/app_text_styles.dart';
 import 'package:better_one/core/constants/app_colors.dart';
 import 'package:better_one/core/constants/ui_dimentions.dart';
 import 'package:flutter/material.dart';
+
 part 'widgets_theme.dart';
 
 class AppThemes {
@@ -28,6 +29,7 @@ class AppThemes {
     dividerTheme: _WidgetsTheme.dividerTheme(),
     cardTheme: _WidgetsTheme.cardTheme(),
     bottomSheetTheme: _WidgetsTheme.bottomSheetTheme(),
+    shadowColor: AppColors.white,
   );
 
   /// light theme
@@ -142,5 +144,6 @@ class AppThemes {
       dragHandleColor: AppColors.lightSecondColor,
       backgroundColor: AppColors.lightPrimaryColor,
     ),
+    shadowColor: AppColors.secondColor,
   );
 }
