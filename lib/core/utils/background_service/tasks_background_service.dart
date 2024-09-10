@@ -15,12 +15,10 @@ import 'package:path_provider/path_provider.dart';
 class TasksBackgroundService {
   static final ReceivePort downloadReceiverPort = ReceivePort();
   static final ReceivePort uploadReceiverPort = ReceivePort();
-  static late final Isolate downloadIsolate;
-  static late final Isolate uploadIsolate;
 
   static void downloadTasks(RootIsolateToken? token) async {
     kDebugPrint('root isolate download task');
-    downloadIsolate = await Isolate.spawn(
+    await Isolate.spawn(
       _downloadEntryPoint,
       {
         "send_port": downloadReceiverPort.sendPort,
@@ -66,16 +64,18 @@ class TasksBackgroundService {
         },
       );
       await appBox.put(CacheKeys.downloadService, true);
-      (args['send_port'] as SendPort).send(true);
-      uploadTasks((args['token'] as RootIsolateToken));
+      kDebugPrint("end loading tasks: true");
+      downloadReceiverPort.sendPort.send(true);
+      uploadTasks(args['token']);
     } catch (e) {
       await appBox.put(CacheKeys.downloadService, false);
-      (args['send_port'] as SendPort).send(false);
+      kDebugPrint("end loading tasks: error ${e.toString()}");
+      downloadReceiverPort.sendPort.send(false);
     }
   }
 
   static void uploadTasks(RootIsolateToken? token) async {
-    uploadIsolate = await Isolate.spawn(
+    Isolate.spawn(
       _uploadEntryPoint,
       {
         "send_port": uploadReceiverPort.sendPort,
@@ -124,7 +124,7 @@ class TasksBackgroundService {
   }
 
   static void syncTasks(RootIsolateToken? token) {
-    TasksBackgroundService.downloadTasks(token);
+    downloadTasks(token);
   }
 
   static List<TaskModel> _convertToTaskList(List<dynamic>? list) {

@@ -146,6 +146,10 @@ class FirebaseFailure extends Failure {
   }
 }
 
+class NoUserLogedInFailure extends Failure {
+  NoUserLogedInFailure({required super.message});
+}
+
 class NoInternetFailure extends Failure {
   NoInternetFailure({required super.message});
 }

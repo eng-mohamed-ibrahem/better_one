@@ -51,6 +51,7 @@ class TaskField extends StatelessWidget {
         minLines: minLines,
         focusNode: focusNode,
         autofocus: autofocus,
+        // textDirection: TextDirection.ltr,
         autovalidateMode: AutovalidateMode.onUserInteraction,
         decoration: InputDecoration(
           labelText: labelText,

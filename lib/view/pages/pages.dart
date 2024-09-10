@@ -21,3 +21,4 @@ export 'profile/change_name_screen.dart';
 export 'profile/change_email_screen.dart';
 export 'profile/change_password_screen.dart';
 export 'notification/notification_screen.dart';
+export 'feedback/feedback_screen.dart';

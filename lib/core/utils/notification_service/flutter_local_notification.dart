@@ -3,18 +3,16 @@ import 'dart:developer';
 import 'dart:io';
 
 import 'package:better_one/core/enum/notification_interval.dart';
-import 'package:better_one/core/utils/notification_service/notification_interface.dart';
 import 'package:better_one/model/notification_model/notification_model.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:flutter_timezone/flutter_timezone.dart';
 import 'package:timezone/data/latest_all.dart' as tz;
 import 'package:timezone/timezone.dart' as tz;
 
-class FlutterLocalNotification implements NotificationRepoInterface {
+class FlutterLocalNotification {
   final FlutterLocalNotificationsPlugin _flutterNotificationsPlugin =
       FlutterLocalNotificationsPlugin();
 
-  @override
   Future<void> init() async {
     AndroidInitializationSettings android =
         const AndroidInitializationSettings('@mipmap/ic_launcher');
@@ -36,7 +34,6 @@ class FlutterLocalNotification implements NotificationRepoInterface {
   final StreamController<String?> _ontTapNotificationStreamController =
       StreamController.broadcast();
 
-  @override
   Stream<String?> get onTapNotificationStream =>
       _ontTapNotificationStreamController.stream;
 
@@ -44,7 +41,6 @@ class FlutterLocalNotification implements NotificationRepoInterface {
     _ontTapNotificationStreamController.add(notificationResponse.payload);
   }
 
-  @override
   Future<void> get getNotificationAppLaunchDetails async {
     await _flutterNotificationsPlugin.getNotificationAppLaunchDetails().then(
           (notificationAppLaunchDetails) =>
@@ -77,7 +73,6 @@ class FlutterLocalNotification implements NotificationRepoInterface {
     ),
   );
 
-  @override
   Future<void> display({
     required NotificationModel notification,
   }) async {
@@ -95,7 +90,6 @@ class FlutterLocalNotification implements NotificationRepoInterface {
     });
   }
 
-  @override
   Future<void> displayRepeated({
     required NotificationModel notification,
     required NotificaionInterval interval,
@@ -114,7 +108,6 @@ class FlutterLocalNotification implements NotificationRepoInterface {
     });
   }
 
-  @override
   Future<void> displaySchedule({
     required NotificationModel notification,
     required DateTime scheduleTime,
@@ -151,12 +144,10 @@ class FlutterLocalNotification implements NotificationRepoInterface {
     );
   }
 
-  @override
   Future<void> cancel({required int id}) async {
     await _flutterNotificationsPlugin.cancel(id);
   }
 
-  @override
   Future<void> cancelAll() async {
     await _flutterNotificationsPlugin.cancelAll();
   }
@@ -181,14 +172,12 @@ class FlutterLocalNotification implements NotificationRepoInterface {
     return null;
   }
 
-  @override
   Future<List<int>> getActiveNotificationsIds() async {
     return await _flutterNotificationsPlugin
         .getActiveNotifications()
         .then((value) => value.map((e) => e.id!).toList());
   }
 
-  @override
   Future<List<int>> getPendingNotificationsIds() async {
     return await _flutterNotificationsPlugin
         .pendingNotificationRequests()

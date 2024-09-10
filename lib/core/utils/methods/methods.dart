@@ -2,25 +2,10 @@ import 'package:better_one/config/navigation/routes_enum.dart';
 import 'package:better_one/core/constants/constants.dart';
 import 'package:better_one/model/settings_item_model/setting_item_model.dart';
 import 'package:easy_localization/easy_localization.dart';
-import 'package:feedback/feedback.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:lottie/lottie.dart';
-
-void showFeedback(BuildContext context) {
-  BetterFeedback.of(context).show((userFeedback) {
-    // todo check if he has account or not
-    // if not, show dialog for register
-
-    ///#things to upload
-    /// 1: screenshots
-    /// 2: text
-    /// 3: device info
-    /// 4: package info
-    debugPrint(userFeedback.text);
-  });
-}
 
 void showSnackBar(
   BuildContext context, {
