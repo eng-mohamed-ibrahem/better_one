@@ -1,21 +1,17 @@
 import 'package:better_one/config/navigation/routes_enum.dart';
 import 'package:better_one/core/constants/constants.dart';
 import 'package:better_one/core/errors/failure.dart';
-import 'package:better_one/core/utils/background_service/tasks_background_service.dart';
 import 'package:better_one/core/utils/dependency_locator/dependency_injection.dart';
 import 'package:better_one/core/utils/methods/methods.dart';
 import 'package:better_one/core/utils/shared_widgets/back_button_l10n.dart';
 import 'package:better_one/core/utils/shared_widgets/failed.dart';
 import 'package:better_one/core/utils/shared_widgets/lottie_indicator.dart';
 import 'package:better_one/view/widgets/input_field/auth_field.dart';
-import 'package:better_one/view_models/task_viewmodel/task_viewmodel.dart';
 import 'package:better_one/view_models/user_viewmodel/user_viewmodel.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:get_it/get_it.dart';
 import 'package:go_router/go_router.dart';
 
 class ProfileScreen extends StatefulWidget {
@@ -37,42 +33,6 @@ class _ProfileSettingScreenState extends State<ProfileScreen> {
 
   @override
   void didChangeDependencies() {
-    WidgetsBinding.instance.addPostFrameCallback((_) {
-      var broadcastStream =
-          TasksBackgroundService.downloadReceiverPort.asBroadcastStream();
-      GetIt.I.isRegistered<bool>()
-          ? null
-          : () {
-              broadcastStream.listen(
-                (message) {
-                  message is bool && message
-                      ? () {
-                          if (mounted) {
-                            showSnackBar(context,
-                                message: "Tasks Downloaded Successfully");
-                            context.read<TaskViewmodel>().getTasks();
-                          }
-                        }()
-                      : null;
-                },
-              );
-              GetIt.I.registerSingleton<bool>(true);
-            }();
-    });
-
-    /// if something go wrong while download tasks
-    var download = userLocaleDatabase.isDownloadedTasks();
-    download != null && download == false
-        ? TasksBackgroundService.downloadTasks(ServicesBinding.rootIsolateToken)
-        : null;
-
-    /// if something go wrong while uploading tasks
-    var upload = userLocaleDatabase.isUploadedTasks();
-    upload != null && upload == false
-        ? TasksBackgroundService.uploadTasks(ServicesBinding.rootIsolateToken)
-        : null;
-    kDebugPrint("upload: $upload, download: $download");
-
     super.didChangeDependencies();
   }
 
@@ -139,6 +99,7 @@ class _ProfileSettingScreenState extends State<ProfileScreen> {
             },
             orElse: () {
               return SingleChildScrollView(
+                physics: const AlwaysScrollableScrollPhysics(),
                 child: Column(
                   children: [
                     SizedBox(
@@ -228,69 +189,81 @@ class _ProfileSettingScreenState extends State<ProfileScreen> {
                       ),
                     ),
 
-                    // change name
-                    SizedBox(height: AppMetrices.verticalGap3.h),
-
-                    Row(
-                      children: [
-                        Expanded(
-                          child: AuthField(
-                            readOnly: true,
-                            controller: nameController,
-                            labelText: 'auth.u_name'.tr(),
-                            floatingLabelBehavior: FloatingLabelBehavior.always,
+                    /// change name
+                    Padding(
+                      padding: const EdgeInsets.symmetric(
+                          horizontal: AppMetrices.horizontalGap),
+                      child: Column(
+                        children: [
+                          SizedBox(height: AppMetrices.verticalGap3.h),
+                          Row(
+                            children: [
+                              Expanded(
+                                child: AuthField(
+                                  readOnly: true,
+                                  controller: nameController,
+                                  labelText: 'auth.u_name'.tr(),
+                                  floatingLabelBehavior:
+                                      FloatingLabelBehavior.always,
+                                ),
+                              ),
+                              MaterialButton(
+                                onPressed: () {
+                                  context.goNamed(Routes.changeName.name);
+                                },
+                                child: const Icon(Icons.edit_rounded),
+                              ),
+                            ],
                           ),
-                        ),
-                        MaterialButton(
-                          onPressed: () {
-                            context.goNamed(Routes.changeName.name);
-                          },
-                          child: const Icon(Icons.edit_rounded),
-                        ),
-                      ],
-                    ),
 
-                    SizedBox(height: AppMetrices.verticalGap3.h),
-
-                    // change email
-                    Row(
-                      children: [
-                        Expanded(
-                          child: AuthField(
-                            readOnly: true,
-                            controller: emailController,
-                            labelText: 'auth.u_email'.tr(),
-                            floatingLabelBehavior: FloatingLabelBehavior.always,
+                          /// change email
+                          SizedBox(height: AppMetrices.verticalGap3.h),
+                          Row(
+                            children: [
+                              Expanded(
+                                child: AuthField(
+                                  readOnly: true,
+                                  controller: emailController,
+                                  labelText: 'auth.u_email'.tr(),
+                                  floatingLabelBehavior:
+                                      FloatingLabelBehavior.always,
+                                ),
+                              ),
+                              MaterialButton(
+                                onPressed: () {
+                                  context.goNamed(Routes.changeEmail.name);
+                                },
+                                child: const Icon(Icons.edit_rounded),
+                              ),
+                            ],
                           ),
-                        ),
-                        MaterialButton(
-                          onPressed: () {
-                            context.goNamed(Routes.changeEmail.name);
-                          },
-                          child: const Icon(Icons.edit_rounded),
-                        ),
-                      ],
-                    ),
-                    const SizedBox(height: AppMetrices.verticalGap),
 
-                    // change password button
-                    AuthField(
-                      readOnly: true,
-                      isItPassword: true,
-                      controller: passwordController,
-                      labelText: 'auth.u_pass'.tr(),
-                      floatingLabelBehavior: FloatingLabelBehavior.always,
-                    ),
-                    const SizedBox(height: AppMetrices.verticalGap),
-
-                    // apply changes
-                    const SizedBox(height: AppMetrices.verticalGap),
-                    MaterialButton(
-                      onPressed: () {},
-                      color: Theme.of(context).primaryColor,
-                      child: Text(
-                        'core.apply'.tr(),
-                        style: Theme.of(context).textTheme.titleSmall,
+                          /// change password
+                          SizedBox(height: AppMetrices.verticalGap3.h),
+                          Row(
+                            children: [
+                              Expanded(
+                                child: AbsorbPointer(
+                                  child: AuthField(
+                                    readOnly: true,
+                                    isItPassword: true,
+                                    controller: passwordController
+                                      ..text = "********",
+                                    labelText: 'auth.u_pass'.tr(),
+                                    floatingLabelBehavior:
+                                        FloatingLabelBehavior.always,
+                                  ),
+                                ),
+                              ),
+                              MaterialButton(
+                                onPressed: () {
+                                  context.goNamed(Routes.changePassword.name);
+                                },
+                                child: const Icon(Icons.edit_rounded),
+                              ),
+                            ],
+                          ),
+                        ],
                       ),
                     ),
                   ],

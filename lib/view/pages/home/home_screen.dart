@@ -49,8 +49,6 @@ class _HomeScreenState extends State<HomeScreen> with RouteAware {
         if (payload!.isNotEmpty) {
           context.goNamed(Routes.taskDetail.name,
               queryParameters: {'id': payload});
-          kDebugPrint(
-              "location of ${Routes.taskDetail.name}: ${GoRouterState.of(context).namedLocation(Routes.taskDetail.name)}");
         }
       },
     );

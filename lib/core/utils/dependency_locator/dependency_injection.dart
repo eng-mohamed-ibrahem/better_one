@@ -1,6 +1,6 @@
-import 'package:better_one/core/utils/notification_service/notification_interface.dart';
 import 'package:better_one/core/utils/remote_service/api_consumer/api_consumer.dart';
 import 'package:better_one/core/utils/remote_service/api_consumer/dio_consumer.dart';
+import 'package:better_one/data_source/notification_data_source/firebase_notification_source.dart';
 import 'package:better_one/data_source/quote_data_source/quote_source_interface.dart';
 import 'package:better_one/data_source/quote_data_source/remote_quote_data_source.dart';
 import 'package:better_one/data_source/settings_data_source/local_settings_data_source.dart';
@@ -9,6 +9,8 @@ import 'package:better_one/data_source/task_data_source/local_task_data_source.d
 import 'package:better_one/data_source/task_data_source/task_source_interface.dart';
 import 'package:better_one/data_source/user_data_source/firebase_remote_user_source.dart';
 import 'package:better_one/data_source/user_data_source/hive_locale_user_source.dart';
+import 'package:better_one/repositories/notification_repo/notification_repo_impl.dart';
+import 'package:better_one/repositories/notification_repo/notification_repo_interface.dart';
 import 'package:better_one/repositories/quote_repo/quote_repo.dart';
 import 'package:better_one/repositories/quote_repo/quote_repo_interface.dart';
 import 'package:better_one/repositories/task_repo/task_repo_impl.dart';
@@ -61,10 +63,15 @@ Future<void> cacheInitDependency() async {
 }
 
 Future<void> notificationDependency() async {
-  localNotification = _getIt.registerSingleton<NotificationRepoInterface>(
+  localNotification = _getIt.registerSingleton<FlutterLocalNotification>(
     FlutterLocalNotification(),
   );
   await localNotification.init();
+  notificationRepo = _getIt.registerSingleton<NotificationRepoInterface>(
+    NotificationRepoImpl(
+      notificationSource: FirebaseNotificationSource(),
+    ),
+  );
 }
 
 void taskDependency() {
@@ -124,7 +131,7 @@ void quoteDependency() {
   );
 }
 
-late NotificationRepoInterface localNotification;
+late FlutterLocalNotification localNotification;
 late ApiConsumer apiConsumer;
 late TaskRepoInterface taskRepo;
 late TaskSource taskSource;
@@ -135,3 +142,4 @@ late QuoteRepoInterface quoteRepo;
 late RouteObserver<ModalRoute> routeObserver;
 late LocaleUserInfo userLocaleDatabase;
 late UserRepoInterface kUserRepo;
+late NotificationRepoInterface notificationRepo;

@@ -2,9 +2,13 @@ import 'package:better_one/config/navigation/routes_enum.dart';
 import 'package:better_one/core/utils/dependency_locator/dependency_injection.dart';
 import 'package:better_one/core/utils/dependency_locator/inject.dart';
 import 'package:better_one/data_source/auth_data_source/firebase_auth_impl.dart';
+import 'package:better_one/data_source/feedback_data_source/firebase_feedback_source.dart';
 import 'package:better_one/repositories/auth_repo/auth_repo_impl.dart';
+import 'package:better_one/repositories/feedback_repo/feedback_repo_impl.dart';
+import 'package:better_one/repositories/notification_repo/notification_repo_interface.dart';
 import 'package:better_one/view/pages/pages.dart';
 import 'package:better_one/view_models/auth_viewmodel/auth_viewmodel.dart';
+import 'package:better_one/view_models/feedback_viewmodel/feedback_viewmodel.dart';
 import 'package:better_one/view_models/notification_viewmodel/notification_viewmodel.dart';
 import 'package:better_one/view_models/quote_viewmodel/quote_viewmodel.dart';
 import 'package:better_one/view_models/search_viewmodel/search_viewmodel.dart';
@@ -53,11 +57,6 @@ class AppNavigation {
               BlocProvider(
                 create: (context) =>
                     TaskViewmodel(taskRepo: taskRepo, userRepo: kUserRepo),
-              ),
-              BlocProvider(
-                lazy: false,
-                create: (context) => NotificationViewmodel(userRepo: kUserRepo)
-                  ..getNotification(),
               ),
               BlocProvider(
                 lazy: false,
@@ -119,8 +118,10 @@ class AppNavigation {
             name: Routes.notification.name,
             builder: (context, state) {
               activeRoute = Routes.notification.path;
-              return BlocProvider.value(
-                value: inject<NotificationViewmodel>(),
+              return BlocProvider(
+                create: (context) => NotificationViewmodel(
+                  notificationRepo: inject<NotificationRepoInterface>(),
+                ),
                 child: const NotificationScreen(),
               );
             },
@@ -185,6 +186,21 @@ class AppNavigation {
                 },
               ),
               GoRoute(
+                path: Routes.feedback.path,
+                name: Routes.feedback.name,
+                builder: (context, state) {
+                  activeRoute = Routes.feedback.path;
+                  return BlocProvider(
+                    create: (context) => FeedbackViewmodel(
+                      feedbackRepo: FeedbackRepoImpl(
+                        feedbackDataSource: FirebaseFeedbackSource(),
+                      ),
+                    ),
+                    child: const FeedbackScreen(),
+                  );
+                },
+              ),
+              GoRoute(
                 path: Routes.profile.path,
                 name: Routes.profile.name,
                 builder: (context, state) {
@@ -192,7 +208,6 @@ class AppNavigation {
                   return MultiBlocProvider(
                     providers: [
                       BlocProvider(
-                        lazy: false,
                         create: (context) => UserViewmodel(userRepo: kUserRepo),
                       ),
                       BlocProvider.value(
@@ -203,8 +218,7 @@ class AppNavigation {
                   );
                 },
                 redirect: (context, state) async {
-                  return userLocaleDatabase.getUserIdFromLocale() != null &&
-                          userLocaleDatabase.isVerified()
+                  return userLocaleDatabase.getUserIdFromLocale() != null
                       ? null
                       : state.namedLocation(Routes.login.name);
                 },

@@ -14,7 +14,9 @@ enum Routes {
   notification("notification", "notification"),
   changePassword("change-password", "change_password"),
   changeEmail("change-email", "change_email"),
-  changeName("change-name", "change_name");
+  changeName("change-name", "change_name"),
+  feedback("feedback", "feedback"),
+  feedbackDetail("feedback-detail", "feedback_detail");
 
   final String path;
   final String name;

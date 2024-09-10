@@ -46,7 +46,12 @@ class _SignUpState extends State<SignUp> {
       body: SingleChildScrollView(
         child: Column(
           children: [
+            SizedBox(
+              height: AppMetrices.verticalGap3.h,
+            ),
             Card(
+              shadowColor: Theme.of(context).shadowColor,
+              elevation: 4,
               child: Form(
                 key: _globalFormKey,
                 child: Padding(
