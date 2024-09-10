@@ -90,11 +90,6 @@ class _SettingScreenState extends State<SettingScreen> with RouteAware {
                                   ? const LoadingDataShimmer()
                                   : const ThemeSetting(),
                         );
-                      } else if (index == 4) {
-                        userLocaleDatabase.getUserIdFromLocale() != null
-                            ? showFeedback(context)
-                            : showSnackBar(context,
-                                message: 'core.login_req'.tr());
                       } else {
                         context.goNamed(settingItems[index].path!);
                       }

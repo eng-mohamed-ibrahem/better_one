@@ -1,6 +1,5 @@
 import 'package:better_one/core/errors/failure.dart';
 import 'package:better_one/core/result_handler/result_handler.dart';
-import 'package:better_one/core/utils/dependency_locator/dependency_injection.dart';
 import 'package:better_one/data_source/auth_data_source/auth_interface.dart';
 import 'package:better_one/model/user_model/user_model.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -14,7 +13,6 @@ class FirebaseAuthImpl implements AuthInterface {
           .signInWithEmailAndPassword(email: email, password: password);
       var user = userCredentional.user;
       if (user!.emailVerified) {
-        userLocaleDatabase.setVerified(isVerified: true);
         return ResultHandler.success(
           data: UserModel(
             id: user.uid,

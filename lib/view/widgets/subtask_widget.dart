@@ -25,7 +25,6 @@ class SubtaskWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return IntrinsicHeight(
       child: Row(
-        mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Column(
             children: [

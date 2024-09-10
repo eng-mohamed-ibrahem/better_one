@@ -1,7 +1,9 @@
 import 'package:better_one/core/enum/notification_interval.dart';
 import 'package:better_one/model/notification_model/notification_model.dart';
 
-abstract class NotificationRepoInterface {
+
+/// ignore: implemented classs[FlutterLocalNotification] used for notification
+abstract class LocaleNotificationInterface {
   /// intialize notification
   Future<void> init();
 

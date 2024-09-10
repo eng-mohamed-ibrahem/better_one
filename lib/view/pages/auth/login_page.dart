@@ -45,7 +45,12 @@ class _LoginState extends State<LogIn> {
       body: SingleChildScrollView(
         child: Column(
           children: [
+            SizedBox(
+              height: AppMetrices.verticalGap3.h,
+            ),
             Card(
+              shadowColor: Theme.of(context).shadowColor,
+              elevation: 4,
               child: Form(
                 key: _globalFormKey,
                 child: Padding(
@@ -65,8 +70,8 @@ class _LoginState extends State<LogIn> {
                         hintText: 'auth.u_email'.tr(),
                         labelText: 'auth.u_email'.tr(),
                       ),
-                      const SizedBox(
-                        height: AppMetrices.verticalGap,
+                      SizedBox(
+                        height: AppMetrices.verticalGap2.h,
                       ),
                       AuthField(
                         controller: password,

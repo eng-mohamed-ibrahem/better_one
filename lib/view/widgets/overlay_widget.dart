@@ -69,6 +69,7 @@ class _DropIconsState extends State<DropIcons>
   }
 
   void openMenu() {
+    getButtonInfo();
     Overlay.of(context).insert(_overlayEntry);
     isMenuOpen = true;
   }

@@ -66,7 +66,8 @@
         "filter": {
             "all": "All",
             "apply": "Apply"
-        }
+        },
+        "download_success": "Tasks Downloaded Successfully"
     },
     "setting": {
         "name": "App Settings",
@@ -126,13 +127,26 @@
         "empty": "No notifications found",
         "loading": "Loading notifications...",
         "init": "Notifications will be shown here",
-        "login_req": "Login is required firstly"
+        "login_req": "Login is required firstly, to see notifications"
+    },
+    "feedback": {
+        "title": "Feedback",
+        "subtitle": "Send us your feedback",
+        "empty": "No feedback found",
+        "init": "Feedback will be shown here",
+        "login_req": "Login is required firstly, to send feedback",
+        "send": "Send",
+        "success": "Feedback sent successfully",
+        "required": "Feedback is required",
+        "hint": "Enter your feedback here",
+        "error": "Failed to send feedback, please try again later"
     },
     "profile": {
         "change_password": {
             "title": "Change Password",
             "old_pass": "Current Password",
             "new_pass": "New Password",
+            "new_pass_confirm": "Confirm New Password",
             "confirm_new_pass": "Confirm Password",
             "error": "Password does not match",
             "success": "Password changed successfully",
@@ -151,9 +165,10 @@
             "title": "Change Email",
             "old_email": "Current Email",
             "new_email": "New Email",
-            "confirm_new_email": "Confirm Email",
+            "new_email_confirm": "Confirm New Email",
+            "confirm_email": "Confirm Email",
             "error": "Email does not match",
-            "success": "Email changed successfully",
+            "success": "Sent verification link to your email",
             "required": {
                 "old_email": "Current Email is required",
                 "new_email": "New Email is required",
@@ -162,7 +177,7 @@
             "invalid": {
                 "old_email": "Current Email is invalid",
                 "new_email": "New Email is invalid",
-                "confirm_new_email": "Confirm Email is invalid"
+                "confirm_new_email": "Confirm Email does not match"
             }
         },
         "change_name": {
@@ -181,7 +196,8 @@
                 "old_name": "Current Name is invalid",
                 "new_name": "New Name is invalid",
                 "confirm_new_name": "Confirm Name is invalid"
-            }
+            },
+            "new_name_cant_be_empty": "New Name can't be empty"
         },
         "forgot_password": {
             "title": "Forgot Password",
