@@ -59,6 +59,13 @@ class TaskViewmodel extends Cubit<TaskViewmodelState> {
         emit(
           _CreateTaskCompleted(createdTask: task),
         );
+        Future.delayed(Durations.medium3, () {
+          scrollController.animateTo(
+            scrollController.position.maxScrollExtent,
+            duration: const Duration(milliseconds: 300),
+            curve: Curves.easeIn,
+          );
+        });
       },
       failure: (error) {
         emit(

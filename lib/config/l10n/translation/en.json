@@ -12,7 +12,8 @@
         "ex_session": "Session is Expired",
         "login_req": "Login is required firstly",
         "wrong": "Something went wrong. Please try again later",
-        "error": "Oobs, there something unexpected happened. Please try again later"
+        "error": "Oobs, there something unexpected happened. Please try again later",
+        "sync": "Sync"
     },
     "onboarding": {
         "1": {
@@ -120,6 +121,80 @@
         "empty": "No tasks found",
         "init": "Search for tasks by title, or subtask"
     },
+    "notification": {
+        "title": "Notifications",
+        "empty": "No notifications found",
+        "loading": "Loading notifications...",
+        "init": "Notifications will be shown here",
+        "login_req": "Login is required firstly"
+    },
+    "profile": {
+        "change_password": {
+            "title": "Change Password",
+            "old_pass": "Current Password",
+            "new_pass": "New Password",
+            "confirm_new_pass": "Confirm Password",
+            "error": "Password does not match",
+            "success": "Password changed successfully",
+            "required": {
+                "old_pass": "Current Password is required",
+                "new_pass": "New Password is required",
+                "confirm_new_pass": "Confirm Password is required"
+            },
+            "invalid": {
+                "old_pass": "Current Password is invalid",
+                "new_pass": "New Password is invalid",
+                "confirm_new_pass": "Confirm Password is invalid"
+            }
+        },
+        "change_email": {
+            "title": "Change Email",
+            "old_email": "Current Email",
+            "new_email": "New Email",
+            "confirm_new_email": "Confirm Email",
+            "error": "Email does not match",
+            "success": "Email changed successfully",
+            "required": {
+                "old_email": "Current Email is required",
+                "new_email": "New Email is required",
+                "confirm_new_email": "Confirm Email is required"
+            },
+            "invalid": {
+                "old_email": "Current Email is invalid",
+                "new_email": "New Email is invalid",
+                "confirm_new_email": "Confirm Email is invalid"
+            }
+        },
+        "change_name": {
+            "title": "Change Name",
+            "old_name": "Current Name",
+            "new_name": "New Name",
+            "confirm_new_name": "Confirm Name",
+            "error": "Name does not match",
+            "success": "Name changed successfully",
+            "required": {
+                "old_name": "Current Name is required",
+                "new_name": "New Name is required",
+                "confirm_new_name": "Confirm Name is required"
+            },
+            "invalid": {
+                "old_name": "Current Name is invalid",
+                "new_name": "New Name is invalid",
+                "confirm_new_name": "Confirm Name is invalid"
+            }
+        },
+        "forgot_password": {
+            "title": "Forgot Password",
+            "email": "E-mail",
+            "send": "Send",
+            "sent": "Sent verification link to your email",
+            "error": "Failed to send verification link, please try again later",
+            "success": "Reset link sent successfully",
+            "invalid": "Invalid Email",
+            "required": "Email is required",
+            "no_user": "No user found with this email"
+        }
+    },
     "auth": {
         "cr_account": "Create Account",
         "access_account": "Login to your account",
@@ -139,7 +214,7 @@
             "email": "Invalid Email",
             "pass": "Invalid Password"
         },
-        "signup_succ": "Signup Successfully",
+        "signup_succ": "Signup Successfully, sent verification link to your email",
         "login_succ": "Login Successfully",
         "logout_succ": "Logout Successfully",
         "logout": "Logout",

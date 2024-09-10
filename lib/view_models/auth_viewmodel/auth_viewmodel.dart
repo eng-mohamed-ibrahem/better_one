@@ -24,15 +24,12 @@ class AuthViewmodel extends Cubit<AuthViewmodelState> {
         await authRepo.signUp(email: email, password: password, name: name);
     result.when(
       success: (userModel) {
-        debugPrint(userModel.toString());
         emit(
           _SignupSuccess(user: userModel),
         );
       },
       failure: (failure) {
         if (failure is ParserFailure || failure is OtherFailure) {
-          debugPrint(
-              "=====================================\n${failure.toString()}\n===================================");
           emit(
             _SignupFailed(
               message: 'core.wrong'.tr(),
@@ -52,12 +49,10 @@ class AuthViewmodel extends Cubit<AuthViewmodelState> {
     var result = await authRepo.logIn(email: email, password: password);
     result.when(
       success: (userModel) {
-        emit( _LoginSuccess(user: userModel));
+        emit(_LoginSuccess(user: userModel));
       },
       failure: (failure) {
         if (failure is ParserFailure || failure is OtherFailure) {
-          debugPrint(
-              "=====================================\n${failure.toString()}\n===================================");
           emit(
             _LoginFailed(message: 'core.wrong'.tr()),
           );

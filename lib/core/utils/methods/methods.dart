@@ -1,12 +1,10 @@
 import 'package:better_one/config/navigation/routes_enum.dart';
 import 'package:better_one/core/constants/constants.dart';
 import 'package:better_one/model/settings_item_model/setting_item_model.dart';
-import 'package:better_one/view_models/user_viewmodel/user_viewmodel.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:feedback/feedback.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:lottie/lottie.dart';
 
@@ -191,25 +189,18 @@ void showLoadingDialog(BuildContext context) {
     context: context,
     barrierDismissible: false,
     builder: (context) {
-      return BlocConsumer<UserViewmodel, UserViewmodelState>(
-        listener: (context, state) {
-          state.maybeWhen(
-              logoutLoading: () => null, orElse: () => context.pop());
-        },
-        builder: (context, state) {
-          return PopScope(
-            canPop:
-                state.maybeWhen(orElse: () => true, logoutLoading: () => false),
-            child: const AlertDialog(
-              content: SizedBox(
-                height: 100,
-                child: Center(
-                  child: CircularProgressIndicator.adaptive(),
-                ),
-              ),
+      return PopScope(
+        canPop: false,
+        child: AlertDialog(
+          content: Container(
+            color: Theme.of(context).primaryColor,
+            height: MediaQuery.sizeOf(context).height * .15,
+            width: MediaQuery.sizeOf(context).width * .4,
+            child: const Center(
+              child: CircularProgressIndicator.adaptive(),
             ),
-          );
-        },
+          ),
+        ),
       );
     },
   );
@@ -245,7 +236,7 @@ showSheet(BuildContext context, {required Widget content}) {
       ),
     ),
     constraints: BoxConstraints(
-        minHeight: MediaQuery.sizeOf(context).height * .2,
+        minHeight: MediaQuery.sizeOf(context).height * .15,
         minWidth: double.infinity),
     builder: (context) {
       return content;

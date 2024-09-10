@@ -7,6 +7,7 @@ import 'package:better_one/view_models/auth_viewmodel/auth_viewmodel.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
 
 class SignUp extends StatefulWidget {
@@ -133,23 +134,29 @@ class _SignUpState extends State<SignUp> {
                 );
               },
               builder: (context, state) {
-                return state.maybeWhen(
-                  signupLoading: () => const CircularProgressIndicator(),
-                  orElse: () {
-                    return FilledButton(
-                      onPressed: () {
-                        if (_globalFormKey.currentState!.validate()) {
-                          AuthViewmodel.get(context).signup(
-                              email: email.text,
-                              password: password.text,
-                              name: userName.text);
-                        }
-                      },
-                      child: Text(
-                        'auth.signup'.tr(),
-                      ),
-                    );
+                return FilledButton.icon(
+                  onPressed: () {
+                    if (_globalFormKey.currentState!.validate()) {
+                      AuthViewmodel.get(context).signup(
+                          email: email.text,
+                          password: password.text,
+                          name: userName.text);
+                    }
                   },
+                  label: Text(
+                    'auth.signup'.tr(),
+                  ),
+                  iconAlignment: IconAlignment.end,
+                  icon: state.maybeWhen(
+                    signupLoading: () => SizedBox(
+                      height: 20.h,
+                      width: 20.w,
+                      child: const CircularProgressIndicator(
+                        strokeWidth: 2,
+                      ),
+                    ),
+                    orElse: () => null,
+                  ),
                 );
               },
             ),

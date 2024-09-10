@@ -77,32 +77,66 @@ class FirebaseFailure extends Failure {
       case 'weak-password':
         {
           return FirebaseFailure(
-            code: 'weak-password',
+            code: code,
             message: 'The password is too weak.',
           );
         }
       case 'invalid-email':
         {
           return FirebaseFailure(
-            code: 'invalid-email',
+            code: code,
             message: 'The email address is badly formatted.',
+          );
+        }
+      case "user-not-found":
+        {
+          return FirebaseFailure(
+            code: code,
+            message: 'There is no user corresponding to this email.',
+          );
+        }
+      case "wrong-password":
+        {
+          return FirebaseFailure(
+            code: code,
+            message: 'The password is wrong for the given email.',
           );
         }
       case 'email-already-in-use':
         {
           return FirebaseFailure(
-            code: 'email-already-in-use',
+            code: code,
             message: 'The account already exists for that email.',
           );
         }
       case 'invalid-credential':
         {
           return FirebaseFailure(
-            code: 'invalid-credential',
-            message: 'The email address is not has been linked.',
+            code: code,
+            message: 'The password is wrong for the given email',
           );
         }
-
+      case "not-verified":
+        {
+          return FirebaseFailure(
+            code: code,
+            message: 'The email address is not verified.',
+          );
+        }
+      case "no-user":
+        {
+          return FirebaseFailure(
+            code: code,
+            message: 'No user found',
+          );
+        }
+      case "requires-recent-login":
+        {
+          return FirebaseFailure(
+            code: code,
+            message: 'Requires recent login',
+          );
+        }
       default:
         return FirebaseFailure(
           code: code,

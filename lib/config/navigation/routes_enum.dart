@@ -10,7 +10,11 @@ enum Routes {
   profile("profile", "profile"),
   notificationSetting("notification-setting", "notification_setting"),
   searchSetting("search-setting", "search_setting"),
-  search("search", "search");
+  search("search", "search"),
+  notification("notification", "notification"),
+  changePassword("change-password", "change_password"),
+  changeEmail("change-email", "change_email"),
+  changeName("change-name", "change_name");
 
   final String path;
   final String name;

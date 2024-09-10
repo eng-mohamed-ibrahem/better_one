@@ -27,7 +27,7 @@ class SettingViewModelState with _$SettingViewModelState {
     //* notification settings
     @Default(true) bool isNotificationOnAdd,
     @Default(false) bool isNotificationOnUpdate,
-    @Default(false) bool isNotificationOnComplete,
+    @Default(true) bool isNotificationOnComplete,
     @Default(false) bool isNotificationOnReminder,
     @Default(null) DateTime? reminderDateTime,
     @Default(false) bool repeatReminder,
@@ -37,4 +37,26 @@ class SettingViewModelState with _$SettingViewModelState {
     //* error message
     @Default(null) String? errorMessage,
   }) = _SettingViewModelState;
+
+  // /// intial
+  // const factory SettingViewModelState.initial() = _initial;
+
+  // /// get language
+  // const factory SettingViewModelState.getLanguageLoading() =
+  //     _GetLanguageLoading;
+  // const factory SettingViewModelState.getLanguageCompleted(
+  //     {required Locale? currentLanguage}) = _GetLanguageCompleted;
+
+  // const factory SettingViewModelState.getLanguageFailed(
+  //     {required String message, required Failure failure}) = _GetLanguageFailed;
+
+  // /// change language
+  // const factory SettingViewModelState.changeLanguageLoading() =
+  //     _ChangeLanguageLoading;
+  // const factory SettingViewModelState.changeLanguageCompleted(
+  //     {required Locale? currentLanguage}) = _ChangeLanguageCompleted;
+
+  // const factory SettingViewModelState.changeLanguageFailed(
+  //     {required String message,
+  //     required Failure failure}) = _ChangeLanguageLoading;
 }

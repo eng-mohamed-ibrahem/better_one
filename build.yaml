@@ -1,0 +1,6 @@
+# targets:
+#   $default:
+#     builders:
+#       freezed:
+#         options:
+#           exclude_files: ["lib/model/task_model/task_model.dart"]

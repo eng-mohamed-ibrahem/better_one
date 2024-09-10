@@ -13,6 +13,7 @@ import 'package:better_one/model/notification_model/notification_model.dart';
 import 'package:better_one/model/task_model/task_model.dart';
 import 'package:better_one/view/widgets/duration_widget.dart';
 import 'package:better_one/view/widgets/write_task_area.dart';
+import 'package:better_one/view_models/notification_viewmodel/notification_viewmodel.dart';
 import 'package:better_one/view_models/quote_viewmodel/quote_viewmodel.dart';
 import 'package:better_one/view_models/setting_viewmodel/setting_viewmode.dart';
 import 'package:better_one/view_models/task_viewmodel/task_viewmodel.dart';
@@ -113,6 +114,9 @@ class _TaskScreenState extends State<TaskDetailsScreen>
                   }
                 },
               );
+              if (taskById.status == TaskStatus.inprogress) {
+                periodicActionManager.start();
+              }
             },
             updateTaskCompleted: (updatedTask) {
               task = updatedTask;
@@ -120,7 +124,7 @@ class _TaskScreenState extends State<TaskDetailsScreen>
                 settingState.isNotificationOnUpdate
                     ? localNotification.display(
                         notification: NotificationModel(
-                          id: DateTime.now().microsecond,
+                          displayId: task!.id.hashCode,
                           title: 'task.motive_update'.tr(),
                           body: task!.title,
                           payload: task!.id,
@@ -138,14 +142,24 @@ class _TaskScreenState extends State<TaskDetailsScreen>
                   )..forward(),
                 );
                 settingState.isNotificationOnComplete
-                    ? localNotification.display(
-                        notification: NotificationModel(
-                          id: DateTime.now().microsecond,
-                          title: 'task.motive_complete'.tr(),
-                          body: task!.title,
-                          payload: task!.id,
-                        ),
-                      )
+                    ? () {
+                        inject<NotificationViewmodel>().sendNotification(
+                          NotificationModel(
+                            displayId: DateTime.now().microsecond,
+                            title: 'task.motive_complete'.tr(),
+                            body: task!.title,
+                            payload: task!.id,
+                          ),
+                        );
+                        // localNotification.display(
+                        //   notification: NotificationModel(
+                        //     displayId: DateTime.now().microsecond,
+                        //     title: 'task.motive_complete'.tr(),
+                        //     body: task!.title,
+                        //     payload: task!.id,
+                        //   ),
+                        // );
+                      }()
                     : null;
               }
             },
@@ -174,9 +188,13 @@ class _TaskScreenState extends State<TaskDetailsScreen>
             orElse: () {
               return Scaffold(
                 appBar: AppBar(
-                  leading: const BackButtonl10n(),
+                  backgroundColor: Theme.of(context).secondaryHeaderColor,
+                  leading: const FittedBox(
+                    fit: BoxFit.scaleDown,
+                    child: BackButtonl10n(),
+                  ),
                   bottom: PreferredSize(
-                    preferredSize: Size.fromHeight(35.h),
+                    preferredSize: Size.fromHeight(40.h),
                     child: StreamBuilder<Duration>(
                       stream: streamController.stream,
                       initialData: task!.elapsedTime,

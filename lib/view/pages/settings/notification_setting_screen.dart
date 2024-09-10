@@ -21,11 +21,11 @@ class _NotificationScreenState extends State<NotificationSettingScreen> {
     localNotification.getPendingNotificationsIds().then(
       (list) {
         if (!list.contains(NotificaitonConstants.scheduleNotificationId)) {
-          SettingViewModel.get(context).setNotificationSettings(
-            isNotificationOnReminder: false,
-            reminderDateTime: null,
-            repeatReminder: false,
-          );
+          context.read<SettingViewModel>().setNotificationSettings(
+                isNotificationOnReminder: false,
+                reminderDateTime: null,
+                repeatReminder: false,
+              );
         }
       },
     );
@@ -72,7 +72,7 @@ class _NotificationScreenState extends State<NotificationSettingScreen> {
                   contentPadding: EdgeInsets.zero,
                   value: state.isNotificationOnAdd,
                   onChanged: (isSelected) {
-                    SettingViewModel.get(context).setNotificationSettings(
+                    context.read<SettingViewModel>().setNotificationSettings(
                         isNotificationOnAdd: isSelected);
                   },
                 ),
@@ -84,7 +84,7 @@ class _NotificationScreenState extends State<NotificationSettingScreen> {
                   contentPadding: EdgeInsets.zero,
                   value: state.isNotificationOnUpdate,
                   onChanged: (isSelected) {
-                    SettingViewModel.get(context).setNotificationSettings(
+                    context.read<SettingViewModel>().setNotificationSettings(
                         isNotificationOnUpdate: isSelected);
                   },
                 ),
@@ -96,7 +96,7 @@ class _NotificationScreenState extends State<NotificationSettingScreen> {
                   contentPadding: EdgeInsets.zero,
                   value: state.isNotificationOnComplete,
                   onChanged: (isSelected) {
-                    SettingViewModel.get(context).setNotificationSettings(
+                    context.read<SettingViewModel>().setNotificationSettings(
                         isNotificationOnComplete: isSelected);
                   },
                 ),
@@ -121,26 +121,29 @@ class _NotificationScreenState extends State<NotificationSettingScreen> {
                             initialTime: TimeOfDay.now(),
                           ).then(
                             (pickedTime) {
-                              SettingViewModel.get(context)
+                              context
+                                  .read<SettingViewModel>()
                                   .setNotificationSettings(
-                                isNotificationOnReminder:
-                                    pickedTime != null ? true : false,
-                                reminderDateTime: pickedTime != null
-                                    ? pickedDateTime.add(
-                                        Duration(
-                                          hours: pickedTime.hour,
-                                          minutes: pickedTime.minute,
-                                        ),
-                                      )
-                                    : null,
-                              );
+                                    isNotificationOnReminder:
+                                        pickedTime != null ? true : false,
+                                    reminderDateTime: pickedTime != null
+                                        ? pickedDateTime.add(
+                                            Duration(
+                                              hours: pickedTime.hour,
+                                              minutes: pickedTime.minute,
+                                            ),
+                                          )
+                                        : null,
+                                  );
                             },
                           );
                         } else {
-                          SettingViewModel.get(context).setNotificationSettings(
-                            isNotificationOnReminder: false,
-                            reminderDateTime: pickedDateTime,
-                          );
+                          context
+                              .read<SettingViewModel>()
+                              .setNotificationSettings(
+                                isNotificationOnReminder: false,
+                                reminderDateTime: pickedDateTime,
+                              );
                         }
                       },
                     );
@@ -159,7 +162,8 @@ class _NotificationScreenState extends State<NotificationSettingScreen> {
                     label: Text('setting.notification.on.repeat_reminder'.tr()),
                     selected: state.repeatReminder,
                     onSelected: (isSelected) {
-                      SettingViewModel.get(context)
+                      context
+                          .read<SettingViewModel>()
                           .setNotificationSettings(repeatReminder: isSelected);
                     },
                   ),

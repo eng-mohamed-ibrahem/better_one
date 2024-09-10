@@ -1,8 +1,10 @@
 import 'dart:developer';
 
 import 'package:better_one/view_models/auth_viewmodel/auth_viewmodel.dart';
+import 'package:better_one/view_models/notification_viewmodel/notification_viewmodel.dart';
 import 'package:better_one/view_models/setting_viewmodel/setting_viewmode.dart';
 import 'package:better_one/view_models/task_viewmodel/task_viewmodel.dart';
+import 'package:better_one/view_models/user_viewmodel/user_viewmodel.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get_it/get_it.dart';
 
@@ -26,6 +28,10 @@ class CubitObserver extends BlocObserver {
       GetIt.I.unregister<AuthViewmodel>();
     }
 
+    if (bloc is NotificationViewmodel) {
+      GetIt.I.unregister<NotificationViewmodel>();
+    }
+
     super.onClose(bloc);
   }
 
@@ -41,6 +47,12 @@ class CubitObserver extends BlocObserver {
     }
     if (bloc is AuthViewmodel) {
       GetIt.I.registerSingleton<AuthViewmodel>(bloc);
+    }
+    if (bloc is UserViewmodel) {
+      GetIt.I.registerSingleton<UserViewmodel>(bloc);
+    }
+    if (bloc is NotificationViewmodel) {
+      GetIt.I.registerSingleton<NotificationViewmodel>(bloc);
     }
     super.onCreate(bloc);
   }

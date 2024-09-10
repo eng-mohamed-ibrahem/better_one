@@ -21,11 +21,21 @@ mixin _$UserViewmodelState {
     required TResult Function() initial,
     required TResult Function() logoutLoading,
     required TResult Function() logoutSuccess,
-    required TResult Function(String message) logoutFailed,
+    required TResult Function(String message, Failure failure) logoutFailed,
     required TResult Function() getUserDetailsLoading,
     required TResult Function(UserModel user) getUserDetailsSuccess,
     required TResult Function(String message) noUserFound,
-    required TResult Function(String message) getUserDetailsFailed,
+    required TResult Function(String message, Failure failure)
+        getUserDetailsFailed,
+    required TResult Function() changeNameLoading,
+    required TResult Function(UserModel user) changeNameSuccess,
+    required TResult Function(String message) changeNameFailed,
+    required TResult Function() changeEmailLoading,
+    required TResult Function(UserModel user) changeEmailSuccess,
+    required TResult Function(String message) changeEmailFailed,
+    required TResult Function() changePasswordLoading,
+    required TResult Function(UserModel user) changePasswordSuccess,
+    required TResult Function(String message) changePasswordFailed,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -33,11 +43,20 @@ mixin _$UserViewmodelState {
     TResult? Function()? initial,
     TResult? Function()? logoutLoading,
     TResult? Function()? logoutSuccess,
-    TResult? Function(String message)? logoutFailed,
+    TResult? Function(String message, Failure failure)? logoutFailed,
     TResult? Function()? getUserDetailsLoading,
     TResult? Function(UserModel user)? getUserDetailsSuccess,
     TResult? Function(String message)? noUserFound,
-    TResult? Function(String message)? getUserDetailsFailed,
+    TResult? Function(String message, Failure failure)? getUserDetailsFailed,
+    TResult? Function()? changeNameLoading,
+    TResult? Function(UserModel user)? changeNameSuccess,
+    TResult? Function(String message)? changeNameFailed,
+    TResult? Function()? changeEmailLoading,
+    TResult? Function(UserModel user)? changeEmailSuccess,
+    TResult? Function(String message)? changeEmailFailed,
+    TResult? Function()? changePasswordLoading,
+    TResult? Function(UserModel user)? changePasswordSuccess,
+    TResult? Function(String message)? changePasswordFailed,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -45,11 +64,20 @@ mixin _$UserViewmodelState {
     TResult Function()? initial,
     TResult Function()? logoutLoading,
     TResult Function()? logoutSuccess,
-    TResult Function(String message)? logoutFailed,
+    TResult Function(String message, Failure failure)? logoutFailed,
     TResult Function()? getUserDetailsLoading,
     TResult Function(UserModel user)? getUserDetailsSuccess,
     TResult Function(String message)? noUserFound,
-    TResult Function(String message)? getUserDetailsFailed,
+    TResult Function(String message, Failure failure)? getUserDetailsFailed,
+    TResult Function()? changeNameLoading,
+    TResult Function(UserModel user)? changeNameSuccess,
+    TResult Function(String message)? changeNameFailed,
+    TResult Function()? changeEmailLoading,
+    TResult Function(UserModel user)? changeEmailSuccess,
+    TResult Function(String message)? changeEmailFailed,
+    TResult Function()? changePasswordLoading,
+    TResult Function(UserModel user)? changePasswordSuccess,
+    TResult Function(String message)? changePasswordFailed,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -65,6 +93,17 @@ mixin _$UserViewmodelState {
         getUserDetailsSuccess,
     required TResult Function(_NoUserFound value) noUserFound,
     required TResult Function(_GetUserDetailsFailed value) getUserDetailsFailed,
+    required TResult Function(_ChangeNameLoading value) changeNameLoading,
+    required TResult Function(_ChangeNameSuccess value) changeNameSuccess,
+    required TResult Function(_ChangeNameFailed value) changeNameFailed,
+    required TResult Function(_ChangeEmailLoading value) changeEmailLoading,
+    required TResult Function(_ChangeEmailSuccess value) changeEmailSuccess,
+    required TResult Function(_ChangeEmailFailed value) changeEmailFailed,
+    required TResult Function(_ChangePasswordLoading value)
+        changePasswordLoading,
+    required TResult Function(_ChangePasswordSuccess value)
+        changePasswordSuccess,
+    required TResult Function(_ChangePasswordFailed value) changePasswordFailed,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -77,6 +116,15 @@ mixin _$UserViewmodelState {
     TResult? Function(_GetUserDetailsSuccess value)? getUserDetailsSuccess,
     TResult? Function(_NoUserFound value)? noUserFound,
     TResult? Function(_GetUserDetailsFailed value)? getUserDetailsFailed,
+    TResult? Function(_ChangeNameLoading value)? changeNameLoading,
+    TResult? Function(_ChangeNameSuccess value)? changeNameSuccess,
+    TResult? Function(_ChangeNameFailed value)? changeNameFailed,
+    TResult? Function(_ChangeEmailLoading value)? changeEmailLoading,
+    TResult? Function(_ChangeEmailSuccess value)? changeEmailSuccess,
+    TResult? Function(_ChangeEmailFailed value)? changeEmailFailed,
+    TResult? Function(_ChangePasswordLoading value)? changePasswordLoading,
+    TResult? Function(_ChangePasswordSuccess value)? changePasswordSuccess,
+    TResult? Function(_ChangePasswordFailed value)? changePasswordFailed,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -89,6 +137,15 @@ mixin _$UserViewmodelState {
     TResult Function(_GetUserDetailsSuccess value)? getUserDetailsSuccess,
     TResult Function(_NoUserFound value)? noUserFound,
     TResult Function(_GetUserDetailsFailed value)? getUserDetailsFailed,
+    TResult Function(_ChangeNameLoading value)? changeNameLoading,
+    TResult Function(_ChangeNameSuccess value)? changeNameSuccess,
+    TResult Function(_ChangeNameFailed value)? changeNameFailed,
+    TResult Function(_ChangeEmailLoading value)? changeEmailLoading,
+    TResult Function(_ChangeEmailSuccess value)? changeEmailSuccess,
+    TResult Function(_ChangeEmailFailed value)? changeEmailFailed,
+    TResult Function(_ChangePasswordLoading value)? changePasswordLoading,
+    TResult Function(_ChangePasswordSuccess value)? changePasswordSuccess,
+    TResult Function(_ChangePasswordFailed value)? changePasswordFailed,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -159,11 +216,21 @@ class _$InitialImpl implements _Initial {
     required TResult Function() initial,
     required TResult Function() logoutLoading,
     required TResult Function() logoutSuccess,
-    required TResult Function(String message) logoutFailed,
+    required TResult Function(String message, Failure failure) logoutFailed,
     required TResult Function() getUserDetailsLoading,
     required TResult Function(UserModel user) getUserDetailsSuccess,
     required TResult Function(String message) noUserFound,
-    required TResult Function(String message) getUserDetailsFailed,
+    required TResult Function(String message, Failure failure)
+        getUserDetailsFailed,
+    required TResult Function() changeNameLoading,
+    required TResult Function(UserModel user) changeNameSuccess,
+    required TResult Function(String message) changeNameFailed,
+    required TResult Function() changeEmailLoading,
+    required TResult Function(UserModel user) changeEmailSuccess,
+    required TResult Function(String message) changeEmailFailed,
+    required TResult Function() changePasswordLoading,
+    required TResult Function(UserModel user) changePasswordSuccess,
+    required TResult Function(String message) changePasswordFailed,
   }) {
     return initial();
   }
@@ -174,11 +241,20 @@ class _$InitialImpl implements _Initial {
     TResult? Function()? initial,
     TResult? Function()? logoutLoading,
     TResult? Function()? logoutSuccess,
-    TResult? Function(String message)? logoutFailed,
+    TResult? Function(String message, Failure failure)? logoutFailed,
     TResult? Function()? getUserDetailsLoading,
     TResult? Function(UserModel user)? getUserDetailsSuccess,
     TResult? Function(String message)? noUserFound,
-    TResult? Function(String message)? getUserDetailsFailed,
+    TResult? Function(String message, Failure failure)? getUserDetailsFailed,
+    TResult? Function()? changeNameLoading,
+    TResult? Function(UserModel user)? changeNameSuccess,
+    TResult? Function(String message)? changeNameFailed,
+    TResult? Function()? changeEmailLoading,
+    TResult? Function(UserModel user)? changeEmailSuccess,
+    TResult? Function(String message)? changeEmailFailed,
+    TResult? Function()? changePasswordLoading,
+    TResult? Function(UserModel user)? changePasswordSuccess,
+    TResult? Function(String message)? changePasswordFailed,
   }) {
     return initial?.call();
   }
@@ -189,11 +265,20 @@ class _$InitialImpl implements _Initial {
     TResult Function()? initial,
     TResult Function()? logoutLoading,
     TResult Function()? logoutSuccess,
-    TResult Function(String message)? logoutFailed,
+    TResult Function(String message, Failure failure)? logoutFailed,
     TResult Function()? getUserDetailsLoading,
     TResult Function(UserModel user)? getUserDetailsSuccess,
     TResult Function(String message)? noUserFound,
-    TResult Function(String message)? getUserDetailsFailed,
+    TResult Function(String message, Failure failure)? getUserDetailsFailed,
+    TResult Function()? changeNameLoading,
+    TResult Function(UserModel user)? changeNameSuccess,
+    TResult Function(String message)? changeNameFailed,
+    TResult Function()? changeEmailLoading,
+    TResult Function(UserModel user)? changeEmailSuccess,
+    TResult Function(String message)? changeEmailFailed,
+    TResult Function()? changePasswordLoading,
+    TResult Function(UserModel user)? changePasswordSuccess,
+    TResult Function(String message)? changePasswordFailed,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -215,6 +300,17 @@ class _$InitialImpl implements _Initial {
         getUserDetailsSuccess,
     required TResult Function(_NoUserFound value) noUserFound,
     required TResult Function(_GetUserDetailsFailed value) getUserDetailsFailed,
+    required TResult Function(_ChangeNameLoading value) changeNameLoading,
+    required TResult Function(_ChangeNameSuccess value) changeNameSuccess,
+    required TResult Function(_ChangeNameFailed value) changeNameFailed,
+    required TResult Function(_ChangeEmailLoading value) changeEmailLoading,
+    required TResult Function(_ChangeEmailSuccess value) changeEmailSuccess,
+    required TResult Function(_ChangeEmailFailed value) changeEmailFailed,
+    required TResult Function(_ChangePasswordLoading value)
+        changePasswordLoading,
+    required TResult Function(_ChangePasswordSuccess value)
+        changePasswordSuccess,
+    required TResult Function(_ChangePasswordFailed value) changePasswordFailed,
   }) {
     return initial(this);
   }
@@ -230,6 +326,15 @@ class _$InitialImpl implements _Initial {
     TResult? Function(_GetUserDetailsSuccess value)? getUserDetailsSuccess,
     TResult? Function(_NoUserFound value)? noUserFound,
     TResult? Function(_GetUserDetailsFailed value)? getUserDetailsFailed,
+    TResult? Function(_ChangeNameLoading value)? changeNameLoading,
+    TResult? Function(_ChangeNameSuccess value)? changeNameSuccess,
+    TResult? Function(_ChangeNameFailed value)? changeNameFailed,
+    TResult? Function(_ChangeEmailLoading value)? changeEmailLoading,
+    TResult? Function(_ChangeEmailSuccess value)? changeEmailSuccess,
+    TResult? Function(_ChangeEmailFailed value)? changeEmailFailed,
+    TResult? Function(_ChangePasswordLoading value)? changePasswordLoading,
+    TResult? Function(_ChangePasswordSuccess value)? changePasswordSuccess,
+    TResult? Function(_ChangePasswordFailed value)? changePasswordFailed,
   }) {
     return initial?.call(this);
   }
@@ -245,6 +350,15 @@ class _$InitialImpl implements _Initial {
     TResult Function(_GetUserDetailsSuccess value)? getUserDetailsSuccess,
     TResult Function(_NoUserFound value)? noUserFound,
     TResult Function(_GetUserDetailsFailed value)? getUserDetailsFailed,
+    TResult Function(_ChangeNameLoading value)? changeNameLoading,
+    TResult Function(_ChangeNameSuccess value)? changeNameSuccess,
+    TResult Function(_ChangeNameFailed value)? changeNameFailed,
+    TResult Function(_ChangeEmailLoading value)? changeEmailLoading,
+    TResult Function(_ChangeEmailSuccess value)? changeEmailSuccess,
+    TResult Function(_ChangeEmailFailed value)? changeEmailFailed,
+    TResult Function(_ChangePasswordLoading value)? changePasswordLoading,
+    TResult Function(_ChangePasswordSuccess value)? changePasswordSuccess,
+    TResult Function(_ChangePasswordFailed value)? changePasswordFailed,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -302,11 +416,21 @@ class _$LogoutLoadingImpl implements _LogoutLoading {
     required TResult Function() initial,
     required TResult Function() logoutLoading,
     required TResult Function() logoutSuccess,
-    required TResult Function(String message) logoutFailed,
+    required TResult Function(String message, Failure failure) logoutFailed,
     required TResult Function() getUserDetailsLoading,
     required TResult Function(UserModel user) getUserDetailsSuccess,
     required TResult Function(String message) noUserFound,
-    required TResult Function(String message) getUserDetailsFailed,
+    required TResult Function(String message, Failure failure)
+        getUserDetailsFailed,
+    required TResult Function() changeNameLoading,
+    required TResult Function(UserModel user) changeNameSuccess,
+    required TResult Function(String message) changeNameFailed,
+    required TResult Function() changeEmailLoading,
+    required TResult Function(UserModel user) changeEmailSuccess,
+    required TResult Function(String message) changeEmailFailed,
+    required TResult Function() changePasswordLoading,
+    required TResult Function(UserModel user) changePasswordSuccess,
+    required TResult Function(String message) changePasswordFailed,
   }) {
     return logoutLoading();
   }
@@ -317,11 +441,20 @@ class _$LogoutLoadingImpl implements _LogoutLoading {
     TResult? Function()? initial,
     TResult? Function()? logoutLoading,
     TResult? Function()? logoutSuccess,
-    TResult? Function(String message)? logoutFailed,
+    TResult? Function(String message, Failure failure)? logoutFailed,
     TResult? Function()? getUserDetailsLoading,
     TResult? Function(UserModel user)? getUserDetailsSuccess,
     TResult? Function(String message)? noUserFound,
-    TResult? Function(String message)? getUserDetailsFailed,
+    TResult? Function(String message, Failure failure)? getUserDetailsFailed,
+    TResult? Function()? changeNameLoading,
+    TResult? Function(UserModel user)? changeNameSuccess,
+    TResult? Function(String message)? changeNameFailed,
+    TResult? Function()? changeEmailLoading,
+    TResult? Function(UserModel user)? changeEmailSuccess,
+    TResult? Function(String message)? changeEmailFailed,
+    TResult? Function()? changePasswordLoading,
+    TResult? Function(UserModel user)? changePasswordSuccess,
+    TResult? Function(String message)? changePasswordFailed,
   }) {
     return logoutLoading?.call();
   }
@@ -332,11 +465,20 @@ class _$LogoutLoadingImpl implements _LogoutLoading {
     TResult Function()? initial,
     TResult Function()? logoutLoading,
     TResult Function()? logoutSuccess,
-    TResult Function(String message)? logoutFailed,
+    TResult Function(String message, Failure failure)? logoutFailed,
     TResult Function()? getUserDetailsLoading,
     TResult Function(UserModel user)? getUserDetailsSuccess,
     TResult Function(String message)? noUserFound,
-    TResult Function(String message)? getUserDetailsFailed,
+    TResult Function(String message, Failure failure)? getUserDetailsFailed,
+    TResult Function()? changeNameLoading,
+    TResult Function(UserModel user)? changeNameSuccess,
+    TResult Function(String message)? changeNameFailed,
+    TResult Function()? changeEmailLoading,
+    TResult Function(UserModel user)? changeEmailSuccess,
+    TResult Function(String message)? changeEmailFailed,
+    TResult Function()? changePasswordLoading,
+    TResult Function(UserModel user)? changePasswordSuccess,
+    TResult Function(String message)? changePasswordFailed,
     required TResult orElse(),
   }) {
     if (logoutLoading != null) {
@@ -358,6 +500,17 @@ class _$LogoutLoadingImpl implements _LogoutLoading {
         getUserDetailsSuccess,
     required TResult Function(_NoUserFound value) noUserFound,
     required TResult Function(_GetUserDetailsFailed value) getUserDetailsFailed,
+    required TResult Function(_ChangeNameLoading value) changeNameLoading,
+    required TResult Function(_ChangeNameSuccess value) changeNameSuccess,
+    required TResult Function(_ChangeNameFailed value) changeNameFailed,
+    required TResult Function(_ChangeEmailLoading value) changeEmailLoading,
+    required TResult Function(_ChangeEmailSuccess value) changeEmailSuccess,
+    required TResult Function(_ChangeEmailFailed value) changeEmailFailed,
+    required TResult Function(_ChangePasswordLoading value)
+        changePasswordLoading,
+    required TResult Function(_ChangePasswordSuccess value)
+        changePasswordSuccess,
+    required TResult Function(_ChangePasswordFailed value) changePasswordFailed,
   }) {
     return logoutLoading(this);
   }
@@ -373,6 +526,15 @@ class _$LogoutLoadingImpl implements _LogoutLoading {
     TResult? Function(_GetUserDetailsSuccess value)? getUserDetailsSuccess,
     TResult? Function(_NoUserFound value)? noUserFound,
     TResult? Function(_GetUserDetailsFailed value)? getUserDetailsFailed,
+    TResult? Function(_ChangeNameLoading value)? changeNameLoading,
+    TResult? Function(_ChangeNameSuccess value)? changeNameSuccess,
+    TResult? Function(_ChangeNameFailed value)? changeNameFailed,
+    TResult? Function(_ChangeEmailLoading value)? changeEmailLoading,
+    TResult? Function(_ChangeEmailSuccess value)? changeEmailSuccess,
+    TResult? Function(_ChangeEmailFailed value)? changeEmailFailed,
+    TResult? Function(_ChangePasswordLoading value)? changePasswordLoading,
+    TResult? Function(_ChangePasswordSuccess value)? changePasswordSuccess,
+    TResult? Function(_ChangePasswordFailed value)? changePasswordFailed,
   }) {
     return logoutLoading?.call(this);
   }
@@ -388,6 +550,15 @@ class _$LogoutLoadingImpl implements _LogoutLoading {
     TResult Function(_GetUserDetailsSuccess value)? getUserDetailsSuccess,
     TResult Function(_NoUserFound value)? noUserFound,
     TResult Function(_GetUserDetailsFailed value)? getUserDetailsFailed,
+    TResult Function(_ChangeNameLoading value)? changeNameLoading,
+    TResult Function(_ChangeNameSuccess value)? changeNameSuccess,
+    TResult Function(_ChangeNameFailed value)? changeNameFailed,
+    TResult Function(_ChangeEmailLoading value)? changeEmailLoading,
+    TResult Function(_ChangeEmailSuccess value)? changeEmailSuccess,
+    TResult Function(_ChangeEmailFailed value)? changeEmailFailed,
+    TResult Function(_ChangePasswordLoading value)? changePasswordLoading,
+    TResult Function(_ChangePasswordSuccess value)? changePasswordSuccess,
+    TResult Function(_ChangePasswordFailed value)? changePasswordFailed,
     required TResult orElse(),
   }) {
     if (logoutLoading != null) {
@@ -445,11 +616,21 @@ class _$LogoutSuccessImpl implements _LogoutSuccess {
     required TResult Function() initial,
     required TResult Function() logoutLoading,
     required TResult Function() logoutSuccess,
-    required TResult Function(String message) logoutFailed,
+    required TResult Function(String message, Failure failure) logoutFailed,
     required TResult Function() getUserDetailsLoading,
     required TResult Function(UserModel user) getUserDetailsSuccess,
     required TResult Function(String message) noUserFound,
-    required TResult Function(String message) getUserDetailsFailed,
+    required TResult Function(String message, Failure failure)
+        getUserDetailsFailed,
+    required TResult Function() changeNameLoading,
+    required TResult Function(UserModel user) changeNameSuccess,
+    required TResult Function(String message) changeNameFailed,
+    required TResult Function() changeEmailLoading,
+    required TResult Function(UserModel user) changeEmailSuccess,
+    required TResult Function(String message) changeEmailFailed,
+    required TResult Function() changePasswordLoading,
+    required TResult Function(UserModel user) changePasswordSuccess,
+    required TResult Function(String message) changePasswordFailed,
   }) {
     return logoutSuccess();
   }
@@ -460,11 +641,20 @@ class _$LogoutSuccessImpl implements _LogoutSuccess {
     TResult? Function()? initial,
     TResult? Function()? logoutLoading,
     TResult? Function()? logoutSuccess,
-    TResult? Function(String message)? logoutFailed,
+    TResult? Function(String message, Failure failure)? logoutFailed,
     TResult? Function()? getUserDetailsLoading,
     TResult? Function(UserModel user)? getUserDetailsSuccess,
     TResult? Function(String message)? noUserFound,
-    TResult? Function(String message)? getUserDetailsFailed,
+    TResult? Function(String message, Failure failure)? getUserDetailsFailed,
+    TResult? Function()? changeNameLoading,
+    TResult? Function(UserModel user)? changeNameSuccess,
+    TResult? Function(String message)? changeNameFailed,
+    TResult? Function()? changeEmailLoading,
+    TResult? Function(UserModel user)? changeEmailSuccess,
+    TResult? Function(String message)? changeEmailFailed,
+    TResult? Function()? changePasswordLoading,
+    TResult? Function(UserModel user)? changePasswordSuccess,
+    TResult? Function(String message)? changePasswordFailed,
   }) {
     return logoutSuccess?.call();
   }
@@ -475,11 +665,20 @@ class _$LogoutSuccessImpl implements _LogoutSuccess {
     TResult Function()? initial,
     TResult Function()? logoutLoading,
     TResult Function()? logoutSuccess,
-    TResult Function(String message)? logoutFailed,
+    TResult Function(String message, Failure failure)? logoutFailed,
     TResult Function()? getUserDetailsLoading,
     TResult Function(UserModel user)? getUserDetailsSuccess,
     TResult Function(String message)? noUserFound,
-    TResult Function(String message)? getUserDetailsFailed,
+    TResult Function(String message, Failure failure)? getUserDetailsFailed,
+    TResult Function()? changeNameLoading,
+    TResult Function(UserModel user)? changeNameSuccess,
+    TResult Function(String message)? changeNameFailed,
+    TResult Function()? changeEmailLoading,
+    TResult Function(UserModel user)? changeEmailSuccess,
+    TResult Function(String message)? changeEmailFailed,
+    TResult Function()? changePasswordLoading,
+    TResult Function(UserModel user)? changePasswordSuccess,
+    TResult Function(String message)? changePasswordFailed,
     required TResult orElse(),
   }) {
     if (logoutSuccess != null) {
@@ -501,6 +700,17 @@ class _$LogoutSuccessImpl implements _LogoutSuccess {
         getUserDetailsSuccess,
     required TResult Function(_NoUserFound value) noUserFound,
     required TResult Function(_GetUserDetailsFailed value) getUserDetailsFailed,
+    required TResult Function(_ChangeNameLoading value) changeNameLoading,
+    required TResult Function(_ChangeNameSuccess value) changeNameSuccess,
+    required TResult Function(_ChangeNameFailed value) changeNameFailed,
+    required TResult Function(_ChangeEmailLoading value) changeEmailLoading,
+    required TResult Function(_ChangeEmailSuccess value) changeEmailSuccess,
+    required TResult Function(_ChangeEmailFailed value) changeEmailFailed,
+    required TResult Function(_ChangePasswordLoading value)
+        changePasswordLoading,
+    required TResult Function(_ChangePasswordSuccess value)
+        changePasswordSuccess,
+    required TResult Function(_ChangePasswordFailed value) changePasswordFailed,
   }) {
     return logoutSuccess(this);
   }
@@ -516,6 +726,15 @@ class _$LogoutSuccessImpl implements _LogoutSuccess {
     TResult? Function(_GetUserDetailsSuccess value)? getUserDetailsSuccess,
     TResult? Function(_NoUserFound value)? noUserFound,
     TResult? Function(_GetUserDetailsFailed value)? getUserDetailsFailed,
+    TResult? Function(_ChangeNameLoading value)? changeNameLoading,
+    TResult? Function(_ChangeNameSuccess value)? changeNameSuccess,
+    TResult? Function(_ChangeNameFailed value)? changeNameFailed,
+    TResult? Function(_ChangeEmailLoading value)? changeEmailLoading,
+    TResult? Function(_ChangeEmailSuccess value)? changeEmailSuccess,
+    TResult? Function(_ChangeEmailFailed value)? changeEmailFailed,
+    TResult? Function(_ChangePasswordLoading value)? changePasswordLoading,
+    TResult? Function(_ChangePasswordSuccess value)? changePasswordSuccess,
+    TResult? Function(_ChangePasswordFailed value)? changePasswordFailed,
   }) {
     return logoutSuccess?.call(this);
   }
@@ -531,6 +750,15 @@ class _$LogoutSuccessImpl implements _LogoutSuccess {
     TResult Function(_GetUserDetailsSuccess value)? getUserDetailsSuccess,
     TResult Function(_NoUserFound value)? noUserFound,
     TResult Function(_GetUserDetailsFailed value)? getUserDetailsFailed,
+    TResult Function(_ChangeNameLoading value)? changeNameLoading,
+    TResult Function(_ChangeNameSuccess value)? changeNameSuccess,
+    TResult Function(_ChangeNameFailed value)? changeNameFailed,
+    TResult Function(_ChangeEmailLoading value)? changeEmailLoading,
+    TResult Function(_ChangeEmailSuccess value)? changeEmailSuccess,
+    TResult Function(_ChangeEmailFailed value)? changeEmailFailed,
+    TResult Function(_ChangePasswordLoading value)? changePasswordLoading,
+    TResult Function(_ChangePasswordSuccess value)? changePasswordSuccess,
+    TResult Function(_ChangePasswordFailed value)? changePasswordFailed,
     required TResult orElse(),
   }) {
     if (logoutSuccess != null) {
@@ -550,7 +778,7 @@ abstract class _$$LogoutFailedImplCopyWith<$Res> {
           _$LogoutFailedImpl value, $Res Function(_$LogoutFailedImpl) then) =
       __$$LogoutFailedImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({String message});
+  $Res call({String message, Failure failure});
 }
 
 /// @nodoc
@@ -567,12 +795,17 @@ class __$$LogoutFailedImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? message = null,
+    Object? failure = null,
   }) {
     return _then(_$LogoutFailedImpl(
       message: null == message
           ? _value.message
           : message // ignore: cast_nullable_to_non_nullable
               as String,
+      failure: null == failure
+          ? _value.failure
+          : failure // ignore: cast_nullable_to_non_nullable
+              as Failure,
     ));
   }
 }
@@ -580,14 +813,16 @@ class __$$LogoutFailedImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$LogoutFailedImpl implements _LogoutFailed {
-  const _$LogoutFailedImpl({required this.message});
+  const _$LogoutFailedImpl({required this.message, required this.failure});
 
   @override
   final String message;
+  @override
+  final Failure failure;
 
   @override
   String toString() {
-    return 'UserViewmodelState.logoutFailed(message: $message)';
+    return 'UserViewmodelState.logoutFailed(message: $message, failure: $failure)';
   }
 
   @override
@@ -595,11 +830,12 @@ class _$LogoutFailedImpl implements _LogoutFailed {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$LogoutFailedImpl &&
-            (identical(other.message, message) || other.message == message));
+            (identical(other.message, message) || other.message == message) &&
+            (identical(other.failure, failure) || other.failure == failure));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, message);
+  int get hashCode => Object.hash(runtimeType, message, failure);
 
   /// Create a copy of UserViewmodelState
   /// with the given fields replaced by the non-null parameter values.
@@ -615,13 +851,23 @@ class _$LogoutFailedImpl implements _LogoutFailed {
     required TResult Function() initial,
     required TResult Function() logoutLoading,
     required TResult Function() logoutSuccess,
-    required TResult Function(String message) logoutFailed,
+    required TResult Function(String message, Failure failure) logoutFailed,
     required TResult Function() getUserDetailsLoading,
     required TResult Function(UserModel user) getUserDetailsSuccess,
     required TResult Function(String message) noUserFound,
-    required TResult Function(String message) getUserDetailsFailed,
+    required TResult Function(String message, Failure failure)
+        getUserDetailsFailed,
+    required TResult Function() changeNameLoading,
+    required TResult Function(UserModel user) changeNameSuccess,
+    required TResult Function(String message) changeNameFailed,
+    required TResult Function() changeEmailLoading,
+    required TResult Function(UserModel user) changeEmailSuccess,
+    required TResult Function(String message) changeEmailFailed,
+    required TResult Function() changePasswordLoading,
+    required TResult Function(UserModel user) changePasswordSuccess,
+    required TResult Function(String message) changePasswordFailed,
   }) {
-    return logoutFailed(message);
+    return logoutFailed(message, failure);
   }
 
   @override
@@ -630,13 +876,22 @@ class _$LogoutFailedImpl implements _LogoutFailed {
     TResult? Function()? initial,
     TResult? Function()? logoutLoading,
     TResult? Function()? logoutSuccess,
-    TResult? Function(String message)? logoutFailed,
+    TResult? Function(String message, Failure failure)? logoutFailed,
     TResult? Function()? getUserDetailsLoading,
     TResult? Function(UserModel user)? getUserDetailsSuccess,
     TResult? Function(String message)? noUserFound,
-    TResult? Function(String message)? getUserDetailsFailed,
+    TResult? Function(String message, Failure failure)? getUserDetailsFailed,
+    TResult? Function()? changeNameLoading,
+    TResult? Function(UserModel user)? changeNameSuccess,
+    TResult? Function(String message)? changeNameFailed,
+    TResult? Function()? changeEmailLoading,
+    TResult? Function(UserModel user)? changeEmailSuccess,
+    TResult? Function(String message)? changeEmailFailed,
+    TResult? Function()? changePasswordLoading,
+    TResult? Function(UserModel user)? changePasswordSuccess,
+    TResult? Function(String message)? changePasswordFailed,
   }) {
-    return logoutFailed?.call(message);
+    return logoutFailed?.call(message, failure);
   }
 
   @override
@@ -645,15 +900,24 @@ class _$LogoutFailedImpl implements _LogoutFailed {
     TResult Function()? initial,
     TResult Function()? logoutLoading,
     TResult Function()? logoutSuccess,
-    TResult Function(String message)? logoutFailed,
+    TResult Function(String message, Failure failure)? logoutFailed,
     TResult Function()? getUserDetailsLoading,
     TResult Function(UserModel user)? getUserDetailsSuccess,
     TResult Function(String message)? noUserFound,
-    TResult Function(String message)? getUserDetailsFailed,
+    TResult Function(String message, Failure failure)? getUserDetailsFailed,
+    TResult Function()? changeNameLoading,
+    TResult Function(UserModel user)? changeNameSuccess,
+    TResult Function(String message)? changeNameFailed,
+    TResult Function()? changeEmailLoading,
+    TResult Function(UserModel user)? changeEmailSuccess,
+    TResult Function(String message)? changeEmailFailed,
+    TResult Function()? changePasswordLoading,
+    TResult Function(UserModel user)? changePasswordSuccess,
+    TResult Function(String message)? changePasswordFailed,
     required TResult orElse(),
   }) {
     if (logoutFailed != null) {
-      return logoutFailed(message);
+      return logoutFailed(message, failure);
     }
     return orElse();
   }
@@ -671,6 +935,17 @@ class _$LogoutFailedImpl implements _LogoutFailed {
         getUserDetailsSuccess,
     required TResult Function(_NoUserFound value) noUserFound,
     required TResult Function(_GetUserDetailsFailed value) getUserDetailsFailed,
+    required TResult Function(_ChangeNameLoading value) changeNameLoading,
+    required TResult Function(_ChangeNameSuccess value) changeNameSuccess,
+    required TResult Function(_ChangeNameFailed value) changeNameFailed,
+    required TResult Function(_ChangeEmailLoading value) changeEmailLoading,
+    required TResult Function(_ChangeEmailSuccess value) changeEmailSuccess,
+    required TResult Function(_ChangeEmailFailed value) changeEmailFailed,
+    required TResult Function(_ChangePasswordLoading value)
+        changePasswordLoading,
+    required TResult Function(_ChangePasswordSuccess value)
+        changePasswordSuccess,
+    required TResult Function(_ChangePasswordFailed value) changePasswordFailed,
   }) {
     return logoutFailed(this);
   }
@@ -686,6 +961,15 @@ class _$LogoutFailedImpl implements _LogoutFailed {
     TResult? Function(_GetUserDetailsSuccess value)? getUserDetailsSuccess,
     TResult? Function(_NoUserFound value)? noUserFound,
     TResult? Function(_GetUserDetailsFailed value)? getUserDetailsFailed,
+    TResult? Function(_ChangeNameLoading value)? changeNameLoading,
+    TResult? Function(_ChangeNameSuccess value)? changeNameSuccess,
+    TResult? Function(_ChangeNameFailed value)? changeNameFailed,
+    TResult? Function(_ChangeEmailLoading value)? changeEmailLoading,
+    TResult? Function(_ChangeEmailSuccess value)? changeEmailSuccess,
+    TResult? Function(_ChangeEmailFailed value)? changeEmailFailed,
+    TResult? Function(_ChangePasswordLoading value)? changePasswordLoading,
+    TResult? Function(_ChangePasswordSuccess value)? changePasswordSuccess,
+    TResult? Function(_ChangePasswordFailed value)? changePasswordFailed,
   }) {
     return logoutFailed?.call(this);
   }
@@ -701,6 +985,15 @@ class _$LogoutFailedImpl implements _LogoutFailed {
     TResult Function(_GetUserDetailsSuccess value)? getUserDetailsSuccess,
     TResult Function(_NoUserFound value)? noUserFound,
     TResult Function(_GetUserDetailsFailed value)? getUserDetailsFailed,
+    TResult Function(_ChangeNameLoading value)? changeNameLoading,
+    TResult Function(_ChangeNameSuccess value)? changeNameSuccess,
+    TResult Function(_ChangeNameFailed value)? changeNameFailed,
+    TResult Function(_ChangeEmailLoading value)? changeEmailLoading,
+    TResult Function(_ChangeEmailSuccess value)? changeEmailSuccess,
+    TResult Function(_ChangeEmailFailed value)? changeEmailFailed,
+    TResult Function(_ChangePasswordLoading value)? changePasswordLoading,
+    TResult Function(_ChangePasswordSuccess value)? changePasswordSuccess,
+    TResult Function(_ChangePasswordFailed value)? changePasswordFailed,
     required TResult orElse(),
   }) {
     if (logoutFailed != null) {
@@ -711,10 +1004,12 @@ class _$LogoutFailedImpl implements _LogoutFailed {
 }
 
 abstract class _LogoutFailed implements UserViewmodelState {
-  const factory _LogoutFailed({required final String message}) =
-      _$LogoutFailedImpl;
+  const factory _LogoutFailed(
+      {required final String message,
+      required final Failure failure}) = _$LogoutFailedImpl;
 
   String get message;
+  Failure get failure;
 
   /// Create a copy of UserViewmodelState
   /// with the given fields replaced by the non-null parameter values.
@@ -769,11 +1064,21 @@ class _$GetUserDetailsLoadingImpl implements _GetUserDetailsLoading {
     required TResult Function() initial,
     required TResult Function() logoutLoading,
     required TResult Function() logoutSuccess,
-    required TResult Function(String message) logoutFailed,
+    required TResult Function(String message, Failure failure) logoutFailed,
     required TResult Function() getUserDetailsLoading,
     required TResult Function(UserModel user) getUserDetailsSuccess,
     required TResult Function(String message) noUserFound,
-    required TResult Function(String message) getUserDetailsFailed,
+    required TResult Function(String message, Failure failure)
+        getUserDetailsFailed,
+    required TResult Function() changeNameLoading,
+    required TResult Function(UserModel user) changeNameSuccess,
+    required TResult Function(String message) changeNameFailed,
+    required TResult Function() changeEmailLoading,
+    required TResult Function(UserModel user) changeEmailSuccess,
+    required TResult Function(String message) changeEmailFailed,
+    required TResult Function() changePasswordLoading,
+    required TResult Function(UserModel user) changePasswordSuccess,
+    required TResult Function(String message) changePasswordFailed,
   }) {
     return getUserDetailsLoading();
   }
@@ -784,11 +1089,20 @@ class _$GetUserDetailsLoadingImpl implements _GetUserDetailsLoading {
     TResult? Function()? initial,
     TResult? Function()? logoutLoading,
     TResult? Function()? logoutSuccess,
-    TResult? Function(String message)? logoutFailed,
+    TResult? Function(String message, Failure failure)? logoutFailed,
     TResult? Function()? getUserDetailsLoading,
     TResult? Function(UserModel user)? getUserDetailsSuccess,
     TResult? Function(String message)? noUserFound,
-    TResult? Function(String message)? getUserDetailsFailed,
+    TResult? Function(String message, Failure failure)? getUserDetailsFailed,
+    TResult? Function()? changeNameLoading,
+    TResult? Function(UserModel user)? changeNameSuccess,
+    TResult? Function(String message)? changeNameFailed,
+    TResult? Function()? changeEmailLoading,
+    TResult? Function(UserModel user)? changeEmailSuccess,
+    TResult? Function(String message)? changeEmailFailed,
+    TResult? Function()? changePasswordLoading,
+    TResult? Function(UserModel user)? changePasswordSuccess,
+    TResult? Function(String message)? changePasswordFailed,
   }) {
     return getUserDetailsLoading?.call();
   }
@@ -799,11 +1113,20 @@ class _$GetUserDetailsLoadingImpl implements _GetUserDetailsLoading {
     TResult Function()? initial,
     TResult Function()? logoutLoading,
     TResult Function()? logoutSuccess,
-    TResult Function(String message)? logoutFailed,
+    TResult Function(String message, Failure failure)? logoutFailed,
     TResult Function()? getUserDetailsLoading,
     TResult Function(UserModel user)? getUserDetailsSuccess,
     TResult Function(String message)? noUserFound,
-    TResult Function(String message)? getUserDetailsFailed,
+    TResult Function(String message, Failure failure)? getUserDetailsFailed,
+    TResult Function()? changeNameLoading,
+    TResult Function(UserModel user)? changeNameSuccess,
+    TResult Function(String message)? changeNameFailed,
+    TResult Function()? changeEmailLoading,
+    TResult Function(UserModel user)? changeEmailSuccess,
+    TResult Function(String message)? changeEmailFailed,
+    TResult Function()? changePasswordLoading,
+    TResult Function(UserModel user)? changePasswordSuccess,
+    TResult Function(String message)? changePasswordFailed,
     required TResult orElse(),
   }) {
     if (getUserDetailsLoading != null) {
@@ -825,6 +1148,17 @@ class _$GetUserDetailsLoadingImpl implements _GetUserDetailsLoading {
         getUserDetailsSuccess,
     required TResult Function(_NoUserFound value) noUserFound,
     required TResult Function(_GetUserDetailsFailed value) getUserDetailsFailed,
+    required TResult Function(_ChangeNameLoading value) changeNameLoading,
+    required TResult Function(_ChangeNameSuccess value) changeNameSuccess,
+    required TResult Function(_ChangeNameFailed value) changeNameFailed,
+    required TResult Function(_ChangeEmailLoading value) changeEmailLoading,
+    required TResult Function(_ChangeEmailSuccess value) changeEmailSuccess,
+    required TResult Function(_ChangeEmailFailed value) changeEmailFailed,
+    required TResult Function(_ChangePasswordLoading value)
+        changePasswordLoading,
+    required TResult Function(_ChangePasswordSuccess value)
+        changePasswordSuccess,
+    required TResult Function(_ChangePasswordFailed value) changePasswordFailed,
   }) {
     return getUserDetailsLoading(this);
   }
@@ -840,6 +1174,15 @@ class _$GetUserDetailsLoadingImpl implements _GetUserDetailsLoading {
     TResult? Function(_GetUserDetailsSuccess value)? getUserDetailsSuccess,
     TResult? Function(_NoUserFound value)? noUserFound,
     TResult? Function(_GetUserDetailsFailed value)? getUserDetailsFailed,
+    TResult? Function(_ChangeNameLoading value)? changeNameLoading,
+    TResult? Function(_ChangeNameSuccess value)? changeNameSuccess,
+    TResult? Function(_ChangeNameFailed value)? changeNameFailed,
+    TResult? Function(_ChangeEmailLoading value)? changeEmailLoading,
+    TResult? Function(_ChangeEmailSuccess value)? changeEmailSuccess,
+    TResult? Function(_ChangeEmailFailed value)? changeEmailFailed,
+    TResult? Function(_ChangePasswordLoading value)? changePasswordLoading,
+    TResult? Function(_ChangePasswordSuccess value)? changePasswordSuccess,
+    TResult? Function(_ChangePasswordFailed value)? changePasswordFailed,
   }) {
     return getUserDetailsLoading?.call(this);
   }
@@ -855,6 +1198,15 @@ class _$GetUserDetailsLoadingImpl implements _GetUserDetailsLoading {
     TResult Function(_GetUserDetailsSuccess value)? getUserDetailsSuccess,
     TResult Function(_NoUserFound value)? noUserFound,
     TResult Function(_GetUserDetailsFailed value)? getUserDetailsFailed,
+    TResult Function(_ChangeNameLoading value)? changeNameLoading,
+    TResult Function(_ChangeNameSuccess value)? changeNameSuccess,
+    TResult Function(_ChangeNameFailed value)? changeNameFailed,
+    TResult Function(_ChangeEmailLoading value)? changeEmailLoading,
+    TResult Function(_ChangeEmailSuccess value)? changeEmailSuccess,
+    TResult Function(_ChangeEmailFailed value)? changeEmailFailed,
+    TResult Function(_ChangePasswordLoading value)? changePasswordLoading,
+    TResult Function(_ChangePasswordSuccess value)? changePasswordSuccess,
+    TResult Function(_ChangePasswordFailed value)? changePasswordFailed,
     required TResult orElse(),
   }) {
     if (getUserDetailsLoading != null) {
@@ -953,11 +1305,21 @@ class _$GetUserDetailsSuccessImpl implements _GetUserDetailsSuccess {
     required TResult Function() initial,
     required TResult Function() logoutLoading,
     required TResult Function() logoutSuccess,
-    required TResult Function(String message) logoutFailed,
+    required TResult Function(String message, Failure failure) logoutFailed,
     required TResult Function() getUserDetailsLoading,
     required TResult Function(UserModel user) getUserDetailsSuccess,
     required TResult Function(String message) noUserFound,
-    required TResult Function(String message) getUserDetailsFailed,
+    required TResult Function(String message, Failure failure)
+        getUserDetailsFailed,
+    required TResult Function() changeNameLoading,
+    required TResult Function(UserModel user) changeNameSuccess,
+    required TResult Function(String message) changeNameFailed,
+    required TResult Function() changeEmailLoading,
+    required TResult Function(UserModel user) changeEmailSuccess,
+    required TResult Function(String message) changeEmailFailed,
+    required TResult Function() changePasswordLoading,
+    required TResult Function(UserModel user) changePasswordSuccess,
+    required TResult Function(String message) changePasswordFailed,
   }) {
     return getUserDetailsSuccess(user);
   }
@@ -968,11 +1330,20 @@ class _$GetUserDetailsSuccessImpl implements _GetUserDetailsSuccess {
     TResult? Function()? initial,
     TResult? Function()? logoutLoading,
     TResult? Function()? logoutSuccess,
-    TResult? Function(String message)? logoutFailed,
+    TResult? Function(String message, Failure failure)? logoutFailed,
     TResult? Function()? getUserDetailsLoading,
     TResult? Function(UserModel user)? getUserDetailsSuccess,
     TResult? Function(String message)? noUserFound,
-    TResult? Function(String message)? getUserDetailsFailed,
+    TResult? Function(String message, Failure failure)? getUserDetailsFailed,
+    TResult? Function()? changeNameLoading,
+    TResult? Function(UserModel user)? changeNameSuccess,
+    TResult? Function(String message)? changeNameFailed,
+    TResult? Function()? changeEmailLoading,
+    TResult? Function(UserModel user)? changeEmailSuccess,
+    TResult? Function(String message)? changeEmailFailed,
+    TResult? Function()? changePasswordLoading,
+    TResult? Function(UserModel user)? changePasswordSuccess,
+    TResult? Function(String message)? changePasswordFailed,
   }) {
     return getUserDetailsSuccess?.call(user);
   }
@@ -983,11 +1354,20 @@ class _$GetUserDetailsSuccessImpl implements _GetUserDetailsSuccess {
     TResult Function()? initial,
     TResult Function()? logoutLoading,
     TResult Function()? logoutSuccess,
-    TResult Function(String message)? logoutFailed,
+    TResult Function(String message, Failure failure)? logoutFailed,
     TResult Function()? getUserDetailsLoading,
     TResult Function(UserModel user)? getUserDetailsSuccess,
     TResult Function(String message)? noUserFound,
-    TResult Function(String message)? getUserDetailsFailed,
+    TResult Function(String message, Failure failure)? getUserDetailsFailed,
+    TResult Function()? changeNameLoading,
+    TResult Function(UserModel user)? changeNameSuccess,
+    TResult Function(String message)? changeNameFailed,
+    TResult Function()? changeEmailLoading,
+    TResult Function(UserModel user)? changeEmailSuccess,
+    TResult Function(String message)? changeEmailFailed,
+    TResult Function()? changePasswordLoading,
+    TResult Function(UserModel user)? changePasswordSuccess,
+    TResult Function(String message)? changePasswordFailed,
     required TResult orElse(),
   }) {
     if (getUserDetailsSuccess != null) {
@@ -1009,6 +1389,17 @@ class _$GetUserDetailsSuccessImpl implements _GetUserDetailsSuccess {
         getUserDetailsSuccess,
     required TResult Function(_NoUserFound value) noUserFound,
     required TResult Function(_GetUserDetailsFailed value) getUserDetailsFailed,
+    required TResult Function(_ChangeNameLoading value) changeNameLoading,
+    required TResult Function(_ChangeNameSuccess value) changeNameSuccess,
+    required TResult Function(_ChangeNameFailed value) changeNameFailed,
+    required TResult Function(_ChangeEmailLoading value) changeEmailLoading,
+    required TResult Function(_ChangeEmailSuccess value) changeEmailSuccess,
+    required TResult Function(_ChangeEmailFailed value) changeEmailFailed,
+    required TResult Function(_ChangePasswordLoading value)
+        changePasswordLoading,
+    required TResult Function(_ChangePasswordSuccess value)
+        changePasswordSuccess,
+    required TResult Function(_ChangePasswordFailed value) changePasswordFailed,
   }) {
     return getUserDetailsSuccess(this);
   }
@@ -1024,6 +1415,15 @@ class _$GetUserDetailsSuccessImpl implements _GetUserDetailsSuccess {
     TResult? Function(_GetUserDetailsSuccess value)? getUserDetailsSuccess,
     TResult? Function(_NoUserFound value)? noUserFound,
     TResult? Function(_GetUserDetailsFailed value)? getUserDetailsFailed,
+    TResult? Function(_ChangeNameLoading value)? changeNameLoading,
+    TResult? Function(_ChangeNameSuccess value)? changeNameSuccess,
+    TResult? Function(_ChangeNameFailed value)? changeNameFailed,
+    TResult? Function(_ChangeEmailLoading value)? changeEmailLoading,
+    TResult? Function(_ChangeEmailSuccess value)? changeEmailSuccess,
+    TResult? Function(_ChangeEmailFailed value)? changeEmailFailed,
+    TResult? Function(_ChangePasswordLoading value)? changePasswordLoading,
+    TResult? Function(_ChangePasswordSuccess value)? changePasswordSuccess,
+    TResult? Function(_ChangePasswordFailed value)? changePasswordFailed,
   }) {
     return getUserDetailsSuccess?.call(this);
   }
@@ -1039,6 +1439,15 @@ class _$GetUserDetailsSuccessImpl implements _GetUserDetailsSuccess {
     TResult Function(_GetUserDetailsSuccess value)? getUserDetailsSuccess,
     TResult Function(_NoUserFound value)? noUserFound,
     TResult Function(_GetUserDetailsFailed value)? getUserDetailsFailed,
+    TResult Function(_ChangeNameLoading value)? changeNameLoading,
+    TResult Function(_ChangeNameSuccess value)? changeNameSuccess,
+    TResult Function(_ChangeNameFailed value)? changeNameFailed,
+    TResult Function(_ChangeEmailLoading value)? changeEmailLoading,
+    TResult Function(_ChangeEmailSuccess value)? changeEmailSuccess,
+    TResult Function(_ChangeEmailFailed value)? changeEmailFailed,
+    TResult Function(_ChangePasswordLoading value)? changePasswordLoading,
+    TResult Function(_ChangePasswordSuccess value)? changePasswordSuccess,
+    TResult Function(_ChangePasswordFailed value)? changePasswordFailed,
     required TResult orElse(),
   }) {
     if (getUserDetailsSuccess != null) {
@@ -1132,11 +1541,21 @@ class _$NoUserFoundImpl implements _NoUserFound {
     required TResult Function() initial,
     required TResult Function() logoutLoading,
     required TResult Function() logoutSuccess,
-    required TResult Function(String message) logoutFailed,
+    required TResult Function(String message, Failure failure) logoutFailed,
     required TResult Function() getUserDetailsLoading,
     required TResult Function(UserModel user) getUserDetailsSuccess,
     required TResult Function(String message) noUserFound,
-    required TResult Function(String message) getUserDetailsFailed,
+    required TResult Function(String message, Failure failure)
+        getUserDetailsFailed,
+    required TResult Function() changeNameLoading,
+    required TResult Function(UserModel user) changeNameSuccess,
+    required TResult Function(String message) changeNameFailed,
+    required TResult Function() changeEmailLoading,
+    required TResult Function(UserModel user) changeEmailSuccess,
+    required TResult Function(String message) changeEmailFailed,
+    required TResult Function() changePasswordLoading,
+    required TResult Function(UserModel user) changePasswordSuccess,
+    required TResult Function(String message) changePasswordFailed,
   }) {
     return noUserFound(message);
   }
@@ -1147,11 +1566,20 @@ class _$NoUserFoundImpl implements _NoUserFound {
     TResult? Function()? initial,
     TResult? Function()? logoutLoading,
     TResult? Function()? logoutSuccess,
-    TResult? Function(String message)? logoutFailed,
+    TResult? Function(String message, Failure failure)? logoutFailed,
     TResult? Function()? getUserDetailsLoading,
     TResult? Function(UserModel user)? getUserDetailsSuccess,
     TResult? Function(String message)? noUserFound,
-    TResult? Function(String message)? getUserDetailsFailed,
+    TResult? Function(String message, Failure failure)? getUserDetailsFailed,
+    TResult? Function()? changeNameLoading,
+    TResult? Function(UserModel user)? changeNameSuccess,
+    TResult? Function(String message)? changeNameFailed,
+    TResult? Function()? changeEmailLoading,
+    TResult? Function(UserModel user)? changeEmailSuccess,
+    TResult? Function(String message)? changeEmailFailed,
+    TResult? Function()? changePasswordLoading,
+    TResult? Function(UserModel user)? changePasswordSuccess,
+    TResult? Function(String message)? changePasswordFailed,
   }) {
     return noUserFound?.call(message);
   }
@@ -1162,11 +1590,20 @@ class _$NoUserFoundImpl implements _NoUserFound {
     TResult Function()? initial,
     TResult Function()? logoutLoading,
     TResult Function()? logoutSuccess,
-    TResult Function(String message)? logoutFailed,
+    TResult Function(String message, Failure failure)? logoutFailed,
     TResult Function()? getUserDetailsLoading,
     TResult Function(UserModel user)? getUserDetailsSuccess,
     TResult Function(String message)? noUserFound,
-    TResult Function(String message)? getUserDetailsFailed,
+    TResult Function(String message, Failure failure)? getUserDetailsFailed,
+    TResult Function()? changeNameLoading,
+    TResult Function(UserModel user)? changeNameSuccess,
+    TResult Function(String message)? changeNameFailed,
+    TResult Function()? changeEmailLoading,
+    TResult Function(UserModel user)? changeEmailSuccess,
+    TResult Function(String message)? changeEmailFailed,
+    TResult Function()? changePasswordLoading,
+    TResult Function(UserModel user)? changePasswordSuccess,
+    TResult Function(String message)? changePasswordFailed,
     required TResult orElse(),
   }) {
     if (noUserFound != null) {
@@ -1188,6 +1625,17 @@ class _$NoUserFoundImpl implements _NoUserFound {
         getUserDetailsSuccess,
     required TResult Function(_NoUserFound value) noUserFound,
     required TResult Function(_GetUserDetailsFailed value) getUserDetailsFailed,
+    required TResult Function(_ChangeNameLoading value) changeNameLoading,
+    required TResult Function(_ChangeNameSuccess value) changeNameSuccess,
+    required TResult Function(_ChangeNameFailed value) changeNameFailed,
+    required TResult Function(_ChangeEmailLoading value) changeEmailLoading,
+    required TResult Function(_ChangeEmailSuccess value) changeEmailSuccess,
+    required TResult Function(_ChangeEmailFailed value) changeEmailFailed,
+    required TResult Function(_ChangePasswordLoading value)
+        changePasswordLoading,
+    required TResult Function(_ChangePasswordSuccess value)
+        changePasswordSuccess,
+    required TResult Function(_ChangePasswordFailed value) changePasswordFailed,
   }) {
     return noUserFound(this);
   }
@@ -1203,6 +1651,15 @@ class _$NoUserFoundImpl implements _NoUserFound {
     TResult? Function(_GetUserDetailsSuccess value)? getUserDetailsSuccess,
     TResult? Function(_NoUserFound value)? noUserFound,
     TResult? Function(_GetUserDetailsFailed value)? getUserDetailsFailed,
+    TResult? Function(_ChangeNameLoading value)? changeNameLoading,
+    TResult? Function(_ChangeNameSuccess value)? changeNameSuccess,
+    TResult? Function(_ChangeNameFailed value)? changeNameFailed,
+    TResult? Function(_ChangeEmailLoading value)? changeEmailLoading,
+    TResult? Function(_ChangeEmailSuccess value)? changeEmailSuccess,
+    TResult? Function(_ChangeEmailFailed value)? changeEmailFailed,
+    TResult? Function(_ChangePasswordLoading value)? changePasswordLoading,
+    TResult? Function(_ChangePasswordSuccess value)? changePasswordSuccess,
+    TResult? Function(_ChangePasswordFailed value)? changePasswordFailed,
   }) {
     return noUserFound?.call(this);
   }
@@ -1218,6 +1675,15 @@ class _$NoUserFoundImpl implements _NoUserFound {
     TResult Function(_GetUserDetailsSuccess value)? getUserDetailsSuccess,
     TResult Function(_NoUserFound value)? noUserFound,
     TResult Function(_GetUserDetailsFailed value)? getUserDetailsFailed,
+    TResult Function(_ChangeNameLoading value)? changeNameLoading,
+    TResult Function(_ChangeNameSuccess value)? changeNameSuccess,
+    TResult Function(_ChangeNameFailed value)? changeNameFailed,
+    TResult Function(_ChangeEmailLoading value)? changeEmailLoading,
+    TResult Function(_ChangeEmailSuccess value)? changeEmailSuccess,
+    TResult Function(_ChangeEmailFailed value)? changeEmailFailed,
+    TResult Function(_ChangePasswordLoading value)? changePasswordLoading,
+    TResult Function(_ChangePasswordSuccess value)? changePasswordSuccess,
+    TResult Function(_ChangePasswordFailed value)? changePasswordFailed,
     required TResult orElse(),
   }) {
     if (noUserFound != null) {
@@ -1246,7 +1712,7 @@ abstract class _$$GetUserDetailsFailedImplCopyWith<$Res> {
           $Res Function(_$GetUserDetailsFailedImpl) then) =
       __$$GetUserDetailsFailedImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({String message});
+  $Res call({String message, Failure failure});
 }
 
 /// @nodoc
@@ -1263,12 +1729,17 @@ class __$$GetUserDetailsFailedImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? message = null,
+    Object? failure = null,
   }) {
     return _then(_$GetUserDetailsFailedImpl(
       message: null == message
           ? _value.message
           : message // ignore: cast_nullable_to_non_nullable
               as String,
+      failure: null == failure
+          ? _value.failure
+          : failure // ignore: cast_nullable_to_non_nullable
+              as Failure,
     ));
   }
 }
@@ -1276,14 +1747,17 @@ class __$$GetUserDetailsFailedImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$GetUserDetailsFailedImpl implements _GetUserDetailsFailed {
-  const _$GetUserDetailsFailedImpl({required this.message});
+  const _$GetUserDetailsFailedImpl(
+      {required this.message, required this.failure});
 
   @override
   final String message;
+  @override
+  final Failure failure;
 
   @override
   String toString() {
-    return 'UserViewmodelState.getUserDetailsFailed(message: $message)';
+    return 'UserViewmodelState.getUserDetailsFailed(message: $message, failure: $failure)';
   }
 
   @override
@@ -1291,11 +1765,12 @@ class _$GetUserDetailsFailedImpl implements _GetUserDetailsFailed {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$GetUserDetailsFailedImpl &&
-            (identical(other.message, message) || other.message == message));
+            (identical(other.message, message) || other.message == message) &&
+            (identical(other.failure, failure) || other.failure == failure));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, message);
+  int get hashCode => Object.hash(runtimeType, message, failure);
 
   /// Create a copy of UserViewmodelState
   /// with the given fields replaced by the non-null parameter values.
@@ -1313,13 +1788,23 @@ class _$GetUserDetailsFailedImpl implements _GetUserDetailsFailed {
     required TResult Function() initial,
     required TResult Function() logoutLoading,
     required TResult Function() logoutSuccess,
-    required TResult Function(String message) logoutFailed,
+    required TResult Function(String message, Failure failure) logoutFailed,
     required TResult Function() getUserDetailsLoading,
     required TResult Function(UserModel user) getUserDetailsSuccess,
     required TResult Function(String message) noUserFound,
-    required TResult Function(String message) getUserDetailsFailed,
+    required TResult Function(String message, Failure failure)
+        getUserDetailsFailed,
+    required TResult Function() changeNameLoading,
+    required TResult Function(UserModel user) changeNameSuccess,
+    required TResult Function(String message) changeNameFailed,
+    required TResult Function() changeEmailLoading,
+    required TResult Function(UserModel user) changeEmailSuccess,
+    required TResult Function(String message) changeEmailFailed,
+    required TResult Function() changePasswordLoading,
+    required TResult Function(UserModel user) changePasswordSuccess,
+    required TResult Function(String message) changePasswordFailed,
   }) {
-    return getUserDetailsFailed(message);
+    return getUserDetailsFailed(message, failure);
   }
 
   @override
@@ -1328,13 +1813,22 @@ class _$GetUserDetailsFailedImpl implements _GetUserDetailsFailed {
     TResult? Function()? initial,
     TResult? Function()? logoutLoading,
     TResult? Function()? logoutSuccess,
-    TResult? Function(String message)? logoutFailed,
+    TResult? Function(String message, Failure failure)? logoutFailed,
     TResult? Function()? getUserDetailsLoading,
     TResult? Function(UserModel user)? getUserDetailsSuccess,
     TResult? Function(String message)? noUserFound,
-    TResult? Function(String message)? getUserDetailsFailed,
+    TResult? Function(String message, Failure failure)? getUserDetailsFailed,
+    TResult? Function()? changeNameLoading,
+    TResult? Function(UserModel user)? changeNameSuccess,
+    TResult? Function(String message)? changeNameFailed,
+    TResult? Function()? changeEmailLoading,
+    TResult? Function(UserModel user)? changeEmailSuccess,
+    TResult? Function(String message)? changeEmailFailed,
+    TResult? Function()? changePasswordLoading,
+    TResult? Function(UserModel user)? changePasswordSuccess,
+    TResult? Function(String message)? changePasswordFailed,
   }) {
-    return getUserDetailsFailed?.call(message);
+    return getUserDetailsFailed?.call(message, failure);
   }
 
   @override
@@ -1343,15 +1837,24 @@ class _$GetUserDetailsFailedImpl implements _GetUserDetailsFailed {
     TResult Function()? initial,
     TResult Function()? logoutLoading,
     TResult Function()? logoutSuccess,
-    TResult Function(String message)? logoutFailed,
+    TResult Function(String message, Failure failure)? logoutFailed,
     TResult Function()? getUserDetailsLoading,
     TResult Function(UserModel user)? getUserDetailsSuccess,
     TResult Function(String message)? noUserFound,
-    TResult Function(String message)? getUserDetailsFailed,
+    TResult Function(String message, Failure failure)? getUserDetailsFailed,
+    TResult Function()? changeNameLoading,
+    TResult Function(UserModel user)? changeNameSuccess,
+    TResult Function(String message)? changeNameFailed,
+    TResult Function()? changeEmailLoading,
+    TResult Function(UserModel user)? changeEmailSuccess,
+    TResult Function(String message)? changeEmailFailed,
+    TResult Function()? changePasswordLoading,
+    TResult Function(UserModel user)? changePasswordSuccess,
+    TResult Function(String message)? changePasswordFailed,
     required TResult orElse(),
   }) {
     if (getUserDetailsFailed != null) {
-      return getUserDetailsFailed(message);
+      return getUserDetailsFailed(message, failure);
     }
     return orElse();
   }
@@ -1369,6 +1872,17 @@ class _$GetUserDetailsFailedImpl implements _GetUserDetailsFailed {
         getUserDetailsSuccess,
     required TResult Function(_NoUserFound value) noUserFound,
     required TResult Function(_GetUserDetailsFailed value) getUserDetailsFailed,
+    required TResult Function(_ChangeNameLoading value) changeNameLoading,
+    required TResult Function(_ChangeNameSuccess value) changeNameSuccess,
+    required TResult Function(_ChangeNameFailed value) changeNameFailed,
+    required TResult Function(_ChangeEmailLoading value) changeEmailLoading,
+    required TResult Function(_ChangeEmailSuccess value) changeEmailSuccess,
+    required TResult Function(_ChangeEmailFailed value) changeEmailFailed,
+    required TResult Function(_ChangePasswordLoading value)
+        changePasswordLoading,
+    required TResult Function(_ChangePasswordSuccess value)
+        changePasswordSuccess,
+    required TResult Function(_ChangePasswordFailed value) changePasswordFailed,
   }) {
     return getUserDetailsFailed(this);
   }
@@ -1384,6 +1898,15 @@ class _$GetUserDetailsFailedImpl implements _GetUserDetailsFailed {
     TResult? Function(_GetUserDetailsSuccess value)? getUserDetailsSuccess,
     TResult? Function(_NoUserFound value)? noUserFound,
     TResult? Function(_GetUserDetailsFailed value)? getUserDetailsFailed,
+    TResult? Function(_ChangeNameLoading value)? changeNameLoading,
+    TResult? Function(_ChangeNameSuccess value)? changeNameSuccess,
+    TResult? Function(_ChangeNameFailed value)? changeNameFailed,
+    TResult? Function(_ChangeEmailLoading value)? changeEmailLoading,
+    TResult? Function(_ChangeEmailSuccess value)? changeEmailSuccess,
+    TResult? Function(_ChangeEmailFailed value)? changeEmailFailed,
+    TResult? Function(_ChangePasswordLoading value)? changePasswordLoading,
+    TResult? Function(_ChangePasswordSuccess value)? changePasswordSuccess,
+    TResult? Function(_ChangePasswordFailed value)? changePasswordFailed,
   }) {
     return getUserDetailsFailed?.call(this);
   }
@@ -1399,6 +1922,15 @@ class _$GetUserDetailsFailedImpl implements _GetUserDetailsFailed {
     TResult Function(_GetUserDetailsSuccess value)? getUserDetailsSuccess,
     TResult Function(_NoUserFound value)? noUserFound,
     TResult Function(_GetUserDetailsFailed value)? getUserDetailsFailed,
+    TResult Function(_ChangeNameLoading value)? changeNameLoading,
+    TResult Function(_ChangeNameSuccess value)? changeNameSuccess,
+    TResult Function(_ChangeNameFailed value)? changeNameFailed,
+    TResult Function(_ChangeEmailLoading value)? changeEmailLoading,
+    TResult Function(_ChangeEmailSuccess value)? changeEmailSuccess,
+    TResult Function(_ChangeEmailFailed value)? changeEmailFailed,
+    TResult Function(_ChangePasswordLoading value)? changePasswordLoading,
+    TResult Function(_ChangePasswordSuccess value)? changePasswordSuccess,
+    TResult Function(_ChangePasswordFailed value)? changePasswordFailed,
     required TResult orElse(),
   }) {
     if (getUserDetailsFailed != null) {
@@ -1409,14 +1941,2078 @@ class _$GetUserDetailsFailedImpl implements _GetUserDetailsFailed {
 }
 
 abstract class _GetUserDetailsFailed implements UserViewmodelState {
-  const factory _GetUserDetailsFailed({required final String message}) =
-      _$GetUserDetailsFailedImpl;
+  const factory _GetUserDetailsFailed(
+      {required final String message,
+      required final Failure failure}) = _$GetUserDetailsFailedImpl;
+
+  String get message;
+  Failure get failure;
+
+  /// Create a copy of UserViewmodelState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$GetUserDetailsFailedImplCopyWith<_$GetUserDetailsFailedImpl>
+      get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$ChangeNameLoadingImplCopyWith<$Res> {
+  factory _$$ChangeNameLoadingImplCopyWith(_$ChangeNameLoadingImpl value,
+          $Res Function(_$ChangeNameLoadingImpl) then) =
+      __$$ChangeNameLoadingImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$ChangeNameLoadingImplCopyWithImpl<$Res>
+    extends _$UserViewmodelStateCopyWithImpl<$Res, _$ChangeNameLoadingImpl>
+    implements _$$ChangeNameLoadingImplCopyWith<$Res> {
+  __$$ChangeNameLoadingImplCopyWithImpl(_$ChangeNameLoadingImpl _value,
+      $Res Function(_$ChangeNameLoadingImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of UserViewmodelState
+  /// with the given fields replaced by the non-null parameter values.
+}
+
+/// @nodoc
+
+class _$ChangeNameLoadingImpl implements _ChangeNameLoading {
+  const _$ChangeNameLoadingImpl();
+
+  @override
+  String toString() {
+    return 'UserViewmodelState.changeNameLoading()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$ChangeNameLoadingImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() logoutLoading,
+    required TResult Function() logoutSuccess,
+    required TResult Function(String message, Failure failure) logoutFailed,
+    required TResult Function() getUserDetailsLoading,
+    required TResult Function(UserModel user) getUserDetailsSuccess,
+    required TResult Function(String message) noUserFound,
+    required TResult Function(String message, Failure failure)
+        getUserDetailsFailed,
+    required TResult Function() changeNameLoading,
+    required TResult Function(UserModel user) changeNameSuccess,
+    required TResult Function(String message) changeNameFailed,
+    required TResult Function() changeEmailLoading,
+    required TResult Function(UserModel user) changeEmailSuccess,
+    required TResult Function(String message) changeEmailFailed,
+    required TResult Function() changePasswordLoading,
+    required TResult Function(UserModel user) changePasswordSuccess,
+    required TResult Function(String message) changePasswordFailed,
+  }) {
+    return changeNameLoading();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? logoutLoading,
+    TResult? Function()? logoutSuccess,
+    TResult? Function(String message, Failure failure)? logoutFailed,
+    TResult? Function()? getUserDetailsLoading,
+    TResult? Function(UserModel user)? getUserDetailsSuccess,
+    TResult? Function(String message)? noUserFound,
+    TResult? Function(String message, Failure failure)? getUserDetailsFailed,
+    TResult? Function()? changeNameLoading,
+    TResult? Function(UserModel user)? changeNameSuccess,
+    TResult? Function(String message)? changeNameFailed,
+    TResult? Function()? changeEmailLoading,
+    TResult? Function(UserModel user)? changeEmailSuccess,
+    TResult? Function(String message)? changeEmailFailed,
+    TResult? Function()? changePasswordLoading,
+    TResult? Function(UserModel user)? changePasswordSuccess,
+    TResult? Function(String message)? changePasswordFailed,
+  }) {
+    return changeNameLoading?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? logoutLoading,
+    TResult Function()? logoutSuccess,
+    TResult Function(String message, Failure failure)? logoutFailed,
+    TResult Function()? getUserDetailsLoading,
+    TResult Function(UserModel user)? getUserDetailsSuccess,
+    TResult Function(String message)? noUserFound,
+    TResult Function(String message, Failure failure)? getUserDetailsFailed,
+    TResult Function()? changeNameLoading,
+    TResult Function(UserModel user)? changeNameSuccess,
+    TResult Function(String message)? changeNameFailed,
+    TResult Function()? changeEmailLoading,
+    TResult Function(UserModel user)? changeEmailSuccess,
+    TResult Function(String message)? changeEmailFailed,
+    TResult Function()? changePasswordLoading,
+    TResult Function(UserModel user)? changePasswordSuccess,
+    TResult Function(String message)? changePasswordFailed,
+    required TResult orElse(),
+  }) {
+    if (changeNameLoading != null) {
+      return changeNameLoading();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(_LogoutLoading value) logoutLoading,
+    required TResult Function(_LogoutSuccess value) logoutSuccess,
+    required TResult Function(_LogoutFailed value) logoutFailed,
+    required TResult Function(_GetUserDetailsLoading value)
+        getUserDetailsLoading,
+    required TResult Function(_GetUserDetailsSuccess value)
+        getUserDetailsSuccess,
+    required TResult Function(_NoUserFound value) noUserFound,
+    required TResult Function(_GetUserDetailsFailed value) getUserDetailsFailed,
+    required TResult Function(_ChangeNameLoading value) changeNameLoading,
+    required TResult Function(_ChangeNameSuccess value) changeNameSuccess,
+    required TResult Function(_ChangeNameFailed value) changeNameFailed,
+    required TResult Function(_ChangeEmailLoading value) changeEmailLoading,
+    required TResult Function(_ChangeEmailSuccess value) changeEmailSuccess,
+    required TResult Function(_ChangeEmailFailed value) changeEmailFailed,
+    required TResult Function(_ChangePasswordLoading value)
+        changePasswordLoading,
+    required TResult Function(_ChangePasswordSuccess value)
+        changePasswordSuccess,
+    required TResult Function(_ChangePasswordFailed value) changePasswordFailed,
+  }) {
+    return changeNameLoading(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_LogoutLoading value)? logoutLoading,
+    TResult? Function(_LogoutSuccess value)? logoutSuccess,
+    TResult? Function(_LogoutFailed value)? logoutFailed,
+    TResult? Function(_GetUserDetailsLoading value)? getUserDetailsLoading,
+    TResult? Function(_GetUserDetailsSuccess value)? getUserDetailsSuccess,
+    TResult? Function(_NoUserFound value)? noUserFound,
+    TResult? Function(_GetUserDetailsFailed value)? getUserDetailsFailed,
+    TResult? Function(_ChangeNameLoading value)? changeNameLoading,
+    TResult? Function(_ChangeNameSuccess value)? changeNameSuccess,
+    TResult? Function(_ChangeNameFailed value)? changeNameFailed,
+    TResult? Function(_ChangeEmailLoading value)? changeEmailLoading,
+    TResult? Function(_ChangeEmailSuccess value)? changeEmailSuccess,
+    TResult? Function(_ChangeEmailFailed value)? changeEmailFailed,
+    TResult? Function(_ChangePasswordLoading value)? changePasswordLoading,
+    TResult? Function(_ChangePasswordSuccess value)? changePasswordSuccess,
+    TResult? Function(_ChangePasswordFailed value)? changePasswordFailed,
+  }) {
+    return changeNameLoading?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_LogoutLoading value)? logoutLoading,
+    TResult Function(_LogoutSuccess value)? logoutSuccess,
+    TResult Function(_LogoutFailed value)? logoutFailed,
+    TResult Function(_GetUserDetailsLoading value)? getUserDetailsLoading,
+    TResult Function(_GetUserDetailsSuccess value)? getUserDetailsSuccess,
+    TResult Function(_NoUserFound value)? noUserFound,
+    TResult Function(_GetUserDetailsFailed value)? getUserDetailsFailed,
+    TResult Function(_ChangeNameLoading value)? changeNameLoading,
+    TResult Function(_ChangeNameSuccess value)? changeNameSuccess,
+    TResult Function(_ChangeNameFailed value)? changeNameFailed,
+    TResult Function(_ChangeEmailLoading value)? changeEmailLoading,
+    TResult Function(_ChangeEmailSuccess value)? changeEmailSuccess,
+    TResult Function(_ChangeEmailFailed value)? changeEmailFailed,
+    TResult Function(_ChangePasswordLoading value)? changePasswordLoading,
+    TResult Function(_ChangePasswordSuccess value)? changePasswordSuccess,
+    TResult Function(_ChangePasswordFailed value)? changePasswordFailed,
+    required TResult orElse(),
+  }) {
+    if (changeNameLoading != null) {
+      return changeNameLoading(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _ChangeNameLoading implements UserViewmodelState {
+  const factory _ChangeNameLoading() = _$ChangeNameLoadingImpl;
+}
+
+/// @nodoc
+abstract class _$$ChangeNameSuccessImplCopyWith<$Res> {
+  factory _$$ChangeNameSuccessImplCopyWith(_$ChangeNameSuccessImpl value,
+          $Res Function(_$ChangeNameSuccessImpl) then) =
+      __$$ChangeNameSuccessImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({UserModel user});
+
+  $UserModelCopyWith<$Res> get user;
+}
+
+/// @nodoc
+class __$$ChangeNameSuccessImplCopyWithImpl<$Res>
+    extends _$UserViewmodelStateCopyWithImpl<$Res, _$ChangeNameSuccessImpl>
+    implements _$$ChangeNameSuccessImplCopyWith<$Res> {
+  __$$ChangeNameSuccessImplCopyWithImpl(_$ChangeNameSuccessImpl _value,
+      $Res Function(_$ChangeNameSuccessImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of UserViewmodelState
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? user = null,
+  }) {
+    return _then(_$ChangeNameSuccessImpl(
+      user: null == user
+          ? _value.user
+          : user // ignore: cast_nullable_to_non_nullable
+              as UserModel,
+    ));
+  }
+
+  /// Create a copy of UserViewmodelState
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $UserModelCopyWith<$Res> get user {
+    return $UserModelCopyWith<$Res>(_value.user, (value) {
+      return _then(_value.copyWith(user: value));
+    });
+  }
+}
+
+/// @nodoc
+
+class _$ChangeNameSuccessImpl implements _ChangeNameSuccess {
+  const _$ChangeNameSuccessImpl({required this.user});
+
+  @override
+  final UserModel user;
+
+  @override
+  String toString() {
+    return 'UserViewmodelState.changeNameSuccess(user: $user)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$ChangeNameSuccessImpl &&
+            (identical(other.user, user) || other.user == user));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, user);
+
+  /// Create a copy of UserViewmodelState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$ChangeNameSuccessImplCopyWith<_$ChangeNameSuccessImpl> get copyWith =>
+      __$$ChangeNameSuccessImplCopyWithImpl<_$ChangeNameSuccessImpl>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() logoutLoading,
+    required TResult Function() logoutSuccess,
+    required TResult Function(String message, Failure failure) logoutFailed,
+    required TResult Function() getUserDetailsLoading,
+    required TResult Function(UserModel user) getUserDetailsSuccess,
+    required TResult Function(String message) noUserFound,
+    required TResult Function(String message, Failure failure)
+        getUserDetailsFailed,
+    required TResult Function() changeNameLoading,
+    required TResult Function(UserModel user) changeNameSuccess,
+    required TResult Function(String message) changeNameFailed,
+    required TResult Function() changeEmailLoading,
+    required TResult Function(UserModel user) changeEmailSuccess,
+    required TResult Function(String message) changeEmailFailed,
+    required TResult Function() changePasswordLoading,
+    required TResult Function(UserModel user) changePasswordSuccess,
+    required TResult Function(String message) changePasswordFailed,
+  }) {
+    return changeNameSuccess(user);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? logoutLoading,
+    TResult? Function()? logoutSuccess,
+    TResult? Function(String message, Failure failure)? logoutFailed,
+    TResult? Function()? getUserDetailsLoading,
+    TResult? Function(UserModel user)? getUserDetailsSuccess,
+    TResult? Function(String message)? noUserFound,
+    TResult? Function(String message, Failure failure)? getUserDetailsFailed,
+    TResult? Function()? changeNameLoading,
+    TResult? Function(UserModel user)? changeNameSuccess,
+    TResult? Function(String message)? changeNameFailed,
+    TResult? Function()? changeEmailLoading,
+    TResult? Function(UserModel user)? changeEmailSuccess,
+    TResult? Function(String message)? changeEmailFailed,
+    TResult? Function()? changePasswordLoading,
+    TResult? Function(UserModel user)? changePasswordSuccess,
+    TResult? Function(String message)? changePasswordFailed,
+  }) {
+    return changeNameSuccess?.call(user);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? logoutLoading,
+    TResult Function()? logoutSuccess,
+    TResult Function(String message, Failure failure)? logoutFailed,
+    TResult Function()? getUserDetailsLoading,
+    TResult Function(UserModel user)? getUserDetailsSuccess,
+    TResult Function(String message)? noUserFound,
+    TResult Function(String message, Failure failure)? getUserDetailsFailed,
+    TResult Function()? changeNameLoading,
+    TResult Function(UserModel user)? changeNameSuccess,
+    TResult Function(String message)? changeNameFailed,
+    TResult Function()? changeEmailLoading,
+    TResult Function(UserModel user)? changeEmailSuccess,
+    TResult Function(String message)? changeEmailFailed,
+    TResult Function()? changePasswordLoading,
+    TResult Function(UserModel user)? changePasswordSuccess,
+    TResult Function(String message)? changePasswordFailed,
+    required TResult orElse(),
+  }) {
+    if (changeNameSuccess != null) {
+      return changeNameSuccess(user);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(_LogoutLoading value) logoutLoading,
+    required TResult Function(_LogoutSuccess value) logoutSuccess,
+    required TResult Function(_LogoutFailed value) logoutFailed,
+    required TResult Function(_GetUserDetailsLoading value)
+        getUserDetailsLoading,
+    required TResult Function(_GetUserDetailsSuccess value)
+        getUserDetailsSuccess,
+    required TResult Function(_NoUserFound value) noUserFound,
+    required TResult Function(_GetUserDetailsFailed value) getUserDetailsFailed,
+    required TResult Function(_ChangeNameLoading value) changeNameLoading,
+    required TResult Function(_ChangeNameSuccess value) changeNameSuccess,
+    required TResult Function(_ChangeNameFailed value) changeNameFailed,
+    required TResult Function(_ChangeEmailLoading value) changeEmailLoading,
+    required TResult Function(_ChangeEmailSuccess value) changeEmailSuccess,
+    required TResult Function(_ChangeEmailFailed value) changeEmailFailed,
+    required TResult Function(_ChangePasswordLoading value)
+        changePasswordLoading,
+    required TResult Function(_ChangePasswordSuccess value)
+        changePasswordSuccess,
+    required TResult Function(_ChangePasswordFailed value) changePasswordFailed,
+  }) {
+    return changeNameSuccess(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_LogoutLoading value)? logoutLoading,
+    TResult? Function(_LogoutSuccess value)? logoutSuccess,
+    TResult? Function(_LogoutFailed value)? logoutFailed,
+    TResult? Function(_GetUserDetailsLoading value)? getUserDetailsLoading,
+    TResult? Function(_GetUserDetailsSuccess value)? getUserDetailsSuccess,
+    TResult? Function(_NoUserFound value)? noUserFound,
+    TResult? Function(_GetUserDetailsFailed value)? getUserDetailsFailed,
+    TResult? Function(_ChangeNameLoading value)? changeNameLoading,
+    TResult? Function(_ChangeNameSuccess value)? changeNameSuccess,
+    TResult? Function(_ChangeNameFailed value)? changeNameFailed,
+    TResult? Function(_ChangeEmailLoading value)? changeEmailLoading,
+    TResult? Function(_ChangeEmailSuccess value)? changeEmailSuccess,
+    TResult? Function(_ChangeEmailFailed value)? changeEmailFailed,
+    TResult? Function(_ChangePasswordLoading value)? changePasswordLoading,
+    TResult? Function(_ChangePasswordSuccess value)? changePasswordSuccess,
+    TResult? Function(_ChangePasswordFailed value)? changePasswordFailed,
+  }) {
+    return changeNameSuccess?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_LogoutLoading value)? logoutLoading,
+    TResult Function(_LogoutSuccess value)? logoutSuccess,
+    TResult Function(_LogoutFailed value)? logoutFailed,
+    TResult Function(_GetUserDetailsLoading value)? getUserDetailsLoading,
+    TResult Function(_GetUserDetailsSuccess value)? getUserDetailsSuccess,
+    TResult Function(_NoUserFound value)? noUserFound,
+    TResult Function(_GetUserDetailsFailed value)? getUserDetailsFailed,
+    TResult Function(_ChangeNameLoading value)? changeNameLoading,
+    TResult Function(_ChangeNameSuccess value)? changeNameSuccess,
+    TResult Function(_ChangeNameFailed value)? changeNameFailed,
+    TResult Function(_ChangeEmailLoading value)? changeEmailLoading,
+    TResult Function(_ChangeEmailSuccess value)? changeEmailSuccess,
+    TResult Function(_ChangeEmailFailed value)? changeEmailFailed,
+    TResult Function(_ChangePasswordLoading value)? changePasswordLoading,
+    TResult Function(_ChangePasswordSuccess value)? changePasswordSuccess,
+    TResult Function(_ChangePasswordFailed value)? changePasswordFailed,
+    required TResult orElse(),
+  }) {
+    if (changeNameSuccess != null) {
+      return changeNameSuccess(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _ChangeNameSuccess implements UserViewmodelState {
+  const factory _ChangeNameSuccess({required final UserModel user}) =
+      _$ChangeNameSuccessImpl;
+
+  UserModel get user;
+
+  /// Create a copy of UserViewmodelState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$ChangeNameSuccessImplCopyWith<_$ChangeNameSuccessImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$ChangeNameFailedImplCopyWith<$Res> {
+  factory _$$ChangeNameFailedImplCopyWith(_$ChangeNameFailedImpl value,
+          $Res Function(_$ChangeNameFailedImpl) then) =
+      __$$ChangeNameFailedImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String message});
+}
+
+/// @nodoc
+class __$$ChangeNameFailedImplCopyWithImpl<$Res>
+    extends _$UserViewmodelStateCopyWithImpl<$Res, _$ChangeNameFailedImpl>
+    implements _$$ChangeNameFailedImplCopyWith<$Res> {
+  __$$ChangeNameFailedImplCopyWithImpl(_$ChangeNameFailedImpl _value,
+      $Res Function(_$ChangeNameFailedImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of UserViewmodelState
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? message = null,
+  }) {
+    return _then(_$ChangeNameFailedImpl(
+      message: null == message
+          ? _value.message
+          : message // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$ChangeNameFailedImpl implements _ChangeNameFailed {
+  const _$ChangeNameFailedImpl({required this.message});
+
+  @override
+  final String message;
+
+  @override
+  String toString() {
+    return 'UserViewmodelState.changeNameFailed(message: $message)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$ChangeNameFailedImpl &&
+            (identical(other.message, message) || other.message == message));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, message);
+
+  /// Create a copy of UserViewmodelState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$ChangeNameFailedImplCopyWith<_$ChangeNameFailedImpl> get copyWith =>
+      __$$ChangeNameFailedImplCopyWithImpl<_$ChangeNameFailedImpl>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() logoutLoading,
+    required TResult Function() logoutSuccess,
+    required TResult Function(String message, Failure failure) logoutFailed,
+    required TResult Function() getUserDetailsLoading,
+    required TResult Function(UserModel user) getUserDetailsSuccess,
+    required TResult Function(String message) noUserFound,
+    required TResult Function(String message, Failure failure)
+        getUserDetailsFailed,
+    required TResult Function() changeNameLoading,
+    required TResult Function(UserModel user) changeNameSuccess,
+    required TResult Function(String message) changeNameFailed,
+    required TResult Function() changeEmailLoading,
+    required TResult Function(UserModel user) changeEmailSuccess,
+    required TResult Function(String message) changeEmailFailed,
+    required TResult Function() changePasswordLoading,
+    required TResult Function(UserModel user) changePasswordSuccess,
+    required TResult Function(String message) changePasswordFailed,
+  }) {
+    return changeNameFailed(message);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? logoutLoading,
+    TResult? Function()? logoutSuccess,
+    TResult? Function(String message, Failure failure)? logoutFailed,
+    TResult? Function()? getUserDetailsLoading,
+    TResult? Function(UserModel user)? getUserDetailsSuccess,
+    TResult? Function(String message)? noUserFound,
+    TResult? Function(String message, Failure failure)? getUserDetailsFailed,
+    TResult? Function()? changeNameLoading,
+    TResult? Function(UserModel user)? changeNameSuccess,
+    TResult? Function(String message)? changeNameFailed,
+    TResult? Function()? changeEmailLoading,
+    TResult? Function(UserModel user)? changeEmailSuccess,
+    TResult? Function(String message)? changeEmailFailed,
+    TResult? Function()? changePasswordLoading,
+    TResult? Function(UserModel user)? changePasswordSuccess,
+    TResult? Function(String message)? changePasswordFailed,
+  }) {
+    return changeNameFailed?.call(message);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? logoutLoading,
+    TResult Function()? logoutSuccess,
+    TResult Function(String message, Failure failure)? logoutFailed,
+    TResult Function()? getUserDetailsLoading,
+    TResult Function(UserModel user)? getUserDetailsSuccess,
+    TResult Function(String message)? noUserFound,
+    TResult Function(String message, Failure failure)? getUserDetailsFailed,
+    TResult Function()? changeNameLoading,
+    TResult Function(UserModel user)? changeNameSuccess,
+    TResult Function(String message)? changeNameFailed,
+    TResult Function()? changeEmailLoading,
+    TResult Function(UserModel user)? changeEmailSuccess,
+    TResult Function(String message)? changeEmailFailed,
+    TResult Function()? changePasswordLoading,
+    TResult Function(UserModel user)? changePasswordSuccess,
+    TResult Function(String message)? changePasswordFailed,
+    required TResult orElse(),
+  }) {
+    if (changeNameFailed != null) {
+      return changeNameFailed(message);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(_LogoutLoading value) logoutLoading,
+    required TResult Function(_LogoutSuccess value) logoutSuccess,
+    required TResult Function(_LogoutFailed value) logoutFailed,
+    required TResult Function(_GetUserDetailsLoading value)
+        getUserDetailsLoading,
+    required TResult Function(_GetUserDetailsSuccess value)
+        getUserDetailsSuccess,
+    required TResult Function(_NoUserFound value) noUserFound,
+    required TResult Function(_GetUserDetailsFailed value) getUserDetailsFailed,
+    required TResult Function(_ChangeNameLoading value) changeNameLoading,
+    required TResult Function(_ChangeNameSuccess value) changeNameSuccess,
+    required TResult Function(_ChangeNameFailed value) changeNameFailed,
+    required TResult Function(_ChangeEmailLoading value) changeEmailLoading,
+    required TResult Function(_ChangeEmailSuccess value) changeEmailSuccess,
+    required TResult Function(_ChangeEmailFailed value) changeEmailFailed,
+    required TResult Function(_ChangePasswordLoading value)
+        changePasswordLoading,
+    required TResult Function(_ChangePasswordSuccess value)
+        changePasswordSuccess,
+    required TResult Function(_ChangePasswordFailed value) changePasswordFailed,
+  }) {
+    return changeNameFailed(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_LogoutLoading value)? logoutLoading,
+    TResult? Function(_LogoutSuccess value)? logoutSuccess,
+    TResult? Function(_LogoutFailed value)? logoutFailed,
+    TResult? Function(_GetUserDetailsLoading value)? getUserDetailsLoading,
+    TResult? Function(_GetUserDetailsSuccess value)? getUserDetailsSuccess,
+    TResult? Function(_NoUserFound value)? noUserFound,
+    TResult? Function(_GetUserDetailsFailed value)? getUserDetailsFailed,
+    TResult? Function(_ChangeNameLoading value)? changeNameLoading,
+    TResult? Function(_ChangeNameSuccess value)? changeNameSuccess,
+    TResult? Function(_ChangeNameFailed value)? changeNameFailed,
+    TResult? Function(_ChangeEmailLoading value)? changeEmailLoading,
+    TResult? Function(_ChangeEmailSuccess value)? changeEmailSuccess,
+    TResult? Function(_ChangeEmailFailed value)? changeEmailFailed,
+    TResult? Function(_ChangePasswordLoading value)? changePasswordLoading,
+    TResult? Function(_ChangePasswordSuccess value)? changePasswordSuccess,
+    TResult? Function(_ChangePasswordFailed value)? changePasswordFailed,
+  }) {
+    return changeNameFailed?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_LogoutLoading value)? logoutLoading,
+    TResult Function(_LogoutSuccess value)? logoutSuccess,
+    TResult Function(_LogoutFailed value)? logoutFailed,
+    TResult Function(_GetUserDetailsLoading value)? getUserDetailsLoading,
+    TResult Function(_GetUserDetailsSuccess value)? getUserDetailsSuccess,
+    TResult Function(_NoUserFound value)? noUserFound,
+    TResult Function(_GetUserDetailsFailed value)? getUserDetailsFailed,
+    TResult Function(_ChangeNameLoading value)? changeNameLoading,
+    TResult Function(_ChangeNameSuccess value)? changeNameSuccess,
+    TResult Function(_ChangeNameFailed value)? changeNameFailed,
+    TResult Function(_ChangeEmailLoading value)? changeEmailLoading,
+    TResult Function(_ChangeEmailSuccess value)? changeEmailSuccess,
+    TResult Function(_ChangeEmailFailed value)? changeEmailFailed,
+    TResult Function(_ChangePasswordLoading value)? changePasswordLoading,
+    TResult Function(_ChangePasswordSuccess value)? changePasswordSuccess,
+    TResult Function(_ChangePasswordFailed value)? changePasswordFailed,
+    required TResult orElse(),
+  }) {
+    if (changeNameFailed != null) {
+      return changeNameFailed(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _ChangeNameFailed implements UserViewmodelState {
+  const factory _ChangeNameFailed({required final String message}) =
+      _$ChangeNameFailedImpl;
 
   String get message;
 
   /// Create a copy of UserViewmodelState
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$GetUserDetailsFailedImplCopyWith<_$GetUserDetailsFailedImpl>
+  _$$ChangeNameFailedImplCopyWith<_$ChangeNameFailedImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$ChangeEmailLoadingImplCopyWith<$Res> {
+  factory _$$ChangeEmailLoadingImplCopyWith(_$ChangeEmailLoadingImpl value,
+          $Res Function(_$ChangeEmailLoadingImpl) then) =
+      __$$ChangeEmailLoadingImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$ChangeEmailLoadingImplCopyWithImpl<$Res>
+    extends _$UserViewmodelStateCopyWithImpl<$Res, _$ChangeEmailLoadingImpl>
+    implements _$$ChangeEmailLoadingImplCopyWith<$Res> {
+  __$$ChangeEmailLoadingImplCopyWithImpl(_$ChangeEmailLoadingImpl _value,
+      $Res Function(_$ChangeEmailLoadingImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of UserViewmodelState
+  /// with the given fields replaced by the non-null parameter values.
+}
+
+/// @nodoc
+
+class _$ChangeEmailLoadingImpl implements _ChangeEmailLoading {
+  const _$ChangeEmailLoadingImpl();
+
+  @override
+  String toString() {
+    return 'UserViewmodelState.changeEmailLoading()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$ChangeEmailLoadingImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() logoutLoading,
+    required TResult Function() logoutSuccess,
+    required TResult Function(String message, Failure failure) logoutFailed,
+    required TResult Function() getUserDetailsLoading,
+    required TResult Function(UserModel user) getUserDetailsSuccess,
+    required TResult Function(String message) noUserFound,
+    required TResult Function(String message, Failure failure)
+        getUserDetailsFailed,
+    required TResult Function() changeNameLoading,
+    required TResult Function(UserModel user) changeNameSuccess,
+    required TResult Function(String message) changeNameFailed,
+    required TResult Function() changeEmailLoading,
+    required TResult Function(UserModel user) changeEmailSuccess,
+    required TResult Function(String message) changeEmailFailed,
+    required TResult Function() changePasswordLoading,
+    required TResult Function(UserModel user) changePasswordSuccess,
+    required TResult Function(String message) changePasswordFailed,
+  }) {
+    return changeEmailLoading();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? logoutLoading,
+    TResult? Function()? logoutSuccess,
+    TResult? Function(String message, Failure failure)? logoutFailed,
+    TResult? Function()? getUserDetailsLoading,
+    TResult? Function(UserModel user)? getUserDetailsSuccess,
+    TResult? Function(String message)? noUserFound,
+    TResult? Function(String message, Failure failure)? getUserDetailsFailed,
+    TResult? Function()? changeNameLoading,
+    TResult? Function(UserModel user)? changeNameSuccess,
+    TResult? Function(String message)? changeNameFailed,
+    TResult? Function()? changeEmailLoading,
+    TResult? Function(UserModel user)? changeEmailSuccess,
+    TResult? Function(String message)? changeEmailFailed,
+    TResult? Function()? changePasswordLoading,
+    TResult? Function(UserModel user)? changePasswordSuccess,
+    TResult? Function(String message)? changePasswordFailed,
+  }) {
+    return changeEmailLoading?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? logoutLoading,
+    TResult Function()? logoutSuccess,
+    TResult Function(String message, Failure failure)? logoutFailed,
+    TResult Function()? getUserDetailsLoading,
+    TResult Function(UserModel user)? getUserDetailsSuccess,
+    TResult Function(String message)? noUserFound,
+    TResult Function(String message, Failure failure)? getUserDetailsFailed,
+    TResult Function()? changeNameLoading,
+    TResult Function(UserModel user)? changeNameSuccess,
+    TResult Function(String message)? changeNameFailed,
+    TResult Function()? changeEmailLoading,
+    TResult Function(UserModel user)? changeEmailSuccess,
+    TResult Function(String message)? changeEmailFailed,
+    TResult Function()? changePasswordLoading,
+    TResult Function(UserModel user)? changePasswordSuccess,
+    TResult Function(String message)? changePasswordFailed,
+    required TResult orElse(),
+  }) {
+    if (changeEmailLoading != null) {
+      return changeEmailLoading();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(_LogoutLoading value) logoutLoading,
+    required TResult Function(_LogoutSuccess value) logoutSuccess,
+    required TResult Function(_LogoutFailed value) logoutFailed,
+    required TResult Function(_GetUserDetailsLoading value)
+        getUserDetailsLoading,
+    required TResult Function(_GetUserDetailsSuccess value)
+        getUserDetailsSuccess,
+    required TResult Function(_NoUserFound value) noUserFound,
+    required TResult Function(_GetUserDetailsFailed value) getUserDetailsFailed,
+    required TResult Function(_ChangeNameLoading value) changeNameLoading,
+    required TResult Function(_ChangeNameSuccess value) changeNameSuccess,
+    required TResult Function(_ChangeNameFailed value) changeNameFailed,
+    required TResult Function(_ChangeEmailLoading value) changeEmailLoading,
+    required TResult Function(_ChangeEmailSuccess value) changeEmailSuccess,
+    required TResult Function(_ChangeEmailFailed value) changeEmailFailed,
+    required TResult Function(_ChangePasswordLoading value)
+        changePasswordLoading,
+    required TResult Function(_ChangePasswordSuccess value)
+        changePasswordSuccess,
+    required TResult Function(_ChangePasswordFailed value) changePasswordFailed,
+  }) {
+    return changeEmailLoading(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_LogoutLoading value)? logoutLoading,
+    TResult? Function(_LogoutSuccess value)? logoutSuccess,
+    TResult? Function(_LogoutFailed value)? logoutFailed,
+    TResult? Function(_GetUserDetailsLoading value)? getUserDetailsLoading,
+    TResult? Function(_GetUserDetailsSuccess value)? getUserDetailsSuccess,
+    TResult? Function(_NoUserFound value)? noUserFound,
+    TResult? Function(_GetUserDetailsFailed value)? getUserDetailsFailed,
+    TResult? Function(_ChangeNameLoading value)? changeNameLoading,
+    TResult? Function(_ChangeNameSuccess value)? changeNameSuccess,
+    TResult? Function(_ChangeNameFailed value)? changeNameFailed,
+    TResult? Function(_ChangeEmailLoading value)? changeEmailLoading,
+    TResult? Function(_ChangeEmailSuccess value)? changeEmailSuccess,
+    TResult? Function(_ChangeEmailFailed value)? changeEmailFailed,
+    TResult? Function(_ChangePasswordLoading value)? changePasswordLoading,
+    TResult? Function(_ChangePasswordSuccess value)? changePasswordSuccess,
+    TResult? Function(_ChangePasswordFailed value)? changePasswordFailed,
+  }) {
+    return changeEmailLoading?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_LogoutLoading value)? logoutLoading,
+    TResult Function(_LogoutSuccess value)? logoutSuccess,
+    TResult Function(_LogoutFailed value)? logoutFailed,
+    TResult Function(_GetUserDetailsLoading value)? getUserDetailsLoading,
+    TResult Function(_GetUserDetailsSuccess value)? getUserDetailsSuccess,
+    TResult Function(_NoUserFound value)? noUserFound,
+    TResult Function(_GetUserDetailsFailed value)? getUserDetailsFailed,
+    TResult Function(_ChangeNameLoading value)? changeNameLoading,
+    TResult Function(_ChangeNameSuccess value)? changeNameSuccess,
+    TResult Function(_ChangeNameFailed value)? changeNameFailed,
+    TResult Function(_ChangeEmailLoading value)? changeEmailLoading,
+    TResult Function(_ChangeEmailSuccess value)? changeEmailSuccess,
+    TResult Function(_ChangeEmailFailed value)? changeEmailFailed,
+    TResult Function(_ChangePasswordLoading value)? changePasswordLoading,
+    TResult Function(_ChangePasswordSuccess value)? changePasswordSuccess,
+    TResult Function(_ChangePasswordFailed value)? changePasswordFailed,
+    required TResult orElse(),
+  }) {
+    if (changeEmailLoading != null) {
+      return changeEmailLoading(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _ChangeEmailLoading implements UserViewmodelState {
+  const factory _ChangeEmailLoading() = _$ChangeEmailLoadingImpl;
+}
+
+/// @nodoc
+abstract class _$$ChangeEmailSuccessImplCopyWith<$Res> {
+  factory _$$ChangeEmailSuccessImplCopyWith(_$ChangeEmailSuccessImpl value,
+          $Res Function(_$ChangeEmailSuccessImpl) then) =
+      __$$ChangeEmailSuccessImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({UserModel user});
+
+  $UserModelCopyWith<$Res> get user;
+}
+
+/// @nodoc
+class __$$ChangeEmailSuccessImplCopyWithImpl<$Res>
+    extends _$UserViewmodelStateCopyWithImpl<$Res, _$ChangeEmailSuccessImpl>
+    implements _$$ChangeEmailSuccessImplCopyWith<$Res> {
+  __$$ChangeEmailSuccessImplCopyWithImpl(_$ChangeEmailSuccessImpl _value,
+      $Res Function(_$ChangeEmailSuccessImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of UserViewmodelState
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? user = null,
+  }) {
+    return _then(_$ChangeEmailSuccessImpl(
+      user: null == user
+          ? _value.user
+          : user // ignore: cast_nullable_to_non_nullable
+              as UserModel,
+    ));
+  }
+
+  /// Create a copy of UserViewmodelState
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $UserModelCopyWith<$Res> get user {
+    return $UserModelCopyWith<$Res>(_value.user, (value) {
+      return _then(_value.copyWith(user: value));
+    });
+  }
+}
+
+/// @nodoc
+
+class _$ChangeEmailSuccessImpl implements _ChangeEmailSuccess {
+  const _$ChangeEmailSuccessImpl({required this.user});
+
+  @override
+  final UserModel user;
+
+  @override
+  String toString() {
+    return 'UserViewmodelState.changeEmailSuccess(user: $user)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$ChangeEmailSuccessImpl &&
+            (identical(other.user, user) || other.user == user));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, user);
+
+  /// Create a copy of UserViewmodelState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$ChangeEmailSuccessImplCopyWith<_$ChangeEmailSuccessImpl> get copyWith =>
+      __$$ChangeEmailSuccessImplCopyWithImpl<_$ChangeEmailSuccessImpl>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() logoutLoading,
+    required TResult Function() logoutSuccess,
+    required TResult Function(String message, Failure failure) logoutFailed,
+    required TResult Function() getUserDetailsLoading,
+    required TResult Function(UserModel user) getUserDetailsSuccess,
+    required TResult Function(String message) noUserFound,
+    required TResult Function(String message, Failure failure)
+        getUserDetailsFailed,
+    required TResult Function() changeNameLoading,
+    required TResult Function(UserModel user) changeNameSuccess,
+    required TResult Function(String message) changeNameFailed,
+    required TResult Function() changeEmailLoading,
+    required TResult Function(UserModel user) changeEmailSuccess,
+    required TResult Function(String message) changeEmailFailed,
+    required TResult Function() changePasswordLoading,
+    required TResult Function(UserModel user) changePasswordSuccess,
+    required TResult Function(String message) changePasswordFailed,
+  }) {
+    return changeEmailSuccess(user);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? logoutLoading,
+    TResult? Function()? logoutSuccess,
+    TResult? Function(String message, Failure failure)? logoutFailed,
+    TResult? Function()? getUserDetailsLoading,
+    TResult? Function(UserModel user)? getUserDetailsSuccess,
+    TResult? Function(String message)? noUserFound,
+    TResult? Function(String message, Failure failure)? getUserDetailsFailed,
+    TResult? Function()? changeNameLoading,
+    TResult? Function(UserModel user)? changeNameSuccess,
+    TResult? Function(String message)? changeNameFailed,
+    TResult? Function()? changeEmailLoading,
+    TResult? Function(UserModel user)? changeEmailSuccess,
+    TResult? Function(String message)? changeEmailFailed,
+    TResult? Function()? changePasswordLoading,
+    TResult? Function(UserModel user)? changePasswordSuccess,
+    TResult? Function(String message)? changePasswordFailed,
+  }) {
+    return changeEmailSuccess?.call(user);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? logoutLoading,
+    TResult Function()? logoutSuccess,
+    TResult Function(String message, Failure failure)? logoutFailed,
+    TResult Function()? getUserDetailsLoading,
+    TResult Function(UserModel user)? getUserDetailsSuccess,
+    TResult Function(String message)? noUserFound,
+    TResult Function(String message, Failure failure)? getUserDetailsFailed,
+    TResult Function()? changeNameLoading,
+    TResult Function(UserModel user)? changeNameSuccess,
+    TResult Function(String message)? changeNameFailed,
+    TResult Function()? changeEmailLoading,
+    TResult Function(UserModel user)? changeEmailSuccess,
+    TResult Function(String message)? changeEmailFailed,
+    TResult Function()? changePasswordLoading,
+    TResult Function(UserModel user)? changePasswordSuccess,
+    TResult Function(String message)? changePasswordFailed,
+    required TResult orElse(),
+  }) {
+    if (changeEmailSuccess != null) {
+      return changeEmailSuccess(user);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(_LogoutLoading value) logoutLoading,
+    required TResult Function(_LogoutSuccess value) logoutSuccess,
+    required TResult Function(_LogoutFailed value) logoutFailed,
+    required TResult Function(_GetUserDetailsLoading value)
+        getUserDetailsLoading,
+    required TResult Function(_GetUserDetailsSuccess value)
+        getUserDetailsSuccess,
+    required TResult Function(_NoUserFound value) noUserFound,
+    required TResult Function(_GetUserDetailsFailed value) getUserDetailsFailed,
+    required TResult Function(_ChangeNameLoading value) changeNameLoading,
+    required TResult Function(_ChangeNameSuccess value) changeNameSuccess,
+    required TResult Function(_ChangeNameFailed value) changeNameFailed,
+    required TResult Function(_ChangeEmailLoading value) changeEmailLoading,
+    required TResult Function(_ChangeEmailSuccess value) changeEmailSuccess,
+    required TResult Function(_ChangeEmailFailed value) changeEmailFailed,
+    required TResult Function(_ChangePasswordLoading value)
+        changePasswordLoading,
+    required TResult Function(_ChangePasswordSuccess value)
+        changePasswordSuccess,
+    required TResult Function(_ChangePasswordFailed value) changePasswordFailed,
+  }) {
+    return changeEmailSuccess(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_LogoutLoading value)? logoutLoading,
+    TResult? Function(_LogoutSuccess value)? logoutSuccess,
+    TResult? Function(_LogoutFailed value)? logoutFailed,
+    TResult? Function(_GetUserDetailsLoading value)? getUserDetailsLoading,
+    TResult? Function(_GetUserDetailsSuccess value)? getUserDetailsSuccess,
+    TResult? Function(_NoUserFound value)? noUserFound,
+    TResult? Function(_GetUserDetailsFailed value)? getUserDetailsFailed,
+    TResult? Function(_ChangeNameLoading value)? changeNameLoading,
+    TResult? Function(_ChangeNameSuccess value)? changeNameSuccess,
+    TResult? Function(_ChangeNameFailed value)? changeNameFailed,
+    TResult? Function(_ChangeEmailLoading value)? changeEmailLoading,
+    TResult? Function(_ChangeEmailSuccess value)? changeEmailSuccess,
+    TResult? Function(_ChangeEmailFailed value)? changeEmailFailed,
+    TResult? Function(_ChangePasswordLoading value)? changePasswordLoading,
+    TResult? Function(_ChangePasswordSuccess value)? changePasswordSuccess,
+    TResult? Function(_ChangePasswordFailed value)? changePasswordFailed,
+  }) {
+    return changeEmailSuccess?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_LogoutLoading value)? logoutLoading,
+    TResult Function(_LogoutSuccess value)? logoutSuccess,
+    TResult Function(_LogoutFailed value)? logoutFailed,
+    TResult Function(_GetUserDetailsLoading value)? getUserDetailsLoading,
+    TResult Function(_GetUserDetailsSuccess value)? getUserDetailsSuccess,
+    TResult Function(_NoUserFound value)? noUserFound,
+    TResult Function(_GetUserDetailsFailed value)? getUserDetailsFailed,
+    TResult Function(_ChangeNameLoading value)? changeNameLoading,
+    TResult Function(_ChangeNameSuccess value)? changeNameSuccess,
+    TResult Function(_ChangeNameFailed value)? changeNameFailed,
+    TResult Function(_ChangeEmailLoading value)? changeEmailLoading,
+    TResult Function(_ChangeEmailSuccess value)? changeEmailSuccess,
+    TResult Function(_ChangeEmailFailed value)? changeEmailFailed,
+    TResult Function(_ChangePasswordLoading value)? changePasswordLoading,
+    TResult Function(_ChangePasswordSuccess value)? changePasswordSuccess,
+    TResult Function(_ChangePasswordFailed value)? changePasswordFailed,
+    required TResult orElse(),
+  }) {
+    if (changeEmailSuccess != null) {
+      return changeEmailSuccess(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _ChangeEmailSuccess implements UserViewmodelState {
+  const factory _ChangeEmailSuccess({required final UserModel user}) =
+      _$ChangeEmailSuccessImpl;
+
+  UserModel get user;
+
+  /// Create a copy of UserViewmodelState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$ChangeEmailSuccessImplCopyWith<_$ChangeEmailSuccessImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$ChangeEmailFailedImplCopyWith<$Res> {
+  factory _$$ChangeEmailFailedImplCopyWith(_$ChangeEmailFailedImpl value,
+          $Res Function(_$ChangeEmailFailedImpl) then) =
+      __$$ChangeEmailFailedImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String message});
+}
+
+/// @nodoc
+class __$$ChangeEmailFailedImplCopyWithImpl<$Res>
+    extends _$UserViewmodelStateCopyWithImpl<$Res, _$ChangeEmailFailedImpl>
+    implements _$$ChangeEmailFailedImplCopyWith<$Res> {
+  __$$ChangeEmailFailedImplCopyWithImpl(_$ChangeEmailFailedImpl _value,
+      $Res Function(_$ChangeEmailFailedImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of UserViewmodelState
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? message = null,
+  }) {
+    return _then(_$ChangeEmailFailedImpl(
+      message: null == message
+          ? _value.message
+          : message // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$ChangeEmailFailedImpl implements _ChangeEmailFailed {
+  const _$ChangeEmailFailedImpl({required this.message});
+
+  @override
+  final String message;
+
+  @override
+  String toString() {
+    return 'UserViewmodelState.changeEmailFailed(message: $message)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$ChangeEmailFailedImpl &&
+            (identical(other.message, message) || other.message == message));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, message);
+
+  /// Create a copy of UserViewmodelState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$ChangeEmailFailedImplCopyWith<_$ChangeEmailFailedImpl> get copyWith =>
+      __$$ChangeEmailFailedImplCopyWithImpl<_$ChangeEmailFailedImpl>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() logoutLoading,
+    required TResult Function() logoutSuccess,
+    required TResult Function(String message, Failure failure) logoutFailed,
+    required TResult Function() getUserDetailsLoading,
+    required TResult Function(UserModel user) getUserDetailsSuccess,
+    required TResult Function(String message) noUserFound,
+    required TResult Function(String message, Failure failure)
+        getUserDetailsFailed,
+    required TResult Function() changeNameLoading,
+    required TResult Function(UserModel user) changeNameSuccess,
+    required TResult Function(String message) changeNameFailed,
+    required TResult Function() changeEmailLoading,
+    required TResult Function(UserModel user) changeEmailSuccess,
+    required TResult Function(String message) changeEmailFailed,
+    required TResult Function() changePasswordLoading,
+    required TResult Function(UserModel user) changePasswordSuccess,
+    required TResult Function(String message) changePasswordFailed,
+  }) {
+    return changeEmailFailed(message);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? logoutLoading,
+    TResult? Function()? logoutSuccess,
+    TResult? Function(String message, Failure failure)? logoutFailed,
+    TResult? Function()? getUserDetailsLoading,
+    TResult? Function(UserModel user)? getUserDetailsSuccess,
+    TResult? Function(String message)? noUserFound,
+    TResult? Function(String message, Failure failure)? getUserDetailsFailed,
+    TResult? Function()? changeNameLoading,
+    TResult? Function(UserModel user)? changeNameSuccess,
+    TResult? Function(String message)? changeNameFailed,
+    TResult? Function()? changeEmailLoading,
+    TResult? Function(UserModel user)? changeEmailSuccess,
+    TResult? Function(String message)? changeEmailFailed,
+    TResult? Function()? changePasswordLoading,
+    TResult? Function(UserModel user)? changePasswordSuccess,
+    TResult? Function(String message)? changePasswordFailed,
+  }) {
+    return changeEmailFailed?.call(message);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? logoutLoading,
+    TResult Function()? logoutSuccess,
+    TResult Function(String message, Failure failure)? logoutFailed,
+    TResult Function()? getUserDetailsLoading,
+    TResult Function(UserModel user)? getUserDetailsSuccess,
+    TResult Function(String message)? noUserFound,
+    TResult Function(String message, Failure failure)? getUserDetailsFailed,
+    TResult Function()? changeNameLoading,
+    TResult Function(UserModel user)? changeNameSuccess,
+    TResult Function(String message)? changeNameFailed,
+    TResult Function()? changeEmailLoading,
+    TResult Function(UserModel user)? changeEmailSuccess,
+    TResult Function(String message)? changeEmailFailed,
+    TResult Function()? changePasswordLoading,
+    TResult Function(UserModel user)? changePasswordSuccess,
+    TResult Function(String message)? changePasswordFailed,
+    required TResult orElse(),
+  }) {
+    if (changeEmailFailed != null) {
+      return changeEmailFailed(message);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(_LogoutLoading value) logoutLoading,
+    required TResult Function(_LogoutSuccess value) logoutSuccess,
+    required TResult Function(_LogoutFailed value) logoutFailed,
+    required TResult Function(_GetUserDetailsLoading value)
+        getUserDetailsLoading,
+    required TResult Function(_GetUserDetailsSuccess value)
+        getUserDetailsSuccess,
+    required TResult Function(_NoUserFound value) noUserFound,
+    required TResult Function(_GetUserDetailsFailed value) getUserDetailsFailed,
+    required TResult Function(_ChangeNameLoading value) changeNameLoading,
+    required TResult Function(_ChangeNameSuccess value) changeNameSuccess,
+    required TResult Function(_ChangeNameFailed value) changeNameFailed,
+    required TResult Function(_ChangeEmailLoading value) changeEmailLoading,
+    required TResult Function(_ChangeEmailSuccess value) changeEmailSuccess,
+    required TResult Function(_ChangeEmailFailed value) changeEmailFailed,
+    required TResult Function(_ChangePasswordLoading value)
+        changePasswordLoading,
+    required TResult Function(_ChangePasswordSuccess value)
+        changePasswordSuccess,
+    required TResult Function(_ChangePasswordFailed value) changePasswordFailed,
+  }) {
+    return changeEmailFailed(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_LogoutLoading value)? logoutLoading,
+    TResult? Function(_LogoutSuccess value)? logoutSuccess,
+    TResult? Function(_LogoutFailed value)? logoutFailed,
+    TResult? Function(_GetUserDetailsLoading value)? getUserDetailsLoading,
+    TResult? Function(_GetUserDetailsSuccess value)? getUserDetailsSuccess,
+    TResult? Function(_NoUserFound value)? noUserFound,
+    TResult? Function(_GetUserDetailsFailed value)? getUserDetailsFailed,
+    TResult? Function(_ChangeNameLoading value)? changeNameLoading,
+    TResult? Function(_ChangeNameSuccess value)? changeNameSuccess,
+    TResult? Function(_ChangeNameFailed value)? changeNameFailed,
+    TResult? Function(_ChangeEmailLoading value)? changeEmailLoading,
+    TResult? Function(_ChangeEmailSuccess value)? changeEmailSuccess,
+    TResult? Function(_ChangeEmailFailed value)? changeEmailFailed,
+    TResult? Function(_ChangePasswordLoading value)? changePasswordLoading,
+    TResult? Function(_ChangePasswordSuccess value)? changePasswordSuccess,
+    TResult? Function(_ChangePasswordFailed value)? changePasswordFailed,
+  }) {
+    return changeEmailFailed?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_LogoutLoading value)? logoutLoading,
+    TResult Function(_LogoutSuccess value)? logoutSuccess,
+    TResult Function(_LogoutFailed value)? logoutFailed,
+    TResult Function(_GetUserDetailsLoading value)? getUserDetailsLoading,
+    TResult Function(_GetUserDetailsSuccess value)? getUserDetailsSuccess,
+    TResult Function(_NoUserFound value)? noUserFound,
+    TResult Function(_GetUserDetailsFailed value)? getUserDetailsFailed,
+    TResult Function(_ChangeNameLoading value)? changeNameLoading,
+    TResult Function(_ChangeNameSuccess value)? changeNameSuccess,
+    TResult Function(_ChangeNameFailed value)? changeNameFailed,
+    TResult Function(_ChangeEmailLoading value)? changeEmailLoading,
+    TResult Function(_ChangeEmailSuccess value)? changeEmailSuccess,
+    TResult Function(_ChangeEmailFailed value)? changeEmailFailed,
+    TResult Function(_ChangePasswordLoading value)? changePasswordLoading,
+    TResult Function(_ChangePasswordSuccess value)? changePasswordSuccess,
+    TResult Function(_ChangePasswordFailed value)? changePasswordFailed,
+    required TResult orElse(),
+  }) {
+    if (changeEmailFailed != null) {
+      return changeEmailFailed(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _ChangeEmailFailed implements UserViewmodelState {
+  const factory _ChangeEmailFailed({required final String message}) =
+      _$ChangeEmailFailedImpl;
+
+  String get message;
+
+  /// Create a copy of UserViewmodelState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$ChangeEmailFailedImplCopyWith<_$ChangeEmailFailedImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$ChangePasswordLoadingImplCopyWith<$Res> {
+  factory _$$ChangePasswordLoadingImplCopyWith(
+          _$ChangePasswordLoadingImpl value,
+          $Res Function(_$ChangePasswordLoadingImpl) then) =
+      __$$ChangePasswordLoadingImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$ChangePasswordLoadingImplCopyWithImpl<$Res>
+    extends _$UserViewmodelStateCopyWithImpl<$Res, _$ChangePasswordLoadingImpl>
+    implements _$$ChangePasswordLoadingImplCopyWith<$Res> {
+  __$$ChangePasswordLoadingImplCopyWithImpl(_$ChangePasswordLoadingImpl _value,
+      $Res Function(_$ChangePasswordLoadingImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of UserViewmodelState
+  /// with the given fields replaced by the non-null parameter values.
+}
+
+/// @nodoc
+
+class _$ChangePasswordLoadingImpl implements _ChangePasswordLoading {
+  const _$ChangePasswordLoadingImpl();
+
+  @override
+  String toString() {
+    return 'UserViewmodelState.changePasswordLoading()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$ChangePasswordLoadingImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() logoutLoading,
+    required TResult Function() logoutSuccess,
+    required TResult Function(String message, Failure failure) logoutFailed,
+    required TResult Function() getUserDetailsLoading,
+    required TResult Function(UserModel user) getUserDetailsSuccess,
+    required TResult Function(String message) noUserFound,
+    required TResult Function(String message, Failure failure)
+        getUserDetailsFailed,
+    required TResult Function() changeNameLoading,
+    required TResult Function(UserModel user) changeNameSuccess,
+    required TResult Function(String message) changeNameFailed,
+    required TResult Function() changeEmailLoading,
+    required TResult Function(UserModel user) changeEmailSuccess,
+    required TResult Function(String message) changeEmailFailed,
+    required TResult Function() changePasswordLoading,
+    required TResult Function(UserModel user) changePasswordSuccess,
+    required TResult Function(String message) changePasswordFailed,
+  }) {
+    return changePasswordLoading();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? logoutLoading,
+    TResult? Function()? logoutSuccess,
+    TResult? Function(String message, Failure failure)? logoutFailed,
+    TResult? Function()? getUserDetailsLoading,
+    TResult? Function(UserModel user)? getUserDetailsSuccess,
+    TResult? Function(String message)? noUserFound,
+    TResult? Function(String message, Failure failure)? getUserDetailsFailed,
+    TResult? Function()? changeNameLoading,
+    TResult? Function(UserModel user)? changeNameSuccess,
+    TResult? Function(String message)? changeNameFailed,
+    TResult? Function()? changeEmailLoading,
+    TResult? Function(UserModel user)? changeEmailSuccess,
+    TResult? Function(String message)? changeEmailFailed,
+    TResult? Function()? changePasswordLoading,
+    TResult? Function(UserModel user)? changePasswordSuccess,
+    TResult? Function(String message)? changePasswordFailed,
+  }) {
+    return changePasswordLoading?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? logoutLoading,
+    TResult Function()? logoutSuccess,
+    TResult Function(String message, Failure failure)? logoutFailed,
+    TResult Function()? getUserDetailsLoading,
+    TResult Function(UserModel user)? getUserDetailsSuccess,
+    TResult Function(String message)? noUserFound,
+    TResult Function(String message, Failure failure)? getUserDetailsFailed,
+    TResult Function()? changeNameLoading,
+    TResult Function(UserModel user)? changeNameSuccess,
+    TResult Function(String message)? changeNameFailed,
+    TResult Function()? changeEmailLoading,
+    TResult Function(UserModel user)? changeEmailSuccess,
+    TResult Function(String message)? changeEmailFailed,
+    TResult Function()? changePasswordLoading,
+    TResult Function(UserModel user)? changePasswordSuccess,
+    TResult Function(String message)? changePasswordFailed,
+    required TResult orElse(),
+  }) {
+    if (changePasswordLoading != null) {
+      return changePasswordLoading();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(_LogoutLoading value) logoutLoading,
+    required TResult Function(_LogoutSuccess value) logoutSuccess,
+    required TResult Function(_LogoutFailed value) logoutFailed,
+    required TResult Function(_GetUserDetailsLoading value)
+        getUserDetailsLoading,
+    required TResult Function(_GetUserDetailsSuccess value)
+        getUserDetailsSuccess,
+    required TResult Function(_NoUserFound value) noUserFound,
+    required TResult Function(_GetUserDetailsFailed value) getUserDetailsFailed,
+    required TResult Function(_ChangeNameLoading value) changeNameLoading,
+    required TResult Function(_ChangeNameSuccess value) changeNameSuccess,
+    required TResult Function(_ChangeNameFailed value) changeNameFailed,
+    required TResult Function(_ChangeEmailLoading value) changeEmailLoading,
+    required TResult Function(_ChangeEmailSuccess value) changeEmailSuccess,
+    required TResult Function(_ChangeEmailFailed value) changeEmailFailed,
+    required TResult Function(_ChangePasswordLoading value)
+        changePasswordLoading,
+    required TResult Function(_ChangePasswordSuccess value)
+        changePasswordSuccess,
+    required TResult Function(_ChangePasswordFailed value) changePasswordFailed,
+  }) {
+    return changePasswordLoading(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_LogoutLoading value)? logoutLoading,
+    TResult? Function(_LogoutSuccess value)? logoutSuccess,
+    TResult? Function(_LogoutFailed value)? logoutFailed,
+    TResult? Function(_GetUserDetailsLoading value)? getUserDetailsLoading,
+    TResult? Function(_GetUserDetailsSuccess value)? getUserDetailsSuccess,
+    TResult? Function(_NoUserFound value)? noUserFound,
+    TResult? Function(_GetUserDetailsFailed value)? getUserDetailsFailed,
+    TResult? Function(_ChangeNameLoading value)? changeNameLoading,
+    TResult? Function(_ChangeNameSuccess value)? changeNameSuccess,
+    TResult? Function(_ChangeNameFailed value)? changeNameFailed,
+    TResult? Function(_ChangeEmailLoading value)? changeEmailLoading,
+    TResult? Function(_ChangeEmailSuccess value)? changeEmailSuccess,
+    TResult? Function(_ChangeEmailFailed value)? changeEmailFailed,
+    TResult? Function(_ChangePasswordLoading value)? changePasswordLoading,
+    TResult? Function(_ChangePasswordSuccess value)? changePasswordSuccess,
+    TResult? Function(_ChangePasswordFailed value)? changePasswordFailed,
+  }) {
+    return changePasswordLoading?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_LogoutLoading value)? logoutLoading,
+    TResult Function(_LogoutSuccess value)? logoutSuccess,
+    TResult Function(_LogoutFailed value)? logoutFailed,
+    TResult Function(_GetUserDetailsLoading value)? getUserDetailsLoading,
+    TResult Function(_GetUserDetailsSuccess value)? getUserDetailsSuccess,
+    TResult Function(_NoUserFound value)? noUserFound,
+    TResult Function(_GetUserDetailsFailed value)? getUserDetailsFailed,
+    TResult Function(_ChangeNameLoading value)? changeNameLoading,
+    TResult Function(_ChangeNameSuccess value)? changeNameSuccess,
+    TResult Function(_ChangeNameFailed value)? changeNameFailed,
+    TResult Function(_ChangeEmailLoading value)? changeEmailLoading,
+    TResult Function(_ChangeEmailSuccess value)? changeEmailSuccess,
+    TResult Function(_ChangeEmailFailed value)? changeEmailFailed,
+    TResult Function(_ChangePasswordLoading value)? changePasswordLoading,
+    TResult Function(_ChangePasswordSuccess value)? changePasswordSuccess,
+    TResult Function(_ChangePasswordFailed value)? changePasswordFailed,
+    required TResult orElse(),
+  }) {
+    if (changePasswordLoading != null) {
+      return changePasswordLoading(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _ChangePasswordLoading implements UserViewmodelState {
+  const factory _ChangePasswordLoading() = _$ChangePasswordLoadingImpl;
+}
+
+/// @nodoc
+abstract class _$$ChangePasswordSuccessImplCopyWith<$Res> {
+  factory _$$ChangePasswordSuccessImplCopyWith(
+          _$ChangePasswordSuccessImpl value,
+          $Res Function(_$ChangePasswordSuccessImpl) then) =
+      __$$ChangePasswordSuccessImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({UserModel user});
+
+  $UserModelCopyWith<$Res> get user;
+}
+
+/// @nodoc
+class __$$ChangePasswordSuccessImplCopyWithImpl<$Res>
+    extends _$UserViewmodelStateCopyWithImpl<$Res, _$ChangePasswordSuccessImpl>
+    implements _$$ChangePasswordSuccessImplCopyWith<$Res> {
+  __$$ChangePasswordSuccessImplCopyWithImpl(_$ChangePasswordSuccessImpl _value,
+      $Res Function(_$ChangePasswordSuccessImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of UserViewmodelState
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? user = null,
+  }) {
+    return _then(_$ChangePasswordSuccessImpl(
+      user: null == user
+          ? _value.user
+          : user // ignore: cast_nullable_to_non_nullable
+              as UserModel,
+    ));
+  }
+
+  /// Create a copy of UserViewmodelState
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $UserModelCopyWith<$Res> get user {
+    return $UserModelCopyWith<$Res>(_value.user, (value) {
+      return _then(_value.copyWith(user: value));
+    });
+  }
+}
+
+/// @nodoc
+
+class _$ChangePasswordSuccessImpl implements _ChangePasswordSuccess {
+  const _$ChangePasswordSuccessImpl({required this.user});
+
+  @override
+  final UserModel user;
+
+  @override
+  String toString() {
+    return 'UserViewmodelState.changePasswordSuccess(user: $user)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$ChangePasswordSuccessImpl &&
+            (identical(other.user, user) || other.user == user));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, user);
+
+  /// Create a copy of UserViewmodelState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$ChangePasswordSuccessImplCopyWith<_$ChangePasswordSuccessImpl>
+      get copyWith => __$$ChangePasswordSuccessImplCopyWithImpl<
+          _$ChangePasswordSuccessImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() logoutLoading,
+    required TResult Function() logoutSuccess,
+    required TResult Function(String message, Failure failure) logoutFailed,
+    required TResult Function() getUserDetailsLoading,
+    required TResult Function(UserModel user) getUserDetailsSuccess,
+    required TResult Function(String message) noUserFound,
+    required TResult Function(String message, Failure failure)
+        getUserDetailsFailed,
+    required TResult Function() changeNameLoading,
+    required TResult Function(UserModel user) changeNameSuccess,
+    required TResult Function(String message) changeNameFailed,
+    required TResult Function() changeEmailLoading,
+    required TResult Function(UserModel user) changeEmailSuccess,
+    required TResult Function(String message) changeEmailFailed,
+    required TResult Function() changePasswordLoading,
+    required TResult Function(UserModel user) changePasswordSuccess,
+    required TResult Function(String message) changePasswordFailed,
+  }) {
+    return changePasswordSuccess(user);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? logoutLoading,
+    TResult? Function()? logoutSuccess,
+    TResult? Function(String message, Failure failure)? logoutFailed,
+    TResult? Function()? getUserDetailsLoading,
+    TResult? Function(UserModel user)? getUserDetailsSuccess,
+    TResult? Function(String message)? noUserFound,
+    TResult? Function(String message, Failure failure)? getUserDetailsFailed,
+    TResult? Function()? changeNameLoading,
+    TResult? Function(UserModel user)? changeNameSuccess,
+    TResult? Function(String message)? changeNameFailed,
+    TResult? Function()? changeEmailLoading,
+    TResult? Function(UserModel user)? changeEmailSuccess,
+    TResult? Function(String message)? changeEmailFailed,
+    TResult? Function()? changePasswordLoading,
+    TResult? Function(UserModel user)? changePasswordSuccess,
+    TResult? Function(String message)? changePasswordFailed,
+  }) {
+    return changePasswordSuccess?.call(user);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? logoutLoading,
+    TResult Function()? logoutSuccess,
+    TResult Function(String message, Failure failure)? logoutFailed,
+    TResult Function()? getUserDetailsLoading,
+    TResult Function(UserModel user)? getUserDetailsSuccess,
+    TResult Function(String message)? noUserFound,
+    TResult Function(String message, Failure failure)? getUserDetailsFailed,
+    TResult Function()? changeNameLoading,
+    TResult Function(UserModel user)? changeNameSuccess,
+    TResult Function(String message)? changeNameFailed,
+    TResult Function()? changeEmailLoading,
+    TResult Function(UserModel user)? changeEmailSuccess,
+    TResult Function(String message)? changeEmailFailed,
+    TResult Function()? changePasswordLoading,
+    TResult Function(UserModel user)? changePasswordSuccess,
+    TResult Function(String message)? changePasswordFailed,
+    required TResult orElse(),
+  }) {
+    if (changePasswordSuccess != null) {
+      return changePasswordSuccess(user);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(_LogoutLoading value) logoutLoading,
+    required TResult Function(_LogoutSuccess value) logoutSuccess,
+    required TResult Function(_LogoutFailed value) logoutFailed,
+    required TResult Function(_GetUserDetailsLoading value)
+        getUserDetailsLoading,
+    required TResult Function(_GetUserDetailsSuccess value)
+        getUserDetailsSuccess,
+    required TResult Function(_NoUserFound value) noUserFound,
+    required TResult Function(_GetUserDetailsFailed value) getUserDetailsFailed,
+    required TResult Function(_ChangeNameLoading value) changeNameLoading,
+    required TResult Function(_ChangeNameSuccess value) changeNameSuccess,
+    required TResult Function(_ChangeNameFailed value) changeNameFailed,
+    required TResult Function(_ChangeEmailLoading value) changeEmailLoading,
+    required TResult Function(_ChangeEmailSuccess value) changeEmailSuccess,
+    required TResult Function(_ChangeEmailFailed value) changeEmailFailed,
+    required TResult Function(_ChangePasswordLoading value)
+        changePasswordLoading,
+    required TResult Function(_ChangePasswordSuccess value)
+        changePasswordSuccess,
+    required TResult Function(_ChangePasswordFailed value) changePasswordFailed,
+  }) {
+    return changePasswordSuccess(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_LogoutLoading value)? logoutLoading,
+    TResult? Function(_LogoutSuccess value)? logoutSuccess,
+    TResult? Function(_LogoutFailed value)? logoutFailed,
+    TResult? Function(_GetUserDetailsLoading value)? getUserDetailsLoading,
+    TResult? Function(_GetUserDetailsSuccess value)? getUserDetailsSuccess,
+    TResult? Function(_NoUserFound value)? noUserFound,
+    TResult? Function(_GetUserDetailsFailed value)? getUserDetailsFailed,
+    TResult? Function(_ChangeNameLoading value)? changeNameLoading,
+    TResult? Function(_ChangeNameSuccess value)? changeNameSuccess,
+    TResult? Function(_ChangeNameFailed value)? changeNameFailed,
+    TResult? Function(_ChangeEmailLoading value)? changeEmailLoading,
+    TResult? Function(_ChangeEmailSuccess value)? changeEmailSuccess,
+    TResult? Function(_ChangeEmailFailed value)? changeEmailFailed,
+    TResult? Function(_ChangePasswordLoading value)? changePasswordLoading,
+    TResult? Function(_ChangePasswordSuccess value)? changePasswordSuccess,
+    TResult? Function(_ChangePasswordFailed value)? changePasswordFailed,
+  }) {
+    return changePasswordSuccess?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_LogoutLoading value)? logoutLoading,
+    TResult Function(_LogoutSuccess value)? logoutSuccess,
+    TResult Function(_LogoutFailed value)? logoutFailed,
+    TResult Function(_GetUserDetailsLoading value)? getUserDetailsLoading,
+    TResult Function(_GetUserDetailsSuccess value)? getUserDetailsSuccess,
+    TResult Function(_NoUserFound value)? noUserFound,
+    TResult Function(_GetUserDetailsFailed value)? getUserDetailsFailed,
+    TResult Function(_ChangeNameLoading value)? changeNameLoading,
+    TResult Function(_ChangeNameSuccess value)? changeNameSuccess,
+    TResult Function(_ChangeNameFailed value)? changeNameFailed,
+    TResult Function(_ChangeEmailLoading value)? changeEmailLoading,
+    TResult Function(_ChangeEmailSuccess value)? changeEmailSuccess,
+    TResult Function(_ChangeEmailFailed value)? changeEmailFailed,
+    TResult Function(_ChangePasswordLoading value)? changePasswordLoading,
+    TResult Function(_ChangePasswordSuccess value)? changePasswordSuccess,
+    TResult Function(_ChangePasswordFailed value)? changePasswordFailed,
+    required TResult orElse(),
+  }) {
+    if (changePasswordSuccess != null) {
+      return changePasswordSuccess(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _ChangePasswordSuccess implements UserViewmodelState {
+  const factory _ChangePasswordSuccess({required final UserModel user}) =
+      _$ChangePasswordSuccessImpl;
+
+  UserModel get user;
+
+  /// Create a copy of UserViewmodelState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$ChangePasswordSuccessImplCopyWith<_$ChangePasswordSuccessImpl>
+      get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$ChangePasswordFailedImplCopyWith<$Res> {
+  factory _$$ChangePasswordFailedImplCopyWith(_$ChangePasswordFailedImpl value,
+          $Res Function(_$ChangePasswordFailedImpl) then) =
+      __$$ChangePasswordFailedImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String message});
+}
+
+/// @nodoc
+class __$$ChangePasswordFailedImplCopyWithImpl<$Res>
+    extends _$UserViewmodelStateCopyWithImpl<$Res, _$ChangePasswordFailedImpl>
+    implements _$$ChangePasswordFailedImplCopyWith<$Res> {
+  __$$ChangePasswordFailedImplCopyWithImpl(_$ChangePasswordFailedImpl _value,
+      $Res Function(_$ChangePasswordFailedImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of UserViewmodelState
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? message = null,
+  }) {
+    return _then(_$ChangePasswordFailedImpl(
+      message: null == message
+          ? _value.message
+          : message // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$ChangePasswordFailedImpl implements _ChangePasswordFailed {
+  const _$ChangePasswordFailedImpl({required this.message});
+
+  @override
+  final String message;
+
+  @override
+  String toString() {
+    return 'UserViewmodelState.changePasswordFailed(message: $message)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$ChangePasswordFailedImpl &&
+            (identical(other.message, message) || other.message == message));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, message);
+
+  /// Create a copy of UserViewmodelState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$ChangePasswordFailedImplCopyWith<_$ChangePasswordFailedImpl>
+      get copyWith =>
+          __$$ChangePasswordFailedImplCopyWithImpl<_$ChangePasswordFailedImpl>(
+              this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() logoutLoading,
+    required TResult Function() logoutSuccess,
+    required TResult Function(String message, Failure failure) logoutFailed,
+    required TResult Function() getUserDetailsLoading,
+    required TResult Function(UserModel user) getUserDetailsSuccess,
+    required TResult Function(String message) noUserFound,
+    required TResult Function(String message, Failure failure)
+        getUserDetailsFailed,
+    required TResult Function() changeNameLoading,
+    required TResult Function(UserModel user) changeNameSuccess,
+    required TResult Function(String message) changeNameFailed,
+    required TResult Function() changeEmailLoading,
+    required TResult Function(UserModel user) changeEmailSuccess,
+    required TResult Function(String message) changeEmailFailed,
+    required TResult Function() changePasswordLoading,
+    required TResult Function(UserModel user) changePasswordSuccess,
+    required TResult Function(String message) changePasswordFailed,
+  }) {
+    return changePasswordFailed(message);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? logoutLoading,
+    TResult? Function()? logoutSuccess,
+    TResult? Function(String message, Failure failure)? logoutFailed,
+    TResult? Function()? getUserDetailsLoading,
+    TResult? Function(UserModel user)? getUserDetailsSuccess,
+    TResult? Function(String message)? noUserFound,
+    TResult? Function(String message, Failure failure)? getUserDetailsFailed,
+    TResult? Function()? changeNameLoading,
+    TResult? Function(UserModel user)? changeNameSuccess,
+    TResult? Function(String message)? changeNameFailed,
+    TResult? Function()? changeEmailLoading,
+    TResult? Function(UserModel user)? changeEmailSuccess,
+    TResult? Function(String message)? changeEmailFailed,
+    TResult? Function()? changePasswordLoading,
+    TResult? Function(UserModel user)? changePasswordSuccess,
+    TResult? Function(String message)? changePasswordFailed,
+  }) {
+    return changePasswordFailed?.call(message);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? logoutLoading,
+    TResult Function()? logoutSuccess,
+    TResult Function(String message, Failure failure)? logoutFailed,
+    TResult Function()? getUserDetailsLoading,
+    TResult Function(UserModel user)? getUserDetailsSuccess,
+    TResult Function(String message)? noUserFound,
+    TResult Function(String message, Failure failure)? getUserDetailsFailed,
+    TResult Function()? changeNameLoading,
+    TResult Function(UserModel user)? changeNameSuccess,
+    TResult Function(String message)? changeNameFailed,
+    TResult Function()? changeEmailLoading,
+    TResult Function(UserModel user)? changeEmailSuccess,
+    TResult Function(String message)? changeEmailFailed,
+    TResult Function()? changePasswordLoading,
+    TResult Function(UserModel user)? changePasswordSuccess,
+    TResult Function(String message)? changePasswordFailed,
+    required TResult orElse(),
+  }) {
+    if (changePasswordFailed != null) {
+      return changePasswordFailed(message);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(_LogoutLoading value) logoutLoading,
+    required TResult Function(_LogoutSuccess value) logoutSuccess,
+    required TResult Function(_LogoutFailed value) logoutFailed,
+    required TResult Function(_GetUserDetailsLoading value)
+        getUserDetailsLoading,
+    required TResult Function(_GetUserDetailsSuccess value)
+        getUserDetailsSuccess,
+    required TResult Function(_NoUserFound value) noUserFound,
+    required TResult Function(_GetUserDetailsFailed value) getUserDetailsFailed,
+    required TResult Function(_ChangeNameLoading value) changeNameLoading,
+    required TResult Function(_ChangeNameSuccess value) changeNameSuccess,
+    required TResult Function(_ChangeNameFailed value) changeNameFailed,
+    required TResult Function(_ChangeEmailLoading value) changeEmailLoading,
+    required TResult Function(_ChangeEmailSuccess value) changeEmailSuccess,
+    required TResult Function(_ChangeEmailFailed value) changeEmailFailed,
+    required TResult Function(_ChangePasswordLoading value)
+        changePasswordLoading,
+    required TResult Function(_ChangePasswordSuccess value)
+        changePasswordSuccess,
+    required TResult Function(_ChangePasswordFailed value) changePasswordFailed,
+  }) {
+    return changePasswordFailed(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_LogoutLoading value)? logoutLoading,
+    TResult? Function(_LogoutSuccess value)? logoutSuccess,
+    TResult? Function(_LogoutFailed value)? logoutFailed,
+    TResult? Function(_GetUserDetailsLoading value)? getUserDetailsLoading,
+    TResult? Function(_GetUserDetailsSuccess value)? getUserDetailsSuccess,
+    TResult? Function(_NoUserFound value)? noUserFound,
+    TResult? Function(_GetUserDetailsFailed value)? getUserDetailsFailed,
+    TResult? Function(_ChangeNameLoading value)? changeNameLoading,
+    TResult? Function(_ChangeNameSuccess value)? changeNameSuccess,
+    TResult? Function(_ChangeNameFailed value)? changeNameFailed,
+    TResult? Function(_ChangeEmailLoading value)? changeEmailLoading,
+    TResult? Function(_ChangeEmailSuccess value)? changeEmailSuccess,
+    TResult? Function(_ChangeEmailFailed value)? changeEmailFailed,
+    TResult? Function(_ChangePasswordLoading value)? changePasswordLoading,
+    TResult? Function(_ChangePasswordSuccess value)? changePasswordSuccess,
+    TResult? Function(_ChangePasswordFailed value)? changePasswordFailed,
+  }) {
+    return changePasswordFailed?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_LogoutLoading value)? logoutLoading,
+    TResult Function(_LogoutSuccess value)? logoutSuccess,
+    TResult Function(_LogoutFailed value)? logoutFailed,
+    TResult Function(_GetUserDetailsLoading value)? getUserDetailsLoading,
+    TResult Function(_GetUserDetailsSuccess value)? getUserDetailsSuccess,
+    TResult Function(_NoUserFound value)? noUserFound,
+    TResult Function(_GetUserDetailsFailed value)? getUserDetailsFailed,
+    TResult Function(_ChangeNameLoading value)? changeNameLoading,
+    TResult Function(_ChangeNameSuccess value)? changeNameSuccess,
+    TResult Function(_ChangeNameFailed value)? changeNameFailed,
+    TResult Function(_ChangeEmailLoading value)? changeEmailLoading,
+    TResult Function(_ChangeEmailSuccess value)? changeEmailSuccess,
+    TResult Function(_ChangeEmailFailed value)? changeEmailFailed,
+    TResult Function(_ChangePasswordLoading value)? changePasswordLoading,
+    TResult Function(_ChangePasswordSuccess value)? changePasswordSuccess,
+    TResult Function(_ChangePasswordFailed value)? changePasswordFailed,
+    required TResult orElse(),
+  }) {
+    if (changePasswordFailed != null) {
+      return changePasswordFailed(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _ChangePasswordFailed implements UserViewmodelState {
+  const factory _ChangePasswordFailed({required final String message}) =
+      _$ChangePasswordFailedImpl;
+
+  String get message;
+
+  /// Create a copy of UserViewmodelState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$ChangePasswordFailedImplCopyWith<_$ChangePasswordFailedImpl>
       get copyWith => throw _privateConstructorUsedError;
 }

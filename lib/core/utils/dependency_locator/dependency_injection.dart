@@ -26,6 +26,7 @@ import '../notification_service/flutter_local_notification.dart';
 GetIt _getIt = GetIt.instance;
 
 Future<void> initDependency() async {
+  GetIt.instance.allowReassignment = true;
   routeObserver = _getIt.registerSingleton<RouteObserver<ModalRoute>>(
     RouteObserver(),
   );

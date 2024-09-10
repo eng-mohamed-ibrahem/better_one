@@ -85,7 +85,7 @@ class FlutterLocalNotification implements NotificationRepoInterface {
       log('request permission status: $status');
       if (status == null || status == true) {
         await _flutterNotificationsPlugin.show(
-          notification.id,
+          notification.displayId,
           notification.title,
           notification.body,
           notificationDetails,
@@ -103,7 +103,7 @@ class FlutterLocalNotification implements NotificationRepoInterface {
     await _requestPermissions().then((status) async {
       if (status == null || status == true) {
         await _flutterNotificationsPlugin.periodicallyShow(
-          notification.id,
+          notification.displayId,
           notification.title,
           notification.body,
           RepeatInterval.values[interval.index],
@@ -127,7 +127,7 @@ class FlutterLocalNotification implements NotificationRepoInterface {
           var timezoneName = await FlutterTimezone.getLocalTimezone();
           tz.setLocalLocation(tz.getLocation(timezoneName));
           await _flutterNotificationsPlugin.zonedSchedule(
-            notification.id,
+            notification.displayId,
             notification.title,
             notification.body,
             tz.TZDateTime(

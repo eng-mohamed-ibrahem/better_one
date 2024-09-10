@@ -4,9 +4,11 @@ import 'package:better_one/core/result_handler/result_handler.dart';
 import 'package:better_one/core/utils/dependency_locator/dependency_injection.dart';
 import 'package:better_one/data_source/user_data_source/locale_user_source.dart';
 import 'package:better_one/data_source/user_data_source/remote_user_source.dart';
+import 'package:better_one/model/notification_model/notification_model.dart';
 import 'package:better_one/model/task_model/task_model.dart';
 import 'package:better_one/model/user_model/user_model.dart';
 import 'package:better_one/repositories/user_repo/user_repo_intefrace.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:easy_localization/easy_localization.dart';
 
 import '../../core/utils/network_connection/network_connection.dart';
@@ -164,5 +166,43 @@ class UserRepoImpl implements UserRepoInterface {
   @override
   Future<ResultHandler<List<TaskModel>, Failure>> search(String query) async {
     return await localeUserSource.search(query);
+  }
+
+  @override
+  Future<ResultHandler<bool, Failure>> sendNotification(
+      NotificationModel notification) async {
+    var connected = await NetworkConnection.isConnected();
+    if (connected) {
+      return await remoteUserSource.sendNotification(notification);
+    } else {
+      return ResultHandler.failure(
+          error: NoInternetFailure(message: 'core.no_intenet'.tr()));
+    }
+  }
+
+  @override
+  Future<ResultHandler<Stream<List<NotificationModel>>, Failure>>
+      listenNotifications() async {
+    var connected = await NetworkConnection.isConnected();
+    if (connected) {
+      return await remoteUserSource.listenNotifications();
+    } else {
+      return ResultHandler.failure(
+          error: NoInternetFailure(message: 'core.no_intenet'.tr()));
+    }
+  }
+
+  @override
+  Future<ResultHandler<List<QueryDocumentSnapshot>, Failure>> getNotifications(
+      int limit,
+      {QueryDocumentSnapshot? startAfter}) async {
+    var connected = await NetworkConnection.isConnected();
+    if (connected) {
+      return await remoteUserSource.getNotifications(limit,
+          startAfter: startAfter);
+    } else {
+      return ResultHandler.failure(
+          error: NoInternetFailure(message: 'core.no_intenet'.tr()));
+    }
   }
 }

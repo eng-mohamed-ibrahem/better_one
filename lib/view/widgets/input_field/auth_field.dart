@@ -1,5 +1,6 @@
 import 'package:better_one/core/constants/constants.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class AuthField extends StatefulWidget {
   const AuthField({
@@ -13,6 +14,8 @@ class AuthField extends StatefulWidget {
     this.isItPassword = false,
     this.textInputAction,
     this.readOnly = false,
+    this.floatingLabelBehavior,
+    this.keyboardType,
   });
   final TextEditingController controller;
   final String? hintText;
@@ -22,8 +25,9 @@ class AuthField extends StatefulWidget {
   final String? Function(String?)? validator;
   final bool isItPassword;
   final TextInputAction? textInputAction;
-
+  final FloatingLabelBehavior? floatingLabelBehavior;
   final bool readOnly;
+  final TextInputType? keyboardType;
 
   @override
   State<AuthField> createState() => _AuthFieldState();
@@ -41,26 +45,43 @@ class _AuthFieldState extends State<AuthField> {
       obscureText: widget.isItPassword && isPasswordObsucred,
       readOnly: widget.readOnly,
       onTapOutside: (event) => FocusManager.instance.primaryFocus?.unfocus(),
+      keyboardType: widget.keyboardType,
       decoration: InputDecoration(
+        floatingLabelBehavior: widget.floatingLabelBehavior,
         labelText: widget.labelText,
         hintText: widget.hintText,
         isDense: true,
         suffixIcon: widget.isItPassword
-            ? IconButton(
+            ? MaterialButton(
+                // color: Theme.of(context).primaryColor,
+                splashColor: Theme.of(context).secondaryHeaderColor,
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.only(
+                    topRight: Radius.circular(AppMetrices.borderRadius1.r),
+                    bottomRight: Radius.circular(AppMetrices.borderRadius1.r),
+                  ),
+                ),
+                // icon
                 onPressed: () {
                   setState(() {
                     isPasswordObsucred = !isPasswordObsucred;
                   });
                 },
-                icon: isPasswordObsucred
-                    ? const Icon(Icons.visibility_rounded)
-                    : const Icon(Icons.visibility_off_rounded),
+                child: isPasswordObsucred
+                    ? Icon(
+                        Icons.visibility_rounded,
+                        color: Theme.of(context).primaryColorDark,
+                      )
+                    : Icon(
+                        Icons.visibility_off_rounded,
+                        color: Theme.of(context).primaryColorDark,
+                      ),
               )
             : null,
         hintStyle: Theme.of(context).textTheme.bodySmall,
         labelStyle: Theme.of(context).textTheme.bodySmall,
         border: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(AppMetrices.borderRadius1),
+          borderRadius: BorderRadius.circular(AppMetrices.borderRadius1.r),
           borderSide: BorderSide(
             color: Theme.of(context).secondaryHeaderColor,
             width: 1,

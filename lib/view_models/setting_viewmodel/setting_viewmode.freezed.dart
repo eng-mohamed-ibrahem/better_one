@@ -454,7 +454,7 @@ class _$SettingViewModelStateImpl implements _SettingViewModelState {
       this.isGetSearchSettingsFailed = false,
       this.isNotificationOnAdd = true,
       this.isNotificationOnUpdate = false,
-      this.isNotificationOnComplete = false,
+      this.isNotificationOnComplete = true,
       this.isNotificationOnReminder = false,
       this.reminderDateTime = null,
       this.repeatReminder = false,

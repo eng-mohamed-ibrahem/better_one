@@ -24,6 +24,7 @@ class UserViewmodel extends Cubit<UserViewmodelState> {
           _LogoutFailed(
             message:
                 failure is OtherFailure ? "core.error".tr() : failure.message,
+            failure: failure,
           ),
         );
       },
@@ -50,12 +51,64 @@ class UserViewmodel extends Cubit<UserViewmodelState> {
           _GetUserDetailsFailed(
             message:
                 failure is OtherFailure ? "core.error".tr() : failure.message,
+            failure: failure,
           ),
         );
       },
     );
   }
 
-  /// upload tasks
-  void uploadTasks() async {}
+  void changeName(String name) async {
+    emit(const _ChangeNameLoading());
+    var result = await userRepo.updateUserDetails(newDisplayName: name);
+    result.when(
+      success: (user) {
+        emit(_ChangeNameSuccess(user: user));
+      },
+      failure: (failure) {
+        emit(
+          _ChangeNameFailed(
+            message:
+                failure is OtherFailure ? "core.error".tr() : failure.message,
+          ),
+        );
+      },
+    );
+  }
+
+  void changeEmail(String email) async {
+    emit(const _ChangeEmailLoading());
+    var result = await userRepo.updateUserDetails(newEmail: email);
+    result.when(
+      success: (user) {
+        emit(_ChangeEmailSuccess(user: user));
+      },
+      failure: (failure) {
+        emit(
+          _ChangeEmailFailed(
+            message:
+                failure is OtherFailure ? "core.error".tr() : failure.message,
+          ),
+        );
+      },
+    );
+  }
+
+  void changePassword(String password) async {
+    emit(const _ChangePasswordLoading());
+    var result = await userRepo.updateUserDetails(newPassword: password);
+    result.when(
+      success: (user) {
+        emit(_ChangePasswordSuccess(user: user));
+      },
+      failure: (failure) {
+        emit(
+          _ChangePasswordFailed(
+            message:
+                failure is OtherFailure ? "core.error".tr() : failure.message,
+          ),
+        );
+      },
+    );
+  }
 }

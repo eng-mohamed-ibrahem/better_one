@@ -7,4 +7,5 @@ class LottieAssets {
   static const String noDataFound = "assets/lottie/no_data_found.json";
   static const String error = "assets/lottie/error.json";
   static const String celebration = 'assets/lottie/celebration.json';
+  static const String cloudSync = 'assets/lottie/cloud_sync.json';
 }
