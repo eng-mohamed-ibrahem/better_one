@@ -186,21 +186,6 @@ class AppNavigation {
                 },
               ),
               GoRoute(
-                path: Routes.feedback.path,
-                name: Routes.feedback.name,
-                builder: (context, state) {
-                  activeRoute = Routes.feedback.path;
-                  return BlocProvider(
-                    create: (context) => FeedbackViewmodel(
-                      feedbackRepo: FeedbackRepoImpl(
-                        feedbackDataSource: FirebaseFeedbackSource(),
-                      ),
-                    ),
-                    child: const FeedbackScreen(),
-                  );
-                },
-              ),
-              GoRoute(
                 path: Routes.profile.path,
                 name: Routes.profile.name,
                 builder: (context, state) {
@@ -253,6 +238,28 @@ class AppNavigation {
                       return BlocProvider.value(
                         value: inject<UserViewmodel>(),
                         child: const ChangePasswordScreen(),
+                      );
+                    },
+                  ),
+                  GoRoute(
+                    path: Routes.feedback.path,
+                    name: Routes.feedback.name,
+                    builder: (context, state) {
+                      activeRoute = Routes.feedback.path;
+                      return MultiBlocProvider(
+                        providers: [
+                          BlocProvider(
+                            create: (context) => FeedbackViewmodel(
+                              feedbackRepo: FeedbackRepoImpl(
+                                feedbackDataSource: FirebaseFeedbackSource(),
+                              ),
+                            ),
+                          ),
+                          BlocProvider.value(
+                            value: inject<UserViewmodel>(),
+                          ),
+                        ],
+                        child: const FeedbackScreen(),
                       );
                     },
                   ),

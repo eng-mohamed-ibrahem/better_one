@@ -6,9 +6,9 @@ class Validators {
 
   static String? validatePassword(String? value) {
     if (value == null || value.isEmpty) {
-      return 'auth.required.password'.tr();
+      return 'auth.required.pass'.tr();
     } else if (value.length < 8) {
-      return 'auth.invalid.password'.tr();
+      return 'auth.invalid.pass'.tr();
     }
     return null;
   }

@@ -20,9 +20,9 @@ FeedbackModel _$FeedbackModelFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$FeedbackModel {
-  String? get emojiRate => throw _privateConstructorUsedError;
+  FeedbackCatEnum get feedbackCat => throw _privateConstructorUsedError;
   String get feedback => throw _privateConstructorUsedError;
-  DateTime get dateTime => throw _privateConstructorUsedError;
+  DateTime get timeStamp => throw _privateConstructorUsedError;
   String get userId => throw _privateConstructorUsedError;
   String get userName => throw _privateConstructorUsedError;
   String get email => throw _privateConstructorUsedError;
@@ -45,9 +45,9 @@ abstract class $FeedbackModelCopyWith<$Res> {
       _$FeedbackModelCopyWithImpl<$Res, FeedbackModel>;
   @useResult
   $Res call(
-      {String? emojiRate,
+      {FeedbackCatEnum feedbackCat,
       String feedback,
-      DateTime dateTime,
+      DateTime timeStamp,
       String userId,
       String userName,
       String email,
@@ -69,26 +69,26 @@ class _$FeedbackModelCopyWithImpl<$Res, $Val extends FeedbackModel>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? emojiRate = freezed,
+    Object? feedbackCat = null,
     Object? feedback = null,
-    Object? dateTime = null,
+    Object? timeStamp = null,
     Object? userId = null,
     Object? userName = null,
     Object? email = null,
     Object? attachmentUrl = freezed,
   }) {
     return _then(_value.copyWith(
-      emojiRate: freezed == emojiRate
-          ? _value.emojiRate
-          : emojiRate // ignore: cast_nullable_to_non_nullable
-              as String?,
+      feedbackCat: null == feedbackCat
+          ? _value.feedbackCat
+          : feedbackCat // ignore: cast_nullable_to_non_nullable
+              as FeedbackCatEnum,
       feedback: null == feedback
           ? _value.feedback
           : feedback // ignore: cast_nullable_to_non_nullable
               as String,
-      dateTime: null == dateTime
-          ? _value.dateTime
-          : dateTime // ignore: cast_nullable_to_non_nullable
+      timeStamp: null == timeStamp
+          ? _value.timeStamp
+          : timeStamp // ignore: cast_nullable_to_non_nullable
               as DateTime,
       userId: null == userId
           ? _value.userId
@@ -119,9 +119,9 @@ abstract class _$$FeedbackModelImplCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {String? emojiRate,
+      {FeedbackCatEnum feedbackCat,
       String feedback,
-      DateTime dateTime,
+      DateTime timeStamp,
       String userId,
       String userName,
       String email,
@@ -141,26 +141,26 @@ class __$$FeedbackModelImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? emojiRate = freezed,
+    Object? feedbackCat = null,
     Object? feedback = null,
-    Object? dateTime = null,
+    Object? timeStamp = null,
     Object? userId = null,
     Object? userName = null,
     Object? email = null,
     Object? attachmentUrl = freezed,
   }) {
     return _then(_$FeedbackModelImpl(
-      emojiRate: freezed == emojiRate
-          ? _value.emojiRate
-          : emojiRate // ignore: cast_nullable_to_non_nullable
-              as String?,
+      feedbackCat: null == feedbackCat
+          ? _value.feedbackCat
+          : feedbackCat // ignore: cast_nullable_to_non_nullable
+              as FeedbackCatEnum,
       feedback: null == feedback
           ? _value.feedback
           : feedback // ignore: cast_nullable_to_non_nullable
               as String,
-      dateTime: null == dateTime
-          ? _value.dateTime
-          : dateTime // ignore: cast_nullable_to_non_nullable
+      timeStamp: null == timeStamp
+          ? _value.timeStamp
+          : timeStamp // ignore: cast_nullable_to_non_nullable
               as DateTime,
       userId: null == userId
           ? _value.userId
@@ -186,9 +186,9 @@ class __$$FeedbackModelImplCopyWithImpl<$Res>
 @JsonSerializable()
 class _$FeedbackModelImpl implements _FeedbackModel {
   const _$FeedbackModelImpl(
-      {this.emojiRate,
+      {required this.feedbackCat,
       required this.feedback,
-      required this.dateTime,
+      required this.timeStamp,
       required this.userId,
       required this.userName,
       required this.email,
@@ -198,11 +198,11 @@ class _$FeedbackModelImpl implements _FeedbackModel {
       _$$FeedbackModelImplFromJson(json);
 
   @override
-  final String? emojiRate;
+  final FeedbackCatEnum feedbackCat;
   @override
   final String feedback;
   @override
-  final DateTime dateTime;
+  final DateTime timeStamp;
   @override
   final String userId;
   @override
@@ -214,7 +214,7 @@ class _$FeedbackModelImpl implements _FeedbackModel {
 
   @override
   String toString() {
-    return 'FeedbackModel(emojiRate: $emojiRate, feedback: $feedback, dateTime: $dateTime, userId: $userId, userName: $userName, email: $email, attachmentUrl: $attachmentUrl)';
+    return 'FeedbackModel(feedbackCat: $feedbackCat, feedback: $feedback, timeStamp: $timeStamp, userId: $userId, userName: $userName, email: $email, attachmentUrl: $attachmentUrl)';
   }
 
   @override
@@ -222,12 +222,12 @@ class _$FeedbackModelImpl implements _FeedbackModel {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$FeedbackModelImpl &&
-            (identical(other.emojiRate, emojiRate) ||
-                other.emojiRate == emojiRate) &&
+            (identical(other.feedbackCat, feedbackCat) ||
+                other.feedbackCat == feedbackCat) &&
             (identical(other.feedback, feedback) ||
                 other.feedback == feedback) &&
-            (identical(other.dateTime, dateTime) ||
-                other.dateTime == dateTime) &&
+            (identical(other.timeStamp, timeStamp) ||
+                other.timeStamp == timeStamp) &&
             (identical(other.userId, userId) || other.userId == userId) &&
             (identical(other.userName, userName) ||
                 other.userName == userName) &&
@@ -238,7 +238,7 @@ class _$FeedbackModelImpl implements _FeedbackModel {
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  int get hashCode => Object.hash(runtimeType, emojiRate, feedback, dateTime,
+  int get hashCode => Object.hash(runtimeType, feedbackCat, feedback, timeStamp,
       userId, userName, email, attachmentUrl);
 
   /// Create a copy of FeedbackModel
@@ -259,9 +259,9 @@ class _$FeedbackModelImpl implements _FeedbackModel {
 
 abstract class _FeedbackModel implements FeedbackModel {
   const factory _FeedbackModel(
-      {final String? emojiRate,
+      {required final FeedbackCatEnum feedbackCat,
       required final String feedback,
-      required final DateTime dateTime,
+      required final DateTime timeStamp,
       required final String userId,
       required final String userName,
       required final String email,
@@ -271,11 +271,11 @@ abstract class _FeedbackModel implements FeedbackModel {
       _$FeedbackModelImpl.fromJson;
 
   @override
-  String? get emojiRate;
+  FeedbackCatEnum get feedbackCat;
   @override
   String get feedback;
   @override
-  DateTime get dateTime;
+  DateTime get timeStamp;
   @override
   String get userId;
   @override

@@ -132,6 +132,17 @@
     },
     "feedback": {
         "title": "التعليقات",
+        "cat": {
+            "title": "التصنيف",
+            "subtitle": "اختار نوع التعليق",
+            "technical": "تقني",
+            "suggestions": "مقترح",
+            "enhancement": "تحسين",
+            "feature": "ميزة",
+            "problem": "مشكلة",
+            "encouragement": "تشجيع",
+            "other": "اخرى"
+        },
         "subtitle": "ارسل لنا تعليقاتك",
         "loading": "تحميل التعليقات...",
         "empty": "لا توجد تعليقات",
