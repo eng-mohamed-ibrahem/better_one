@@ -273,6 +273,14 @@ class _ProfileSettingScreenState extends State<ProfileScreen> {
           );
         },
       ),
+      floatingActionButton: FloatingActionButton(
+        elevation: 0,
+        heroTag: 'feedback',
+        onPressed: () {
+          context.goNamed(Routes.feedback.name);
+        },
+        child: const Icon(Icons.feedback),
+      ),
     );
   }
 }

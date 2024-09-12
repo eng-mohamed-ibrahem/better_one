@@ -186,21 +186,6 @@ class AppNavigation {
                 },
               ),
               GoRoute(
-                path: Routes.feedback.path,
-                name: Routes.feedback.name,
-                builder: (context, state) {
-                  activeRoute = Routes.feedback.path;
-                  return BlocProvider(
-                    create: (context) => FeedbackViewmodel(
-                      feedbackRepo: FeedbackRepoImpl(
-                        feedbackDataSource: FirebaseFeedbackSource(),
-                      ),
-                    ),
-                    child: const FeedbackScreen(),
-                  );
-                },
-              ),
-              GoRoute(
                 path: Routes.profile.path,
                 name: Routes.profile.name,
                 builder: (context, state) {
@@ -256,6 +241,28 @@ class AppNavigation {
                       );
                     },
                   ),
+                  GoRoute(
+                    path: Routes.feedback.path,
+                    name: Routes.feedback.name,
+                    builder: (context, state) {
+                      activeRoute = Routes.feedback.path;
+                      return MultiBlocProvider(
+                        providers: [
+                          BlocProvider(
+                            create: (context) => FeedbackViewmodel(
+                              feedbackRepo: FeedbackRepoImpl(
+                                feedbackDataSource: FirebaseFeedbackSource(),
+                              ),
+                            ),
+                          ),
+                          BlocProvider.value(
+                            value: inject<UserViewmodel>(),
+                          ),
+                        ],
+                        child: const FeedbackScreen(),
+                      );
+                    },
+                  ),
                 ],
               ),
               GoRoute(
@@ -268,6 +275,19 @@ class AppNavigation {
                     child: const LogIn(),
                   );
                 },
+                routes: [
+                  GoRoute(
+                    path: Routes.forgotPassword.path,
+                    name: Routes.forgotPassword.name,
+                    builder: (context, state) {
+                      activeRoute = Routes.forgotPassword.path;
+                      return BlocProvider.value(
+                        value: inject<AuthViewmodel>(),
+                        child: const ForgotPassword(),
+                      );
+                    },
+                  ),
+                ]
               ),
               GoRoute(
                 path: Routes.signup.path,

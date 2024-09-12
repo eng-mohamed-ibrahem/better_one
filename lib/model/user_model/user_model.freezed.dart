@@ -22,8 +22,9 @@ UserModel _$UserModelFromJson(Map<String, dynamic> json) {
 mixin _$UserModel {
   String get id => throw _privateConstructorUsedError;
   String get email => throw _privateConstructorUsedError;
-  @JsonKey(readValue: readValue, name: 'display_name')
-  String get name => throw _privateConstructorUsedError;
+  @JsonKey(name: 'display_name')
+  String get name =>
+      throw _privateConstructorUsedError; // @JsonKey(readValue: readValue, name: 'display_name') required String name,
   @JsonKey(name: 'created_at')
   DateTime get createdAt => throw _privateConstructorUsedError;
   @JsonKey(name: 'updated_at')
@@ -47,7 +48,7 @@ abstract class $UserModelCopyWith<$Res> {
   $Res call(
       {String id,
       String email,
-      @JsonKey(readValue: readValue, name: 'display_name') String name,
+      @JsonKey(name: 'display_name') String name,
       @JsonKey(name: 'created_at') DateTime createdAt,
       @JsonKey(name: 'updated_at') DateTime? updatedAt});
 }
@@ -109,7 +110,7 @@ abstract class _$$UserModelImplCopyWith<$Res>
   $Res call(
       {String id,
       String email,
-      @JsonKey(readValue: readValue, name: 'display_name') String name,
+      @JsonKey(name: 'display_name') String name,
       @JsonKey(name: 'created_at') DateTime createdAt,
       @JsonKey(name: 'updated_at') DateTime? updatedAt});
 }
@@ -164,7 +165,7 @@ class _$UserModelImpl implements _UserModel {
   const _$UserModelImpl(
       {required this.id,
       required this.email,
-      @JsonKey(readValue: readValue, name: 'display_name') required this.name,
+      @JsonKey(name: 'display_name') required this.name,
       @JsonKey(name: 'created_at') required this.createdAt,
       @JsonKey(name: 'updated_at') this.updatedAt});
 
@@ -176,8 +177,9 @@ class _$UserModelImpl implements _UserModel {
   @override
   final String email;
   @override
-  @JsonKey(readValue: readValue, name: 'display_name')
+  @JsonKey(name: 'display_name')
   final String name;
+// @JsonKey(readValue: readValue, name: 'display_name') required String name,
   @override
   @JsonKey(name: 'created_at')
   final DateTime createdAt;
@@ -229,8 +231,7 @@ abstract class _UserModel implements UserModel {
   const factory _UserModel(
           {required final String id,
           required final String email,
-          @JsonKey(readValue: readValue, name: 'display_name')
-          required final String name,
+          @JsonKey(name: 'display_name') required final String name,
           @JsonKey(name: 'created_at') required final DateTime createdAt,
           @JsonKey(name: 'updated_at') final DateTime? updatedAt}) =
       _$UserModelImpl;
@@ -243,8 +244,9 @@ abstract class _UserModel implements UserModel {
   @override
   String get email;
   @override
-  @JsonKey(readValue: readValue, name: 'display_name')
-  String get name;
+  @JsonKey(name: 'display_name')
+  String
+      get name; // @JsonKey(readValue: readValue, name: 'display_name') required String name,
   @override
   @JsonKey(name: 'created_at')
   DateTime get createdAt;

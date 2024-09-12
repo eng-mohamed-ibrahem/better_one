@@ -131,6 +131,17 @@
     },
     "feedback": {
         "title": "Feedback",
+        "cat": {
+            "title": "Category",
+            "subtitle": "Select your feedback category",
+            "technical": "Technical",
+            "suggestions": "Suggestions",
+            "enhancement": "Enhancement",
+            "feature": "Feature",
+            "problem": "Problem",
+            "encouragement": "Encouragement",
+            "other": "Other"
+        },
         "subtitle": "Send us your feedback",
         "empty": "No feedback found",
         "init": "Feedback will be shown here",
@@ -147,7 +158,7 @@
             "old_pass": "Current Password",
             "new_pass": "New Password",
             "new_pass_confirm": "Confirm New Password",
-            "confirm_new_pass": "Confirm Password",
+            "confirm_pass": "Confirm Password",
             "error": "Password does not match",
             "success": "Password changed successfully",
             "required": {
@@ -158,7 +169,7 @@
             "invalid": {
                 "old_pass": "Current Password is invalid",
                 "new_pass": "New Password is invalid",
-                "confirm_new_pass": "Confirm Password is invalid"
+                "confirm_new_pass": "Confirm Password does not match"
             }
         },
         "change_email": {
@@ -220,6 +231,7 @@
         "u_email": "E-mail",
         "u_pass": "Password",
         "confirm_u_pass": "Confirm Password",
+        "forgot_pass": "Forgot Password?",
         "required": {
             "name": "User Name Required",
             "email": "Email Required",
@@ -235,7 +247,18 @@
         "logout_succ": "Logout Successfully",
         "logout": "Logout",
         "logout_msg": "Are you sure you want to logout?",
-        "no_user": "No logged user found, please login"
+        "no_user": "No logged user found, please login",
+        "forgot_password": {
+            "title": "Forgot Password",
+            "subutitle": "Enter your email and we will send you a code to reset your password",
+            "send": "Send",
+            "success": "Sent verification code to your email",
+            "error": "Failed to send verification code, please try again later",
+            "code_hint": "Code",
+            "verify": "Verify",
+            "invalid": "Invalid Code",
+            "required": "Code is required"
+        }
     },
     "time": {
         "hour": "hour",

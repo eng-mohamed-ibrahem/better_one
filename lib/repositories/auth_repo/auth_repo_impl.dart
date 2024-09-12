@@ -34,4 +34,39 @@ class AuthRepoImpl implements AuthRepoInterface {
           error: NoInternetFailure(message: 'core.no_intenet'.tr()));
     }
   }
+
+  @override
+  Future<ResultHandler<void, Failure>> sendForgotPassword(String email) async {
+    var connected = await NetworkConnection.isConnected();
+    if (connected) {
+      return authSource.sendForgotPassword(email);
+    } else {
+      return ResultHandler.failure(
+          error: NoInternetFailure(message: 'core.no_intenet'.tr()));
+    }
+  }
+
+  @override
+  Future<ResultHandler<void, Failure>> resetPassword(
+      String code, String password) async {
+    var connected = await NetworkConnection.isConnected();
+    if (connected) {
+      return authSource.resetPassword(code, password);
+    } else {
+      return ResultHandler.failure(
+          error: NoInternetFailure(message: 'core.no_intenet'.tr()));
+    }
+  }
+
+  @override
+  Future<ResultHandler<String?, Failure>> verifyPasswordResetCode(
+      String code) async {
+    var connected = await NetworkConnection.isConnected();
+    if (connected) {
+      return authSource.verifyPasswordResetCode(code);
+    } else {
+      return ResultHandler.failure(
+          error: NoInternetFailure(message: 'core.no_intenet'.tr()));
+    }
+  }
 }

@@ -1,10 +1,12 @@
 import 'package:better_one/config/navigation/routes_enum.dart';
 import 'package:better_one/core/constants/constants.dart';
+import 'package:better_one/core/enum/feedback_cat_enum.dart';
+import 'package:better_one/core/utils/cache_service/cach_interface/locale_user_info.dart';
+import 'package:better_one/core/utils/dependency_locator/inject.dart';
 import 'package:better_one/core/utils/methods/methods.dart';
 import 'package:better_one/core/utils/shared_widgets/back_button_l10n.dart';
 import 'package:better_one/model/feedback_model/feedback_model.dart';
 import 'package:better_one/view_models/feedback_viewmodel/feedback_viewmodel.dart';
-import 'package:better_one/view_models/user_viewmodel/user_viewmodel.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -20,7 +22,7 @@ class FeedbackScreen extends StatefulWidget {
 
 class _FeedbackScreenState extends State<FeedbackScreen> {
   final TextEditingController feedbackController = TextEditingController();
-
+  FeedbackCatEnum feedbackCat = FeedbackCatEnum.technical;
   @override
   void dispose() {
     feedbackController.dispose();
@@ -35,6 +37,17 @@ class _FeedbackScreenState extends State<FeedbackScreen> {
           child: BackButtonl10n(),
         ),
         title: Text('feedback.title'.tr()),
+        bottom: PreferredSize(
+          preferredSize: Size.fromHeight(20.h),
+          child: Hero(
+            transitionOnUserGestures: true,
+            tag: 'feedback',
+            child: Text(
+              'feedback.subtitle'.tr(),
+              style: Theme.of(context).textTheme.titleLarge,
+            ),
+          ),
+        ),
       ),
       body: SingleChildScrollView(
         padding: EdgeInsets.symmetric(horizontal: 10.w),
@@ -47,7 +60,7 @@ class _FeedbackScreenState extends State<FeedbackScreen> {
               },
               sendFeedbackSuccess: () {
                 showSnackBar(context, message: 'feedback.success'.tr());
-                context.goNamed(Routes.settings.name);
+                context.goNamed(Routes.profile.name);
               },
               sendFeedbackLoading: () {
                 showLoadingDialog(context);
@@ -56,31 +69,57 @@ class _FeedbackScreenState extends State<FeedbackScreen> {
           },
           builder: (context, state) {
             return Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                SizedBox(height: AppMetrices.verticalGap3.h),
-                Text(
-                  'feedback.subtitle'.tr(),
-                  style: Theme.of(context).textTheme.titleLarge,
-                ),
                 SizedBox(height: AppMetrices.verticalGap2.h),
-                //create emojis represent the feedback rating from 1 to 5
-                Row(
-                  children: [
-                    Text('feedback.emoji_1'.tr()),
-                    SizedBox(width: 10.w),
-                    Text('feedback.emoji_2'.tr()),
-                    SizedBox(width: 10.w),
-                    Text('feedback.emoji_3'.tr()),
-                    SizedBox(width: 10.w),
-                    Text('feedback.emoji_4'.tr()),
-                    SizedBox(width: 10.w),
-                    Text('feedback.emoji_5'.tr()),
-                  ],
+                StatefulBuilder(
+                  builder: (context, setState) {
+                    return Wrap(
+                      spacing: 10.w,
+                      runSpacing: 10.w,
+                      children: List.generate(
+                        FeedbackCatEnum.values.length,
+                        (index) {
+                          return GestureDetector(
+                            onTap: () {
+                              setState(() {
+                                feedbackCat = FeedbackCatEnum.values[index];
+                              });
+                            },
+                            child: Container(
+                              padding: EdgeInsets.symmetric(
+                                horizontal: 10.w,
+                                vertical: 5.h,
+                              ),
+                              child: Row(
+                                mainAxisSize: MainAxisSize.min,
+                                children: [
+                                  AbsorbPointer(
+                                    child: Radio(
+                                      value: FeedbackCatEnum.values[index],
+                                      groupValue: feedbackCat,
+                                      onChanged: (_) {},
+                                    ),
+                                  ),
+                                  Text(
+                                    "feedback.cat.${FeedbackCatEnum.values[index].name}".tr(),
+                                    style:
+                                        Theme.of(context).textTheme.titleMedium,
+                                  ),
+                                ],
+                              ),
+                            ),
+                          );
+                        },
+                      ),
+                    );
+                  },
                 ),
                 SizedBox(height: AppMetrices.verticalGap3.h),
                 // text field to enter your feedback
                 Text(
-                  'feedback.subtitle'.tr(),
+                  'feedback.hint'.tr(),
                   style: Theme.of(context).textTheme.titleLarge,
                 ),
                 Container(
@@ -88,43 +127,56 @@ class _FeedbackScreenState extends State<FeedbackScreen> {
                   margin: EdgeInsets.only(top: 10.h),
                   decoration: BoxDecoration(
                     border: Border.all(
-                      color: Theme.of(context).colorScheme.secondary,
+                      color: Theme.of(context).shadowColor,
                     ),
                   ),
                   child: TextField(
                     controller: feedbackController,
                     minLines: 5,
-                    maxLength: null,
+                    maxLines: null,
                     decoration: InputDecoration(
-                      labelText: 'feedback.hint'.tr(),
+                      hintText: 'feedback.hint'.tr(),
+                      border: InputBorder.none,
+                      enabledBorder: InputBorder.none,
+                      focusedBorder: InputBorder.none,
+                      hintStyle: Theme.of(context).textTheme.bodySmall,
                     ),
+                    keyboardType: TextInputType.multiline,
                   ),
                 ),
-                SizedBox(height: 20.h),
+                SizedBox(height: 60.h),
+                Center(
+                  child: FilledButton(
+                    style: FilledButton.styleFrom(
+                      minimumSize:
+                          Size(MediaQuery.sizeOf(context).width * .6, 40.h),
+                    ),
+                    onPressed: () {
+                      if (feedbackController.text.isEmpty) {
+                        showSnackBar(context,
+                            message: 'feedback.required'.tr());
+                        return;
+                      }
+                      // var user = context.read<UserViewmodel>().currentUser;
+                      var user = inject<LocaleUserInfo>().getUserData()!;
+                      var feedback = FeedbackModel(
+                        feedbackCat: feedbackCat,
+                        feedback: feedbackController.text,
+                        userName: user.name,
+                        timeStamp: DateTime.now(),
+                        userId: user.id,
+                        email: user.email,
+                        // attachmentUrl: "",
+                      );
+                      context.read<FeedbackViewmodel>().sendFeedback(feedback);
+                    },
+                    child: Text('feedback.send'.tr()),
+                  ),
+                ),
               ],
             );
           },
         ),
-      ),
-      bottomNavigationBar: ElevatedButton(
-        onPressed: () {
-          if (feedbackController.text.isEmpty) {
-            showSnackBar(context, message: 'feedback.required'.tr());
-            return;
-          }
-          var user = context.read<UserViewmodel>().currentUser;
-          var feedback = FeedbackModel(
-            feedback: feedbackController.text,
-            userName: user.name,
-            dateTime: DateTime.now(),
-            userId: user.id,
-            email: user.email,
-            // attachmentUrl: "",
-            // emojiRate: "0",
-          );
-          context.read<FeedbackViewmodel>().sendFeedback(feedback);
-        },
-        child: Text('feedback.send'.tr()),
       ),
     );
   }

@@ -107,6 +107,7 @@ class _ChangePasswordScreenState extends State<ChangePasswordScreen> {
                         AuthField(
                           controller: newPasswordController,
                           validator: Validators.validatePassword,
+                          textInputAction: TextInputAction.next,
                         ),
                         SizedBox(
                           height: AppMetrices.verticalGap.h,

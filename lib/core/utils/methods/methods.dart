@@ -61,13 +61,14 @@ List<SettingItemModel> generateSettingItems() {
       ),
       path: Routes.searchSetting.name,
     ),
-    SettingItemModel(
-      title: 'setting.feedback.title'.tr(),
-      subTitle: 'setting.feedback.subtitle'.tr(),
-      leadingIcon: const Icon(
-        Icons.feedback,
-      ),
-    ),
+    // SettingItemModel(
+    //   title: 'setting.feedback.title'.tr(),
+    //   subTitle: 'setting.feedback.subtitle'.tr(),
+    //   leadingIcon: const Icon(
+    //     Icons.feedback,
+    //   ),
+    //   path: Routes.feedback.name,
+    // ),
     SettingItemModel(
       title: 'setting.account.title'.tr(),
       subTitle: 'setting.account.subtitle'.tr(),

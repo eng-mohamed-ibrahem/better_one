@@ -96,7 +96,7 @@ class _NotificationScreenState extends State<NotificationScreen> {
                           style: Theme.of(context).textTheme.bodyMedium),
                       MaterialButton(
                         onPressed: () {
-                          context.goNamed(Routes.login.name);
+                          context.pushNamed(Routes.login.name);
                         },
                         child: Text(
                           'auth.login'.tr(),

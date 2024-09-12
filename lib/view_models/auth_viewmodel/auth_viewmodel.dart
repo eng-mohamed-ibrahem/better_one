@@ -64,4 +64,46 @@ class AuthViewmodel extends Cubit<AuthViewmodelState> {
       },
     );
   }
+
+  void sendForgotPassword({required String email}) async {
+    emit(const _SendForgotPasswordLoading());
+    var result = await authRepo.sendForgotPassword(email);
+    result.when(
+      success: (_) {
+        emit(const _SendForgotPasswordSuccess());
+      },
+      failure: (failure) {
+        if (failure is ParserFailure || failure is OtherFailure) {
+          emit(
+            _SendForgotPasswordFailed(message: 'core.wrong'.tr()),
+          );
+          return;
+        }
+        emit(
+          _SendForgotPasswordFailed(message: failure.message),
+        );
+      },
+    );
+  }
+
+  void verifyPasswordResetCode({required String code}) async {
+    emit(const _VerifyPasswordResetCodeLoading());
+    var result = await authRepo.verifyPasswordResetCode(code);
+    result.when(
+      success: (message) {
+        emit(const _VerifyPasswordResetCodeSuccess());
+      },
+      failure: (failure) {
+        if (failure is ParserFailure || failure is OtherFailure) {
+          emit(
+            _VerifyPasswordResetCodeFailed(message: 'core.wrong'.tr()),
+          );
+          return;
+        }
+        emit(
+          _VerifyPasswordResetCodeFailed(message: failure.message),
+        );
+      },
+    );
+  }
 }

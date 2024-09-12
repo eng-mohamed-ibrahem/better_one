@@ -137,6 +137,20 @@ class FirebaseFailure extends Failure {
             message: 'Requires recent login',
           );
         }
+      case "expired-action-code":
+        {
+          return FirebaseFailure(
+            code: code,
+            message: 'The password reset code has expired.',
+          );
+        }
+      case "invalid-action-code":
+        {
+          return FirebaseFailure(
+            code: code,
+            message: 'The password reset code has already been used.',
+          );
+        }
       default:
         return FirebaseFailure(
           code: code,

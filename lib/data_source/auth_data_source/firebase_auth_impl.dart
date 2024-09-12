@@ -63,11 +63,42 @@ class FirebaseAuthImpl implements AuthInterface {
     }
   }
 
-  Future<ResultHandler<void, Failure>> verifyUserEmail() async {
+  @override
+  Future<ResultHandler<void, Failure>> sendForgotPassword(String email) async {
     try {
-      var user = FirebaseAuth.instance.currentUser;
-      await user!.sendEmailVerification();
+      await FirebaseAuth.instance.sendPasswordResetEmail(email: email);
       return const ResultHandler.success(data: null);
+    } on FirebaseAuthException catch (e) {
+      return ResultHandler.failure(
+        error: FirebaseFailure.fromCode(e.code),
+      );
+    } catch (e) {
+      return ResultHandler.failure(error: OtherFailure(message: e.toString()));
+    }
+  }
+
+  @override
+  Future<ResultHandler<void, Failure>> resetPassword(
+      String code, String password) async {
+    try {
+      await FirebaseAuth.instance
+          .confirmPasswordReset(code: code, newPassword: password);
+      return const ResultHandler.success(data: null);
+    } on FirebaseAuthException catch (e) {
+      return ResultHandler.failure(
+        error: FirebaseFailure.fromCode(e.code),
+      );
+    } catch (e) {
+      return ResultHandler.failure(error: OtherFailure(message: e.toString()));
+    }
+  }
+
+  @override
+  Future<ResultHandler<String?, Failure>> verifyPasswordResetCode(
+      String code) async {
+    try {
+      var userEmail = await FirebaseAuth.instance.verifyPasswordResetCode(code);
+      return ResultHandler.success(data: userEmail);
     } on FirebaseAuthException catch (e) {
       return ResultHandler.failure(
         error: FirebaseFailure.fromCode(e.code),

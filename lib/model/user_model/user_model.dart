@@ -8,7 +8,8 @@ class UserModel with _$UserModel {
   const factory UserModel({
     required String id,
     required String email,
-    @JsonKey(readValue: readValue, name: 'display_name') required String name,
+    @JsonKey(name: 'display_name') required String name,
+    // @JsonKey(readValue: readValue, name: 'display_name') required String name,
     @JsonKey(name: 'created_at') required DateTime createdAt,
     @JsonKey(name: 'updated_at') DateTime? updatedAt,
   }) = _UserModel;

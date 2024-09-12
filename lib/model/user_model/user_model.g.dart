@@ -10,7 +10,7 @@ _$UserModelImpl _$$UserModelImplFromJson(Map<String, dynamic> json) =>
     _$UserModelImpl(
       id: json['id'] as String,
       email: json['email'] as String,
-      name: readValue(json, 'display_name') as String,
+      name: json['display_name'] as String,
       createdAt: DateTime.parse(json['created_at'] as String),
       updatedAt: json['updated_at'] == null
           ? null

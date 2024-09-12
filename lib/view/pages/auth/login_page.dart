@@ -1,7 +1,9 @@
 import 'package:better_one/config/navigation/routes_enum.dart';
 import 'package:better_one/core/constants/constants.dart';
 import 'package:better_one/core/utils/background_service/tasks_background_service.dart';
+import 'package:better_one/core/utils/cache_service/cach_interface/locale_user_info.dart';
 import 'package:better_one/core/utils/dependency_locator/dependency_injection.dart';
+import 'package:better_one/core/utils/dependency_locator/inject.dart';
 import 'package:better_one/core/utils/methods/methods.dart';
 import 'package:better_one/core/utils/shared_widgets/back_button_l10n.dart';
 import 'package:better_one/view/widgets/input_field/auth_field.dart';
@@ -106,6 +108,7 @@ class _LoginState extends State<LogIn> {
                     showSnackBar(context, message: message);
                   },
                   loginSuccess: (user) async {
+                    await inject<LocaleUserInfo>().setUsetData(user: user);
                     await userLocaleDatabase.setUserIdToLocale(
                       userId: user.id,
                     );
@@ -141,6 +144,23 @@ class _LoginState extends State<LogIn> {
                 );
               },
             ),
+            SizedBox(
+              height: AppMetrices.verticalGap2.h,
+            ),
+
+            // forgot password
+            GestureDetector(
+              onTap: () {
+                context.goNamed(Routes.forgotPassword.name);
+              },
+              child: Text(
+                'auth.forgot_pass'.tr(),
+                style: Theme.of(context).textTheme.bodySmall!.copyWith(
+                      color: Colors.blue,
+                    ),
+              ),
+            ),
+
             const SizedBox(
               height: AppMetrices.verticalGap2,
             ),
