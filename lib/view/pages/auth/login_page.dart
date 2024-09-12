@@ -144,6 +144,23 @@ class _LoginState extends State<LogIn> {
                 );
               },
             ),
+            SizedBox(
+              height: AppMetrices.verticalGap2.h,
+            ),
+
+            // forgot password
+            GestureDetector(
+              onTap: () {
+                context.goNamed(Routes.forgotPassword.name);
+              },
+              child: Text(
+                'auth.forgot_pass'.tr(),
+                style: Theme.of(context).textTheme.bodySmall!.copyWith(
+                      color: Colors.blue,
+                    ),
+              ),
+            ),
+
             const SizedBox(
               height: AppMetrices.verticalGap2,
             ),

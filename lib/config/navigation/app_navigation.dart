@@ -275,6 +275,19 @@ class AppNavigation {
                     child: const LogIn(),
                   );
                 },
+                routes: [
+                  GoRoute(
+                    path: Routes.forgotPassword.path,
+                    name: Routes.forgotPassword.name,
+                    builder: (context, state) {
+                      activeRoute = Routes.forgotPassword.path;
+                      return BlocProvider.value(
+                        value: inject<AuthViewmodel>(),
+                        child: const ForgotPassword(),
+                      );
+                    },
+                  ),
+                ]
               ),
               GoRoute(
                 path: Routes.signup.path,

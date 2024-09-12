@@ -231,6 +231,7 @@
         "u_email": "E-mail",
         "u_pass": "Password",
         "confirm_u_pass": "Confirm Password",
+        "forgot_pass": "Forgot Password?",
         "required": {
             "name": "User Name Required",
             "email": "Email Required",
@@ -246,7 +247,18 @@
         "logout_succ": "Logout Successfully",
         "logout": "Logout",
         "logout_msg": "Are you sure you want to logout?",
-        "no_user": "No logged user found, please login"
+        "no_user": "No logged user found, please login",
+        "forgot_password": {
+            "title": "Forgot Password",
+            "subutitle": "Enter your email and we will send you a code to reset your password",
+            "send": "Send",
+            "success": "Sent verification code to your email",
+            "error": "Failed to send verification code, please try again later",
+            "code_hint": "Code",
+            "verify": "Verify",
+            "invalid": "Invalid Code",
+            "required": "Code is required"
+        }
     },
     "time": {
         "hour": "hour",

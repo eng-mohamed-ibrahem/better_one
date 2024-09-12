@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:better_one/core/constants/constants.dart';
 import 'package:better_one/core/utils/cache_service/cache_service.dart';
 import 'package:better_one/model/user_model/user_model.dart';
@@ -31,13 +33,12 @@ class HiveLocaleUserInfo implements LocaleUserInfo {
     if (userData == null) {
       return null;
     }
-    return UserModel.fromJson(userData);
+    return UserModel.fromJson(jsonDecode(userData));
   }
-
 
   @override
   Future<bool> setUsetData({required UserModel user}) async {
-    await initHive.appBox.put(CacheKeys.userData, user.toJson());
+    await initHive.appBox.put(CacheKeys.userData, jsonEncode(user.toJson()));
     return true;
   }
 

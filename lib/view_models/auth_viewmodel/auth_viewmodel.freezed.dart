@@ -25,6 +25,15 @@ mixin _$AuthViewmodelState {
     required TResult Function() loginLoading,
     required TResult Function(UserModel user) loginSuccess,
     required TResult Function(String message) loginFailed,
+    required TResult Function() sendForgotPasswordLoading,
+    required TResult Function() sendForgotPasswordSuccess,
+    required TResult Function(String message) sendForgotPasswordFailed,
+    required TResult Function() verifyPasswordResetCodeLoading,
+    required TResult Function(String? userEmail) verifyPasswordResetCodeSuccess,
+    required TResult Function(String message) verifyPasswordResetCodeFailed,
+    required TResult Function() resetPasswordLoading,
+    required TResult Function() resetPasswordSuccess,
+    required TResult Function(String message) resetPasswordFailed,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -36,6 +45,15 @@ mixin _$AuthViewmodelState {
     TResult? Function()? loginLoading,
     TResult? Function(UserModel user)? loginSuccess,
     TResult? Function(String message)? loginFailed,
+    TResult? Function()? sendForgotPasswordLoading,
+    TResult? Function()? sendForgotPasswordSuccess,
+    TResult? Function(String message)? sendForgotPasswordFailed,
+    TResult? Function()? verifyPasswordResetCodeLoading,
+    TResult? Function(String? userEmail)? verifyPasswordResetCodeSuccess,
+    TResult? Function(String message)? verifyPasswordResetCodeFailed,
+    TResult? Function()? resetPasswordLoading,
+    TResult? Function()? resetPasswordSuccess,
+    TResult? Function(String message)? resetPasswordFailed,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -47,6 +65,15 @@ mixin _$AuthViewmodelState {
     TResult Function()? loginLoading,
     TResult Function(UserModel user)? loginSuccess,
     TResult Function(String message)? loginFailed,
+    TResult Function()? sendForgotPasswordLoading,
+    TResult Function()? sendForgotPasswordSuccess,
+    TResult Function(String message)? sendForgotPasswordFailed,
+    TResult Function()? verifyPasswordResetCodeLoading,
+    TResult Function(String? userEmail)? verifyPasswordResetCodeSuccess,
+    TResult Function(String message)? verifyPasswordResetCodeFailed,
+    TResult Function()? resetPasswordLoading,
+    TResult Function()? resetPasswordSuccess,
+    TResult Function(String message)? resetPasswordFailed,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -59,6 +86,21 @@ mixin _$AuthViewmodelState {
     required TResult Function(_LoginLoading value) loginLoading,
     required TResult Function(_LoginSuccess value) loginSuccess,
     required TResult Function(_LoginFailed value) loginFailed,
+    required TResult Function(_SendForgotPasswordLoading value)
+        sendForgotPasswordLoading,
+    required TResult Function(_SendForgotPasswordSuccess value)
+        sendForgotPasswordSuccess,
+    required TResult Function(_SendForgotPasswordFailed value)
+        sendForgotPasswordFailed,
+    required TResult Function(_VerifyPasswordResetCodeLoading value)
+        verifyPasswordResetCodeLoading,
+    required TResult Function(_VerifyPasswordResetCodeSuccess value)
+        verifyPasswordResetCodeSuccess,
+    required TResult Function(_VerifyPasswordResetCodeFailed value)
+        verifyPasswordResetCodeFailed,
+    required TResult Function(_ResetPasswordLoading value) resetPasswordLoading,
+    required TResult Function(_ResetPasswordSuccess value) resetPasswordSuccess,
+    required TResult Function(_ResetPasswordFailed value) resetPasswordFailed,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -70,6 +112,21 @@ mixin _$AuthViewmodelState {
     TResult? Function(_LoginLoading value)? loginLoading,
     TResult? Function(_LoginSuccess value)? loginSuccess,
     TResult? Function(_LoginFailed value)? loginFailed,
+    TResult? Function(_SendForgotPasswordLoading value)?
+        sendForgotPasswordLoading,
+    TResult? Function(_SendForgotPasswordSuccess value)?
+        sendForgotPasswordSuccess,
+    TResult? Function(_SendForgotPasswordFailed value)?
+        sendForgotPasswordFailed,
+    TResult? Function(_VerifyPasswordResetCodeLoading value)?
+        verifyPasswordResetCodeLoading,
+    TResult? Function(_VerifyPasswordResetCodeSuccess value)?
+        verifyPasswordResetCodeSuccess,
+    TResult? Function(_VerifyPasswordResetCodeFailed value)?
+        verifyPasswordResetCodeFailed,
+    TResult? Function(_ResetPasswordLoading value)? resetPasswordLoading,
+    TResult? Function(_ResetPasswordSuccess value)? resetPasswordSuccess,
+    TResult? Function(_ResetPasswordFailed value)? resetPasswordFailed,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -81,6 +138,20 @@ mixin _$AuthViewmodelState {
     TResult Function(_LoginLoading value)? loginLoading,
     TResult Function(_LoginSuccess value)? loginSuccess,
     TResult Function(_LoginFailed value)? loginFailed,
+    TResult Function(_SendForgotPasswordLoading value)?
+        sendForgotPasswordLoading,
+    TResult Function(_SendForgotPasswordSuccess value)?
+        sendForgotPasswordSuccess,
+    TResult Function(_SendForgotPasswordFailed value)? sendForgotPasswordFailed,
+    TResult Function(_VerifyPasswordResetCodeLoading value)?
+        verifyPasswordResetCodeLoading,
+    TResult Function(_VerifyPasswordResetCodeSuccess value)?
+        verifyPasswordResetCodeSuccess,
+    TResult Function(_VerifyPasswordResetCodeFailed value)?
+        verifyPasswordResetCodeFailed,
+    TResult Function(_ResetPasswordLoading value)? resetPasswordLoading,
+    TResult Function(_ResetPasswordSuccess value)? resetPasswordSuccess,
+    TResult Function(_ResetPasswordFailed value)? resetPasswordFailed,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -155,6 +226,15 @@ class _$InitialImpl implements _Initial {
     required TResult Function() loginLoading,
     required TResult Function(UserModel user) loginSuccess,
     required TResult Function(String message) loginFailed,
+    required TResult Function() sendForgotPasswordLoading,
+    required TResult Function() sendForgotPasswordSuccess,
+    required TResult Function(String message) sendForgotPasswordFailed,
+    required TResult Function() verifyPasswordResetCodeLoading,
+    required TResult Function(String? userEmail) verifyPasswordResetCodeSuccess,
+    required TResult Function(String message) verifyPasswordResetCodeFailed,
+    required TResult Function() resetPasswordLoading,
+    required TResult Function() resetPasswordSuccess,
+    required TResult Function(String message) resetPasswordFailed,
   }) {
     return initial();
   }
@@ -169,6 +249,15 @@ class _$InitialImpl implements _Initial {
     TResult? Function()? loginLoading,
     TResult? Function(UserModel user)? loginSuccess,
     TResult? Function(String message)? loginFailed,
+    TResult? Function()? sendForgotPasswordLoading,
+    TResult? Function()? sendForgotPasswordSuccess,
+    TResult? Function(String message)? sendForgotPasswordFailed,
+    TResult? Function()? verifyPasswordResetCodeLoading,
+    TResult? Function(String? userEmail)? verifyPasswordResetCodeSuccess,
+    TResult? Function(String message)? verifyPasswordResetCodeFailed,
+    TResult? Function()? resetPasswordLoading,
+    TResult? Function()? resetPasswordSuccess,
+    TResult? Function(String message)? resetPasswordFailed,
   }) {
     return initial?.call();
   }
@@ -183,6 +272,15 @@ class _$InitialImpl implements _Initial {
     TResult Function()? loginLoading,
     TResult Function(UserModel user)? loginSuccess,
     TResult Function(String message)? loginFailed,
+    TResult Function()? sendForgotPasswordLoading,
+    TResult Function()? sendForgotPasswordSuccess,
+    TResult Function(String message)? sendForgotPasswordFailed,
+    TResult Function()? verifyPasswordResetCodeLoading,
+    TResult Function(String? userEmail)? verifyPasswordResetCodeSuccess,
+    TResult Function(String message)? verifyPasswordResetCodeFailed,
+    TResult Function()? resetPasswordLoading,
+    TResult Function()? resetPasswordSuccess,
+    TResult Function(String message)? resetPasswordFailed,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -201,6 +299,21 @@ class _$InitialImpl implements _Initial {
     required TResult Function(_LoginLoading value) loginLoading,
     required TResult Function(_LoginSuccess value) loginSuccess,
     required TResult Function(_LoginFailed value) loginFailed,
+    required TResult Function(_SendForgotPasswordLoading value)
+        sendForgotPasswordLoading,
+    required TResult Function(_SendForgotPasswordSuccess value)
+        sendForgotPasswordSuccess,
+    required TResult Function(_SendForgotPasswordFailed value)
+        sendForgotPasswordFailed,
+    required TResult Function(_VerifyPasswordResetCodeLoading value)
+        verifyPasswordResetCodeLoading,
+    required TResult Function(_VerifyPasswordResetCodeSuccess value)
+        verifyPasswordResetCodeSuccess,
+    required TResult Function(_VerifyPasswordResetCodeFailed value)
+        verifyPasswordResetCodeFailed,
+    required TResult Function(_ResetPasswordLoading value) resetPasswordLoading,
+    required TResult Function(_ResetPasswordSuccess value) resetPasswordSuccess,
+    required TResult Function(_ResetPasswordFailed value) resetPasswordFailed,
   }) {
     return initial(this);
   }
@@ -215,6 +328,21 @@ class _$InitialImpl implements _Initial {
     TResult? Function(_LoginLoading value)? loginLoading,
     TResult? Function(_LoginSuccess value)? loginSuccess,
     TResult? Function(_LoginFailed value)? loginFailed,
+    TResult? Function(_SendForgotPasswordLoading value)?
+        sendForgotPasswordLoading,
+    TResult? Function(_SendForgotPasswordSuccess value)?
+        sendForgotPasswordSuccess,
+    TResult? Function(_SendForgotPasswordFailed value)?
+        sendForgotPasswordFailed,
+    TResult? Function(_VerifyPasswordResetCodeLoading value)?
+        verifyPasswordResetCodeLoading,
+    TResult? Function(_VerifyPasswordResetCodeSuccess value)?
+        verifyPasswordResetCodeSuccess,
+    TResult? Function(_VerifyPasswordResetCodeFailed value)?
+        verifyPasswordResetCodeFailed,
+    TResult? Function(_ResetPasswordLoading value)? resetPasswordLoading,
+    TResult? Function(_ResetPasswordSuccess value)? resetPasswordSuccess,
+    TResult? Function(_ResetPasswordFailed value)? resetPasswordFailed,
   }) {
     return initial?.call(this);
   }
@@ -229,6 +357,20 @@ class _$InitialImpl implements _Initial {
     TResult Function(_LoginLoading value)? loginLoading,
     TResult Function(_LoginSuccess value)? loginSuccess,
     TResult Function(_LoginFailed value)? loginFailed,
+    TResult Function(_SendForgotPasswordLoading value)?
+        sendForgotPasswordLoading,
+    TResult Function(_SendForgotPasswordSuccess value)?
+        sendForgotPasswordSuccess,
+    TResult Function(_SendForgotPasswordFailed value)? sendForgotPasswordFailed,
+    TResult Function(_VerifyPasswordResetCodeLoading value)?
+        verifyPasswordResetCodeLoading,
+    TResult Function(_VerifyPasswordResetCodeSuccess value)?
+        verifyPasswordResetCodeSuccess,
+    TResult Function(_VerifyPasswordResetCodeFailed value)?
+        verifyPasswordResetCodeFailed,
+    TResult Function(_ResetPasswordLoading value)? resetPasswordLoading,
+    TResult Function(_ResetPasswordSuccess value)? resetPasswordSuccess,
+    TResult Function(_ResetPasswordFailed value)? resetPasswordFailed,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -290,6 +432,15 @@ class _$SignupLoadingImpl implements _SignupLoading {
     required TResult Function() loginLoading,
     required TResult Function(UserModel user) loginSuccess,
     required TResult Function(String message) loginFailed,
+    required TResult Function() sendForgotPasswordLoading,
+    required TResult Function() sendForgotPasswordSuccess,
+    required TResult Function(String message) sendForgotPasswordFailed,
+    required TResult Function() verifyPasswordResetCodeLoading,
+    required TResult Function(String? userEmail) verifyPasswordResetCodeSuccess,
+    required TResult Function(String message) verifyPasswordResetCodeFailed,
+    required TResult Function() resetPasswordLoading,
+    required TResult Function() resetPasswordSuccess,
+    required TResult Function(String message) resetPasswordFailed,
   }) {
     return signupLoading();
   }
@@ -304,6 +455,15 @@ class _$SignupLoadingImpl implements _SignupLoading {
     TResult? Function()? loginLoading,
     TResult? Function(UserModel user)? loginSuccess,
     TResult? Function(String message)? loginFailed,
+    TResult? Function()? sendForgotPasswordLoading,
+    TResult? Function()? sendForgotPasswordSuccess,
+    TResult? Function(String message)? sendForgotPasswordFailed,
+    TResult? Function()? verifyPasswordResetCodeLoading,
+    TResult? Function(String? userEmail)? verifyPasswordResetCodeSuccess,
+    TResult? Function(String message)? verifyPasswordResetCodeFailed,
+    TResult? Function()? resetPasswordLoading,
+    TResult? Function()? resetPasswordSuccess,
+    TResult? Function(String message)? resetPasswordFailed,
   }) {
     return signupLoading?.call();
   }
@@ -318,6 +478,15 @@ class _$SignupLoadingImpl implements _SignupLoading {
     TResult Function()? loginLoading,
     TResult Function(UserModel user)? loginSuccess,
     TResult Function(String message)? loginFailed,
+    TResult Function()? sendForgotPasswordLoading,
+    TResult Function()? sendForgotPasswordSuccess,
+    TResult Function(String message)? sendForgotPasswordFailed,
+    TResult Function()? verifyPasswordResetCodeLoading,
+    TResult Function(String? userEmail)? verifyPasswordResetCodeSuccess,
+    TResult Function(String message)? verifyPasswordResetCodeFailed,
+    TResult Function()? resetPasswordLoading,
+    TResult Function()? resetPasswordSuccess,
+    TResult Function(String message)? resetPasswordFailed,
     required TResult orElse(),
   }) {
     if (signupLoading != null) {
@@ -336,6 +505,21 @@ class _$SignupLoadingImpl implements _SignupLoading {
     required TResult Function(_LoginLoading value) loginLoading,
     required TResult Function(_LoginSuccess value) loginSuccess,
     required TResult Function(_LoginFailed value) loginFailed,
+    required TResult Function(_SendForgotPasswordLoading value)
+        sendForgotPasswordLoading,
+    required TResult Function(_SendForgotPasswordSuccess value)
+        sendForgotPasswordSuccess,
+    required TResult Function(_SendForgotPasswordFailed value)
+        sendForgotPasswordFailed,
+    required TResult Function(_VerifyPasswordResetCodeLoading value)
+        verifyPasswordResetCodeLoading,
+    required TResult Function(_VerifyPasswordResetCodeSuccess value)
+        verifyPasswordResetCodeSuccess,
+    required TResult Function(_VerifyPasswordResetCodeFailed value)
+        verifyPasswordResetCodeFailed,
+    required TResult Function(_ResetPasswordLoading value) resetPasswordLoading,
+    required TResult Function(_ResetPasswordSuccess value) resetPasswordSuccess,
+    required TResult Function(_ResetPasswordFailed value) resetPasswordFailed,
   }) {
     return signupLoading(this);
   }
@@ -350,6 +534,21 @@ class _$SignupLoadingImpl implements _SignupLoading {
     TResult? Function(_LoginLoading value)? loginLoading,
     TResult? Function(_LoginSuccess value)? loginSuccess,
     TResult? Function(_LoginFailed value)? loginFailed,
+    TResult? Function(_SendForgotPasswordLoading value)?
+        sendForgotPasswordLoading,
+    TResult? Function(_SendForgotPasswordSuccess value)?
+        sendForgotPasswordSuccess,
+    TResult? Function(_SendForgotPasswordFailed value)?
+        sendForgotPasswordFailed,
+    TResult? Function(_VerifyPasswordResetCodeLoading value)?
+        verifyPasswordResetCodeLoading,
+    TResult? Function(_VerifyPasswordResetCodeSuccess value)?
+        verifyPasswordResetCodeSuccess,
+    TResult? Function(_VerifyPasswordResetCodeFailed value)?
+        verifyPasswordResetCodeFailed,
+    TResult? Function(_ResetPasswordLoading value)? resetPasswordLoading,
+    TResult? Function(_ResetPasswordSuccess value)? resetPasswordSuccess,
+    TResult? Function(_ResetPasswordFailed value)? resetPasswordFailed,
   }) {
     return signupLoading?.call(this);
   }
@@ -364,6 +563,20 @@ class _$SignupLoadingImpl implements _SignupLoading {
     TResult Function(_LoginLoading value)? loginLoading,
     TResult Function(_LoginSuccess value)? loginSuccess,
     TResult Function(_LoginFailed value)? loginFailed,
+    TResult Function(_SendForgotPasswordLoading value)?
+        sendForgotPasswordLoading,
+    TResult Function(_SendForgotPasswordSuccess value)?
+        sendForgotPasswordSuccess,
+    TResult Function(_SendForgotPasswordFailed value)? sendForgotPasswordFailed,
+    TResult Function(_VerifyPasswordResetCodeLoading value)?
+        verifyPasswordResetCodeLoading,
+    TResult Function(_VerifyPasswordResetCodeSuccess value)?
+        verifyPasswordResetCodeSuccess,
+    TResult Function(_VerifyPasswordResetCodeFailed value)?
+        verifyPasswordResetCodeFailed,
+    TResult Function(_ResetPasswordLoading value)? resetPasswordLoading,
+    TResult Function(_ResetPasswordSuccess value)? resetPasswordSuccess,
+    TResult Function(_ResetPasswordFailed value)? resetPasswordFailed,
     required TResult orElse(),
   }) {
     if (signupLoading != null) {
@@ -464,6 +677,15 @@ class _$SignupSuccessImpl implements _SignupSuccess {
     required TResult Function() loginLoading,
     required TResult Function(UserModel user) loginSuccess,
     required TResult Function(String message) loginFailed,
+    required TResult Function() sendForgotPasswordLoading,
+    required TResult Function() sendForgotPasswordSuccess,
+    required TResult Function(String message) sendForgotPasswordFailed,
+    required TResult Function() verifyPasswordResetCodeLoading,
+    required TResult Function(String? userEmail) verifyPasswordResetCodeSuccess,
+    required TResult Function(String message) verifyPasswordResetCodeFailed,
+    required TResult Function() resetPasswordLoading,
+    required TResult Function() resetPasswordSuccess,
+    required TResult Function(String message) resetPasswordFailed,
   }) {
     return signupSuccess(user);
   }
@@ -478,6 +700,15 @@ class _$SignupSuccessImpl implements _SignupSuccess {
     TResult? Function()? loginLoading,
     TResult? Function(UserModel user)? loginSuccess,
     TResult? Function(String message)? loginFailed,
+    TResult? Function()? sendForgotPasswordLoading,
+    TResult? Function()? sendForgotPasswordSuccess,
+    TResult? Function(String message)? sendForgotPasswordFailed,
+    TResult? Function()? verifyPasswordResetCodeLoading,
+    TResult? Function(String? userEmail)? verifyPasswordResetCodeSuccess,
+    TResult? Function(String message)? verifyPasswordResetCodeFailed,
+    TResult? Function()? resetPasswordLoading,
+    TResult? Function()? resetPasswordSuccess,
+    TResult? Function(String message)? resetPasswordFailed,
   }) {
     return signupSuccess?.call(user);
   }
@@ -492,6 +723,15 @@ class _$SignupSuccessImpl implements _SignupSuccess {
     TResult Function()? loginLoading,
     TResult Function(UserModel user)? loginSuccess,
     TResult Function(String message)? loginFailed,
+    TResult Function()? sendForgotPasswordLoading,
+    TResult Function()? sendForgotPasswordSuccess,
+    TResult Function(String message)? sendForgotPasswordFailed,
+    TResult Function()? verifyPasswordResetCodeLoading,
+    TResult Function(String? userEmail)? verifyPasswordResetCodeSuccess,
+    TResult Function(String message)? verifyPasswordResetCodeFailed,
+    TResult Function()? resetPasswordLoading,
+    TResult Function()? resetPasswordSuccess,
+    TResult Function(String message)? resetPasswordFailed,
     required TResult orElse(),
   }) {
     if (signupSuccess != null) {
@@ -510,6 +750,21 @@ class _$SignupSuccessImpl implements _SignupSuccess {
     required TResult Function(_LoginLoading value) loginLoading,
     required TResult Function(_LoginSuccess value) loginSuccess,
     required TResult Function(_LoginFailed value) loginFailed,
+    required TResult Function(_SendForgotPasswordLoading value)
+        sendForgotPasswordLoading,
+    required TResult Function(_SendForgotPasswordSuccess value)
+        sendForgotPasswordSuccess,
+    required TResult Function(_SendForgotPasswordFailed value)
+        sendForgotPasswordFailed,
+    required TResult Function(_VerifyPasswordResetCodeLoading value)
+        verifyPasswordResetCodeLoading,
+    required TResult Function(_VerifyPasswordResetCodeSuccess value)
+        verifyPasswordResetCodeSuccess,
+    required TResult Function(_VerifyPasswordResetCodeFailed value)
+        verifyPasswordResetCodeFailed,
+    required TResult Function(_ResetPasswordLoading value) resetPasswordLoading,
+    required TResult Function(_ResetPasswordSuccess value) resetPasswordSuccess,
+    required TResult Function(_ResetPasswordFailed value) resetPasswordFailed,
   }) {
     return signupSuccess(this);
   }
@@ -524,6 +779,21 @@ class _$SignupSuccessImpl implements _SignupSuccess {
     TResult? Function(_LoginLoading value)? loginLoading,
     TResult? Function(_LoginSuccess value)? loginSuccess,
     TResult? Function(_LoginFailed value)? loginFailed,
+    TResult? Function(_SendForgotPasswordLoading value)?
+        sendForgotPasswordLoading,
+    TResult? Function(_SendForgotPasswordSuccess value)?
+        sendForgotPasswordSuccess,
+    TResult? Function(_SendForgotPasswordFailed value)?
+        sendForgotPasswordFailed,
+    TResult? Function(_VerifyPasswordResetCodeLoading value)?
+        verifyPasswordResetCodeLoading,
+    TResult? Function(_VerifyPasswordResetCodeSuccess value)?
+        verifyPasswordResetCodeSuccess,
+    TResult? Function(_VerifyPasswordResetCodeFailed value)?
+        verifyPasswordResetCodeFailed,
+    TResult? Function(_ResetPasswordLoading value)? resetPasswordLoading,
+    TResult? Function(_ResetPasswordSuccess value)? resetPasswordSuccess,
+    TResult? Function(_ResetPasswordFailed value)? resetPasswordFailed,
   }) {
     return signupSuccess?.call(this);
   }
@@ -538,6 +808,20 @@ class _$SignupSuccessImpl implements _SignupSuccess {
     TResult Function(_LoginLoading value)? loginLoading,
     TResult Function(_LoginSuccess value)? loginSuccess,
     TResult Function(_LoginFailed value)? loginFailed,
+    TResult Function(_SendForgotPasswordLoading value)?
+        sendForgotPasswordLoading,
+    TResult Function(_SendForgotPasswordSuccess value)?
+        sendForgotPasswordSuccess,
+    TResult Function(_SendForgotPasswordFailed value)? sendForgotPasswordFailed,
+    TResult Function(_VerifyPasswordResetCodeLoading value)?
+        verifyPasswordResetCodeLoading,
+    TResult Function(_VerifyPasswordResetCodeSuccess value)?
+        verifyPasswordResetCodeSuccess,
+    TResult Function(_VerifyPasswordResetCodeFailed value)?
+        verifyPasswordResetCodeFailed,
+    TResult Function(_ResetPasswordLoading value)? resetPasswordLoading,
+    TResult Function(_ResetPasswordSuccess value)? resetPasswordSuccess,
+    TResult Function(_ResetPasswordFailed value)? resetPasswordFailed,
     required TResult orElse(),
   }) {
     if (signupSuccess != null) {
@@ -635,6 +919,15 @@ class _$SignupFailedImpl implements _SignupFailed {
     required TResult Function() loginLoading,
     required TResult Function(UserModel user) loginSuccess,
     required TResult Function(String message) loginFailed,
+    required TResult Function() sendForgotPasswordLoading,
+    required TResult Function() sendForgotPasswordSuccess,
+    required TResult Function(String message) sendForgotPasswordFailed,
+    required TResult Function() verifyPasswordResetCodeLoading,
+    required TResult Function(String? userEmail) verifyPasswordResetCodeSuccess,
+    required TResult Function(String message) verifyPasswordResetCodeFailed,
+    required TResult Function() resetPasswordLoading,
+    required TResult Function() resetPasswordSuccess,
+    required TResult Function(String message) resetPasswordFailed,
   }) {
     return signupFailed(message);
   }
@@ -649,6 +942,15 @@ class _$SignupFailedImpl implements _SignupFailed {
     TResult? Function()? loginLoading,
     TResult? Function(UserModel user)? loginSuccess,
     TResult? Function(String message)? loginFailed,
+    TResult? Function()? sendForgotPasswordLoading,
+    TResult? Function()? sendForgotPasswordSuccess,
+    TResult? Function(String message)? sendForgotPasswordFailed,
+    TResult? Function()? verifyPasswordResetCodeLoading,
+    TResult? Function(String? userEmail)? verifyPasswordResetCodeSuccess,
+    TResult? Function(String message)? verifyPasswordResetCodeFailed,
+    TResult? Function()? resetPasswordLoading,
+    TResult? Function()? resetPasswordSuccess,
+    TResult? Function(String message)? resetPasswordFailed,
   }) {
     return signupFailed?.call(message);
   }
@@ -663,6 +965,15 @@ class _$SignupFailedImpl implements _SignupFailed {
     TResult Function()? loginLoading,
     TResult Function(UserModel user)? loginSuccess,
     TResult Function(String message)? loginFailed,
+    TResult Function()? sendForgotPasswordLoading,
+    TResult Function()? sendForgotPasswordSuccess,
+    TResult Function(String message)? sendForgotPasswordFailed,
+    TResult Function()? verifyPasswordResetCodeLoading,
+    TResult Function(String? userEmail)? verifyPasswordResetCodeSuccess,
+    TResult Function(String message)? verifyPasswordResetCodeFailed,
+    TResult Function()? resetPasswordLoading,
+    TResult Function()? resetPasswordSuccess,
+    TResult Function(String message)? resetPasswordFailed,
     required TResult orElse(),
   }) {
     if (signupFailed != null) {
@@ -681,6 +992,21 @@ class _$SignupFailedImpl implements _SignupFailed {
     required TResult Function(_LoginLoading value) loginLoading,
     required TResult Function(_LoginSuccess value) loginSuccess,
     required TResult Function(_LoginFailed value) loginFailed,
+    required TResult Function(_SendForgotPasswordLoading value)
+        sendForgotPasswordLoading,
+    required TResult Function(_SendForgotPasswordSuccess value)
+        sendForgotPasswordSuccess,
+    required TResult Function(_SendForgotPasswordFailed value)
+        sendForgotPasswordFailed,
+    required TResult Function(_VerifyPasswordResetCodeLoading value)
+        verifyPasswordResetCodeLoading,
+    required TResult Function(_VerifyPasswordResetCodeSuccess value)
+        verifyPasswordResetCodeSuccess,
+    required TResult Function(_VerifyPasswordResetCodeFailed value)
+        verifyPasswordResetCodeFailed,
+    required TResult Function(_ResetPasswordLoading value) resetPasswordLoading,
+    required TResult Function(_ResetPasswordSuccess value) resetPasswordSuccess,
+    required TResult Function(_ResetPasswordFailed value) resetPasswordFailed,
   }) {
     return signupFailed(this);
   }
@@ -695,6 +1021,21 @@ class _$SignupFailedImpl implements _SignupFailed {
     TResult? Function(_LoginLoading value)? loginLoading,
     TResult? Function(_LoginSuccess value)? loginSuccess,
     TResult? Function(_LoginFailed value)? loginFailed,
+    TResult? Function(_SendForgotPasswordLoading value)?
+        sendForgotPasswordLoading,
+    TResult? Function(_SendForgotPasswordSuccess value)?
+        sendForgotPasswordSuccess,
+    TResult? Function(_SendForgotPasswordFailed value)?
+        sendForgotPasswordFailed,
+    TResult? Function(_VerifyPasswordResetCodeLoading value)?
+        verifyPasswordResetCodeLoading,
+    TResult? Function(_VerifyPasswordResetCodeSuccess value)?
+        verifyPasswordResetCodeSuccess,
+    TResult? Function(_VerifyPasswordResetCodeFailed value)?
+        verifyPasswordResetCodeFailed,
+    TResult? Function(_ResetPasswordLoading value)? resetPasswordLoading,
+    TResult? Function(_ResetPasswordSuccess value)? resetPasswordSuccess,
+    TResult? Function(_ResetPasswordFailed value)? resetPasswordFailed,
   }) {
     return signupFailed?.call(this);
   }
@@ -709,6 +1050,20 @@ class _$SignupFailedImpl implements _SignupFailed {
     TResult Function(_LoginLoading value)? loginLoading,
     TResult Function(_LoginSuccess value)? loginSuccess,
     TResult Function(_LoginFailed value)? loginFailed,
+    TResult Function(_SendForgotPasswordLoading value)?
+        sendForgotPasswordLoading,
+    TResult Function(_SendForgotPasswordSuccess value)?
+        sendForgotPasswordSuccess,
+    TResult Function(_SendForgotPasswordFailed value)? sendForgotPasswordFailed,
+    TResult Function(_VerifyPasswordResetCodeLoading value)?
+        verifyPasswordResetCodeLoading,
+    TResult Function(_VerifyPasswordResetCodeSuccess value)?
+        verifyPasswordResetCodeSuccess,
+    TResult Function(_VerifyPasswordResetCodeFailed value)?
+        verifyPasswordResetCodeFailed,
+    TResult Function(_ResetPasswordLoading value)? resetPasswordLoading,
+    TResult Function(_ResetPasswordSuccess value)? resetPasswordSuccess,
+    TResult Function(_ResetPasswordFailed value)? resetPasswordFailed,
     required TResult orElse(),
   }) {
     if (signupFailed != null) {
@@ -779,6 +1134,15 @@ class _$LoginLoadingImpl implements _LoginLoading {
     required TResult Function() loginLoading,
     required TResult Function(UserModel user) loginSuccess,
     required TResult Function(String message) loginFailed,
+    required TResult Function() sendForgotPasswordLoading,
+    required TResult Function() sendForgotPasswordSuccess,
+    required TResult Function(String message) sendForgotPasswordFailed,
+    required TResult Function() verifyPasswordResetCodeLoading,
+    required TResult Function(String? userEmail) verifyPasswordResetCodeSuccess,
+    required TResult Function(String message) verifyPasswordResetCodeFailed,
+    required TResult Function() resetPasswordLoading,
+    required TResult Function() resetPasswordSuccess,
+    required TResult Function(String message) resetPasswordFailed,
   }) {
     return loginLoading();
   }
@@ -793,6 +1157,15 @@ class _$LoginLoadingImpl implements _LoginLoading {
     TResult? Function()? loginLoading,
     TResult? Function(UserModel user)? loginSuccess,
     TResult? Function(String message)? loginFailed,
+    TResult? Function()? sendForgotPasswordLoading,
+    TResult? Function()? sendForgotPasswordSuccess,
+    TResult? Function(String message)? sendForgotPasswordFailed,
+    TResult? Function()? verifyPasswordResetCodeLoading,
+    TResult? Function(String? userEmail)? verifyPasswordResetCodeSuccess,
+    TResult? Function(String message)? verifyPasswordResetCodeFailed,
+    TResult? Function()? resetPasswordLoading,
+    TResult? Function()? resetPasswordSuccess,
+    TResult? Function(String message)? resetPasswordFailed,
   }) {
     return loginLoading?.call();
   }
@@ -807,6 +1180,15 @@ class _$LoginLoadingImpl implements _LoginLoading {
     TResult Function()? loginLoading,
     TResult Function(UserModel user)? loginSuccess,
     TResult Function(String message)? loginFailed,
+    TResult Function()? sendForgotPasswordLoading,
+    TResult Function()? sendForgotPasswordSuccess,
+    TResult Function(String message)? sendForgotPasswordFailed,
+    TResult Function()? verifyPasswordResetCodeLoading,
+    TResult Function(String? userEmail)? verifyPasswordResetCodeSuccess,
+    TResult Function(String message)? verifyPasswordResetCodeFailed,
+    TResult Function()? resetPasswordLoading,
+    TResult Function()? resetPasswordSuccess,
+    TResult Function(String message)? resetPasswordFailed,
     required TResult orElse(),
   }) {
     if (loginLoading != null) {
@@ -825,6 +1207,21 @@ class _$LoginLoadingImpl implements _LoginLoading {
     required TResult Function(_LoginLoading value) loginLoading,
     required TResult Function(_LoginSuccess value) loginSuccess,
     required TResult Function(_LoginFailed value) loginFailed,
+    required TResult Function(_SendForgotPasswordLoading value)
+        sendForgotPasswordLoading,
+    required TResult Function(_SendForgotPasswordSuccess value)
+        sendForgotPasswordSuccess,
+    required TResult Function(_SendForgotPasswordFailed value)
+        sendForgotPasswordFailed,
+    required TResult Function(_VerifyPasswordResetCodeLoading value)
+        verifyPasswordResetCodeLoading,
+    required TResult Function(_VerifyPasswordResetCodeSuccess value)
+        verifyPasswordResetCodeSuccess,
+    required TResult Function(_VerifyPasswordResetCodeFailed value)
+        verifyPasswordResetCodeFailed,
+    required TResult Function(_ResetPasswordLoading value) resetPasswordLoading,
+    required TResult Function(_ResetPasswordSuccess value) resetPasswordSuccess,
+    required TResult Function(_ResetPasswordFailed value) resetPasswordFailed,
   }) {
     return loginLoading(this);
   }
@@ -839,6 +1236,21 @@ class _$LoginLoadingImpl implements _LoginLoading {
     TResult? Function(_LoginLoading value)? loginLoading,
     TResult? Function(_LoginSuccess value)? loginSuccess,
     TResult? Function(_LoginFailed value)? loginFailed,
+    TResult? Function(_SendForgotPasswordLoading value)?
+        sendForgotPasswordLoading,
+    TResult? Function(_SendForgotPasswordSuccess value)?
+        sendForgotPasswordSuccess,
+    TResult? Function(_SendForgotPasswordFailed value)?
+        sendForgotPasswordFailed,
+    TResult? Function(_VerifyPasswordResetCodeLoading value)?
+        verifyPasswordResetCodeLoading,
+    TResult? Function(_VerifyPasswordResetCodeSuccess value)?
+        verifyPasswordResetCodeSuccess,
+    TResult? Function(_VerifyPasswordResetCodeFailed value)?
+        verifyPasswordResetCodeFailed,
+    TResult? Function(_ResetPasswordLoading value)? resetPasswordLoading,
+    TResult? Function(_ResetPasswordSuccess value)? resetPasswordSuccess,
+    TResult? Function(_ResetPasswordFailed value)? resetPasswordFailed,
   }) {
     return loginLoading?.call(this);
   }
@@ -853,6 +1265,20 @@ class _$LoginLoadingImpl implements _LoginLoading {
     TResult Function(_LoginLoading value)? loginLoading,
     TResult Function(_LoginSuccess value)? loginSuccess,
     TResult Function(_LoginFailed value)? loginFailed,
+    TResult Function(_SendForgotPasswordLoading value)?
+        sendForgotPasswordLoading,
+    TResult Function(_SendForgotPasswordSuccess value)?
+        sendForgotPasswordSuccess,
+    TResult Function(_SendForgotPasswordFailed value)? sendForgotPasswordFailed,
+    TResult Function(_VerifyPasswordResetCodeLoading value)?
+        verifyPasswordResetCodeLoading,
+    TResult Function(_VerifyPasswordResetCodeSuccess value)?
+        verifyPasswordResetCodeSuccess,
+    TResult Function(_VerifyPasswordResetCodeFailed value)?
+        verifyPasswordResetCodeFailed,
+    TResult Function(_ResetPasswordLoading value)? resetPasswordLoading,
+    TResult Function(_ResetPasswordSuccess value)? resetPasswordSuccess,
+    TResult Function(_ResetPasswordFailed value)? resetPasswordFailed,
     required TResult orElse(),
   }) {
     if (loginLoading != null) {
@@ -953,6 +1379,15 @@ class _$LoginSuccessImpl implements _LoginSuccess {
     required TResult Function() loginLoading,
     required TResult Function(UserModel user) loginSuccess,
     required TResult Function(String message) loginFailed,
+    required TResult Function() sendForgotPasswordLoading,
+    required TResult Function() sendForgotPasswordSuccess,
+    required TResult Function(String message) sendForgotPasswordFailed,
+    required TResult Function() verifyPasswordResetCodeLoading,
+    required TResult Function(String? userEmail) verifyPasswordResetCodeSuccess,
+    required TResult Function(String message) verifyPasswordResetCodeFailed,
+    required TResult Function() resetPasswordLoading,
+    required TResult Function() resetPasswordSuccess,
+    required TResult Function(String message) resetPasswordFailed,
   }) {
     return loginSuccess(user);
   }
@@ -967,6 +1402,15 @@ class _$LoginSuccessImpl implements _LoginSuccess {
     TResult? Function()? loginLoading,
     TResult? Function(UserModel user)? loginSuccess,
     TResult? Function(String message)? loginFailed,
+    TResult? Function()? sendForgotPasswordLoading,
+    TResult? Function()? sendForgotPasswordSuccess,
+    TResult? Function(String message)? sendForgotPasswordFailed,
+    TResult? Function()? verifyPasswordResetCodeLoading,
+    TResult? Function(String? userEmail)? verifyPasswordResetCodeSuccess,
+    TResult? Function(String message)? verifyPasswordResetCodeFailed,
+    TResult? Function()? resetPasswordLoading,
+    TResult? Function()? resetPasswordSuccess,
+    TResult? Function(String message)? resetPasswordFailed,
   }) {
     return loginSuccess?.call(user);
   }
@@ -981,6 +1425,15 @@ class _$LoginSuccessImpl implements _LoginSuccess {
     TResult Function()? loginLoading,
     TResult Function(UserModel user)? loginSuccess,
     TResult Function(String message)? loginFailed,
+    TResult Function()? sendForgotPasswordLoading,
+    TResult Function()? sendForgotPasswordSuccess,
+    TResult Function(String message)? sendForgotPasswordFailed,
+    TResult Function()? verifyPasswordResetCodeLoading,
+    TResult Function(String? userEmail)? verifyPasswordResetCodeSuccess,
+    TResult Function(String message)? verifyPasswordResetCodeFailed,
+    TResult Function()? resetPasswordLoading,
+    TResult Function()? resetPasswordSuccess,
+    TResult Function(String message)? resetPasswordFailed,
     required TResult orElse(),
   }) {
     if (loginSuccess != null) {
@@ -999,6 +1452,21 @@ class _$LoginSuccessImpl implements _LoginSuccess {
     required TResult Function(_LoginLoading value) loginLoading,
     required TResult Function(_LoginSuccess value) loginSuccess,
     required TResult Function(_LoginFailed value) loginFailed,
+    required TResult Function(_SendForgotPasswordLoading value)
+        sendForgotPasswordLoading,
+    required TResult Function(_SendForgotPasswordSuccess value)
+        sendForgotPasswordSuccess,
+    required TResult Function(_SendForgotPasswordFailed value)
+        sendForgotPasswordFailed,
+    required TResult Function(_VerifyPasswordResetCodeLoading value)
+        verifyPasswordResetCodeLoading,
+    required TResult Function(_VerifyPasswordResetCodeSuccess value)
+        verifyPasswordResetCodeSuccess,
+    required TResult Function(_VerifyPasswordResetCodeFailed value)
+        verifyPasswordResetCodeFailed,
+    required TResult Function(_ResetPasswordLoading value) resetPasswordLoading,
+    required TResult Function(_ResetPasswordSuccess value) resetPasswordSuccess,
+    required TResult Function(_ResetPasswordFailed value) resetPasswordFailed,
   }) {
     return loginSuccess(this);
   }
@@ -1013,6 +1481,21 @@ class _$LoginSuccessImpl implements _LoginSuccess {
     TResult? Function(_LoginLoading value)? loginLoading,
     TResult? Function(_LoginSuccess value)? loginSuccess,
     TResult? Function(_LoginFailed value)? loginFailed,
+    TResult? Function(_SendForgotPasswordLoading value)?
+        sendForgotPasswordLoading,
+    TResult? Function(_SendForgotPasswordSuccess value)?
+        sendForgotPasswordSuccess,
+    TResult? Function(_SendForgotPasswordFailed value)?
+        sendForgotPasswordFailed,
+    TResult? Function(_VerifyPasswordResetCodeLoading value)?
+        verifyPasswordResetCodeLoading,
+    TResult? Function(_VerifyPasswordResetCodeSuccess value)?
+        verifyPasswordResetCodeSuccess,
+    TResult? Function(_VerifyPasswordResetCodeFailed value)?
+        verifyPasswordResetCodeFailed,
+    TResult? Function(_ResetPasswordLoading value)? resetPasswordLoading,
+    TResult? Function(_ResetPasswordSuccess value)? resetPasswordSuccess,
+    TResult? Function(_ResetPasswordFailed value)? resetPasswordFailed,
   }) {
     return loginSuccess?.call(this);
   }
@@ -1027,6 +1510,20 @@ class _$LoginSuccessImpl implements _LoginSuccess {
     TResult Function(_LoginLoading value)? loginLoading,
     TResult Function(_LoginSuccess value)? loginSuccess,
     TResult Function(_LoginFailed value)? loginFailed,
+    TResult Function(_SendForgotPasswordLoading value)?
+        sendForgotPasswordLoading,
+    TResult Function(_SendForgotPasswordSuccess value)?
+        sendForgotPasswordSuccess,
+    TResult Function(_SendForgotPasswordFailed value)? sendForgotPasswordFailed,
+    TResult Function(_VerifyPasswordResetCodeLoading value)?
+        verifyPasswordResetCodeLoading,
+    TResult Function(_VerifyPasswordResetCodeSuccess value)?
+        verifyPasswordResetCodeSuccess,
+    TResult Function(_VerifyPasswordResetCodeFailed value)?
+        verifyPasswordResetCodeFailed,
+    TResult Function(_ResetPasswordLoading value)? resetPasswordLoading,
+    TResult Function(_ResetPasswordSuccess value)? resetPasswordSuccess,
+    TResult Function(_ResetPasswordFailed value)? resetPasswordFailed,
     required TResult orElse(),
   }) {
     if (loginSuccess != null) {
@@ -1124,6 +1621,15 @@ class _$LoginFailedImpl implements _LoginFailed {
     required TResult Function() loginLoading,
     required TResult Function(UserModel user) loginSuccess,
     required TResult Function(String message) loginFailed,
+    required TResult Function() sendForgotPasswordLoading,
+    required TResult Function() sendForgotPasswordSuccess,
+    required TResult Function(String message) sendForgotPasswordFailed,
+    required TResult Function() verifyPasswordResetCodeLoading,
+    required TResult Function(String? userEmail) verifyPasswordResetCodeSuccess,
+    required TResult Function(String message) verifyPasswordResetCodeFailed,
+    required TResult Function() resetPasswordLoading,
+    required TResult Function() resetPasswordSuccess,
+    required TResult Function(String message) resetPasswordFailed,
   }) {
     return loginFailed(message);
   }
@@ -1138,6 +1644,15 @@ class _$LoginFailedImpl implements _LoginFailed {
     TResult? Function()? loginLoading,
     TResult? Function(UserModel user)? loginSuccess,
     TResult? Function(String message)? loginFailed,
+    TResult? Function()? sendForgotPasswordLoading,
+    TResult? Function()? sendForgotPasswordSuccess,
+    TResult? Function(String message)? sendForgotPasswordFailed,
+    TResult? Function()? verifyPasswordResetCodeLoading,
+    TResult? Function(String? userEmail)? verifyPasswordResetCodeSuccess,
+    TResult? Function(String message)? verifyPasswordResetCodeFailed,
+    TResult? Function()? resetPasswordLoading,
+    TResult? Function()? resetPasswordSuccess,
+    TResult? Function(String message)? resetPasswordFailed,
   }) {
     return loginFailed?.call(message);
   }
@@ -1152,6 +1667,15 @@ class _$LoginFailedImpl implements _LoginFailed {
     TResult Function()? loginLoading,
     TResult Function(UserModel user)? loginSuccess,
     TResult Function(String message)? loginFailed,
+    TResult Function()? sendForgotPasswordLoading,
+    TResult Function()? sendForgotPasswordSuccess,
+    TResult Function(String message)? sendForgotPasswordFailed,
+    TResult Function()? verifyPasswordResetCodeLoading,
+    TResult Function(String? userEmail)? verifyPasswordResetCodeSuccess,
+    TResult Function(String message)? verifyPasswordResetCodeFailed,
+    TResult Function()? resetPasswordLoading,
+    TResult Function()? resetPasswordSuccess,
+    TResult Function(String message)? resetPasswordFailed,
     required TResult orElse(),
   }) {
     if (loginFailed != null) {
@@ -1170,6 +1694,21 @@ class _$LoginFailedImpl implements _LoginFailed {
     required TResult Function(_LoginLoading value) loginLoading,
     required TResult Function(_LoginSuccess value) loginSuccess,
     required TResult Function(_LoginFailed value) loginFailed,
+    required TResult Function(_SendForgotPasswordLoading value)
+        sendForgotPasswordLoading,
+    required TResult Function(_SendForgotPasswordSuccess value)
+        sendForgotPasswordSuccess,
+    required TResult Function(_SendForgotPasswordFailed value)
+        sendForgotPasswordFailed,
+    required TResult Function(_VerifyPasswordResetCodeLoading value)
+        verifyPasswordResetCodeLoading,
+    required TResult Function(_VerifyPasswordResetCodeSuccess value)
+        verifyPasswordResetCodeSuccess,
+    required TResult Function(_VerifyPasswordResetCodeFailed value)
+        verifyPasswordResetCodeFailed,
+    required TResult Function(_ResetPasswordLoading value) resetPasswordLoading,
+    required TResult Function(_ResetPasswordSuccess value) resetPasswordSuccess,
+    required TResult Function(_ResetPasswordFailed value) resetPasswordFailed,
   }) {
     return loginFailed(this);
   }
@@ -1184,6 +1723,21 @@ class _$LoginFailedImpl implements _LoginFailed {
     TResult? Function(_LoginLoading value)? loginLoading,
     TResult? Function(_LoginSuccess value)? loginSuccess,
     TResult? Function(_LoginFailed value)? loginFailed,
+    TResult? Function(_SendForgotPasswordLoading value)?
+        sendForgotPasswordLoading,
+    TResult? Function(_SendForgotPasswordSuccess value)?
+        sendForgotPasswordSuccess,
+    TResult? Function(_SendForgotPasswordFailed value)?
+        sendForgotPasswordFailed,
+    TResult? Function(_VerifyPasswordResetCodeLoading value)?
+        verifyPasswordResetCodeLoading,
+    TResult? Function(_VerifyPasswordResetCodeSuccess value)?
+        verifyPasswordResetCodeSuccess,
+    TResult? Function(_VerifyPasswordResetCodeFailed value)?
+        verifyPasswordResetCodeFailed,
+    TResult? Function(_ResetPasswordLoading value)? resetPasswordLoading,
+    TResult? Function(_ResetPasswordSuccess value)? resetPasswordSuccess,
+    TResult? Function(_ResetPasswordFailed value)? resetPasswordFailed,
   }) {
     return loginFailed?.call(this);
   }
@@ -1198,6 +1752,20 @@ class _$LoginFailedImpl implements _LoginFailed {
     TResult Function(_LoginLoading value)? loginLoading,
     TResult Function(_LoginSuccess value)? loginSuccess,
     TResult Function(_LoginFailed value)? loginFailed,
+    TResult Function(_SendForgotPasswordLoading value)?
+        sendForgotPasswordLoading,
+    TResult Function(_SendForgotPasswordSuccess value)?
+        sendForgotPasswordSuccess,
+    TResult Function(_SendForgotPasswordFailed value)? sendForgotPasswordFailed,
+    TResult Function(_VerifyPasswordResetCodeLoading value)?
+        verifyPasswordResetCodeLoading,
+    TResult Function(_VerifyPasswordResetCodeSuccess value)?
+        verifyPasswordResetCodeSuccess,
+    TResult Function(_VerifyPasswordResetCodeFailed value)?
+        verifyPasswordResetCodeFailed,
+    TResult Function(_ResetPasswordLoading value)? resetPasswordLoading,
+    TResult Function(_ResetPasswordSuccess value)? resetPasswordSuccess,
+    TResult Function(_ResetPasswordFailed value)? resetPasswordFailed,
     required TResult orElse(),
   }) {
     if (loginFailed != null) {
@@ -1217,5 +1785,2039 @@ abstract class _LoginFailed implements AuthViewmodelState {
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
   _$$LoginFailedImplCopyWith<_$LoginFailedImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$SendForgotPasswordLoadingImplCopyWith<$Res> {
+  factory _$$SendForgotPasswordLoadingImplCopyWith(
+          _$SendForgotPasswordLoadingImpl value,
+          $Res Function(_$SendForgotPasswordLoadingImpl) then) =
+      __$$SendForgotPasswordLoadingImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$SendForgotPasswordLoadingImplCopyWithImpl<$Res>
+    extends _$AuthViewmodelStateCopyWithImpl<$Res,
+        _$SendForgotPasswordLoadingImpl>
+    implements _$$SendForgotPasswordLoadingImplCopyWith<$Res> {
+  __$$SendForgotPasswordLoadingImplCopyWithImpl(
+      _$SendForgotPasswordLoadingImpl _value,
+      $Res Function(_$SendForgotPasswordLoadingImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of AuthViewmodelState
+  /// with the given fields replaced by the non-null parameter values.
+}
+
+/// @nodoc
+
+class _$SendForgotPasswordLoadingImpl implements _SendForgotPasswordLoading {
+  const _$SendForgotPasswordLoadingImpl();
+
+  @override
+  String toString() {
+    return 'AuthViewmodelState.sendForgotPasswordLoading()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$SendForgotPasswordLoadingImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() signupLoading,
+    required TResult Function(UserModel user) signupSuccess,
+    required TResult Function(String message) signupFailed,
+    required TResult Function() loginLoading,
+    required TResult Function(UserModel user) loginSuccess,
+    required TResult Function(String message) loginFailed,
+    required TResult Function() sendForgotPasswordLoading,
+    required TResult Function() sendForgotPasswordSuccess,
+    required TResult Function(String message) sendForgotPasswordFailed,
+    required TResult Function() verifyPasswordResetCodeLoading,
+    required TResult Function(String? userEmail) verifyPasswordResetCodeSuccess,
+    required TResult Function(String message) verifyPasswordResetCodeFailed,
+    required TResult Function() resetPasswordLoading,
+    required TResult Function() resetPasswordSuccess,
+    required TResult Function(String message) resetPasswordFailed,
+  }) {
+    return sendForgotPasswordLoading();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? signupLoading,
+    TResult? Function(UserModel user)? signupSuccess,
+    TResult? Function(String message)? signupFailed,
+    TResult? Function()? loginLoading,
+    TResult? Function(UserModel user)? loginSuccess,
+    TResult? Function(String message)? loginFailed,
+    TResult? Function()? sendForgotPasswordLoading,
+    TResult? Function()? sendForgotPasswordSuccess,
+    TResult? Function(String message)? sendForgotPasswordFailed,
+    TResult? Function()? verifyPasswordResetCodeLoading,
+    TResult? Function(String? userEmail)? verifyPasswordResetCodeSuccess,
+    TResult? Function(String message)? verifyPasswordResetCodeFailed,
+    TResult? Function()? resetPasswordLoading,
+    TResult? Function()? resetPasswordSuccess,
+    TResult? Function(String message)? resetPasswordFailed,
+  }) {
+    return sendForgotPasswordLoading?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? signupLoading,
+    TResult Function(UserModel user)? signupSuccess,
+    TResult Function(String message)? signupFailed,
+    TResult Function()? loginLoading,
+    TResult Function(UserModel user)? loginSuccess,
+    TResult Function(String message)? loginFailed,
+    TResult Function()? sendForgotPasswordLoading,
+    TResult Function()? sendForgotPasswordSuccess,
+    TResult Function(String message)? sendForgotPasswordFailed,
+    TResult Function()? verifyPasswordResetCodeLoading,
+    TResult Function(String? userEmail)? verifyPasswordResetCodeSuccess,
+    TResult Function(String message)? verifyPasswordResetCodeFailed,
+    TResult Function()? resetPasswordLoading,
+    TResult Function()? resetPasswordSuccess,
+    TResult Function(String message)? resetPasswordFailed,
+    required TResult orElse(),
+  }) {
+    if (sendForgotPasswordLoading != null) {
+      return sendForgotPasswordLoading();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(_SignupLoading value) signupLoading,
+    required TResult Function(_SignupSuccess value) signupSuccess,
+    required TResult Function(_SignupFailed value) signupFailed,
+    required TResult Function(_LoginLoading value) loginLoading,
+    required TResult Function(_LoginSuccess value) loginSuccess,
+    required TResult Function(_LoginFailed value) loginFailed,
+    required TResult Function(_SendForgotPasswordLoading value)
+        sendForgotPasswordLoading,
+    required TResult Function(_SendForgotPasswordSuccess value)
+        sendForgotPasswordSuccess,
+    required TResult Function(_SendForgotPasswordFailed value)
+        sendForgotPasswordFailed,
+    required TResult Function(_VerifyPasswordResetCodeLoading value)
+        verifyPasswordResetCodeLoading,
+    required TResult Function(_VerifyPasswordResetCodeSuccess value)
+        verifyPasswordResetCodeSuccess,
+    required TResult Function(_VerifyPasswordResetCodeFailed value)
+        verifyPasswordResetCodeFailed,
+    required TResult Function(_ResetPasswordLoading value) resetPasswordLoading,
+    required TResult Function(_ResetPasswordSuccess value) resetPasswordSuccess,
+    required TResult Function(_ResetPasswordFailed value) resetPasswordFailed,
+  }) {
+    return sendForgotPasswordLoading(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_SignupLoading value)? signupLoading,
+    TResult? Function(_SignupSuccess value)? signupSuccess,
+    TResult? Function(_SignupFailed value)? signupFailed,
+    TResult? Function(_LoginLoading value)? loginLoading,
+    TResult? Function(_LoginSuccess value)? loginSuccess,
+    TResult? Function(_LoginFailed value)? loginFailed,
+    TResult? Function(_SendForgotPasswordLoading value)?
+        sendForgotPasswordLoading,
+    TResult? Function(_SendForgotPasswordSuccess value)?
+        sendForgotPasswordSuccess,
+    TResult? Function(_SendForgotPasswordFailed value)?
+        sendForgotPasswordFailed,
+    TResult? Function(_VerifyPasswordResetCodeLoading value)?
+        verifyPasswordResetCodeLoading,
+    TResult? Function(_VerifyPasswordResetCodeSuccess value)?
+        verifyPasswordResetCodeSuccess,
+    TResult? Function(_VerifyPasswordResetCodeFailed value)?
+        verifyPasswordResetCodeFailed,
+    TResult? Function(_ResetPasswordLoading value)? resetPasswordLoading,
+    TResult? Function(_ResetPasswordSuccess value)? resetPasswordSuccess,
+    TResult? Function(_ResetPasswordFailed value)? resetPasswordFailed,
+  }) {
+    return sendForgotPasswordLoading?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_SignupLoading value)? signupLoading,
+    TResult Function(_SignupSuccess value)? signupSuccess,
+    TResult Function(_SignupFailed value)? signupFailed,
+    TResult Function(_LoginLoading value)? loginLoading,
+    TResult Function(_LoginSuccess value)? loginSuccess,
+    TResult Function(_LoginFailed value)? loginFailed,
+    TResult Function(_SendForgotPasswordLoading value)?
+        sendForgotPasswordLoading,
+    TResult Function(_SendForgotPasswordSuccess value)?
+        sendForgotPasswordSuccess,
+    TResult Function(_SendForgotPasswordFailed value)? sendForgotPasswordFailed,
+    TResult Function(_VerifyPasswordResetCodeLoading value)?
+        verifyPasswordResetCodeLoading,
+    TResult Function(_VerifyPasswordResetCodeSuccess value)?
+        verifyPasswordResetCodeSuccess,
+    TResult Function(_VerifyPasswordResetCodeFailed value)?
+        verifyPasswordResetCodeFailed,
+    TResult Function(_ResetPasswordLoading value)? resetPasswordLoading,
+    TResult Function(_ResetPasswordSuccess value)? resetPasswordSuccess,
+    TResult Function(_ResetPasswordFailed value)? resetPasswordFailed,
+    required TResult orElse(),
+  }) {
+    if (sendForgotPasswordLoading != null) {
+      return sendForgotPasswordLoading(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _SendForgotPasswordLoading implements AuthViewmodelState {
+  const factory _SendForgotPasswordLoading() = _$SendForgotPasswordLoadingImpl;
+}
+
+/// @nodoc
+abstract class _$$SendForgotPasswordSuccessImplCopyWith<$Res> {
+  factory _$$SendForgotPasswordSuccessImplCopyWith(
+          _$SendForgotPasswordSuccessImpl value,
+          $Res Function(_$SendForgotPasswordSuccessImpl) then) =
+      __$$SendForgotPasswordSuccessImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$SendForgotPasswordSuccessImplCopyWithImpl<$Res>
+    extends _$AuthViewmodelStateCopyWithImpl<$Res,
+        _$SendForgotPasswordSuccessImpl>
+    implements _$$SendForgotPasswordSuccessImplCopyWith<$Res> {
+  __$$SendForgotPasswordSuccessImplCopyWithImpl(
+      _$SendForgotPasswordSuccessImpl _value,
+      $Res Function(_$SendForgotPasswordSuccessImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of AuthViewmodelState
+  /// with the given fields replaced by the non-null parameter values.
+}
+
+/// @nodoc
+
+class _$SendForgotPasswordSuccessImpl implements _SendForgotPasswordSuccess {
+  const _$SendForgotPasswordSuccessImpl();
+
+  @override
+  String toString() {
+    return 'AuthViewmodelState.sendForgotPasswordSuccess()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$SendForgotPasswordSuccessImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() signupLoading,
+    required TResult Function(UserModel user) signupSuccess,
+    required TResult Function(String message) signupFailed,
+    required TResult Function() loginLoading,
+    required TResult Function(UserModel user) loginSuccess,
+    required TResult Function(String message) loginFailed,
+    required TResult Function() sendForgotPasswordLoading,
+    required TResult Function() sendForgotPasswordSuccess,
+    required TResult Function(String message) sendForgotPasswordFailed,
+    required TResult Function() verifyPasswordResetCodeLoading,
+    required TResult Function(String? userEmail) verifyPasswordResetCodeSuccess,
+    required TResult Function(String message) verifyPasswordResetCodeFailed,
+    required TResult Function() resetPasswordLoading,
+    required TResult Function() resetPasswordSuccess,
+    required TResult Function(String message) resetPasswordFailed,
+  }) {
+    return sendForgotPasswordSuccess();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? signupLoading,
+    TResult? Function(UserModel user)? signupSuccess,
+    TResult? Function(String message)? signupFailed,
+    TResult? Function()? loginLoading,
+    TResult? Function(UserModel user)? loginSuccess,
+    TResult? Function(String message)? loginFailed,
+    TResult? Function()? sendForgotPasswordLoading,
+    TResult? Function()? sendForgotPasswordSuccess,
+    TResult? Function(String message)? sendForgotPasswordFailed,
+    TResult? Function()? verifyPasswordResetCodeLoading,
+    TResult? Function(String? userEmail)? verifyPasswordResetCodeSuccess,
+    TResult? Function(String message)? verifyPasswordResetCodeFailed,
+    TResult? Function()? resetPasswordLoading,
+    TResult? Function()? resetPasswordSuccess,
+    TResult? Function(String message)? resetPasswordFailed,
+  }) {
+    return sendForgotPasswordSuccess?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? signupLoading,
+    TResult Function(UserModel user)? signupSuccess,
+    TResult Function(String message)? signupFailed,
+    TResult Function()? loginLoading,
+    TResult Function(UserModel user)? loginSuccess,
+    TResult Function(String message)? loginFailed,
+    TResult Function()? sendForgotPasswordLoading,
+    TResult Function()? sendForgotPasswordSuccess,
+    TResult Function(String message)? sendForgotPasswordFailed,
+    TResult Function()? verifyPasswordResetCodeLoading,
+    TResult Function(String? userEmail)? verifyPasswordResetCodeSuccess,
+    TResult Function(String message)? verifyPasswordResetCodeFailed,
+    TResult Function()? resetPasswordLoading,
+    TResult Function()? resetPasswordSuccess,
+    TResult Function(String message)? resetPasswordFailed,
+    required TResult orElse(),
+  }) {
+    if (sendForgotPasswordSuccess != null) {
+      return sendForgotPasswordSuccess();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(_SignupLoading value) signupLoading,
+    required TResult Function(_SignupSuccess value) signupSuccess,
+    required TResult Function(_SignupFailed value) signupFailed,
+    required TResult Function(_LoginLoading value) loginLoading,
+    required TResult Function(_LoginSuccess value) loginSuccess,
+    required TResult Function(_LoginFailed value) loginFailed,
+    required TResult Function(_SendForgotPasswordLoading value)
+        sendForgotPasswordLoading,
+    required TResult Function(_SendForgotPasswordSuccess value)
+        sendForgotPasswordSuccess,
+    required TResult Function(_SendForgotPasswordFailed value)
+        sendForgotPasswordFailed,
+    required TResult Function(_VerifyPasswordResetCodeLoading value)
+        verifyPasswordResetCodeLoading,
+    required TResult Function(_VerifyPasswordResetCodeSuccess value)
+        verifyPasswordResetCodeSuccess,
+    required TResult Function(_VerifyPasswordResetCodeFailed value)
+        verifyPasswordResetCodeFailed,
+    required TResult Function(_ResetPasswordLoading value) resetPasswordLoading,
+    required TResult Function(_ResetPasswordSuccess value) resetPasswordSuccess,
+    required TResult Function(_ResetPasswordFailed value) resetPasswordFailed,
+  }) {
+    return sendForgotPasswordSuccess(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_SignupLoading value)? signupLoading,
+    TResult? Function(_SignupSuccess value)? signupSuccess,
+    TResult? Function(_SignupFailed value)? signupFailed,
+    TResult? Function(_LoginLoading value)? loginLoading,
+    TResult? Function(_LoginSuccess value)? loginSuccess,
+    TResult? Function(_LoginFailed value)? loginFailed,
+    TResult? Function(_SendForgotPasswordLoading value)?
+        sendForgotPasswordLoading,
+    TResult? Function(_SendForgotPasswordSuccess value)?
+        sendForgotPasswordSuccess,
+    TResult? Function(_SendForgotPasswordFailed value)?
+        sendForgotPasswordFailed,
+    TResult? Function(_VerifyPasswordResetCodeLoading value)?
+        verifyPasswordResetCodeLoading,
+    TResult? Function(_VerifyPasswordResetCodeSuccess value)?
+        verifyPasswordResetCodeSuccess,
+    TResult? Function(_VerifyPasswordResetCodeFailed value)?
+        verifyPasswordResetCodeFailed,
+    TResult? Function(_ResetPasswordLoading value)? resetPasswordLoading,
+    TResult? Function(_ResetPasswordSuccess value)? resetPasswordSuccess,
+    TResult? Function(_ResetPasswordFailed value)? resetPasswordFailed,
+  }) {
+    return sendForgotPasswordSuccess?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_SignupLoading value)? signupLoading,
+    TResult Function(_SignupSuccess value)? signupSuccess,
+    TResult Function(_SignupFailed value)? signupFailed,
+    TResult Function(_LoginLoading value)? loginLoading,
+    TResult Function(_LoginSuccess value)? loginSuccess,
+    TResult Function(_LoginFailed value)? loginFailed,
+    TResult Function(_SendForgotPasswordLoading value)?
+        sendForgotPasswordLoading,
+    TResult Function(_SendForgotPasswordSuccess value)?
+        sendForgotPasswordSuccess,
+    TResult Function(_SendForgotPasswordFailed value)? sendForgotPasswordFailed,
+    TResult Function(_VerifyPasswordResetCodeLoading value)?
+        verifyPasswordResetCodeLoading,
+    TResult Function(_VerifyPasswordResetCodeSuccess value)?
+        verifyPasswordResetCodeSuccess,
+    TResult Function(_VerifyPasswordResetCodeFailed value)?
+        verifyPasswordResetCodeFailed,
+    TResult Function(_ResetPasswordLoading value)? resetPasswordLoading,
+    TResult Function(_ResetPasswordSuccess value)? resetPasswordSuccess,
+    TResult Function(_ResetPasswordFailed value)? resetPasswordFailed,
+    required TResult orElse(),
+  }) {
+    if (sendForgotPasswordSuccess != null) {
+      return sendForgotPasswordSuccess(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _SendForgotPasswordSuccess implements AuthViewmodelState {
+  const factory _SendForgotPasswordSuccess() = _$SendForgotPasswordSuccessImpl;
+}
+
+/// @nodoc
+abstract class _$$SendForgotPasswordFailedImplCopyWith<$Res> {
+  factory _$$SendForgotPasswordFailedImplCopyWith(
+          _$SendForgotPasswordFailedImpl value,
+          $Res Function(_$SendForgotPasswordFailedImpl) then) =
+      __$$SendForgotPasswordFailedImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String message});
+}
+
+/// @nodoc
+class __$$SendForgotPasswordFailedImplCopyWithImpl<$Res>
+    extends _$AuthViewmodelStateCopyWithImpl<$Res,
+        _$SendForgotPasswordFailedImpl>
+    implements _$$SendForgotPasswordFailedImplCopyWith<$Res> {
+  __$$SendForgotPasswordFailedImplCopyWithImpl(
+      _$SendForgotPasswordFailedImpl _value,
+      $Res Function(_$SendForgotPasswordFailedImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of AuthViewmodelState
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? message = null,
+  }) {
+    return _then(_$SendForgotPasswordFailedImpl(
+      message: null == message
+          ? _value.message
+          : message // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$SendForgotPasswordFailedImpl implements _SendForgotPasswordFailed {
+  const _$SendForgotPasswordFailedImpl({required this.message});
+
+  @override
+  final String message;
+
+  @override
+  String toString() {
+    return 'AuthViewmodelState.sendForgotPasswordFailed(message: $message)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$SendForgotPasswordFailedImpl &&
+            (identical(other.message, message) || other.message == message));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, message);
+
+  /// Create a copy of AuthViewmodelState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$SendForgotPasswordFailedImplCopyWith<_$SendForgotPasswordFailedImpl>
+      get copyWith => __$$SendForgotPasswordFailedImplCopyWithImpl<
+          _$SendForgotPasswordFailedImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() signupLoading,
+    required TResult Function(UserModel user) signupSuccess,
+    required TResult Function(String message) signupFailed,
+    required TResult Function() loginLoading,
+    required TResult Function(UserModel user) loginSuccess,
+    required TResult Function(String message) loginFailed,
+    required TResult Function() sendForgotPasswordLoading,
+    required TResult Function() sendForgotPasswordSuccess,
+    required TResult Function(String message) sendForgotPasswordFailed,
+    required TResult Function() verifyPasswordResetCodeLoading,
+    required TResult Function(String? userEmail) verifyPasswordResetCodeSuccess,
+    required TResult Function(String message) verifyPasswordResetCodeFailed,
+    required TResult Function() resetPasswordLoading,
+    required TResult Function() resetPasswordSuccess,
+    required TResult Function(String message) resetPasswordFailed,
+  }) {
+    return sendForgotPasswordFailed(message);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? signupLoading,
+    TResult? Function(UserModel user)? signupSuccess,
+    TResult? Function(String message)? signupFailed,
+    TResult? Function()? loginLoading,
+    TResult? Function(UserModel user)? loginSuccess,
+    TResult? Function(String message)? loginFailed,
+    TResult? Function()? sendForgotPasswordLoading,
+    TResult? Function()? sendForgotPasswordSuccess,
+    TResult? Function(String message)? sendForgotPasswordFailed,
+    TResult? Function()? verifyPasswordResetCodeLoading,
+    TResult? Function(String? userEmail)? verifyPasswordResetCodeSuccess,
+    TResult? Function(String message)? verifyPasswordResetCodeFailed,
+    TResult? Function()? resetPasswordLoading,
+    TResult? Function()? resetPasswordSuccess,
+    TResult? Function(String message)? resetPasswordFailed,
+  }) {
+    return sendForgotPasswordFailed?.call(message);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? signupLoading,
+    TResult Function(UserModel user)? signupSuccess,
+    TResult Function(String message)? signupFailed,
+    TResult Function()? loginLoading,
+    TResult Function(UserModel user)? loginSuccess,
+    TResult Function(String message)? loginFailed,
+    TResult Function()? sendForgotPasswordLoading,
+    TResult Function()? sendForgotPasswordSuccess,
+    TResult Function(String message)? sendForgotPasswordFailed,
+    TResult Function()? verifyPasswordResetCodeLoading,
+    TResult Function(String? userEmail)? verifyPasswordResetCodeSuccess,
+    TResult Function(String message)? verifyPasswordResetCodeFailed,
+    TResult Function()? resetPasswordLoading,
+    TResult Function()? resetPasswordSuccess,
+    TResult Function(String message)? resetPasswordFailed,
+    required TResult orElse(),
+  }) {
+    if (sendForgotPasswordFailed != null) {
+      return sendForgotPasswordFailed(message);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(_SignupLoading value) signupLoading,
+    required TResult Function(_SignupSuccess value) signupSuccess,
+    required TResult Function(_SignupFailed value) signupFailed,
+    required TResult Function(_LoginLoading value) loginLoading,
+    required TResult Function(_LoginSuccess value) loginSuccess,
+    required TResult Function(_LoginFailed value) loginFailed,
+    required TResult Function(_SendForgotPasswordLoading value)
+        sendForgotPasswordLoading,
+    required TResult Function(_SendForgotPasswordSuccess value)
+        sendForgotPasswordSuccess,
+    required TResult Function(_SendForgotPasswordFailed value)
+        sendForgotPasswordFailed,
+    required TResult Function(_VerifyPasswordResetCodeLoading value)
+        verifyPasswordResetCodeLoading,
+    required TResult Function(_VerifyPasswordResetCodeSuccess value)
+        verifyPasswordResetCodeSuccess,
+    required TResult Function(_VerifyPasswordResetCodeFailed value)
+        verifyPasswordResetCodeFailed,
+    required TResult Function(_ResetPasswordLoading value) resetPasswordLoading,
+    required TResult Function(_ResetPasswordSuccess value) resetPasswordSuccess,
+    required TResult Function(_ResetPasswordFailed value) resetPasswordFailed,
+  }) {
+    return sendForgotPasswordFailed(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_SignupLoading value)? signupLoading,
+    TResult? Function(_SignupSuccess value)? signupSuccess,
+    TResult? Function(_SignupFailed value)? signupFailed,
+    TResult? Function(_LoginLoading value)? loginLoading,
+    TResult? Function(_LoginSuccess value)? loginSuccess,
+    TResult? Function(_LoginFailed value)? loginFailed,
+    TResult? Function(_SendForgotPasswordLoading value)?
+        sendForgotPasswordLoading,
+    TResult? Function(_SendForgotPasswordSuccess value)?
+        sendForgotPasswordSuccess,
+    TResult? Function(_SendForgotPasswordFailed value)?
+        sendForgotPasswordFailed,
+    TResult? Function(_VerifyPasswordResetCodeLoading value)?
+        verifyPasswordResetCodeLoading,
+    TResult? Function(_VerifyPasswordResetCodeSuccess value)?
+        verifyPasswordResetCodeSuccess,
+    TResult? Function(_VerifyPasswordResetCodeFailed value)?
+        verifyPasswordResetCodeFailed,
+    TResult? Function(_ResetPasswordLoading value)? resetPasswordLoading,
+    TResult? Function(_ResetPasswordSuccess value)? resetPasswordSuccess,
+    TResult? Function(_ResetPasswordFailed value)? resetPasswordFailed,
+  }) {
+    return sendForgotPasswordFailed?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_SignupLoading value)? signupLoading,
+    TResult Function(_SignupSuccess value)? signupSuccess,
+    TResult Function(_SignupFailed value)? signupFailed,
+    TResult Function(_LoginLoading value)? loginLoading,
+    TResult Function(_LoginSuccess value)? loginSuccess,
+    TResult Function(_LoginFailed value)? loginFailed,
+    TResult Function(_SendForgotPasswordLoading value)?
+        sendForgotPasswordLoading,
+    TResult Function(_SendForgotPasswordSuccess value)?
+        sendForgotPasswordSuccess,
+    TResult Function(_SendForgotPasswordFailed value)? sendForgotPasswordFailed,
+    TResult Function(_VerifyPasswordResetCodeLoading value)?
+        verifyPasswordResetCodeLoading,
+    TResult Function(_VerifyPasswordResetCodeSuccess value)?
+        verifyPasswordResetCodeSuccess,
+    TResult Function(_VerifyPasswordResetCodeFailed value)?
+        verifyPasswordResetCodeFailed,
+    TResult Function(_ResetPasswordLoading value)? resetPasswordLoading,
+    TResult Function(_ResetPasswordSuccess value)? resetPasswordSuccess,
+    TResult Function(_ResetPasswordFailed value)? resetPasswordFailed,
+    required TResult orElse(),
+  }) {
+    if (sendForgotPasswordFailed != null) {
+      return sendForgotPasswordFailed(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _SendForgotPasswordFailed implements AuthViewmodelState {
+  const factory _SendForgotPasswordFailed({required final String message}) =
+      _$SendForgotPasswordFailedImpl;
+
+  String get message;
+
+  /// Create a copy of AuthViewmodelState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$SendForgotPasswordFailedImplCopyWith<_$SendForgotPasswordFailedImpl>
+      get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$VerifyPasswordResetCodeLoadingImplCopyWith<$Res> {
+  factory _$$VerifyPasswordResetCodeLoadingImplCopyWith(
+          _$VerifyPasswordResetCodeLoadingImpl value,
+          $Res Function(_$VerifyPasswordResetCodeLoadingImpl) then) =
+      __$$VerifyPasswordResetCodeLoadingImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$VerifyPasswordResetCodeLoadingImplCopyWithImpl<$Res>
+    extends _$AuthViewmodelStateCopyWithImpl<$Res,
+        _$VerifyPasswordResetCodeLoadingImpl>
+    implements _$$VerifyPasswordResetCodeLoadingImplCopyWith<$Res> {
+  __$$VerifyPasswordResetCodeLoadingImplCopyWithImpl(
+      _$VerifyPasswordResetCodeLoadingImpl _value,
+      $Res Function(_$VerifyPasswordResetCodeLoadingImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of AuthViewmodelState
+  /// with the given fields replaced by the non-null parameter values.
+}
+
+/// @nodoc
+
+class _$VerifyPasswordResetCodeLoadingImpl
+    implements _VerifyPasswordResetCodeLoading {
+  const _$VerifyPasswordResetCodeLoadingImpl();
+
+  @override
+  String toString() {
+    return 'AuthViewmodelState.verifyPasswordResetCodeLoading()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$VerifyPasswordResetCodeLoadingImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() signupLoading,
+    required TResult Function(UserModel user) signupSuccess,
+    required TResult Function(String message) signupFailed,
+    required TResult Function() loginLoading,
+    required TResult Function(UserModel user) loginSuccess,
+    required TResult Function(String message) loginFailed,
+    required TResult Function() sendForgotPasswordLoading,
+    required TResult Function() sendForgotPasswordSuccess,
+    required TResult Function(String message) sendForgotPasswordFailed,
+    required TResult Function() verifyPasswordResetCodeLoading,
+    required TResult Function(String? userEmail) verifyPasswordResetCodeSuccess,
+    required TResult Function(String message) verifyPasswordResetCodeFailed,
+    required TResult Function() resetPasswordLoading,
+    required TResult Function() resetPasswordSuccess,
+    required TResult Function(String message) resetPasswordFailed,
+  }) {
+    return verifyPasswordResetCodeLoading();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? signupLoading,
+    TResult? Function(UserModel user)? signupSuccess,
+    TResult? Function(String message)? signupFailed,
+    TResult? Function()? loginLoading,
+    TResult? Function(UserModel user)? loginSuccess,
+    TResult? Function(String message)? loginFailed,
+    TResult? Function()? sendForgotPasswordLoading,
+    TResult? Function()? sendForgotPasswordSuccess,
+    TResult? Function(String message)? sendForgotPasswordFailed,
+    TResult? Function()? verifyPasswordResetCodeLoading,
+    TResult? Function(String? userEmail)? verifyPasswordResetCodeSuccess,
+    TResult? Function(String message)? verifyPasswordResetCodeFailed,
+    TResult? Function()? resetPasswordLoading,
+    TResult? Function()? resetPasswordSuccess,
+    TResult? Function(String message)? resetPasswordFailed,
+  }) {
+    return verifyPasswordResetCodeLoading?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? signupLoading,
+    TResult Function(UserModel user)? signupSuccess,
+    TResult Function(String message)? signupFailed,
+    TResult Function()? loginLoading,
+    TResult Function(UserModel user)? loginSuccess,
+    TResult Function(String message)? loginFailed,
+    TResult Function()? sendForgotPasswordLoading,
+    TResult Function()? sendForgotPasswordSuccess,
+    TResult Function(String message)? sendForgotPasswordFailed,
+    TResult Function()? verifyPasswordResetCodeLoading,
+    TResult Function(String? userEmail)? verifyPasswordResetCodeSuccess,
+    TResult Function(String message)? verifyPasswordResetCodeFailed,
+    TResult Function()? resetPasswordLoading,
+    TResult Function()? resetPasswordSuccess,
+    TResult Function(String message)? resetPasswordFailed,
+    required TResult orElse(),
+  }) {
+    if (verifyPasswordResetCodeLoading != null) {
+      return verifyPasswordResetCodeLoading();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(_SignupLoading value) signupLoading,
+    required TResult Function(_SignupSuccess value) signupSuccess,
+    required TResult Function(_SignupFailed value) signupFailed,
+    required TResult Function(_LoginLoading value) loginLoading,
+    required TResult Function(_LoginSuccess value) loginSuccess,
+    required TResult Function(_LoginFailed value) loginFailed,
+    required TResult Function(_SendForgotPasswordLoading value)
+        sendForgotPasswordLoading,
+    required TResult Function(_SendForgotPasswordSuccess value)
+        sendForgotPasswordSuccess,
+    required TResult Function(_SendForgotPasswordFailed value)
+        sendForgotPasswordFailed,
+    required TResult Function(_VerifyPasswordResetCodeLoading value)
+        verifyPasswordResetCodeLoading,
+    required TResult Function(_VerifyPasswordResetCodeSuccess value)
+        verifyPasswordResetCodeSuccess,
+    required TResult Function(_VerifyPasswordResetCodeFailed value)
+        verifyPasswordResetCodeFailed,
+    required TResult Function(_ResetPasswordLoading value) resetPasswordLoading,
+    required TResult Function(_ResetPasswordSuccess value) resetPasswordSuccess,
+    required TResult Function(_ResetPasswordFailed value) resetPasswordFailed,
+  }) {
+    return verifyPasswordResetCodeLoading(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_SignupLoading value)? signupLoading,
+    TResult? Function(_SignupSuccess value)? signupSuccess,
+    TResult? Function(_SignupFailed value)? signupFailed,
+    TResult? Function(_LoginLoading value)? loginLoading,
+    TResult? Function(_LoginSuccess value)? loginSuccess,
+    TResult? Function(_LoginFailed value)? loginFailed,
+    TResult? Function(_SendForgotPasswordLoading value)?
+        sendForgotPasswordLoading,
+    TResult? Function(_SendForgotPasswordSuccess value)?
+        sendForgotPasswordSuccess,
+    TResult? Function(_SendForgotPasswordFailed value)?
+        sendForgotPasswordFailed,
+    TResult? Function(_VerifyPasswordResetCodeLoading value)?
+        verifyPasswordResetCodeLoading,
+    TResult? Function(_VerifyPasswordResetCodeSuccess value)?
+        verifyPasswordResetCodeSuccess,
+    TResult? Function(_VerifyPasswordResetCodeFailed value)?
+        verifyPasswordResetCodeFailed,
+    TResult? Function(_ResetPasswordLoading value)? resetPasswordLoading,
+    TResult? Function(_ResetPasswordSuccess value)? resetPasswordSuccess,
+    TResult? Function(_ResetPasswordFailed value)? resetPasswordFailed,
+  }) {
+    return verifyPasswordResetCodeLoading?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_SignupLoading value)? signupLoading,
+    TResult Function(_SignupSuccess value)? signupSuccess,
+    TResult Function(_SignupFailed value)? signupFailed,
+    TResult Function(_LoginLoading value)? loginLoading,
+    TResult Function(_LoginSuccess value)? loginSuccess,
+    TResult Function(_LoginFailed value)? loginFailed,
+    TResult Function(_SendForgotPasswordLoading value)?
+        sendForgotPasswordLoading,
+    TResult Function(_SendForgotPasswordSuccess value)?
+        sendForgotPasswordSuccess,
+    TResult Function(_SendForgotPasswordFailed value)? sendForgotPasswordFailed,
+    TResult Function(_VerifyPasswordResetCodeLoading value)?
+        verifyPasswordResetCodeLoading,
+    TResult Function(_VerifyPasswordResetCodeSuccess value)?
+        verifyPasswordResetCodeSuccess,
+    TResult Function(_VerifyPasswordResetCodeFailed value)?
+        verifyPasswordResetCodeFailed,
+    TResult Function(_ResetPasswordLoading value)? resetPasswordLoading,
+    TResult Function(_ResetPasswordSuccess value)? resetPasswordSuccess,
+    TResult Function(_ResetPasswordFailed value)? resetPasswordFailed,
+    required TResult orElse(),
+  }) {
+    if (verifyPasswordResetCodeLoading != null) {
+      return verifyPasswordResetCodeLoading(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _VerifyPasswordResetCodeLoading implements AuthViewmodelState {
+  const factory _VerifyPasswordResetCodeLoading() =
+      _$VerifyPasswordResetCodeLoadingImpl;
+}
+
+/// @nodoc
+abstract class _$$VerifyPasswordResetCodeSuccessImplCopyWith<$Res> {
+  factory _$$VerifyPasswordResetCodeSuccessImplCopyWith(
+          _$VerifyPasswordResetCodeSuccessImpl value,
+          $Res Function(_$VerifyPasswordResetCodeSuccessImpl) then) =
+      __$$VerifyPasswordResetCodeSuccessImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String? userEmail});
+}
+
+/// @nodoc
+class __$$VerifyPasswordResetCodeSuccessImplCopyWithImpl<$Res>
+    extends _$AuthViewmodelStateCopyWithImpl<$Res,
+        _$VerifyPasswordResetCodeSuccessImpl>
+    implements _$$VerifyPasswordResetCodeSuccessImplCopyWith<$Res> {
+  __$$VerifyPasswordResetCodeSuccessImplCopyWithImpl(
+      _$VerifyPasswordResetCodeSuccessImpl _value,
+      $Res Function(_$VerifyPasswordResetCodeSuccessImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of AuthViewmodelState
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? userEmail = freezed,
+  }) {
+    return _then(_$VerifyPasswordResetCodeSuccessImpl(
+      userEmail: freezed == userEmail
+          ? _value.userEmail
+          : userEmail // ignore: cast_nullable_to_non_nullable
+              as String?,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$VerifyPasswordResetCodeSuccessImpl
+    implements _VerifyPasswordResetCodeSuccess {
+  const _$VerifyPasswordResetCodeSuccessImpl({this.userEmail});
+
+  @override
+  final String? userEmail;
+
+  @override
+  String toString() {
+    return 'AuthViewmodelState.verifyPasswordResetCodeSuccess(userEmail: $userEmail)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$VerifyPasswordResetCodeSuccessImpl &&
+            (identical(other.userEmail, userEmail) ||
+                other.userEmail == userEmail));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, userEmail);
+
+  /// Create a copy of AuthViewmodelState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$VerifyPasswordResetCodeSuccessImplCopyWith<
+          _$VerifyPasswordResetCodeSuccessImpl>
+      get copyWith => __$$VerifyPasswordResetCodeSuccessImplCopyWithImpl<
+          _$VerifyPasswordResetCodeSuccessImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() signupLoading,
+    required TResult Function(UserModel user) signupSuccess,
+    required TResult Function(String message) signupFailed,
+    required TResult Function() loginLoading,
+    required TResult Function(UserModel user) loginSuccess,
+    required TResult Function(String message) loginFailed,
+    required TResult Function() sendForgotPasswordLoading,
+    required TResult Function() sendForgotPasswordSuccess,
+    required TResult Function(String message) sendForgotPasswordFailed,
+    required TResult Function() verifyPasswordResetCodeLoading,
+    required TResult Function(String? userEmail) verifyPasswordResetCodeSuccess,
+    required TResult Function(String message) verifyPasswordResetCodeFailed,
+    required TResult Function() resetPasswordLoading,
+    required TResult Function() resetPasswordSuccess,
+    required TResult Function(String message) resetPasswordFailed,
+  }) {
+    return verifyPasswordResetCodeSuccess(userEmail);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? signupLoading,
+    TResult? Function(UserModel user)? signupSuccess,
+    TResult? Function(String message)? signupFailed,
+    TResult? Function()? loginLoading,
+    TResult? Function(UserModel user)? loginSuccess,
+    TResult? Function(String message)? loginFailed,
+    TResult? Function()? sendForgotPasswordLoading,
+    TResult? Function()? sendForgotPasswordSuccess,
+    TResult? Function(String message)? sendForgotPasswordFailed,
+    TResult? Function()? verifyPasswordResetCodeLoading,
+    TResult? Function(String? userEmail)? verifyPasswordResetCodeSuccess,
+    TResult? Function(String message)? verifyPasswordResetCodeFailed,
+    TResult? Function()? resetPasswordLoading,
+    TResult? Function()? resetPasswordSuccess,
+    TResult? Function(String message)? resetPasswordFailed,
+  }) {
+    return verifyPasswordResetCodeSuccess?.call(userEmail);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? signupLoading,
+    TResult Function(UserModel user)? signupSuccess,
+    TResult Function(String message)? signupFailed,
+    TResult Function()? loginLoading,
+    TResult Function(UserModel user)? loginSuccess,
+    TResult Function(String message)? loginFailed,
+    TResult Function()? sendForgotPasswordLoading,
+    TResult Function()? sendForgotPasswordSuccess,
+    TResult Function(String message)? sendForgotPasswordFailed,
+    TResult Function()? verifyPasswordResetCodeLoading,
+    TResult Function(String? userEmail)? verifyPasswordResetCodeSuccess,
+    TResult Function(String message)? verifyPasswordResetCodeFailed,
+    TResult Function()? resetPasswordLoading,
+    TResult Function()? resetPasswordSuccess,
+    TResult Function(String message)? resetPasswordFailed,
+    required TResult orElse(),
+  }) {
+    if (verifyPasswordResetCodeSuccess != null) {
+      return verifyPasswordResetCodeSuccess(userEmail);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(_SignupLoading value) signupLoading,
+    required TResult Function(_SignupSuccess value) signupSuccess,
+    required TResult Function(_SignupFailed value) signupFailed,
+    required TResult Function(_LoginLoading value) loginLoading,
+    required TResult Function(_LoginSuccess value) loginSuccess,
+    required TResult Function(_LoginFailed value) loginFailed,
+    required TResult Function(_SendForgotPasswordLoading value)
+        sendForgotPasswordLoading,
+    required TResult Function(_SendForgotPasswordSuccess value)
+        sendForgotPasswordSuccess,
+    required TResult Function(_SendForgotPasswordFailed value)
+        sendForgotPasswordFailed,
+    required TResult Function(_VerifyPasswordResetCodeLoading value)
+        verifyPasswordResetCodeLoading,
+    required TResult Function(_VerifyPasswordResetCodeSuccess value)
+        verifyPasswordResetCodeSuccess,
+    required TResult Function(_VerifyPasswordResetCodeFailed value)
+        verifyPasswordResetCodeFailed,
+    required TResult Function(_ResetPasswordLoading value) resetPasswordLoading,
+    required TResult Function(_ResetPasswordSuccess value) resetPasswordSuccess,
+    required TResult Function(_ResetPasswordFailed value) resetPasswordFailed,
+  }) {
+    return verifyPasswordResetCodeSuccess(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_SignupLoading value)? signupLoading,
+    TResult? Function(_SignupSuccess value)? signupSuccess,
+    TResult? Function(_SignupFailed value)? signupFailed,
+    TResult? Function(_LoginLoading value)? loginLoading,
+    TResult? Function(_LoginSuccess value)? loginSuccess,
+    TResult? Function(_LoginFailed value)? loginFailed,
+    TResult? Function(_SendForgotPasswordLoading value)?
+        sendForgotPasswordLoading,
+    TResult? Function(_SendForgotPasswordSuccess value)?
+        sendForgotPasswordSuccess,
+    TResult? Function(_SendForgotPasswordFailed value)?
+        sendForgotPasswordFailed,
+    TResult? Function(_VerifyPasswordResetCodeLoading value)?
+        verifyPasswordResetCodeLoading,
+    TResult? Function(_VerifyPasswordResetCodeSuccess value)?
+        verifyPasswordResetCodeSuccess,
+    TResult? Function(_VerifyPasswordResetCodeFailed value)?
+        verifyPasswordResetCodeFailed,
+    TResult? Function(_ResetPasswordLoading value)? resetPasswordLoading,
+    TResult? Function(_ResetPasswordSuccess value)? resetPasswordSuccess,
+    TResult? Function(_ResetPasswordFailed value)? resetPasswordFailed,
+  }) {
+    return verifyPasswordResetCodeSuccess?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_SignupLoading value)? signupLoading,
+    TResult Function(_SignupSuccess value)? signupSuccess,
+    TResult Function(_SignupFailed value)? signupFailed,
+    TResult Function(_LoginLoading value)? loginLoading,
+    TResult Function(_LoginSuccess value)? loginSuccess,
+    TResult Function(_LoginFailed value)? loginFailed,
+    TResult Function(_SendForgotPasswordLoading value)?
+        sendForgotPasswordLoading,
+    TResult Function(_SendForgotPasswordSuccess value)?
+        sendForgotPasswordSuccess,
+    TResult Function(_SendForgotPasswordFailed value)? sendForgotPasswordFailed,
+    TResult Function(_VerifyPasswordResetCodeLoading value)?
+        verifyPasswordResetCodeLoading,
+    TResult Function(_VerifyPasswordResetCodeSuccess value)?
+        verifyPasswordResetCodeSuccess,
+    TResult Function(_VerifyPasswordResetCodeFailed value)?
+        verifyPasswordResetCodeFailed,
+    TResult Function(_ResetPasswordLoading value)? resetPasswordLoading,
+    TResult Function(_ResetPasswordSuccess value)? resetPasswordSuccess,
+    TResult Function(_ResetPasswordFailed value)? resetPasswordFailed,
+    required TResult orElse(),
+  }) {
+    if (verifyPasswordResetCodeSuccess != null) {
+      return verifyPasswordResetCodeSuccess(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _VerifyPasswordResetCodeSuccess implements AuthViewmodelState {
+  const factory _VerifyPasswordResetCodeSuccess({final String? userEmail}) =
+      _$VerifyPasswordResetCodeSuccessImpl;
+
+  String? get userEmail;
+
+  /// Create a copy of AuthViewmodelState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$VerifyPasswordResetCodeSuccessImplCopyWith<
+          _$VerifyPasswordResetCodeSuccessImpl>
+      get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$VerifyPasswordResetCodeFailedImplCopyWith<$Res> {
+  factory _$$VerifyPasswordResetCodeFailedImplCopyWith(
+          _$VerifyPasswordResetCodeFailedImpl value,
+          $Res Function(_$VerifyPasswordResetCodeFailedImpl) then) =
+      __$$VerifyPasswordResetCodeFailedImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String message});
+}
+
+/// @nodoc
+class __$$VerifyPasswordResetCodeFailedImplCopyWithImpl<$Res>
+    extends _$AuthViewmodelStateCopyWithImpl<$Res,
+        _$VerifyPasswordResetCodeFailedImpl>
+    implements _$$VerifyPasswordResetCodeFailedImplCopyWith<$Res> {
+  __$$VerifyPasswordResetCodeFailedImplCopyWithImpl(
+      _$VerifyPasswordResetCodeFailedImpl _value,
+      $Res Function(_$VerifyPasswordResetCodeFailedImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of AuthViewmodelState
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? message = null,
+  }) {
+    return _then(_$VerifyPasswordResetCodeFailedImpl(
+      message: null == message
+          ? _value.message
+          : message // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$VerifyPasswordResetCodeFailedImpl
+    implements _VerifyPasswordResetCodeFailed {
+  const _$VerifyPasswordResetCodeFailedImpl({required this.message});
+
+  @override
+  final String message;
+
+  @override
+  String toString() {
+    return 'AuthViewmodelState.verifyPasswordResetCodeFailed(message: $message)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$VerifyPasswordResetCodeFailedImpl &&
+            (identical(other.message, message) || other.message == message));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, message);
+
+  /// Create a copy of AuthViewmodelState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$VerifyPasswordResetCodeFailedImplCopyWith<
+          _$VerifyPasswordResetCodeFailedImpl>
+      get copyWith => __$$VerifyPasswordResetCodeFailedImplCopyWithImpl<
+          _$VerifyPasswordResetCodeFailedImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() signupLoading,
+    required TResult Function(UserModel user) signupSuccess,
+    required TResult Function(String message) signupFailed,
+    required TResult Function() loginLoading,
+    required TResult Function(UserModel user) loginSuccess,
+    required TResult Function(String message) loginFailed,
+    required TResult Function() sendForgotPasswordLoading,
+    required TResult Function() sendForgotPasswordSuccess,
+    required TResult Function(String message) sendForgotPasswordFailed,
+    required TResult Function() verifyPasswordResetCodeLoading,
+    required TResult Function(String? userEmail) verifyPasswordResetCodeSuccess,
+    required TResult Function(String message) verifyPasswordResetCodeFailed,
+    required TResult Function() resetPasswordLoading,
+    required TResult Function() resetPasswordSuccess,
+    required TResult Function(String message) resetPasswordFailed,
+  }) {
+    return verifyPasswordResetCodeFailed(message);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? signupLoading,
+    TResult? Function(UserModel user)? signupSuccess,
+    TResult? Function(String message)? signupFailed,
+    TResult? Function()? loginLoading,
+    TResult? Function(UserModel user)? loginSuccess,
+    TResult? Function(String message)? loginFailed,
+    TResult? Function()? sendForgotPasswordLoading,
+    TResult? Function()? sendForgotPasswordSuccess,
+    TResult? Function(String message)? sendForgotPasswordFailed,
+    TResult? Function()? verifyPasswordResetCodeLoading,
+    TResult? Function(String? userEmail)? verifyPasswordResetCodeSuccess,
+    TResult? Function(String message)? verifyPasswordResetCodeFailed,
+    TResult? Function()? resetPasswordLoading,
+    TResult? Function()? resetPasswordSuccess,
+    TResult? Function(String message)? resetPasswordFailed,
+  }) {
+    return verifyPasswordResetCodeFailed?.call(message);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? signupLoading,
+    TResult Function(UserModel user)? signupSuccess,
+    TResult Function(String message)? signupFailed,
+    TResult Function()? loginLoading,
+    TResult Function(UserModel user)? loginSuccess,
+    TResult Function(String message)? loginFailed,
+    TResult Function()? sendForgotPasswordLoading,
+    TResult Function()? sendForgotPasswordSuccess,
+    TResult Function(String message)? sendForgotPasswordFailed,
+    TResult Function()? verifyPasswordResetCodeLoading,
+    TResult Function(String? userEmail)? verifyPasswordResetCodeSuccess,
+    TResult Function(String message)? verifyPasswordResetCodeFailed,
+    TResult Function()? resetPasswordLoading,
+    TResult Function()? resetPasswordSuccess,
+    TResult Function(String message)? resetPasswordFailed,
+    required TResult orElse(),
+  }) {
+    if (verifyPasswordResetCodeFailed != null) {
+      return verifyPasswordResetCodeFailed(message);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(_SignupLoading value) signupLoading,
+    required TResult Function(_SignupSuccess value) signupSuccess,
+    required TResult Function(_SignupFailed value) signupFailed,
+    required TResult Function(_LoginLoading value) loginLoading,
+    required TResult Function(_LoginSuccess value) loginSuccess,
+    required TResult Function(_LoginFailed value) loginFailed,
+    required TResult Function(_SendForgotPasswordLoading value)
+        sendForgotPasswordLoading,
+    required TResult Function(_SendForgotPasswordSuccess value)
+        sendForgotPasswordSuccess,
+    required TResult Function(_SendForgotPasswordFailed value)
+        sendForgotPasswordFailed,
+    required TResult Function(_VerifyPasswordResetCodeLoading value)
+        verifyPasswordResetCodeLoading,
+    required TResult Function(_VerifyPasswordResetCodeSuccess value)
+        verifyPasswordResetCodeSuccess,
+    required TResult Function(_VerifyPasswordResetCodeFailed value)
+        verifyPasswordResetCodeFailed,
+    required TResult Function(_ResetPasswordLoading value) resetPasswordLoading,
+    required TResult Function(_ResetPasswordSuccess value) resetPasswordSuccess,
+    required TResult Function(_ResetPasswordFailed value) resetPasswordFailed,
+  }) {
+    return verifyPasswordResetCodeFailed(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_SignupLoading value)? signupLoading,
+    TResult? Function(_SignupSuccess value)? signupSuccess,
+    TResult? Function(_SignupFailed value)? signupFailed,
+    TResult? Function(_LoginLoading value)? loginLoading,
+    TResult? Function(_LoginSuccess value)? loginSuccess,
+    TResult? Function(_LoginFailed value)? loginFailed,
+    TResult? Function(_SendForgotPasswordLoading value)?
+        sendForgotPasswordLoading,
+    TResult? Function(_SendForgotPasswordSuccess value)?
+        sendForgotPasswordSuccess,
+    TResult? Function(_SendForgotPasswordFailed value)?
+        sendForgotPasswordFailed,
+    TResult? Function(_VerifyPasswordResetCodeLoading value)?
+        verifyPasswordResetCodeLoading,
+    TResult? Function(_VerifyPasswordResetCodeSuccess value)?
+        verifyPasswordResetCodeSuccess,
+    TResult? Function(_VerifyPasswordResetCodeFailed value)?
+        verifyPasswordResetCodeFailed,
+    TResult? Function(_ResetPasswordLoading value)? resetPasswordLoading,
+    TResult? Function(_ResetPasswordSuccess value)? resetPasswordSuccess,
+    TResult? Function(_ResetPasswordFailed value)? resetPasswordFailed,
+  }) {
+    return verifyPasswordResetCodeFailed?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_SignupLoading value)? signupLoading,
+    TResult Function(_SignupSuccess value)? signupSuccess,
+    TResult Function(_SignupFailed value)? signupFailed,
+    TResult Function(_LoginLoading value)? loginLoading,
+    TResult Function(_LoginSuccess value)? loginSuccess,
+    TResult Function(_LoginFailed value)? loginFailed,
+    TResult Function(_SendForgotPasswordLoading value)?
+        sendForgotPasswordLoading,
+    TResult Function(_SendForgotPasswordSuccess value)?
+        sendForgotPasswordSuccess,
+    TResult Function(_SendForgotPasswordFailed value)? sendForgotPasswordFailed,
+    TResult Function(_VerifyPasswordResetCodeLoading value)?
+        verifyPasswordResetCodeLoading,
+    TResult Function(_VerifyPasswordResetCodeSuccess value)?
+        verifyPasswordResetCodeSuccess,
+    TResult Function(_VerifyPasswordResetCodeFailed value)?
+        verifyPasswordResetCodeFailed,
+    TResult Function(_ResetPasswordLoading value)? resetPasswordLoading,
+    TResult Function(_ResetPasswordSuccess value)? resetPasswordSuccess,
+    TResult Function(_ResetPasswordFailed value)? resetPasswordFailed,
+    required TResult orElse(),
+  }) {
+    if (verifyPasswordResetCodeFailed != null) {
+      return verifyPasswordResetCodeFailed(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _VerifyPasswordResetCodeFailed implements AuthViewmodelState {
+  const factory _VerifyPasswordResetCodeFailed(
+      {required final String message}) = _$VerifyPasswordResetCodeFailedImpl;
+
+  String get message;
+
+  /// Create a copy of AuthViewmodelState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$VerifyPasswordResetCodeFailedImplCopyWith<
+          _$VerifyPasswordResetCodeFailedImpl>
+      get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$ResetPasswordLoadingImplCopyWith<$Res> {
+  factory _$$ResetPasswordLoadingImplCopyWith(_$ResetPasswordLoadingImpl value,
+          $Res Function(_$ResetPasswordLoadingImpl) then) =
+      __$$ResetPasswordLoadingImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$ResetPasswordLoadingImplCopyWithImpl<$Res>
+    extends _$AuthViewmodelStateCopyWithImpl<$Res, _$ResetPasswordLoadingImpl>
+    implements _$$ResetPasswordLoadingImplCopyWith<$Res> {
+  __$$ResetPasswordLoadingImplCopyWithImpl(_$ResetPasswordLoadingImpl _value,
+      $Res Function(_$ResetPasswordLoadingImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of AuthViewmodelState
+  /// with the given fields replaced by the non-null parameter values.
+}
+
+/// @nodoc
+
+class _$ResetPasswordLoadingImpl implements _ResetPasswordLoading {
+  const _$ResetPasswordLoadingImpl();
+
+  @override
+  String toString() {
+    return 'AuthViewmodelState.resetPasswordLoading()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$ResetPasswordLoadingImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() signupLoading,
+    required TResult Function(UserModel user) signupSuccess,
+    required TResult Function(String message) signupFailed,
+    required TResult Function() loginLoading,
+    required TResult Function(UserModel user) loginSuccess,
+    required TResult Function(String message) loginFailed,
+    required TResult Function() sendForgotPasswordLoading,
+    required TResult Function() sendForgotPasswordSuccess,
+    required TResult Function(String message) sendForgotPasswordFailed,
+    required TResult Function() verifyPasswordResetCodeLoading,
+    required TResult Function(String? userEmail) verifyPasswordResetCodeSuccess,
+    required TResult Function(String message) verifyPasswordResetCodeFailed,
+    required TResult Function() resetPasswordLoading,
+    required TResult Function() resetPasswordSuccess,
+    required TResult Function(String message) resetPasswordFailed,
+  }) {
+    return resetPasswordLoading();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? signupLoading,
+    TResult? Function(UserModel user)? signupSuccess,
+    TResult? Function(String message)? signupFailed,
+    TResult? Function()? loginLoading,
+    TResult? Function(UserModel user)? loginSuccess,
+    TResult? Function(String message)? loginFailed,
+    TResult? Function()? sendForgotPasswordLoading,
+    TResult? Function()? sendForgotPasswordSuccess,
+    TResult? Function(String message)? sendForgotPasswordFailed,
+    TResult? Function()? verifyPasswordResetCodeLoading,
+    TResult? Function(String? userEmail)? verifyPasswordResetCodeSuccess,
+    TResult? Function(String message)? verifyPasswordResetCodeFailed,
+    TResult? Function()? resetPasswordLoading,
+    TResult? Function()? resetPasswordSuccess,
+    TResult? Function(String message)? resetPasswordFailed,
+  }) {
+    return resetPasswordLoading?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? signupLoading,
+    TResult Function(UserModel user)? signupSuccess,
+    TResult Function(String message)? signupFailed,
+    TResult Function()? loginLoading,
+    TResult Function(UserModel user)? loginSuccess,
+    TResult Function(String message)? loginFailed,
+    TResult Function()? sendForgotPasswordLoading,
+    TResult Function()? sendForgotPasswordSuccess,
+    TResult Function(String message)? sendForgotPasswordFailed,
+    TResult Function()? verifyPasswordResetCodeLoading,
+    TResult Function(String? userEmail)? verifyPasswordResetCodeSuccess,
+    TResult Function(String message)? verifyPasswordResetCodeFailed,
+    TResult Function()? resetPasswordLoading,
+    TResult Function()? resetPasswordSuccess,
+    TResult Function(String message)? resetPasswordFailed,
+    required TResult orElse(),
+  }) {
+    if (resetPasswordLoading != null) {
+      return resetPasswordLoading();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(_SignupLoading value) signupLoading,
+    required TResult Function(_SignupSuccess value) signupSuccess,
+    required TResult Function(_SignupFailed value) signupFailed,
+    required TResult Function(_LoginLoading value) loginLoading,
+    required TResult Function(_LoginSuccess value) loginSuccess,
+    required TResult Function(_LoginFailed value) loginFailed,
+    required TResult Function(_SendForgotPasswordLoading value)
+        sendForgotPasswordLoading,
+    required TResult Function(_SendForgotPasswordSuccess value)
+        sendForgotPasswordSuccess,
+    required TResult Function(_SendForgotPasswordFailed value)
+        sendForgotPasswordFailed,
+    required TResult Function(_VerifyPasswordResetCodeLoading value)
+        verifyPasswordResetCodeLoading,
+    required TResult Function(_VerifyPasswordResetCodeSuccess value)
+        verifyPasswordResetCodeSuccess,
+    required TResult Function(_VerifyPasswordResetCodeFailed value)
+        verifyPasswordResetCodeFailed,
+    required TResult Function(_ResetPasswordLoading value) resetPasswordLoading,
+    required TResult Function(_ResetPasswordSuccess value) resetPasswordSuccess,
+    required TResult Function(_ResetPasswordFailed value) resetPasswordFailed,
+  }) {
+    return resetPasswordLoading(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_SignupLoading value)? signupLoading,
+    TResult? Function(_SignupSuccess value)? signupSuccess,
+    TResult? Function(_SignupFailed value)? signupFailed,
+    TResult? Function(_LoginLoading value)? loginLoading,
+    TResult? Function(_LoginSuccess value)? loginSuccess,
+    TResult? Function(_LoginFailed value)? loginFailed,
+    TResult? Function(_SendForgotPasswordLoading value)?
+        sendForgotPasswordLoading,
+    TResult? Function(_SendForgotPasswordSuccess value)?
+        sendForgotPasswordSuccess,
+    TResult? Function(_SendForgotPasswordFailed value)?
+        sendForgotPasswordFailed,
+    TResult? Function(_VerifyPasswordResetCodeLoading value)?
+        verifyPasswordResetCodeLoading,
+    TResult? Function(_VerifyPasswordResetCodeSuccess value)?
+        verifyPasswordResetCodeSuccess,
+    TResult? Function(_VerifyPasswordResetCodeFailed value)?
+        verifyPasswordResetCodeFailed,
+    TResult? Function(_ResetPasswordLoading value)? resetPasswordLoading,
+    TResult? Function(_ResetPasswordSuccess value)? resetPasswordSuccess,
+    TResult? Function(_ResetPasswordFailed value)? resetPasswordFailed,
+  }) {
+    return resetPasswordLoading?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_SignupLoading value)? signupLoading,
+    TResult Function(_SignupSuccess value)? signupSuccess,
+    TResult Function(_SignupFailed value)? signupFailed,
+    TResult Function(_LoginLoading value)? loginLoading,
+    TResult Function(_LoginSuccess value)? loginSuccess,
+    TResult Function(_LoginFailed value)? loginFailed,
+    TResult Function(_SendForgotPasswordLoading value)?
+        sendForgotPasswordLoading,
+    TResult Function(_SendForgotPasswordSuccess value)?
+        sendForgotPasswordSuccess,
+    TResult Function(_SendForgotPasswordFailed value)? sendForgotPasswordFailed,
+    TResult Function(_VerifyPasswordResetCodeLoading value)?
+        verifyPasswordResetCodeLoading,
+    TResult Function(_VerifyPasswordResetCodeSuccess value)?
+        verifyPasswordResetCodeSuccess,
+    TResult Function(_VerifyPasswordResetCodeFailed value)?
+        verifyPasswordResetCodeFailed,
+    TResult Function(_ResetPasswordLoading value)? resetPasswordLoading,
+    TResult Function(_ResetPasswordSuccess value)? resetPasswordSuccess,
+    TResult Function(_ResetPasswordFailed value)? resetPasswordFailed,
+    required TResult orElse(),
+  }) {
+    if (resetPasswordLoading != null) {
+      return resetPasswordLoading(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _ResetPasswordLoading implements AuthViewmodelState {
+  const factory _ResetPasswordLoading() = _$ResetPasswordLoadingImpl;
+}
+
+/// @nodoc
+abstract class _$$ResetPasswordSuccessImplCopyWith<$Res> {
+  factory _$$ResetPasswordSuccessImplCopyWith(_$ResetPasswordSuccessImpl value,
+          $Res Function(_$ResetPasswordSuccessImpl) then) =
+      __$$ResetPasswordSuccessImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$ResetPasswordSuccessImplCopyWithImpl<$Res>
+    extends _$AuthViewmodelStateCopyWithImpl<$Res, _$ResetPasswordSuccessImpl>
+    implements _$$ResetPasswordSuccessImplCopyWith<$Res> {
+  __$$ResetPasswordSuccessImplCopyWithImpl(_$ResetPasswordSuccessImpl _value,
+      $Res Function(_$ResetPasswordSuccessImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of AuthViewmodelState
+  /// with the given fields replaced by the non-null parameter values.
+}
+
+/// @nodoc
+
+class _$ResetPasswordSuccessImpl implements _ResetPasswordSuccess {
+  const _$ResetPasswordSuccessImpl();
+
+  @override
+  String toString() {
+    return 'AuthViewmodelState.resetPasswordSuccess()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$ResetPasswordSuccessImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() signupLoading,
+    required TResult Function(UserModel user) signupSuccess,
+    required TResult Function(String message) signupFailed,
+    required TResult Function() loginLoading,
+    required TResult Function(UserModel user) loginSuccess,
+    required TResult Function(String message) loginFailed,
+    required TResult Function() sendForgotPasswordLoading,
+    required TResult Function() sendForgotPasswordSuccess,
+    required TResult Function(String message) sendForgotPasswordFailed,
+    required TResult Function() verifyPasswordResetCodeLoading,
+    required TResult Function(String? userEmail) verifyPasswordResetCodeSuccess,
+    required TResult Function(String message) verifyPasswordResetCodeFailed,
+    required TResult Function() resetPasswordLoading,
+    required TResult Function() resetPasswordSuccess,
+    required TResult Function(String message) resetPasswordFailed,
+  }) {
+    return resetPasswordSuccess();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? signupLoading,
+    TResult? Function(UserModel user)? signupSuccess,
+    TResult? Function(String message)? signupFailed,
+    TResult? Function()? loginLoading,
+    TResult? Function(UserModel user)? loginSuccess,
+    TResult? Function(String message)? loginFailed,
+    TResult? Function()? sendForgotPasswordLoading,
+    TResult? Function()? sendForgotPasswordSuccess,
+    TResult? Function(String message)? sendForgotPasswordFailed,
+    TResult? Function()? verifyPasswordResetCodeLoading,
+    TResult? Function(String? userEmail)? verifyPasswordResetCodeSuccess,
+    TResult? Function(String message)? verifyPasswordResetCodeFailed,
+    TResult? Function()? resetPasswordLoading,
+    TResult? Function()? resetPasswordSuccess,
+    TResult? Function(String message)? resetPasswordFailed,
+  }) {
+    return resetPasswordSuccess?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? signupLoading,
+    TResult Function(UserModel user)? signupSuccess,
+    TResult Function(String message)? signupFailed,
+    TResult Function()? loginLoading,
+    TResult Function(UserModel user)? loginSuccess,
+    TResult Function(String message)? loginFailed,
+    TResult Function()? sendForgotPasswordLoading,
+    TResult Function()? sendForgotPasswordSuccess,
+    TResult Function(String message)? sendForgotPasswordFailed,
+    TResult Function()? verifyPasswordResetCodeLoading,
+    TResult Function(String? userEmail)? verifyPasswordResetCodeSuccess,
+    TResult Function(String message)? verifyPasswordResetCodeFailed,
+    TResult Function()? resetPasswordLoading,
+    TResult Function()? resetPasswordSuccess,
+    TResult Function(String message)? resetPasswordFailed,
+    required TResult orElse(),
+  }) {
+    if (resetPasswordSuccess != null) {
+      return resetPasswordSuccess();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(_SignupLoading value) signupLoading,
+    required TResult Function(_SignupSuccess value) signupSuccess,
+    required TResult Function(_SignupFailed value) signupFailed,
+    required TResult Function(_LoginLoading value) loginLoading,
+    required TResult Function(_LoginSuccess value) loginSuccess,
+    required TResult Function(_LoginFailed value) loginFailed,
+    required TResult Function(_SendForgotPasswordLoading value)
+        sendForgotPasswordLoading,
+    required TResult Function(_SendForgotPasswordSuccess value)
+        sendForgotPasswordSuccess,
+    required TResult Function(_SendForgotPasswordFailed value)
+        sendForgotPasswordFailed,
+    required TResult Function(_VerifyPasswordResetCodeLoading value)
+        verifyPasswordResetCodeLoading,
+    required TResult Function(_VerifyPasswordResetCodeSuccess value)
+        verifyPasswordResetCodeSuccess,
+    required TResult Function(_VerifyPasswordResetCodeFailed value)
+        verifyPasswordResetCodeFailed,
+    required TResult Function(_ResetPasswordLoading value) resetPasswordLoading,
+    required TResult Function(_ResetPasswordSuccess value) resetPasswordSuccess,
+    required TResult Function(_ResetPasswordFailed value) resetPasswordFailed,
+  }) {
+    return resetPasswordSuccess(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_SignupLoading value)? signupLoading,
+    TResult? Function(_SignupSuccess value)? signupSuccess,
+    TResult? Function(_SignupFailed value)? signupFailed,
+    TResult? Function(_LoginLoading value)? loginLoading,
+    TResult? Function(_LoginSuccess value)? loginSuccess,
+    TResult? Function(_LoginFailed value)? loginFailed,
+    TResult? Function(_SendForgotPasswordLoading value)?
+        sendForgotPasswordLoading,
+    TResult? Function(_SendForgotPasswordSuccess value)?
+        sendForgotPasswordSuccess,
+    TResult? Function(_SendForgotPasswordFailed value)?
+        sendForgotPasswordFailed,
+    TResult? Function(_VerifyPasswordResetCodeLoading value)?
+        verifyPasswordResetCodeLoading,
+    TResult? Function(_VerifyPasswordResetCodeSuccess value)?
+        verifyPasswordResetCodeSuccess,
+    TResult? Function(_VerifyPasswordResetCodeFailed value)?
+        verifyPasswordResetCodeFailed,
+    TResult? Function(_ResetPasswordLoading value)? resetPasswordLoading,
+    TResult? Function(_ResetPasswordSuccess value)? resetPasswordSuccess,
+    TResult? Function(_ResetPasswordFailed value)? resetPasswordFailed,
+  }) {
+    return resetPasswordSuccess?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_SignupLoading value)? signupLoading,
+    TResult Function(_SignupSuccess value)? signupSuccess,
+    TResult Function(_SignupFailed value)? signupFailed,
+    TResult Function(_LoginLoading value)? loginLoading,
+    TResult Function(_LoginSuccess value)? loginSuccess,
+    TResult Function(_LoginFailed value)? loginFailed,
+    TResult Function(_SendForgotPasswordLoading value)?
+        sendForgotPasswordLoading,
+    TResult Function(_SendForgotPasswordSuccess value)?
+        sendForgotPasswordSuccess,
+    TResult Function(_SendForgotPasswordFailed value)? sendForgotPasswordFailed,
+    TResult Function(_VerifyPasswordResetCodeLoading value)?
+        verifyPasswordResetCodeLoading,
+    TResult Function(_VerifyPasswordResetCodeSuccess value)?
+        verifyPasswordResetCodeSuccess,
+    TResult Function(_VerifyPasswordResetCodeFailed value)?
+        verifyPasswordResetCodeFailed,
+    TResult Function(_ResetPasswordLoading value)? resetPasswordLoading,
+    TResult Function(_ResetPasswordSuccess value)? resetPasswordSuccess,
+    TResult Function(_ResetPasswordFailed value)? resetPasswordFailed,
+    required TResult orElse(),
+  }) {
+    if (resetPasswordSuccess != null) {
+      return resetPasswordSuccess(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _ResetPasswordSuccess implements AuthViewmodelState {
+  const factory _ResetPasswordSuccess() = _$ResetPasswordSuccessImpl;
+}
+
+/// @nodoc
+abstract class _$$ResetPasswordFailedImplCopyWith<$Res> {
+  factory _$$ResetPasswordFailedImplCopyWith(_$ResetPasswordFailedImpl value,
+          $Res Function(_$ResetPasswordFailedImpl) then) =
+      __$$ResetPasswordFailedImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String message});
+}
+
+/// @nodoc
+class __$$ResetPasswordFailedImplCopyWithImpl<$Res>
+    extends _$AuthViewmodelStateCopyWithImpl<$Res, _$ResetPasswordFailedImpl>
+    implements _$$ResetPasswordFailedImplCopyWith<$Res> {
+  __$$ResetPasswordFailedImplCopyWithImpl(_$ResetPasswordFailedImpl _value,
+      $Res Function(_$ResetPasswordFailedImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of AuthViewmodelState
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? message = null,
+  }) {
+    return _then(_$ResetPasswordFailedImpl(
+      message: null == message
+          ? _value.message
+          : message // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$ResetPasswordFailedImpl implements _ResetPasswordFailed {
+  const _$ResetPasswordFailedImpl({required this.message});
+
+  @override
+  final String message;
+
+  @override
+  String toString() {
+    return 'AuthViewmodelState.resetPasswordFailed(message: $message)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$ResetPasswordFailedImpl &&
+            (identical(other.message, message) || other.message == message));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, message);
+
+  /// Create a copy of AuthViewmodelState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$ResetPasswordFailedImplCopyWith<_$ResetPasswordFailedImpl> get copyWith =>
+      __$$ResetPasswordFailedImplCopyWithImpl<_$ResetPasswordFailedImpl>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() signupLoading,
+    required TResult Function(UserModel user) signupSuccess,
+    required TResult Function(String message) signupFailed,
+    required TResult Function() loginLoading,
+    required TResult Function(UserModel user) loginSuccess,
+    required TResult Function(String message) loginFailed,
+    required TResult Function() sendForgotPasswordLoading,
+    required TResult Function() sendForgotPasswordSuccess,
+    required TResult Function(String message) sendForgotPasswordFailed,
+    required TResult Function() verifyPasswordResetCodeLoading,
+    required TResult Function(String? userEmail) verifyPasswordResetCodeSuccess,
+    required TResult Function(String message) verifyPasswordResetCodeFailed,
+    required TResult Function() resetPasswordLoading,
+    required TResult Function() resetPasswordSuccess,
+    required TResult Function(String message) resetPasswordFailed,
+  }) {
+    return resetPasswordFailed(message);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? signupLoading,
+    TResult? Function(UserModel user)? signupSuccess,
+    TResult? Function(String message)? signupFailed,
+    TResult? Function()? loginLoading,
+    TResult? Function(UserModel user)? loginSuccess,
+    TResult? Function(String message)? loginFailed,
+    TResult? Function()? sendForgotPasswordLoading,
+    TResult? Function()? sendForgotPasswordSuccess,
+    TResult? Function(String message)? sendForgotPasswordFailed,
+    TResult? Function()? verifyPasswordResetCodeLoading,
+    TResult? Function(String? userEmail)? verifyPasswordResetCodeSuccess,
+    TResult? Function(String message)? verifyPasswordResetCodeFailed,
+    TResult? Function()? resetPasswordLoading,
+    TResult? Function()? resetPasswordSuccess,
+    TResult? Function(String message)? resetPasswordFailed,
+  }) {
+    return resetPasswordFailed?.call(message);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? signupLoading,
+    TResult Function(UserModel user)? signupSuccess,
+    TResult Function(String message)? signupFailed,
+    TResult Function()? loginLoading,
+    TResult Function(UserModel user)? loginSuccess,
+    TResult Function(String message)? loginFailed,
+    TResult Function()? sendForgotPasswordLoading,
+    TResult Function()? sendForgotPasswordSuccess,
+    TResult Function(String message)? sendForgotPasswordFailed,
+    TResult Function()? verifyPasswordResetCodeLoading,
+    TResult Function(String? userEmail)? verifyPasswordResetCodeSuccess,
+    TResult Function(String message)? verifyPasswordResetCodeFailed,
+    TResult Function()? resetPasswordLoading,
+    TResult Function()? resetPasswordSuccess,
+    TResult Function(String message)? resetPasswordFailed,
+    required TResult orElse(),
+  }) {
+    if (resetPasswordFailed != null) {
+      return resetPasswordFailed(message);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(_SignupLoading value) signupLoading,
+    required TResult Function(_SignupSuccess value) signupSuccess,
+    required TResult Function(_SignupFailed value) signupFailed,
+    required TResult Function(_LoginLoading value) loginLoading,
+    required TResult Function(_LoginSuccess value) loginSuccess,
+    required TResult Function(_LoginFailed value) loginFailed,
+    required TResult Function(_SendForgotPasswordLoading value)
+        sendForgotPasswordLoading,
+    required TResult Function(_SendForgotPasswordSuccess value)
+        sendForgotPasswordSuccess,
+    required TResult Function(_SendForgotPasswordFailed value)
+        sendForgotPasswordFailed,
+    required TResult Function(_VerifyPasswordResetCodeLoading value)
+        verifyPasswordResetCodeLoading,
+    required TResult Function(_VerifyPasswordResetCodeSuccess value)
+        verifyPasswordResetCodeSuccess,
+    required TResult Function(_VerifyPasswordResetCodeFailed value)
+        verifyPasswordResetCodeFailed,
+    required TResult Function(_ResetPasswordLoading value) resetPasswordLoading,
+    required TResult Function(_ResetPasswordSuccess value) resetPasswordSuccess,
+    required TResult Function(_ResetPasswordFailed value) resetPasswordFailed,
+  }) {
+    return resetPasswordFailed(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_SignupLoading value)? signupLoading,
+    TResult? Function(_SignupSuccess value)? signupSuccess,
+    TResult? Function(_SignupFailed value)? signupFailed,
+    TResult? Function(_LoginLoading value)? loginLoading,
+    TResult? Function(_LoginSuccess value)? loginSuccess,
+    TResult? Function(_LoginFailed value)? loginFailed,
+    TResult? Function(_SendForgotPasswordLoading value)?
+        sendForgotPasswordLoading,
+    TResult? Function(_SendForgotPasswordSuccess value)?
+        sendForgotPasswordSuccess,
+    TResult? Function(_SendForgotPasswordFailed value)?
+        sendForgotPasswordFailed,
+    TResult? Function(_VerifyPasswordResetCodeLoading value)?
+        verifyPasswordResetCodeLoading,
+    TResult? Function(_VerifyPasswordResetCodeSuccess value)?
+        verifyPasswordResetCodeSuccess,
+    TResult? Function(_VerifyPasswordResetCodeFailed value)?
+        verifyPasswordResetCodeFailed,
+    TResult? Function(_ResetPasswordLoading value)? resetPasswordLoading,
+    TResult? Function(_ResetPasswordSuccess value)? resetPasswordSuccess,
+    TResult? Function(_ResetPasswordFailed value)? resetPasswordFailed,
+  }) {
+    return resetPasswordFailed?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_SignupLoading value)? signupLoading,
+    TResult Function(_SignupSuccess value)? signupSuccess,
+    TResult Function(_SignupFailed value)? signupFailed,
+    TResult Function(_LoginLoading value)? loginLoading,
+    TResult Function(_LoginSuccess value)? loginSuccess,
+    TResult Function(_LoginFailed value)? loginFailed,
+    TResult Function(_SendForgotPasswordLoading value)?
+        sendForgotPasswordLoading,
+    TResult Function(_SendForgotPasswordSuccess value)?
+        sendForgotPasswordSuccess,
+    TResult Function(_SendForgotPasswordFailed value)? sendForgotPasswordFailed,
+    TResult Function(_VerifyPasswordResetCodeLoading value)?
+        verifyPasswordResetCodeLoading,
+    TResult Function(_VerifyPasswordResetCodeSuccess value)?
+        verifyPasswordResetCodeSuccess,
+    TResult Function(_VerifyPasswordResetCodeFailed value)?
+        verifyPasswordResetCodeFailed,
+    TResult Function(_ResetPasswordLoading value)? resetPasswordLoading,
+    TResult Function(_ResetPasswordSuccess value)? resetPasswordSuccess,
+    TResult Function(_ResetPasswordFailed value)? resetPasswordFailed,
+    required TResult orElse(),
+  }) {
+    if (resetPasswordFailed != null) {
+      return resetPasswordFailed(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _ResetPasswordFailed implements AuthViewmodelState {
+  const factory _ResetPasswordFailed({required final String message}) =
+      _$ResetPasswordFailedImpl;
+
+  String get message;
+
+  /// Create a copy of AuthViewmodelState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$ResetPasswordFailedImplCopyWith<_$ResetPasswordFailedImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
