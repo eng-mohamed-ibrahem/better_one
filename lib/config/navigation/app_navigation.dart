@@ -1,6 +1,7 @@
 import 'package:better_one/config/navigation/routes_enum.dart';
 import 'package:better_one/core/utils/dependency_locator/dependency_injection.dart';
 import 'package:better_one/core/utils/dependency_locator/inject.dart';
+import 'package:better_one/core/utils/navigator_observer/app_navigator_observer.dart';
 import 'package:better_one/data_source/auth_data_source/firebase_auth_impl.dart';
 import 'package:better_one/data_source/feedback_data_source/firebase_feedback_source.dart';
 import 'package:better_one/repositories/auth_repo/auth_repo_impl.dart';
@@ -15,6 +16,7 @@ import 'package:better_one/view_models/search_viewmodel/search_viewmodel.dart';
 import 'package:better_one/view_models/setting_viewmodel/setting_viewmode.dart';
 import 'package:better_one/view_models/task_viewmodel/task_viewmodel.dart';
 import 'package:better_one/view_models/user_viewmodel/user_viewmodel.dart';
+import 'package:firebase_analytics/firebase_analytics.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import "package:go_router/go_router.dart";
@@ -25,11 +27,14 @@ class AppNavigation {
   static final GlobalKey<NavigatorState> _parrentNavigatorKey =
       GlobalKey<NavigatorState>();
   static String activeRoute = Routes.splash.path;
-
+  static FirebaseAnalytics analytics = FirebaseAnalytics.instance;
   static final GoRouter config = GoRouter(
     navigatorKey: _parrentNavigatorKey,
     initialLocation: Routes.splash.path,
-    observers: [routeObserver],
+    observers: [
+      routeObserver,
+      AppNavigatorObserver(analytics),
+    ],
     debugLogDiagnostics: true,
     routes: [
       GoRoute(
@@ -44,7 +49,7 @@ class AppNavigation {
         name: Routes.onboarding.name,
         builder: (context, state) {
           activeRoute = Routes.onboarding.path;
-          return OnboardingScreen();
+          return const OnboardingScreen();
         },
       ),
       GoRoute(
@@ -266,29 +271,28 @@ class AppNavigation {
                 ],
               ),
               GoRoute(
-                path: Routes.login.path,
-                name: Routes.login.name,
-                builder: (context, state) {
-                  activeRoute = Routes.login.path;
-                  return BlocProvider.value(
-                    value: inject<AuthViewmodel>(),
-                    child: const LogIn(),
-                  );
-                },
-                routes: [
-                  GoRoute(
-                    path: Routes.forgotPassword.path,
-                    name: Routes.forgotPassword.name,
-                    builder: (context, state) {
-                      activeRoute = Routes.forgotPassword.path;
-                      return BlocProvider.value(
-                        value: inject<AuthViewmodel>(),
-                        child: const ForgotPassword(),
-                      );
-                    },
-                  ),
-                ]
-              ),
+                  path: Routes.login.path,
+                  name: Routes.login.name,
+                  builder: (context, state) {
+                    activeRoute = Routes.login.path;
+                    return BlocProvider.value(
+                      value: inject<AuthViewmodel>(),
+                      child: const LogIn(),
+                    );
+                  },
+                  routes: [
+                    GoRoute(
+                      path: Routes.forgotPassword.path,
+                      name: Routes.forgotPassword.name,
+                      builder: (context, state) {
+                        activeRoute = Routes.forgotPassword.path;
+                        return BlocProvider.value(
+                          value: inject<AuthViewmodel>(),
+                          child: const ForgotPassword(),
+                        );
+                      },
+                    ),
+                  ]),
               GoRoute(
                 path: Routes.signup.path,
                 name: Routes.signup.name,
