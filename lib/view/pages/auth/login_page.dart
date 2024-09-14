@@ -112,10 +112,12 @@ class _LoginState extends State<LogIn> {
                     await userLocaleDatabase.setUserIdToLocale(
                       userId: user.id,
                     );
-                    showSnackBar(context, message: 'auth.login_succ'.tr());
-                    TasksBackgroundService.syncTasks(
-                        ServicesBinding.rootIsolateToken);
-                    context.goNamed(Routes.profile.name);
+                    if (context.mounted) {
+                      showSnackBar(context, message: 'auth.login_succ'.tr());
+                      TasksBackgroundService.syncTasks(
+                          ServicesBinding.rootIsolateToken);
+                      context.goNamed(Routes.profile.name);
+                    }
                   },
                 );
               },

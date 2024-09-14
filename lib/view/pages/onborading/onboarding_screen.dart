@@ -27,9 +27,14 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Padding(
-        padding: const EdgeInsets.all(10),
+        padding: EdgeInsets.symmetric(
+          vertical: MediaQuery.viewPaddingOf(context).top,
+          horizontal: MediaQuery.viewPaddingOf(context).left,
+        ),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          mainAxisSize: MainAxisSize.min,
           children: [
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -46,6 +51,9 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                   ),
                 ),
                 TextButton(
+                  style: TextButton.styleFrom(
+                    textStyle: Theme.of(context).textTheme.bodyMedium,
+                  ),
                   onPressed: () {
                     settingRepo.setOnBoardingSeen(true);
                     context.go(Routes.home.path);
@@ -62,7 +70,6 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                   return Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      const Spacer(),
                       AspectRatio(
                         aspectRatio: 3 / 2,
                         child: Image.asset(

@@ -1,7 +1,14 @@
 include: package:flutter_lints/flutter.yaml
 analyzer:
+  strong-mode:
+    implicit-casts: false
+    implicit-dynamic: false
   exclude:
     - "**/*.g.dart"
     - "**/*.freezed.dart"
   errors:
     invalid_annotation_target: ignore
+
+linter:
+  rules:
+    - avoid_unused_constructor_parameters

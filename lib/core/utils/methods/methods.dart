@@ -229,3 +229,35 @@ showSheet(BuildContext context, {required Widget content}) {
     },
   );
 }
+
+Future<bool?> showLeavePageDialog(BuildContext context) async {
+  return await showDialog<bool>(
+    context: context,
+    builder: (context) {
+      return AlertDialog(
+        title: Text('core.leave_page'.tr(),
+            style: Theme.of(context).textTheme.titleLarge),
+        content: Text('core.leave_page_msg'.tr()),
+        actions: [
+          TextButton(
+            onPressed: () {
+              context.pop(false);
+            },
+            child: Text('core.cancel'.tr()),
+          ),
+          TextButton(
+            onPressed: () {
+              context.pop(true);
+            },
+            child: Text(
+              'core.confirm'.tr(),
+              style: Theme.of(context).textTheme.titleSmall!.copyWith(
+                    color: AppColors.hightlightColor,
+                  ),
+            ),
+          ),
+        ],
+      );
+    },
+  );
+}
