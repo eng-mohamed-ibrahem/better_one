@@ -74,6 +74,19 @@ class AppNavigation {
             child: const HomeScreen(),
           );
         },
+        redirect: (context, state) async {
+          return await localNotification.getNotificationAppLaunchDetails.then(
+            (value) {
+              if (value != null && value.didNotificationLaunchApp) {
+                state.namedLocation(
+                  Routes.taskDetail.name,
+                  queryParameters: {'id': value.notificationResponse!.payload!},
+                );
+              }
+              return null;
+            },
+          );
+        },
         routes: [
           GoRoute(
             path: Routes.task.path,

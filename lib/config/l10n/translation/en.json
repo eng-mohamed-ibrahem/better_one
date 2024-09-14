@@ -8,6 +8,9 @@
         "total_time": "The Total Time",
         "retry": "Try again",
         "skip": "Skip",
+        "leave_page": "Leave Page",
+        "leave_page_msg":"You have unsaved changes. Are you sure you want to leave this page?",
+        "confirm": "Confirm",
         "get_started": "Ready to get started? Let's create your first task!",
         "no_intenet": "No Internet Connection, please try again",
         "ex_session": "Session is Expired",
@@ -251,7 +254,7 @@
         "no_user": "No logged user found, please login",
         "forgot_password": {
             "title": "Forgot Password",
-            "subutitle": "Enter your email and we will send you a code to reset your password",
+            "subtitle": "Enter your email and we will send you a code to reset your password",
             "send": "Send",
             "success": "Sent verification code to your email",
             "error": "Failed to send verification code, please try again later",

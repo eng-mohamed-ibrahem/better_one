@@ -10,6 +10,7 @@ import 'package:better_one/view_models/notification_viewmodel/notification_viewm
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
 
 class NotificationScreen extends StatefulWidget {
@@ -96,7 +97,7 @@ class _NotificationScreenState extends State<NotificationScreen> {
                           style: Theme.of(context).textTheme.bodyMedium),
                       MaterialButton(
                         onPressed: () {
-                          context.pushNamed(Routes.login.name);
+                          context.goNamed(Routes.login.name);
                         },
                         child: Text(
                           'auth.login'.tr(),
@@ -121,7 +122,8 @@ class _NotificationScreenState extends State<NotificationScreen> {
             orElse: () {
               var notifications = context.read<NotificationViewmodel>().list;
               return notifications.isNotEmpty
-                  ? ListView.builder(
+                  ? ListView.separated(
+                      padding: EdgeInsets.only(top: 10.h),
                       physics: const AlwaysScrollableScrollPhysics(),
                       restorationId: 'notification_list_view',
                       controller: _scrollController,
@@ -132,6 +134,9 @@ class _NotificationScreenState extends State<NotificationScreen> {
                               notifications[index].data()
                                   as Map<String, dynamic>),
                         );
+                      },
+                      separatorBuilder: (context, index) {
+                        return const SizedBox(height: 25);
                       },
                     )
                   : Center(

@@ -65,6 +65,7 @@ class _ForgotPasswordState extends State<ForgotPassword> {
           },
           builder: (context, state) {
             return Form(
+              key: formKey,
               child: Column(
                 children: [
                   SizedBox(
@@ -107,6 +108,8 @@ class _ForgotPasswordState extends State<ForgotPassword> {
                               ),
                               TextFormField(
                                 controller: codeController,
+                                autovalidateMode:
+                                    AutovalidateMode.onUserInteraction,
                                 validator: (value) {
                                   if (value!.isEmpty) {
                                     return "auth.forgot_password.required".tr();
@@ -116,13 +119,25 @@ class _ForgotPasswordState extends State<ForgotPassword> {
                                   }
                                   return null;
                                 },
+                                style: Theme.of(context)
+                                    .textTheme
+                                    .bodyMedium!
+                                    .copyWith(
+                                      color:
+                                          Theme.of(context).primaryColorLight,
+                                    ),
                                 decoration: InputDecoration(
                                   fillColor: Theme.of(context).shadowColor,
                                   filled: true,
                                   hintText:
                                       "auth.forgot_password.code_hint".tr(),
-                                  hintStyle:
-                                      Theme.of(context).textTheme.bodySmall,
+                                  hintStyle: Theme.of(context)
+                                      .textTheme
+                                      .bodySmall!
+                                      .copyWith(
+                                        color:
+                                            Theme.of(context).primaryColorLight,
+                                      ),
                                   focusedBorder: InputBorder.none,
                                   enabledBorder: InputBorder.none,
                                   errorBorder: InputBorder.none,
@@ -160,18 +175,17 @@ class _ForgotPasswordState extends State<ForgotPassword> {
                     height: AppMetrices.verticalGap3.h,
                   ),
                   sentCode
-                      ? Container(
-                          constraints: BoxConstraints(
-                            minHeight: 40.h,
-                            minWidth: MediaQuery.sizeOf(context).width * 0.6,
-                          ),
-                          decoration: BoxDecoration(
-                            color: Theme.of(context).primaryColorDark,
-                          ),
-                          padding: EdgeInsets.symmetric(
-                            vertical: 5.h,
-                          ),
-                          child: state.maybeWhen(
+                      ? TextButton.icon(
+                          onPressed: () {
+                            if (formKey.currentState!.validate()) {
+                              context
+                                  .read<AuthViewmodel>()
+                                  .verifyPasswordResetCode(
+                                    code: codeController.text.trim(),
+                                  );
+                            }
+                          },
+                          icon: state.whenOrNull(
                             verifyPasswordResetCodeLoading: () {
                               return Center(
                                 child: CircularProgressIndicator(
@@ -180,21 +194,8 @@ class _ForgotPasswordState extends State<ForgotPassword> {
                                 ),
                               );
                             },
-                            orElse: () {
-                              return TextButton(
-                                onPressed: () {
-                                  if (formKey.currentState!.validate()) {
-                                    context
-                                        .read<AuthViewmodel>()
-                                        .verifyPasswordResetCode(
-                                          code: codeController.text.trim(),
-                                        );
-                                  }
-                                },
-                                child: Text('auth.forgot_password.verify'.tr()),
-                              );
-                            },
                           ),
+                          label: Text('auth.forgot_password.verify'.tr()),
                         )
                       : TextButton(
                           style: TextButton.styleFrom(
@@ -202,6 +203,8 @@ class _ForgotPasswordState extends State<ForgotPassword> {
                               MediaQuery.sizeOf(context).width * 0.6,
                               40.h,
                             ),
+                            textStyle: Theme.of(context).textTheme.bodyMedium,
+                            backgroundColor: Theme.of(context).primaryColorDark,
                             elevation: 2,
                           ),
                           onPressed: () {

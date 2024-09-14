@@ -5,9 +5,7 @@ import 'package:better_one/core/utils/methods/methods.dart';
 import 'package:better_one/core/utils/shared_widgets/failed.dart';
 import 'package:better_one/core/utils/shared_widgets/lottie_indicator.dart';
 import 'package:better_one/model/task_model/task_model.dart';
-import 'package:better_one/view/widgets/duration_widget.dart';
 import 'package:better_one/view/widgets/overlay_widget.dart';
-import 'package:better_one/view/widgets/sliver_header.dart';
 import 'package:better_one/view/widgets/task/card_task.dart';
 import 'package:better_one/view_models/task_viewmodel/task_viewmodel.dart';
 import 'package:easy_localization/easy_localization.dart';
@@ -31,7 +29,7 @@ class _HomeScreenState extends State<HomeScreen> with RouteAware {
 
   @override
   void initState() {
-    _handleNotification();
+    _interactWithNotification();
     context.read<TaskViewmodel>().getTasks();
     super.initState();
   }
@@ -42,8 +40,7 @@ class _HomeScreenState extends State<HomeScreen> with RouteAware {
     super.didChangeDependencies();
   }
 
-  void _handleNotification() {
-    localNotification.getNotificationAppLaunchDetails;
+  void _interactWithNotification() {
     localNotification.onTapNotificationStream.listen(
       (payload) {
         if (payload!.isNotEmpty) {
@@ -121,8 +118,20 @@ class _HomeScreenState extends State<HomeScreen> with RouteAware {
                 padding: EdgeInsets.only(
                     right: MediaQuery.of(context).systemGestureInsets.right),
                 child: Row(
+                  mainAxisSize: MainAxisSize.min,
                   children: [
-                    settingIcons(context),
+                    IconButton(
+                      onPressed: () {
+                        showFilter(context);
+                      },
+                      icon: const Icon(Icons.tune_rounded),
+                    ),
+                    IconButton(
+                      onPressed: () {
+                        context.goNamed(Routes.search.name);
+                      },
+                      icon: const Icon(Icons.search),
+                    ),
                     Hero(
                       tag: 'app_notification',
                       child: IconButton(
@@ -131,37 +140,126 @@ class _HomeScreenState extends State<HomeScreen> with RouteAware {
                         },
                         icon: const Icon(FontAwesomeIcons.bell),
                       ),
-                    )
-                  ],
-                ),
-              ),
-            ),
-            Padding(
-              padding: EdgeInsets.only(bottom: 10.h),
-              child: Align(
-                alignment: AlignmentDirectional.bottomEnd,
-                child: FilledButton.icon(
-                  style: FilledButton.styleFrom(
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadiusDirectional.only(
-                        topStart: Radius.circular(15.r),
-                        bottomStart: Radius.circular(15.r),
+                    ),
+                    Hero(
+                      tag: 'app_settings',
+                      child: IconButton(
+                        onPressed: () {
+                          context.goNamed(Routes.settings.name);
+                        },
+                        icon: const Icon(Icons.settings_outlined),
                       ),
                     ),
-                  ),
-                  onPressed: () {
-                    context.goNamed(Routes.task.name);
-                  },
-                  icon: const Icon(Icons.add),
-                  label: Text(
-                    'task.create'.tr(),
-                    textAlign: TextAlign.center,
-                  ),
+                  ],
                 ),
               ),
             ),
           ],
         ),
+      ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
+      floatingActionButton: FilledButton.icon(
+        style: FilledButton.styleFrom(
+          textStyle: Theme.of(context).textTheme.titleMedium,
+          minimumSize: Size(MediaQuery.sizeOf(context).width * .5, 50.h),
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadiusDirectional.all(
+              Radius.circular(15.r),
+            ),
+          ),
+        ),
+        onPressed: () {
+          context.goNamed(Routes.task.name);
+        },
+        icon: const Icon(Icons.add),
+        label: Text(
+          'task.create'.tr(),
+          textAlign: TextAlign.center,
+        ),
+      ),
+    );
+  }
+
+  void showFilter(BuildContext context) {
+    Set<TaskStatus> selectedStatus = {};
+    // show filters as modal bottom sheet
+    showSheet(
+      context,
+      content: StatefulBuilder(
+        builder: (_, setState) {
+          return Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              Wrap(
+                alignment: WrapAlignment.center,
+                runAlignment: WrapAlignment.center,
+                crossAxisAlignment: WrapCrossAlignment.center,
+                spacing: 10.w,
+                runSpacing: 10.h,
+                children: [
+                  InkWell(
+                    onTap: () {
+                      context.read<TaskViewmodel>().getTasks();
+                      Navigator.pop(context);
+                    },
+                    child: Container(
+                      padding: EdgeInsets.symmetric(
+                        horizontal: 10.w,
+                        vertical: 8.h,
+                      ),
+                      decoration: BoxDecoration(
+                        color: Colors.white,
+                        borderRadius: BorderRadius.circular(10.r),
+                        gradient: LinearGradient(
+                          colors: TaskStatus.values
+                              .map(
+                                (status) => status.color,
+                              )
+                              .toList(),
+                          begin: Alignment.topLeft,
+                          end: Alignment.bottomRight,
+                        ),
+                      ),
+                      child: Text(
+                        'task.filter.all'.tr(),
+                        style: Theme.of(context).textTheme.bodyMedium,
+                      ),
+                    ),
+                  ),
+                  ...() {
+                    return TaskStatus.values.map(
+                      (status) => ChoiceChip(
+                        selected: selectedStatus.contains(status),
+                        label: Text(
+                          'task.status.${status.name}'.tr(),
+                          style: Theme.of(context).textTheme.bodyMedium,
+                        ),
+                        color: WidgetStatePropertyAll(status.color),
+                        selectedColor: status.color,
+                        backgroundColor: status.color,
+                        onSelected: (value) {
+                          setState(
+                            () {
+                              if (value) {
+                                selectedStatus.add(status);
+                              } else {
+                                selectedStatus.remove(status);
+                              }
+                              context
+                                  .read<TaskViewmodel>()
+                                  .filterWithStatuses(selectedStatus);
+                            },
+                          );
+                        },
+                      ),
+                    );
+                  }()
+                ],
+              ),
+              SizedBox(height: 10.h),
+            ],
+          );
+        },
       ),
     );
   }
@@ -293,40 +391,40 @@ class _HomeScreenState extends State<HomeScreen> with RouteAware {
             key: listKey,
             controller: context.read<TaskViewmodel>().scrollController,
             slivers: [
-              SliverPersistentHeader(
-                floating: true,
-                pinned: true,
-                delegate: SliverHeaderDelegate(
-                  maxHeight: MediaQuery.of(context).size.height * 0.1,
-                  minHeight: MediaQuery.of(context).size.height * 0.1,
-                  child: state.maybeWhen(
-                    getTotalEstimatedTimeLoading: () {
-                      return const SizedBox();
-                    },
-                    orElse: () {
-                      return FittedBox(
-                        fit: BoxFit.scaleDown,
-                        alignment: AlignmentDirectional.centerEnd,
-                        child: Material(
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(
-                              AppMetrices.borderRadius1.w,
-                            ),
-                          ),
-                          color: Theme.of(context).primaryColor,
-                          child: Padding(
-                            padding: const EdgeInsets.all(10),
-                            child: DurationTime(
-                              duration: taskViewmodel.totalEstimatedTime,
-                              style: Theme.of(context).textTheme.titleLarge,
-                            ),
-                          ),
-                        ),
-                      );
-                    },
-                  ),
-                ),
-              ),
+              // SliverPersistentHeader(
+              //   floating: true,
+              //   pinned: true,
+              //   delegate: SliverHeaderDelegate(
+              //     maxHeight: MediaQuery.of(context).size.height * 0.1,
+              //     minHeight: MediaQuery.of(context).size.height * 0.1,
+              //     child: state.maybeWhen(
+              //       getTotalEstimatedTimeLoading: () {
+              //         return const SizedBox();
+              //       },
+              //       orElse: () {
+              //         return FittedBox(
+              //           fit: BoxFit.scaleDown,
+              //           alignment: AlignmentDirectional.centerEnd,
+              //           child: Material(
+              //             shape: RoundedRectangleBorder(
+              //               borderRadius: BorderRadius.circular(
+              //                 AppMetrices.borderRadius1.w,
+              //               ),
+              //             ),
+              //             color: Theme.of(context).primaryColor,
+              //             child: Padding(
+              //               padding: const EdgeInsets.all(10),
+              //               child: DurationTime(
+              //                 duration: taskViewmodel.totalEstimatedTime,
+              //                 style: Theme.of(context).textTheme.titleLarge,
+              //               ),
+              //             ),
+              //           ),
+              //         );
+              //       },
+              //     ),
+              //   ),
+              // ),
               SliverList.builder(
                 itemCount: allTasks.length,
                 itemBuilder: (context, index) {

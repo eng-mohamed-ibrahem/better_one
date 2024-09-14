@@ -33,77 +33,106 @@ class CreateTaskScreen extends StatelessWidget {
           child: BackButtonl10n(),
         ),
       ),
-      body: SingleChildScrollView(
-        child: Column(
-          children: [
-            SizedBox(height: 20.h),
-            WriteTaskArea(
-              titleController: titleController,
-              subTasks: subTasks,
-            ),
-            SizedBox(height: 150.h),
-            BlocConsumer<TaskViewmodel, TaskViewmodelState>(
-              listener: (context, state) {
-                state.whenOrNull(
-                  createTaskCompleted: (createdTask) {
-                    settingState.isNotificationOnAdd
-                        ? localNotification.display(
-                            notification: NotificationModel(
-                              displayId: DateTime.now().microsecond,
-                              title: 'task.motive_add'.tr(),
-                              body: createdTask.title,
-                              payload: createdTask.id,
+      body: PopScope(
+        canPop: false,
+        onPopInvokedWithResult: (didPop, result) async {
+          kDebugPrint("didPop: $didPop, subtasks: ${subTasks.length}");
+          if (didPop) {
+            return;
+          }
+          if (subTasks.isNotEmpty) {
+            var shouldPop = await showLeavePageDialog(context);
+            if (shouldPop ?? false) {
+              // navigate back to home screen
+              context.pop();
+            }
+          } else {
+            context.pop();
+          }
+        },
+        child: SingleChildScrollView(
+          child: Column(
+            children: [
+              SizedBox(height: 20.h),
+              WriteTaskArea(
+                titleController: titleController,
+                subTasks: subTasks,
+              ),
+              SizedBox(height: 150.h),
+              BlocConsumer<TaskViewmodel, TaskViewmodelState>(
+                listener: (context, state) {
+                  state.whenOrNull(
+                    createTaskCompleted: (createdTask) {
+                      settingState.isNotificationOnAdd
+                          ? localNotification.display(
+                              notification: NotificationModel(
+                                displayId: DateTime.now().microsecond,
+                                title: 'task.motive_add'.tr(),
+                                body: createdTask.title,
+                                payload: createdTask.id,
+                              ),
+                            )
+                          : null;
+                      context.goNamed(
+                        Routes.taskDetail.name,
+                        queryParameters: {
+                          'id': createdTask.id,
+                        },
+                      );
+                    },
+                    createTaskFailed: (failure) {
+                      showSnackBar(
+                        context,
+                        message: failure,
+                      );
+                    },
+                  );
+                },
+                builder: (context, state) {
+                  return state.maybeWhen(
+                    createTaskLoading: () {
+                      return const Center(child: CircularProgressIndicator());
+                    },
+                    orElse: () {
+                      return FilledButton.icon(
+                        style: FilledButton.styleFrom(
+                          textStyle: Theme.of(context).textTheme.titleMedium,
+                          minimumSize:
+                              Size(MediaQuery.sizeOf(context).width * .5, 50.h),
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadiusDirectional.all(
+                              Radius.circular(15.r),
                             ),
-                          )
-                        : null;
-                    context.goNamed(
-                      Routes.taskDetail.name,
-                      queryParameters: {
-                        'id': createdTask.id,
-                      },
-                    );
-                  },
-                  createTaskFailed: (failure) {
-                    showSnackBar(
-                      context,
-                      message: failure,
-                    );
-                  },
-                );
-              },
-              builder: (context, state) {
-                return state.maybeWhen(
-                  createTaskLoading: () {
-                    return const Center(child: CircularProgressIndicator());
-                  },
-                  orElse: () {
-                    return FilledButton.icon(
-                      onPressed: () {
-                        if (titleController.text.isNotEmpty &&
-                            subTasks.isNotEmpty) {
-                          var newTask = TaskModel(
-                            id: const Uuid().v4(),
-                            title: titleController.text,
-                            subTasks: subTasks,
-                            createdAt: DateTime.now(),
-                          );
-                          context.read<TaskViewmodel>().createTask(newTask);
-                        } else {
-                          showSnackBar(
-                            context,
-                            message: 'task.title_and_description_required'.tr(),
-                          );
-                        }
-                      },
-                      icon: const Icon(Icons.add),
-                      label: Text('task.add'.tr()),
-                    );
-                  },
-                );
-              },
-            ),
-            SizedBox(height: AppMetrices.verticalGap3.h),
-          ],
+                          ),
+                        ),
+                        onPressed: () {
+                          if (titleController.text.isNotEmpty &&
+                              subTasks.isNotEmpty) {
+                            var newTask = TaskModel(
+                              id: const Uuid().v4(),
+                              title: titleController.text,
+                              subTasks: subTasks,
+                              createdAt: DateTime.now(),
+                            );
+                            context.read<TaskViewmodel>().createTask(newTask);
+                          } else {
+                            showSnackBar(
+                              context,
+                              message:
+                                  'task.title_and_description_required'.tr(),
+                            );
+                          }
+                        },
+                        icon: const Icon(Icons.add),
+                        label: Text('task.add'.tr()),
+                      );
+                    },
+                  );
+                },
+              ),
+              SizedBox(height: AppMetrices.verticalGap3.h),
+            ],
+          ),
         ),
       ),
     );

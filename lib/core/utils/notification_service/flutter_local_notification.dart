@@ -41,14 +41,9 @@ class FlutterLocalNotification {
     _ontTapNotificationStreamController.add(notificationResponse.payload);
   }
 
-  Future<void> get getNotificationAppLaunchDetails async {
-    await _flutterNotificationsPlugin.getNotificationAppLaunchDetails().then(
-          (notificationAppLaunchDetails) =>
-              notificationAppLaunchDetails!.didNotificationLaunchApp
-                  ? _onTapWhileAppRunning(
-                      notificationAppLaunchDetails.notificationResponse!)
-                  : null,
-        );
+  Future<NotificationAppLaunchDetails?>
+      get getNotificationAppLaunchDetails async {
+    return await _flutterNotificationsPlugin.getNotificationAppLaunchDetails();
   }
 
   NotificationDetails notificationDetails = const NotificationDetails(
