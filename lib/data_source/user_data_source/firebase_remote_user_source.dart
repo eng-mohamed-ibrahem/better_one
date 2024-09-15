@@ -14,7 +14,7 @@ class FirebaseRemoteUserSource implements RemoteUserSource {
     try {
       String? userId = userLocaleDatabase.getUserIdFromLocale();
       var db = FirebaseFirestore.instance;
-      db
+      await db
           .collection(FirebaseConstants.users)
           .doc(userId)
           .collection(FirebaseConstants.tasks)

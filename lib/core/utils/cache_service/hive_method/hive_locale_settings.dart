@@ -170,7 +170,7 @@ class HiveLocaleSettings implements LocaleSettingsInterface {
       data[CacheKeys.isNotificationOnComplete] = initHive.appBox
           .get(CacheKeys.isNotificationOnComplete, defaultValue: false);
       data[CacheKeys.isNotificationOnReminder] = initHive.appBox
-          .get(CacheKeys.isNotificationOnReminder, defaultValue: false);
+          .get(CacheKeys.isNotificationOnReminder, defaultValue: true);
       data[CacheKeys.reminderDateTime] =
           initHive.appBox.get(CacheKeys.reminderDateTime, defaultValue: 0);
       data[CacheKeys.repeatReminder] =

@@ -1,7 +1,7 @@
 import 'package:better_one/core/constants/app_colors.dart';
 import 'package:better_one/core/utils/methods/methods.dart';
 import 'package:better_one/model/task_model/task_model.dart';
-import 'package:better_one/view/widgets/task/card_task.dart';
+import 'package:better_one/view/widgets/task/task_card.dart';
 import 'package:better_one/view_models/task_viewmodel/task_viewmodel.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';

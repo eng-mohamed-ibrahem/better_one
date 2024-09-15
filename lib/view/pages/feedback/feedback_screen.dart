@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:better_one/config/navigation/routes_enum.dart';
 import 'package:better_one/core/constants/constants.dart';
 import 'package:better_one/core/enum/feedback_cat_enum.dart';
@@ -7,6 +9,7 @@ import 'package:better_one/core/utils/methods/methods.dart';
 import 'package:better_one/core/utils/shared_widgets/back_button_l10n.dart';
 import 'package:better_one/model/feedback_model/feedback_model.dart';
 import 'package:better_one/view_models/feedback_viewmodel/feedback_viewmodel.dart';
+import 'package:device_info_plus/device_info_plus.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -103,7 +106,8 @@ class _FeedbackScreenState extends State<FeedbackScreen> {
                                     ),
                                   ),
                                   Text(
-                                    "feedback.cat.${FeedbackCatEnum.values[index].name}".tr(),
+                                    "feedback.cat.${FeedbackCatEnum.values[index].name}"
+                                        .tr(),
                                     style:
                                         Theme.of(context).textTheme.titleMedium,
                                   ),
@@ -151,7 +155,7 @@ class _FeedbackScreenState extends State<FeedbackScreen> {
                       minimumSize:
                           Size(MediaQuery.sizeOf(context).width * .6, 40.h),
                     ),
-                    onPressed: () {
+                    onPressed: () async {
                       if (feedbackController.text.isEmpty) {
                         showSnackBar(context,
                             message: 'feedback.required'.tr());
@@ -166,6 +170,7 @@ class _FeedbackScreenState extends State<FeedbackScreen> {
                         timeStamp: DateTime.now(),
                         userId: user.id,
                         email: user.email,
+                        deviceInfo: await _deviceInfo,
                         // attachmentUrl: "",
                       );
                       context.read<FeedbackViewmodel>().sendFeedback(feedback);
@@ -179,5 +184,28 @@ class _FeedbackScreenState extends State<FeedbackScreen> {
         ),
       ),
     );
+  }
+
+  Future<DeviceInfo?> get _deviceInfo async {
+    DeviceInfoPlugin deviceInfoPlugin = DeviceInfoPlugin();
+    if (Platform.isAndroid) {
+      AndroidDeviceInfo androidInfo = await deviceInfoPlugin.androidInfo;
+      return DeviceInfo(
+        deviceName: androidInfo.device,
+        deviceModel: androidInfo.model,
+        deviceOs: "android",
+        deviceOsVersion: androidInfo.version.release,
+      );
+    }
+    if (Platform.isIOS) {
+      IosDeviceInfo iosInfo = await deviceInfoPlugin.iosInfo;
+      return DeviceInfo(
+        deviceName: iosInfo.utsname.machine,
+        deviceModel: iosInfo.model,
+        deviceOs: "ios",
+        deviceOsVersion: iosInfo.systemVersion,
+      );
+    }
+    return null;
   }
 }

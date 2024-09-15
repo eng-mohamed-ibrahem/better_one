@@ -76,18 +76,18 @@ class _NotificationScreenState extends State<NotificationSettingScreen> {
                         isNotificationOnAdd: isSelected);
                   },
                 ),
-                CheckboxListTile(
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(15.r),
-                  ),
-                  title: Text('setting.notification.on.update'.tr()),
-                  contentPadding: EdgeInsets.zero,
-                  value: state.isNotificationOnUpdate,
-                  onChanged: (isSelected) {
-                    context.read<SettingViewModel>().setNotificationSettings(
-                        isNotificationOnUpdate: isSelected);
-                  },
-                ),
+                // CheckboxListTile(
+                //   shape: RoundedRectangleBorder(
+                //     borderRadius: BorderRadius.circular(15.r),
+                //   ),
+                //   title: Text('setting.notification.on.update'.tr()),
+                //   contentPadding: EdgeInsets.zero,
+                //   value: state.isNotificationOnUpdate,
+                //   onChanged: (isSelected) {
+                //     context.read<SettingViewModel>().setNotificationSettings(
+                //         isNotificationOnUpdate: isSelected);
+                //   },
+                // ),
                 CheckboxListTile(
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(15.r),

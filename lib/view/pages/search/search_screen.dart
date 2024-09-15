@@ -5,7 +5,7 @@ import 'package:better_one/core/utils/shared_widgets/back_button_l10n.dart';
 import 'package:better_one/core/utils/shared_widgets/failed.dart';
 import 'package:better_one/core/utils/shared_widgets/lottie_indicator.dart';
 import 'package:better_one/view/widgets/input_field/task_field.dart';
-import 'package:better_one/view/widgets/task/card_task.dart';
+import 'package:better_one/view/widgets/task/task_card.dart';
 import 'package:better_one/view_models/search_viewmodel/search_viewmodel.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
