@@ -28,7 +28,7 @@ Map<String, dynamic> _$$FeedbackModelImplToJson(_$FeedbackModelImpl instance) =>
       'user_id': instance.userId,
       'user_name': instance.userName,
       'email': instance.email,
-      'device_info': instance.deviceInfo,
+      'device_info': instance.deviceInfo?.toJson(),
       'attachment_url': instance.attachmentUrl,
     };
 

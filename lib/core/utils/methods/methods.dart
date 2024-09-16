@@ -180,17 +180,18 @@ void showLoadingDialog(BuildContext context) {
         canPop: false,
         child: FittedBox(
           fit: BoxFit.scaleDown,
-          child: Container(
-            decoration: BoxDecoration(
+          child: Card(
+            elevation: 2,
+            color: Theme.of(context).primaryColor,
+            shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(AppMetrices.borderRadius1.r),
-              color: Theme.of(context).primaryColor,
             ),
-            constraints: BoxConstraints(
-              maxHeight: MediaQuery.sizeOf(context).height * .12,
-              maxWidth: MediaQuery.sizeOf(context).width * .2,
-            ),
-            child: const Center(
-              child: CircularProgressIndicator.adaptive(),
+            child: SizedBox(
+              width: MediaQuery.sizeOf(context).width * .3,
+              height: MediaQuery.sizeOf(context).height * .12,
+              child: const Center(
+                child: CircularProgressIndicator.adaptive(),
+              ),
             ),
           ),
         ),

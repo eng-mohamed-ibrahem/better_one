@@ -1,6 +1,5 @@
 import 'dart:io';
 
-import 'package:better_one/config/navigation/routes_enum.dart';
 import 'package:better_one/core/constants/constants.dart';
 import 'package:better_one/core/enum/feedback_cat_enum.dart';
 import 'package:better_one/core/utils/cache_service/cach_interface/locale_user_info.dart';
@@ -62,8 +61,9 @@ class _FeedbackScreenState extends State<FeedbackScreen> {
                 context.pop(context);
               },
               sendFeedbackSuccess: () {
+                context.pop(context);
                 showSnackBar(context, message: 'feedback.success'.tr());
-                context.goNamed(Routes.profile.name);
+                context.pop(context);
               },
               sendFeedbackLoading: () {
                 showLoadingDialog(context);

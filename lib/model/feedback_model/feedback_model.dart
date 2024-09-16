@@ -21,8 +21,9 @@ class FeedbackModel with _$FeedbackModel {
       _$FeedbackModelFromJson(json);
 }
 
-@freezed
+@Freezed(toStringOverride: false)
 class DeviceInfo with _$DeviceInfo {
+ const DeviceInfo._();
   const factory DeviceInfo({
     @JsonKey(name: "device_name") required String deviceName,
     @JsonKey(name: "device_model") required String deviceModel,

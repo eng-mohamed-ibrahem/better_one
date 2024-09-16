@@ -485,12 +485,13 @@ class __$$DeviceInfoImplCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$DeviceInfoImpl implements _DeviceInfo {
+class _$DeviceInfoImpl extends _DeviceInfo {
   const _$DeviceInfoImpl(
       {@JsonKey(name: "device_name") required this.deviceName,
       @JsonKey(name: "device_model") required this.deviceModel,
       @JsonKey(name: "device_os") required this.deviceOs,
-      @JsonKey(name: "device_os_version") required this.deviceOsVersion});
+      @JsonKey(name: "device_os_version") required this.deviceOsVersion})
+      : super._();
 
   factory _$DeviceInfoImpl.fromJson(Map<String, dynamic> json) =>
       _$$DeviceInfoImplFromJson(json);
@@ -507,6 +508,11 @@ class _$DeviceInfoImpl implements _DeviceInfo {
   @override
   @JsonKey(name: "device_os_version")
   final String deviceOsVersion;
+
+  @override
+  String toString() {
+    return 'DeviceInfo(deviceName: $deviceName, deviceModel: $deviceModel, deviceOs: $deviceOs, deviceOsVersion: $deviceOsVersion)';
+  }
 
   @override
   bool operator ==(Object other) {
@@ -544,13 +550,14 @@ class _$DeviceInfoImpl implements _DeviceInfo {
   }
 }
 
-abstract class _DeviceInfo implements DeviceInfo {
+abstract class _DeviceInfo extends DeviceInfo {
   const factory _DeviceInfo(
       {@JsonKey(name: "device_name") required final String deviceName,
       @JsonKey(name: "device_model") required final String deviceModel,
       @JsonKey(name: "device_os") required final String deviceOs,
       @JsonKey(name: "device_os_version")
       required final String deviceOsVersion}) = _$DeviceInfoImpl;
+  const _DeviceInfo._() : super._();
 
   factory _DeviceInfo.fromJson(Map<String, dynamic> json) =
       _$DeviceInfoImpl.fromJson;
