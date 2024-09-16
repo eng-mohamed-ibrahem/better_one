@@ -4,6 +4,7 @@ import 'package:better_one/model/settings_item_model/setting_item_model.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
 import 'package:lottie/lottie.dart';
 
@@ -177,11 +178,17 @@ void showLoadingDialog(BuildContext context) {
     builder: (context) {
       return PopScope(
         canPop: false,
-        child: AlertDialog(
-          content: Container(
-            color: Theme.of(context).primaryColor,
-            height: MediaQuery.sizeOf(context).height * .15,
-            width: MediaQuery.sizeOf(context).width * .4,
+        child: FittedBox(
+          fit: BoxFit.scaleDown,
+          child: Container(
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(AppMetrices.borderRadius1.r),
+              color: Theme.of(context).primaryColor,
+            ),
+            constraints: BoxConstraints(
+              maxHeight: MediaQuery.sizeOf(context).height * .12,
+              maxWidth: MediaQuery.sizeOf(context).width * .2,
+            ),
             child: const Center(
               child: CircularProgressIndicator.adaptive(),
             ),

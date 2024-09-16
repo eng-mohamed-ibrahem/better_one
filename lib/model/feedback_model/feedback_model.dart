@@ -2,7 +2,6 @@ import 'package:better_one/core/enum/feedback_cat_enum.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'feedback_model.freezed.dart';
-
 part 'feedback_model.g.dart';
 
 @freezed
@@ -33,4 +32,9 @@ class DeviceInfo with _$DeviceInfo {
 
   factory DeviceInfo.fromJson(Map<String, dynamic> json) =>
       _$DeviceInfoFromJson(json);
+
+  @override
+  String toString() {
+    return '[\ndeviceName: $deviceName,\ndeviceModel: $deviceModel, \ndeviceOs: $deviceOs, \ndeviceOsVersion: $deviceOsVersion,\n]';
+  }
 }
