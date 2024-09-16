@@ -17,6 +17,7 @@ import 'package:better_one/repositories/task_repo/task_repo_impl.dart';
 import 'package:better_one/repositories/task_repo/task_repo_interface.dart';
 import 'package:better_one/repositories/user_repo/user_repo_impl.dart';
 import 'package:better_one/repositories/user_repo/user_repo_intefrace.dart';
+import 'package:firebase_analytics/firebase_analytics.dart';
 import 'package:flutter/material.dart';
 import 'package:get_it/get_it.dart';
 
@@ -38,6 +39,7 @@ Future<void> initDependency() async {
   quoteDependency();
   settingsDependency();
   userDependency();
+  _getIt.registerSingleton(FirebaseAnalytics.instance);
 }
 
 void userDependency() {

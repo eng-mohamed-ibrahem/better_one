@@ -4,6 +4,7 @@ import 'package:better_one/model/settings_item_model/setting_item_model.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
 import 'package:lottie/lottie.dart';
 
@@ -177,13 +178,20 @@ void showLoadingDialog(BuildContext context) {
     builder: (context) {
       return PopScope(
         canPop: false,
-        child: AlertDialog(
-          content: Container(
+        child: FittedBox(
+          fit: BoxFit.scaleDown,
+          child: Card(
+            elevation: 2,
             color: Theme.of(context).primaryColor,
-            height: MediaQuery.sizeOf(context).height * .15,
-            width: MediaQuery.sizeOf(context).width * .4,
-            child: const Center(
-              child: CircularProgressIndicator.adaptive(),
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(AppMetrices.borderRadius1.r),
+            ),
+            child: SizedBox(
+              width: MediaQuery.sizeOf(context).width * .3,
+              height: MediaQuery.sizeOf(context).height * .12,
+              child: const Center(
+                child: CircularProgressIndicator.adaptive(),
+              ),
             ),
           ),
         ),
@@ -230,14 +238,18 @@ showSheet(BuildContext context, {required Widget content}) {
   );
 }
 
-Future<bool?> showLeavePageDialog(BuildContext context) async {
+Future<bool?> showLeavePageDialog(BuildContext context,
+    {VoidCallback? onSave}) async {
   return await showDialog<bool>(
     context: context,
     builder: (context) {
       return AlertDialog(
         title: Text('core.leave_page'.tr(),
             style: Theme.of(context).textTheme.titleLarge),
-        content: Text('core.leave_page_msg'.tr()),
+        content: Text(
+          'core.leave_page_msg'.tr(),
+          style: Theme.of(context).textTheme.bodyMedium,
+        ),
         actions: [
           TextButton(
             onPressed: () {
@@ -250,12 +262,25 @@ Future<bool?> showLeavePageDialog(BuildContext context) async {
               context.pop(true);
             },
             child: Text(
-              'core.confirm'.tr(),
+              'core.leave'.tr(),
               style: Theme.of(context).textTheme.titleSmall!.copyWith(
                     color: AppColors.hightlightColor,
                   ),
             ),
           ),
+          if (onSave != null)
+            TextButton(
+              onPressed: () {
+                context.pop(true);
+                onSave.call();
+              },
+              child: Text(
+                'core.save'.tr(),
+                style: Theme.of(context).textTheme.titleSmall!.copyWith(
+                      color: Colors.green,
+                    ),
+              ),
+            ),
         ],
       );
     },

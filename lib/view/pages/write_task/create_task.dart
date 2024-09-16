@@ -1,15 +1,16 @@
 import 'package:better_one/config/navigation/routes_enum.dart';
 import 'package:better_one/core/constants/ui_dimentions.dart';
-import 'package:better_one/core/utils/dependency_locator/dependency_injection.dart';
 import 'package:better_one/core/utils/dependency_locator/inject.dart';
 import 'package:better_one/core/utils/methods/methods.dart';
 import 'package:better_one/core/utils/shared_widgets/back_button_l10n.dart';
 import 'package:better_one/model/notification_model/notification_model.dart';
 import 'package:better_one/model/task_model/task_model.dart';
+import 'package:better_one/repositories/notification_repo/notification_repo_interface.dart';
 import 'package:better_one/view/widgets/write_task_area.dart';
 import 'package:better_one/view_models/setting_viewmodel/setting_viewmode.dart';
 import 'package:better_one/view_models/task_viewmodel/task_viewmodel.dart';
 import 'package:easy_localization/easy_localization.dart';
+import 'package:firebase_analytics/firebase_analytics.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -23,6 +24,8 @@ class CreateTaskScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    bool? saveAndLeavePage;
+
     var settingState = inject<SettingViewModel>().state;
     return Scaffold(
       appBar: AppBar(
@@ -36,13 +39,25 @@ class CreateTaskScreen extends StatelessWidget {
       body: PopScope(
         canPop: false,
         onPopInvokedWithResult: (didPop, result) async {
-          kDebugPrint("didPop: $didPop, subtasks: ${subTasks.length}");
           if (didPop) {
             return;
           }
-          if (subTasks.isNotEmpty) {
-            var shouldPop = await showLeavePageDialog(context);
-            if (shouldPop ?? false) {
+          if (subTasks.isNotEmpty || titleController.text.isNotEmpty) {
+            saveAndLeavePage = await showLeavePageDialog(
+              context,
+              onSave: () {
+                if (titleController.text.isNotEmpty && subTasks.isNotEmpty) {
+                  var newTask = TaskModel(
+                    id: const Uuid().v4(),
+                    title: titleController.text,
+                    subTasks: subTasks,
+                    createdAt: DateTime.now(),
+                  );
+                  context.read<TaskViewmodel>().createTask(newTask);
+                }
+              },
+            );
+            if (saveAndLeavePage ?? false) {
               // navigate back to home screen
               context.pop();
             }
@@ -64,8 +79,9 @@ class CreateTaskScreen extends StatelessWidget {
                   state.whenOrNull(
                     createTaskCompleted: (createdTask) {
                       settingState.isNotificationOnAdd
-                          ? localNotification.display(
-                              notification: NotificationModel(
+                          ? inject<NotificationRepoInterface>()
+                              .sendNotification(
+                              NotificationModel(
                                 displayId: DateTime.now().microsecond,
                                 title: 'task.motive_add'.tr(),
                                 body: createdTask.title,
@@ -73,12 +89,18 @@ class CreateTaskScreen extends StatelessWidget {
                               ),
                             )
                           : null;
-                      context.goNamed(
-                        Routes.taskDetail.name,
-                        queryParameters: {
-                          'id': createdTask.id,
-                        },
+                      inject<FirebaseAnalytics>().logEvent(
+                        name: 'create_task',
+                        parameters: {'task_id': createdTask.id},
                       );
+                      saveAndLeavePage ?? false
+                          ? null
+                          : context.goNamed(
+                              Routes.taskDetail.name,
+                              queryParameters: {
+                                'id': createdTask.id,
+                              },
+                            );
                     },
                     createTaskFailed: (failure) {
                       showSnackBar(

@@ -13,6 +13,9 @@ import 'package:intl/date_symbol_data_local.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await EasyLocalization.ensureInitialized();
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
   await initDependency();
 
   Bloc.observer = CubitObserver();
@@ -37,9 +40,6 @@ void main() async {
         },
       );
     },
-  );
-  await Firebase.initializeApp(
-    options: DefaultFirebaseOptions.currentPlatform,
   );
 
   runApp(

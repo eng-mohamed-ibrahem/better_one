@@ -5,7 +5,7 @@ import 'package:better_one/core/utils/methods/methods.dart';
 import 'package:better_one/core/utils/shared_widgets/back_button_l10n.dart';
 import 'package:better_one/core/utils/shared_widgets/failed.dart';
 import 'package:better_one/model/notification_model/notification_model.dart';
-import 'package:better_one/view/widgets/card_notification.dart';
+import 'package:better_one/view/widgets/notification_card.dart';
 import 'package:better_one/view_models/notification_viewmodel/notification_viewmodel.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
@@ -136,7 +136,7 @@ class _NotificationScreenState extends State<NotificationScreen> {
                         );
                       },
                       separatorBuilder: (context, index) {
-                        return const SizedBox(height: 25);
+                        return const SizedBox(height: 15);
                       },
                     )
                   : Center(

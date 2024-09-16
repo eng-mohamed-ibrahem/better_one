@@ -27,7 +27,10 @@ class FirebaseFeedbackSource implements FeedbackDataSourceInterface {
           .add(feedback.toJson());
 
       var feedbackBody =
-          '''Hi Better One Team.\n\nI wanted to share some feedback about your Better One, "${feedback.feedbackCat.name}" category.\n\n${feedback.feedback}\n\nBest regards,\n"${feedback.userName}"''';
+          '''Hi Better One Team.\n\nI wanted to share some feedback about your Better One, as "${feedback.feedbackCat.name}" feedback.\n\n${feedback.feedback}
+          \n\n------------- device info ------------\n${feedback.deviceInfo!.toString()} 
+          \n\nBest regards,\n"${feedback.userName}"''';
+
       await FlutterEmailSender.send(
         Email(
           subject: "Better One Feedback",

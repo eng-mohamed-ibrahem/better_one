@@ -2,7 +2,6 @@ import 'dart:async';
 import 'dart:ui' as ui;
 
 import 'package:better_one/core/enum/task_status.dart';
-import 'package:better_one/core/utils/dependency_locator/dependency_injection.dart';
 import 'package:better_one/core/utils/dependency_locator/inject.dart';
 import 'package:better_one/core/utils/methods/methods.dart';
 import 'package:better_one/core/utils/shared_widgets/back_button_l10n.dart';
@@ -18,6 +17,7 @@ import 'package:better_one/view_models/quote_viewmodel/quote_viewmodel.dart';
 import 'package:better_one/view_models/setting_viewmodel/setting_viewmode.dart';
 import 'package:better_one/view_models/task_viewmodel/task_viewmodel.dart';
 import 'package:easy_localization/easy_localization.dart';
+import 'package:firebase_analytics/firebase_analytics.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -49,6 +49,8 @@ class _TaskScreenState extends State<TaskDetailsScreen>
   /// [streamController] is the stream controller to update the running time
   StreamController<Duration> streamController = StreamController<Duration>();
 
+  /// [isTaskDeleted] to indicate if the task is deleted or not
+  /// before pop the screen
   bool isTaskDeleted = false;
 
   @override
@@ -120,19 +122,6 @@ class _TaskScreenState extends State<TaskDetailsScreen>
             },
             updateTaskCompleted: (updatedTask) {
               task = updatedTask;
-              if (isTaskModified) {
-                settingState.isNotificationOnUpdate
-                    ? localNotification.display(
-                        notification: NotificationModel(
-                          displayId: task!.id.hashCode,
-                          title: 'task.motive_update'.tr(),
-                          body: task!.title,
-                          payload: task!.id,
-                        ),
-                      )
-                    : null;
-                isTaskModified = false;
-              }
               if (task!.status == TaskStatus.done) {
                 showCompleteTaskDialog(
                   context,
@@ -153,6 +142,11 @@ class _TaskScreenState extends State<TaskDetailsScreen>
                         );
                       }()
                     : null;
+
+                inject<FirebaseAnalytics>().logEvent(
+                  name: 'complete_task',
+                  parameters: {'task_id': task!.id},
+                );
               }
             },
           );
