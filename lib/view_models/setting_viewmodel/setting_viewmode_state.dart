@@ -1,62 +1,88 @@
 part of 'setting_viewmode.dart';
 
 @freezed
-class SettingViewModelState with _$SettingViewModelState {
-  const factory SettingViewModelState({
-    @Default(true) bool isInitial,
-    //* change language
-    @Default(false) bool isChangeLanguageLoading,
-    @Default(false) bool isChangeLanguageCompleted,
-    @Default(false) bool isChangeLanguageFailed,
-    //* get current language
-    @Default(false) bool isGetLanguageLoading,
-    @Default(false) bool isGetLanguageCompleted,
-    @Default(false) bool isGetLanguageFailed,
-    @Default(null) Locale? currentLanguage,
-    //* search settings
-    @Default(true) bool isSearchByTitle,
-    @Default(false) bool isSearchByBody,
-    @Default(false) bool isSearchByDate,
-    @Default(false) bool isSearchByStatus,
-    //* set search settings
-    @Default(false) bool isSetSearchSettingsCompleted,
-    @Default(false) bool isSetSearchSettingsFailed,
-    //* get search settings
-    @Default(false) bool isGetSearchSettingsCompleted,
-    @Default(false) bool isGetSearchSettingsFailed,
-    //* notification settings
-    @Default(true) bool isNotificationOnAdd,
-    @Default(false) bool isNotificationOnUpdate,
-    @Default(true) bool isNotificationOnComplete,
-    @Default(false) bool isNotificationOnReminder,
-    @Default(null) DateTime? reminderDateTime,
-    @Default(false) bool repeatReminder,
-    @Default(false) bool isNotificationSettingsLoading,
-    @Default(false) bool isNotificationSettingsCompleted,
-    @Default(false) bool isNotificationSettingsFailed,
-    //* error message
-    @Default(null) String? errorMessage,
-  }) = _SettingViewModelState;
+class SettingViewmodelState with _$SettingViewmodelState {
+  /// intial
+  const factory SettingViewmodelState.initial() = _Initial;
 
-  // /// intial
-  // const factory SettingViewModelState.initial() = _initial;
+  /// get language
+  const factory SettingViewmodelState.getLanguageLoading() =
+      _GetLanguageLoading;
+  const factory SettingViewmodelState.getLanguageCompleted(
+      {required Locale? currentLanguage}) = _GetLanguageCompleted;
 
-  // /// get language
-  // const factory SettingViewModelState.getLanguageLoading() =
-  //     _GetLanguageLoading;
-  // const factory SettingViewModelState.getLanguageCompleted(
-  //     {required Locale? currentLanguage}) = _GetLanguageCompleted;
+  const factory SettingViewmodelState.getLanguageFailed(
+      {required String message, required Failure failure}) = _GetLanguageFailed;
 
-  // const factory SettingViewModelState.getLanguageFailed(
-  //     {required String message, required Failure failure}) = _GetLanguageFailed;
+  /// change language
+  const factory SettingViewmodelState.changeLanguageLoading() =
+      _ChangeLanguageLoading;
+  const factory SettingViewmodelState.changeLanguageCompleted(
+      {required Locale? currentLanguage}) = _ChangeLanguageCompleted;
 
-  // /// change language
-  // const factory SettingViewModelState.changeLanguageLoading() =
-  //     _ChangeLanguageLoading;
-  // const factory SettingViewModelState.changeLanguageCompleted(
-  //     {required Locale? currentLanguage}) = _ChangeLanguageCompleted;
+  const factory SettingViewmodelState.changeLanguageFailed(
+      {required String message,
+      required Failure failure}) = _ChangeLanguageFailed;
 
-  // const factory SettingViewModelState.changeLanguageFailed(
-  //     {required String message,
-  //     required Failure failure}) = _ChangeLanguageLoading;
+  /// set search settings
+  const factory SettingViewmodelState.setSearchSettingsLoading() =
+      _SetSearchSettingsLoading;
+
+  const factory SettingViewmodelState.setSearchSettingsCompleted(
+          {required SearchSettingModel newsearchSettings}) =
+      _SetSearchSettingsCompleted;
+
+  const factory SettingViewmodelState.setSearchByFailed({
+    required String message,
+    required Failure failure,
+  }) = _SetSearchSettingsFailed;
+
+  /// get search settings
+  const factory SettingViewmodelState.getSearchSettingsLoading() =
+      _GetSearchSettingsLoading;
+
+  const factory SettingViewmodelState.getSearchSettingsCompleted() =
+      _GetSearchSettingsCompleted;
+
+  const factory SettingViewmodelState.getSearchSettingsFailed({
+    required String message,
+    required Failure failure,
+  }) = _GetSearchSettingsFailed;
+
+  /// notification settings
+  const factory SettingViewmodelState.setNotificationSettingsLoading() =
+      _SetNotificationSettingsLoading;
+
+  const factory SettingViewmodelState.setNotificationSettingsCompleted(
+          {required NotificationSettingModel newNotificationSettings}) =
+      _SetNotificationSettingsCompleted;
+
+  const factory SettingViewmodelState.setNotificationSettingsFailed({
+    required String message,
+    required Failure failure,
+  }) = _SetNotificationSettingsFailed;
+
+  /// get notification settings
+  const factory SettingViewmodelState.getNotificationSettingsLoading() =
+      _GetNotificationSettingsLoading;
+
+  const factory SettingViewmodelState.getNotificationSettingsCompleted() =
+      _GetNotificationSettingsCompleted;
+
+  const factory SettingViewmodelState.getNotificationSettingsFailed({
+    required String message,
+    required Failure failure,
+  }) = _GetNotificationSettingsFailed;
+
+  /// set reminder event
+  const factory SettingViewmodelState.setReminderEventLoading() =
+      _SetReminderEventLoading;
+
+  const factory SettingViewmodelState.setReminderEventCompleted() =
+      _SetReminderEventCompleted;
+
+  const factory SettingViewmodelState.setReminderEventFailed({
+    required String message,
+    required Failure failure,
+  }) = _SetReminderEventFailed;
 }

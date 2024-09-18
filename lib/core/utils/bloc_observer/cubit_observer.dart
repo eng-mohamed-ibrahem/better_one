@@ -20,8 +20,8 @@ class CubitObserver extends BlocObserver {
     if (bloc is TaskViewmodel) {
       GetIt.I.unregister<TaskViewmodel>();
     }
-    if (bloc is SettingViewModel) {
-      GetIt.I.unregister<SettingViewModel>();
+    if (bloc is SettingViewmodel) {
+      GetIt.I.unregister<SettingViewmodel>();
     }
     if (bloc is AuthViewmodel) {
       GetIt.I.unregister<AuthViewmodel>();
@@ -37,8 +37,8 @@ class CubitObserver extends BlocObserver {
     if (bloc is TaskViewmodel) {
       GetIt.I.registerSingleton<TaskViewmodel>(bloc);
     }
-    if (bloc is SettingViewModel) {
-      GetIt.I.registerSingleton<SettingViewModel>(bloc);
+    if (bloc is SettingViewmodel) {
+      GetIt.I.registerSingleton<SettingViewmodel>(bloc);
     }
     if (bloc is AuthViewmodel) {
       GetIt.I.registerSingleton<AuthViewmodel>(bloc);

@@ -1,6 +1,7 @@
 import 'package:better_one/config/navigation/app_navigation.dart';
 import 'package:better_one/config/themes/app_thems.dart';
 import 'package:better_one/core/utils/background_service/tasks_background_service.dart';
+import 'package:better_one/core/utils/cache_service/cach_interface/locale_user_info.dart';
 import 'package:better_one/core/utils/dependency_locator/dependency_injection.dart';
 import 'package:better_one/core/utils/dependency_locator/inject.dart';
 import 'package:better_one/core/utils/methods/methods.dart';
@@ -25,19 +26,19 @@ class _RootAppState extends State<RootApp> {
   @override
   void initState() {
     TasksBackgroundService.downloadReceiverPort.listen((event) {
-      kDebugPrint("download: ${userLocaleDatabase.isDownloadedTasks()}");
+      kDebugPrint("download: ${inject<LocaleUserInfo>().isDownloadedTasks()}");
       if (event != null && event == true) {
         inject<TaskViewmodel>().getTasks();
       } else if (event != null && event == false) {
         /// if something go wrong while download tasks
-        var download = userLocaleDatabase.isDownloadedTasks();
+        var download = inject<LocaleUserInfo>().isDownloadedTasks();
         download != null && download == false
             ? TasksBackgroundService.downloadTasks(
                 ServicesBinding.rootIsolateToken)
             : null;
 
         /// if something go wrong while uploading tasks
-        var upload = userLocaleDatabase.isUploadedTasks();
+        var upload = inject<LocaleUserInfo>().isUploadedTasks();
         upload != null && upload == false
             ? TasksBackgroundService.uploadTasks(
                 ServicesBinding.rootIsolateToken)

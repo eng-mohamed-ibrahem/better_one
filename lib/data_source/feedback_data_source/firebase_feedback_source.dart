@@ -18,7 +18,7 @@ class FirebaseFeedbackSource implements FeedbackDataSourceInterface {
   Future<ResultHandler<void, Failure>> sendFeedback(
       {required FeedbackModel feedback}) async {
     try {
-      String? userId = inject<LocaleUserInfo>().getUserIdFromLocale();
+      String? userId = inject<LocaleUserInfo>().getUserData()?.id;
       var db = FirebaseFirestore.instance;
       db
           .collection(FirebaseConstants.feedbacks)

@@ -25,8 +25,6 @@ class CreateTaskScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     bool? saveAndLeavePage;
-
-    var settingState = inject<SettingViewModel>().state;
     return Scaffold(
       appBar: AppBar(
         title: Text('task.create'.tr()),
@@ -78,7 +76,7 @@ class CreateTaskScreen extends StatelessWidget {
                 listener: (context, state) {
                   state.whenOrNull(
                     createTaskCompleted: (createdTask) {
-                      settingState.isNotificationOnAdd
+                      inject<SettingViewmodel>().notificationSetting!.sendOnAdd
                           ? inject<NotificationRepoInterface>()
                               .sendNotification(
                               NotificationModel(

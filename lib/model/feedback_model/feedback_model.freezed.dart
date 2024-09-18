@@ -510,11 +510,6 @@ class _$DeviceInfoImpl extends _DeviceInfo {
   final String deviceOsVersion;
 
   @override
-  String toString() {
-    return 'DeviceInfo(deviceName: $deviceName, deviceModel: $deviceModel, deviceOs: $deviceOs, deviceOsVersion: $deviceOsVersion)';
-  }
-
-  @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&

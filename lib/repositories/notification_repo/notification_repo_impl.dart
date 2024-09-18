@@ -17,7 +17,7 @@ class NotificationRepoImpl implements NotificationRepoInterface {
   @override
   Future<ResultHandler<bool, Failure>> sendNotification(
       NotificationModel notification) async {
-    if (inject<LocaleUserInfo>().getUserIdFromLocale() == null) {
+    if (inject<LocaleUserInfo>().getUserData() == null) {
       return ResultHandler.failure(
           error: NoUserLogedInFailure(message: 'notification.login_req'.tr()));
     }
@@ -33,7 +33,7 @@ class NotificationRepoImpl implements NotificationRepoInterface {
   @override
   Future<ResultHandler<Stream<List<NotificationModel>>, Failure>>
       listenNotifications() async {
-    if (inject<LocaleUserInfo>().getUserIdFromLocale() == null) {
+    if (inject<LocaleUserInfo>().getUserData() == null) {
       return ResultHandler.failure(
           error: NoUserLogedInFailure(message: 'notification.login_req'.tr()));
     }
@@ -50,7 +50,7 @@ class NotificationRepoImpl implements NotificationRepoInterface {
   Future<ResultHandler<List<QueryDocumentSnapshot>, Failure>> getNotifications(
       int limit,
       {QueryDocumentSnapshot? startAfter}) async {
-    if (inject<LocaleUserInfo>().getUserIdFromLocale() == null) {
+    if (inject<LocaleUserInfo>().getUserData() == null) {
       return ResultHandler.failure(
           error: NoUserLogedInFailure(message: 'notification.login_req'.tr()));
     }

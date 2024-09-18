@@ -1,4 +1,5 @@
 import 'package:better_one/config/navigation/routes_enum.dart';
+import 'package:better_one/core/utils/cache_service/cach_interface/locale_user_info.dart';
 import 'package:better_one/core/utils/dependency_locator/dependency_injection.dart';
 import 'package:better_one/core/utils/dependency_locator/inject.dart';
 import 'package:better_one/core/utils/navigator_observer/app_navigator_observer.dart';
@@ -65,7 +66,7 @@ class AppNavigation {
               ),
               BlocProvider(
                 lazy: false,
-                create: (context) => SettingViewModel(settingsRepo: settingRepo)
+                create: (context) => SettingViewmodel(settingsRepo: settingRepo)
                   ..getLanguage()
                   ..getSearchSettings()
                   ..getNotificationSettings(),
@@ -164,7 +165,7 @@ class AppNavigation {
               return MultiBlocProvider(
                 providers: [
                   BlocProvider.value(
-                    value: inject<SettingViewModel>(),
+                    value: inject<SettingViewmodel>(),
                   ),
                   BlocProvider(
                     lazy: false,
@@ -187,7 +188,7 @@ class AppNavigation {
                 builder: (context, state) {
                   activeRoute = Routes.searchSetting.path;
                   return BlocProvider.value(
-                    value: inject<SettingViewModel>(),
+                    value: inject<SettingViewmodel>(),
                     child: const SearchSettingScreen(),
                   );
                 },
@@ -198,7 +199,7 @@ class AppNavigation {
                 builder: (context, state) {
                   activeRoute = Routes.notificationSetting.path;
                   return BlocProvider.value(
-                    value: inject<SettingViewModel>(),
+                    value: inject<SettingViewmodel>(),
                     child: const NotificationSettingScreen(),
                   );
                 },
@@ -221,7 +222,7 @@ class AppNavigation {
                   );
                 },
                 redirect: (context, state) async {
-                  return userLocaleDatabase.getUserIdFromLocale() != null
+                  return inject<LocaleUserInfo>().getUserData() != null
                       ? null
                       : state.namedLocation(Routes.login.name);
                 },
