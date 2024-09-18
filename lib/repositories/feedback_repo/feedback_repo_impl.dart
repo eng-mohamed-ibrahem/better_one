@@ -21,7 +21,7 @@ class FeedbackRepoImpl implements FeedbackRepoInterface {
   @override
   Future<ResultHandler<void, Failure>> sendFeedback(
       {required FeedbackModel feedback}) async {
-    if (inject<LocaleUserInfo>().getUserIdFromLocale() == null) {
+    if (inject<LocaleUserInfo>().getUserData() == null) {
       return ResultHandler.failure(
           error: NoUserLogedInFailure(message: 'feedback.login_req'.tr()));
     }

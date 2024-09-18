@@ -10,10 +10,8 @@ class CacheKeys {
   // language
   static const lang = 'lang';
   // search
-  static const isSearchByTitle = 'is_search_by_title';
-  static const isSearchByBody = 'is_search_by_body';
-  static const isSearchByDate = 'is_search_by_date';
-  static const isSearchByStatus = 'is_search_by_status';
+  static const searchByTitle = 'search_by_title';
+  static const searchByBody = 'search_by_body';
   // notification
   static const isNotificationOnAdd = 'is_notification_on_add';
   static const isNotificationOnUpdate = 'is_notification_on_update';
@@ -21,6 +19,12 @@ class CacheKeys {
   static const isNotificationOnReminder = 'is_notification_on_reminder';
   static const reminderDateTime = 'reminder_date_time';
   static const repeatReminder = 'repeat_reminder';
+
+  // search settings
+  static const searchSettings = 'search_settings';
+
+  // notification settings  
+  static const notificationSettings = 'notification_settings';
 
   // onboarding
   static const onboardingSeen = 'onboarding_seen';

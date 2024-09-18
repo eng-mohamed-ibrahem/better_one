@@ -7,7 +7,7 @@ import 'package:better_one/core/utils/methods/methods.dart';
 import 'package:better_one/core/utils/shared_widgets/back_button_l10n.dart';
 import 'package:better_one/core/utils/shared_widgets/failed.dart';
 import 'package:better_one/core/utils/shared_widgets/lottie_indicator.dart';
-import 'package:better_one/core/utils/timer/timer_action.dart';
+import 'package:better_one/core/timer/timer_action.dart';
 import 'package:better_one/model/notification_model/notification_model.dart';
 import 'package:better_one/model/task_model/task_model.dart';
 import 'package:better_one/repositories/notification_repo/notification_repo_interface.dart';
@@ -97,7 +97,6 @@ class _TaskScreenState extends State<TaskDetailsScreen>
 
   @override
   Widget build(BuildContext context) {
-    var settingState = inject<SettingViewModel>().state;
     return Scaffold(
       body: BlocConsumer<TaskViewmodel, TaskViewmodelState>(
         listener: (context, state) {
@@ -130,7 +129,7 @@ class _TaskScreenState extends State<TaskDetailsScreen>
                     duration: const Duration(seconds: 3, milliseconds: 500),
                   )..forward(),
                 );
-                settingState.isNotificationOnComplete
+                inject<SettingViewmodel>().notificationSetting!.sendOnComplete
                     ? () {
                         inject<NotificationRepoInterface>().sendNotification(
                           NotificationModel(

@@ -1,7 +1,8 @@
 import 'package:better_one/core/constants/firebase_constants.dart';
 import 'package:better_one/core/errors/failure.dart';
 import 'package:better_one/core/result_handler/result_handler.dart';
-import 'package:better_one/core/utils/dependency_locator/dependency_injection.dart';
+import 'package:better_one/core/utils/cache_service/cach_interface/locale_user_info.dart';
+import 'package:better_one/core/utils/dependency_locator/inject.dart';
 import 'package:better_one/data_source/task_data_source/task_source_interface.dart';
 import 'package:better_one/model/task_model/task_model.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
@@ -15,7 +16,7 @@ class FirebaseTaskDataSource implements TaskSource {
   @override
   Future<ResultHandler<List<TaskModel>, Failure>> getAllTasks() async {
     try {
-      String? userId = userLocaleDatabase.getUserIdFromLocale();
+      String? userId = inject<LocaleUserInfo>().getUserData()?.id;
       var db = FirebaseFirestore.instance;
       var collection = await db
           .collection(FirebaseConstants.users)

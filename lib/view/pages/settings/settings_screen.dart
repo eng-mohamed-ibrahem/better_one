@@ -1,6 +1,7 @@
 import 'package:better_one/config/navigation/app_navigation.dart';
 import 'package:better_one/config/navigation/routes_enum.dart';
 import 'package:better_one/core/utils/dependency_locator/dependency_injection.dart';
+import 'package:better_one/core/utils/dependency_locator/inject.dart';
 import 'package:better_one/core/utils/methods/methods.dart';
 import 'package:better_one/core/utils/shared_widgets/back_button_l10n.dart';
 import 'package:better_one/core/utils/shared_widgets/loading_data.dart';
@@ -62,7 +63,7 @@ class _SettingScreenState extends State<SettingScreen> with RouteAware {
           ),
         ),
       ),
-      body: BlocBuilder<SettingViewModel, SettingViewModelState>(
+      body: BlocBuilder<SettingViewmodel, SettingViewmodelState>(
         builder: (context, state) {
           List<SettingItemModel> settingItems = generateSettingItems();
           return ListView.separated(
@@ -80,9 +81,10 @@ class _SettingScreenState extends State<SettingScreen> with RouteAware {
                         showSheet(
                           context,
                           content: index == 0
-                              ? state.isGetLanguageLoading
-                                  ? const LoadingDataShimmer()
-                                  : const LanguageSetting()
+                              ? BlocProvider.value(
+                                  value: inject<SettingViewmodel>(),
+                                  child: const LanguageSetting(),
+                                )
                               : context
                                       .read<ThemeViewModel>()
                                       .state

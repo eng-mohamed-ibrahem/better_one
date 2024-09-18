@@ -1,6 +1,8 @@
 import 'package:better_one/core/errors/failure.dart';
 import 'package:better_one/core/result_handler/result_handler.dart';
 import 'package:better_one/data_source/settings_data_source/settings_source_interface.dart';
+import 'package:better_one/model/setting_model/notification_setting_model.dart';
+import 'package:better_one/model/setting_model/search_setting_model.dart';
 import 'package:better_one/repositories/setting_repo/settings_repo_interface.dart';
 import 'package:flutter/material.dart';
 
@@ -29,56 +31,30 @@ class SettingRepo implements SettingsRepoInterface {
 
   @override
   Future<ResultHandler<bool, Failure>> setSearchSettings({
-    bool? isSearchByTitle,
-    bool? isSearchByBody,
-    bool? isSearchByDate,
-    bool? isSearchByStatus,
+    required SearchSettingModel searchSettings,
   }) async {
     return await settingsSource.setSearchSettings(
-      isSearchByTitle: isSearchByTitle,
-      isSearchByBody: isSearchByBody,
-      isSearchByDate: isSearchByDate,
-      isSearchByStatus: isSearchByStatus,
+      searchSettings: searchSettings,
     );
   }
 
   @override
-  Future<ResultHandler<Map<String, bool>, Failure>> getSearchSettings() async {
+  Future<ResultHandler<SearchSettingModel, Failure>> getSearchSettings() async {
     return await settingsSource.getSearchSettings();
   }
 
   @override
-  Future<ResultHandler<Map<String, dynamic>, Failure>>
+  Future<ResultHandler<NotificationSettingModel, Failure>>
       getNotificationSettings() async {
     return await settingsSource.getNotificationSettings();
   }
 
   @override
   Future<ResultHandler<bool, Failure>> setNotificationSettings({
-    bool? isNotificationOnAdd,
-    bool? isNotificationOnUpdate,
-    bool? isNotificationOnComplete,
-    bool? isNotificationOnReminder,
-    DateTime? reminderDateTime,
-    bool? repeatReminder,
+    required NotificationSettingModel notificationSettings,
   }) async {
     return await settingsSource.setNotificationSettings(
-      isNotificationOnAdd: isNotificationOnAdd,
-      isNotificationOnUpdate: isNotificationOnUpdate,
-      isNotificationOnComplete: isNotificationOnComplete,
-      isNotificationOnReminder: isNotificationOnReminder,
-      reminderDateTime: reminderDateTime,
-      repeatReminder: repeatReminder,
+      notificationSettings: notificationSettings,
     );
-  }
-
-  @override
-  Future<ResultHandler<void, Failure>> setOnBoardingSeen(bool seen) async {
-    return await settingsSource.setOnBoardingSeen(seen);
-  }
-
-  @override
-  Future<ResultHandler<bool, Failure>> getOnBoardingSeen() async {
-    return await settingsSource.getOnBoardingSeen();
   }
 }

@@ -1,42 +1,35 @@
-import 'package:better_one/core/utils/dependency_locator/dependency_injection.dart';
-import 'package:better_one/model/notification_model/notification_model.dart';
+// ignore_for_file: public_member_api_docs, sort_constructors_first
+import 'package:better_one/core/errors/failure.dart';
+import 'package:better_one/model/setting_model/notification_setting_model.dart';
+import 'package:better_one/model/setting_model/search_setting_model.dart';
 import 'package:better_one/repositories/setting_repo/settings_repo_interface.dart';
-import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-import '../../core/constants/constants.dart';
-
 part 'setting_viewmode.freezed.dart';
 part 'setting_viewmode_state.dart';
 
-class SettingViewModel extends Cubit<SettingViewModelState> {
-  SettingViewModel({required this.settingsRepo})
-      : super(const SettingViewModelState());
+class SettingViewmodel extends Cubit<SettingViewmodelState> {
+  SettingViewmodel({required this.settingsRepo}) : super(const _Initial());
   final SettingsRepoInterface settingsRepo;
 
-  /// here will be settings like notification and search
   Locale? currentLanguage;
+  SearchSettingModel? searchSetting;
+  NotificationSettingModel? notificationSetting;
 
   void changeLanguage(Locale language) async {
-    emit(release().copyWith(isChangeLanguageLoading: true));
     var result = await settingsRepo.changeLanguage(language);
     result.when(
       success: (language) {
-        emit(state.copyWith(
-          isChangeLanguageLoading: false,
-          isChangeLanguageCompleted: true,
-          currentLanguage: language,
-        ));
+        currentLanguage = language;
+        emit(_ChangeLanguageCompleted(currentLanguage: language));
       },
       failure: (failure) {
         emit(
-          state.copyWith(
-            isChangeLanguageLoading: false,
-            isChangeLanguageCompleted: false,
-            isChangeLanguageFailed: true,
-            errorMessage: failure.message,
+          _ChangeLanguageFailed(
+            message: failure.message,
+            failure: failure,
           ),
         );
       },
@@ -44,61 +37,45 @@ class SettingViewModel extends Cubit<SettingViewModelState> {
   }
 
   void getLanguage() async {
-    emit(release().copyWith(isGetLanguageLoading: true));
+    emit(const _GetLanguageLoading());
     var result = await settingsRepo.getLanguage();
     result.when(
       success: (language) {
+        currentLanguage = language;
         emit(
-          state.copyWith(
-            isGetLanguageLoading: false,
-            isGetLanguageCompleted: true,
-            currentLanguage: language,
-          ),
+          _GetLanguageCompleted(currentLanguage: language),
         );
       },
       failure: (failure) {
         emit(
-          state.copyWith(
-            isGetLanguageLoading: false,
-            isGetLanguageCompleted: false,
-            isGetLanguageFailed: true,
-            errorMessage: failure.message,
+          _GetLanguageFailed(
+            message: failure.message,
+            failure: failure,
           ),
         );
       },
     );
   }
 
-  void searchOn({
-    bool? isSearchByTitle,
-    bool? isSearchByBody,
-    bool? isSearchByDate,
-    bool? isSearchByStatus,
-  }) async {
+  void searchBy({bool? title, bool? body}) async {
+    var search = SearchSettingModel(
+      searchByTitle: title ?? searchSetting!.searchByTitle,
+      searchByBody: body ?? searchSetting!.searchByBody,
+    );
+
     var result = await settingsRepo.setSearchSettings(
-      isSearchByTitle: isSearchByTitle,
-      isSearchByBody: isSearchByBody,
-      isSearchByDate: isSearchByDate,
-      isSearchByStatus: isSearchByStatus,
+      searchSettings: search,
     );
     result.when(
-      success: (value) {
-        emit(
-          release().copyWith(
-            isSetSearchSettingsCompleted: true,
-            isSearchByTitle: isSearchByTitle ?? state.isSearchByTitle,
-            isSearchByBody: isSearchByBody ?? state.isSearchByBody,
-            isSearchByDate: isSearchByDate ?? state.isSearchByDate,
-            isSearchByStatus: isSearchByStatus ?? state.isSearchByStatus,
-          ),
-        );
+      success: (_) {
+        searchSetting = search;
+        emit(_SetSearchSettingsCompleted(newsearchSettings: search));
       },
       failure: (failure) {
         emit(
-          release().copyWith(
-            isSetSearchSettingsCompleted: false,
-            isSetSearchSettingsFailed: true,
-            errorMessage: failure.message,
+          _SetSearchSettingsFailed(
+            message: failure.message,
+            failure: failure,
           ),
         );
       },
@@ -106,25 +83,18 @@ class SettingViewModel extends Cubit<SettingViewModelState> {
   }
 
   void getSearchSettings() async {
+    emit(const _GetSearchSettingsLoading());
     var result = await settingsRepo.getSearchSettings();
     result.when(
       success: (searchSettings) {
-        emit(
-          release().copyWith(
-            isGetSearchSettingsCompleted: true,
-            isSearchByTitle: searchSettings[CacheKeys.isSearchByTitle]!,
-            isSearchByBody: searchSettings[CacheKeys.isSearchByBody]!,
-            isSearchByDate: searchSettings[CacheKeys.isSearchByDate]!,
-            isSearchByStatus: searchSettings[CacheKeys.isSearchByStatus]!,
-          ),
-        );
+        searchSetting = searchSettings;
+        emit(const _GetSearchSettingsCompleted());
       },
       failure: (failure) {
         emit(
-          release().copyWith(
-            isGetSearchSettingsCompleted: false,
-            isGetSearchSettingsFailed: true,
-            errorMessage: failure.message,
+          _GetSearchSettingsFailed(
+            message: failure.message,
+            failure: failure,
           ),
         );
       },
@@ -132,51 +102,29 @@ class SettingViewModel extends Cubit<SettingViewModelState> {
   }
 
   void setNotificationSettings({
-    bool? isNotificationOnAdd,
-    bool? isNotificationOnUpdate,
-    bool? isNotificationOnComplete,
-    bool? isNotificationOnReminder,
-    DateTime? reminderDateTime,
-    bool? repeatReminder,
+    bool? sendOnAdd,
+    bool? sendOnUpdate,
+    bool? sendOnComplete,
   }) async {
-    emit(release().copyWith(
-      isNotificationSettingsLoading: true,
-    ));
+    var notification = NotificationSettingModel(
+      sendOnAdd: sendOnAdd ?? notificationSetting!.sendOnAdd,
+      sendOnUpdate: sendOnUpdate ?? notificationSetting!.sendOnUpdate,
+      sendOnComplete: sendOnComplete ?? notificationSetting!.sendOnComplete,
+    );
     var result = await settingsRepo.setNotificationSettings(
-      isNotificationOnAdd: isNotificationOnAdd,
-      isNotificationOnUpdate: isNotificationOnUpdate,
-      isNotificationOnComplete: isNotificationOnComplete,
-      isNotificationOnReminder: isNotificationOnReminder,
-      reminderDateTime: reminderDateTime,
-      repeatReminder: repeatReminder,
+      notificationSettings: notification,
     );
     result.when(
       success: (value) {
-        emit(
-          release().copyWith(
-            isNotificationSettingsLoading: false,
-            isNotificationSettingsCompleted: true,
-            isNotificationOnAdd:
-                isNotificationOnAdd ?? state.isNotificationOnAdd,
-            isNotificationOnUpdate:
-                isNotificationOnUpdate ?? state.isNotificationOnUpdate,
-            isNotificationOnComplete:
-                isNotificationOnComplete ?? state.isNotificationOnComplete,
-            isNotificationOnReminder:
-                isNotificationOnReminder ?? state.isNotificationOnReminder,
-            reminderDateTime: reminderDateTime ?? state.reminderDateTime,
-            repeatReminder: repeatReminder ?? state.repeatReminder,
-          ),
-        );
-        scheduleNotification();
+        notificationSetting = notification;
+        emit(_SetNotificationSettingsCompleted(
+            newNotificationSettings: notification));
       },
       failure: (failure) {
         emit(
-          release().copyWith(
-            isNotificationSettingsLoading: false,
-            isNotificationSettingsCompleted: false,
-            isNotificationSettingsFailed: true,
-            errorMessage: failure.message,
+          _SetNotificationSettingsFailed(
+            message: failure.message,
+            failure: failure,
           ),
         );
       },
@@ -184,70 +132,21 @@ class SettingViewModel extends Cubit<SettingViewModelState> {
   }
 
   void getNotificationSettings() async {
+    emit(const _GetNotificationSettingsLoading());
     var result = await settingsRepo.getNotificationSettings();
     result.when(
       success: (notificationSettings) async {
-        emit(
-          release().copyWith(
-            isNotificationSettingsCompleted: true,
-            isNotificationOnAdd:
-                notificationSettings[CacheKeys.isNotificationOnAdd]!,
-            isNotificationOnUpdate:
-                notificationSettings[CacheKeys.isNotificationOnUpdate]!,
-            isNotificationOnComplete:
-                notificationSettings[CacheKeys.isNotificationOnComplete]!,
-            isNotificationOnReminder:
-                notificationSettings[CacheKeys.isNotificationOnReminder]!,
-            reminderDateTime: notificationSettings[CacheKeys.reminderDateTime],
-            repeatReminder: notificationSettings[CacheKeys.repeatReminder],
-          ),
-        );
+        notificationSetting = notificationSettings;
+        emit(const _GetNotificationSettingsCompleted());
       },
       failure: (failure) {
         emit(
-          release().copyWith(
-            isNotificationSettingsCompleted: false,
-            isNotificationSettingsFailed: true,
-            errorMessage: failure.message,
+          _GetNotificationSettingsFailed(
+            message: failure.message,
+            failure: failure,
           ),
         );
       },
-    );
-  }
-
-  /// schedule notification
-  void scheduleNotification() async {
-    state.isNotificationOnReminder
-        ? await localNotification.displaySchedule(
-            repeatDaysWithSameTime: state.repeatReminder,
-            scheduleTime: state.reminderDateTime!,
-            notification: NotificationModel(
-              displayId: NotificaitonConstants.scheduleNotificationId,
-              title: 'task.motive_reminder'.tr(),
-              body: 'task.motive_reminder_body'.tr(),
-            ),
-          )
-        : localNotification.cancel(
-            id: NotificaitonConstants.scheduleNotificationId);
-  }
-
-  SettingViewModelState release() {
-    return state.copyWith(
-      isInitial: false,
-      isChangeLanguageLoading: false,
-      isChangeLanguageFailed: false,
-      isGetLanguageLoading: false,
-      isGetLanguageFailed: false,
-      isChangeLanguageCompleted: false,
-      isGetLanguageCompleted: false,
-      isGetSearchSettingsCompleted: false,
-      isGetSearchSettingsFailed: false,
-      isSetSearchSettingsCompleted: false,
-      isSetSearchSettingsFailed: false,
-      isNotificationSettingsLoading: false,
-      isNotificationSettingsCompleted: false,
-      isNotificationSettingsFailed: false,
-      errorMessage: null,
     );
   }
 }

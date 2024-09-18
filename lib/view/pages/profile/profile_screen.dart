@@ -1,7 +1,8 @@
 import 'package:better_one/config/navigation/routes_enum.dart';
 import 'package:better_one/core/constants/constants.dart';
 import 'package:better_one/core/errors/failure.dart';
-import 'package:better_one/core/utils/dependency_locator/dependency_injection.dart';
+import 'package:better_one/core/utils/cache_service/cach_interface/locale_user_info.dart';
+import 'package:better_one/core/utils/dependency_locator/inject.dart';
 import 'package:better_one/core/utils/methods/methods.dart';
 import 'package:better_one/core/utils/shared_widgets/back_button_l10n.dart';
 import 'package:better_one/core/utils/shared_widgets/failed.dart';
@@ -56,7 +57,7 @@ class _ProfileSettingScreenState extends State<ProfileScreen> {
             },
             noUserFound: (message) {
               showSnackBar(context, message: message);
-              userLocaleDatabase.deleteUser();
+              inject<LocaleUserInfo>().deleteUser();
               context.goNamed(Routes.login.name);
             },
             logoutLoading: () {
@@ -67,7 +68,7 @@ class _ProfileSettingScreenState extends State<ProfileScreen> {
               context.pop();
             },
             logoutSuccess: () {
-              userLocaleDatabase.deleteUser();
+              inject<LocaleUserInfo>().deleteUser();
               context.goNamed(Routes.login.name);
             },
           );

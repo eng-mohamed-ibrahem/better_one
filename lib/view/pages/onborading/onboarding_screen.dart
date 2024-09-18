@@ -1,6 +1,7 @@
 import 'package:better_one/config/navigation/routes_enum.dart';
 import 'package:better_one/core/constants/constants.dart';
-import 'package:better_one/core/utils/dependency_locator/dependency_injection.dart';
+import 'package:better_one/core/utils/cache_service/cach_interface/locale_user_info.dart';
+import 'package:better_one/core/utils/dependency_locator/inject.dart';
 import 'package:better_one/model/onboarding/onboarding_model.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
@@ -55,7 +56,8 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                     textStyle: Theme.of(context).textTheme.bodyMedium,
                   ),
                   onPressed: () {
-                    settingRepo.setOnBoardingSeen(true);
+                    inject<LocaleUserInfo>()
+                        .setSeenOnboarding(seenOnboarding: true);
                     context.go(Routes.home.path);
                   },
                   child: Text('core.skip'.tr()),

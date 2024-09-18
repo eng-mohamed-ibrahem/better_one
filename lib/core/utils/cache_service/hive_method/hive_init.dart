@@ -1,13 +1,23 @@
-import 'package:better_one/core/utils/cache_service/cach_interface/init_cache_interface.dart';
+import 'package:get_it/get_it.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 
-class HiveInit implements InitCacheInterface {
+class HiveCacheInit {
   static const String _userdata = 'user_data';
-  late final Box appBox;
+  late final Box appCache;
 
-  @override
   Future<void> init() async {
     await Hive.initFlutter();
-    appBox = await Hive.openBox(_userdata);
+    appCache = await Hive.openBox(_userdata);
+    GetIt.instance.registerSingleton<HiveCache>(HiveCache(appCache));
   }
+}
+
+class HiveCache {
+  HiveCache(this.appCache);
+  final Box appCache;
+
+  /// will be executed later
+  // final Box tasksCache = Hive.box('tasks');
+  // final Box settingsCache = Hive.box('settings');
+  // final Box profileCache = Hive.box('profile');
 }
