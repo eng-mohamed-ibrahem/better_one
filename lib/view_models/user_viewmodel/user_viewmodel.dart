@@ -111,4 +111,22 @@ class UserViewmodel extends Cubit<UserViewmodelState> {
       },
     );
   }
+
+  //  void createEvent(EventCalendarModel event) async {
+  //   var result = await userRepo.createEvent(event);
+  //   result.when(
+  //     success: (event) {},
+  //     failure: (failure) {},
+  //   );
+  //   /**
+  //    * inject<FlutterLocalNotification>().display(
+  //     notification: NotificationModel(
+  //       title: "setting.notification.event_added".tr(),
+  //       body: event.title,
+  //       displayId: event.title.hashCode,
+  //     ),
+  //   );
+  //    */
+  // }
+
 }

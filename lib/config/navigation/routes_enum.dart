@@ -8,7 +8,7 @@ enum Routes {
   home("/home", "home"),
   settings("settings", "settings"),
   task("task", "task"),
-  taskDetail("task-detail", "task_detail"),
+  taskDetail("task-detail/id=:id", "task_detail"),
   profile("profile", "profile"),
   notificationSetting("notification-setting", "notification_setting"),
   searchSetting("search-setting", "search_setting"),

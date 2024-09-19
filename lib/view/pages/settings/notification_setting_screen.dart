@@ -134,7 +134,7 @@ class _NotificationScreenState extends State<NotificationSettingScreen> {
                       onPressed: () async {
                         await createEvent(context);
                       },
-                      child: Text('setting.notification.on.reminder'.tr()),
+                      child: Text('setting.notification.event'.tr()),
                     ),
                   ],
                 );

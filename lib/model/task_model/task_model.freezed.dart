@@ -200,7 +200,7 @@ class __$$TaskModelImplCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$TaskModelImpl implements _TaskModel {
+class _$TaskModelImpl extends _TaskModel {
   const _$TaskModelImpl(
       {required this.title,
       @JsonKey(name: 'sub_tasks') required this.subTasks,
@@ -209,7 +209,8 @@ class _$TaskModelImpl implements _TaskModel {
       @JsonKey(name: 'updated_at') this.updatedAt,
       @JsonKey(name: 'elapsed_time') this.elapsedTime = Duration.zero,
       this.status = TaskStatus.created,
-      this.backup = false});
+      this.backup = false})
+      : super._();
 
   factory _$TaskModelImpl.fromJson(Map<String, dynamic> json) =>
       _$$TaskModelImplFromJson(json);
@@ -289,7 +290,7 @@ class _$TaskModelImpl implements _TaskModel {
   }
 }
 
-abstract class _TaskModel implements TaskModel {
+abstract class _TaskModel extends TaskModel {
   const factory _TaskModel(
       {required final String title,
       @JsonKey(name: 'sub_tasks') required final List<SubTask> subTasks,
@@ -299,6 +300,7 @@ abstract class _TaskModel implements TaskModel {
       @JsonKey(name: 'elapsed_time') final Duration elapsedTime,
       final TaskStatus status,
       final bool backup}) = _$TaskModelImpl;
+  const _TaskModel._() : super._();
 
   factory _TaskModel.fromJson(Map<String, dynamic> json) =
       _$TaskModelImpl.fromJson;
