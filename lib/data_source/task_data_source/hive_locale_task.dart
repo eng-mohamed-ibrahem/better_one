@@ -1,4 +1,3 @@
-import 'dart:convert';
 import 'dart:io';
 
 import 'package:better_one/core/constants/constants.dart';
@@ -56,6 +55,6 @@ class HiveLocaleTask implements TaskSource {
   List<TaskModel> _convertToTaskList(List<dynamic>? list) {
     return list == null
         ? []
-        : list.map((e) => TaskModel.fromJson(jsonDecode(e))).toList();
+        : list.map((e) => TaskModel.fromString(e)).toList();
   }
 }

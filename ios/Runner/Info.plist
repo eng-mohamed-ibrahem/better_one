@@ -50,5 +50,9 @@
 	<string>en</string>
 	<string>ar</string>
 	</array>
+	<key>NSCalendarsUsageDescription</key>
+	<string>Better One needs access to your calendar.</string>
+	<key>NSContactsUsageDescription</key>
+	<string>Better One needs access to your contacts.</string>
 </dict>
 </plist>

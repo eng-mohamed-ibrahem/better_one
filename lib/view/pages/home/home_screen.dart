@@ -43,9 +43,9 @@ class _HomeScreenState extends State<HomeScreen> with RouteAware {
   void _interactWithNotification() {
     localNotification.onTapNotificationStream.listen(
       (payload) {
-        if (payload!.isNotEmpty) {
+        if (payload!.isNotEmpty && mounted) {
           context.goNamed(Routes.taskDetail.name,
-              queryParameters: {'id': payload});
+              pathParameters: {'id': payload});
         }
       },
     );

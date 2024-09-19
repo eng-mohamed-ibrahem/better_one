@@ -5,6 +5,7 @@ import 'package:better_one/core/utils/cache_service/cach_interface/locale_user_i
 import 'package:better_one/core/utils/dependency_locator/inject.dart';
 import 'package:better_one/data_source/user_data_source/locale_user_source.dart';
 import 'package:better_one/data_source/user_data_source/remote_user_source.dart';
+import 'package:better_one/model/event_calendar_model/event_calendar_model.dart';
 import 'package:better_one/model/task_model/task_model.dart';
 import 'package:better_one/model/user_model/user_model.dart';
 import 'package:better_one/repositories/user_repo/user_repo_intefrace.dart';
@@ -165,5 +166,11 @@ class UserRepoImpl implements UserRepoInterface {
   @override
   Future<ResultHandler<List<TaskModel>, Failure>> search(String query) async {
     return await localeUserSource.search(query);
+  }
+
+  @override
+  Future<ResultHandler<void, Failure>> createEvent(
+      EventCalendarModel event) async {
+    return await localeUserSource.createEvent(event);
   }
 }

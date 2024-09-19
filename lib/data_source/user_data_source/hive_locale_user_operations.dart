@@ -1,6 +1,6 @@
-import 'dart:convert';
 import 'dart:io';
 
+import 'package:add_2_calendar/add_2_calendar.dart';
 import 'package:better_one/core/constants/constants.dart';
 import 'package:better_one/core/enum/task_status.dart';
 import 'package:better_one/core/errors/failure.dart';
@@ -9,6 +9,7 @@ import 'package:better_one/core/utils/cache_service/cache_service.dart';
 import 'package:better_one/core/utils/dependency_locator/dependency_injection.dart';
 import 'package:better_one/core/utils/dependency_locator/inject.dart';
 import 'package:better_one/data_source/user_data_source/locale_user_source.dart';
+import 'package:better_one/model/event_calendar_model/event_calendar_model.dart';
 import 'package:better_one/model/task_model/task_model.dart';
 
 class HiveLocaleUser implements LocaleUserSource {
@@ -22,7 +23,7 @@ class HiveLocaleUser implements LocaleUserSource {
         CacheKeys.tasks,
         {
           ...?tasks,
-          newTask.id: jsonEncode(newTask.toJson()),
+          newTask.id: newTask.asString(),
         },
       );
       return ResultHandler.success(data: newTask);
@@ -45,8 +46,9 @@ class HiveLocaleUser implements LocaleUserSource {
   Future<ResultHandler<TaskModel, Failure>> getTaskById(String id) async {
     try {
       return ResultHandler.success(
-        data: TaskModel.fromJson(jsonDecode(
-            (inject<HiveCache>().appCache.get(CacheKeys.tasks) as Map)[id])),
+        data: TaskModel.fromString(
+          (inject<HiveCache>().appCache.get(CacheKeys.tasks) as Map)[id],
+        ),
       );
     } on FileSystemException catch (e) {
       return ResultHandler.failure(
@@ -92,7 +94,7 @@ class HiveLocaleUser implements LocaleUserSource {
     try {
       var tasks = (inject<HiveCache>().appCache.get(CacheKeys.tasks) as Map);
 
-      tasks[oldTask.id] = jsonEncode(newTask.toJson());
+      tasks[oldTask.id] = newTask.asString();
       await inject<HiveCache>().appCache.put(CacheKeys.tasks, tasks);
       return ResultHandler.success(data: newTask);
     } on FileSystemException catch (e) {
@@ -185,13 +187,27 @@ class HiveLocaleUser implements LocaleUserSource {
     }
   }
 
-  // List<String> _convertToJson(List<TaskModel> list) {
-  //   return list.map((e) => jsonEncode(e.toJson())).toList();
-  // }
-
   List<TaskModel> _convertToTaskList(List<dynamic>? list) {
     return list == null
         ? []
-        : list.map((e) => TaskModel.fromJson(jsonDecode(e))).toList();
+        : list.map((e) => TaskModel.fromString(e)).toList();
+  }
+
+  @override
+  Future<ResultHandler<void, Failure>> createEvent(
+      EventCalendarModel event) async {
+    try {
+      await Add2Calendar.addEvent2Cal(
+        Event(
+          title: event.title,
+          description: event.description,
+          startDate: event.startDate,
+          endDate: event.endDate,
+        ),
+      );
+      return const ResultHandler.success(data: null);
+    } catch (e) {
+      return ResultHandler.failure(error: OtherFailure(message: e.toString()));
+    }
   }
 }

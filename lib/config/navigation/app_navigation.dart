@@ -3,6 +3,7 @@ import 'package:better_one/core/utils/cache_service/cach_interface/locale_user_i
 import 'package:better_one/core/utils/dependency_locator/dependency_injection.dart';
 import 'package:better_one/core/utils/dependency_locator/inject.dart';
 import 'package:better_one/core/utils/navigator_observer/app_navigator_observer.dart';
+import 'package:better_one/core/utils/notification_service/flutter_local_notification.dart';
 import 'package:better_one/data_source/auth_data_source/firebase_auth_impl.dart';
 import 'package:better_one/data_source/feedback_data_source/firebase_feedback_source.dart';
 import 'package:better_one/repositories/auth_repo/auth_repo_impl.dart';
@@ -76,12 +77,14 @@ class AppNavigation {
           );
         },
         redirect: (context, state) async {
-          return await localNotification.getNotificationAppLaunchDetails.then(
+          return await inject<FlutterLocalNotification>()
+              .getNotificationAppLaunchDetails
+              .then(
             (value) {
               if (value != null && value.didNotificationLaunchApp) {
                 state.namedLocation(
                   Routes.taskDetail.name,
-                  queryParameters: {'id': value.notificationResponse!.payload!},
+                  pathParameters: {'id': value.notificationResponse!.payload!},
                 );
               }
               return null;
@@ -122,7 +125,7 @@ class AppNavigation {
                     ),
                   ],
                   child: TaskDetailsScreen(
-                    taskId: state.uri.queryParameters['id'] as String,
+                    taskId: state.pathParameters['id'] as String,
                   ),
                 ),
                 transitionsBuilder:

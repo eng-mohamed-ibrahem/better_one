@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:better_one/core/enum/task_status.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
@@ -6,6 +8,7 @@ part 'task_model.g.dart';
 
 @Freezed(makeCollectionsUnmodifiable: false)
 class TaskModel with _$TaskModel {
+  const TaskModel._();
   const factory TaskModel({
     required String title,
     @JsonKey(name: 'sub_tasks') required List<SubTask> subTasks,
@@ -19,6 +22,11 @@ class TaskModel with _$TaskModel {
 
   factory TaskModel.fromJson(Map<String, dynamic> json) =>
       _$TaskModelFromJson(json);
+
+  String asString() => json.encode(toJson());
+
+  factory TaskModel.fromString(String src) =>
+      TaskModel.fromJson(json.decode(src));
 }
 
 @freezed
