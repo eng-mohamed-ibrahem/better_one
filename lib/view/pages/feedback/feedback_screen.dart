@@ -61,10 +61,10 @@ class _FeedbackScreenState extends State<FeedbackScreen> {
                 context.pop(context);
               },
               sendFeedbackSuccess: () {
-                // pop from dialo
+                // pop from dialog
                 context.pop(context);
                 showSnackBar(context, message: 'feedback.success'.tr());
-                // pop to prfile screen
+                // pop to profile screen
                 context.pop(context);
               },
               sendFeedbackLoading: () {

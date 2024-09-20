@@ -31,7 +31,6 @@ class CacheKeys {
 
   // user data
   static const userData = 'user_data';
-  static const userId = 'user_id';
   static const isVerified = 'is_verified';
   // back service
   static const downloadService = 'download_service';

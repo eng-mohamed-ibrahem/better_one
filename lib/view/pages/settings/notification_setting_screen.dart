@@ -191,7 +191,7 @@ class _NotificationScreenState extends State<NotificationSettingScreen> {
               if (pickedTime != null && context.mounted) {
                 context.read<SettingViewmodel>().createEvent(
                       event: EventCalendarModel(
-                        title: 'test',
+                        title: 'Better One Event',
                         description: 'this is test event',
                         startDate: pickedDateTime.add(
                           Duration(
