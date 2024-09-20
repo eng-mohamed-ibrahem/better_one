@@ -1,8 +1,11 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:better_one/core/errors/failure.dart';
+import 'package:better_one/model/event_calendar_model/event_calendar_model.dart';
 import 'package:better_one/model/setting_model/notification_setting_model.dart';
 import 'package:better_one/model/setting_model/search_setting_model.dart';
 import 'package:better_one/repositories/setting_repo/settings_repo_interface.dart';
+import 'package:better_one/repositories/user_repo/user_repo_intefrace.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
@@ -143,6 +146,27 @@ class SettingViewmodel extends Cubit<SettingViewmodelState> {
         emit(
           _GetNotificationSettingsFailed(
             message: failure.message,
+            failure: failure,
+          ),
+        );
+      },
+    );
+  }
+
+  void createEvent(
+      {required EventCalendarModel event,
+      required UserRepoInterface userRepo}) async {
+    emit(const _CreateEventLoading());
+    var result = await userRepo.createEvent(event);
+    result.when(
+      success: (_) {
+        emit(_CreateEventCompleted(event: event));
+      },
+      failure: (failure) {
+        emit(
+          _CreateEventFailed(
+            message:
+                failure is OtherFailure ? "core.error".tr() : failure.message,
             failure: failure,
           ),
         );

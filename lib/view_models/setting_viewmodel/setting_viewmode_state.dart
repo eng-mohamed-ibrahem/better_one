@@ -85,4 +85,17 @@ class SettingViewmodelState with _$SettingViewmodelState {
     required String message,
     required Failure failure,
   }) = _SetReminderEventFailed;
+
+  /// create event
+  const factory SettingViewmodelState.createEventLoading() =
+      _CreateEventLoading;
+  const factory SettingViewmodelState.createEventCompleted(
+    {required EventCalendarModel event}
+  ) =  
+      _CreateEventCompleted;
+
+  const factory SettingViewmodelState.createEventFailed({
+    required String message,
+    required Failure failure,
+  }) = _CreateEventFailed;
 }

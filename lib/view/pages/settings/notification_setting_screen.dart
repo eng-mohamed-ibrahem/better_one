@@ -1,12 +1,18 @@
 import 'package:better_one/core/constants/constants.dart';
+import 'package:better_one/core/utils/dependency_locator/dependency_injection.dart';
 import 'package:better_one/core/utils/dependency_locator/inject.dart';
+import 'package:better_one/core/utils/methods/methods.dart';
+import 'package:better_one/core/utils/notification_service/flutter_local_notification.dart';
 import 'package:better_one/core/utils/shared_widgets/back_button_l10n.dart';
 import 'package:better_one/core/utils/shared_widgets/failed.dart';
+import 'package:better_one/model/event_calendar_model/event_calendar_model.dart';
+import 'package:better_one/model/notification_model/notification_model.dart';
 import 'package:better_one/view_models/setting_viewmodel/setting_viewmode.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:go_router/go_router.dart';
 import 'package:skeletonizer/skeletonizer.dart';
 
 class NotificationSettingScreen extends StatefulWidget {
@@ -35,7 +41,28 @@ class _NotificationScreenState extends State<NotificationSettingScreen> {
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(10),
         ),
-        child: BlocBuilder<SettingViewmodel, SettingViewmodelState>(
+        child: BlocConsumer<SettingViewmodel, SettingViewmodelState>(
+          listener: (context, state) {
+            state.whenOrNull(
+              createEventLoading: () {
+                showLoadingDialog(context);
+              },
+              createEventFailed: (message, failure) {
+                showSnackBar(context, message: message);
+                context.pop(context);
+              },
+              createEventCompleted: (event) {
+                context.pop(context);
+                inject<FlutterLocalNotification>().display(
+                  notification: NotificationModel(
+                    title: "setting.notification.event_added".tr(),
+                    body: event.title,
+                    displayId: event.title.hashCode,
+                  ),
+                );
+              },
+            );
+          },
           builder: (context, state) {
             return state.maybeWhen(
               getNotificationSettingsLoading: () {
@@ -161,7 +188,25 @@ class _NotificationScreenState extends State<NotificationSettingScreen> {
             initialTime: TimeOfDay.now(),
           ).then(
             (pickedTime) {
-              // todo add event to calendar
+              if (pickedTime != null && context.mounted) {
+                context.read<SettingViewmodel>().createEvent(
+                      event: EventCalendarModel(
+                        title: 'test',
+                        description: 'this is test event',
+                        startDate: pickedDateTime.add(
+                          Duration(
+                              hours: pickedTime.hour,
+                              minutes: pickedTime.minute),
+                        ),
+                        endDate: pickedDateTime.add(
+                          Duration(
+                              hours: pickedTime.hour,
+                              minutes: pickedTime.minute),
+                        ),
+                      ),
+                      userRepo: kUserRepo,
+                    );
+              }
             },
           );
         } else {

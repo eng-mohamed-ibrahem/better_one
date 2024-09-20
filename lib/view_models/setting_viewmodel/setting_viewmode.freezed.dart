@@ -49,6 +49,10 @@ mixin _$SettingViewmodelState {
     required TResult Function() setReminderEventCompleted,
     required TResult Function(String message, Failure failure)
         setReminderEventFailed,
+    required TResult Function() createEventLoading,
+    required TResult Function(EventCalendarModel event) createEventCompleted,
+    required TResult Function(String message, Failure failure)
+        createEventFailed,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -79,6 +83,9 @@ mixin _$SettingViewmodelState {
     TResult? Function()? setReminderEventLoading,
     TResult? Function()? setReminderEventCompleted,
     TResult? Function(String message, Failure failure)? setReminderEventFailed,
+    TResult? Function()? createEventLoading,
+    TResult? Function(EventCalendarModel event)? createEventCompleted,
+    TResult? Function(String message, Failure failure)? createEventFailed,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -109,6 +116,9 @@ mixin _$SettingViewmodelState {
     TResult Function()? setReminderEventLoading,
     TResult Function()? setReminderEventCompleted,
     TResult Function(String message, Failure failure)? setReminderEventFailed,
+    TResult Function()? createEventLoading,
+    TResult Function(EventCalendarModel event)? createEventCompleted,
+    TResult Function(String message, Failure failure)? createEventFailed,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -152,6 +162,9 @@ mixin _$SettingViewmodelState {
         setReminderEventCompleted,
     required TResult Function(_SetReminderEventFailed value)
         setReminderEventFailed,
+    required TResult Function(_CreateEventLoading value) createEventLoading,
+    required TResult Function(_CreateEventCompleted value) createEventCompleted,
+    required TResult Function(_CreateEventFailed value) createEventFailed,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -189,6 +202,9 @@ mixin _$SettingViewmodelState {
     TResult? Function(_SetReminderEventCompleted value)?
         setReminderEventCompleted,
     TResult? Function(_SetReminderEventFailed value)? setReminderEventFailed,
+    TResult? Function(_CreateEventLoading value)? createEventLoading,
+    TResult? Function(_CreateEventCompleted value)? createEventCompleted,
+    TResult? Function(_CreateEventFailed value)? createEventFailed,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -224,6 +240,9 @@ mixin _$SettingViewmodelState {
     TResult Function(_SetReminderEventCompleted value)?
         setReminderEventCompleted,
     TResult Function(_SetReminderEventFailed value)? setReminderEventFailed,
+    TResult Function(_CreateEventLoading value)? createEventLoading,
+    TResult Function(_CreateEventCompleted value)? createEventCompleted,
+    TResult Function(_CreateEventFailed value)? createEventFailed,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -323,6 +342,10 @@ class _$InitialImpl implements _Initial {
     required TResult Function() setReminderEventCompleted,
     required TResult Function(String message, Failure failure)
         setReminderEventFailed,
+    required TResult Function() createEventLoading,
+    required TResult Function(EventCalendarModel event) createEventCompleted,
+    required TResult Function(String message, Failure failure)
+        createEventFailed,
   }) {
     return initial();
   }
@@ -356,6 +379,9 @@ class _$InitialImpl implements _Initial {
     TResult? Function()? setReminderEventLoading,
     TResult? Function()? setReminderEventCompleted,
     TResult? Function(String message, Failure failure)? setReminderEventFailed,
+    TResult? Function()? createEventLoading,
+    TResult? Function(EventCalendarModel event)? createEventCompleted,
+    TResult? Function(String message, Failure failure)? createEventFailed,
   }) {
     return initial?.call();
   }
@@ -389,6 +415,9 @@ class _$InitialImpl implements _Initial {
     TResult Function()? setReminderEventLoading,
     TResult Function()? setReminderEventCompleted,
     TResult Function(String message, Failure failure)? setReminderEventFailed,
+    TResult Function()? createEventLoading,
+    TResult Function(EventCalendarModel event)? createEventCompleted,
+    TResult Function(String message, Failure failure)? createEventFailed,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -438,6 +467,9 @@ class _$InitialImpl implements _Initial {
         setReminderEventCompleted,
     required TResult Function(_SetReminderEventFailed value)
         setReminderEventFailed,
+    required TResult Function(_CreateEventLoading value) createEventLoading,
+    required TResult Function(_CreateEventCompleted value) createEventCompleted,
+    required TResult Function(_CreateEventFailed value) createEventFailed,
   }) {
     return initial(this);
   }
@@ -478,6 +510,9 @@ class _$InitialImpl implements _Initial {
     TResult? Function(_SetReminderEventCompleted value)?
         setReminderEventCompleted,
     TResult? Function(_SetReminderEventFailed value)? setReminderEventFailed,
+    TResult? Function(_CreateEventLoading value)? createEventLoading,
+    TResult? Function(_CreateEventCompleted value)? createEventCompleted,
+    TResult? Function(_CreateEventFailed value)? createEventFailed,
   }) {
     return initial?.call(this);
   }
@@ -516,6 +551,9 @@ class _$InitialImpl implements _Initial {
     TResult Function(_SetReminderEventCompleted value)?
         setReminderEventCompleted,
     TResult Function(_SetReminderEventFailed value)? setReminderEventFailed,
+    TResult Function(_CreateEventLoading value)? createEventLoading,
+    TResult Function(_CreateEventCompleted value)? createEventCompleted,
+    TResult Function(_CreateEventFailed value)? createEventFailed,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -601,6 +639,10 @@ class _$GetLanguageLoadingImpl implements _GetLanguageLoading {
     required TResult Function() setReminderEventCompleted,
     required TResult Function(String message, Failure failure)
         setReminderEventFailed,
+    required TResult Function() createEventLoading,
+    required TResult Function(EventCalendarModel event) createEventCompleted,
+    required TResult Function(String message, Failure failure)
+        createEventFailed,
   }) {
     return getLanguageLoading();
   }
@@ -634,6 +676,9 @@ class _$GetLanguageLoadingImpl implements _GetLanguageLoading {
     TResult? Function()? setReminderEventLoading,
     TResult? Function()? setReminderEventCompleted,
     TResult? Function(String message, Failure failure)? setReminderEventFailed,
+    TResult? Function()? createEventLoading,
+    TResult? Function(EventCalendarModel event)? createEventCompleted,
+    TResult? Function(String message, Failure failure)? createEventFailed,
   }) {
     return getLanguageLoading?.call();
   }
@@ -667,6 +712,9 @@ class _$GetLanguageLoadingImpl implements _GetLanguageLoading {
     TResult Function()? setReminderEventLoading,
     TResult Function()? setReminderEventCompleted,
     TResult Function(String message, Failure failure)? setReminderEventFailed,
+    TResult Function()? createEventLoading,
+    TResult Function(EventCalendarModel event)? createEventCompleted,
+    TResult Function(String message, Failure failure)? createEventFailed,
     required TResult orElse(),
   }) {
     if (getLanguageLoading != null) {
@@ -716,6 +764,9 @@ class _$GetLanguageLoadingImpl implements _GetLanguageLoading {
         setReminderEventCompleted,
     required TResult Function(_SetReminderEventFailed value)
         setReminderEventFailed,
+    required TResult Function(_CreateEventLoading value) createEventLoading,
+    required TResult Function(_CreateEventCompleted value) createEventCompleted,
+    required TResult Function(_CreateEventFailed value) createEventFailed,
   }) {
     return getLanguageLoading(this);
   }
@@ -756,6 +807,9 @@ class _$GetLanguageLoadingImpl implements _GetLanguageLoading {
     TResult? Function(_SetReminderEventCompleted value)?
         setReminderEventCompleted,
     TResult? Function(_SetReminderEventFailed value)? setReminderEventFailed,
+    TResult? Function(_CreateEventLoading value)? createEventLoading,
+    TResult? Function(_CreateEventCompleted value)? createEventCompleted,
+    TResult? Function(_CreateEventFailed value)? createEventFailed,
   }) {
     return getLanguageLoading?.call(this);
   }
@@ -794,6 +848,9 @@ class _$GetLanguageLoadingImpl implements _GetLanguageLoading {
     TResult Function(_SetReminderEventCompleted value)?
         setReminderEventCompleted,
     TResult Function(_SetReminderEventFailed value)? setReminderEventFailed,
+    TResult Function(_CreateEventLoading value)? createEventLoading,
+    TResult Function(_CreateEventCompleted value)? createEventCompleted,
+    TResult Function(_CreateEventFailed value)? createEventFailed,
     required TResult orElse(),
   }) {
     if (getLanguageLoading != null) {
@@ -910,6 +967,10 @@ class _$GetLanguageCompletedImpl implements _GetLanguageCompleted {
     required TResult Function() setReminderEventCompleted,
     required TResult Function(String message, Failure failure)
         setReminderEventFailed,
+    required TResult Function() createEventLoading,
+    required TResult Function(EventCalendarModel event) createEventCompleted,
+    required TResult Function(String message, Failure failure)
+        createEventFailed,
   }) {
     return getLanguageCompleted(currentLanguage);
   }
@@ -943,6 +1004,9 @@ class _$GetLanguageCompletedImpl implements _GetLanguageCompleted {
     TResult? Function()? setReminderEventLoading,
     TResult? Function()? setReminderEventCompleted,
     TResult? Function(String message, Failure failure)? setReminderEventFailed,
+    TResult? Function()? createEventLoading,
+    TResult? Function(EventCalendarModel event)? createEventCompleted,
+    TResult? Function(String message, Failure failure)? createEventFailed,
   }) {
     return getLanguageCompleted?.call(currentLanguage);
   }
@@ -976,6 +1040,9 @@ class _$GetLanguageCompletedImpl implements _GetLanguageCompleted {
     TResult Function()? setReminderEventLoading,
     TResult Function()? setReminderEventCompleted,
     TResult Function(String message, Failure failure)? setReminderEventFailed,
+    TResult Function()? createEventLoading,
+    TResult Function(EventCalendarModel event)? createEventCompleted,
+    TResult Function(String message, Failure failure)? createEventFailed,
     required TResult orElse(),
   }) {
     if (getLanguageCompleted != null) {
@@ -1025,6 +1092,9 @@ class _$GetLanguageCompletedImpl implements _GetLanguageCompleted {
         setReminderEventCompleted,
     required TResult Function(_SetReminderEventFailed value)
         setReminderEventFailed,
+    required TResult Function(_CreateEventLoading value) createEventLoading,
+    required TResult Function(_CreateEventCompleted value) createEventCompleted,
+    required TResult Function(_CreateEventFailed value) createEventFailed,
   }) {
     return getLanguageCompleted(this);
   }
@@ -1065,6 +1135,9 @@ class _$GetLanguageCompletedImpl implements _GetLanguageCompleted {
     TResult? Function(_SetReminderEventCompleted value)?
         setReminderEventCompleted,
     TResult? Function(_SetReminderEventFailed value)? setReminderEventFailed,
+    TResult? Function(_CreateEventLoading value)? createEventLoading,
+    TResult? Function(_CreateEventCompleted value)? createEventCompleted,
+    TResult? Function(_CreateEventFailed value)? createEventFailed,
   }) {
     return getLanguageCompleted?.call(this);
   }
@@ -1103,6 +1176,9 @@ class _$GetLanguageCompletedImpl implements _GetLanguageCompleted {
     TResult Function(_SetReminderEventCompleted value)?
         setReminderEventCompleted,
     TResult Function(_SetReminderEventFailed value)? setReminderEventFailed,
+    TResult Function(_CreateEventLoading value)? createEventLoading,
+    TResult Function(_CreateEventCompleted value)? createEventCompleted,
+    TResult Function(_CreateEventFailed value)? createEventFailed,
     required TResult orElse(),
   }) {
     if (getLanguageCompleted != null) {
@@ -1233,6 +1309,10 @@ class _$GetLanguageFailedImpl implements _GetLanguageFailed {
     required TResult Function() setReminderEventCompleted,
     required TResult Function(String message, Failure failure)
         setReminderEventFailed,
+    required TResult Function() createEventLoading,
+    required TResult Function(EventCalendarModel event) createEventCompleted,
+    required TResult Function(String message, Failure failure)
+        createEventFailed,
   }) {
     return getLanguageFailed(message, failure);
   }
@@ -1266,6 +1346,9 @@ class _$GetLanguageFailedImpl implements _GetLanguageFailed {
     TResult? Function()? setReminderEventLoading,
     TResult? Function()? setReminderEventCompleted,
     TResult? Function(String message, Failure failure)? setReminderEventFailed,
+    TResult? Function()? createEventLoading,
+    TResult? Function(EventCalendarModel event)? createEventCompleted,
+    TResult? Function(String message, Failure failure)? createEventFailed,
   }) {
     return getLanguageFailed?.call(message, failure);
   }
@@ -1299,6 +1382,9 @@ class _$GetLanguageFailedImpl implements _GetLanguageFailed {
     TResult Function()? setReminderEventLoading,
     TResult Function()? setReminderEventCompleted,
     TResult Function(String message, Failure failure)? setReminderEventFailed,
+    TResult Function()? createEventLoading,
+    TResult Function(EventCalendarModel event)? createEventCompleted,
+    TResult Function(String message, Failure failure)? createEventFailed,
     required TResult orElse(),
   }) {
     if (getLanguageFailed != null) {
@@ -1348,6 +1434,9 @@ class _$GetLanguageFailedImpl implements _GetLanguageFailed {
         setReminderEventCompleted,
     required TResult Function(_SetReminderEventFailed value)
         setReminderEventFailed,
+    required TResult Function(_CreateEventLoading value) createEventLoading,
+    required TResult Function(_CreateEventCompleted value) createEventCompleted,
+    required TResult Function(_CreateEventFailed value) createEventFailed,
   }) {
     return getLanguageFailed(this);
   }
@@ -1388,6 +1477,9 @@ class _$GetLanguageFailedImpl implements _GetLanguageFailed {
     TResult? Function(_SetReminderEventCompleted value)?
         setReminderEventCompleted,
     TResult? Function(_SetReminderEventFailed value)? setReminderEventFailed,
+    TResult? Function(_CreateEventLoading value)? createEventLoading,
+    TResult? Function(_CreateEventCompleted value)? createEventCompleted,
+    TResult? Function(_CreateEventFailed value)? createEventFailed,
   }) {
     return getLanguageFailed?.call(this);
   }
@@ -1426,6 +1518,9 @@ class _$GetLanguageFailedImpl implements _GetLanguageFailed {
     TResult Function(_SetReminderEventCompleted value)?
         setReminderEventCompleted,
     TResult Function(_SetReminderEventFailed value)? setReminderEventFailed,
+    TResult Function(_CreateEventLoading value)? createEventLoading,
+    TResult Function(_CreateEventCompleted value)? createEventCompleted,
+    TResult Function(_CreateEventFailed value)? createEventFailed,
     required TResult orElse(),
   }) {
     if (getLanguageFailed != null) {
@@ -1525,6 +1620,10 @@ class _$ChangeLanguageLoadingImpl implements _ChangeLanguageLoading {
     required TResult Function() setReminderEventCompleted,
     required TResult Function(String message, Failure failure)
         setReminderEventFailed,
+    required TResult Function() createEventLoading,
+    required TResult Function(EventCalendarModel event) createEventCompleted,
+    required TResult Function(String message, Failure failure)
+        createEventFailed,
   }) {
     return changeLanguageLoading();
   }
@@ -1558,6 +1657,9 @@ class _$ChangeLanguageLoadingImpl implements _ChangeLanguageLoading {
     TResult? Function()? setReminderEventLoading,
     TResult? Function()? setReminderEventCompleted,
     TResult? Function(String message, Failure failure)? setReminderEventFailed,
+    TResult? Function()? createEventLoading,
+    TResult? Function(EventCalendarModel event)? createEventCompleted,
+    TResult? Function(String message, Failure failure)? createEventFailed,
   }) {
     return changeLanguageLoading?.call();
   }
@@ -1591,6 +1693,9 @@ class _$ChangeLanguageLoadingImpl implements _ChangeLanguageLoading {
     TResult Function()? setReminderEventLoading,
     TResult Function()? setReminderEventCompleted,
     TResult Function(String message, Failure failure)? setReminderEventFailed,
+    TResult Function()? createEventLoading,
+    TResult Function(EventCalendarModel event)? createEventCompleted,
+    TResult Function(String message, Failure failure)? createEventFailed,
     required TResult orElse(),
   }) {
     if (changeLanguageLoading != null) {
@@ -1640,6 +1745,9 @@ class _$ChangeLanguageLoadingImpl implements _ChangeLanguageLoading {
         setReminderEventCompleted,
     required TResult Function(_SetReminderEventFailed value)
         setReminderEventFailed,
+    required TResult Function(_CreateEventLoading value) createEventLoading,
+    required TResult Function(_CreateEventCompleted value) createEventCompleted,
+    required TResult Function(_CreateEventFailed value) createEventFailed,
   }) {
     return changeLanguageLoading(this);
   }
@@ -1680,6 +1788,9 @@ class _$ChangeLanguageLoadingImpl implements _ChangeLanguageLoading {
     TResult? Function(_SetReminderEventCompleted value)?
         setReminderEventCompleted,
     TResult? Function(_SetReminderEventFailed value)? setReminderEventFailed,
+    TResult? Function(_CreateEventLoading value)? createEventLoading,
+    TResult? Function(_CreateEventCompleted value)? createEventCompleted,
+    TResult? Function(_CreateEventFailed value)? createEventFailed,
   }) {
     return changeLanguageLoading?.call(this);
   }
@@ -1718,6 +1829,9 @@ class _$ChangeLanguageLoadingImpl implements _ChangeLanguageLoading {
     TResult Function(_SetReminderEventCompleted value)?
         setReminderEventCompleted,
     TResult Function(_SetReminderEventFailed value)? setReminderEventFailed,
+    TResult Function(_CreateEventLoading value)? createEventLoading,
+    TResult Function(_CreateEventCompleted value)? createEventCompleted,
+    TResult Function(_CreateEventFailed value)? createEventFailed,
     required TResult orElse(),
   }) {
     if (changeLanguageLoading != null) {
@@ -1835,6 +1949,10 @@ class _$ChangeLanguageCompletedImpl implements _ChangeLanguageCompleted {
     required TResult Function() setReminderEventCompleted,
     required TResult Function(String message, Failure failure)
         setReminderEventFailed,
+    required TResult Function() createEventLoading,
+    required TResult Function(EventCalendarModel event) createEventCompleted,
+    required TResult Function(String message, Failure failure)
+        createEventFailed,
   }) {
     return changeLanguageCompleted(currentLanguage);
   }
@@ -1868,6 +1986,9 @@ class _$ChangeLanguageCompletedImpl implements _ChangeLanguageCompleted {
     TResult? Function()? setReminderEventLoading,
     TResult? Function()? setReminderEventCompleted,
     TResult? Function(String message, Failure failure)? setReminderEventFailed,
+    TResult? Function()? createEventLoading,
+    TResult? Function(EventCalendarModel event)? createEventCompleted,
+    TResult? Function(String message, Failure failure)? createEventFailed,
   }) {
     return changeLanguageCompleted?.call(currentLanguage);
   }
@@ -1901,6 +2022,9 @@ class _$ChangeLanguageCompletedImpl implements _ChangeLanguageCompleted {
     TResult Function()? setReminderEventLoading,
     TResult Function()? setReminderEventCompleted,
     TResult Function(String message, Failure failure)? setReminderEventFailed,
+    TResult Function()? createEventLoading,
+    TResult Function(EventCalendarModel event)? createEventCompleted,
+    TResult Function(String message, Failure failure)? createEventFailed,
     required TResult orElse(),
   }) {
     if (changeLanguageCompleted != null) {
@@ -1950,6 +2074,9 @@ class _$ChangeLanguageCompletedImpl implements _ChangeLanguageCompleted {
         setReminderEventCompleted,
     required TResult Function(_SetReminderEventFailed value)
         setReminderEventFailed,
+    required TResult Function(_CreateEventLoading value) createEventLoading,
+    required TResult Function(_CreateEventCompleted value) createEventCompleted,
+    required TResult Function(_CreateEventFailed value) createEventFailed,
   }) {
     return changeLanguageCompleted(this);
   }
@@ -1990,6 +2117,9 @@ class _$ChangeLanguageCompletedImpl implements _ChangeLanguageCompleted {
     TResult? Function(_SetReminderEventCompleted value)?
         setReminderEventCompleted,
     TResult? Function(_SetReminderEventFailed value)? setReminderEventFailed,
+    TResult? Function(_CreateEventLoading value)? createEventLoading,
+    TResult? Function(_CreateEventCompleted value)? createEventCompleted,
+    TResult? Function(_CreateEventFailed value)? createEventFailed,
   }) {
     return changeLanguageCompleted?.call(this);
   }
@@ -2028,6 +2158,9 @@ class _$ChangeLanguageCompletedImpl implements _ChangeLanguageCompleted {
     TResult Function(_SetReminderEventCompleted value)?
         setReminderEventCompleted,
     TResult Function(_SetReminderEventFailed value)? setReminderEventFailed,
+    TResult Function(_CreateEventLoading value)? createEventLoading,
+    TResult Function(_CreateEventCompleted value)? createEventCompleted,
+    TResult Function(_CreateEventFailed value)? createEventFailed,
     required TResult orElse(),
   }) {
     if (changeLanguageCompleted != null) {
@@ -2161,6 +2294,10 @@ class _$ChangeLanguageFailedImpl implements _ChangeLanguageFailed {
     required TResult Function() setReminderEventCompleted,
     required TResult Function(String message, Failure failure)
         setReminderEventFailed,
+    required TResult Function() createEventLoading,
+    required TResult Function(EventCalendarModel event) createEventCompleted,
+    required TResult Function(String message, Failure failure)
+        createEventFailed,
   }) {
     return changeLanguageFailed(message, failure);
   }
@@ -2194,6 +2331,9 @@ class _$ChangeLanguageFailedImpl implements _ChangeLanguageFailed {
     TResult? Function()? setReminderEventLoading,
     TResult? Function()? setReminderEventCompleted,
     TResult? Function(String message, Failure failure)? setReminderEventFailed,
+    TResult? Function()? createEventLoading,
+    TResult? Function(EventCalendarModel event)? createEventCompleted,
+    TResult? Function(String message, Failure failure)? createEventFailed,
   }) {
     return changeLanguageFailed?.call(message, failure);
   }
@@ -2227,6 +2367,9 @@ class _$ChangeLanguageFailedImpl implements _ChangeLanguageFailed {
     TResult Function()? setReminderEventLoading,
     TResult Function()? setReminderEventCompleted,
     TResult Function(String message, Failure failure)? setReminderEventFailed,
+    TResult Function()? createEventLoading,
+    TResult Function(EventCalendarModel event)? createEventCompleted,
+    TResult Function(String message, Failure failure)? createEventFailed,
     required TResult orElse(),
   }) {
     if (changeLanguageFailed != null) {
@@ -2276,6 +2419,9 @@ class _$ChangeLanguageFailedImpl implements _ChangeLanguageFailed {
         setReminderEventCompleted,
     required TResult Function(_SetReminderEventFailed value)
         setReminderEventFailed,
+    required TResult Function(_CreateEventLoading value) createEventLoading,
+    required TResult Function(_CreateEventCompleted value) createEventCompleted,
+    required TResult Function(_CreateEventFailed value) createEventFailed,
   }) {
     return changeLanguageFailed(this);
   }
@@ -2316,6 +2462,9 @@ class _$ChangeLanguageFailedImpl implements _ChangeLanguageFailed {
     TResult? Function(_SetReminderEventCompleted value)?
         setReminderEventCompleted,
     TResult? Function(_SetReminderEventFailed value)? setReminderEventFailed,
+    TResult? Function(_CreateEventLoading value)? createEventLoading,
+    TResult? Function(_CreateEventCompleted value)? createEventCompleted,
+    TResult? Function(_CreateEventFailed value)? createEventFailed,
   }) {
     return changeLanguageFailed?.call(this);
   }
@@ -2354,6 +2503,9 @@ class _$ChangeLanguageFailedImpl implements _ChangeLanguageFailed {
     TResult Function(_SetReminderEventCompleted value)?
         setReminderEventCompleted,
     TResult Function(_SetReminderEventFailed value)? setReminderEventFailed,
+    TResult Function(_CreateEventLoading value)? createEventLoading,
+    TResult Function(_CreateEventCompleted value)? createEventCompleted,
+    TResult Function(_CreateEventFailed value)? createEventFailed,
     required TResult orElse(),
   }) {
     if (changeLanguageFailed != null) {
@@ -2454,6 +2606,10 @@ class _$SetSearchSettingsLoadingImpl implements _SetSearchSettingsLoading {
     required TResult Function() setReminderEventCompleted,
     required TResult Function(String message, Failure failure)
         setReminderEventFailed,
+    required TResult Function() createEventLoading,
+    required TResult Function(EventCalendarModel event) createEventCompleted,
+    required TResult Function(String message, Failure failure)
+        createEventFailed,
   }) {
     return setSearchSettingsLoading();
   }
@@ -2487,6 +2643,9 @@ class _$SetSearchSettingsLoadingImpl implements _SetSearchSettingsLoading {
     TResult? Function()? setReminderEventLoading,
     TResult? Function()? setReminderEventCompleted,
     TResult? Function(String message, Failure failure)? setReminderEventFailed,
+    TResult? Function()? createEventLoading,
+    TResult? Function(EventCalendarModel event)? createEventCompleted,
+    TResult? Function(String message, Failure failure)? createEventFailed,
   }) {
     return setSearchSettingsLoading?.call();
   }
@@ -2520,6 +2679,9 @@ class _$SetSearchSettingsLoadingImpl implements _SetSearchSettingsLoading {
     TResult Function()? setReminderEventLoading,
     TResult Function()? setReminderEventCompleted,
     TResult Function(String message, Failure failure)? setReminderEventFailed,
+    TResult Function()? createEventLoading,
+    TResult Function(EventCalendarModel event)? createEventCompleted,
+    TResult Function(String message, Failure failure)? createEventFailed,
     required TResult orElse(),
   }) {
     if (setSearchSettingsLoading != null) {
@@ -2569,6 +2731,9 @@ class _$SetSearchSettingsLoadingImpl implements _SetSearchSettingsLoading {
         setReminderEventCompleted,
     required TResult Function(_SetReminderEventFailed value)
         setReminderEventFailed,
+    required TResult Function(_CreateEventLoading value) createEventLoading,
+    required TResult Function(_CreateEventCompleted value) createEventCompleted,
+    required TResult Function(_CreateEventFailed value) createEventFailed,
   }) {
     return setSearchSettingsLoading(this);
   }
@@ -2609,6 +2774,9 @@ class _$SetSearchSettingsLoadingImpl implements _SetSearchSettingsLoading {
     TResult? Function(_SetReminderEventCompleted value)?
         setReminderEventCompleted,
     TResult? Function(_SetReminderEventFailed value)? setReminderEventFailed,
+    TResult? Function(_CreateEventLoading value)? createEventLoading,
+    TResult? Function(_CreateEventCompleted value)? createEventCompleted,
+    TResult? Function(_CreateEventFailed value)? createEventFailed,
   }) {
     return setSearchSettingsLoading?.call(this);
   }
@@ -2647,6 +2815,9 @@ class _$SetSearchSettingsLoadingImpl implements _SetSearchSettingsLoading {
     TResult Function(_SetReminderEventCompleted value)?
         setReminderEventCompleted,
     TResult Function(_SetReminderEventFailed value)? setReminderEventFailed,
+    TResult Function(_CreateEventLoading value)? createEventLoading,
+    TResult Function(_CreateEventCompleted value)? createEventCompleted,
+    TResult Function(_CreateEventFailed value)? createEventFailed,
     required TResult orElse(),
   }) {
     if (setSearchSettingsLoading != null) {
@@ -2776,6 +2947,10 @@ class _$SetSearchSettingsCompletedImpl implements _SetSearchSettingsCompleted {
     required TResult Function() setReminderEventCompleted,
     required TResult Function(String message, Failure failure)
         setReminderEventFailed,
+    required TResult Function() createEventLoading,
+    required TResult Function(EventCalendarModel event) createEventCompleted,
+    required TResult Function(String message, Failure failure)
+        createEventFailed,
   }) {
     return setSearchSettingsCompleted(newsearchSettings);
   }
@@ -2809,6 +2984,9 @@ class _$SetSearchSettingsCompletedImpl implements _SetSearchSettingsCompleted {
     TResult? Function()? setReminderEventLoading,
     TResult? Function()? setReminderEventCompleted,
     TResult? Function(String message, Failure failure)? setReminderEventFailed,
+    TResult? Function()? createEventLoading,
+    TResult? Function(EventCalendarModel event)? createEventCompleted,
+    TResult? Function(String message, Failure failure)? createEventFailed,
   }) {
     return setSearchSettingsCompleted?.call(newsearchSettings);
   }
@@ -2842,6 +3020,9 @@ class _$SetSearchSettingsCompletedImpl implements _SetSearchSettingsCompleted {
     TResult Function()? setReminderEventLoading,
     TResult Function()? setReminderEventCompleted,
     TResult Function(String message, Failure failure)? setReminderEventFailed,
+    TResult Function()? createEventLoading,
+    TResult Function(EventCalendarModel event)? createEventCompleted,
+    TResult Function(String message, Failure failure)? createEventFailed,
     required TResult orElse(),
   }) {
     if (setSearchSettingsCompleted != null) {
@@ -2891,6 +3072,9 @@ class _$SetSearchSettingsCompletedImpl implements _SetSearchSettingsCompleted {
         setReminderEventCompleted,
     required TResult Function(_SetReminderEventFailed value)
         setReminderEventFailed,
+    required TResult Function(_CreateEventLoading value) createEventLoading,
+    required TResult Function(_CreateEventCompleted value) createEventCompleted,
+    required TResult Function(_CreateEventFailed value) createEventFailed,
   }) {
     return setSearchSettingsCompleted(this);
   }
@@ -2931,6 +3115,9 @@ class _$SetSearchSettingsCompletedImpl implements _SetSearchSettingsCompleted {
     TResult? Function(_SetReminderEventCompleted value)?
         setReminderEventCompleted,
     TResult? Function(_SetReminderEventFailed value)? setReminderEventFailed,
+    TResult? Function(_CreateEventLoading value)? createEventLoading,
+    TResult? Function(_CreateEventCompleted value)? createEventCompleted,
+    TResult? Function(_CreateEventFailed value)? createEventFailed,
   }) {
     return setSearchSettingsCompleted?.call(this);
   }
@@ -2969,6 +3156,9 @@ class _$SetSearchSettingsCompletedImpl implements _SetSearchSettingsCompleted {
     TResult Function(_SetReminderEventCompleted value)?
         setReminderEventCompleted,
     TResult Function(_SetReminderEventFailed value)? setReminderEventFailed,
+    TResult Function(_CreateEventLoading value)? createEventLoading,
+    TResult Function(_CreateEventCompleted value)? createEventCompleted,
+    TResult Function(_CreateEventFailed value)? createEventFailed,
     required TResult orElse(),
   }) {
     if (setSearchSettingsCompleted != null) {
@@ -3104,6 +3294,10 @@ class _$SetSearchSettingsFailedImpl implements _SetSearchSettingsFailed {
     required TResult Function() setReminderEventCompleted,
     required TResult Function(String message, Failure failure)
         setReminderEventFailed,
+    required TResult Function() createEventLoading,
+    required TResult Function(EventCalendarModel event) createEventCompleted,
+    required TResult Function(String message, Failure failure)
+        createEventFailed,
   }) {
     return setSearchByFailed(message, failure);
   }
@@ -3137,6 +3331,9 @@ class _$SetSearchSettingsFailedImpl implements _SetSearchSettingsFailed {
     TResult? Function()? setReminderEventLoading,
     TResult? Function()? setReminderEventCompleted,
     TResult? Function(String message, Failure failure)? setReminderEventFailed,
+    TResult? Function()? createEventLoading,
+    TResult? Function(EventCalendarModel event)? createEventCompleted,
+    TResult? Function(String message, Failure failure)? createEventFailed,
   }) {
     return setSearchByFailed?.call(message, failure);
   }
@@ -3170,6 +3367,9 @@ class _$SetSearchSettingsFailedImpl implements _SetSearchSettingsFailed {
     TResult Function()? setReminderEventLoading,
     TResult Function()? setReminderEventCompleted,
     TResult Function(String message, Failure failure)? setReminderEventFailed,
+    TResult Function()? createEventLoading,
+    TResult Function(EventCalendarModel event)? createEventCompleted,
+    TResult Function(String message, Failure failure)? createEventFailed,
     required TResult orElse(),
   }) {
     if (setSearchByFailed != null) {
@@ -3219,6 +3419,9 @@ class _$SetSearchSettingsFailedImpl implements _SetSearchSettingsFailed {
         setReminderEventCompleted,
     required TResult Function(_SetReminderEventFailed value)
         setReminderEventFailed,
+    required TResult Function(_CreateEventLoading value) createEventLoading,
+    required TResult Function(_CreateEventCompleted value) createEventCompleted,
+    required TResult Function(_CreateEventFailed value) createEventFailed,
   }) {
     return setSearchByFailed(this);
   }
@@ -3259,6 +3462,9 @@ class _$SetSearchSettingsFailedImpl implements _SetSearchSettingsFailed {
     TResult? Function(_SetReminderEventCompleted value)?
         setReminderEventCompleted,
     TResult? Function(_SetReminderEventFailed value)? setReminderEventFailed,
+    TResult? Function(_CreateEventLoading value)? createEventLoading,
+    TResult? Function(_CreateEventCompleted value)? createEventCompleted,
+    TResult? Function(_CreateEventFailed value)? createEventFailed,
   }) {
     return setSearchByFailed?.call(this);
   }
@@ -3297,6 +3503,9 @@ class _$SetSearchSettingsFailedImpl implements _SetSearchSettingsFailed {
     TResult Function(_SetReminderEventCompleted value)?
         setReminderEventCompleted,
     TResult Function(_SetReminderEventFailed value)? setReminderEventFailed,
+    TResult Function(_CreateEventLoading value)? createEventLoading,
+    TResult Function(_CreateEventCompleted value)? createEventCompleted,
+    TResult Function(_CreateEventFailed value)? createEventFailed,
     required TResult orElse(),
   }) {
     if (setSearchByFailed != null) {
@@ -3397,6 +3606,10 @@ class _$GetSearchSettingsLoadingImpl implements _GetSearchSettingsLoading {
     required TResult Function() setReminderEventCompleted,
     required TResult Function(String message, Failure failure)
         setReminderEventFailed,
+    required TResult Function() createEventLoading,
+    required TResult Function(EventCalendarModel event) createEventCompleted,
+    required TResult Function(String message, Failure failure)
+        createEventFailed,
   }) {
     return getSearchSettingsLoading();
   }
@@ -3430,6 +3643,9 @@ class _$GetSearchSettingsLoadingImpl implements _GetSearchSettingsLoading {
     TResult? Function()? setReminderEventLoading,
     TResult? Function()? setReminderEventCompleted,
     TResult? Function(String message, Failure failure)? setReminderEventFailed,
+    TResult? Function()? createEventLoading,
+    TResult? Function(EventCalendarModel event)? createEventCompleted,
+    TResult? Function(String message, Failure failure)? createEventFailed,
   }) {
     return getSearchSettingsLoading?.call();
   }
@@ -3463,6 +3679,9 @@ class _$GetSearchSettingsLoadingImpl implements _GetSearchSettingsLoading {
     TResult Function()? setReminderEventLoading,
     TResult Function()? setReminderEventCompleted,
     TResult Function(String message, Failure failure)? setReminderEventFailed,
+    TResult Function()? createEventLoading,
+    TResult Function(EventCalendarModel event)? createEventCompleted,
+    TResult Function(String message, Failure failure)? createEventFailed,
     required TResult orElse(),
   }) {
     if (getSearchSettingsLoading != null) {
@@ -3512,6 +3731,9 @@ class _$GetSearchSettingsLoadingImpl implements _GetSearchSettingsLoading {
         setReminderEventCompleted,
     required TResult Function(_SetReminderEventFailed value)
         setReminderEventFailed,
+    required TResult Function(_CreateEventLoading value) createEventLoading,
+    required TResult Function(_CreateEventCompleted value) createEventCompleted,
+    required TResult Function(_CreateEventFailed value) createEventFailed,
   }) {
     return getSearchSettingsLoading(this);
   }
@@ -3552,6 +3774,9 @@ class _$GetSearchSettingsLoadingImpl implements _GetSearchSettingsLoading {
     TResult? Function(_SetReminderEventCompleted value)?
         setReminderEventCompleted,
     TResult? Function(_SetReminderEventFailed value)? setReminderEventFailed,
+    TResult? Function(_CreateEventLoading value)? createEventLoading,
+    TResult? Function(_CreateEventCompleted value)? createEventCompleted,
+    TResult? Function(_CreateEventFailed value)? createEventFailed,
   }) {
     return getSearchSettingsLoading?.call(this);
   }
@@ -3590,6 +3815,9 @@ class _$GetSearchSettingsLoadingImpl implements _GetSearchSettingsLoading {
     TResult Function(_SetReminderEventCompleted value)?
         setReminderEventCompleted,
     TResult Function(_SetReminderEventFailed value)? setReminderEventFailed,
+    TResult Function(_CreateEventLoading value)? createEventLoading,
+    TResult Function(_CreateEventCompleted value)? createEventCompleted,
+    TResult Function(_CreateEventFailed value)? createEventFailed,
     required TResult orElse(),
   }) {
     if (getSearchSettingsLoading != null) {
@@ -3679,6 +3907,10 @@ class _$GetSearchSettingsCompletedImpl implements _GetSearchSettingsCompleted {
     required TResult Function() setReminderEventCompleted,
     required TResult Function(String message, Failure failure)
         setReminderEventFailed,
+    required TResult Function() createEventLoading,
+    required TResult Function(EventCalendarModel event) createEventCompleted,
+    required TResult Function(String message, Failure failure)
+        createEventFailed,
   }) {
     return getSearchSettingsCompleted();
   }
@@ -3712,6 +3944,9 @@ class _$GetSearchSettingsCompletedImpl implements _GetSearchSettingsCompleted {
     TResult? Function()? setReminderEventLoading,
     TResult? Function()? setReminderEventCompleted,
     TResult? Function(String message, Failure failure)? setReminderEventFailed,
+    TResult? Function()? createEventLoading,
+    TResult? Function(EventCalendarModel event)? createEventCompleted,
+    TResult? Function(String message, Failure failure)? createEventFailed,
   }) {
     return getSearchSettingsCompleted?.call();
   }
@@ -3745,6 +3980,9 @@ class _$GetSearchSettingsCompletedImpl implements _GetSearchSettingsCompleted {
     TResult Function()? setReminderEventLoading,
     TResult Function()? setReminderEventCompleted,
     TResult Function(String message, Failure failure)? setReminderEventFailed,
+    TResult Function()? createEventLoading,
+    TResult Function(EventCalendarModel event)? createEventCompleted,
+    TResult Function(String message, Failure failure)? createEventFailed,
     required TResult orElse(),
   }) {
     if (getSearchSettingsCompleted != null) {
@@ -3794,6 +4032,9 @@ class _$GetSearchSettingsCompletedImpl implements _GetSearchSettingsCompleted {
         setReminderEventCompleted,
     required TResult Function(_SetReminderEventFailed value)
         setReminderEventFailed,
+    required TResult Function(_CreateEventLoading value) createEventLoading,
+    required TResult Function(_CreateEventCompleted value) createEventCompleted,
+    required TResult Function(_CreateEventFailed value) createEventFailed,
   }) {
     return getSearchSettingsCompleted(this);
   }
@@ -3834,6 +4075,9 @@ class _$GetSearchSettingsCompletedImpl implements _GetSearchSettingsCompleted {
     TResult? Function(_SetReminderEventCompleted value)?
         setReminderEventCompleted,
     TResult? Function(_SetReminderEventFailed value)? setReminderEventFailed,
+    TResult? Function(_CreateEventLoading value)? createEventLoading,
+    TResult? Function(_CreateEventCompleted value)? createEventCompleted,
+    TResult? Function(_CreateEventFailed value)? createEventFailed,
   }) {
     return getSearchSettingsCompleted?.call(this);
   }
@@ -3872,6 +4116,9 @@ class _$GetSearchSettingsCompletedImpl implements _GetSearchSettingsCompleted {
     TResult Function(_SetReminderEventCompleted value)?
         setReminderEventCompleted,
     TResult Function(_SetReminderEventFailed value)? setReminderEventFailed,
+    TResult Function(_CreateEventLoading value)? createEventLoading,
+    TResult Function(_CreateEventCompleted value)? createEventCompleted,
+    TResult Function(_CreateEventFailed value)? createEventFailed,
     required TResult orElse(),
   }) {
     if (getSearchSettingsCompleted != null) {
@@ -3998,6 +4245,10 @@ class _$GetSearchSettingsFailedImpl implements _GetSearchSettingsFailed {
     required TResult Function() setReminderEventCompleted,
     required TResult Function(String message, Failure failure)
         setReminderEventFailed,
+    required TResult Function() createEventLoading,
+    required TResult Function(EventCalendarModel event) createEventCompleted,
+    required TResult Function(String message, Failure failure)
+        createEventFailed,
   }) {
     return getSearchSettingsFailed(message, failure);
   }
@@ -4031,6 +4282,9 @@ class _$GetSearchSettingsFailedImpl implements _GetSearchSettingsFailed {
     TResult? Function()? setReminderEventLoading,
     TResult? Function()? setReminderEventCompleted,
     TResult? Function(String message, Failure failure)? setReminderEventFailed,
+    TResult? Function()? createEventLoading,
+    TResult? Function(EventCalendarModel event)? createEventCompleted,
+    TResult? Function(String message, Failure failure)? createEventFailed,
   }) {
     return getSearchSettingsFailed?.call(message, failure);
   }
@@ -4064,6 +4318,9 @@ class _$GetSearchSettingsFailedImpl implements _GetSearchSettingsFailed {
     TResult Function()? setReminderEventLoading,
     TResult Function()? setReminderEventCompleted,
     TResult Function(String message, Failure failure)? setReminderEventFailed,
+    TResult Function()? createEventLoading,
+    TResult Function(EventCalendarModel event)? createEventCompleted,
+    TResult Function(String message, Failure failure)? createEventFailed,
     required TResult orElse(),
   }) {
     if (getSearchSettingsFailed != null) {
@@ -4113,6 +4370,9 @@ class _$GetSearchSettingsFailedImpl implements _GetSearchSettingsFailed {
         setReminderEventCompleted,
     required TResult Function(_SetReminderEventFailed value)
         setReminderEventFailed,
+    required TResult Function(_CreateEventLoading value) createEventLoading,
+    required TResult Function(_CreateEventCompleted value) createEventCompleted,
+    required TResult Function(_CreateEventFailed value) createEventFailed,
   }) {
     return getSearchSettingsFailed(this);
   }
@@ -4153,6 +4413,9 @@ class _$GetSearchSettingsFailedImpl implements _GetSearchSettingsFailed {
     TResult? Function(_SetReminderEventCompleted value)?
         setReminderEventCompleted,
     TResult? Function(_SetReminderEventFailed value)? setReminderEventFailed,
+    TResult? Function(_CreateEventLoading value)? createEventLoading,
+    TResult? Function(_CreateEventCompleted value)? createEventCompleted,
+    TResult? Function(_CreateEventFailed value)? createEventFailed,
   }) {
     return getSearchSettingsFailed?.call(this);
   }
@@ -4191,6 +4454,9 @@ class _$GetSearchSettingsFailedImpl implements _GetSearchSettingsFailed {
     TResult Function(_SetReminderEventCompleted value)?
         setReminderEventCompleted,
     TResult Function(_SetReminderEventFailed value)? setReminderEventFailed,
+    TResult Function(_CreateEventLoading value)? createEventLoading,
+    TResult Function(_CreateEventCompleted value)? createEventCompleted,
+    TResult Function(_CreateEventFailed value)? createEventFailed,
     required TResult orElse(),
   }) {
     if (getSearchSettingsFailed != null) {
@@ -4292,6 +4558,10 @@ class _$SetNotificationSettingsLoadingImpl
     required TResult Function() setReminderEventCompleted,
     required TResult Function(String message, Failure failure)
         setReminderEventFailed,
+    required TResult Function() createEventLoading,
+    required TResult Function(EventCalendarModel event) createEventCompleted,
+    required TResult Function(String message, Failure failure)
+        createEventFailed,
   }) {
     return setNotificationSettingsLoading();
   }
@@ -4325,6 +4595,9 @@ class _$SetNotificationSettingsLoadingImpl
     TResult? Function()? setReminderEventLoading,
     TResult? Function()? setReminderEventCompleted,
     TResult? Function(String message, Failure failure)? setReminderEventFailed,
+    TResult? Function()? createEventLoading,
+    TResult? Function(EventCalendarModel event)? createEventCompleted,
+    TResult? Function(String message, Failure failure)? createEventFailed,
   }) {
     return setNotificationSettingsLoading?.call();
   }
@@ -4358,6 +4631,9 @@ class _$SetNotificationSettingsLoadingImpl
     TResult Function()? setReminderEventLoading,
     TResult Function()? setReminderEventCompleted,
     TResult Function(String message, Failure failure)? setReminderEventFailed,
+    TResult Function()? createEventLoading,
+    TResult Function(EventCalendarModel event)? createEventCompleted,
+    TResult Function(String message, Failure failure)? createEventFailed,
     required TResult orElse(),
   }) {
     if (setNotificationSettingsLoading != null) {
@@ -4407,6 +4683,9 @@ class _$SetNotificationSettingsLoadingImpl
         setReminderEventCompleted,
     required TResult Function(_SetReminderEventFailed value)
         setReminderEventFailed,
+    required TResult Function(_CreateEventLoading value) createEventLoading,
+    required TResult Function(_CreateEventCompleted value) createEventCompleted,
+    required TResult Function(_CreateEventFailed value) createEventFailed,
   }) {
     return setNotificationSettingsLoading(this);
   }
@@ -4447,6 +4726,9 @@ class _$SetNotificationSettingsLoadingImpl
     TResult? Function(_SetReminderEventCompleted value)?
         setReminderEventCompleted,
     TResult? Function(_SetReminderEventFailed value)? setReminderEventFailed,
+    TResult? Function(_CreateEventLoading value)? createEventLoading,
+    TResult? Function(_CreateEventCompleted value)? createEventCompleted,
+    TResult? Function(_CreateEventFailed value)? createEventFailed,
   }) {
     return setNotificationSettingsLoading?.call(this);
   }
@@ -4485,6 +4767,9 @@ class _$SetNotificationSettingsLoadingImpl
     TResult Function(_SetReminderEventCompleted value)?
         setReminderEventCompleted,
     TResult Function(_SetReminderEventFailed value)? setReminderEventFailed,
+    TResult Function(_CreateEventLoading value)? createEventLoading,
+    TResult Function(_CreateEventCompleted value)? createEventCompleted,
+    TResult Function(_CreateEventFailed value)? createEventFailed,
     required TResult orElse(),
   }) {
     if (setNotificationSettingsLoading != null) {
@@ -4621,6 +4906,10 @@ class _$SetNotificationSettingsCompletedImpl
     required TResult Function() setReminderEventCompleted,
     required TResult Function(String message, Failure failure)
         setReminderEventFailed,
+    required TResult Function() createEventLoading,
+    required TResult Function(EventCalendarModel event) createEventCompleted,
+    required TResult Function(String message, Failure failure)
+        createEventFailed,
   }) {
     return setNotificationSettingsCompleted(newNotificationSettings);
   }
@@ -4654,6 +4943,9 @@ class _$SetNotificationSettingsCompletedImpl
     TResult? Function()? setReminderEventLoading,
     TResult? Function()? setReminderEventCompleted,
     TResult? Function(String message, Failure failure)? setReminderEventFailed,
+    TResult? Function()? createEventLoading,
+    TResult? Function(EventCalendarModel event)? createEventCompleted,
+    TResult? Function(String message, Failure failure)? createEventFailed,
   }) {
     return setNotificationSettingsCompleted?.call(newNotificationSettings);
   }
@@ -4687,6 +4979,9 @@ class _$SetNotificationSettingsCompletedImpl
     TResult Function()? setReminderEventLoading,
     TResult Function()? setReminderEventCompleted,
     TResult Function(String message, Failure failure)? setReminderEventFailed,
+    TResult Function()? createEventLoading,
+    TResult Function(EventCalendarModel event)? createEventCompleted,
+    TResult Function(String message, Failure failure)? createEventFailed,
     required TResult orElse(),
   }) {
     if (setNotificationSettingsCompleted != null) {
@@ -4736,6 +5031,9 @@ class _$SetNotificationSettingsCompletedImpl
         setReminderEventCompleted,
     required TResult Function(_SetReminderEventFailed value)
         setReminderEventFailed,
+    required TResult Function(_CreateEventLoading value) createEventLoading,
+    required TResult Function(_CreateEventCompleted value) createEventCompleted,
+    required TResult Function(_CreateEventFailed value) createEventFailed,
   }) {
     return setNotificationSettingsCompleted(this);
   }
@@ -4776,6 +5074,9 @@ class _$SetNotificationSettingsCompletedImpl
     TResult? Function(_SetReminderEventCompleted value)?
         setReminderEventCompleted,
     TResult? Function(_SetReminderEventFailed value)? setReminderEventFailed,
+    TResult? Function(_CreateEventLoading value)? createEventLoading,
+    TResult? Function(_CreateEventCompleted value)? createEventCompleted,
+    TResult? Function(_CreateEventFailed value)? createEventFailed,
   }) {
     return setNotificationSettingsCompleted?.call(this);
   }
@@ -4814,6 +5115,9 @@ class _$SetNotificationSettingsCompletedImpl
     TResult Function(_SetReminderEventCompleted value)?
         setReminderEventCompleted,
     TResult Function(_SetReminderEventFailed value)? setReminderEventFailed,
+    TResult Function(_CreateEventLoading value)? createEventLoading,
+    TResult Function(_CreateEventCompleted value)? createEventCompleted,
+    TResult Function(_CreateEventFailed value)? createEventFailed,
     required TResult orElse(),
   }) {
     if (setNotificationSettingsCompleted != null) {
@@ -4953,6 +5257,10 @@ class _$SetNotificationSettingsFailedImpl
     required TResult Function() setReminderEventCompleted,
     required TResult Function(String message, Failure failure)
         setReminderEventFailed,
+    required TResult Function() createEventLoading,
+    required TResult Function(EventCalendarModel event) createEventCompleted,
+    required TResult Function(String message, Failure failure)
+        createEventFailed,
   }) {
     return setNotificationSettingsFailed(message, failure);
   }
@@ -4986,6 +5294,9 @@ class _$SetNotificationSettingsFailedImpl
     TResult? Function()? setReminderEventLoading,
     TResult? Function()? setReminderEventCompleted,
     TResult? Function(String message, Failure failure)? setReminderEventFailed,
+    TResult? Function()? createEventLoading,
+    TResult? Function(EventCalendarModel event)? createEventCompleted,
+    TResult? Function(String message, Failure failure)? createEventFailed,
   }) {
     return setNotificationSettingsFailed?.call(message, failure);
   }
@@ -5019,6 +5330,9 @@ class _$SetNotificationSettingsFailedImpl
     TResult Function()? setReminderEventLoading,
     TResult Function()? setReminderEventCompleted,
     TResult Function(String message, Failure failure)? setReminderEventFailed,
+    TResult Function()? createEventLoading,
+    TResult Function(EventCalendarModel event)? createEventCompleted,
+    TResult Function(String message, Failure failure)? createEventFailed,
     required TResult orElse(),
   }) {
     if (setNotificationSettingsFailed != null) {
@@ -5068,6 +5382,9 @@ class _$SetNotificationSettingsFailedImpl
         setReminderEventCompleted,
     required TResult Function(_SetReminderEventFailed value)
         setReminderEventFailed,
+    required TResult Function(_CreateEventLoading value) createEventLoading,
+    required TResult Function(_CreateEventCompleted value) createEventCompleted,
+    required TResult Function(_CreateEventFailed value) createEventFailed,
   }) {
     return setNotificationSettingsFailed(this);
   }
@@ -5108,6 +5425,9 @@ class _$SetNotificationSettingsFailedImpl
     TResult? Function(_SetReminderEventCompleted value)?
         setReminderEventCompleted,
     TResult? Function(_SetReminderEventFailed value)? setReminderEventFailed,
+    TResult? Function(_CreateEventLoading value)? createEventLoading,
+    TResult? Function(_CreateEventCompleted value)? createEventCompleted,
+    TResult? Function(_CreateEventFailed value)? createEventFailed,
   }) {
     return setNotificationSettingsFailed?.call(this);
   }
@@ -5146,6 +5466,9 @@ class _$SetNotificationSettingsFailedImpl
     TResult Function(_SetReminderEventCompleted value)?
         setReminderEventCompleted,
     TResult Function(_SetReminderEventFailed value)? setReminderEventFailed,
+    TResult Function(_CreateEventLoading value)? createEventLoading,
+    TResult Function(_CreateEventCompleted value)? createEventCompleted,
+    TResult Function(_CreateEventFailed value)? createEventFailed,
     required TResult orElse(),
   }) {
     if (setNotificationSettingsFailed != null) {
@@ -5248,6 +5571,10 @@ class _$GetNotificationSettingsLoadingImpl
     required TResult Function() setReminderEventCompleted,
     required TResult Function(String message, Failure failure)
         setReminderEventFailed,
+    required TResult Function() createEventLoading,
+    required TResult Function(EventCalendarModel event) createEventCompleted,
+    required TResult Function(String message, Failure failure)
+        createEventFailed,
   }) {
     return getNotificationSettingsLoading();
   }
@@ -5281,6 +5608,9 @@ class _$GetNotificationSettingsLoadingImpl
     TResult? Function()? setReminderEventLoading,
     TResult? Function()? setReminderEventCompleted,
     TResult? Function(String message, Failure failure)? setReminderEventFailed,
+    TResult? Function()? createEventLoading,
+    TResult? Function(EventCalendarModel event)? createEventCompleted,
+    TResult? Function(String message, Failure failure)? createEventFailed,
   }) {
     return getNotificationSettingsLoading?.call();
   }
@@ -5314,6 +5644,9 @@ class _$GetNotificationSettingsLoadingImpl
     TResult Function()? setReminderEventLoading,
     TResult Function()? setReminderEventCompleted,
     TResult Function(String message, Failure failure)? setReminderEventFailed,
+    TResult Function()? createEventLoading,
+    TResult Function(EventCalendarModel event)? createEventCompleted,
+    TResult Function(String message, Failure failure)? createEventFailed,
     required TResult orElse(),
   }) {
     if (getNotificationSettingsLoading != null) {
@@ -5363,6 +5696,9 @@ class _$GetNotificationSettingsLoadingImpl
         setReminderEventCompleted,
     required TResult Function(_SetReminderEventFailed value)
         setReminderEventFailed,
+    required TResult Function(_CreateEventLoading value) createEventLoading,
+    required TResult Function(_CreateEventCompleted value) createEventCompleted,
+    required TResult Function(_CreateEventFailed value) createEventFailed,
   }) {
     return getNotificationSettingsLoading(this);
   }
@@ -5403,6 +5739,9 @@ class _$GetNotificationSettingsLoadingImpl
     TResult? Function(_SetReminderEventCompleted value)?
         setReminderEventCompleted,
     TResult? Function(_SetReminderEventFailed value)? setReminderEventFailed,
+    TResult? Function(_CreateEventLoading value)? createEventLoading,
+    TResult? Function(_CreateEventCompleted value)? createEventCompleted,
+    TResult? Function(_CreateEventFailed value)? createEventFailed,
   }) {
     return getNotificationSettingsLoading?.call(this);
   }
@@ -5441,6 +5780,9 @@ class _$GetNotificationSettingsLoadingImpl
     TResult Function(_SetReminderEventCompleted value)?
         setReminderEventCompleted,
     TResult Function(_SetReminderEventFailed value)? setReminderEventFailed,
+    TResult Function(_CreateEventLoading value)? createEventLoading,
+    TResult Function(_CreateEventCompleted value)? createEventCompleted,
+    TResult Function(_CreateEventFailed value)? createEventFailed,
     required TResult orElse(),
   }) {
     if (getNotificationSettingsLoading != null) {
@@ -5533,6 +5875,10 @@ class _$GetNotificationSettingsCompletedImpl
     required TResult Function() setReminderEventCompleted,
     required TResult Function(String message, Failure failure)
         setReminderEventFailed,
+    required TResult Function() createEventLoading,
+    required TResult Function(EventCalendarModel event) createEventCompleted,
+    required TResult Function(String message, Failure failure)
+        createEventFailed,
   }) {
     return getNotificationSettingsCompleted();
   }
@@ -5566,6 +5912,9 @@ class _$GetNotificationSettingsCompletedImpl
     TResult? Function()? setReminderEventLoading,
     TResult? Function()? setReminderEventCompleted,
     TResult? Function(String message, Failure failure)? setReminderEventFailed,
+    TResult? Function()? createEventLoading,
+    TResult? Function(EventCalendarModel event)? createEventCompleted,
+    TResult? Function(String message, Failure failure)? createEventFailed,
   }) {
     return getNotificationSettingsCompleted?.call();
   }
@@ -5599,6 +5948,9 @@ class _$GetNotificationSettingsCompletedImpl
     TResult Function()? setReminderEventLoading,
     TResult Function()? setReminderEventCompleted,
     TResult Function(String message, Failure failure)? setReminderEventFailed,
+    TResult Function()? createEventLoading,
+    TResult Function(EventCalendarModel event)? createEventCompleted,
+    TResult Function(String message, Failure failure)? createEventFailed,
     required TResult orElse(),
   }) {
     if (getNotificationSettingsCompleted != null) {
@@ -5648,6 +6000,9 @@ class _$GetNotificationSettingsCompletedImpl
         setReminderEventCompleted,
     required TResult Function(_SetReminderEventFailed value)
         setReminderEventFailed,
+    required TResult Function(_CreateEventLoading value) createEventLoading,
+    required TResult Function(_CreateEventCompleted value) createEventCompleted,
+    required TResult Function(_CreateEventFailed value) createEventFailed,
   }) {
     return getNotificationSettingsCompleted(this);
   }
@@ -5688,6 +6043,9 @@ class _$GetNotificationSettingsCompletedImpl
     TResult? Function(_SetReminderEventCompleted value)?
         setReminderEventCompleted,
     TResult? Function(_SetReminderEventFailed value)? setReminderEventFailed,
+    TResult? Function(_CreateEventLoading value)? createEventLoading,
+    TResult? Function(_CreateEventCompleted value)? createEventCompleted,
+    TResult? Function(_CreateEventFailed value)? createEventFailed,
   }) {
     return getNotificationSettingsCompleted?.call(this);
   }
@@ -5726,6 +6084,9 @@ class _$GetNotificationSettingsCompletedImpl
     TResult Function(_SetReminderEventCompleted value)?
         setReminderEventCompleted,
     TResult Function(_SetReminderEventFailed value)? setReminderEventFailed,
+    TResult Function(_CreateEventLoading value)? createEventLoading,
+    TResult Function(_CreateEventCompleted value)? createEventCompleted,
+    TResult Function(_CreateEventFailed value)? createEventFailed,
     required TResult orElse(),
   }) {
     if (getNotificationSettingsCompleted != null) {
@@ -5855,6 +6216,10 @@ class _$GetNotificationSettingsFailedImpl
     required TResult Function() setReminderEventCompleted,
     required TResult Function(String message, Failure failure)
         setReminderEventFailed,
+    required TResult Function() createEventLoading,
+    required TResult Function(EventCalendarModel event) createEventCompleted,
+    required TResult Function(String message, Failure failure)
+        createEventFailed,
   }) {
     return getNotificationSettingsFailed(message, failure);
   }
@@ -5888,6 +6253,9 @@ class _$GetNotificationSettingsFailedImpl
     TResult? Function()? setReminderEventLoading,
     TResult? Function()? setReminderEventCompleted,
     TResult? Function(String message, Failure failure)? setReminderEventFailed,
+    TResult? Function()? createEventLoading,
+    TResult? Function(EventCalendarModel event)? createEventCompleted,
+    TResult? Function(String message, Failure failure)? createEventFailed,
   }) {
     return getNotificationSettingsFailed?.call(message, failure);
   }
@@ -5921,6 +6289,9 @@ class _$GetNotificationSettingsFailedImpl
     TResult Function()? setReminderEventLoading,
     TResult Function()? setReminderEventCompleted,
     TResult Function(String message, Failure failure)? setReminderEventFailed,
+    TResult Function()? createEventLoading,
+    TResult Function(EventCalendarModel event)? createEventCompleted,
+    TResult Function(String message, Failure failure)? createEventFailed,
     required TResult orElse(),
   }) {
     if (getNotificationSettingsFailed != null) {
@@ -5970,6 +6341,9 @@ class _$GetNotificationSettingsFailedImpl
         setReminderEventCompleted,
     required TResult Function(_SetReminderEventFailed value)
         setReminderEventFailed,
+    required TResult Function(_CreateEventLoading value) createEventLoading,
+    required TResult Function(_CreateEventCompleted value) createEventCompleted,
+    required TResult Function(_CreateEventFailed value) createEventFailed,
   }) {
     return getNotificationSettingsFailed(this);
   }
@@ -6010,6 +6384,9 @@ class _$GetNotificationSettingsFailedImpl
     TResult? Function(_SetReminderEventCompleted value)?
         setReminderEventCompleted,
     TResult? Function(_SetReminderEventFailed value)? setReminderEventFailed,
+    TResult? Function(_CreateEventLoading value)? createEventLoading,
+    TResult? Function(_CreateEventCompleted value)? createEventCompleted,
+    TResult? Function(_CreateEventFailed value)? createEventFailed,
   }) {
     return getNotificationSettingsFailed?.call(this);
   }
@@ -6048,6 +6425,9 @@ class _$GetNotificationSettingsFailedImpl
     TResult Function(_SetReminderEventCompleted value)?
         setReminderEventCompleted,
     TResult Function(_SetReminderEventFailed value)? setReminderEventFailed,
+    TResult Function(_CreateEventLoading value)? createEventLoading,
+    TResult Function(_CreateEventCompleted value)? createEventCompleted,
+    TResult Function(_CreateEventFailed value)? createEventFailed,
     required TResult orElse(),
   }) {
     if (getNotificationSettingsFailed != null) {
@@ -6149,6 +6529,10 @@ class _$SetReminderEventLoadingImpl implements _SetReminderEventLoading {
     required TResult Function() setReminderEventCompleted,
     required TResult Function(String message, Failure failure)
         setReminderEventFailed,
+    required TResult Function() createEventLoading,
+    required TResult Function(EventCalendarModel event) createEventCompleted,
+    required TResult Function(String message, Failure failure)
+        createEventFailed,
   }) {
     return setReminderEventLoading();
   }
@@ -6182,6 +6566,9 @@ class _$SetReminderEventLoadingImpl implements _SetReminderEventLoading {
     TResult? Function()? setReminderEventLoading,
     TResult? Function()? setReminderEventCompleted,
     TResult? Function(String message, Failure failure)? setReminderEventFailed,
+    TResult? Function()? createEventLoading,
+    TResult? Function(EventCalendarModel event)? createEventCompleted,
+    TResult? Function(String message, Failure failure)? createEventFailed,
   }) {
     return setReminderEventLoading?.call();
   }
@@ -6215,6 +6602,9 @@ class _$SetReminderEventLoadingImpl implements _SetReminderEventLoading {
     TResult Function()? setReminderEventLoading,
     TResult Function()? setReminderEventCompleted,
     TResult Function(String message, Failure failure)? setReminderEventFailed,
+    TResult Function()? createEventLoading,
+    TResult Function(EventCalendarModel event)? createEventCompleted,
+    TResult Function(String message, Failure failure)? createEventFailed,
     required TResult orElse(),
   }) {
     if (setReminderEventLoading != null) {
@@ -6264,6 +6654,9 @@ class _$SetReminderEventLoadingImpl implements _SetReminderEventLoading {
         setReminderEventCompleted,
     required TResult Function(_SetReminderEventFailed value)
         setReminderEventFailed,
+    required TResult Function(_CreateEventLoading value) createEventLoading,
+    required TResult Function(_CreateEventCompleted value) createEventCompleted,
+    required TResult Function(_CreateEventFailed value) createEventFailed,
   }) {
     return setReminderEventLoading(this);
   }
@@ -6304,6 +6697,9 @@ class _$SetReminderEventLoadingImpl implements _SetReminderEventLoading {
     TResult? Function(_SetReminderEventCompleted value)?
         setReminderEventCompleted,
     TResult? Function(_SetReminderEventFailed value)? setReminderEventFailed,
+    TResult? Function(_CreateEventLoading value)? createEventLoading,
+    TResult? Function(_CreateEventCompleted value)? createEventCompleted,
+    TResult? Function(_CreateEventFailed value)? createEventFailed,
   }) {
     return setReminderEventLoading?.call(this);
   }
@@ -6342,6 +6738,9 @@ class _$SetReminderEventLoadingImpl implements _SetReminderEventLoading {
     TResult Function(_SetReminderEventCompleted value)?
         setReminderEventCompleted,
     TResult Function(_SetReminderEventFailed value)? setReminderEventFailed,
+    TResult Function(_CreateEventLoading value)? createEventLoading,
+    TResult Function(_CreateEventCompleted value)? createEventCompleted,
+    TResult Function(_CreateEventFailed value)? createEventFailed,
     required TResult orElse(),
   }) {
     if (setReminderEventLoading != null) {
@@ -6431,6 +6830,10 @@ class _$SetReminderEventCompletedImpl implements _SetReminderEventCompleted {
     required TResult Function() setReminderEventCompleted,
     required TResult Function(String message, Failure failure)
         setReminderEventFailed,
+    required TResult Function() createEventLoading,
+    required TResult Function(EventCalendarModel event) createEventCompleted,
+    required TResult Function(String message, Failure failure)
+        createEventFailed,
   }) {
     return setReminderEventCompleted();
   }
@@ -6464,6 +6867,9 @@ class _$SetReminderEventCompletedImpl implements _SetReminderEventCompleted {
     TResult? Function()? setReminderEventLoading,
     TResult? Function()? setReminderEventCompleted,
     TResult? Function(String message, Failure failure)? setReminderEventFailed,
+    TResult? Function()? createEventLoading,
+    TResult? Function(EventCalendarModel event)? createEventCompleted,
+    TResult? Function(String message, Failure failure)? createEventFailed,
   }) {
     return setReminderEventCompleted?.call();
   }
@@ -6497,6 +6903,9 @@ class _$SetReminderEventCompletedImpl implements _SetReminderEventCompleted {
     TResult Function()? setReminderEventLoading,
     TResult Function()? setReminderEventCompleted,
     TResult Function(String message, Failure failure)? setReminderEventFailed,
+    TResult Function()? createEventLoading,
+    TResult Function(EventCalendarModel event)? createEventCompleted,
+    TResult Function(String message, Failure failure)? createEventFailed,
     required TResult orElse(),
   }) {
     if (setReminderEventCompleted != null) {
@@ -6546,6 +6955,9 @@ class _$SetReminderEventCompletedImpl implements _SetReminderEventCompleted {
         setReminderEventCompleted,
     required TResult Function(_SetReminderEventFailed value)
         setReminderEventFailed,
+    required TResult Function(_CreateEventLoading value) createEventLoading,
+    required TResult Function(_CreateEventCompleted value) createEventCompleted,
+    required TResult Function(_CreateEventFailed value) createEventFailed,
   }) {
     return setReminderEventCompleted(this);
   }
@@ -6586,6 +6998,9 @@ class _$SetReminderEventCompletedImpl implements _SetReminderEventCompleted {
     TResult? Function(_SetReminderEventCompleted value)?
         setReminderEventCompleted,
     TResult? Function(_SetReminderEventFailed value)? setReminderEventFailed,
+    TResult? Function(_CreateEventLoading value)? createEventLoading,
+    TResult? Function(_CreateEventCompleted value)? createEventCompleted,
+    TResult? Function(_CreateEventFailed value)? createEventFailed,
   }) {
     return setReminderEventCompleted?.call(this);
   }
@@ -6624,6 +7039,9 @@ class _$SetReminderEventCompletedImpl implements _SetReminderEventCompleted {
     TResult Function(_SetReminderEventCompleted value)?
         setReminderEventCompleted,
     TResult Function(_SetReminderEventFailed value)? setReminderEventFailed,
+    TResult Function(_CreateEventLoading value)? createEventLoading,
+    TResult Function(_CreateEventCompleted value)? createEventCompleted,
+    TResult Function(_CreateEventFailed value)? createEventFailed,
     required TResult orElse(),
   }) {
     if (setReminderEventCompleted != null) {
@@ -6749,6 +7167,10 @@ class _$SetReminderEventFailedImpl implements _SetReminderEventFailed {
     required TResult Function() setReminderEventCompleted,
     required TResult Function(String message, Failure failure)
         setReminderEventFailed,
+    required TResult Function() createEventLoading,
+    required TResult Function(EventCalendarModel event) createEventCompleted,
+    required TResult Function(String message, Failure failure)
+        createEventFailed,
   }) {
     return setReminderEventFailed(message, failure);
   }
@@ -6782,6 +7204,9 @@ class _$SetReminderEventFailedImpl implements _SetReminderEventFailed {
     TResult? Function()? setReminderEventLoading,
     TResult? Function()? setReminderEventCompleted,
     TResult? Function(String message, Failure failure)? setReminderEventFailed,
+    TResult? Function()? createEventLoading,
+    TResult? Function(EventCalendarModel event)? createEventCompleted,
+    TResult? Function(String message, Failure failure)? createEventFailed,
   }) {
     return setReminderEventFailed?.call(message, failure);
   }
@@ -6815,6 +7240,9 @@ class _$SetReminderEventFailedImpl implements _SetReminderEventFailed {
     TResult Function()? setReminderEventLoading,
     TResult Function()? setReminderEventCompleted,
     TResult Function(String message, Failure failure)? setReminderEventFailed,
+    TResult Function()? createEventLoading,
+    TResult Function(EventCalendarModel event)? createEventCompleted,
+    TResult Function(String message, Failure failure)? createEventFailed,
     required TResult orElse(),
   }) {
     if (setReminderEventFailed != null) {
@@ -6864,6 +7292,9 @@ class _$SetReminderEventFailedImpl implements _SetReminderEventFailed {
         setReminderEventCompleted,
     required TResult Function(_SetReminderEventFailed value)
         setReminderEventFailed,
+    required TResult Function(_CreateEventLoading value) createEventLoading,
+    required TResult Function(_CreateEventCompleted value) createEventCompleted,
+    required TResult Function(_CreateEventFailed value) createEventFailed,
   }) {
     return setReminderEventFailed(this);
   }
@@ -6904,6 +7335,9 @@ class _$SetReminderEventFailedImpl implements _SetReminderEventFailed {
     TResult? Function(_SetReminderEventCompleted value)?
         setReminderEventCompleted,
     TResult? Function(_SetReminderEventFailed value)? setReminderEventFailed,
+    TResult? Function(_CreateEventLoading value)? createEventLoading,
+    TResult? Function(_CreateEventCompleted value)? createEventCompleted,
+    TResult? Function(_CreateEventFailed value)? createEventFailed,
   }) {
     return setReminderEventFailed?.call(this);
   }
@@ -6942,6 +7376,9 @@ class _$SetReminderEventFailedImpl implements _SetReminderEventFailed {
     TResult Function(_SetReminderEventCompleted value)?
         setReminderEventCompleted,
     TResult Function(_SetReminderEventFailed value)? setReminderEventFailed,
+    TResult Function(_CreateEventLoading value)? createEventLoading,
+    TResult Function(_CreateEventCompleted value)? createEventCompleted,
+    TResult Function(_CreateEventFailed value)? createEventFailed,
     required TResult orElse(),
   }) {
     if (setReminderEventFailed != null) {
@@ -6964,4 +7401,993 @@ abstract class _SetReminderEventFailed implements SettingViewmodelState {
   @JsonKey(includeFromJson: false, includeToJson: false)
   _$$SetReminderEventFailedImplCopyWith<_$SetReminderEventFailedImpl>
       get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$CreateEventLoadingImplCopyWith<$Res> {
+  factory _$$CreateEventLoadingImplCopyWith(_$CreateEventLoadingImpl value,
+          $Res Function(_$CreateEventLoadingImpl) then) =
+      __$$CreateEventLoadingImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$CreateEventLoadingImplCopyWithImpl<$Res>
+    extends _$SettingViewmodelStateCopyWithImpl<$Res, _$CreateEventLoadingImpl>
+    implements _$$CreateEventLoadingImplCopyWith<$Res> {
+  __$$CreateEventLoadingImplCopyWithImpl(_$CreateEventLoadingImpl _value,
+      $Res Function(_$CreateEventLoadingImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of SettingViewmodelState
+  /// with the given fields replaced by the non-null parameter values.
+}
+
+/// @nodoc
+
+class _$CreateEventLoadingImpl implements _CreateEventLoading {
+  const _$CreateEventLoadingImpl();
+
+  @override
+  String toString() {
+    return 'SettingViewmodelState.createEventLoading()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$CreateEventLoadingImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() getLanguageLoading,
+    required TResult Function(Locale? currentLanguage) getLanguageCompleted,
+    required TResult Function(String message, Failure failure)
+        getLanguageFailed,
+    required TResult Function() changeLanguageLoading,
+    required TResult Function(Locale? currentLanguage) changeLanguageCompleted,
+    required TResult Function(String message, Failure failure)
+        changeLanguageFailed,
+    required TResult Function() setSearchSettingsLoading,
+    required TResult Function(SearchSettingModel newsearchSettings)
+        setSearchSettingsCompleted,
+    required TResult Function(String message, Failure failure)
+        setSearchByFailed,
+    required TResult Function() getSearchSettingsLoading,
+    required TResult Function() getSearchSettingsCompleted,
+    required TResult Function(String message, Failure failure)
+        getSearchSettingsFailed,
+    required TResult Function() setNotificationSettingsLoading,
+    required TResult Function(NotificationSettingModel newNotificationSettings)
+        setNotificationSettingsCompleted,
+    required TResult Function(String message, Failure failure)
+        setNotificationSettingsFailed,
+    required TResult Function() getNotificationSettingsLoading,
+    required TResult Function() getNotificationSettingsCompleted,
+    required TResult Function(String message, Failure failure)
+        getNotificationSettingsFailed,
+    required TResult Function() setReminderEventLoading,
+    required TResult Function() setReminderEventCompleted,
+    required TResult Function(String message, Failure failure)
+        setReminderEventFailed,
+    required TResult Function() createEventLoading,
+    required TResult Function(EventCalendarModel event) createEventCompleted,
+    required TResult Function(String message, Failure failure)
+        createEventFailed,
+  }) {
+    return createEventLoading();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? getLanguageLoading,
+    TResult? Function(Locale? currentLanguage)? getLanguageCompleted,
+    TResult? Function(String message, Failure failure)? getLanguageFailed,
+    TResult? Function()? changeLanguageLoading,
+    TResult? Function(Locale? currentLanguage)? changeLanguageCompleted,
+    TResult? Function(String message, Failure failure)? changeLanguageFailed,
+    TResult? Function()? setSearchSettingsLoading,
+    TResult? Function(SearchSettingModel newsearchSettings)?
+        setSearchSettingsCompleted,
+    TResult? Function(String message, Failure failure)? setSearchByFailed,
+    TResult? Function()? getSearchSettingsLoading,
+    TResult? Function()? getSearchSettingsCompleted,
+    TResult? Function(String message, Failure failure)? getSearchSettingsFailed,
+    TResult? Function()? setNotificationSettingsLoading,
+    TResult? Function(NotificationSettingModel newNotificationSettings)?
+        setNotificationSettingsCompleted,
+    TResult? Function(String message, Failure failure)?
+        setNotificationSettingsFailed,
+    TResult? Function()? getNotificationSettingsLoading,
+    TResult? Function()? getNotificationSettingsCompleted,
+    TResult? Function(String message, Failure failure)?
+        getNotificationSettingsFailed,
+    TResult? Function()? setReminderEventLoading,
+    TResult? Function()? setReminderEventCompleted,
+    TResult? Function(String message, Failure failure)? setReminderEventFailed,
+    TResult? Function()? createEventLoading,
+    TResult? Function(EventCalendarModel event)? createEventCompleted,
+    TResult? Function(String message, Failure failure)? createEventFailed,
+  }) {
+    return createEventLoading?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? getLanguageLoading,
+    TResult Function(Locale? currentLanguage)? getLanguageCompleted,
+    TResult Function(String message, Failure failure)? getLanguageFailed,
+    TResult Function()? changeLanguageLoading,
+    TResult Function(Locale? currentLanguage)? changeLanguageCompleted,
+    TResult Function(String message, Failure failure)? changeLanguageFailed,
+    TResult Function()? setSearchSettingsLoading,
+    TResult Function(SearchSettingModel newsearchSettings)?
+        setSearchSettingsCompleted,
+    TResult Function(String message, Failure failure)? setSearchByFailed,
+    TResult Function()? getSearchSettingsLoading,
+    TResult Function()? getSearchSettingsCompleted,
+    TResult Function(String message, Failure failure)? getSearchSettingsFailed,
+    TResult Function()? setNotificationSettingsLoading,
+    TResult Function(NotificationSettingModel newNotificationSettings)?
+        setNotificationSettingsCompleted,
+    TResult Function(String message, Failure failure)?
+        setNotificationSettingsFailed,
+    TResult Function()? getNotificationSettingsLoading,
+    TResult Function()? getNotificationSettingsCompleted,
+    TResult Function(String message, Failure failure)?
+        getNotificationSettingsFailed,
+    TResult Function()? setReminderEventLoading,
+    TResult Function()? setReminderEventCompleted,
+    TResult Function(String message, Failure failure)? setReminderEventFailed,
+    TResult Function()? createEventLoading,
+    TResult Function(EventCalendarModel event)? createEventCompleted,
+    TResult Function(String message, Failure failure)? createEventFailed,
+    required TResult orElse(),
+  }) {
+    if (createEventLoading != null) {
+      return createEventLoading();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(_GetLanguageLoading value) getLanguageLoading,
+    required TResult Function(_GetLanguageCompleted value) getLanguageCompleted,
+    required TResult Function(_GetLanguageFailed value) getLanguageFailed,
+    required TResult Function(_ChangeLanguageLoading value)
+        changeLanguageLoading,
+    required TResult Function(_ChangeLanguageCompleted value)
+        changeLanguageCompleted,
+    required TResult Function(_ChangeLanguageFailed value) changeLanguageFailed,
+    required TResult Function(_SetSearchSettingsLoading value)
+        setSearchSettingsLoading,
+    required TResult Function(_SetSearchSettingsCompleted value)
+        setSearchSettingsCompleted,
+    required TResult Function(_SetSearchSettingsFailed value) setSearchByFailed,
+    required TResult Function(_GetSearchSettingsLoading value)
+        getSearchSettingsLoading,
+    required TResult Function(_GetSearchSettingsCompleted value)
+        getSearchSettingsCompleted,
+    required TResult Function(_GetSearchSettingsFailed value)
+        getSearchSettingsFailed,
+    required TResult Function(_SetNotificationSettingsLoading value)
+        setNotificationSettingsLoading,
+    required TResult Function(_SetNotificationSettingsCompleted value)
+        setNotificationSettingsCompleted,
+    required TResult Function(_SetNotificationSettingsFailed value)
+        setNotificationSettingsFailed,
+    required TResult Function(_GetNotificationSettingsLoading value)
+        getNotificationSettingsLoading,
+    required TResult Function(_GetNotificationSettingsCompleted value)
+        getNotificationSettingsCompleted,
+    required TResult Function(_GetNotificationSettingsFailed value)
+        getNotificationSettingsFailed,
+    required TResult Function(_SetReminderEventLoading value)
+        setReminderEventLoading,
+    required TResult Function(_SetReminderEventCompleted value)
+        setReminderEventCompleted,
+    required TResult Function(_SetReminderEventFailed value)
+        setReminderEventFailed,
+    required TResult Function(_CreateEventLoading value) createEventLoading,
+    required TResult Function(_CreateEventCompleted value) createEventCompleted,
+    required TResult Function(_CreateEventFailed value) createEventFailed,
+  }) {
+    return createEventLoading(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_GetLanguageLoading value)? getLanguageLoading,
+    TResult? Function(_GetLanguageCompleted value)? getLanguageCompleted,
+    TResult? Function(_GetLanguageFailed value)? getLanguageFailed,
+    TResult? Function(_ChangeLanguageLoading value)? changeLanguageLoading,
+    TResult? Function(_ChangeLanguageCompleted value)? changeLanguageCompleted,
+    TResult? Function(_ChangeLanguageFailed value)? changeLanguageFailed,
+    TResult? Function(_SetSearchSettingsLoading value)?
+        setSearchSettingsLoading,
+    TResult? Function(_SetSearchSettingsCompleted value)?
+        setSearchSettingsCompleted,
+    TResult? Function(_SetSearchSettingsFailed value)? setSearchByFailed,
+    TResult? Function(_GetSearchSettingsLoading value)?
+        getSearchSettingsLoading,
+    TResult? Function(_GetSearchSettingsCompleted value)?
+        getSearchSettingsCompleted,
+    TResult? Function(_GetSearchSettingsFailed value)? getSearchSettingsFailed,
+    TResult? Function(_SetNotificationSettingsLoading value)?
+        setNotificationSettingsLoading,
+    TResult? Function(_SetNotificationSettingsCompleted value)?
+        setNotificationSettingsCompleted,
+    TResult? Function(_SetNotificationSettingsFailed value)?
+        setNotificationSettingsFailed,
+    TResult? Function(_GetNotificationSettingsLoading value)?
+        getNotificationSettingsLoading,
+    TResult? Function(_GetNotificationSettingsCompleted value)?
+        getNotificationSettingsCompleted,
+    TResult? Function(_GetNotificationSettingsFailed value)?
+        getNotificationSettingsFailed,
+    TResult? Function(_SetReminderEventLoading value)? setReminderEventLoading,
+    TResult? Function(_SetReminderEventCompleted value)?
+        setReminderEventCompleted,
+    TResult? Function(_SetReminderEventFailed value)? setReminderEventFailed,
+    TResult? Function(_CreateEventLoading value)? createEventLoading,
+    TResult? Function(_CreateEventCompleted value)? createEventCompleted,
+    TResult? Function(_CreateEventFailed value)? createEventFailed,
+  }) {
+    return createEventLoading?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_GetLanguageLoading value)? getLanguageLoading,
+    TResult Function(_GetLanguageCompleted value)? getLanguageCompleted,
+    TResult Function(_GetLanguageFailed value)? getLanguageFailed,
+    TResult Function(_ChangeLanguageLoading value)? changeLanguageLoading,
+    TResult Function(_ChangeLanguageCompleted value)? changeLanguageCompleted,
+    TResult Function(_ChangeLanguageFailed value)? changeLanguageFailed,
+    TResult Function(_SetSearchSettingsLoading value)? setSearchSettingsLoading,
+    TResult Function(_SetSearchSettingsCompleted value)?
+        setSearchSettingsCompleted,
+    TResult Function(_SetSearchSettingsFailed value)? setSearchByFailed,
+    TResult Function(_GetSearchSettingsLoading value)? getSearchSettingsLoading,
+    TResult Function(_GetSearchSettingsCompleted value)?
+        getSearchSettingsCompleted,
+    TResult Function(_GetSearchSettingsFailed value)? getSearchSettingsFailed,
+    TResult Function(_SetNotificationSettingsLoading value)?
+        setNotificationSettingsLoading,
+    TResult Function(_SetNotificationSettingsCompleted value)?
+        setNotificationSettingsCompleted,
+    TResult Function(_SetNotificationSettingsFailed value)?
+        setNotificationSettingsFailed,
+    TResult Function(_GetNotificationSettingsLoading value)?
+        getNotificationSettingsLoading,
+    TResult Function(_GetNotificationSettingsCompleted value)?
+        getNotificationSettingsCompleted,
+    TResult Function(_GetNotificationSettingsFailed value)?
+        getNotificationSettingsFailed,
+    TResult Function(_SetReminderEventLoading value)? setReminderEventLoading,
+    TResult Function(_SetReminderEventCompleted value)?
+        setReminderEventCompleted,
+    TResult Function(_SetReminderEventFailed value)? setReminderEventFailed,
+    TResult Function(_CreateEventLoading value)? createEventLoading,
+    TResult Function(_CreateEventCompleted value)? createEventCompleted,
+    TResult Function(_CreateEventFailed value)? createEventFailed,
+    required TResult orElse(),
+  }) {
+    if (createEventLoading != null) {
+      return createEventLoading(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _CreateEventLoading implements SettingViewmodelState {
+  const factory _CreateEventLoading() = _$CreateEventLoadingImpl;
+}
+
+/// @nodoc
+abstract class _$$CreateEventCompletedImplCopyWith<$Res> {
+  factory _$$CreateEventCompletedImplCopyWith(_$CreateEventCompletedImpl value,
+          $Res Function(_$CreateEventCompletedImpl) then) =
+      __$$CreateEventCompletedImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({EventCalendarModel event});
+
+  $EventCalendarModelCopyWith<$Res> get event;
+}
+
+/// @nodoc
+class __$$CreateEventCompletedImplCopyWithImpl<$Res>
+    extends _$SettingViewmodelStateCopyWithImpl<$Res,
+        _$CreateEventCompletedImpl>
+    implements _$$CreateEventCompletedImplCopyWith<$Res> {
+  __$$CreateEventCompletedImplCopyWithImpl(_$CreateEventCompletedImpl _value,
+      $Res Function(_$CreateEventCompletedImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of SettingViewmodelState
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? event = null,
+  }) {
+    return _then(_$CreateEventCompletedImpl(
+      event: null == event
+          ? _value.event
+          : event // ignore: cast_nullable_to_non_nullable
+              as EventCalendarModel,
+    ));
+  }
+
+  /// Create a copy of SettingViewmodelState
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $EventCalendarModelCopyWith<$Res> get event {
+    return $EventCalendarModelCopyWith<$Res>(_value.event, (value) {
+      return _then(_value.copyWith(event: value));
+    });
+  }
+}
+
+/// @nodoc
+
+class _$CreateEventCompletedImpl implements _CreateEventCompleted {
+  const _$CreateEventCompletedImpl({required this.event});
+
+  @override
+  final EventCalendarModel event;
+
+  @override
+  String toString() {
+    return 'SettingViewmodelState.createEventCompleted(event: $event)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$CreateEventCompletedImpl &&
+            (identical(other.event, event) || other.event == event));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, event);
+
+  /// Create a copy of SettingViewmodelState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$CreateEventCompletedImplCopyWith<_$CreateEventCompletedImpl>
+      get copyWith =>
+          __$$CreateEventCompletedImplCopyWithImpl<_$CreateEventCompletedImpl>(
+              this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() getLanguageLoading,
+    required TResult Function(Locale? currentLanguage) getLanguageCompleted,
+    required TResult Function(String message, Failure failure)
+        getLanguageFailed,
+    required TResult Function() changeLanguageLoading,
+    required TResult Function(Locale? currentLanguage) changeLanguageCompleted,
+    required TResult Function(String message, Failure failure)
+        changeLanguageFailed,
+    required TResult Function() setSearchSettingsLoading,
+    required TResult Function(SearchSettingModel newsearchSettings)
+        setSearchSettingsCompleted,
+    required TResult Function(String message, Failure failure)
+        setSearchByFailed,
+    required TResult Function() getSearchSettingsLoading,
+    required TResult Function() getSearchSettingsCompleted,
+    required TResult Function(String message, Failure failure)
+        getSearchSettingsFailed,
+    required TResult Function() setNotificationSettingsLoading,
+    required TResult Function(NotificationSettingModel newNotificationSettings)
+        setNotificationSettingsCompleted,
+    required TResult Function(String message, Failure failure)
+        setNotificationSettingsFailed,
+    required TResult Function() getNotificationSettingsLoading,
+    required TResult Function() getNotificationSettingsCompleted,
+    required TResult Function(String message, Failure failure)
+        getNotificationSettingsFailed,
+    required TResult Function() setReminderEventLoading,
+    required TResult Function() setReminderEventCompleted,
+    required TResult Function(String message, Failure failure)
+        setReminderEventFailed,
+    required TResult Function() createEventLoading,
+    required TResult Function(EventCalendarModel event) createEventCompleted,
+    required TResult Function(String message, Failure failure)
+        createEventFailed,
+  }) {
+    return createEventCompleted(event);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? getLanguageLoading,
+    TResult? Function(Locale? currentLanguage)? getLanguageCompleted,
+    TResult? Function(String message, Failure failure)? getLanguageFailed,
+    TResult? Function()? changeLanguageLoading,
+    TResult? Function(Locale? currentLanguage)? changeLanguageCompleted,
+    TResult? Function(String message, Failure failure)? changeLanguageFailed,
+    TResult? Function()? setSearchSettingsLoading,
+    TResult? Function(SearchSettingModel newsearchSettings)?
+        setSearchSettingsCompleted,
+    TResult? Function(String message, Failure failure)? setSearchByFailed,
+    TResult? Function()? getSearchSettingsLoading,
+    TResult? Function()? getSearchSettingsCompleted,
+    TResult? Function(String message, Failure failure)? getSearchSettingsFailed,
+    TResult? Function()? setNotificationSettingsLoading,
+    TResult? Function(NotificationSettingModel newNotificationSettings)?
+        setNotificationSettingsCompleted,
+    TResult? Function(String message, Failure failure)?
+        setNotificationSettingsFailed,
+    TResult? Function()? getNotificationSettingsLoading,
+    TResult? Function()? getNotificationSettingsCompleted,
+    TResult? Function(String message, Failure failure)?
+        getNotificationSettingsFailed,
+    TResult? Function()? setReminderEventLoading,
+    TResult? Function()? setReminderEventCompleted,
+    TResult? Function(String message, Failure failure)? setReminderEventFailed,
+    TResult? Function()? createEventLoading,
+    TResult? Function(EventCalendarModel event)? createEventCompleted,
+    TResult? Function(String message, Failure failure)? createEventFailed,
+  }) {
+    return createEventCompleted?.call(event);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? getLanguageLoading,
+    TResult Function(Locale? currentLanguage)? getLanguageCompleted,
+    TResult Function(String message, Failure failure)? getLanguageFailed,
+    TResult Function()? changeLanguageLoading,
+    TResult Function(Locale? currentLanguage)? changeLanguageCompleted,
+    TResult Function(String message, Failure failure)? changeLanguageFailed,
+    TResult Function()? setSearchSettingsLoading,
+    TResult Function(SearchSettingModel newsearchSettings)?
+        setSearchSettingsCompleted,
+    TResult Function(String message, Failure failure)? setSearchByFailed,
+    TResult Function()? getSearchSettingsLoading,
+    TResult Function()? getSearchSettingsCompleted,
+    TResult Function(String message, Failure failure)? getSearchSettingsFailed,
+    TResult Function()? setNotificationSettingsLoading,
+    TResult Function(NotificationSettingModel newNotificationSettings)?
+        setNotificationSettingsCompleted,
+    TResult Function(String message, Failure failure)?
+        setNotificationSettingsFailed,
+    TResult Function()? getNotificationSettingsLoading,
+    TResult Function()? getNotificationSettingsCompleted,
+    TResult Function(String message, Failure failure)?
+        getNotificationSettingsFailed,
+    TResult Function()? setReminderEventLoading,
+    TResult Function()? setReminderEventCompleted,
+    TResult Function(String message, Failure failure)? setReminderEventFailed,
+    TResult Function()? createEventLoading,
+    TResult Function(EventCalendarModel event)? createEventCompleted,
+    TResult Function(String message, Failure failure)? createEventFailed,
+    required TResult orElse(),
+  }) {
+    if (createEventCompleted != null) {
+      return createEventCompleted(event);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(_GetLanguageLoading value) getLanguageLoading,
+    required TResult Function(_GetLanguageCompleted value) getLanguageCompleted,
+    required TResult Function(_GetLanguageFailed value) getLanguageFailed,
+    required TResult Function(_ChangeLanguageLoading value)
+        changeLanguageLoading,
+    required TResult Function(_ChangeLanguageCompleted value)
+        changeLanguageCompleted,
+    required TResult Function(_ChangeLanguageFailed value) changeLanguageFailed,
+    required TResult Function(_SetSearchSettingsLoading value)
+        setSearchSettingsLoading,
+    required TResult Function(_SetSearchSettingsCompleted value)
+        setSearchSettingsCompleted,
+    required TResult Function(_SetSearchSettingsFailed value) setSearchByFailed,
+    required TResult Function(_GetSearchSettingsLoading value)
+        getSearchSettingsLoading,
+    required TResult Function(_GetSearchSettingsCompleted value)
+        getSearchSettingsCompleted,
+    required TResult Function(_GetSearchSettingsFailed value)
+        getSearchSettingsFailed,
+    required TResult Function(_SetNotificationSettingsLoading value)
+        setNotificationSettingsLoading,
+    required TResult Function(_SetNotificationSettingsCompleted value)
+        setNotificationSettingsCompleted,
+    required TResult Function(_SetNotificationSettingsFailed value)
+        setNotificationSettingsFailed,
+    required TResult Function(_GetNotificationSettingsLoading value)
+        getNotificationSettingsLoading,
+    required TResult Function(_GetNotificationSettingsCompleted value)
+        getNotificationSettingsCompleted,
+    required TResult Function(_GetNotificationSettingsFailed value)
+        getNotificationSettingsFailed,
+    required TResult Function(_SetReminderEventLoading value)
+        setReminderEventLoading,
+    required TResult Function(_SetReminderEventCompleted value)
+        setReminderEventCompleted,
+    required TResult Function(_SetReminderEventFailed value)
+        setReminderEventFailed,
+    required TResult Function(_CreateEventLoading value) createEventLoading,
+    required TResult Function(_CreateEventCompleted value) createEventCompleted,
+    required TResult Function(_CreateEventFailed value) createEventFailed,
+  }) {
+    return createEventCompleted(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_GetLanguageLoading value)? getLanguageLoading,
+    TResult? Function(_GetLanguageCompleted value)? getLanguageCompleted,
+    TResult? Function(_GetLanguageFailed value)? getLanguageFailed,
+    TResult? Function(_ChangeLanguageLoading value)? changeLanguageLoading,
+    TResult? Function(_ChangeLanguageCompleted value)? changeLanguageCompleted,
+    TResult? Function(_ChangeLanguageFailed value)? changeLanguageFailed,
+    TResult? Function(_SetSearchSettingsLoading value)?
+        setSearchSettingsLoading,
+    TResult? Function(_SetSearchSettingsCompleted value)?
+        setSearchSettingsCompleted,
+    TResult? Function(_SetSearchSettingsFailed value)? setSearchByFailed,
+    TResult? Function(_GetSearchSettingsLoading value)?
+        getSearchSettingsLoading,
+    TResult? Function(_GetSearchSettingsCompleted value)?
+        getSearchSettingsCompleted,
+    TResult? Function(_GetSearchSettingsFailed value)? getSearchSettingsFailed,
+    TResult? Function(_SetNotificationSettingsLoading value)?
+        setNotificationSettingsLoading,
+    TResult? Function(_SetNotificationSettingsCompleted value)?
+        setNotificationSettingsCompleted,
+    TResult? Function(_SetNotificationSettingsFailed value)?
+        setNotificationSettingsFailed,
+    TResult? Function(_GetNotificationSettingsLoading value)?
+        getNotificationSettingsLoading,
+    TResult? Function(_GetNotificationSettingsCompleted value)?
+        getNotificationSettingsCompleted,
+    TResult? Function(_GetNotificationSettingsFailed value)?
+        getNotificationSettingsFailed,
+    TResult? Function(_SetReminderEventLoading value)? setReminderEventLoading,
+    TResult? Function(_SetReminderEventCompleted value)?
+        setReminderEventCompleted,
+    TResult? Function(_SetReminderEventFailed value)? setReminderEventFailed,
+    TResult? Function(_CreateEventLoading value)? createEventLoading,
+    TResult? Function(_CreateEventCompleted value)? createEventCompleted,
+    TResult? Function(_CreateEventFailed value)? createEventFailed,
+  }) {
+    return createEventCompleted?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_GetLanguageLoading value)? getLanguageLoading,
+    TResult Function(_GetLanguageCompleted value)? getLanguageCompleted,
+    TResult Function(_GetLanguageFailed value)? getLanguageFailed,
+    TResult Function(_ChangeLanguageLoading value)? changeLanguageLoading,
+    TResult Function(_ChangeLanguageCompleted value)? changeLanguageCompleted,
+    TResult Function(_ChangeLanguageFailed value)? changeLanguageFailed,
+    TResult Function(_SetSearchSettingsLoading value)? setSearchSettingsLoading,
+    TResult Function(_SetSearchSettingsCompleted value)?
+        setSearchSettingsCompleted,
+    TResult Function(_SetSearchSettingsFailed value)? setSearchByFailed,
+    TResult Function(_GetSearchSettingsLoading value)? getSearchSettingsLoading,
+    TResult Function(_GetSearchSettingsCompleted value)?
+        getSearchSettingsCompleted,
+    TResult Function(_GetSearchSettingsFailed value)? getSearchSettingsFailed,
+    TResult Function(_SetNotificationSettingsLoading value)?
+        setNotificationSettingsLoading,
+    TResult Function(_SetNotificationSettingsCompleted value)?
+        setNotificationSettingsCompleted,
+    TResult Function(_SetNotificationSettingsFailed value)?
+        setNotificationSettingsFailed,
+    TResult Function(_GetNotificationSettingsLoading value)?
+        getNotificationSettingsLoading,
+    TResult Function(_GetNotificationSettingsCompleted value)?
+        getNotificationSettingsCompleted,
+    TResult Function(_GetNotificationSettingsFailed value)?
+        getNotificationSettingsFailed,
+    TResult Function(_SetReminderEventLoading value)? setReminderEventLoading,
+    TResult Function(_SetReminderEventCompleted value)?
+        setReminderEventCompleted,
+    TResult Function(_SetReminderEventFailed value)? setReminderEventFailed,
+    TResult Function(_CreateEventLoading value)? createEventLoading,
+    TResult Function(_CreateEventCompleted value)? createEventCompleted,
+    TResult Function(_CreateEventFailed value)? createEventFailed,
+    required TResult orElse(),
+  }) {
+    if (createEventCompleted != null) {
+      return createEventCompleted(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _CreateEventCompleted implements SettingViewmodelState {
+  const factory _CreateEventCompleted(
+      {required final EventCalendarModel event}) = _$CreateEventCompletedImpl;
+
+  EventCalendarModel get event;
+
+  /// Create a copy of SettingViewmodelState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$CreateEventCompletedImplCopyWith<_$CreateEventCompletedImpl>
+      get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$CreateEventFailedImplCopyWith<$Res> {
+  factory _$$CreateEventFailedImplCopyWith(_$CreateEventFailedImpl value,
+          $Res Function(_$CreateEventFailedImpl) then) =
+      __$$CreateEventFailedImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String message, Failure failure});
+}
+
+/// @nodoc
+class __$$CreateEventFailedImplCopyWithImpl<$Res>
+    extends _$SettingViewmodelStateCopyWithImpl<$Res, _$CreateEventFailedImpl>
+    implements _$$CreateEventFailedImplCopyWith<$Res> {
+  __$$CreateEventFailedImplCopyWithImpl(_$CreateEventFailedImpl _value,
+      $Res Function(_$CreateEventFailedImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of SettingViewmodelState
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? message = null,
+    Object? failure = null,
+  }) {
+    return _then(_$CreateEventFailedImpl(
+      message: null == message
+          ? _value.message
+          : message // ignore: cast_nullable_to_non_nullable
+              as String,
+      failure: null == failure
+          ? _value.failure
+          : failure // ignore: cast_nullable_to_non_nullable
+              as Failure,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$CreateEventFailedImpl implements _CreateEventFailed {
+  const _$CreateEventFailedImpl({required this.message, required this.failure});
+
+  @override
+  final String message;
+  @override
+  final Failure failure;
+
+  @override
+  String toString() {
+    return 'SettingViewmodelState.createEventFailed(message: $message, failure: $failure)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$CreateEventFailedImpl &&
+            (identical(other.message, message) || other.message == message) &&
+            (identical(other.failure, failure) || other.failure == failure));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, message, failure);
+
+  /// Create a copy of SettingViewmodelState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$CreateEventFailedImplCopyWith<_$CreateEventFailedImpl> get copyWith =>
+      __$$CreateEventFailedImplCopyWithImpl<_$CreateEventFailedImpl>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() getLanguageLoading,
+    required TResult Function(Locale? currentLanguage) getLanguageCompleted,
+    required TResult Function(String message, Failure failure)
+        getLanguageFailed,
+    required TResult Function() changeLanguageLoading,
+    required TResult Function(Locale? currentLanguage) changeLanguageCompleted,
+    required TResult Function(String message, Failure failure)
+        changeLanguageFailed,
+    required TResult Function() setSearchSettingsLoading,
+    required TResult Function(SearchSettingModel newsearchSettings)
+        setSearchSettingsCompleted,
+    required TResult Function(String message, Failure failure)
+        setSearchByFailed,
+    required TResult Function() getSearchSettingsLoading,
+    required TResult Function() getSearchSettingsCompleted,
+    required TResult Function(String message, Failure failure)
+        getSearchSettingsFailed,
+    required TResult Function() setNotificationSettingsLoading,
+    required TResult Function(NotificationSettingModel newNotificationSettings)
+        setNotificationSettingsCompleted,
+    required TResult Function(String message, Failure failure)
+        setNotificationSettingsFailed,
+    required TResult Function() getNotificationSettingsLoading,
+    required TResult Function() getNotificationSettingsCompleted,
+    required TResult Function(String message, Failure failure)
+        getNotificationSettingsFailed,
+    required TResult Function() setReminderEventLoading,
+    required TResult Function() setReminderEventCompleted,
+    required TResult Function(String message, Failure failure)
+        setReminderEventFailed,
+    required TResult Function() createEventLoading,
+    required TResult Function(EventCalendarModel event) createEventCompleted,
+    required TResult Function(String message, Failure failure)
+        createEventFailed,
+  }) {
+    return createEventFailed(message, failure);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? getLanguageLoading,
+    TResult? Function(Locale? currentLanguage)? getLanguageCompleted,
+    TResult? Function(String message, Failure failure)? getLanguageFailed,
+    TResult? Function()? changeLanguageLoading,
+    TResult? Function(Locale? currentLanguage)? changeLanguageCompleted,
+    TResult? Function(String message, Failure failure)? changeLanguageFailed,
+    TResult? Function()? setSearchSettingsLoading,
+    TResult? Function(SearchSettingModel newsearchSettings)?
+        setSearchSettingsCompleted,
+    TResult? Function(String message, Failure failure)? setSearchByFailed,
+    TResult? Function()? getSearchSettingsLoading,
+    TResult? Function()? getSearchSettingsCompleted,
+    TResult? Function(String message, Failure failure)? getSearchSettingsFailed,
+    TResult? Function()? setNotificationSettingsLoading,
+    TResult? Function(NotificationSettingModel newNotificationSettings)?
+        setNotificationSettingsCompleted,
+    TResult? Function(String message, Failure failure)?
+        setNotificationSettingsFailed,
+    TResult? Function()? getNotificationSettingsLoading,
+    TResult? Function()? getNotificationSettingsCompleted,
+    TResult? Function(String message, Failure failure)?
+        getNotificationSettingsFailed,
+    TResult? Function()? setReminderEventLoading,
+    TResult? Function()? setReminderEventCompleted,
+    TResult? Function(String message, Failure failure)? setReminderEventFailed,
+    TResult? Function()? createEventLoading,
+    TResult? Function(EventCalendarModel event)? createEventCompleted,
+    TResult? Function(String message, Failure failure)? createEventFailed,
+  }) {
+    return createEventFailed?.call(message, failure);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? getLanguageLoading,
+    TResult Function(Locale? currentLanguage)? getLanguageCompleted,
+    TResult Function(String message, Failure failure)? getLanguageFailed,
+    TResult Function()? changeLanguageLoading,
+    TResult Function(Locale? currentLanguage)? changeLanguageCompleted,
+    TResult Function(String message, Failure failure)? changeLanguageFailed,
+    TResult Function()? setSearchSettingsLoading,
+    TResult Function(SearchSettingModel newsearchSettings)?
+        setSearchSettingsCompleted,
+    TResult Function(String message, Failure failure)? setSearchByFailed,
+    TResult Function()? getSearchSettingsLoading,
+    TResult Function()? getSearchSettingsCompleted,
+    TResult Function(String message, Failure failure)? getSearchSettingsFailed,
+    TResult Function()? setNotificationSettingsLoading,
+    TResult Function(NotificationSettingModel newNotificationSettings)?
+        setNotificationSettingsCompleted,
+    TResult Function(String message, Failure failure)?
+        setNotificationSettingsFailed,
+    TResult Function()? getNotificationSettingsLoading,
+    TResult Function()? getNotificationSettingsCompleted,
+    TResult Function(String message, Failure failure)?
+        getNotificationSettingsFailed,
+    TResult Function()? setReminderEventLoading,
+    TResult Function()? setReminderEventCompleted,
+    TResult Function(String message, Failure failure)? setReminderEventFailed,
+    TResult Function()? createEventLoading,
+    TResult Function(EventCalendarModel event)? createEventCompleted,
+    TResult Function(String message, Failure failure)? createEventFailed,
+    required TResult orElse(),
+  }) {
+    if (createEventFailed != null) {
+      return createEventFailed(message, failure);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(_GetLanguageLoading value) getLanguageLoading,
+    required TResult Function(_GetLanguageCompleted value) getLanguageCompleted,
+    required TResult Function(_GetLanguageFailed value) getLanguageFailed,
+    required TResult Function(_ChangeLanguageLoading value)
+        changeLanguageLoading,
+    required TResult Function(_ChangeLanguageCompleted value)
+        changeLanguageCompleted,
+    required TResult Function(_ChangeLanguageFailed value) changeLanguageFailed,
+    required TResult Function(_SetSearchSettingsLoading value)
+        setSearchSettingsLoading,
+    required TResult Function(_SetSearchSettingsCompleted value)
+        setSearchSettingsCompleted,
+    required TResult Function(_SetSearchSettingsFailed value) setSearchByFailed,
+    required TResult Function(_GetSearchSettingsLoading value)
+        getSearchSettingsLoading,
+    required TResult Function(_GetSearchSettingsCompleted value)
+        getSearchSettingsCompleted,
+    required TResult Function(_GetSearchSettingsFailed value)
+        getSearchSettingsFailed,
+    required TResult Function(_SetNotificationSettingsLoading value)
+        setNotificationSettingsLoading,
+    required TResult Function(_SetNotificationSettingsCompleted value)
+        setNotificationSettingsCompleted,
+    required TResult Function(_SetNotificationSettingsFailed value)
+        setNotificationSettingsFailed,
+    required TResult Function(_GetNotificationSettingsLoading value)
+        getNotificationSettingsLoading,
+    required TResult Function(_GetNotificationSettingsCompleted value)
+        getNotificationSettingsCompleted,
+    required TResult Function(_GetNotificationSettingsFailed value)
+        getNotificationSettingsFailed,
+    required TResult Function(_SetReminderEventLoading value)
+        setReminderEventLoading,
+    required TResult Function(_SetReminderEventCompleted value)
+        setReminderEventCompleted,
+    required TResult Function(_SetReminderEventFailed value)
+        setReminderEventFailed,
+    required TResult Function(_CreateEventLoading value) createEventLoading,
+    required TResult Function(_CreateEventCompleted value) createEventCompleted,
+    required TResult Function(_CreateEventFailed value) createEventFailed,
+  }) {
+    return createEventFailed(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_GetLanguageLoading value)? getLanguageLoading,
+    TResult? Function(_GetLanguageCompleted value)? getLanguageCompleted,
+    TResult? Function(_GetLanguageFailed value)? getLanguageFailed,
+    TResult? Function(_ChangeLanguageLoading value)? changeLanguageLoading,
+    TResult? Function(_ChangeLanguageCompleted value)? changeLanguageCompleted,
+    TResult? Function(_ChangeLanguageFailed value)? changeLanguageFailed,
+    TResult? Function(_SetSearchSettingsLoading value)?
+        setSearchSettingsLoading,
+    TResult? Function(_SetSearchSettingsCompleted value)?
+        setSearchSettingsCompleted,
+    TResult? Function(_SetSearchSettingsFailed value)? setSearchByFailed,
+    TResult? Function(_GetSearchSettingsLoading value)?
+        getSearchSettingsLoading,
+    TResult? Function(_GetSearchSettingsCompleted value)?
+        getSearchSettingsCompleted,
+    TResult? Function(_GetSearchSettingsFailed value)? getSearchSettingsFailed,
+    TResult? Function(_SetNotificationSettingsLoading value)?
+        setNotificationSettingsLoading,
+    TResult? Function(_SetNotificationSettingsCompleted value)?
+        setNotificationSettingsCompleted,
+    TResult? Function(_SetNotificationSettingsFailed value)?
+        setNotificationSettingsFailed,
+    TResult? Function(_GetNotificationSettingsLoading value)?
+        getNotificationSettingsLoading,
+    TResult? Function(_GetNotificationSettingsCompleted value)?
+        getNotificationSettingsCompleted,
+    TResult? Function(_GetNotificationSettingsFailed value)?
+        getNotificationSettingsFailed,
+    TResult? Function(_SetReminderEventLoading value)? setReminderEventLoading,
+    TResult? Function(_SetReminderEventCompleted value)?
+        setReminderEventCompleted,
+    TResult? Function(_SetReminderEventFailed value)? setReminderEventFailed,
+    TResult? Function(_CreateEventLoading value)? createEventLoading,
+    TResult? Function(_CreateEventCompleted value)? createEventCompleted,
+    TResult? Function(_CreateEventFailed value)? createEventFailed,
+  }) {
+    return createEventFailed?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_GetLanguageLoading value)? getLanguageLoading,
+    TResult Function(_GetLanguageCompleted value)? getLanguageCompleted,
+    TResult Function(_GetLanguageFailed value)? getLanguageFailed,
+    TResult Function(_ChangeLanguageLoading value)? changeLanguageLoading,
+    TResult Function(_ChangeLanguageCompleted value)? changeLanguageCompleted,
+    TResult Function(_ChangeLanguageFailed value)? changeLanguageFailed,
+    TResult Function(_SetSearchSettingsLoading value)? setSearchSettingsLoading,
+    TResult Function(_SetSearchSettingsCompleted value)?
+        setSearchSettingsCompleted,
+    TResult Function(_SetSearchSettingsFailed value)? setSearchByFailed,
+    TResult Function(_GetSearchSettingsLoading value)? getSearchSettingsLoading,
+    TResult Function(_GetSearchSettingsCompleted value)?
+        getSearchSettingsCompleted,
+    TResult Function(_GetSearchSettingsFailed value)? getSearchSettingsFailed,
+    TResult Function(_SetNotificationSettingsLoading value)?
+        setNotificationSettingsLoading,
+    TResult Function(_SetNotificationSettingsCompleted value)?
+        setNotificationSettingsCompleted,
+    TResult Function(_SetNotificationSettingsFailed value)?
+        setNotificationSettingsFailed,
+    TResult Function(_GetNotificationSettingsLoading value)?
+        getNotificationSettingsLoading,
+    TResult Function(_GetNotificationSettingsCompleted value)?
+        getNotificationSettingsCompleted,
+    TResult Function(_GetNotificationSettingsFailed value)?
+        getNotificationSettingsFailed,
+    TResult Function(_SetReminderEventLoading value)? setReminderEventLoading,
+    TResult Function(_SetReminderEventCompleted value)?
+        setReminderEventCompleted,
+    TResult Function(_SetReminderEventFailed value)? setReminderEventFailed,
+    TResult Function(_CreateEventLoading value)? createEventLoading,
+    TResult Function(_CreateEventCompleted value)? createEventCompleted,
+    TResult Function(_CreateEventFailed value)? createEventFailed,
+    required TResult orElse(),
+  }) {
+    if (createEventFailed != null) {
+      return createEventFailed(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _CreateEventFailed implements SettingViewmodelState {
+  const factory _CreateEventFailed(
+      {required final String message,
+      required final Failure failure}) = _$CreateEventFailedImpl;
+
+  String get message;
+  Failure get failure;
+
+  /// Create a copy of SettingViewmodelState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$CreateEventFailedImplCopyWith<_$CreateEventFailedImpl> get copyWith =>
+      throw _privateConstructorUsedError;
 }
