@@ -1,10 +1,11 @@
-import 'dart:convert';
 import 'dart:isolate';
 
 import 'package:better_one/core/constants/cache_keys.dart';
+import 'package:better_one/core/constants/firebase_constants.dart';
 import 'package:better_one/core/utils/methods/methods.dart';
 import 'package:better_one/firebase_options.dart';
 import 'package:better_one/model/task_model/task_model.dart';
+import 'package:better_one/model/user_model/user_model.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/services.dart';
@@ -39,36 +40,42 @@ class TasksBackgroundService {
 
     var appDir = await getApplicationDocumentsDirectory();
     Hive.init(appDir.path);
-    var appBox = await Hive.openBox("user_data");
+    var appCache = await Hive.openBox(CacheKeys.userData);
     kDebugPrint("3");
 
     try {
       kDebugPrint("start loading tasks");
       List<TaskModel> downloadedTasks = [];
 
-      String? userId = appBox.get(CacheKeys.userId);
+      var user =
+          UserModel.fromString(appCache.get(CacheKeys.userData) as String);
       var db = FirebaseFirestore.instance;
-      var collection =
-          await db.collection("users").doc(userId).collection("tasks").get();
+      var collection = await db
+          .collection(FirebaseConstants.users)
+          .doc(user.id)
+          .collection(FirebaseConstants.tasks)
+          .get();
       downloadedTasks = collection.docs.map(
         (element) {
           return TaskModel.fromJson(element.data());
         },
       ).toList();
-      var localeTasks = appBox.get(CacheKeys.tasks) as Map?;
-      await appBox.put(
+      var localeTasks = appCache.get(CacheKeys.tasks) as Map?;
+      await appCache.put(
         CacheKeys.tasks,
         {
           ...?localeTasks,
-          for (var task in downloadedTasks) task.id: jsonEncode(task.toJson()),
+          for (var task in downloadedTasks) task.id: task.asString(),
         },
       );
-      await appBox.put(CacheKeys.downloadService, true);
+      await appCache.put(CacheKeys.downloadService, true);
       kDebugPrint("end loading tasks: true");
       downloadReceiverPort.sendPort.send(true);
+
+      /// upload tasks
       uploadTasks(args['token']);
     } catch (e) {
-      await appBox.put(CacheKeys.downloadService, false);
+      await appCache.put(CacheKeys.downloadService, false);
       kDebugPrint("end loading tasks: error ${e.toString()}");
       downloadReceiverPort.sendPort.send(false);
     }
@@ -96,16 +103,19 @@ class TasksBackgroundService {
 
     var appDir = await getApplicationDocumentsDirectory();
     Hive.init(appDir.path);
-    var appBox = await Hive.openBox("user_data");
+    var appCache = await Hive.openBox(CacheKeys.userData);
     kDebugPrint("3");
     try {
       List<TaskModel> uploadedTasks = [];
       uploadedTasks = _convertToTaskList(
-          (appBox.get(CacheKeys.tasks) as Map?)?.values.toList());
-      String? userId = appBox.get(CacheKeys.userId);
+          (appCache.get(CacheKeys.tasks) as Map?)?.values.toList());
+      var user =
+          UserModel.fromString(appCache.get(CacheKeys.userData) as String);
       var db = FirebaseFirestore.instance;
-      var collectionRef =
-          db.collection("users").doc(userId).collection("tasks");
+      var collectionRef = db
+          .collection(FirebaseConstants.users)
+          .doc(user.id)
+          .collection(FirebaseConstants.tasks);
       for (var task in uploadedTasks) {
         await collectionRef
             .doc(task.id)
@@ -113,11 +123,11 @@ class TasksBackgroundService {
       }
 
       /// uploaded tasks
-      await appBox.put(CacheKeys.uploadService, true);
+      await appCache.put(CacheKeys.uploadService, true);
       (args['send_port'] as SendPort).send(true);
       kDebugPrint("complete uploading tasks");
     } catch (e) {
-      await appBox.put(CacheKeys.uploadService, false);
+      await appCache.put(CacheKeys.uploadService, false);
       (args['send_port'] as SendPort).send(false);
       kDebugPrint("error uploading tasks :${e.toString()}");
     }
@@ -128,8 +138,6 @@ class TasksBackgroundService {
   }
 
   static List<TaskModel> _convertToTaskList(List<dynamic>? list) {
-    return list == null
-        ? []
-        : list.map((e) => TaskModel.fromJson(jsonDecode(e))).toList();
+    return list == null ? [] : list.map((e) => TaskModel.fromJson(e)).toList();
   }
 }
