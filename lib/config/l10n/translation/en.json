@@ -95,8 +95,16 @@
                 "update": "Notify On Update",
                 "complete": "Notify On Complete"
             },
-            "event": "Add Event to Calendar",
-            "event_added": "Event Added to Calendar"
+            "event": {
+                "add_event": "Add Event to Calendar",
+                "event_added": "Event Added to Calendar",
+                "title_hint": "Title",
+                "description_hint": "Description",
+                "create": "Create",
+                "required":{
+                    "title": "Title is required"
+                }
+            }
         },
         "search": {
             "title": "Search",

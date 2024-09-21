@@ -138,6 +138,6 @@ class TasksBackgroundService {
   }
 
   static List<TaskModel> _convertToTaskList(List<dynamic>? list) {
-    return list == null ? [] : list.map((e) => TaskModel.fromJson(e)).toList();
+    return list == null ? [] : list.map((e) => TaskModel.fromString(e)).toList();
   }
 }
