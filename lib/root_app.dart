@@ -26,7 +26,7 @@ class RootApp extends StatefulWidget {
 class _RootAppState extends State<RootApp> {
   @override
   void initState() {
-    TasksBackgroundService.downloadReceiverPort.listen((event) async {
+    TasksBackgroundService.serviceStream.listen((event) async {
       await inject<HiveCache>().registerWithNewBox();
       kDebugPrint("download: ${inject<LocaleUserInfo>().isDownloadedTasks()}");
       if (event != null && event == true) {

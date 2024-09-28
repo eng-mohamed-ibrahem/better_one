@@ -274,6 +274,7 @@ class _TaskScreenState extends State<TaskDetailsScreen>
                                       context
                                           .read<TaskViewmodel>()
                                           .updateTask(task!, newTask);
+                                      isTaskModified = false;
                                     } else {
                                       showSnackBar(
                                         context,
