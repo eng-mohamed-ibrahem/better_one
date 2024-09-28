@@ -96,7 +96,7 @@ class CreateTaskScreen extends StatelessWidget {
                           ? null
                           : context.goNamed(
                               Routes.taskDetail.name,
-                              queryParameters: {
+                              pathParameters: {
                                 'id': createdTask.id,
                               },
                             );

@@ -1,3 +1,4 @@
+import 'dart:async';
 import 'dart:isolate';
 import 'dart:ui';
 
@@ -19,7 +20,9 @@ class TasksBackgroundService {
     ..asBroadcastStream();
   static final ReceivePort uploadReceiverPort = ReceivePort()
     ..asBroadcastStream();
-
+  static final StreamController _streamController =
+      StreamController.broadcast();
+  static Stream get serviceStream => _streamController.stream;
   static void downloadTasks(RootIsolateToken? token) async {
     kDebugPrint('root isolate download task');
     await Isolate.spawn(
@@ -65,6 +68,28 @@ class TasksBackgroundService {
         },
       ).toList();
       var localeTasks = appCache.get(CacheKeys.tasks) as Map?;
+      localeTasks != null
+          ? () {
+              /// merge downloaded tasks with locale
+              for (var index = 0; index < localeTasks.values.length; index++) {
+                for (var downloadedtask in downloadedTasks) {
+                  if (localeTasks.containsKey(downloadedtask.id)) {
+                    Set<SubTask> subtasks = Set<SubTask>.from(
+                      downloadedtask.subTasks,
+                    );
+                    subtasks.addAll(
+                        TaskModel.fromString(localeTasks[downloadedtask.id])
+                            .subTasks);
+                    localeTasks[downloadedtask.id] = downloadedtask
+                        .copyWith(subTasks: subtasks.toList())
+                        .asString();
+                    downloadedTasks.remove(downloadedtask);
+                    break;
+                  }
+                }
+              }
+            }()
+          : null;
       await appCache.put(
         CacheKeys.tasks,
         {
@@ -76,9 +101,6 @@ class TasksBackgroundService {
       kDebugPrint("end loading tasks: true");
 
       (args['send_port'] as SendPort).send(true);
-
-      /// upload tasks
-      uploadTasks(args['token']);
     } catch (e) {
       await appCache.put(CacheKeys.downloadService, false);
       kDebugPrint("end loading tasks: error ${e.toString()}");
@@ -141,6 +163,10 @@ class TasksBackgroundService {
 
   static void syncTasks(RootIsolateToken? token) {
     downloadTasks(token);
+    downloadReceiverPort.listen((event) {
+      _streamController.add(event);
+      uploadTasks(token);
+    });
   }
 
   static List<TaskModel> _convertToTaskList(List<dynamic>? list) {
