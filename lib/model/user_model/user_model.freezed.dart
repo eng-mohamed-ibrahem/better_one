@@ -23,7 +23,9 @@ mixin _$UserModel {
   String get id => throw _privateConstructorUsedError;
   String get email => throw _privateConstructorUsedError;
   @JsonKey(name: 'display_name')
-  String get name =>
+  String get name => throw _privateConstructorUsedError;
+  @JsonKey(name: "photo_url")
+  String? get photoUrl =>
       throw _privateConstructorUsedError; // @JsonKey(readValue: readValue, name: 'display_name') required String name,
   @JsonKey(name: 'created_at')
   DateTime get createdAt => throw _privateConstructorUsedError;
@@ -49,6 +51,7 @@ abstract class $UserModelCopyWith<$Res> {
       {String id,
       String email,
       @JsonKey(name: 'display_name') String name,
+      @JsonKey(name: "photo_url") String? photoUrl,
       @JsonKey(name: 'created_at') DateTime createdAt,
       @JsonKey(name: 'updated_at') DateTime? updatedAt});
 }
@@ -71,6 +74,7 @@ class _$UserModelCopyWithImpl<$Res, $Val extends UserModel>
     Object? id = null,
     Object? email = null,
     Object? name = null,
+    Object? photoUrl = freezed,
     Object? createdAt = null,
     Object? updatedAt = freezed,
   }) {
@@ -87,6 +91,10 @@ class _$UserModelCopyWithImpl<$Res, $Val extends UserModel>
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
               as String,
+      photoUrl: freezed == photoUrl
+          ? _value.photoUrl
+          : photoUrl // ignore: cast_nullable_to_non_nullable
+              as String?,
       createdAt: null == createdAt
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
@@ -111,6 +119,7 @@ abstract class _$$UserModelImplCopyWith<$Res>
       {String id,
       String email,
       @JsonKey(name: 'display_name') String name,
+      @JsonKey(name: "photo_url") String? photoUrl,
       @JsonKey(name: 'created_at') DateTime createdAt,
       @JsonKey(name: 'updated_at') DateTime? updatedAt});
 }
@@ -131,6 +140,7 @@ class __$$UserModelImplCopyWithImpl<$Res>
     Object? id = null,
     Object? email = null,
     Object? name = null,
+    Object? photoUrl = freezed,
     Object? createdAt = null,
     Object? updatedAt = freezed,
   }) {
@@ -147,6 +157,10 @@ class __$$UserModelImplCopyWithImpl<$Res>
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
               as String,
+      photoUrl: freezed == photoUrl
+          ? _value.photoUrl
+          : photoUrl // ignore: cast_nullable_to_non_nullable
+              as String?,
       createdAt: null == createdAt
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
@@ -166,6 +180,7 @@ class _$UserModelImpl extends _UserModel {
       {required this.id,
       required this.email,
       @JsonKey(name: 'display_name') required this.name,
+      @JsonKey(name: "photo_url") this.photoUrl,
       @JsonKey(name: 'created_at') required this.createdAt,
       @JsonKey(name: 'updated_at') this.updatedAt})
       : super._();
@@ -180,6 +195,9 @@ class _$UserModelImpl extends _UserModel {
   @override
   @JsonKey(name: 'display_name')
   final String name;
+  @override
+  @JsonKey(name: "photo_url")
+  final String? photoUrl;
 // @JsonKey(readValue: readValue, name: 'display_name') required String name,
   @override
   @JsonKey(name: 'created_at')
@@ -190,7 +208,7 @@ class _$UserModelImpl extends _UserModel {
 
   @override
   String toString() {
-    return 'UserModel(id: $id, email: $email, name: $name, createdAt: $createdAt, updatedAt: $updatedAt)';
+    return 'UserModel(id: $id, email: $email, name: $name, photoUrl: $photoUrl, createdAt: $createdAt, updatedAt: $updatedAt)';
   }
 
   @override
@@ -201,6 +219,8 @@ class _$UserModelImpl extends _UserModel {
             (identical(other.id, id) || other.id == id) &&
             (identical(other.email, email) || other.email == email) &&
             (identical(other.name, name) || other.name == name) &&
+            (identical(other.photoUrl, photoUrl) ||
+                other.photoUrl == photoUrl) &&
             (identical(other.createdAt, createdAt) ||
                 other.createdAt == createdAt) &&
             (identical(other.updatedAt, updatedAt) ||
@@ -210,7 +230,7 @@ class _$UserModelImpl extends _UserModel {
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode =>
-      Object.hash(runtimeType, id, email, name, createdAt, updatedAt);
+      Object.hash(runtimeType, id, email, name, photoUrl, createdAt, updatedAt);
 
   /// Create a copy of UserModel
   /// with the given fields replaced by the non-null parameter values.
@@ -233,6 +253,7 @@ abstract class _UserModel extends UserModel {
           {required final String id,
           required final String email,
           @JsonKey(name: 'display_name') required final String name,
+          @JsonKey(name: "photo_url") final String? photoUrl,
           @JsonKey(name: 'created_at') required final DateTime createdAt,
           @JsonKey(name: 'updated_at') final DateTime? updatedAt}) =
       _$UserModelImpl;
@@ -247,8 +268,11 @@ abstract class _UserModel extends UserModel {
   String get email;
   @override
   @JsonKey(name: 'display_name')
-  String
-      get name; // @JsonKey(readValue: readValue, name: 'display_name') required String name,
+  String get name;
+  @override
+  @JsonKey(name: "photo_url")
+  String?
+      get photoUrl; // @JsonKey(readValue: readValue, name: 'display_name') required String name,
   @override
   @JsonKey(name: 'created_at')
   DateTime get createdAt;

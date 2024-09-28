@@ -20,9 +20,9 @@ NotificationModel _$NotificationModelFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$NotificationModel {
-  String get title => throw _privateConstructorUsedError;
-  String get body => throw _privateConstructorUsedError;
-  int get displayId => throw _privateConstructorUsedError;
+  String get userName => throw _privateConstructorUsedError;
+  String? get userImageUrl => throw _privateConstructorUsedError;
+  String get comment => throw _privateConstructorUsedError;
   String? get payload => throw _privateConstructorUsedError;
 
   /// Serializes this NotificationModel to a JSON map.
@@ -41,7 +41,8 @@ abstract class $NotificationModelCopyWith<$Res> {
           NotificationModel value, $Res Function(NotificationModel) then) =
       _$NotificationModelCopyWithImpl<$Res, NotificationModel>;
   @useResult
-  $Res call({String title, String body, int displayId, String? payload});
+  $Res call(
+      {String userName, String? userImageUrl, String comment, String? payload});
 }
 
 /// @nodoc
@@ -59,24 +60,24 @@ class _$NotificationModelCopyWithImpl<$Res, $Val extends NotificationModel>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? title = null,
-    Object? body = null,
-    Object? displayId = null,
+    Object? userName = null,
+    Object? userImageUrl = freezed,
+    Object? comment = null,
     Object? payload = freezed,
   }) {
     return _then(_value.copyWith(
-      title: null == title
-          ? _value.title
-          : title // ignore: cast_nullable_to_non_nullable
+      userName: null == userName
+          ? _value.userName
+          : userName // ignore: cast_nullable_to_non_nullable
               as String,
-      body: null == body
-          ? _value.body
-          : body // ignore: cast_nullable_to_non_nullable
+      userImageUrl: freezed == userImageUrl
+          ? _value.userImageUrl
+          : userImageUrl // ignore: cast_nullable_to_non_nullable
+              as String?,
+      comment: null == comment
+          ? _value.comment
+          : comment // ignore: cast_nullable_to_non_nullable
               as String,
-      displayId: null == displayId
-          ? _value.displayId
-          : displayId // ignore: cast_nullable_to_non_nullable
-              as int,
       payload: freezed == payload
           ? _value.payload
           : payload // ignore: cast_nullable_to_non_nullable
@@ -93,7 +94,8 @@ abstract class _$$NotificationModelImplCopyWith<$Res>
       __$$NotificationModelImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String title, String body, int displayId, String? payload});
+  $Res call(
+      {String userName, String? userImageUrl, String comment, String? payload});
 }
 
 /// @nodoc
@@ -109,24 +111,24 @@ class __$$NotificationModelImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? title = null,
-    Object? body = null,
-    Object? displayId = null,
+    Object? userName = null,
+    Object? userImageUrl = freezed,
+    Object? comment = null,
     Object? payload = freezed,
   }) {
     return _then(_$NotificationModelImpl(
-      title: null == title
-          ? _value.title
-          : title // ignore: cast_nullable_to_non_nullable
+      userName: null == userName
+          ? _value.userName
+          : userName // ignore: cast_nullable_to_non_nullable
               as String,
-      body: null == body
-          ? _value.body
-          : body // ignore: cast_nullable_to_non_nullable
+      userImageUrl: freezed == userImageUrl
+          ? _value.userImageUrl
+          : userImageUrl // ignore: cast_nullable_to_non_nullable
+              as String?,
+      comment: null == comment
+          ? _value.comment
+          : comment // ignore: cast_nullable_to_non_nullable
               as String,
-      displayId: null == displayId
-          ? _value.displayId
-          : displayId // ignore: cast_nullable_to_non_nullable
-              as int,
       payload: freezed == payload
           ? _value.payload
           : payload // ignore: cast_nullable_to_non_nullable
@@ -139,26 +141,26 @@ class __$$NotificationModelImplCopyWithImpl<$Res>
 @JsonSerializable()
 class _$NotificationModelImpl implements _NotificationModel {
   const _$NotificationModelImpl(
-      {required this.title,
-      required this.body,
-      required this.displayId,
+      {required this.userName,
+      this.userImageUrl,
+      required this.comment,
       this.payload});
 
   factory _$NotificationModelImpl.fromJson(Map<String, dynamic> json) =>
       _$$NotificationModelImplFromJson(json);
 
   @override
-  final String title;
+  final String userName;
   @override
-  final String body;
+  final String? userImageUrl;
   @override
-  final int displayId;
+  final String comment;
   @override
   final String? payload;
 
   @override
   String toString() {
-    return 'NotificationModel(title: $title, body: $body, displayId: $displayId, payload: $payload)';
+    return 'NotificationModel(userName: $userName, userImageUrl: $userImageUrl, comment: $comment, payload: $payload)';
   }
 
   @override
@@ -166,16 +168,18 @@ class _$NotificationModelImpl implements _NotificationModel {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$NotificationModelImpl &&
-            (identical(other.title, title) || other.title == title) &&
-            (identical(other.body, body) || other.body == body) &&
-            (identical(other.displayId, displayId) ||
-                other.displayId == displayId) &&
+            (identical(other.userName, userName) ||
+                other.userName == userName) &&
+            (identical(other.userImageUrl, userImageUrl) ||
+                other.userImageUrl == userImageUrl) &&
+            (identical(other.comment, comment) || other.comment == comment) &&
             (identical(other.payload, payload) || other.payload == payload));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  int get hashCode => Object.hash(runtimeType, title, body, displayId, payload);
+  int get hashCode =>
+      Object.hash(runtimeType, userName, userImageUrl, comment, payload);
 
   /// Create a copy of NotificationModel
   /// with the given fields replaced by the non-null parameter values.
@@ -196,20 +200,20 @@ class _$NotificationModelImpl implements _NotificationModel {
 
 abstract class _NotificationModel implements NotificationModel {
   const factory _NotificationModel(
-      {required final String title,
-      required final String body,
-      required final int displayId,
+      {required final String userName,
+      final String? userImageUrl,
+      required final String comment,
       final String? payload}) = _$NotificationModelImpl;
 
   factory _NotificationModel.fromJson(Map<String, dynamic> json) =
       _$NotificationModelImpl.fromJson;
 
   @override
-  String get title;
+  String get userName;
   @override
-  String get body;
+  String? get userImageUrl;
   @override
-  int get displayId;
+  String get comment;
   @override
   String? get payload;
 

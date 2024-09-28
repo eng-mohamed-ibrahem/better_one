@@ -75,9 +75,9 @@ class FlutterLocalNotification {
       log('request permission status: $status');
       if (status == null || status == true) {
         await _flutterNotificationsPlugin.show(
-          notification.displayId,
-          notification.title,
-          notification.body,
+          notification.comment.hashCode,
+          notification.userName,
+          notification.comment,
           notificationDetails,
           payload: notification.payload,
         );
@@ -92,9 +92,9 @@ class FlutterLocalNotification {
     await _requestPermissions().then((status) async {
       if (status == null || status == true) {
         await _flutterNotificationsPlugin.periodicallyShow(
-          notification.displayId,
-          notification.title,
-          notification.body,
+          notification.comment.hashCode,
+          notification.userName,
+          notification.comment,
           RepeatInterval.values[interval.index],
           notificationDetails,
           payload: notification.payload,
@@ -115,9 +115,9 @@ class FlutterLocalNotification {
           var timezoneName = await FlutterTimezone.getLocalTimezone();
           tz.setLocalLocation(tz.getLocation(timezoneName));
           await _flutterNotificationsPlugin.zonedSchedule(
-            notification.displayId,
-            notification.title,
-            notification.body,
+            notification.comment.hashCode,
+            notification.userName,
+            notification.comment,
             tz.TZDateTime(
               tz.local,
               scheduleTime.year,
