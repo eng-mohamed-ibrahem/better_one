@@ -8,6 +8,7 @@ import 'package:better_one/core/utils/shared_widgets/failed.dart';
 import 'package:better_one/model/event_calendar_model/event_calendar_model.dart';
 import 'package:better_one/model/notification_model/notification_model.dart';
 import 'package:better_one/view_models/setting_viewmodel/setting_viewmode.dart';
+import 'package:calendar_date_picker2/calendar_date_picker2.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -158,10 +159,10 @@ class _NotificationScreenState extends State<NotificationSettingScreen> {
                       height: 20.h,
                     ),
                     TextButton(
-                      onPressed: () async {
-                        await createEvent(context);
+                      onPressed: () {
+                        createEvent(context);
                       },
-                      child: Text('setting.notification.event'.tr()),
+                      child: Text('setting.notification.event.add_event'.tr()),
                     ),
                   ],
                 );
@@ -174,44 +175,111 @@ class _NotificationScreenState extends State<NotificationSettingScreen> {
   }
 
   Future<void> createEvent(BuildContext context) async {
-    await showDatePicker(
+    List<DateTime?> selectedDates = [
+      DateTime.now(),
+      DateTime.now().add(const Duration(days: 1)),
+    ];
+    showDialog(
       context: context,
-      currentDate: DateTime.now(),
-      initialDate: DateTime.now(),
-      firstDate: DateTime.now(),
-      lastDate: DateTime(2100),
-    ).then(
-      (pickedDateTime) async {
-        if (pickedDateTime != null && context.mounted) {
-          await showTimePicker(
-            context: context,
-            initialTime: TimeOfDay.now(),
-          ).then(
-            (pickedTime) {
-              if (pickedTime != null && context.mounted) {
-                context.read<SettingViewmodel>().createEvent(
+      builder: (context) {
+        String? title, description;
+        return Dialog(
+          insetPadding: EdgeInsets.zero,
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(AppMetrices.borderRadius1.r),
+          ),
+          child: SingleChildScrollView(
+            padding: EdgeInsets.symmetric(horizontal: 5.w),
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                CalendarDatePicker2(
+                  config: CalendarDatePicker2Config(
+                    calendarType: CalendarDatePicker2Type.range,
+                    selectedMonthTextStyle:
+                        Theme.of(context).textTheme.bodySmall,
+                    selectedYearTextStyle:
+                        Theme.of(context).textTheme.bodySmall,
+                    dayTextStyle: Theme.of(context).textTheme.bodySmall,
+                    monthTextStyle: Theme.of(context).textTheme.bodySmall,
+                    yearTextStyle: Theme.of(context).textTheme.bodySmall,
+                  ),
+                  value: selectedDates,
+                  onValueChanged: (dates) => selectedDates = dates,
+                ),
+                TextField(
+                  decoration: InputDecoration(
+                    enabledBorder: const OutlineInputBorder(
+                      borderSide: BorderSide(
+                        color: Colors.grey,
+                      ),
+                    ),
+                    focusedBorder: const OutlineInputBorder(
+                      borderSide: BorderSide(
+                        color: Colors.grey,
+                      ),
+                    ),
+                    hintStyle: Theme.of(context).textTheme.bodySmall,
+                    hintText: 'setting.notification.event.title_hint'.tr(),
+                  ),
+                  style: Theme.of(context).textTheme.bodySmall,
+                  onChanged: (value) {
+                    title = value;
+                  },
+                ),
+                const SizedBox(height: 10),
+                TextField(
+                  decoration: InputDecoration(
+                    enabledBorder: const OutlineInputBorder(
+                      borderSide: BorderSide(
+                        color: Colors.grey,
+                      ),
+                    ),
+                    focusedBorder: const OutlineInputBorder(
+                      borderSide: BorderSide(
+                        color: Colors.grey,
+                      ),
+                    ),
+                    hintStyle: Theme.of(context).textTheme.bodySmall,
+                    hintText: 'setting.notification.event.note_hint'.tr(),
+                  ),
+                  style: Theme.of(context).textTheme.bodySmall,
+                  onChanged: (value) {
+                    description = value;
+                  },
+                ),
+                const SizedBox(height: 20),
+                ElevatedButton(
+                  style: ElevatedButton.styleFrom(
+                    minimumSize:
+                        Size(MediaQuery.sizeOf(context).width * .5, 40.h),
+                    textStyle: Theme.of(context).textTheme.titleSmall,
+                  ),
+                  onPressed: () {
+                    if (title == null) {
+                      showSnackBar(context,
+                          message:
+                              'setting.notification.event.required.title'.tr());
+                      return;
+                    }
+                    inject<SettingViewmodel>().createEvent(
                       event: EventCalendarModel(
-                        title: 'Better One Event',
-                        description: 'this is test event',
-                        startDate: pickedDateTime.add(
-                          Duration(
-                              hours: pickedTime.hour,
-                              minutes: pickedTime.minute),
-                        ),
-                        endDate: pickedDateTime.add(
-                          Duration(
-                              hours: pickedTime.hour,
-                              minutes: pickedTime.minute),
-                        ),
+                        title: title!,
+                        description: description,
+                        startDate: selectedDates.first!,
+                        endDate: selectedDates.last!,
                       ),
                       userRepo: kUserRepo,
                     );
-              }
-            },
-          );
-        } else {
-          // todo
-        }
+                    context.pop();
+                  },
+                  child: Text('setting.notification.event.create'.tr()),
+                ),
+                const SizedBox(height: 10),
+              ],
+            ),
+          ),
+        );
       },
     );
   }

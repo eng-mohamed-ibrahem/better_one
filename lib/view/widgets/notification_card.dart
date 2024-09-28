@@ -14,31 +14,47 @@ class CardNotification extends StatelessWidget {
       child: Directionality(
         textDirection: TextDirection.ltr,
         child: Container(
-          padding: EdgeInsets.only(left: 10.h, bottom: 2.h),
+          padding: EdgeInsets.symmetric(horizontal: 10.w, vertical: 10.h),
           decoration: BoxDecoration(
-            border: Border(
-              left: BorderSide(
+            border: BorderDirectional(
+              end: BorderSide(
                 width: 6,
                 color: Theme.of(context).secondaryHeaderColor,
               ),
             ),
           ),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              Card(
-                shadowColor: Theme.of(context).shadowColor,
-                child: Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 5.w),
-                  child: Text(notification.body,
-                      style: Theme.of(context).textTheme.bodyLarge),
+          child: Flexible(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                // Card(
+                //   shadowColor: Theme.of(context).shadowColor,
+                //   child: Padding(
+                //     padding: EdgeInsets.symmetric(horizontal: 5.w),
+                //     child: Text(notification.body,
+                //         style: Theme.of(context).textTheme.bodyLarge),
+                //   ),
+                // ),
+                // Row(
+                //   children: [
+                //     Text('notification.title_hint'.tr(),
+                //         style: Theme.of(context).textTheme.bodySmall),
+                //     Text(notification.body,
+                //         style: Theme.of(context).textTheme.bodyLarge),
+                //   ],
+                // ),
+                Text(notification.body,
+                    style: Theme.of(context).textTheme.bodyLarge),
+
+                SizedBox(height: 15.h),
+                Padding(
+                  padding: EdgeInsetsDirectional.only(start: 8.w),
+                  child: Text(notification.title,
+                      style: Theme.of(context).textTheme.bodySmall),
                 ),
-              ),
-              SizedBox(height: 10.h),
-              Text(notification.title,
-                  style: Theme.of(context).textTheme.bodySmall),
-            ],
+              ],
+            ),
           ),
         ),
       ),

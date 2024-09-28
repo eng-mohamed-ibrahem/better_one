@@ -60,6 +60,7 @@ class CreateTaskScreen extends StatelessWidget {
               context.pop();
             }
           } else {
+            // navigate back to home screen
             context.pop();
           }
         },

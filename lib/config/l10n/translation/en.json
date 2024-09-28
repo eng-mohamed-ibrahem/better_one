@@ -95,8 +95,16 @@
                 "update": "Notify On Update",
                 "complete": "Notify On Complete"
             },
-            "event": "Add Event to Calendar",
-            "event_added": "Event Added to Calendar"
+            "event": {
+                "add_event": "Add Event to Calendar",
+                "event_added": "Event Added to Calendar",
+                "title_hint": "Title",
+                "note_hint": "Notes",
+                "create": "Create",
+                "required": {
+                    "title": "Title is required"
+                }
+            }
         },
         "search": {
             "title": "Search",
@@ -130,6 +138,7 @@
     },
     "notification": {
         "title": "Notifications",
+        "title_hint": "Title",
         "empty": "No notifications found",
         "loading": "Loading notifications...",
         "init": "Notifications will be shown here",
