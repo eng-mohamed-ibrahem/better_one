@@ -99,9 +99,9 @@
                 "add_event": "Add Event to Calendar",
                 "event_added": "Event Added to Calendar",
                 "title_hint": "Title",
-                "description_hint": "Description",
+                "note_hint": "Notes",
                 "create": "Create",
-                "required":{
+                "required": {
                     "title": "Title is required"
                 }
             }
@@ -138,6 +138,7 @@
     },
     "notification": {
         "title": "Notifications",
+        "title_hint": "Title",
         "empty": "No notifications found",
         "loading": "Loading notifications...",
         "init": "Notifications will be shown here",

@@ -196,13 +196,16 @@ class _NotificationScreenState extends State<NotificationSettingScreen> {
                 CalendarDatePicker2(
                   config: CalendarDatePicker2Config(
                     calendarType: CalendarDatePicker2Type.range,
+                    selectedMonthTextStyle:
+                        Theme.of(context).textTheme.bodySmall,
+                    selectedYearTextStyle:
+                        Theme.of(context).textTheme.bodySmall,
+                    dayTextStyle: Theme.of(context).textTheme.bodySmall,
+                    monthTextStyle: Theme.of(context).textTheme.bodySmall,
+                    yearTextStyle: Theme.of(context).textTheme.bodySmall,
                   ),
                   value: selectedDates,
                   onValueChanged: (dates) => selectedDates = dates,
-                ),
-                TimePickerDialog(
-                  initialTime: TimeOfDay.now(),
-                  initialEntryMode: TimePickerEntryMode.dial,
                 ),
                 TextField(
                   decoration: InputDecoration(
@@ -238,8 +241,7 @@ class _NotificationScreenState extends State<NotificationSettingScreen> {
                       ),
                     ),
                     hintStyle: Theme.of(context).textTheme.bodySmall,
-                    hintText:
-                        'setting.notification.event.description_hint'.tr(),
+                    hintText: 'setting.notification.event.note_hint'.tr(),
                   ),
                   style: Theme.of(context).textTheme.bodySmall,
                   onChanged: (value) {

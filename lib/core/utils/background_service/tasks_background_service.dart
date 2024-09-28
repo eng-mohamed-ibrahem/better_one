@@ -1,4 +1,5 @@
 import 'dart:isolate';
+import 'dart:ui';
 
 import 'package:better_one/core/constants/cache_keys.dart';
 import 'package:better_one/core/constants/firebase_constants.dart';
@@ -14,8 +15,10 @@ import 'package:hive_flutter/hive_flutter.dart';
 import 'package:path_provider/path_provider.dart';
 
 class TasksBackgroundService {
-  static final ReceivePort downloadReceiverPort = ReceivePort();
-  static final ReceivePort uploadReceiverPort = ReceivePort();
+  static final ReceivePort downloadReceiverPort = ReceivePort()
+    ..asBroadcastStream();
+  static final ReceivePort uploadReceiverPort = ReceivePort()
+    ..asBroadcastStream();
 
   static void downloadTasks(RootIsolateToken? token) async {
     kDebugPrint('root isolate download task');
@@ -29,19 +32,20 @@ class TasksBackgroundService {
   }
 
   static void _downloadEntryPoint(Map<String, dynamic> args) async {
-    kDebugPrint("1");
+    DartPluginRegistrant.ensureInitialized();
+    kDebugPrint("begin download task");
     BackgroundIsolateBinaryMessenger.ensureInitialized(
         (args['token'] as RootIsolateToken));
 
     await Firebase.initializeApp(
       options: DefaultFirebaseOptions.currentPlatform,
     );
-    kDebugPrint("2");
+    kDebugPrint("firebase init");
 
     var appDir = await getApplicationDocumentsDirectory();
     Hive.init(appDir.path);
     var appCache = await Hive.openBox(CacheKeys.userData);
-    kDebugPrint("3");
+    kDebugPrint("hive init");
 
     try {
       kDebugPrint("start loading tasks");
@@ -70,14 +74,15 @@ class TasksBackgroundService {
       );
       await appCache.put(CacheKeys.downloadService, true);
       kDebugPrint("end loading tasks: true");
-      downloadReceiverPort.sendPort.send(true);
+
+      (args['send_port'] as SendPort).send(true);
 
       /// upload tasks
       uploadTasks(args['token']);
     } catch (e) {
       await appCache.put(CacheKeys.downloadService, false);
       kDebugPrint("end loading tasks: error ${e.toString()}");
-      downloadReceiverPort.sendPort.send(false);
+      (args['send_port'] as SendPort).send(false);
     }
   }
 
@@ -92,19 +97,20 @@ class TasksBackgroundService {
   }
 
   static void _uploadEntryPoint(Map<String, dynamic> args) async {
-    kDebugPrint("1");
+    DartPluginRegistrant.ensureInitialized();
+    kDebugPrint("begin uploading tasks");
     BackgroundIsolateBinaryMessenger.ensureInitialized(
         (args['token'] as RootIsolateToken));
 
     await Firebase.initializeApp(
       options: DefaultFirebaseOptions.currentPlatform,
     );
-    kDebugPrint("2");
+    kDebugPrint("firebase init");
 
     var appDir = await getApplicationDocumentsDirectory();
     Hive.init(appDir.path);
     var appCache = await Hive.openBox(CacheKeys.userData);
-    kDebugPrint("3");
+    kDebugPrint("hive init");
     try {
       List<TaskModel> uploadedTasks = [];
       uploadedTasks = _convertToTaskList(
@@ -138,6 +144,8 @@ class TasksBackgroundService {
   }
 
   static List<TaskModel> _convertToTaskList(List<dynamic>? list) {
-    return list == null ? [] : list.map((e) => TaskModel.fromString(e)).toList();
+    return list == null
+        ? []
+        : list.map((e) => TaskModel.fromString(e)).toList();
   }
 }

@@ -16,6 +16,13 @@ class HiveCache {
   HiveCache(this.appCache);
   final Box appCache;
 
+  Future<void> registerWithNewBox() async {
+    if (!GetIt.I.isRegistered<HiveCache>()) return;
+    await Hive.close();
+    GetIt.I.unregister<HiveCache>();
+    await HiveCacheInit().init();
+  }
+
   /// will be executed later
   // final Box tasksCache = Hive.box('tasks');
   // final Box settingsCache = Hive.box('settings');

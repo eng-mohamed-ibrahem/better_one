@@ -2,12 +2,11 @@ import 'dart:async';
 import 'dart:ui' as ui;
 
 import 'package:better_one/core/enum/task_status.dart';
+import 'package:better_one/core/timer/timer_action.dart';
 import 'package:better_one/core/utils/dependency_locator/inject.dart';
 import 'package:better_one/core/utils/methods/methods.dart';
 import 'package:better_one/core/utils/shared_widgets/back_button_l10n.dart';
 import 'package:better_one/core/utils/shared_widgets/failed.dart';
-import 'package:better_one/core/utils/shared_widgets/lottie_indicator.dart';
-import 'package:better_one/core/timer/timer_action.dart';
 import 'package:better_one/model/notification_model/notification_model.dart';
 import 'package:better_one/model/task_model/task_model.dart';
 import 'package:better_one/repositories/notification_repo/notification_repo_interface.dart';
@@ -22,6 +21,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
+import 'package:skeletonizer/skeletonizer.dart';
 
 import '../../../core/constants/constants.dart';
 
@@ -153,9 +153,15 @@ class _TaskScreenState extends State<TaskDetailsScreen>
         builder: (context, state) {
           return state.maybeWhen(
             getTaskByIdLoading: () {
-              return const Center(
-                child: LottieIndicator(
-                  statusAssets: LottieAssets.searchForTask,
+              return SafeArea(
+                child: Skeletonizer(
+                  child: WriteTaskArea(
+                    titleController: titleController,
+                    subTasks: List.filled(
+                      5,
+                      const SubTask(title: ""),
+                    ),
+                  ),
                 ),
               );
             },
