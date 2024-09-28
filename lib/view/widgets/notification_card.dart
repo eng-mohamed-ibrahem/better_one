@@ -44,13 +44,13 @@ class CardNotification extends StatelessWidget {
                 //         style: Theme.of(context).textTheme.bodyLarge),
                 //   ],
                 // ),
-                Text(notification.body,
+                Text(notification.userName,
                     style: Theme.of(context).textTheme.bodyLarge),
 
                 SizedBox(height: 15.h),
                 Padding(
                   padding: EdgeInsetsDirectional.only(start: 8.w),
-                  child: Text(notification.title,
+                  child: Text(notification.comment,
                       style: Theme.of(context).textTheme.bodySmall),
                 ),
               ],

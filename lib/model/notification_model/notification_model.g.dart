@@ -9,17 +9,17 @@ part of 'notification_model.dart';
 _$NotificationModelImpl _$$NotificationModelImplFromJson(
         Map<String, dynamic> json) =>
     _$NotificationModelImpl(
-      title: json['title'] as String,
-      body: json['body'] as String,
-      displayId: (json['displayId'] as num).toInt(),
+      userName: json['userName'] as String,
+      userImageUrl: json['userImageUrl'] as String?,
+      comment: json['comment'] as String,
       payload: json['payload'] as String?,
     );
 
 Map<String, dynamic> _$$NotificationModelImplToJson(
         _$NotificationModelImpl instance) =>
     <String, dynamic>{
-      'title': instance.title,
-      'body': instance.body,
-      'displayId': instance.displayId,
+      'userName': instance.userName,
+      'userImageUrl': instance.userImageUrl,
+      'comment': instance.comment,
       'payload': instance.payload,
     };

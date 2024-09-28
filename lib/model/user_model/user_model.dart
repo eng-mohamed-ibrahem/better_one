@@ -12,6 +12,7 @@ class UserModel with _$UserModel {
     required String id,
     required String email,
     @JsonKey(name: 'display_name') required String name,
+    @JsonKey(name: "photo_url") String? photoUrl,
     // @JsonKey(readValue: readValue, name: 'display_name') required String name,
     @JsonKey(name: 'created_at') required DateTime createdAt,
     @JsonKey(name: 'updated_at') DateTime? updatedAt,

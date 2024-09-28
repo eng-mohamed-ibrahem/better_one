@@ -70,7 +70,7 @@ class TasksBackgroundService {
       var localeTasks = appCache.get(CacheKeys.tasks) as Map?;
       localeTasks != null
           ? () {
-              /// merge downloaded tasks with locale
+              /// merge downloaded tasks with locale tasks
               for (var index = 0; index < localeTasks.values.length; index++) {
                 for (var downloadedtask in downloadedTasks) {
                   if (localeTasks.containsKey(downloadedtask.id)) {

@@ -55,10 +55,10 @@ class _NotificationScreenState extends State<NotificationSettingScreen> {
               createEventCompleted: (event) {
                 context.pop(context);
                 inject<FlutterLocalNotification>().display(
+                  // this is special for display locale notification
                   notification: NotificationModel(
-                    title: "setting.notification.event_added".tr(),
-                    body: event.title,
-                    displayId: event.title.hashCode,
+                    userName: "setting.notification.event_added".tr(),
+                    comment: event.title,
                   ),
                 );
               },

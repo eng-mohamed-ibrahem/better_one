@@ -26,6 +26,11 @@ class RootApp extends StatefulWidget {
 class _RootAppState extends State<RootApp> {
   @override
   void initState() {
+    reactWithBackgroundService();
+    super.initState();
+  }
+
+  void reactWithBackgroundService() {
     TasksBackgroundService.serviceStream.listen((event) async {
       await inject<HiveCache>().registerWithNewBox();
       kDebugPrint("download: ${inject<LocaleUserInfo>().isDownloadedTasks()}");
@@ -38,17 +43,15 @@ class _RootAppState extends State<RootApp> {
             ? TasksBackgroundService.downloadTasks(
                 ServicesBinding.rootIsolateToken)
             : null;
-
+    
         /// if something go wrong while uploading tasks
         var upload = inject<LocaleUserInfo>().isUploadedTasks();
         upload != null && upload == false
             ? TasksBackgroundService.uploadTasks(
                 ServicesBinding.rootIsolateToken)
             : null;
-        kDebugPrint("upload: $upload, download: $download");
       }
     });
-    super.initState();
   }
 
   @override

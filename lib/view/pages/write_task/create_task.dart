@@ -1,5 +1,6 @@
 import 'package:better_one/config/navigation/routes_enum.dart';
 import 'package:better_one/core/constants/ui_dimentions.dart';
+import 'package:better_one/core/utils/cache_service/cach_interface/locale_user_info.dart';
 import 'package:better_one/core/utils/dependency_locator/inject.dart';
 import 'package:better_one/core/utils/methods/methods.dart';
 import 'package:better_one/core/utils/shared_widgets/back_button_l10n.dart';
@@ -81,9 +82,13 @@ class CreateTaskScreen extends StatelessWidget {
                           ? inject<NotificationRepoInterface>()
                               .sendNotification(
                               NotificationModel(
-                                displayId: DateTime.now().microsecond,
-                                title: 'task.motive_add'.tr(),
-                                body: createdTask.title,
+                                userName: inject<LocaleUserInfo>()
+                                    .getUserData()!
+                                    .name,
+                                userImageUrl: inject<LocaleUserInfo>()
+                                    .getUserData()!
+                                    .photoUrl,
+                                comment: 'task.motive_add'.tr(),
                                 payload: createdTask.id,
                               ),
                             )
