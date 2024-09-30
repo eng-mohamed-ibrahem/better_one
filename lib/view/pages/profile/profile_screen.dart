@@ -7,6 +7,7 @@ import 'package:better_one/core/utils/methods/methods.dart';
 import 'package:better_one/core/utils/shared_widgets/back_button_l10n.dart';
 import 'package:better_one/core/utils/shared_widgets/failed.dart';
 import 'package:better_one/core/utils/shared_widgets/lottie_indicator.dart';
+import 'package:better_one/model/user_model/user_model.dart';
 import 'package:better_one/view/widgets/input_field/auth_field.dart';
 import 'package:better_one/view_models/user_viewmodel/user_viewmodel.dart';
 import 'package:easy_localization/easy_localization.dart';
@@ -195,70 +196,7 @@ class _ProfileSettingScreenState extends State<ProfileScreen> {
                                   customBorder: const CircleBorder(),
                                   onTap: () {
                                     user.photoUrl != null
-                                        ? showDialog(
-                                            context: context,
-                                            builder: (_) {
-                                              return AlertDialog.adaptive(
-                                                content: AspectRatio(
-                                                  aspectRatio: 3 / 4,
-                                                  child: InteractiveViewer(
-                                                    maxScale: 5,
-                                                    child: Image.network(
-                                                        user.photoUrl!),
-                                                  ),
-                                                ),
-                                                actionsAlignment:
-                                                    MainAxisAlignment.center,
-                                                actions: [
-                                                  Column(
-                                                    mainAxisAlignment:
-                                                        MainAxisAlignment
-                                                            .center,
-                                                    children: [
-                                                      // add image
-                                                      TextButton(
-                                                        onPressed: () async {
-                                                          await _pickImage(
-                                                              context);
-                                                          context.pop();
-                                                        },
-                                                        child: Text(
-                                                          'profile.change_avatar'
-                                                              .tr(),
-                                                          style:
-                                                              Theme.of(context)
-                                                                  .textTheme
-                                                                  .titleSmall,
-                                                        ),
-                                                      ),
-                                                      // remove image
-                                                      FilledButton(
-                                                        onPressed: () async {
-                                                          await _pickImage(
-                                                              context,
-                                                              remove: true);
-                                                          context.pop();
-                                                        },
-                                                        child: Text(
-                                                          'profile.remove_avatar'
-                                                              .tr(),
-                                                          style:
-                                                              Theme.of(context)
-                                                                  .textTheme
-                                                                  .titleSmall!
-                                                                  .copyWith(
-                                                                    color: Colors
-                                                                        .red
-                                                                        .shade900,
-                                                                  ),
-                                                        ),
-                                                      ),
-                                                    ],
-                                                  ),
-                                                ],
-                                              );
-                                            },
-                                          )
+                                        ? _previewAvatar(context, user)
                                         : null;
                                   },
                                   child: CircleAvatar(
@@ -397,6 +335,57 @@ class _ProfileSettingScreenState extends State<ProfileScreen> {
         },
         child: const Icon(Icons.feedback),
       ),
+    );
+  }
+
+  Future<dynamic> _previewAvatar(BuildContext context, UserModel user) {
+    return showDialog(
+      context: context,
+      builder: (_) {
+        return AlertDialog.adaptive(
+          content: AspectRatio(
+            aspectRatio: 3 / 4,
+            child: InteractiveViewer(
+              maxScale: 5,
+              child: Image.network(user.photoUrl!),
+            ),
+          ),
+          actionsAlignment: MainAxisAlignment.center,
+          actions: [
+            Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                // add image
+                TextButton(
+                  onPressed: () async {
+                    await _pickImage(context);
+                    // ignore: use_build_context_synchronously
+                    context.pop();
+                  },
+                  child: Text(
+                    'profile.change_avatar'.tr(),
+                    style: Theme.of(context).textTheme.titleSmall,
+                  ),
+                ),
+                // remove image
+                FilledButton(
+                  onPressed: () async {
+                    await _pickImage(context, remove: true);
+                    // ignore: use_build_context_synchronously
+                    context.pop();
+                  },
+                  child: Text(
+                    'profile.remove_avatar'.tr(),
+                    style: Theme.of(context).textTheme.titleSmall!.copyWith(
+                          color: Colors.red.shade900,
+                        ),
+                  ),
+                ),
+              ],
+            ),
+          ],
+        );
+      },
     );
   }
 
