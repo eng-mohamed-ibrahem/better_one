@@ -168,6 +168,8 @@
         "error": "Failed to send feedback, please try again later"
     },
     "profile": {
+        "remove_avatar": "Remove Avatar",
+        "change_avatar": "Change Avatar",
         "change_password": {
             "title": "Change Password",
             "old_pass": "Current Password",

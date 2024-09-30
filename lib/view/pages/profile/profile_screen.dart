@@ -192,12 +192,12 @@ class _ProfileSettingScreenState extends State<ProfileScreen> {
                               alignment: AlignmentDirectional.bottomEnd,
                               children: [
                                 InkWell(
-                                  radius: 40.r,
+                                  customBorder: const CircleBorder(),
                                   onTap: () {
                                     user.photoUrl != null
                                         ? showDialog(
                                             context: context,
-                                            builder: (context) {
+                                            builder: (_) {
                                               return AlertDialog.adaptive(
                                                 content: AspectRatio(
                                                   aspectRatio: 3 / 4,
@@ -207,31 +207,53 @@ class _ProfileSettingScreenState extends State<ProfileScreen> {
                                                         user.photoUrl!),
                                                   ),
                                                 ),
+                                                actionsAlignment:
+                                                    MainAxisAlignment.center,
                                                 actions: [
-                                                  // remove image
-                                                  TextButton(
-                                                    onPressed: () {
-                                                      Navigator.pop(context);
-                                                    },
-                                                    child: Text(
-                                                      'core.remove'.tr(),
-                                                      style: Theme.of(context)
-                                                          .textTheme
-                                                          .titleSmall,
-                                                    ),
-                                                  ),
-                                                  // add image
-                                                  TextButton(
-                                                    onPressed: () async {
-                                                      Navigator.pop(context);
-                                                      await _pickImage(context);
-                                                    },
-                                                    child: Text(
-                                                      'core.add'.tr(),
-                                                      style: Theme.of(context)
-                                                          .textTheme
-                                                          .titleSmall,
-                                                    ),
+                                                  Column(
+                                                    mainAxisAlignment:
+                                                        MainAxisAlignment
+                                                            .center,
+                                                    children: [
+                                                      // add image
+                                                      TextButton(
+                                                        onPressed: () async {
+                                                          await _pickImage(
+                                                              context);
+                                                          context.pop();
+                                                        },
+                                                        child: Text(
+                                                          'profile.change_avatar'
+                                                              .tr(),
+                                                          style:
+                                                              Theme.of(context)
+                                                                  .textTheme
+                                                                  .titleSmall,
+                                                        ),
+                                                      ),
+                                                      // remove image
+                                                      FilledButton(
+                                                        onPressed: () async {
+                                                          await _pickImage(
+                                                              context,
+                                                              remove: true);
+                                                          context.pop();
+                                                        },
+                                                        child: Text(
+                                                          'profile.remove_avatar'
+                                                              .tr(),
+                                                          style:
+                                                              Theme.of(context)
+                                                                  .textTheme
+                                                                  .titleSmall!
+                                                                  .copyWith(
+                                                                    color: Colors
+                                                                        .red
+                                                                        .shade900,
+                                                                  ),
+                                                        ),
+                                                      ),
+                                                    ],
                                                   ),
                                                 ],
                                               );
@@ -248,25 +270,32 @@ class _ProfileSettingScreenState extends State<ProfileScreen> {
                                   ),
                                 ),
                                 Transform.translate(
-                                  offset: const Offset(10, 10),
-                                  child: state.maybeWhen(
-                                    changeProfilePictureLoading: () {
-                                      return SizedBox(
-                                        width: 24.w,
-                                        height: 24.h,
-                                        child:
-                                            const CircularProgressIndicator(),
-                                      );
-                                    },
-                                    orElse: () {
-                                      return IconButton(
-                                        onPressed: () async {
+                                  offset: Offset(10.w, 10.h),
+                                  child: IconButton(
+                                    onPressed: () async {
+                                      state.maybeWhen(
+                                        changeProfilePictureLoading: () {},
+                                        orElse: () async {
                                           await _pickImage(context);
                                         },
-                                        icon: const Icon(
-                                            Icons.add_a_photo_rounded),
                                       );
                                     },
+                                    icon: state.maybeWhen(
+                                      changeProfilePictureLoading: () {
+                                        return SizedBox(
+                                          width: 24.w,
+                                          height: 24.h,
+                                          child:
+                                              const CircularProgressIndicator(
+                                            strokeWidth: 2,
+                                          ),
+                                        );
+                                      },
+                                      orElse: () {
+                                        return const Icon(
+                                            Icons.add_a_photo_rounded);
+                                      },
+                                    ),
                                   ),
                                 ),
                               ],
@@ -371,7 +400,11 @@ class _ProfileSettingScreenState extends State<ProfileScreen> {
     );
   }
 
-  Future<void> _pickImage(BuildContext context) async {
+  Future<void> _pickImage(BuildContext context, {bool remove = false}) async {
+    if (remove) {
+      context.read<UserViewmodel>().changeProfilePicture('');
+      return;
+    }
     var xFile = await ImagePicker().pickImage(source: ImageSource.gallery);
     if (xFile != null && context.mounted) {
       context.read<UserViewmodel>().changeProfilePicture(xFile.path);
