@@ -51,7 +51,6 @@ class _ChangeNameScreenState extends State<ChangeNameScreen> {
             changeNameSuccess: (user) {
               showSnackBar(context,
                   message: "profile.change_name.success".tr());
-              context.read<UserViewmodel>().getUserDetails();
               context.goNamed(Routes.profile.name);
             },
             changeNameFailed: (message) {

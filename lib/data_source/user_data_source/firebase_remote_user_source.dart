@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:better_one/core/constants/firebase_constants.dart';
 import 'package:better_one/core/errors/failure.dart';
 import 'package:better_one/core/result_handler/result_handler.dart';
@@ -8,6 +10,7 @@ import 'package:better_one/model/task_model/task_model.dart';
 import 'package:better_one/model/user_model/user_model.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_storage/firebase_storage.dart';
 
 class FirebaseRemoteUserSource implements RemoteUserSource {
   @override
@@ -57,6 +60,7 @@ class FirebaseRemoteUserSource implements RemoteUserSource {
         id: user.uid,
         name: user.displayName!,
         email: user.email!,
+        photoUrl: user.photoURL,
         createdAt: user.metadata.creationTime!,
       );
       return ResultHandler.success(data: userModel);
@@ -121,8 +125,12 @@ class FirebaseRemoteUserSource implements RemoteUserSource {
   }
 
   @override
-  Future<ResultHandler<UserModel, Failure>> updateUserDetails(
-      {String? newEmail, String? newPassword, String? newDisplayName}) async {
+  Future<ResultHandler<UserModel, Failure>> updateUserDetails({
+    String? newEmail,
+    String? newPassword,
+    String? newDisplayName,
+    String? newPhotoPath,
+  }) async {
     try {
       var user = FirebaseAuth.instance.currentUser;
       if (user == null) {
@@ -137,20 +145,38 @@ class FirebaseRemoteUserSource implements RemoteUserSource {
       if (newDisplayName != null) {
         await user.updateDisplayName(newDisplayName);
       }
-      // await FirebaseAuth.instance.sendPasswordResetEmail(email: user.email!);
-      // await FirebaseAuth.instance.confirmPasswordReset(code: code, newPassword: newPassword);
+      if (newPhotoPath != null) {
+        FirebaseStorage storage = FirebaseStorage.instance;
+        var profileRef = storage
+            .ref('${FirebaseConstants.users}/${user.uid}')
+            .child(FirebaseConstants.userPhoto);
+        String? url;
+        if (newPhotoPath.isEmpty) {
+          await profileRef.delete();
+          url = null;
+        } else {
+          await profileRef.putFile(File(newPhotoPath));
+          url = await profileRef.getDownloadURL();
+        }
+        await user.updatePhotoURL(url);
+      }
       await user.reload();
       user = FirebaseAuth.instance.currentUser;
       UserModel userModel = UserModel(
         id: user!.uid,
         name: user.displayName!,
         email: user.email!,
+        photoUrl: user.photoURL,
         createdAt: user.metadata.creationTime!,
       );
       return ResultHandler.success(data: userModel);
     } on FirebaseAuthException catch (e) {
       return ResultHandler.failure(
         error: FirebaseFailure.fromCode(e.code),
+      );
+    } on FileSystemException catch (e) {
+      return ResultHandler.failure(
+        error: CacheFailure(message: e.message),
       );
     } catch (e) {
       return ResultHandler.failure(error: OtherFailure(message: e.toString()));

@@ -48,7 +48,6 @@ class _ChangePasswordScreenState extends State<ChangePasswordScreen> {
             changePasswordSuccess: (user) {
               showSnackBar(context,
                   message: "profile.change_password.success".tr());
-              context.read<UserViewmodel>().getUserDetails();
               context.goNamed(Routes.profile.name);
             },
             changePasswordFailed: (message) {

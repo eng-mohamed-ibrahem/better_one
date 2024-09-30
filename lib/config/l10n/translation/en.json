@@ -168,6 +168,8 @@
         "error": "Failed to send feedback, please try again later"
     },
     "profile": {
+        "remove_avatar": "Remove Avatar",
+        "change_avatar": "Change Avatar",
         "change_password": {
             "title": "Change Password",
             "old_pass": "Current Password",
@@ -265,7 +267,7 @@
         "no_user": "No logged user found, please login",
         "forgot_password": {
             "title": "Forgot Password",
-            "subtitle": "Enter your email and we will send you a code to reset your password",
+            "subtitle": "Enter your email and we will send you a link to reset your password",
             "send": "Send",
             "success": "Sent verification code to your email",
             "error": "Failed to send verification code, please try again later",

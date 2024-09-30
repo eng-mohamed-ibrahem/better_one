@@ -7,6 +7,7 @@ import 'package:better_one/core/utils/methods/methods.dart';
 import 'package:better_one/core/utils/shared_widgets/back_button_l10n.dart';
 import 'package:better_one/core/utils/shared_widgets/failed.dart';
 import 'package:better_one/core/utils/shared_widgets/lottie_indicator.dart';
+import 'package:better_one/model/user_model/user_model.dart';
 import 'package:better_one/view/widgets/input_field/auth_field.dart';
 import 'package:better_one/view_models/user_viewmodel/user_viewmodel.dart';
 import 'package:easy_localization/easy_localization.dart';
@@ -14,6 +15,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
+import 'package:image_picker/image_picker.dart';
 
 class ProfileScreen extends StatefulWidget {
   const ProfileScreen({super.key});
@@ -53,6 +55,9 @@ class _ProfileSettingScreenState extends State<ProfileScreen> {
           state.whenOrNull(
             getUserDetailsSuccess: (user) {
               emailController.text = user.email;
+              nameController.text = user.name;
+            },
+            changeNameSuccess: (user) {
               nameController.text = user.name;
             },
             noUserFound: (message) {
@@ -99,14 +104,17 @@ class _ProfileSettingScreenState extends State<ProfileScreen> {
               return const SizedBox.shrink();
             },
             orElse: () {
+              var user = context.read<UserViewmodel>().currentUser;
               return SingleChildScrollView(
                 physics: const AlwaysScrollableScrollPhysics(),
                 child: Column(
+                  mainAxisSize: MainAxisSize.min,
                   children: [
                     SizedBox(
                       width: MediaQuery.sizeOf(context).width,
-                      height: MediaQuery.sizeOf(context).height * 0.3,
+                      height: MediaQuery.sizeOf(context).height * 0.4,
                       child: Stack(
+                        clipBehavior: Clip.none,
                         children: [
                           CustomPaint(
                             size: Size(
@@ -122,8 +130,6 @@ class _ProfileSettingScreenState extends State<ProfileScreen> {
                                 horizontal: 10.w,
                                 vertical: MediaQuery.paddingOf(context).top),
                             child: Column(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              mainAxisSize: MainAxisSize.max,
                               children: [
                                 Row(
                                   mainAxisAlignment:
@@ -151,18 +157,12 @@ class _ProfileSettingScreenState extends State<ProfileScreen> {
                                 const SizedBox(
                                     height: AppMetrices.verticalGap2),
                                 Text(
-                                  context
-                                      .read<UserViewmodel>()
-                                      .currentUser
-                                      .name,
+                                  user.name,
                                   style: Theme.of(context).textTheme.titleLarge,
                                   textAlign: TextAlign.center,
                                 ),
                                 Text(
-                                  context
-                                      .read<UserViewmodel>()
-                                      .currentUser
-                                      .email,
+                                  user.email,
                                   style:
                                       Theme.of(context).textTheme.titleMedium,
                                   textAlign: TextAlign.center,
@@ -182,6 +182,59 @@ class _ProfileSettingScreenState extends State<ProfileScreen> {
                                           .titleSmall,
                                     ),
                                   ],
+                                ),
+                              ],
+                            ),
+                          ),
+                          Positioned(
+                            left: MediaQuery.sizeOf(context).width / 2 - 40.r,
+                            top: MediaQuery.sizeOf(context).height * 0.3 - 40.r,
+                            child: Stack(
+                              alignment: AlignmentDirectional.bottomEnd,
+                              children: [
+                                InkWell(
+                                  customBorder: const CircleBorder(),
+                                  onTap: () {
+                                    user.photoUrl != null
+                                        ? _previewAvatar(context, user)
+                                        : null;
+                                  },
+                                  child: CircleAvatar(
+                                    backgroundColor: Colors.grey.shade200,
+                                    radius: 40.r,
+                                    backgroundImage: user.photoUrl == null
+                                        ? null
+                                        : NetworkImage(user.photoUrl!),
+                                  ),
+                                ),
+                                Transform.translate(
+                                  offset: Offset(10.w, 10.h),
+                                  child: IconButton(
+                                    onPressed: () async {
+                                      state.maybeWhen(
+                                        changeProfilePictureLoading: () {},
+                                        orElse: () async {
+                                          await _pickImage(context);
+                                        },
+                                      );
+                                    },
+                                    icon: state.maybeWhen(
+                                      changeProfilePictureLoading: () {
+                                        return SizedBox(
+                                          width: 24.w,
+                                          height: 24.h,
+                                          child:
+                                              const CircularProgressIndicator(
+                                            strokeWidth: 2,
+                                          ),
+                                        );
+                                      },
+                                      orElse: () {
+                                        return const Icon(
+                                            Icons.add_a_photo_rounded);
+                                      },
+                                    ),
+                                  ),
                                 ),
                               ],
                             ),
@@ -283,6 +336,68 @@ class _ProfileSettingScreenState extends State<ProfileScreen> {
         child: const Icon(Icons.feedback),
       ),
     );
+  }
+
+  Future<dynamic> _previewAvatar(BuildContext context, UserModel user) {
+    return showDialog(
+      context: context,
+      builder: (_) {
+        return AlertDialog.adaptive(
+          content: AspectRatio(
+            aspectRatio: 3 / 4,
+            child: InteractiveViewer(
+              maxScale: 5,
+              child: Image.network(user.photoUrl!),
+            ),
+          ),
+          actionsAlignment: MainAxisAlignment.center,
+          actions: [
+            Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                // add image
+                TextButton(
+                  onPressed: () async {
+                    await _pickImage(context);
+                    // ignore: use_build_context_synchronously
+                    context.pop();
+                  },
+                  child: Text(
+                    'profile.change_avatar'.tr(),
+                    style: Theme.of(context).textTheme.titleSmall,
+                  ),
+                ),
+                // remove image
+                FilledButton(
+                  onPressed: () async {
+                    await _pickImage(context, remove: true);
+                    // ignore: use_build_context_synchronously
+                    context.pop();
+                  },
+                  child: Text(
+                    'profile.remove_avatar'.tr(),
+                    style: Theme.of(context).textTheme.titleSmall!.copyWith(
+                          color: Colors.red.shade900,
+                        ),
+                  ),
+                ),
+              ],
+            ),
+          ],
+        );
+      },
+    );
+  }
+
+  Future<void> _pickImage(BuildContext context, {bool remove = false}) async {
+    if (remove) {
+      context.read<UserViewmodel>().changeProfilePicture('');
+      return;
+    }
+    var xFile = await ImagePicker().pickImage(source: ImageSource.gallery);
+    if (xFile != null && context.mounted) {
+      context.read<UserViewmodel>().changeProfilePicture(xFile.path);
+    }
   }
 }
 

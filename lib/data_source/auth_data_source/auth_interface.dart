@@ -9,8 +9,4 @@ abstract class AuthInterface {
       {required String email, required String password, required String name});
 
   Future<ResultHandler<void, Failure>> sendForgotPassword(String email);
-
-  Future<ResultHandler<String?, Failure>> verifyPasswordResetCode(String code);
-
-  Future<ResultHandler<void, Failure>> resetPassword(String code, String password);
 }

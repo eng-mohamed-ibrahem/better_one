@@ -1,4 +1,3 @@
-import 'package:better_one/config/navigation/routes_enum.dart';
 import 'package:better_one/core/constants/constants.dart';
 import 'package:better_one/core/utils/methods/methods.dart';
 import 'package:better_one/core/utils/shared_widgets/back_button_l10n.dart';
@@ -56,7 +55,7 @@ class _ChangeEmailScreenState extends State<ChangeEmailScreen> {
             changeEmailSuccess: (user) {
               showSnackBar(context,
                   message: "profile.change_email.success".tr());
-              context.goNamed(Routes.profile.name);
+              context.read<UserViewmodel>().logout();
             },
             changeEmailFailed: (message) {
               // pop the loading dialog
