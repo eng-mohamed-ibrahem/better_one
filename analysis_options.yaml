@@ -9,6 +9,3 @@ analyzer:
   errors:
     invalid_annotation_target: ignore
 
-linter:
-  rules:
-    - avoid_unused_constructor_parameters

@@ -13,6 +13,7 @@ abstract class UserRepoInterface {
     String? newEmail,
     String? newPassword,
     String? newDisplayName,
+    String? newPhotoPath,
   });
 
   Future<ResultHandler<TaskModel?, Failure>> getTaskById(String id);

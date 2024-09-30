@@ -63,6 +63,7 @@ class UserViewmodel extends Cubit<UserViewmodelState> {
     var result = await userRepo.updateUserDetails(newDisplayName: name);
     result.when(
       success: (user) {
+        currentUser = user;
         emit(_ChangeNameSuccess(user: user));
       },
       failure: (failure) {
@@ -99,11 +100,31 @@ class UserViewmodel extends Cubit<UserViewmodelState> {
     var result = await userRepo.updateUserDetails(newPassword: password);
     result.when(
       success: (user) {
+        currentUser = user;
         emit(_ChangePasswordSuccess(user: user));
       },
       failure: (failure) {
         emit(
           _ChangePasswordFailed(
+            message:
+                failure is OtherFailure ? "core.error".tr() : failure.message,
+          ),
+        );
+      },
+    );
+  }
+
+  void changeProfilePicture(String imagePath) async {
+    emit(const _ChangeProfilePictureLoading());
+    var result = await userRepo.updateUserDetails(newPhotoPath: imagePath);
+    result.when(
+      success: (user) {
+        currentUser = user;
+        emit(_ChangeProfilePictureSuccess(user: user));
+      },
+      failure: (failure) {
+        emit(
+          _ChangeProfilePictureFailed(
             message:
                 failure is OtherFailure ? "core.error".tr() : failure.message,
           ),

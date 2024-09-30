@@ -36,6 +36,9 @@ mixin _$UserViewmodelState {
     required TResult Function() changePasswordLoading,
     required TResult Function(UserModel user) changePasswordSuccess,
     required TResult Function(String message) changePasswordFailed,
+    required TResult Function() changeProfilePictureLoading,
+    required TResult Function(UserModel user) changeProfilePictureSuccess,
+    required TResult Function(String message) changeProfilePictureFailed,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -57,6 +60,9 @@ mixin _$UserViewmodelState {
     TResult? Function()? changePasswordLoading,
     TResult? Function(UserModel user)? changePasswordSuccess,
     TResult? Function(String message)? changePasswordFailed,
+    TResult? Function()? changeProfilePictureLoading,
+    TResult? Function(UserModel user)? changeProfilePictureSuccess,
+    TResult? Function(String message)? changeProfilePictureFailed,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -78,6 +84,9 @@ mixin _$UserViewmodelState {
     TResult Function()? changePasswordLoading,
     TResult Function(UserModel user)? changePasswordSuccess,
     TResult Function(String message)? changePasswordFailed,
+    TResult Function()? changeProfilePictureLoading,
+    TResult Function(UserModel user)? changeProfilePictureSuccess,
+    TResult Function(String message)? changeProfilePictureFailed,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -104,6 +113,12 @@ mixin _$UserViewmodelState {
     required TResult Function(_ChangePasswordSuccess value)
         changePasswordSuccess,
     required TResult Function(_ChangePasswordFailed value) changePasswordFailed,
+    required TResult Function(_ChangeProfilePictureLoading value)
+        changeProfilePictureLoading,
+    required TResult Function(_ChangeProfilePictureSuccess value)
+        changeProfilePictureSuccess,
+    required TResult Function(_ChangeProfilePictureFailed value)
+        changeProfilePictureFailed,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -125,6 +140,12 @@ mixin _$UserViewmodelState {
     TResult? Function(_ChangePasswordLoading value)? changePasswordLoading,
     TResult? Function(_ChangePasswordSuccess value)? changePasswordSuccess,
     TResult? Function(_ChangePasswordFailed value)? changePasswordFailed,
+    TResult? Function(_ChangeProfilePictureLoading value)?
+        changeProfilePictureLoading,
+    TResult? Function(_ChangeProfilePictureSuccess value)?
+        changeProfilePictureSuccess,
+    TResult? Function(_ChangeProfilePictureFailed value)?
+        changeProfilePictureFailed,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -146,6 +167,12 @@ mixin _$UserViewmodelState {
     TResult Function(_ChangePasswordLoading value)? changePasswordLoading,
     TResult Function(_ChangePasswordSuccess value)? changePasswordSuccess,
     TResult Function(_ChangePasswordFailed value)? changePasswordFailed,
+    TResult Function(_ChangeProfilePictureLoading value)?
+        changeProfilePictureLoading,
+    TResult Function(_ChangeProfilePictureSuccess value)?
+        changeProfilePictureSuccess,
+    TResult Function(_ChangeProfilePictureFailed value)?
+        changeProfilePictureFailed,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -231,6 +258,9 @@ class _$InitialImpl implements _Initial {
     required TResult Function() changePasswordLoading,
     required TResult Function(UserModel user) changePasswordSuccess,
     required TResult Function(String message) changePasswordFailed,
+    required TResult Function() changeProfilePictureLoading,
+    required TResult Function(UserModel user) changeProfilePictureSuccess,
+    required TResult Function(String message) changeProfilePictureFailed,
   }) {
     return initial();
   }
@@ -255,6 +285,9 @@ class _$InitialImpl implements _Initial {
     TResult? Function()? changePasswordLoading,
     TResult? Function(UserModel user)? changePasswordSuccess,
     TResult? Function(String message)? changePasswordFailed,
+    TResult? Function()? changeProfilePictureLoading,
+    TResult? Function(UserModel user)? changeProfilePictureSuccess,
+    TResult? Function(String message)? changeProfilePictureFailed,
   }) {
     return initial?.call();
   }
@@ -279,6 +312,9 @@ class _$InitialImpl implements _Initial {
     TResult Function()? changePasswordLoading,
     TResult Function(UserModel user)? changePasswordSuccess,
     TResult Function(String message)? changePasswordFailed,
+    TResult Function()? changeProfilePictureLoading,
+    TResult Function(UserModel user)? changeProfilePictureSuccess,
+    TResult Function(String message)? changeProfilePictureFailed,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -311,6 +347,12 @@ class _$InitialImpl implements _Initial {
     required TResult Function(_ChangePasswordSuccess value)
         changePasswordSuccess,
     required TResult Function(_ChangePasswordFailed value) changePasswordFailed,
+    required TResult Function(_ChangeProfilePictureLoading value)
+        changeProfilePictureLoading,
+    required TResult Function(_ChangeProfilePictureSuccess value)
+        changeProfilePictureSuccess,
+    required TResult Function(_ChangeProfilePictureFailed value)
+        changeProfilePictureFailed,
   }) {
     return initial(this);
   }
@@ -335,6 +377,12 @@ class _$InitialImpl implements _Initial {
     TResult? Function(_ChangePasswordLoading value)? changePasswordLoading,
     TResult? Function(_ChangePasswordSuccess value)? changePasswordSuccess,
     TResult? Function(_ChangePasswordFailed value)? changePasswordFailed,
+    TResult? Function(_ChangeProfilePictureLoading value)?
+        changeProfilePictureLoading,
+    TResult? Function(_ChangeProfilePictureSuccess value)?
+        changeProfilePictureSuccess,
+    TResult? Function(_ChangeProfilePictureFailed value)?
+        changeProfilePictureFailed,
   }) {
     return initial?.call(this);
   }
@@ -359,6 +407,12 @@ class _$InitialImpl implements _Initial {
     TResult Function(_ChangePasswordLoading value)? changePasswordLoading,
     TResult Function(_ChangePasswordSuccess value)? changePasswordSuccess,
     TResult Function(_ChangePasswordFailed value)? changePasswordFailed,
+    TResult Function(_ChangeProfilePictureLoading value)?
+        changeProfilePictureLoading,
+    TResult Function(_ChangeProfilePictureSuccess value)?
+        changeProfilePictureSuccess,
+    TResult Function(_ChangeProfilePictureFailed value)?
+        changeProfilePictureFailed,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -431,6 +485,9 @@ class _$LogoutLoadingImpl implements _LogoutLoading {
     required TResult Function() changePasswordLoading,
     required TResult Function(UserModel user) changePasswordSuccess,
     required TResult Function(String message) changePasswordFailed,
+    required TResult Function() changeProfilePictureLoading,
+    required TResult Function(UserModel user) changeProfilePictureSuccess,
+    required TResult Function(String message) changeProfilePictureFailed,
   }) {
     return logoutLoading();
   }
@@ -455,6 +512,9 @@ class _$LogoutLoadingImpl implements _LogoutLoading {
     TResult? Function()? changePasswordLoading,
     TResult? Function(UserModel user)? changePasswordSuccess,
     TResult? Function(String message)? changePasswordFailed,
+    TResult? Function()? changeProfilePictureLoading,
+    TResult? Function(UserModel user)? changeProfilePictureSuccess,
+    TResult? Function(String message)? changeProfilePictureFailed,
   }) {
     return logoutLoading?.call();
   }
@@ -479,6 +539,9 @@ class _$LogoutLoadingImpl implements _LogoutLoading {
     TResult Function()? changePasswordLoading,
     TResult Function(UserModel user)? changePasswordSuccess,
     TResult Function(String message)? changePasswordFailed,
+    TResult Function()? changeProfilePictureLoading,
+    TResult Function(UserModel user)? changeProfilePictureSuccess,
+    TResult Function(String message)? changeProfilePictureFailed,
     required TResult orElse(),
   }) {
     if (logoutLoading != null) {
@@ -511,6 +574,12 @@ class _$LogoutLoadingImpl implements _LogoutLoading {
     required TResult Function(_ChangePasswordSuccess value)
         changePasswordSuccess,
     required TResult Function(_ChangePasswordFailed value) changePasswordFailed,
+    required TResult Function(_ChangeProfilePictureLoading value)
+        changeProfilePictureLoading,
+    required TResult Function(_ChangeProfilePictureSuccess value)
+        changeProfilePictureSuccess,
+    required TResult Function(_ChangeProfilePictureFailed value)
+        changeProfilePictureFailed,
   }) {
     return logoutLoading(this);
   }
@@ -535,6 +604,12 @@ class _$LogoutLoadingImpl implements _LogoutLoading {
     TResult? Function(_ChangePasswordLoading value)? changePasswordLoading,
     TResult? Function(_ChangePasswordSuccess value)? changePasswordSuccess,
     TResult? Function(_ChangePasswordFailed value)? changePasswordFailed,
+    TResult? Function(_ChangeProfilePictureLoading value)?
+        changeProfilePictureLoading,
+    TResult? Function(_ChangeProfilePictureSuccess value)?
+        changeProfilePictureSuccess,
+    TResult? Function(_ChangeProfilePictureFailed value)?
+        changeProfilePictureFailed,
   }) {
     return logoutLoading?.call(this);
   }
@@ -559,6 +634,12 @@ class _$LogoutLoadingImpl implements _LogoutLoading {
     TResult Function(_ChangePasswordLoading value)? changePasswordLoading,
     TResult Function(_ChangePasswordSuccess value)? changePasswordSuccess,
     TResult Function(_ChangePasswordFailed value)? changePasswordFailed,
+    TResult Function(_ChangeProfilePictureLoading value)?
+        changeProfilePictureLoading,
+    TResult Function(_ChangeProfilePictureSuccess value)?
+        changeProfilePictureSuccess,
+    TResult Function(_ChangeProfilePictureFailed value)?
+        changeProfilePictureFailed,
     required TResult orElse(),
   }) {
     if (logoutLoading != null) {
@@ -631,6 +712,9 @@ class _$LogoutSuccessImpl implements _LogoutSuccess {
     required TResult Function() changePasswordLoading,
     required TResult Function(UserModel user) changePasswordSuccess,
     required TResult Function(String message) changePasswordFailed,
+    required TResult Function() changeProfilePictureLoading,
+    required TResult Function(UserModel user) changeProfilePictureSuccess,
+    required TResult Function(String message) changeProfilePictureFailed,
   }) {
     return logoutSuccess();
   }
@@ -655,6 +739,9 @@ class _$LogoutSuccessImpl implements _LogoutSuccess {
     TResult? Function()? changePasswordLoading,
     TResult? Function(UserModel user)? changePasswordSuccess,
     TResult? Function(String message)? changePasswordFailed,
+    TResult? Function()? changeProfilePictureLoading,
+    TResult? Function(UserModel user)? changeProfilePictureSuccess,
+    TResult? Function(String message)? changeProfilePictureFailed,
   }) {
     return logoutSuccess?.call();
   }
@@ -679,6 +766,9 @@ class _$LogoutSuccessImpl implements _LogoutSuccess {
     TResult Function()? changePasswordLoading,
     TResult Function(UserModel user)? changePasswordSuccess,
     TResult Function(String message)? changePasswordFailed,
+    TResult Function()? changeProfilePictureLoading,
+    TResult Function(UserModel user)? changeProfilePictureSuccess,
+    TResult Function(String message)? changeProfilePictureFailed,
     required TResult orElse(),
   }) {
     if (logoutSuccess != null) {
@@ -711,6 +801,12 @@ class _$LogoutSuccessImpl implements _LogoutSuccess {
     required TResult Function(_ChangePasswordSuccess value)
         changePasswordSuccess,
     required TResult Function(_ChangePasswordFailed value) changePasswordFailed,
+    required TResult Function(_ChangeProfilePictureLoading value)
+        changeProfilePictureLoading,
+    required TResult Function(_ChangeProfilePictureSuccess value)
+        changeProfilePictureSuccess,
+    required TResult Function(_ChangeProfilePictureFailed value)
+        changeProfilePictureFailed,
   }) {
     return logoutSuccess(this);
   }
@@ -735,6 +831,12 @@ class _$LogoutSuccessImpl implements _LogoutSuccess {
     TResult? Function(_ChangePasswordLoading value)? changePasswordLoading,
     TResult? Function(_ChangePasswordSuccess value)? changePasswordSuccess,
     TResult? Function(_ChangePasswordFailed value)? changePasswordFailed,
+    TResult? Function(_ChangeProfilePictureLoading value)?
+        changeProfilePictureLoading,
+    TResult? Function(_ChangeProfilePictureSuccess value)?
+        changeProfilePictureSuccess,
+    TResult? Function(_ChangeProfilePictureFailed value)?
+        changeProfilePictureFailed,
   }) {
     return logoutSuccess?.call(this);
   }
@@ -759,6 +861,12 @@ class _$LogoutSuccessImpl implements _LogoutSuccess {
     TResult Function(_ChangePasswordLoading value)? changePasswordLoading,
     TResult Function(_ChangePasswordSuccess value)? changePasswordSuccess,
     TResult Function(_ChangePasswordFailed value)? changePasswordFailed,
+    TResult Function(_ChangeProfilePictureLoading value)?
+        changeProfilePictureLoading,
+    TResult Function(_ChangeProfilePictureSuccess value)?
+        changeProfilePictureSuccess,
+    TResult Function(_ChangeProfilePictureFailed value)?
+        changeProfilePictureFailed,
     required TResult orElse(),
   }) {
     if (logoutSuccess != null) {
@@ -866,6 +974,9 @@ class _$LogoutFailedImpl implements _LogoutFailed {
     required TResult Function() changePasswordLoading,
     required TResult Function(UserModel user) changePasswordSuccess,
     required TResult Function(String message) changePasswordFailed,
+    required TResult Function() changeProfilePictureLoading,
+    required TResult Function(UserModel user) changeProfilePictureSuccess,
+    required TResult Function(String message) changeProfilePictureFailed,
   }) {
     return logoutFailed(message, failure);
   }
@@ -890,6 +1001,9 @@ class _$LogoutFailedImpl implements _LogoutFailed {
     TResult? Function()? changePasswordLoading,
     TResult? Function(UserModel user)? changePasswordSuccess,
     TResult? Function(String message)? changePasswordFailed,
+    TResult? Function()? changeProfilePictureLoading,
+    TResult? Function(UserModel user)? changeProfilePictureSuccess,
+    TResult? Function(String message)? changeProfilePictureFailed,
   }) {
     return logoutFailed?.call(message, failure);
   }
@@ -914,6 +1028,9 @@ class _$LogoutFailedImpl implements _LogoutFailed {
     TResult Function()? changePasswordLoading,
     TResult Function(UserModel user)? changePasswordSuccess,
     TResult Function(String message)? changePasswordFailed,
+    TResult Function()? changeProfilePictureLoading,
+    TResult Function(UserModel user)? changeProfilePictureSuccess,
+    TResult Function(String message)? changeProfilePictureFailed,
     required TResult orElse(),
   }) {
     if (logoutFailed != null) {
@@ -946,6 +1063,12 @@ class _$LogoutFailedImpl implements _LogoutFailed {
     required TResult Function(_ChangePasswordSuccess value)
         changePasswordSuccess,
     required TResult Function(_ChangePasswordFailed value) changePasswordFailed,
+    required TResult Function(_ChangeProfilePictureLoading value)
+        changeProfilePictureLoading,
+    required TResult Function(_ChangeProfilePictureSuccess value)
+        changeProfilePictureSuccess,
+    required TResult Function(_ChangeProfilePictureFailed value)
+        changeProfilePictureFailed,
   }) {
     return logoutFailed(this);
   }
@@ -970,6 +1093,12 @@ class _$LogoutFailedImpl implements _LogoutFailed {
     TResult? Function(_ChangePasswordLoading value)? changePasswordLoading,
     TResult? Function(_ChangePasswordSuccess value)? changePasswordSuccess,
     TResult? Function(_ChangePasswordFailed value)? changePasswordFailed,
+    TResult? Function(_ChangeProfilePictureLoading value)?
+        changeProfilePictureLoading,
+    TResult? Function(_ChangeProfilePictureSuccess value)?
+        changeProfilePictureSuccess,
+    TResult? Function(_ChangeProfilePictureFailed value)?
+        changeProfilePictureFailed,
   }) {
     return logoutFailed?.call(this);
   }
@@ -994,6 +1123,12 @@ class _$LogoutFailedImpl implements _LogoutFailed {
     TResult Function(_ChangePasswordLoading value)? changePasswordLoading,
     TResult Function(_ChangePasswordSuccess value)? changePasswordSuccess,
     TResult Function(_ChangePasswordFailed value)? changePasswordFailed,
+    TResult Function(_ChangeProfilePictureLoading value)?
+        changeProfilePictureLoading,
+    TResult Function(_ChangeProfilePictureSuccess value)?
+        changeProfilePictureSuccess,
+    TResult Function(_ChangeProfilePictureFailed value)?
+        changeProfilePictureFailed,
     required TResult orElse(),
   }) {
     if (logoutFailed != null) {
@@ -1079,6 +1214,9 @@ class _$GetUserDetailsLoadingImpl implements _GetUserDetailsLoading {
     required TResult Function() changePasswordLoading,
     required TResult Function(UserModel user) changePasswordSuccess,
     required TResult Function(String message) changePasswordFailed,
+    required TResult Function() changeProfilePictureLoading,
+    required TResult Function(UserModel user) changeProfilePictureSuccess,
+    required TResult Function(String message) changeProfilePictureFailed,
   }) {
     return getUserDetailsLoading();
   }
@@ -1103,6 +1241,9 @@ class _$GetUserDetailsLoadingImpl implements _GetUserDetailsLoading {
     TResult? Function()? changePasswordLoading,
     TResult? Function(UserModel user)? changePasswordSuccess,
     TResult? Function(String message)? changePasswordFailed,
+    TResult? Function()? changeProfilePictureLoading,
+    TResult? Function(UserModel user)? changeProfilePictureSuccess,
+    TResult? Function(String message)? changeProfilePictureFailed,
   }) {
     return getUserDetailsLoading?.call();
   }
@@ -1127,6 +1268,9 @@ class _$GetUserDetailsLoadingImpl implements _GetUserDetailsLoading {
     TResult Function()? changePasswordLoading,
     TResult Function(UserModel user)? changePasswordSuccess,
     TResult Function(String message)? changePasswordFailed,
+    TResult Function()? changeProfilePictureLoading,
+    TResult Function(UserModel user)? changeProfilePictureSuccess,
+    TResult Function(String message)? changeProfilePictureFailed,
     required TResult orElse(),
   }) {
     if (getUserDetailsLoading != null) {
@@ -1159,6 +1303,12 @@ class _$GetUserDetailsLoadingImpl implements _GetUserDetailsLoading {
     required TResult Function(_ChangePasswordSuccess value)
         changePasswordSuccess,
     required TResult Function(_ChangePasswordFailed value) changePasswordFailed,
+    required TResult Function(_ChangeProfilePictureLoading value)
+        changeProfilePictureLoading,
+    required TResult Function(_ChangeProfilePictureSuccess value)
+        changeProfilePictureSuccess,
+    required TResult Function(_ChangeProfilePictureFailed value)
+        changeProfilePictureFailed,
   }) {
     return getUserDetailsLoading(this);
   }
@@ -1183,6 +1333,12 @@ class _$GetUserDetailsLoadingImpl implements _GetUserDetailsLoading {
     TResult? Function(_ChangePasswordLoading value)? changePasswordLoading,
     TResult? Function(_ChangePasswordSuccess value)? changePasswordSuccess,
     TResult? Function(_ChangePasswordFailed value)? changePasswordFailed,
+    TResult? Function(_ChangeProfilePictureLoading value)?
+        changeProfilePictureLoading,
+    TResult? Function(_ChangeProfilePictureSuccess value)?
+        changeProfilePictureSuccess,
+    TResult? Function(_ChangeProfilePictureFailed value)?
+        changeProfilePictureFailed,
   }) {
     return getUserDetailsLoading?.call(this);
   }
@@ -1207,6 +1363,12 @@ class _$GetUserDetailsLoadingImpl implements _GetUserDetailsLoading {
     TResult Function(_ChangePasswordLoading value)? changePasswordLoading,
     TResult Function(_ChangePasswordSuccess value)? changePasswordSuccess,
     TResult Function(_ChangePasswordFailed value)? changePasswordFailed,
+    TResult Function(_ChangeProfilePictureLoading value)?
+        changeProfilePictureLoading,
+    TResult Function(_ChangeProfilePictureSuccess value)?
+        changeProfilePictureSuccess,
+    TResult Function(_ChangeProfilePictureFailed value)?
+        changeProfilePictureFailed,
     required TResult orElse(),
   }) {
     if (getUserDetailsLoading != null) {
@@ -1320,6 +1482,9 @@ class _$GetUserDetailsSuccessImpl implements _GetUserDetailsSuccess {
     required TResult Function() changePasswordLoading,
     required TResult Function(UserModel user) changePasswordSuccess,
     required TResult Function(String message) changePasswordFailed,
+    required TResult Function() changeProfilePictureLoading,
+    required TResult Function(UserModel user) changeProfilePictureSuccess,
+    required TResult Function(String message) changeProfilePictureFailed,
   }) {
     return getUserDetailsSuccess(user);
   }
@@ -1344,6 +1509,9 @@ class _$GetUserDetailsSuccessImpl implements _GetUserDetailsSuccess {
     TResult? Function()? changePasswordLoading,
     TResult? Function(UserModel user)? changePasswordSuccess,
     TResult? Function(String message)? changePasswordFailed,
+    TResult? Function()? changeProfilePictureLoading,
+    TResult? Function(UserModel user)? changeProfilePictureSuccess,
+    TResult? Function(String message)? changeProfilePictureFailed,
   }) {
     return getUserDetailsSuccess?.call(user);
   }
@@ -1368,6 +1536,9 @@ class _$GetUserDetailsSuccessImpl implements _GetUserDetailsSuccess {
     TResult Function()? changePasswordLoading,
     TResult Function(UserModel user)? changePasswordSuccess,
     TResult Function(String message)? changePasswordFailed,
+    TResult Function()? changeProfilePictureLoading,
+    TResult Function(UserModel user)? changeProfilePictureSuccess,
+    TResult Function(String message)? changeProfilePictureFailed,
     required TResult orElse(),
   }) {
     if (getUserDetailsSuccess != null) {
@@ -1400,6 +1571,12 @@ class _$GetUserDetailsSuccessImpl implements _GetUserDetailsSuccess {
     required TResult Function(_ChangePasswordSuccess value)
         changePasswordSuccess,
     required TResult Function(_ChangePasswordFailed value) changePasswordFailed,
+    required TResult Function(_ChangeProfilePictureLoading value)
+        changeProfilePictureLoading,
+    required TResult Function(_ChangeProfilePictureSuccess value)
+        changeProfilePictureSuccess,
+    required TResult Function(_ChangeProfilePictureFailed value)
+        changeProfilePictureFailed,
   }) {
     return getUserDetailsSuccess(this);
   }
@@ -1424,6 +1601,12 @@ class _$GetUserDetailsSuccessImpl implements _GetUserDetailsSuccess {
     TResult? Function(_ChangePasswordLoading value)? changePasswordLoading,
     TResult? Function(_ChangePasswordSuccess value)? changePasswordSuccess,
     TResult? Function(_ChangePasswordFailed value)? changePasswordFailed,
+    TResult? Function(_ChangeProfilePictureLoading value)?
+        changeProfilePictureLoading,
+    TResult? Function(_ChangeProfilePictureSuccess value)?
+        changeProfilePictureSuccess,
+    TResult? Function(_ChangeProfilePictureFailed value)?
+        changeProfilePictureFailed,
   }) {
     return getUserDetailsSuccess?.call(this);
   }
@@ -1448,6 +1631,12 @@ class _$GetUserDetailsSuccessImpl implements _GetUserDetailsSuccess {
     TResult Function(_ChangePasswordLoading value)? changePasswordLoading,
     TResult Function(_ChangePasswordSuccess value)? changePasswordSuccess,
     TResult Function(_ChangePasswordFailed value)? changePasswordFailed,
+    TResult Function(_ChangeProfilePictureLoading value)?
+        changeProfilePictureLoading,
+    TResult Function(_ChangeProfilePictureSuccess value)?
+        changeProfilePictureSuccess,
+    TResult Function(_ChangeProfilePictureFailed value)?
+        changeProfilePictureFailed,
     required TResult orElse(),
   }) {
     if (getUserDetailsSuccess != null) {
@@ -1556,6 +1745,9 @@ class _$NoUserFoundImpl implements _NoUserFound {
     required TResult Function() changePasswordLoading,
     required TResult Function(UserModel user) changePasswordSuccess,
     required TResult Function(String message) changePasswordFailed,
+    required TResult Function() changeProfilePictureLoading,
+    required TResult Function(UserModel user) changeProfilePictureSuccess,
+    required TResult Function(String message) changeProfilePictureFailed,
   }) {
     return noUserFound(message);
   }
@@ -1580,6 +1772,9 @@ class _$NoUserFoundImpl implements _NoUserFound {
     TResult? Function()? changePasswordLoading,
     TResult? Function(UserModel user)? changePasswordSuccess,
     TResult? Function(String message)? changePasswordFailed,
+    TResult? Function()? changeProfilePictureLoading,
+    TResult? Function(UserModel user)? changeProfilePictureSuccess,
+    TResult? Function(String message)? changeProfilePictureFailed,
   }) {
     return noUserFound?.call(message);
   }
@@ -1604,6 +1799,9 @@ class _$NoUserFoundImpl implements _NoUserFound {
     TResult Function()? changePasswordLoading,
     TResult Function(UserModel user)? changePasswordSuccess,
     TResult Function(String message)? changePasswordFailed,
+    TResult Function()? changeProfilePictureLoading,
+    TResult Function(UserModel user)? changeProfilePictureSuccess,
+    TResult Function(String message)? changeProfilePictureFailed,
     required TResult orElse(),
   }) {
     if (noUserFound != null) {
@@ -1636,6 +1834,12 @@ class _$NoUserFoundImpl implements _NoUserFound {
     required TResult Function(_ChangePasswordSuccess value)
         changePasswordSuccess,
     required TResult Function(_ChangePasswordFailed value) changePasswordFailed,
+    required TResult Function(_ChangeProfilePictureLoading value)
+        changeProfilePictureLoading,
+    required TResult Function(_ChangeProfilePictureSuccess value)
+        changeProfilePictureSuccess,
+    required TResult Function(_ChangeProfilePictureFailed value)
+        changeProfilePictureFailed,
   }) {
     return noUserFound(this);
   }
@@ -1660,6 +1864,12 @@ class _$NoUserFoundImpl implements _NoUserFound {
     TResult? Function(_ChangePasswordLoading value)? changePasswordLoading,
     TResult? Function(_ChangePasswordSuccess value)? changePasswordSuccess,
     TResult? Function(_ChangePasswordFailed value)? changePasswordFailed,
+    TResult? Function(_ChangeProfilePictureLoading value)?
+        changeProfilePictureLoading,
+    TResult? Function(_ChangeProfilePictureSuccess value)?
+        changeProfilePictureSuccess,
+    TResult? Function(_ChangeProfilePictureFailed value)?
+        changeProfilePictureFailed,
   }) {
     return noUserFound?.call(this);
   }
@@ -1684,6 +1894,12 @@ class _$NoUserFoundImpl implements _NoUserFound {
     TResult Function(_ChangePasswordLoading value)? changePasswordLoading,
     TResult Function(_ChangePasswordSuccess value)? changePasswordSuccess,
     TResult Function(_ChangePasswordFailed value)? changePasswordFailed,
+    TResult Function(_ChangeProfilePictureLoading value)?
+        changeProfilePictureLoading,
+    TResult Function(_ChangeProfilePictureSuccess value)?
+        changeProfilePictureSuccess,
+    TResult Function(_ChangeProfilePictureFailed value)?
+        changeProfilePictureFailed,
     required TResult orElse(),
   }) {
     if (noUserFound != null) {
@@ -1803,6 +2019,9 @@ class _$GetUserDetailsFailedImpl implements _GetUserDetailsFailed {
     required TResult Function() changePasswordLoading,
     required TResult Function(UserModel user) changePasswordSuccess,
     required TResult Function(String message) changePasswordFailed,
+    required TResult Function() changeProfilePictureLoading,
+    required TResult Function(UserModel user) changeProfilePictureSuccess,
+    required TResult Function(String message) changeProfilePictureFailed,
   }) {
     return getUserDetailsFailed(message, failure);
   }
@@ -1827,6 +2046,9 @@ class _$GetUserDetailsFailedImpl implements _GetUserDetailsFailed {
     TResult? Function()? changePasswordLoading,
     TResult? Function(UserModel user)? changePasswordSuccess,
     TResult? Function(String message)? changePasswordFailed,
+    TResult? Function()? changeProfilePictureLoading,
+    TResult? Function(UserModel user)? changeProfilePictureSuccess,
+    TResult? Function(String message)? changeProfilePictureFailed,
   }) {
     return getUserDetailsFailed?.call(message, failure);
   }
@@ -1851,6 +2073,9 @@ class _$GetUserDetailsFailedImpl implements _GetUserDetailsFailed {
     TResult Function()? changePasswordLoading,
     TResult Function(UserModel user)? changePasswordSuccess,
     TResult Function(String message)? changePasswordFailed,
+    TResult Function()? changeProfilePictureLoading,
+    TResult Function(UserModel user)? changeProfilePictureSuccess,
+    TResult Function(String message)? changeProfilePictureFailed,
     required TResult orElse(),
   }) {
     if (getUserDetailsFailed != null) {
@@ -1883,6 +2108,12 @@ class _$GetUserDetailsFailedImpl implements _GetUserDetailsFailed {
     required TResult Function(_ChangePasswordSuccess value)
         changePasswordSuccess,
     required TResult Function(_ChangePasswordFailed value) changePasswordFailed,
+    required TResult Function(_ChangeProfilePictureLoading value)
+        changeProfilePictureLoading,
+    required TResult Function(_ChangeProfilePictureSuccess value)
+        changeProfilePictureSuccess,
+    required TResult Function(_ChangeProfilePictureFailed value)
+        changeProfilePictureFailed,
   }) {
     return getUserDetailsFailed(this);
   }
@@ -1907,6 +2138,12 @@ class _$GetUserDetailsFailedImpl implements _GetUserDetailsFailed {
     TResult? Function(_ChangePasswordLoading value)? changePasswordLoading,
     TResult? Function(_ChangePasswordSuccess value)? changePasswordSuccess,
     TResult? Function(_ChangePasswordFailed value)? changePasswordFailed,
+    TResult? Function(_ChangeProfilePictureLoading value)?
+        changeProfilePictureLoading,
+    TResult? Function(_ChangeProfilePictureSuccess value)?
+        changeProfilePictureSuccess,
+    TResult? Function(_ChangeProfilePictureFailed value)?
+        changeProfilePictureFailed,
   }) {
     return getUserDetailsFailed?.call(this);
   }
@@ -1931,6 +2168,12 @@ class _$GetUserDetailsFailedImpl implements _GetUserDetailsFailed {
     TResult Function(_ChangePasswordLoading value)? changePasswordLoading,
     TResult Function(_ChangePasswordSuccess value)? changePasswordSuccess,
     TResult Function(_ChangePasswordFailed value)? changePasswordFailed,
+    TResult Function(_ChangeProfilePictureLoading value)?
+        changeProfilePictureLoading,
+    TResult Function(_ChangeProfilePictureSuccess value)?
+        changeProfilePictureSuccess,
+    TResult Function(_ChangeProfilePictureFailed value)?
+        changeProfilePictureFailed,
     required TResult orElse(),
   }) {
     if (getUserDetailsFailed != null) {
@@ -2014,6 +2257,9 @@ class _$ChangeNameLoadingImpl implements _ChangeNameLoading {
     required TResult Function() changePasswordLoading,
     required TResult Function(UserModel user) changePasswordSuccess,
     required TResult Function(String message) changePasswordFailed,
+    required TResult Function() changeProfilePictureLoading,
+    required TResult Function(UserModel user) changeProfilePictureSuccess,
+    required TResult Function(String message) changeProfilePictureFailed,
   }) {
     return changeNameLoading();
   }
@@ -2038,6 +2284,9 @@ class _$ChangeNameLoadingImpl implements _ChangeNameLoading {
     TResult? Function()? changePasswordLoading,
     TResult? Function(UserModel user)? changePasswordSuccess,
     TResult? Function(String message)? changePasswordFailed,
+    TResult? Function()? changeProfilePictureLoading,
+    TResult? Function(UserModel user)? changeProfilePictureSuccess,
+    TResult? Function(String message)? changeProfilePictureFailed,
   }) {
     return changeNameLoading?.call();
   }
@@ -2062,6 +2311,9 @@ class _$ChangeNameLoadingImpl implements _ChangeNameLoading {
     TResult Function()? changePasswordLoading,
     TResult Function(UserModel user)? changePasswordSuccess,
     TResult Function(String message)? changePasswordFailed,
+    TResult Function()? changeProfilePictureLoading,
+    TResult Function(UserModel user)? changeProfilePictureSuccess,
+    TResult Function(String message)? changeProfilePictureFailed,
     required TResult orElse(),
   }) {
     if (changeNameLoading != null) {
@@ -2094,6 +2346,12 @@ class _$ChangeNameLoadingImpl implements _ChangeNameLoading {
     required TResult Function(_ChangePasswordSuccess value)
         changePasswordSuccess,
     required TResult Function(_ChangePasswordFailed value) changePasswordFailed,
+    required TResult Function(_ChangeProfilePictureLoading value)
+        changeProfilePictureLoading,
+    required TResult Function(_ChangeProfilePictureSuccess value)
+        changeProfilePictureSuccess,
+    required TResult Function(_ChangeProfilePictureFailed value)
+        changeProfilePictureFailed,
   }) {
     return changeNameLoading(this);
   }
@@ -2118,6 +2376,12 @@ class _$ChangeNameLoadingImpl implements _ChangeNameLoading {
     TResult? Function(_ChangePasswordLoading value)? changePasswordLoading,
     TResult? Function(_ChangePasswordSuccess value)? changePasswordSuccess,
     TResult? Function(_ChangePasswordFailed value)? changePasswordFailed,
+    TResult? Function(_ChangeProfilePictureLoading value)?
+        changeProfilePictureLoading,
+    TResult? Function(_ChangeProfilePictureSuccess value)?
+        changeProfilePictureSuccess,
+    TResult? Function(_ChangeProfilePictureFailed value)?
+        changeProfilePictureFailed,
   }) {
     return changeNameLoading?.call(this);
   }
@@ -2142,6 +2406,12 @@ class _$ChangeNameLoadingImpl implements _ChangeNameLoading {
     TResult Function(_ChangePasswordLoading value)? changePasswordLoading,
     TResult Function(_ChangePasswordSuccess value)? changePasswordSuccess,
     TResult Function(_ChangePasswordFailed value)? changePasswordFailed,
+    TResult Function(_ChangeProfilePictureLoading value)?
+        changeProfilePictureLoading,
+    TResult Function(_ChangeProfilePictureSuccess value)?
+        changeProfilePictureSuccess,
+    TResult Function(_ChangeProfilePictureFailed value)?
+        changeProfilePictureFailed,
     required TResult orElse(),
   }) {
     if (changeNameLoading != null) {
@@ -2254,6 +2524,9 @@ class _$ChangeNameSuccessImpl implements _ChangeNameSuccess {
     required TResult Function() changePasswordLoading,
     required TResult Function(UserModel user) changePasswordSuccess,
     required TResult Function(String message) changePasswordFailed,
+    required TResult Function() changeProfilePictureLoading,
+    required TResult Function(UserModel user) changeProfilePictureSuccess,
+    required TResult Function(String message) changeProfilePictureFailed,
   }) {
     return changeNameSuccess(user);
   }
@@ -2278,6 +2551,9 @@ class _$ChangeNameSuccessImpl implements _ChangeNameSuccess {
     TResult? Function()? changePasswordLoading,
     TResult? Function(UserModel user)? changePasswordSuccess,
     TResult? Function(String message)? changePasswordFailed,
+    TResult? Function()? changeProfilePictureLoading,
+    TResult? Function(UserModel user)? changeProfilePictureSuccess,
+    TResult? Function(String message)? changeProfilePictureFailed,
   }) {
     return changeNameSuccess?.call(user);
   }
@@ -2302,6 +2578,9 @@ class _$ChangeNameSuccessImpl implements _ChangeNameSuccess {
     TResult Function()? changePasswordLoading,
     TResult Function(UserModel user)? changePasswordSuccess,
     TResult Function(String message)? changePasswordFailed,
+    TResult Function()? changeProfilePictureLoading,
+    TResult Function(UserModel user)? changeProfilePictureSuccess,
+    TResult Function(String message)? changeProfilePictureFailed,
     required TResult orElse(),
   }) {
     if (changeNameSuccess != null) {
@@ -2334,6 +2613,12 @@ class _$ChangeNameSuccessImpl implements _ChangeNameSuccess {
     required TResult Function(_ChangePasswordSuccess value)
         changePasswordSuccess,
     required TResult Function(_ChangePasswordFailed value) changePasswordFailed,
+    required TResult Function(_ChangeProfilePictureLoading value)
+        changeProfilePictureLoading,
+    required TResult Function(_ChangeProfilePictureSuccess value)
+        changeProfilePictureSuccess,
+    required TResult Function(_ChangeProfilePictureFailed value)
+        changeProfilePictureFailed,
   }) {
     return changeNameSuccess(this);
   }
@@ -2358,6 +2643,12 @@ class _$ChangeNameSuccessImpl implements _ChangeNameSuccess {
     TResult? Function(_ChangePasswordLoading value)? changePasswordLoading,
     TResult? Function(_ChangePasswordSuccess value)? changePasswordSuccess,
     TResult? Function(_ChangePasswordFailed value)? changePasswordFailed,
+    TResult? Function(_ChangeProfilePictureLoading value)?
+        changeProfilePictureLoading,
+    TResult? Function(_ChangeProfilePictureSuccess value)?
+        changeProfilePictureSuccess,
+    TResult? Function(_ChangeProfilePictureFailed value)?
+        changeProfilePictureFailed,
   }) {
     return changeNameSuccess?.call(this);
   }
@@ -2382,6 +2673,12 @@ class _$ChangeNameSuccessImpl implements _ChangeNameSuccess {
     TResult Function(_ChangePasswordLoading value)? changePasswordLoading,
     TResult Function(_ChangePasswordSuccess value)? changePasswordSuccess,
     TResult Function(_ChangePasswordFailed value)? changePasswordFailed,
+    TResult Function(_ChangeProfilePictureLoading value)?
+        changeProfilePictureLoading,
+    TResult Function(_ChangeProfilePictureSuccess value)?
+        changeProfilePictureSuccess,
+    TResult Function(_ChangeProfilePictureFailed value)?
+        changeProfilePictureFailed,
     required TResult orElse(),
   }) {
     if (changeNameSuccess != null) {
@@ -2491,6 +2788,9 @@ class _$ChangeNameFailedImpl implements _ChangeNameFailed {
     required TResult Function() changePasswordLoading,
     required TResult Function(UserModel user) changePasswordSuccess,
     required TResult Function(String message) changePasswordFailed,
+    required TResult Function() changeProfilePictureLoading,
+    required TResult Function(UserModel user) changeProfilePictureSuccess,
+    required TResult Function(String message) changeProfilePictureFailed,
   }) {
     return changeNameFailed(message);
   }
@@ -2515,6 +2815,9 @@ class _$ChangeNameFailedImpl implements _ChangeNameFailed {
     TResult? Function()? changePasswordLoading,
     TResult? Function(UserModel user)? changePasswordSuccess,
     TResult? Function(String message)? changePasswordFailed,
+    TResult? Function()? changeProfilePictureLoading,
+    TResult? Function(UserModel user)? changeProfilePictureSuccess,
+    TResult? Function(String message)? changeProfilePictureFailed,
   }) {
     return changeNameFailed?.call(message);
   }
@@ -2539,6 +2842,9 @@ class _$ChangeNameFailedImpl implements _ChangeNameFailed {
     TResult Function()? changePasswordLoading,
     TResult Function(UserModel user)? changePasswordSuccess,
     TResult Function(String message)? changePasswordFailed,
+    TResult Function()? changeProfilePictureLoading,
+    TResult Function(UserModel user)? changeProfilePictureSuccess,
+    TResult Function(String message)? changeProfilePictureFailed,
     required TResult orElse(),
   }) {
     if (changeNameFailed != null) {
@@ -2571,6 +2877,12 @@ class _$ChangeNameFailedImpl implements _ChangeNameFailed {
     required TResult Function(_ChangePasswordSuccess value)
         changePasswordSuccess,
     required TResult Function(_ChangePasswordFailed value) changePasswordFailed,
+    required TResult Function(_ChangeProfilePictureLoading value)
+        changeProfilePictureLoading,
+    required TResult Function(_ChangeProfilePictureSuccess value)
+        changeProfilePictureSuccess,
+    required TResult Function(_ChangeProfilePictureFailed value)
+        changeProfilePictureFailed,
   }) {
     return changeNameFailed(this);
   }
@@ -2595,6 +2907,12 @@ class _$ChangeNameFailedImpl implements _ChangeNameFailed {
     TResult? Function(_ChangePasswordLoading value)? changePasswordLoading,
     TResult? Function(_ChangePasswordSuccess value)? changePasswordSuccess,
     TResult? Function(_ChangePasswordFailed value)? changePasswordFailed,
+    TResult? Function(_ChangeProfilePictureLoading value)?
+        changeProfilePictureLoading,
+    TResult? Function(_ChangeProfilePictureSuccess value)?
+        changeProfilePictureSuccess,
+    TResult? Function(_ChangeProfilePictureFailed value)?
+        changeProfilePictureFailed,
   }) {
     return changeNameFailed?.call(this);
   }
@@ -2619,6 +2937,12 @@ class _$ChangeNameFailedImpl implements _ChangeNameFailed {
     TResult Function(_ChangePasswordLoading value)? changePasswordLoading,
     TResult Function(_ChangePasswordSuccess value)? changePasswordSuccess,
     TResult Function(_ChangePasswordFailed value)? changePasswordFailed,
+    TResult Function(_ChangeProfilePictureLoading value)?
+        changeProfilePictureLoading,
+    TResult Function(_ChangeProfilePictureSuccess value)?
+        changeProfilePictureSuccess,
+    TResult Function(_ChangeProfilePictureFailed value)?
+        changeProfilePictureFailed,
     required TResult orElse(),
   }) {
     if (changeNameFailed != null) {
@@ -2700,6 +3024,9 @@ class _$ChangeEmailLoadingImpl implements _ChangeEmailLoading {
     required TResult Function() changePasswordLoading,
     required TResult Function(UserModel user) changePasswordSuccess,
     required TResult Function(String message) changePasswordFailed,
+    required TResult Function() changeProfilePictureLoading,
+    required TResult Function(UserModel user) changeProfilePictureSuccess,
+    required TResult Function(String message) changeProfilePictureFailed,
   }) {
     return changeEmailLoading();
   }
@@ -2724,6 +3051,9 @@ class _$ChangeEmailLoadingImpl implements _ChangeEmailLoading {
     TResult? Function()? changePasswordLoading,
     TResult? Function(UserModel user)? changePasswordSuccess,
     TResult? Function(String message)? changePasswordFailed,
+    TResult? Function()? changeProfilePictureLoading,
+    TResult? Function(UserModel user)? changeProfilePictureSuccess,
+    TResult? Function(String message)? changeProfilePictureFailed,
   }) {
     return changeEmailLoading?.call();
   }
@@ -2748,6 +3078,9 @@ class _$ChangeEmailLoadingImpl implements _ChangeEmailLoading {
     TResult Function()? changePasswordLoading,
     TResult Function(UserModel user)? changePasswordSuccess,
     TResult Function(String message)? changePasswordFailed,
+    TResult Function()? changeProfilePictureLoading,
+    TResult Function(UserModel user)? changeProfilePictureSuccess,
+    TResult Function(String message)? changeProfilePictureFailed,
     required TResult orElse(),
   }) {
     if (changeEmailLoading != null) {
@@ -2780,6 +3113,12 @@ class _$ChangeEmailLoadingImpl implements _ChangeEmailLoading {
     required TResult Function(_ChangePasswordSuccess value)
         changePasswordSuccess,
     required TResult Function(_ChangePasswordFailed value) changePasswordFailed,
+    required TResult Function(_ChangeProfilePictureLoading value)
+        changeProfilePictureLoading,
+    required TResult Function(_ChangeProfilePictureSuccess value)
+        changeProfilePictureSuccess,
+    required TResult Function(_ChangeProfilePictureFailed value)
+        changeProfilePictureFailed,
   }) {
     return changeEmailLoading(this);
   }
@@ -2804,6 +3143,12 @@ class _$ChangeEmailLoadingImpl implements _ChangeEmailLoading {
     TResult? Function(_ChangePasswordLoading value)? changePasswordLoading,
     TResult? Function(_ChangePasswordSuccess value)? changePasswordSuccess,
     TResult? Function(_ChangePasswordFailed value)? changePasswordFailed,
+    TResult? Function(_ChangeProfilePictureLoading value)?
+        changeProfilePictureLoading,
+    TResult? Function(_ChangeProfilePictureSuccess value)?
+        changeProfilePictureSuccess,
+    TResult? Function(_ChangeProfilePictureFailed value)?
+        changeProfilePictureFailed,
   }) {
     return changeEmailLoading?.call(this);
   }
@@ -2828,6 +3173,12 @@ class _$ChangeEmailLoadingImpl implements _ChangeEmailLoading {
     TResult Function(_ChangePasswordLoading value)? changePasswordLoading,
     TResult Function(_ChangePasswordSuccess value)? changePasswordSuccess,
     TResult Function(_ChangePasswordFailed value)? changePasswordFailed,
+    TResult Function(_ChangeProfilePictureLoading value)?
+        changeProfilePictureLoading,
+    TResult Function(_ChangeProfilePictureSuccess value)?
+        changeProfilePictureSuccess,
+    TResult Function(_ChangeProfilePictureFailed value)?
+        changeProfilePictureFailed,
     required TResult orElse(),
   }) {
     if (changeEmailLoading != null) {
@@ -2940,6 +3291,9 @@ class _$ChangeEmailSuccessImpl implements _ChangeEmailSuccess {
     required TResult Function() changePasswordLoading,
     required TResult Function(UserModel user) changePasswordSuccess,
     required TResult Function(String message) changePasswordFailed,
+    required TResult Function() changeProfilePictureLoading,
+    required TResult Function(UserModel user) changeProfilePictureSuccess,
+    required TResult Function(String message) changeProfilePictureFailed,
   }) {
     return changeEmailSuccess(user);
   }
@@ -2964,6 +3318,9 @@ class _$ChangeEmailSuccessImpl implements _ChangeEmailSuccess {
     TResult? Function()? changePasswordLoading,
     TResult? Function(UserModel user)? changePasswordSuccess,
     TResult? Function(String message)? changePasswordFailed,
+    TResult? Function()? changeProfilePictureLoading,
+    TResult? Function(UserModel user)? changeProfilePictureSuccess,
+    TResult? Function(String message)? changeProfilePictureFailed,
   }) {
     return changeEmailSuccess?.call(user);
   }
@@ -2988,6 +3345,9 @@ class _$ChangeEmailSuccessImpl implements _ChangeEmailSuccess {
     TResult Function()? changePasswordLoading,
     TResult Function(UserModel user)? changePasswordSuccess,
     TResult Function(String message)? changePasswordFailed,
+    TResult Function()? changeProfilePictureLoading,
+    TResult Function(UserModel user)? changeProfilePictureSuccess,
+    TResult Function(String message)? changeProfilePictureFailed,
     required TResult orElse(),
   }) {
     if (changeEmailSuccess != null) {
@@ -3020,6 +3380,12 @@ class _$ChangeEmailSuccessImpl implements _ChangeEmailSuccess {
     required TResult Function(_ChangePasswordSuccess value)
         changePasswordSuccess,
     required TResult Function(_ChangePasswordFailed value) changePasswordFailed,
+    required TResult Function(_ChangeProfilePictureLoading value)
+        changeProfilePictureLoading,
+    required TResult Function(_ChangeProfilePictureSuccess value)
+        changeProfilePictureSuccess,
+    required TResult Function(_ChangeProfilePictureFailed value)
+        changeProfilePictureFailed,
   }) {
     return changeEmailSuccess(this);
   }
@@ -3044,6 +3410,12 @@ class _$ChangeEmailSuccessImpl implements _ChangeEmailSuccess {
     TResult? Function(_ChangePasswordLoading value)? changePasswordLoading,
     TResult? Function(_ChangePasswordSuccess value)? changePasswordSuccess,
     TResult? Function(_ChangePasswordFailed value)? changePasswordFailed,
+    TResult? Function(_ChangeProfilePictureLoading value)?
+        changeProfilePictureLoading,
+    TResult? Function(_ChangeProfilePictureSuccess value)?
+        changeProfilePictureSuccess,
+    TResult? Function(_ChangeProfilePictureFailed value)?
+        changeProfilePictureFailed,
   }) {
     return changeEmailSuccess?.call(this);
   }
@@ -3068,6 +3440,12 @@ class _$ChangeEmailSuccessImpl implements _ChangeEmailSuccess {
     TResult Function(_ChangePasswordLoading value)? changePasswordLoading,
     TResult Function(_ChangePasswordSuccess value)? changePasswordSuccess,
     TResult Function(_ChangePasswordFailed value)? changePasswordFailed,
+    TResult Function(_ChangeProfilePictureLoading value)?
+        changeProfilePictureLoading,
+    TResult Function(_ChangeProfilePictureSuccess value)?
+        changeProfilePictureSuccess,
+    TResult Function(_ChangeProfilePictureFailed value)?
+        changeProfilePictureFailed,
     required TResult orElse(),
   }) {
     if (changeEmailSuccess != null) {
@@ -3177,6 +3555,9 @@ class _$ChangeEmailFailedImpl implements _ChangeEmailFailed {
     required TResult Function() changePasswordLoading,
     required TResult Function(UserModel user) changePasswordSuccess,
     required TResult Function(String message) changePasswordFailed,
+    required TResult Function() changeProfilePictureLoading,
+    required TResult Function(UserModel user) changeProfilePictureSuccess,
+    required TResult Function(String message) changeProfilePictureFailed,
   }) {
     return changeEmailFailed(message);
   }
@@ -3201,6 +3582,9 @@ class _$ChangeEmailFailedImpl implements _ChangeEmailFailed {
     TResult? Function()? changePasswordLoading,
     TResult? Function(UserModel user)? changePasswordSuccess,
     TResult? Function(String message)? changePasswordFailed,
+    TResult? Function()? changeProfilePictureLoading,
+    TResult? Function(UserModel user)? changeProfilePictureSuccess,
+    TResult? Function(String message)? changeProfilePictureFailed,
   }) {
     return changeEmailFailed?.call(message);
   }
@@ -3225,6 +3609,9 @@ class _$ChangeEmailFailedImpl implements _ChangeEmailFailed {
     TResult Function()? changePasswordLoading,
     TResult Function(UserModel user)? changePasswordSuccess,
     TResult Function(String message)? changePasswordFailed,
+    TResult Function()? changeProfilePictureLoading,
+    TResult Function(UserModel user)? changeProfilePictureSuccess,
+    TResult Function(String message)? changeProfilePictureFailed,
     required TResult orElse(),
   }) {
     if (changeEmailFailed != null) {
@@ -3257,6 +3644,12 @@ class _$ChangeEmailFailedImpl implements _ChangeEmailFailed {
     required TResult Function(_ChangePasswordSuccess value)
         changePasswordSuccess,
     required TResult Function(_ChangePasswordFailed value) changePasswordFailed,
+    required TResult Function(_ChangeProfilePictureLoading value)
+        changeProfilePictureLoading,
+    required TResult Function(_ChangeProfilePictureSuccess value)
+        changeProfilePictureSuccess,
+    required TResult Function(_ChangeProfilePictureFailed value)
+        changeProfilePictureFailed,
   }) {
     return changeEmailFailed(this);
   }
@@ -3281,6 +3674,12 @@ class _$ChangeEmailFailedImpl implements _ChangeEmailFailed {
     TResult? Function(_ChangePasswordLoading value)? changePasswordLoading,
     TResult? Function(_ChangePasswordSuccess value)? changePasswordSuccess,
     TResult? Function(_ChangePasswordFailed value)? changePasswordFailed,
+    TResult? Function(_ChangeProfilePictureLoading value)?
+        changeProfilePictureLoading,
+    TResult? Function(_ChangeProfilePictureSuccess value)?
+        changeProfilePictureSuccess,
+    TResult? Function(_ChangeProfilePictureFailed value)?
+        changeProfilePictureFailed,
   }) {
     return changeEmailFailed?.call(this);
   }
@@ -3305,6 +3704,12 @@ class _$ChangeEmailFailedImpl implements _ChangeEmailFailed {
     TResult Function(_ChangePasswordLoading value)? changePasswordLoading,
     TResult Function(_ChangePasswordSuccess value)? changePasswordSuccess,
     TResult Function(_ChangePasswordFailed value)? changePasswordFailed,
+    TResult Function(_ChangeProfilePictureLoading value)?
+        changeProfilePictureLoading,
+    TResult Function(_ChangeProfilePictureSuccess value)?
+        changeProfilePictureSuccess,
+    TResult Function(_ChangeProfilePictureFailed value)?
+        changeProfilePictureFailed,
     required TResult orElse(),
   }) {
     if (changeEmailFailed != null) {
@@ -3388,6 +3793,9 @@ class _$ChangePasswordLoadingImpl implements _ChangePasswordLoading {
     required TResult Function() changePasswordLoading,
     required TResult Function(UserModel user) changePasswordSuccess,
     required TResult Function(String message) changePasswordFailed,
+    required TResult Function() changeProfilePictureLoading,
+    required TResult Function(UserModel user) changeProfilePictureSuccess,
+    required TResult Function(String message) changeProfilePictureFailed,
   }) {
     return changePasswordLoading();
   }
@@ -3412,6 +3820,9 @@ class _$ChangePasswordLoadingImpl implements _ChangePasswordLoading {
     TResult? Function()? changePasswordLoading,
     TResult? Function(UserModel user)? changePasswordSuccess,
     TResult? Function(String message)? changePasswordFailed,
+    TResult? Function()? changeProfilePictureLoading,
+    TResult? Function(UserModel user)? changeProfilePictureSuccess,
+    TResult? Function(String message)? changeProfilePictureFailed,
   }) {
     return changePasswordLoading?.call();
   }
@@ -3436,6 +3847,9 @@ class _$ChangePasswordLoadingImpl implements _ChangePasswordLoading {
     TResult Function()? changePasswordLoading,
     TResult Function(UserModel user)? changePasswordSuccess,
     TResult Function(String message)? changePasswordFailed,
+    TResult Function()? changeProfilePictureLoading,
+    TResult Function(UserModel user)? changeProfilePictureSuccess,
+    TResult Function(String message)? changeProfilePictureFailed,
     required TResult orElse(),
   }) {
     if (changePasswordLoading != null) {
@@ -3468,6 +3882,12 @@ class _$ChangePasswordLoadingImpl implements _ChangePasswordLoading {
     required TResult Function(_ChangePasswordSuccess value)
         changePasswordSuccess,
     required TResult Function(_ChangePasswordFailed value) changePasswordFailed,
+    required TResult Function(_ChangeProfilePictureLoading value)
+        changeProfilePictureLoading,
+    required TResult Function(_ChangeProfilePictureSuccess value)
+        changeProfilePictureSuccess,
+    required TResult Function(_ChangeProfilePictureFailed value)
+        changeProfilePictureFailed,
   }) {
     return changePasswordLoading(this);
   }
@@ -3492,6 +3912,12 @@ class _$ChangePasswordLoadingImpl implements _ChangePasswordLoading {
     TResult? Function(_ChangePasswordLoading value)? changePasswordLoading,
     TResult? Function(_ChangePasswordSuccess value)? changePasswordSuccess,
     TResult? Function(_ChangePasswordFailed value)? changePasswordFailed,
+    TResult? Function(_ChangeProfilePictureLoading value)?
+        changeProfilePictureLoading,
+    TResult? Function(_ChangeProfilePictureSuccess value)?
+        changeProfilePictureSuccess,
+    TResult? Function(_ChangeProfilePictureFailed value)?
+        changeProfilePictureFailed,
   }) {
     return changePasswordLoading?.call(this);
   }
@@ -3516,6 +3942,12 @@ class _$ChangePasswordLoadingImpl implements _ChangePasswordLoading {
     TResult Function(_ChangePasswordLoading value)? changePasswordLoading,
     TResult Function(_ChangePasswordSuccess value)? changePasswordSuccess,
     TResult Function(_ChangePasswordFailed value)? changePasswordFailed,
+    TResult Function(_ChangeProfilePictureLoading value)?
+        changeProfilePictureLoading,
+    TResult Function(_ChangeProfilePictureSuccess value)?
+        changeProfilePictureSuccess,
+    TResult Function(_ChangeProfilePictureFailed value)?
+        changeProfilePictureFailed,
     required TResult orElse(),
   }) {
     if (changePasswordLoading != null) {
@@ -3629,6 +4061,9 @@ class _$ChangePasswordSuccessImpl implements _ChangePasswordSuccess {
     required TResult Function() changePasswordLoading,
     required TResult Function(UserModel user) changePasswordSuccess,
     required TResult Function(String message) changePasswordFailed,
+    required TResult Function() changeProfilePictureLoading,
+    required TResult Function(UserModel user) changeProfilePictureSuccess,
+    required TResult Function(String message) changeProfilePictureFailed,
   }) {
     return changePasswordSuccess(user);
   }
@@ -3653,6 +4088,9 @@ class _$ChangePasswordSuccessImpl implements _ChangePasswordSuccess {
     TResult? Function()? changePasswordLoading,
     TResult? Function(UserModel user)? changePasswordSuccess,
     TResult? Function(String message)? changePasswordFailed,
+    TResult? Function()? changeProfilePictureLoading,
+    TResult? Function(UserModel user)? changeProfilePictureSuccess,
+    TResult? Function(String message)? changeProfilePictureFailed,
   }) {
     return changePasswordSuccess?.call(user);
   }
@@ -3677,6 +4115,9 @@ class _$ChangePasswordSuccessImpl implements _ChangePasswordSuccess {
     TResult Function()? changePasswordLoading,
     TResult Function(UserModel user)? changePasswordSuccess,
     TResult Function(String message)? changePasswordFailed,
+    TResult Function()? changeProfilePictureLoading,
+    TResult Function(UserModel user)? changeProfilePictureSuccess,
+    TResult Function(String message)? changeProfilePictureFailed,
     required TResult orElse(),
   }) {
     if (changePasswordSuccess != null) {
@@ -3709,6 +4150,12 @@ class _$ChangePasswordSuccessImpl implements _ChangePasswordSuccess {
     required TResult Function(_ChangePasswordSuccess value)
         changePasswordSuccess,
     required TResult Function(_ChangePasswordFailed value) changePasswordFailed,
+    required TResult Function(_ChangeProfilePictureLoading value)
+        changeProfilePictureLoading,
+    required TResult Function(_ChangeProfilePictureSuccess value)
+        changeProfilePictureSuccess,
+    required TResult Function(_ChangeProfilePictureFailed value)
+        changeProfilePictureFailed,
   }) {
     return changePasswordSuccess(this);
   }
@@ -3733,6 +4180,12 @@ class _$ChangePasswordSuccessImpl implements _ChangePasswordSuccess {
     TResult? Function(_ChangePasswordLoading value)? changePasswordLoading,
     TResult? Function(_ChangePasswordSuccess value)? changePasswordSuccess,
     TResult? Function(_ChangePasswordFailed value)? changePasswordFailed,
+    TResult? Function(_ChangeProfilePictureLoading value)?
+        changeProfilePictureLoading,
+    TResult? Function(_ChangeProfilePictureSuccess value)?
+        changeProfilePictureSuccess,
+    TResult? Function(_ChangeProfilePictureFailed value)?
+        changeProfilePictureFailed,
   }) {
     return changePasswordSuccess?.call(this);
   }
@@ -3757,6 +4210,12 @@ class _$ChangePasswordSuccessImpl implements _ChangePasswordSuccess {
     TResult Function(_ChangePasswordLoading value)? changePasswordLoading,
     TResult Function(_ChangePasswordSuccess value)? changePasswordSuccess,
     TResult Function(_ChangePasswordFailed value)? changePasswordFailed,
+    TResult Function(_ChangeProfilePictureLoading value)?
+        changeProfilePictureLoading,
+    TResult Function(_ChangeProfilePictureSuccess value)?
+        changeProfilePictureSuccess,
+    TResult Function(_ChangeProfilePictureFailed value)?
+        changeProfilePictureFailed,
     required TResult orElse(),
   }) {
     if (changePasswordSuccess != null) {
@@ -3867,6 +4326,9 @@ class _$ChangePasswordFailedImpl implements _ChangePasswordFailed {
     required TResult Function() changePasswordLoading,
     required TResult Function(UserModel user) changePasswordSuccess,
     required TResult Function(String message) changePasswordFailed,
+    required TResult Function() changeProfilePictureLoading,
+    required TResult Function(UserModel user) changeProfilePictureSuccess,
+    required TResult Function(String message) changeProfilePictureFailed,
   }) {
     return changePasswordFailed(message);
   }
@@ -3891,6 +4353,9 @@ class _$ChangePasswordFailedImpl implements _ChangePasswordFailed {
     TResult? Function()? changePasswordLoading,
     TResult? Function(UserModel user)? changePasswordSuccess,
     TResult? Function(String message)? changePasswordFailed,
+    TResult? Function()? changeProfilePictureLoading,
+    TResult? Function(UserModel user)? changeProfilePictureSuccess,
+    TResult? Function(String message)? changeProfilePictureFailed,
   }) {
     return changePasswordFailed?.call(message);
   }
@@ -3915,6 +4380,9 @@ class _$ChangePasswordFailedImpl implements _ChangePasswordFailed {
     TResult Function()? changePasswordLoading,
     TResult Function(UserModel user)? changePasswordSuccess,
     TResult Function(String message)? changePasswordFailed,
+    TResult Function()? changeProfilePictureLoading,
+    TResult Function(UserModel user)? changeProfilePictureSuccess,
+    TResult Function(String message)? changeProfilePictureFailed,
     required TResult orElse(),
   }) {
     if (changePasswordFailed != null) {
@@ -3947,6 +4415,12 @@ class _$ChangePasswordFailedImpl implements _ChangePasswordFailed {
     required TResult Function(_ChangePasswordSuccess value)
         changePasswordSuccess,
     required TResult Function(_ChangePasswordFailed value) changePasswordFailed,
+    required TResult Function(_ChangeProfilePictureLoading value)
+        changeProfilePictureLoading,
+    required TResult Function(_ChangeProfilePictureSuccess value)
+        changeProfilePictureSuccess,
+    required TResult Function(_ChangeProfilePictureFailed value)
+        changeProfilePictureFailed,
   }) {
     return changePasswordFailed(this);
   }
@@ -3971,6 +4445,12 @@ class _$ChangePasswordFailedImpl implements _ChangePasswordFailed {
     TResult? Function(_ChangePasswordLoading value)? changePasswordLoading,
     TResult? Function(_ChangePasswordSuccess value)? changePasswordSuccess,
     TResult? Function(_ChangePasswordFailed value)? changePasswordFailed,
+    TResult? Function(_ChangeProfilePictureLoading value)?
+        changeProfilePictureLoading,
+    TResult? Function(_ChangeProfilePictureSuccess value)?
+        changeProfilePictureSuccess,
+    TResult? Function(_ChangeProfilePictureFailed value)?
+        changeProfilePictureFailed,
   }) {
     return changePasswordFailed?.call(this);
   }
@@ -3995,6 +4475,12 @@ class _$ChangePasswordFailedImpl implements _ChangePasswordFailed {
     TResult Function(_ChangePasswordLoading value)? changePasswordLoading,
     TResult Function(_ChangePasswordSuccess value)? changePasswordSuccess,
     TResult Function(_ChangePasswordFailed value)? changePasswordFailed,
+    TResult Function(_ChangeProfilePictureLoading value)?
+        changeProfilePictureLoading,
+    TResult Function(_ChangeProfilePictureSuccess value)?
+        changeProfilePictureSuccess,
+    TResult Function(_ChangeProfilePictureFailed value)?
+        changeProfilePictureFailed,
     required TResult orElse(),
   }) {
     if (changePasswordFailed != null) {
@@ -4014,5 +4500,785 @@ abstract class _ChangePasswordFailed implements UserViewmodelState {
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
   _$$ChangePasswordFailedImplCopyWith<_$ChangePasswordFailedImpl>
+      get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$ChangeProfilePictureLoadingImplCopyWith<$Res> {
+  factory _$$ChangeProfilePictureLoadingImplCopyWith(
+          _$ChangeProfilePictureLoadingImpl value,
+          $Res Function(_$ChangeProfilePictureLoadingImpl) then) =
+      __$$ChangeProfilePictureLoadingImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$ChangeProfilePictureLoadingImplCopyWithImpl<$Res>
+    extends _$UserViewmodelStateCopyWithImpl<$Res,
+        _$ChangeProfilePictureLoadingImpl>
+    implements _$$ChangeProfilePictureLoadingImplCopyWith<$Res> {
+  __$$ChangeProfilePictureLoadingImplCopyWithImpl(
+      _$ChangeProfilePictureLoadingImpl _value,
+      $Res Function(_$ChangeProfilePictureLoadingImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of UserViewmodelState
+  /// with the given fields replaced by the non-null parameter values.
+}
+
+/// @nodoc
+
+class _$ChangeProfilePictureLoadingImpl
+    implements _ChangeProfilePictureLoading {
+  const _$ChangeProfilePictureLoadingImpl();
+
+  @override
+  String toString() {
+    return 'UserViewmodelState.changeProfilePictureLoading()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$ChangeProfilePictureLoadingImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() logoutLoading,
+    required TResult Function() logoutSuccess,
+    required TResult Function(String message, Failure failure) logoutFailed,
+    required TResult Function() getUserDetailsLoading,
+    required TResult Function(UserModel user) getUserDetailsSuccess,
+    required TResult Function(String message) noUserFound,
+    required TResult Function(String message, Failure failure)
+        getUserDetailsFailed,
+    required TResult Function() changeNameLoading,
+    required TResult Function(UserModel user) changeNameSuccess,
+    required TResult Function(String message) changeNameFailed,
+    required TResult Function() changeEmailLoading,
+    required TResult Function(UserModel user) changeEmailSuccess,
+    required TResult Function(String message) changeEmailFailed,
+    required TResult Function() changePasswordLoading,
+    required TResult Function(UserModel user) changePasswordSuccess,
+    required TResult Function(String message) changePasswordFailed,
+    required TResult Function() changeProfilePictureLoading,
+    required TResult Function(UserModel user) changeProfilePictureSuccess,
+    required TResult Function(String message) changeProfilePictureFailed,
+  }) {
+    return changeProfilePictureLoading();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? logoutLoading,
+    TResult? Function()? logoutSuccess,
+    TResult? Function(String message, Failure failure)? logoutFailed,
+    TResult? Function()? getUserDetailsLoading,
+    TResult? Function(UserModel user)? getUserDetailsSuccess,
+    TResult? Function(String message)? noUserFound,
+    TResult? Function(String message, Failure failure)? getUserDetailsFailed,
+    TResult? Function()? changeNameLoading,
+    TResult? Function(UserModel user)? changeNameSuccess,
+    TResult? Function(String message)? changeNameFailed,
+    TResult? Function()? changeEmailLoading,
+    TResult? Function(UserModel user)? changeEmailSuccess,
+    TResult? Function(String message)? changeEmailFailed,
+    TResult? Function()? changePasswordLoading,
+    TResult? Function(UserModel user)? changePasswordSuccess,
+    TResult? Function(String message)? changePasswordFailed,
+    TResult? Function()? changeProfilePictureLoading,
+    TResult? Function(UserModel user)? changeProfilePictureSuccess,
+    TResult? Function(String message)? changeProfilePictureFailed,
+  }) {
+    return changeProfilePictureLoading?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? logoutLoading,
+    TResult Function()? logoutSuccess,
+    TResult Function(String message, Failure failure)? logoutFailed,
+    TResult Function()? getUserDetailsLoading,
+    TResult Function(UserModel user)? getUserDetailsSuccess,
+    TResult Function(String message)? noUserFound,
+    TResult Function(String message, Failure failure)? getUserDetailsFailed,
+    TResult Function()? changeNameLoading,
+    TResult Function(UserModel user)? changeNameSuccess,
+    TResult Function(String message)? changeNameFailed,
+    TResult Function()? changeEmailLoading,
+    TResult Function(UserModel user)? changeEmailSuccess,
+    TResult Function(String message)? changeEmailFailed,
+    TResult Function()? changePasswordLoading,
+    TResult Function(UserModel user)? changePasswordSuccess,
+    TResult Function(String message)? changePasswordFailed,
+    TResult Function()? changeProfilePictureLoading,
+    TResult Function(UserModel user)? changeProfilePictureSuccess,
+    TResult Function(String message)? changeProfilePictureFailed,
+    required TResult orElse(),
+  }) {
+    if (changeProfilePictureLoading != null) {
+      return changeProfilePictureLoading();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(_LogoutLoading value) logoutLoading,
+    required TResult Function(_LogoutSuccess value) logoutSuccess,
+    required TResult Function(_LogoutFailed value) logoutFailed,
+    required TResult Function(_GetUserDetailsLoading value)
+        getUserDetailsLoading,
+    required TResult Function(_GetUserDetailsSuccess value)
+        getUserDetailsSuccess,
+    required TResult Function(_NoUserFound value) noUserFound,
+    required TResult Function(_GetUserDetailsFailed value) getUserDetailsFailed,
+    required TResult Function(_ChangeNameLoading value) changeNameLoading,
+    required TResult Function(_ChangeNameSuccess value) changeNameSuccess,
+    required TResult Function(_ChangeNameFailed value) changeNameFailed,
+    required TResult Function(_ChangeEmailLoading value) changeEmailLoading,
+    required TResult Function(_ChangeEmailSuccess value) changeEmailSuccess,
+    required TResult Function(_ChangeEmailFailed value) changeEmailFailed,
+    required TResult Function(_ChangePasswordLoading value)
+        changePasswordLoading,
+    required TResult Function(_ChangePasswordSuccess value)
+        changePasswordSuccess,
+    required TResult Function(_ChangePasswordFailed value) changePasswordFailed,
+    required TResult Function(_ChangeProfilePictureLoading value)
+        changeProfilePictureLoading,
+    required TResult Function(_ChangeProfilePictureSuccess value)
+        changeProfilePictureSuccess,
+    required TResult Function(_ChangeProfilePictureFailed value)
+        changeProfilePictureFailed,
+  }) {
+    return changeProfilePictureLoading(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_LogoutLoading value)? logoutLoading,
+    TResult? Function(_LogoutSuccess value)? logoutSuccess,
+    TResult? Function(_LogoutFailed value)? logoutFailed,
+    TResult? Function(_GetUserDetailsLoading value)? getUserDetailsLoading,
+    TResult? Function(_GetUserDetailsSuccess value)? getUserDetailsSuccess,
+    TResult? Function(_NoUserFound value)? noUserFound,
+    TResult? Function(_GetUserDetailsFailed value)? getUserDetailsFailed,
+    TResult? Function(_ChangeNameLoading value)? changeNameLoading,
+    TResult? Function(_ChangeNameSuccess value)? changeNameSuccess,
+    TResult? Function(_ChangeNameFailed value)? changeNameFailed,
+    TResult? Function(_ChangeEmailLoading value)? changeEmailLoading,
+    TResult? Function(_ChangeEmailSuccess value)? changeEmailSuccess,
+    TResult? Function(_ChangeEmailFailed value)? changeEmailFailed,
+    TResult? Function(_ChangePasswordLoading value)? changePasswordLoading,
+    TResult? Function(_ChangePasswordSuccess value)? changePasswordSuccess,
+    TResult? Function(_ChangePasswordFailed value)? changePasswordFailed,
+    TResult? Function(_ChangeProfilePictureLoading value)?
+        changeProfilePictureLoading,
+    TResult? Function(_ChangeProfilePictureSuccess value)?
+        changeProfilePictureSuccess,
+    TResult? Function(_ChangeProfilePictureFailed value)?
+        changeProfilePictureFailed,
+  }) {
+    return changeProfilePictureLoading?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_LogoutLoading value)? logoutLoading,
+    TResult Function(_LogoutSuccess value)? logoutSuccess,
+    TResult Function(_LogoutFailed value)? logoutFailed,
+    TResult Function(_GetUserDetailsLoading value)? getUserDetailsLoading,
+    TResult Function(_GetUserDetailsSuccess value)? getUserDetailsSuccess,
+    TResult Function(_NoUserFound value)? noUserFound,
+    TResult Function(_GetUserDetailsFailed value)? getUserDetailsFailed,
+    TResult Function(_ChangeNameLoading value)? changeNameLoading,
+    TResult Function(_ChangeNameSuccess value)? changeNameSuccess,
+    TResult Function(_ChangeNameFailed value)? changeNameFailed,
+    TResult Function(_ChangeEmailLoading value)? changeEmailLoading,
+    TResult Function(_ChangeEmailSuccess value)? changeEmailSuccess,
+    TResult Function(_ChangeEmailFailed value)? changeEmailFailed,
+    TResult Function(_ChangePasswordLoading value)? changePasswordLoading,
+    TResult Function(_ChangePasswordSuccess value)? changePasswordSuccess,
+    TResult Function(_ChangePasswordFailed value)? changePasswordFailed,
+    TResult Function(_ChangeProfilePictureLoading value)?
+        changeProfilePictureLoading,
+    TResult Function(_ChangeProfilePictureSuccess value)?
+        changeProfilePictureSuccess,
+    TResult Function(_ChangeProfilePictureFailed value)?
+        changeProfilePictureFailed,
+    required TResult orElse(),
+  }) {
+    if (changeProfilePictureLoading != null) {
+      return changeProfilePictureLoading(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _ChangeProfilePictureLoading implements UserViewmodelState {
+  const factory _ChangeProfilePictureLoading() =
+      _$ChangeProfilePictureLoadingImpl;
+}
+
+/// @nodoc
+abstract class _$$ChangeProfilePictureSuccessImplCopyWith<$Res> {
+  factory _$$ChangeProfilePictureSuccessImplCopyWith(
+          _$ChangeProfilePictureSuccessImpl value,
+          $Res Function(_$ChangeProfilePictureSuccessImpl) then) =
+      __$$ChangeProfilePictureSuccessImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({UserModel user});
+
+  $UserModelCopyWith<$Res> get user;
+}
+
+/// @nodoc
+class __$$ChangeProfilePictureSuccessImplCopyWithImpl<$Res>
+    extends _$UserViewmodelStateCopyWithImpl<$Res,
+        _$ChangeProfilePictureSuccessImpl>
+    implements _$$ChangeProfilePictureSuccessImplCopyWith<$Res> {
+  __$$ChangeProfilePictureSuccessImplCopyWithImpl(
+      _$ChangeProfilePictureSuccessImpl _value,
+      $Res Function(_$ChangeProfilePictureSuccessImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of UserViewmodelState
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? user = null,
+  }) {
+    return _then(_$ChangeProfilePictureSuccessImpl(
+      user: null == user
+          ? _value.user
+          : user // ignore: cast_nullable_to_non_nullable
+              as UserModel,
+    ));
+  }
+
+  /// Create a copy of UserViewmodelState
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $UserModelCopyWith<$Res> get user {
+    return $UserModelCopyWith<$Res>(_value.user, (value) {
+      return _then(_value.copyWith(user: value));
+    });
+  }
+}
+
+/// @nodoc
+
+class _$ChangeProfilePictureSuccessImpl
+    implements _ChangeProfilePictureSuccess {
+  const _$ChangeProfilePictureSuccessImpl({required this.user});
+
+  @override
+  final UserModel user;
+
+  @override
+  String toString() {
+    return 'UserViewmodelState.changeProfilePictureSuccess(user: $user)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$ChangeProfilePictureSuccessImpl &&
+            (identical(other.user, user) || other.user == user));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, user);
+
+  /// Create a copy of UserViewmodelState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$ChangeProfilePictureSuccessImplCopyWith<_$ChangeProfilePictureSuccessImpl>
+      get copyWith => __$$ChangeProfilePictureSuccessImplCopyWithImpl<
+          _$ChangeProfilePictureSuccessImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() logoutLoading,
+    required TResult Function() logoutSuccess,
+    required TResult Function(String message, Failure failure) logoutFailed,
+    required TResult Function() getUserDetailsLoading,
+    required TResult Function(UserModel user) getUserDetailsSuccess,
+    required TResult Function(String message) noUserFound,
+    required TResult Function(String message, Failure failure)
+        getUserDetailsFailed,
+    required TResult Function() changeNameLoading,
+    required TResult Function(UserModel user) changeNameSuccess,
+    required TResult Function(String message) changeNameFailed,
+    required TResult Function() changeEmailLoading,
+    required TResult Function(UserModel user) changeEmailSuccess,
+    required TResult Function(String message) changeEmailFailed,
+    required TResult Function() changePasswordLoading,
+    required TResult Function(UserModel user) changePasswordSuccess,
+    required TResult Function(String message) changePasswordFailed,
+    required TResult Function() changeProfilePictureLoading,
+    required TResult Function(UserModel user) changeProfilePictureSuccess,
+    required TResult Function(String message) changeProfilePictureFailed,
+  }) {
+    return changeProfilePictureSuccess(user);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? logoutLoading,
+    TResult? Function()? logoutSuccess,
+    TResult? Function(String message, Failure failure)? logoutFailed,
+    TResult? Function()? getUserDetailsLoading,
+    TResult? Function(UserModel user)? getUserDetailsSuccess,
+    TResult? Function(String message)? noUserFound,
+    TResult? Function(String message, Failure failure)? getUserDetailsFailed,
+    TResult? Function()? changeNameLoading,
+    TResult? Function(UserModel user)? changeNameSuccess,
+    TResult? Function(String message)? changeNameFailed,
+    TResult? Function()? changeEmailLoading,
+    TResult? Function(UserModel user)? changeEmailSuccess,
+    TResult? Function(String message)? changeEmailFailed,
+    TResult? Function()? changePasswordLoading,
+    TResult? Function(UserModel user)? changePasswordSuccess,
+    TResult? Function(String message)? changePasswordFailed,
+    TResult? Function()? changeProfilePictureLoading,
+    TResult? Function(UserModel user)? changeProfilePictureSuccess,
+    TResult? Function(String message)? changeProfilePictureFailed,
+  }) {
+    return changeProfilePictureSuccess?.call(user);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? logoutLoading,
+    TResult Function()? logoutSuccess,
+    TResult Function(String message, Failure failure)? logoutFailed,
+    TResult Function()? getUserDetailsLoading,
+    TResult Function(UserModel user)? getUserDetailsSuccess,
+    TResult Function(String message)? noUserFound,
+    TResult Function(String message, Failure failure)? getUserDetailsFailed,
+    TResult Function()? changeNameLoading,
+    TResult Function(UserModel user)? changeNameSuccess,
+    TResult Function(String message)? changeNameFailed,
+    TResult Function()? changeEmailLoading,
+    TResult Function(UserModel user)? changeEmailSuccess,
+    TResult Function(String message)? changeEmailFailed,
+    TResult Function()? changePasswordLoading,
+    TResult Function(UserModel user)? changePasswordSuccess,
+    TResult Function(String message)? changePasswordFailed,
+    TResult Function()? changeProfilePictureLoading,
+    TResult Function(UserModel user)? changeProfilePictureSuccess,
+    TResult Function(String message)? changeProfilePictureFailed,
+    required TResult orElse(),
+  }) {
+    if (changeProfilePictureSuccess != null) {
+      return changeProfilePictureSuccess(user);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(_LogoutLoading value) logoutLoading,
+    required TResult Function(_LogoutSuccess value) logoutSuccess,
+    required TResult Function(_LogoutFailed value) logoutFailed,
+    required TResult Function(_GetUserDetailsLoading value)
+        getUserDetailsLoading,
+    required TResult Function(_GetUserDetailsSuccess value)
+        getUserDetailsSuccess,
+    required TResult Function(_NoUserFound value) noUserFound,
+    required TResult Function(_GetUserDetailsFailed value) getUserDetailsFailed,
+    required TResult Function(_ChangeNameLoading value) changeNameLoading,
+    required TResult Function(_ChangeNameSuccess value) changeNameSuccess,
+    required TResult Function(_ChangeNameFailed value) changeNameFailed,
+    required TResult Function(_ChangeEmailLoading value) changeEmailLoading,
+    required TResult Function(_ChangeEmailSuccess value) changeEmailSuccess,
+    required TResult Function(_ChangeEmailFailed value) changeEmailFailed,
+    required TResult Function(_ChangePasswordLoading value)
+        changePasswordLoading,
+    required TResult Function(_ChangePasswordSuccess value)
+        changePasswordSuccess,
+    required TResult Function(_ChangePasswordFailed value) changePasswordFailed,
+    required TResult Function(_ChangeProfilePictureLoading value)
+        changeProfilePictureLoading,
+    required TResult Function(_ChangeProfilePictureSuccess value)
+        changeProfilePictureSuccess,
+    required TResult Function(_ChangeProfilePictureFailed value)
+        changeProfilePictureFailed,
+  }) {
+    return changeProfilePictureSuccess(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_LogoutLoading value)? logoutLoading,
+    TResult? Function(_LogoutSuccess value)? logoutSuccess,
+    TResult? Function(_LogoutFailed value)? logoutFailed,
+    TResult? Function(_GetUserDetailsLoading value)? getUserDetailsLoading,
+    TResult? Function(_GetUserDetailsSuccess value)? getUserDetailsSuccess,
+    TResult? Function(_NoUserFound value)? noUserFound,
+    TResult? Function(_GetUserDetailsFailed value)? getUserDetailsFailed,
+    TResult? Function(_ChangeNameLoading value)? changeNameLoading,
+    TResult? Function(_ChangeNameSuccess value)? changeNameSuccess,
+    TResult? Function(_ChangeNameFailed value)? changeNameFailed,
+    TResult? Function(_ChangeEmailLoading value)? changeEmailLoading,
+    TResult? Function(_ChangeEmailSuccess value)? changeEmailSuccess,
+    TResult? Function(_ChangeEmailFailed value)? changeEmailFailed,
+    TResult? Function(_ChangePasswordLoading value)? changePasswordLoading,
+    TResult? Function(_ChangePasswordSuccess value)? changePasswordSuccess,
+    TResult? Function(_ChangePasswordFailed value)? changePasswordFailed,
+    TResult? Function(_ChangeProfilePictureLoading value)?
+        changeProfilePictureLoading,
+    TResult? Function(_ChangeProfilePictureSuccess value)?
+        changeProfilePictureSuccess,
+    TResult? Function(_ChangeProfilePictureFailed value)?
+        changeProfilePictureFailed,
+  }) {
+    return changeProfilePictureSuccess?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_LogoutLoading value)? logoutLoading,
+    TResult Function(_LogoutSuccess value)? logoutSuccess,
+    TResult Function(_LogoutFailed value)? logoutFailed,
+    TResult Function(_GetUserDetailsLoading value)? getUserDetailsLoading,
+    TResult Function(_GetUserDetailsSuccess value)? getUserDetailsSuccess,
+    TResult Function(_NoUserFound value)? noUserFound,
+    TResult Function(_GetUserDetailsFailed value)? getUserDetailsFailed,
+    TResult Function(_ChangeNameLoading value)? changeNameLoading,
+    TResult Function(_ChangeNameSuccess value)? changeNameSuccess,
+    TResult Function(_ChangeNameFailed value)? changeNameFailed,
+    TResult Function(_ChangeEmailLoading value)? changeEmailLoading,
+    TResult Function(_ChangeEmailSuccess value)? changeEmailSuccess,
+    TResult Function(_ChangeEmailFailed value)? changeEmailFailed,
+    TResult Function(_ChangePasswordLoading value)? changePasswordLoading,
+    TResult Function(_ChangePasswordSuccess value)? changePasswordSuccess,
+    TResult Function(_ChangePasswordFailed value)? changePasswordFailed,
+    TResult Function(_ChangeProfilePictureLoading value)?
+        changeProfilePictureLoading,
+    TResult Function(_ChangeProfilePictureSuccess value)?
+        changeProfilePictureSuccess,
+    TResult Function(_ChangeProfilePictureFailed value)?
+        changeProfilePictureFailed,
+    required TResult orElse(),
+  }) {
+    if (changeProfilePictureSuccess != null) {
+      return changeProfilePictureSuccess(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _ChangeProfilePictureSuccess implements UserViewmodelState {
+  const factory _ChangeProfilePictureSuccess({required final UserModel user}) =
+      _$ChangeProfilePictureSuccessImpl;
+
+  UserModel get user;
+
+  /// Create a copy of UserViewmodelState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$ChangeProfilePictureSuccessImplCopyWith<_$ChangeProfilePictureSuccessImpl>
+      get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$ChangeProfilePictureFailedImplCopyWith<$Res> {
+  factory _$$ChangeProfilePictureFailedImplCopyWith(
+          _$ChangeProfilePictureFailedImpl value,
+          $Res Function(_$ChangeProfilePictureFailedImpl) then) =
+      __$$ChangeProfilePictureFailedImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String message});
+}
+
+/// @nodoc
+class __$$ChangeProfilePictureFailedImplCopyWithImpl<$Res>
+    extends _$UserViewmodelStateCopyWithImpl<$Res,
+        _$ChangeProfilePictureFailedImpl>
+    implements _$$ChangeProfilePictureFailedImplCopyWith<$Res> {
+  __$$ChangeProfilePictureFailedImplCopyWithImpl(
+      _$ChangeProfilePictureFailedImpl _value,
+      $Res Function(_$ChangeProfilePictureFailedImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of UserViewmodelState
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? message = null,
+  }) {
+    return _then(_$ChangeProfilePictureFailedImpl(
+      message: null == message
+          ? _value.message
+          : message // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$ChangeProfilePictureFailedImpl implements _ChangeProfilePictureFailed {
+  const _$ChangeProfilePictureFailedImpl({required this.message});
+
+  @override
+  final String message;
+
+  @override
+  String toString() {
+    return 'UserViewmodelState.changeProfilePictureFailed(message: $message)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$ChangeProfilePictureFailedImpl &&
+            (identical(other.message, message) || other.message == message));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, message);
+
+  /// Create a copy of UserViewmodelState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$ChangeProfilePictureFailedImplCopyWith<_$ChangeProfilePictureFailedImpl>
+      get copyWith => __$$ChangeProfilePictureFailedImplCopyWithImpl<
+          _$ChangeProfilePictureFailedImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() logoutLoading,
+    required TResult Function() logoutSuccess,
+    required TResult Function(String message, Failure failure) logoutFailed,
+    required TResult Function() getUserDetailsLoading,
+    required TResult Function(UserModel user) getUserDetailsSuccess,
+    required TResult Function(String message) noUserFound,
+    required TResult Function(String message, Failure failure)
+        getUserDetailsFailed,
+    required TResult Function() changeNameLoading,
+    required TResult Function(UserModel user) changeNameSuccess,
+    required TResult Function(String message) changeNameFailed,
+    required TResult Function() changeEmailLoading,
+    required TResult Function(UserModel user) changeEmailSuccess,
+    required TResult Function(String message) changeEmailFailed,
+    required TResult Function() changePasswordLoading,
+    required TResult Function(UserModel user) changePasswordSuccess,
+    required TResult Function(String message) changePasswordFailed,
+    required TResult Function() changeProfilePictureLoading,
+    required TResult Function(UserModel user) changeProfilePictureSuccess,
+    required TResult Function(String message) changeProfilePictureFailed,
+  }) {
+    return changeProfilePictureFailed(message);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? logoutLoading,
+    TResult? Function()? logoutSuccess,
+    TResult? Function(String message, Failure failure)? logoutFailed,
+    TResult? Function()? getUserDetailsLoading,
+    TResult? Function(UserModel user)? getUserDetailsSuccess,
+    TResult? Function(String message)? noUserFound,
+    TResult? Function(String message, Failure failure)? getUserDetailsFailed,
+    TResult? Function()? changeNameLoading,
+    TResult? Function(UserModel user)? changeNameSuccess,
+    TResult? Function(String message)? changeNameFailed,
+    TResult? Function()? changeEmailLoading,
+    TResult? Function(UserModel user)? changeEmailSuccess,
+    TResult? Function(String message)? changeEmailFailed,
+    TResult? Function()? changePasswordLoading,
+    TResult? Function(UserModel user)? changePasswordSuccess,
+    TResult? Function(String message)? changePasswordFailed,
+    TResult? Function()? changeProfilePictureLoading,
+    TResult? Function(UserModel user)? changeProfilePictureSuccess,
+    TResult? Function(String message)? changeProfilePictureFailed,
+  }) {
+    return changeProfilePictureFailed?.call(message);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? logoutLoading,
+    TResult Function()? logoutSuccess,
+    TResult Function(String message, Failure failure)? logoutFailed,
+    TResult Function()? getUserDetailsLoading,
+    TResult Function(UserModel user)? getUserDetailsSuccess,
+    TResult Function(String message)? noUserFound,
+    TResult Function(String message, Failure failure)? getUserDetailsFailed,
+    TResult Function()? changeNameLoading,
+    TResult Function(UserModel user)? changeNameSuccess,
+    TResult Function(String message)? changeNameFailed,
+    TResult Function()? changeEmailLoading,
+    TResult Function(UserModel user)? changeEmailSuccess,
+    TResult Function(String message)? changeEmailFailed,
+    TResult Function()? changePasswordLoading,
+    TResult Function(UserModel user)? changePasswordSuccess,
+    TResult Function(String message)? changePasswordFailed,
+    TResult Function()? changeProfilePictureLoading,
+    TResult Function(UserModel user)? changeProfilePictureSuccess,
+    TResult Function(String message)? changeProfilePictureFailed,
+    required TResult orElse(),
+  }) {
+    if (changeProfilePictureFailed != null) {
+      return changeProfilePictureFailed(message);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(_LogoutLoading value) logoutLoading,
+    required TResult Function(_LogoutSuccess value) logoutSuccess,
+    required TResult Function(_LogoutFailed value) logoutFailed,
+    required TResult Function(_GetUserDetailsLoading value)
+        getUserDetailsLoading,
+    required TResult Function(_GetUserDetailsSuccess value)
+        getUserDetailsSuccess,
+    required TResult Function(_NoUserFound value) noUserFound,
+    required TResult Function(_GetUserDetailsFailed value) getUserDetailsFailed,
+    required TResult Function(_ChangeNameLoading value) changeNameLoading,
+    required TResult Function(_ChangeNameSuccess value) changeNameSuccess,
+    required TResult Function(_ChangeNameFailed value) changeNameFailed,
+    required TResult Function(_ChangeEmailLoading value) changeEmailLoading,
+    required TResult Function(_ChangeEmailSuccess value) changeEmailSuccess,
+    required TResult Function(_ChangeEmailFailed value) changeEmailFailed,
+    required TResult Function(_ChangePasswordLoading value)
+        changePasswordLoading,
+    required TResult Function(_ChangePasswordSuccess value)
+        changePasswordSuccess,
+    required TResult Function(_ChangePasswordFailed value) changePasswordFailed,
+    required TResult Function(_ChangeProfilePictureLoading value)
+        changeProfilePictureLoading,
+    required TResult Function(_ChangeProfilePictureSuccess value)
+        changeProfilePictureSuccess,
+    required TResult Function(_ChangeProfilePictureFailed value)
+        changeProfilePictureFailed,
+  }) {
+    return changeProfilePictureFailed(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_LogoutLoading value)? logoutLoading,
+    TResult? Function(_LogoutSuccess value)? logoutSuccess,
+    TResult? Function(_LogoutFailed value)? logoutFailed,
+    TResult? Function(_GetUserDetailsLoading value)? getUserDetailsLoading,
+    TResult? Function(_GetUserDetailsSuccess value)? getUserDetailsSuccess,
+    TResult? Function(_NoUserFound value)? noUserFound,
+    TResult? Function(_GetUserDetailsFailed value)? getUserDetailsFailed,
+    TResult? Function(_ChangeNameLoading value)? changeNameLoading,
+    TResult? Function(_ChangeNameSuccess value)? changeNameSuccess,
+    TResult? Function(_ChangeNameFailed value)? changeNameFailed,
+    TResult? Function(_ChangeEmailLoading value)? changeEmailLoading,
+    TResult? Function(_ChangeEmailSuccess value)? changeEmailSuccess,
+    TResult? Function(_ChangeEmailFailed value)? changeEmailFailed,
+    TResult? Function(_ChangePasswordLoading value)? changePasswordLoading,
+    TResult? Function(_ChangePasswordSuccess value)? changePasswordSuccess,
+    TResult? Function(_ChangePasswordFailed value)? changePasswordFailed,
+    TResult? Function(_ChangeProfilePictureLoading value)?
+        changeProfilePictureLoading,
+    TResult? Function(_ChangeProfilePictureSuccess value)?
+        changeProfilePictureSuccess,
+    TResult? Function(_ChangeProfilePictureFailed value)?
+        changeProfilePictureFailed,
+  }) {
+    return changeProfilePictureFailed?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_LogoutLoading value)? logoutLoading,
+    TResult Function(_LogoutSuccess value)? logoutSuccess,
+    TResult Function(_LogoutFailed value)? logoutFailed,
+    TResult Function(_GetUserDetailsLoading value)? getUserDetailsLoading,
+    TResult Function(_GetUserDetailsSuccess value)? getUserDetailsSuccess,
+    TResult Function(_NoUserFound value)? noUserFound,
+    TResult Function(_GetUserDetailsFailed value)? getUserDetailsFailed,
+    TResult Function(_ChangeNameLoading value)? changeNameLoading,
+    TResult Function(_ChangeNameSuccess value)? changeNameSuccess,
+    TResult Function(_ChangeNameFailed value)? changeNameFailed,
+    TResult Function(_ChangeEmailLoading value)? changeEmailLoading,
+    TResult Function(_ChangeEmailSuccess value)? changeEmailSuccess,
+    TResult Function(_ChangeEmailFailed value)? changeEmailFailed,
+    TResult Function(_ChangePasswordLoading value)? changePasswordLoading,
+    TResult Function(_ChangePasswordSuccess value)? changePasswordSuccess,
+    TResult Function(_ChangePasswordFailed value)? changePasswordFailed,
+    TResult Function(_ChangeProfilePictureLoading value)?
+        changeProfilePictureLoading,
+    TResult Function(_ChangeProfilePictureSuccess value)?
+        changeProfilePictureSuccess,
+    TResult Function(_ChangeProfilePictureFailed value)?
+        changeProfilePictureFailed,
+    required TResult orElse(),
+  }) {
+    if (changeProfilePictureFailed != null) {
+      return changeProfilePictureFailed(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _ChangeProfilePictureFailed implements UserViewmodelState {
+  const factory _ChangeProfilePictureFailed({required final String message}) =
+      _$ChangeProfilePictureFailedImpl;
+
+  String get message;
+
+  /// Create a copy of UserViewmodelState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$ChangeProfilePictureFailedImplCopyWith<_$ChangeProfilePictureFailedImpl>
       get copyWith => throw _privateConstructorUsedError;
 }

@@ -4,4 +4,5 @@ class FirebaseConstants {
   static const String tasks = "tasks";
   static const String feedbacks = "feedbacks";
   static const String userFeedbacks = "user_feedbacks";
+  static const String userPhoto = "profile_photo";
 }

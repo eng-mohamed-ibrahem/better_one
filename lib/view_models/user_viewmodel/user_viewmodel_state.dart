@@ -48,4 +48,13 @@ class UserViewmodelState with _$UserViewmodelState {
 
   const factory UserViewmodelState.changePasswordFailed(
       {required String message}) = _ChangePasswordFailed;
+
+  const factory UserViewmodelState.changeProfilePictureLoading() =
+      _ChangeProfilePictureLoading;
+
+  const factory UserViewmodelState.changeProfilePictureSuccess(
+      {required UserModel user}) = _ChangeProfilePictureSuccess;
+
+  const factory UserViewmodelState.changeProfilePictureFailed(
+      {required String message}) = _ChangeProfilePictureFailed;
 }

@@ -10,5 +10,6 @@ abstract class RemoteUserSource with CRUDTaskMixin {
     String? newEmail,
     String? newPassword,
     String? newDisplayName,
+    String? newPhotoPath,
   });
 }

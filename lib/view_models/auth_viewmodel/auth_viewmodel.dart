@@ -85,25 +85,4 @@ class AuthViewmodel extends Cubit<AuthViewmodelState> {
       },
     );
   }
-
-  void verifyPasswordResetCode({required String code}) async {
-    emit(const _VerifyPasswordResetCodeLoading());
-    var result = await authRepo.verifyPasswordResetCode(code);
-    result.when(
-      success: (message) {
-        emit(const _VerifyPasswordResetCodeSuccess());
-      },
-      failure: (failure) {
-        if (failure is ParserFailure || failure is OtherFailure) {
-          emit(
-            _VerifyPasswordResetCodeFailed(message: 'core.wrong'.tr()),
-          );
-          return;
-        }
-        emit(
-          _VerifyPasswordResetCodeFailed(message: failure.message),
-        );
-      },
-    );
-  }
 }

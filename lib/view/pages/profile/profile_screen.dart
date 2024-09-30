@@ -14,6 +14,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
+import 'package:image_picker/image_picker.dart';
 
 class ProfileScreen extends StatefulWidget {
   const ProfileScreen({super.key});
@@ -53,6 +54,9 @@ class _ProfileSettingScreenState extends State<ProfileScreen> {
           state.whenOrNull(
             getUserDetailsSuccess: (user) {
               emailController.text = user.email;
+              nameController.text = user.name;
+            },
+            changeNameSuccess: (user) {
               nameController.text = user.name;
             },
             noUserFound: (message) {
@@ -99,14 +103,17 @@ class _ProfileSettingScreenState extends State<ProfileScreen> {
               return const SizedBox.shrink();
             },
             orElse: () {
+              var user = context.read<UserViewmodel>().currentUser;
               return SingleChildScrollView(
                 physics: const AlwaysScrollableScrollPhysics(),
                 child: Column(
+                  mainAxisSize: MainAxisSize.min,
                   children: [
                     SizedBox(
                       width: MediaQuery.sizeOf(context).width,
-                      height: MediaQuery.sizeOf(context).height * 0.3,
+                      height: MediaQuery.sizeOf(context).height * 0.4,
                       child: Stack(
+                        clipBehavior: Clip.none,
                         children: [
                           CustomPaint(
                             size: Size(
@@ -122,8 +129,6 @@ class _ProfileSettingScreenState extends State<ProfileScreen> {
                                 horizontal: 10.w,
                                 vertical: MediaQuery.paddingOf(context).top),
                             child: Column(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              mainAxisSize: MainAxisSize.max,
                               children: [
                                 Row(
                                   mainAxisAlignment:
@@ -151,18 +156,12 @@ class _ProfileSettingScreenState extends State<ProfileScreen> {
                                 const SizedBox(
                                     height: AppMetrices.verticalGap2),
                                 Text(
-                                  context
-                                      .read<UserViewmodel>()
-                                      .currentUser
-                                      .name,
+                                  user.name,
                                   style: Theme.of(context).textTheme.titleLarge,
                                   textAlign: TextAlign.center,
                                 ),
                                 Text(
-                                  context
-                                      .read<UserViewmodel>()
-                                      .currentUser
-                                      .email,
+                                  user.email,
                                   style:
                                       Theme.of(context).textTheme.titleMedium,
                                   textAlign: TextAlign.center,
@@ -182,6 +181,93 @@ class _ProfileSettingScreenState extends State<ProfileScreen> {
                                           .titleSmall,
                                     ),
                                   ],
+                                ),
+                              ],
+                            ),
+                          ),
+                          Positioned(
+                            left: MediaQuery.sizeOf(context).width / 2 - 40.r,
+                            top: MediaQuery.sizeOf(context).height * 0.3 - 40.r,
+                            child: Stack(
+                              alignment: AlignmentDirectional.bottomEnd,
+                              children: [
+                                InkWell(
+                                  radius: 40.r,
+                                  onTap: () {
+                                    user.photoUrl != null
+                                        ? showDialog(
+                                            context: context,
+                                            builder: (context) {
+                                              return AlertDialog.adaptive(
+                                                content: AspectRatio(
+                                                  aspectRatio: 3 / 4,
+                                                  child: InteractiveViewer(
+                                                    maxScale: 5,
+                                                    child: Image.network(
+                                                        user.photoUrl!),
+                                                  ),
+                                                ),
+                                                actions: [
+                                                  // remove image
+                                                  TextButton(
+                                                    onPressed: () {
+                                                      Navigator.pop(context);
+                                                    },
+                                                    child: Text(
+                                                      'core.remove'.tr(),
+                                                      style: Theme.of(context)
+                                                          .textTheme
+                                                          .titleSmall,
+                                                    ),
+                                                  ),
+                                                  // add image
+                                                  TextButton(
+                                                    onPressed: () async {
+                                                      Navigator.pop(context);
+                                                      await _pickImage(context);
+                                                    },
+                                                    child: Text(
+                                                      'core.add'.tr(),
+                                                      style: Theme.of(context)
+                                                          .textTheme
+                                                          .titleSmall,
+                                                    ),
+                                                  ),
+                                                ],
+                                              );
+                                            },
+                                          )
+                                        : null;
+                                  },
+                                  child: CircleAvatar(
+                                    backgroundColor: Colors.grey.shade200,
+                                    radius: 40.r,
+                                    backgroundImage: user.photoUrl == null
+                                        ? null
+                                        : NetworkImage(user.photoUrl!),
+                                  ),
+                                ),
+                                Transform.translate(
+                                  offset: const Offset(10, 10),
+                                  child: state.maybeWhen(
+                                    changeProfilePictureLoading: () {
+                                      return SizedBox(
+                                        width: 24.w,
+                                        height: 24.h,
+                                        child:
+                                            const CircularProgressIndicator(),
+                                      );
+                                    },
+                                    orElse: () {
+                                      return IconButton(
+                                        onPressed: () async {
+                                          await _pickImage(context);
+                                        },
+                                        icon: const Icon(
+                                            Icons.add_a_photo_rounded),
+                                      );
+                                    },
+                                  ),
                                 ),
                               ],
                             ),
@@ -283,6 +369,13 @@ class _ProfileSettingScreenState extends State<ProfileScreen> {
         child: const Icon(Icons.feedback),
       ),
     );
+  }
+
+  Future<void> _pickImage(BuildContext context) async {
+    var xFile = await ImagePicker().pickImage(source: ImageSource.gallery);
+    if (xFile != null && context.mounted) {
+      context.read<UserViewmodel>().changeProfilePicture(xFile.path);
+    }
   }
 }
 

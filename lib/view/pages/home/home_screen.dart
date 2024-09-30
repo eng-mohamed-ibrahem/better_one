@@ -77,6 +77,7 @@ class _HomeScreenState extends State<HomeScreen> with RouteAware {
               builder: (context, state) {
                 return state.maybeWhen(
                   allTasksLoading: () {
+                    kDebugPrint("allTasksLoading");
                     return Skeletonizer(
                       child: ListView.builder(
                         itemCount: 5,
