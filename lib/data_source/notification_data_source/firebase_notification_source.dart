@@ -49,8 +49,10 @@ class FirebaseNotificationSource implements NotificationSourceInterface {
   }) async {
     try {
       var db = FirebaseFirestore.instance;
-      var query =
-          db.collection(FirebaseConstants.completeNotifications).limit(limit);
+      var query = db
+          .collection(FirebaseConstants.completeNotifications)
+          .orderBy('created_at', descending: true)
+          .limit(limit);
 
       if (startAfter != null) {
         query = query.startAfterDocument(startAfter);
