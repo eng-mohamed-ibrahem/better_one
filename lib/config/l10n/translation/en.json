@@ -50,11 +50,11 @@
         "add_sub_task": "Add sub-task",
         "title": "Your Task Title",
         "description": "Something you want to achieve",
-        "motive_add": "New Challenge, take a look and give encourage",
-        "motive_update": "Great, you friend has added more challenges to this task",
-        "motive_complete": "Challenges have completed, give congratulate",
-        "motive_reminder": "Don't forget to do it",
-        "motive_reminder_body": "Continue your task or create a new one",
+        "task_notification_action": {
+            "add": "add new Chanllenge:",
+            "update": "update The Challenge:",
+            "complete": "complete The Challenge:"
+        },
         "update": "Update",
         "delete": "Delete this task?",
         "confirm_delete": "Delete task",

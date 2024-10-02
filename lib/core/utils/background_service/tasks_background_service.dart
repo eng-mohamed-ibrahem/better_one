@@ -24,7 +24,7 @@ class TasksBackgroundService {
       StreamController.broadcast();
   static Stream get serviceStream => _streamController.stream;
   static void downloadTasks(RootIsolateToken? token) async {
-    kDebugPrint('root isolate download task');
+    kDebugPrint('root isolate, download task');
     await Isolate.spawn(
       _downloadEntryPoint,
       {
@@ -35,18 +35,7 @@ class TasksBackgroundService {
   }
 
   static void _downloadEntryPoint(Map<String, dynamic> args) async {
-    DartPluginRegistrant.ensureInitialized();
-    kDebugPrint("begin download task");
-    BackgroundIsolateBinaryMessenger.ensureInitialized(
-        (args['token'] as RootIsolateToken));
-
-    await Firebase.initializeApp(
-      options: DefaultFirebaseOptions.currentPlatform,
-    );
-    kDebugPrint("firebase init");
-
-    var appDir = await getApplicationDocumentsDirectory();
-    Hive.init(appDir.path);
+    await _initialize(args);
     var appCache = await Hive.openBox(CacheKeys.userData);
     kDebugPrint("hive init");
 
@@ -106,6 +95,21 @@ class TasksBackgroundService {
       kDebugPrint("end loading tasks: error ${e.toString()}");
       (args['send_port'] as SendPort).send(false);
     }
+  }
+
+  static Future<void> _initialize(Map<String, dynamic> args) async {
+    DartPluginRegistrant.ensureInitialized();
+    kDebugPrint("begin download task");
+    BackgroundIsolateBinaryMessenger.ensureInitialized(
+        (args['token'] as RootIsolateToken));
+    
+    await Firebase.initializeApp(
+      options: DefaultFirebaseOptions.currentPlatform,
+    );
+    kDebugPrint("firebase init");
+    
+    var appDir = await getApplicationDocumentsDirectory();
+    Hive.init(appDir.path);
   }
 
   static void uploadTasks(RootIsolateToken? token) async {

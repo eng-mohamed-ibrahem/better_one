@@ -79,19 +79,21 @@ class CreateTaskScreen extends StatelessWidget {
                   state.whenOrNull(
                     createTaskCompleted: (createdTask) {
                       inject<SettingViewmodel>().notificationSetting!.sendOnAdd
-                          ? inject<NotificationRepoInterface>()
-                              .sendNotification(
-                              NotificationModel(
-                                userName: inject<LocaleUserInfo>()
-                                    .getUserData()!
-                                    .name,
-                                userImageUrl: inject<LocaleUserInfo>()
-                                    .getUserData()!
-                                    .photoUrl,
-                                comment: 'task.motive_add'.tr(),
-                                payload: createdTask.id,
-                              ),
-                            )
+                          ? () {
+                              var user = inject<LocaleUserInfo>().getUserData();
+                              inject<NotificationRepoInterface>()
+                                  .sendNotification(
+                                NotificationModel(
+                                  userName: user!.name,
+                                  senderId: user.id,
+                                  userImageUrl: user.photoUrl,
+                                  comment:
+                                      "${'task.task_notification_action.add'.tr()} ${createdTask.title}",
+                                  payload: createdTask.id,
+                                  createdAt: createdTask.createdAt,
+                                ),
+                              );
+                            }()
                           : null;
                       inject<FirebaseAnalytics>().logEvent(
                         name: 'create_task',

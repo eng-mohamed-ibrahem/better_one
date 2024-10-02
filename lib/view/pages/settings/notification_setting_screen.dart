@@ -1,4 +1,5 @@
 import 'package:better_one/core/constants/constants.dart';
+import 'package:better_one/core/utils/cache_service/cach_interface/locale_user_info.dart';
 import 'package:better_one/core/utils/dependency_locator/dependency_injection.dart';
 import 'package:better_one/core/utils/dependency_locator/inject.dart';
 import 'package:better_one/core/utils/methods/methods.dart';
@@ -57,8 +58,10 @@ class _NotificationScreenState extends State<NotificationSettingScreen> {
                 inject<FlutterLocalNotification>().display(
                   // this is special for display locale notification
                   notification: NotificationModel(
+                    senderId: inject<LocaleUserInfo>().getUserData()!.id,
                     userName: "setting.notification.event_added".tr(),
                     comment: event.title,
+                    createdAt: DateTime.now(),
                   ),
                 );
               },
@@ -153,17 +156,18 @@ class _NotificationScreenState extends State<NotificationSettingScreen> {
                                 sendOnComplete: isSelected);
                       },
                     ),
-                    Divider(
-                      thickness: 1.5,
-                      color: AppColors.secondColor,
-                      height: 20.h,
-                    ),
+                    // Divider(
+                    //   thickness: 1.5,
+                    //   color: AppColors.secondColor,
+                    //   height: 20.h,
+                    // ),
                     TextButton(
                       onPressed: () {
                         createEvent(context);
                       },
                       child: Text('setting.notification.event.add_event'.tr()),
                     ),
+                    // todo mute notifications incomming
                   ],
                 );
               },

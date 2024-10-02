@@ -10,6 +10,8 @@ import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:intl/date_symbol_data_local.dart';
 
+import 'core/utils/background_service/notification_background_service.dart';
+
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await EasyLocalization.ensureInitialized();
@@ -41,6 +43,9 @@ void main() async {
       );
     },
   );
+  
+  NotificationBackgroundService.listenToNotification(
+      ServicesBinding.rootIsolateToken);
 
   runApp(
     EasyLocalization(
@@ -54,4 +59,5 @@ void main() async {
       child: const RootApp(),
     ),
   );
+
 }

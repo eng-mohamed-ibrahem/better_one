@@ -12,6 +12,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
+import 'package:skeletonizer/skeletonizer.dart';
 
 class NotificationScreen extends StatefulWidget {
   const NotificationScreen({super.key});
@@ -73,18 +74,24 @@ class _NotificationScreenState extends State<NotificationScreen> {
         builder: (context, state) {
           return state.maybeWhen(
             getNotificationloading: () {
-              return Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  const Center(
-                    child: CircularProgressIndicator.adaptive(),
-                  ),
-                  const SizedBox(height: 5),
-                  Text(
-                    "notification.loading".tr(),
-                    style: Theme.of(context).textTheme.bodyMedium,
-                  ),
-                ],
+              return Skeletonizer(
+                child: ListView.separated(
+                  itemCount: 5,
+                  itemBuilder: (context, index) {
+                    return  CardNotification(
+                      notification: NotificationModel(
+                        userName: "userName",
+                        senderId: "senderId",
+                        userImageUrl: "userImageUrl",
+                        comment: "comment",
+                        createdAt: DateTime.now(),
+                      ),
+                    );
+                  },
+                  separatorBuilder: (context, index) {
+                    return const SizedBox(height: 15);
+                  },
+                ),
               );
             },
             getNotificationFailed: (failure, message) {

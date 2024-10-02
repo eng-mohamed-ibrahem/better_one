@@ -9,12 +9,12 @@ class CardNotification extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(
-      margin: EdgeInsets.symmetric(horizontal: 10.w),
+      margin: EdgeInsets.symmetric(horizontal: 12.w),
       clipBehavior: Clip.antiAlias,
       child: Directionality(
         textDirection: TextDirection.ltr,
         child: Container(
-          padding: EdgeInsets.symmetric(horizontal: 10.w, vertical: 10.h),
+          padding: EdgeInsets.symmetric(horizontal: 15.w, vertical: 15.h),
           decoration: BoxDecoration(
             border: BorderDirectional(
               end: BorderSide(
@@ -23,38 +23,50 @@ class CardNotification extends StatelessWidget {
               ),
             ),
           ),
-          child: Flexible(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              mainAxisSize: MainAxisSize.min,
-              children: [
-                // Card(
-                //   shadowColor: Theme.of(context).shadowColor,
-                //   child: Padding(
-                //     padding: EdgeInsets.symmetric(horizontal: 5.w),
-                //     child: Text(notification.body,
-                //         style: Theme.of(context).textTheme.bodyLarge),
-                //   ),
-                // ),
-                // Row(
-                //   children: [
-                //     Text('notification.title_hint'.tr(),
-                //         style: Theme.of(context).textTheme.bodySmall),
-                //     Text(notification.body,
-                //         style: Theme.of(context).textTheme.bodyLarge),
-                //   ],
-                // ),
-                Text(notification.userName,
-                    style: Theme.of(context).textTheme.bodyLarge),
-
-                SizedBox(height: 15.h),
-                Padding(
-                  padding: EdgeInsetsDirectional.only(start: 8.w),
-                  child: Text(notification.comment,
-                      style: Theme.of(context).textTheme.bodySmall),
+          child: Row(
+            children: [
+              Stack(
+                alignment: AlignmentDirectional.bottomEnd,
+                children: [
+                  CircleAvatar(
+                    radius: 30.r,
+                    backgroundColor: Colors.grey.shade200,
+                    backgroundImage: notification.userImageUrl != null
+                        ? NetworkImage(notification.userImageUrl!)
+                        : null,
+                    child: notification.userImageUrl == null
+                        ? Icon(
+                            Icons.person,
+                            size: 30.r,
+                          )
+                        : null,
+                  ),
+                  CircleAvatar(
+                    radius: 8.r,
+                    backgroundColor: Theme.of(context).secondaryHeaderColor,
+                    child: Icon(
+                      Icons.notifications,
+                      size: 15.r,
+                      color: Colors.white,
+                    ),
+                  ),
+                ],
+              ),
+              SizedBox(width: 10.w),
+              Flexible(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    Text(notification.userName,
+                        style: Theme.of(context).textTheme.bodyLarge),
+                    SizedBox(height: 10.h),
+                    Text(notification.comment,
+                        style: Theme.of(context).textTheme.bodySmall),
+                  ],
                 ),
-              ],
-            ),
+              ),
+            ],
           ),
         ),
       ),
