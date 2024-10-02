@@ -57,11 +57,11 @@
         "title": "عنوان مهمتك",
         "remove": "تم حذف المهمة بنجاح",
         "description": "ما تحتاج تنفيذه",
-        "motive_add": "تحدٍ جديد، ألق نظرة وشجّع",
-        "motive_update": "رائع، لقد أضاف صديقك المزيد من التحديات لهذه المهمة",
-        "motive_complete": "التحديات قد اكتملت، قدم التهنئة",
-        "motive_reminder": "لا تنسى ان تحقق هدفك",
-        "motive_reminder_body": "اكمل المهمة او انشيء مهمة جديدة",
+        "task_notification_action": {
+            "add": "اضاف تحد جديد:",
+            "update": "حدث التحدى:",
+            "complete": "اكمل التحدى:"
+        },
         "pause": "توقف",
         "start": "بدء",
         "status": {

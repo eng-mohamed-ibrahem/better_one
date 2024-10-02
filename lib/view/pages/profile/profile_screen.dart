@@ -355,7 +355,6 @@ class _ProfileSettingScreenState extends State<ProfileScreen> {
             Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                // add image
                 TextButton(
                   onPressed: () async {
                     await _pickImage(context);
@@ -367,7 +366,6 @@ class _ProfileSettingScreenState extends State<ProfileScreen> {
                     style: Theme.of(context).textTheme.titleSmall,
                   ),
                 ),
-                // remove image
                 FilledButton(
                   onPressed: () async {
                     await _pickImage(context, remove: true);

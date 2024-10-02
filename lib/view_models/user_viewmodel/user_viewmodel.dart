@@ -1,9 +1,12 @@
 import 'package:better_one/core/errors/failure.dart';
+import 'package:better_one/core/utils/cache_service/cach_interface/locale_user_info.dart';
 import 'package:better_one/model/user_model/user_model.dart';
 import 'package:better_one/repositories/user_repo/user_repo_intefrace.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
+
+import '../../core/utils/dependency_locator/inject.dart';
 
 part 'user_viewmodel.freezed.dart';
 part 'user_viewmodel_state.dart';
@@ -39,7 +42,7 @@ class UserViewmodel extends Cubit<UserViewmodelState> {
         emit(
           _GetUserDetailsSuccess(user: currentUser = user),
         );
-      },
+        inject<LocaleUserInfo>().setUsetData(user: currentUser);      },
       failure: (failure) {
         if (failure is FirebaseFailure) {
           if (failure.code == "no_user") {
@@ -64,6 +67,7 @@ class UserViewmodel extends Cubit<UserViewmodelState> {
     result.when(
       success: (user) {
         currentUser = user;
+        inject<LocaleUserInfo>().setUsetData(user: currentUser);
         emit(_ChangeNameSuccess(user: user));
       },
       failure: (failure) {
@@ -120,6 +124,7 @@ class UserViewmodel extends Cubit<UserViewmodelState> {
     result.when(
       success: (user) {
         currentUser = user;
+        inject<LocaleUserInfo>().setUsetData(user: currentUser);
         emit(_ChangeProfilePictureSuccess(user: user));
       },
       failure: (failure) {

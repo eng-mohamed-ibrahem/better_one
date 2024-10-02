@@ -130,21 +130,7 @@ class _TaskScreenState extends State<TaskDetailsScreen>
                     duration: const Duration(seconds: 3, milliseconds: 500),
                   )..forward(),
                 );
-                inject<SettingViewmodel>().notificationSetting!.sendOnComplete
-                    ? () {
-                        inject<NotificationRepoInterface>().sendNotification(
-                          NotificationModel(
-                            userName:
-                                inject<LocaleUserInfo>().getUserData()!.name,
-                            userImageUrl: inject<LocaleUserInfo>()
-                                .getUserData()!
-                                .photoUrl,
-                            comment: 'task.motive_complete'.tr(),
-                            payload: task!.id,
-                          ),
-                        );
-                      }()
-                    : null;
+                _handleSendingNotification();
 
                 inject<FirebaseAnalytics>().logEvent(
                   name: 'complete_task',
@@ -400,5 +386,41 @@ class _TaskScreenState extends State<TaskDetailsScreen>
         },
       ),
     );
+  }
+
+  void _handleSendingNotification() {
+    inject<SettingViewmodel>().notificationSetting!.sendOnComplete
+        ? () {
+            var user = inject<LocaleUserInfo>().getUserData();
+            inject<NotificationRepoInterface>().sendNotification(
+              NotificationModel(
+                userName: user!.name,
+                senderId: user.id,
+                userImageUrl: user.photoUrl,
+                comment:
+                    "${'task.task_notification_action.complete'.tr()} ${task!.title}",
+                payload: task!.id,
+                createdAt: DateTime.now(),
+              ),
+            );
+          }()
+        : null;
+    inject<SettingViewmodel>().notificationSetting!.sendOnUpdate &&
+            isTaskModified
+        ? () {
+            var user = inject<LocaleUserInfo>().getUserData();
+            inject<NotificationRepoInterface>().sendNotification(
+              NotificationModel(
+                userName: user!.name,
+                senderId: user.id,
+                userImageUrl: user.photoUrl,
+                comment:
+                    "${'task.task_notification_action.update'.tr()} ${task!.title}",
+                payload: task!.id,
+                createdAt: DateTime.now(),
+              ),
+            );
+          }()
+        : null;
   }
 }
