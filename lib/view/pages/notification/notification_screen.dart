@@ -76,17 +76,9 @@ class _NotificationScreenState extends State<NotificationScreen> {
             getNotificationloading: () {
               return Skeletonizer(
                 child: ListView.separated(
-                  itemCount: 5,
+                  itemCount: 10,
                   itemBuilder: (context, index) {
-                    return  CardNotification(
-                      notification: NotificationModel(
-                        userName: "userName",
-                        senderId: "senderId",
-                        userImageUrl: "userImageUrl",
-                        comment: "comment",
-                        createdAt: DateTime.now(),
-                      ),
-                    );
+                    return CardNotification.skeleton();
                   },
                   separatorBuilder: (context, index) {
                     return const SizedBox(height: 15);
