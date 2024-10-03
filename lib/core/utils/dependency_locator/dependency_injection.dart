@@ -63,6 +63,7 @@ Future<void> notificationDependency() async {
     FlutterLocalNotification(),
   );
   await localNotification.init();
+  localNotification.requestPermissions();
   notificationRepo = _getIt.registerSingleton<NotificationRepoInterface>(
     NotificationRepoImpl(
       notificationSource: FirebaseNotificationSource(),

@@ -4,7 +4,6 @@ import 'package:better_one/core/utils/dependency_locator/dependency_injection.da
 import 'package:better_one/core/utils/dependency_locator/inject.dart';
 import 'package:better_one/core/utils/methods/methods.dart';
 import 'package:better_one/core/utils/shared_widgets/back_button_l10n.dart';
-import 'package:better_one/core/utils/shared_widgets/loading_data.dart';
 import 'package:better_one/model/settings_item_model/setting_item_model.dart';
 import 'package:better_one/view/widgets/setting_widgets/language_setting_widget.dart';
 import 'package:better_one/view/widgets/setting_widgets/setting_item_widget.dart';
@@ -15,6 +14,7 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
+import 'package:skeletonizer/skeletonizer.dart';
 
 import '../../../core/constants/constants.dart';
 
@@ -89,7 +89,9 @@ class _SettingScreenState extends State<SettingScreen> with RouteAware {
                                       .read<ThemeViewModel>()
                                       .state
                                       .isGetThemeLoading
-                                  ? const LoadingDataShimmer()
+                                  ? const Skeletonizer(
+                                      child: ThemeSetting(),
+                                    )
                                   : const ThemeSetting(),
                         );
                       } else {

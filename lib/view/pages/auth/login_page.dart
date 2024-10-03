@@ -113,7 +113,7 @@ class _LoginState extends State<LogIn> {
                       showSnackBar(context, message: 'auth.login_succ'.tr());
                       TasksBackgroundService.syncTasks(
                           ServicesBinding.rootIsolateToken);
-                      NotificationBackgroundService.listenToNotification(ServicesBinding.rootIsolateToken);
+                      NotificationBackgroundService().initializeService();
                       context.goNamed(Routes.profile.name);
                     }
                   },

@@ -43,9 +43,8 @@ void main() async {
       );
     },
   );
-  
-  NotificationBackgroundService.listenToNotification(
-      ServicesBinding.rootIsolateToken);
+
+  NotificationBackgroundService().initializeService();
 
   runApp(
     EasyLocalization(
@@ -59,5 +58,4 @@ void main() async {
       child: const RootApp(),
     ),
   );
-
 }

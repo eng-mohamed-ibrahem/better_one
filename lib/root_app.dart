@@ -36,22 +36,23 @@ class _RootAppState extends State<RootApp> {
       kDebugPrint("download: ${inject<LocaleUserInfo>().isDownloadedTasks()}");
       if (event != null && event == true) {
         inject<TaskViewmodel>().getTasks();
-      } else if (event != null && event == false) {
-        /// if something go wrong while download tasks
-        var download = inject<LocaleUserInfo>().isDownloadedTasks();
-        download != null && download == false
-            ? TasksBackgroundService.downloadTasks(
-                ServicesBinding.rootIsolateToken)
-            : null;
-    
-        /// if something go wrong while uploading tasks
-        var upload = inject<LocaleUserInfo>().isUploadedTasks();
-        upload != null && upload == false
-            ? TasksBackgroundService.uploadTasks(
-                ServicesBinding.rootIsolateToken)
-            : null;
       }
     });
+
+    /// if something go wrong while download tasks
+    if (inject<LocaleUserInfo>().getUserData() != null) {
+      var download = inject<LocaleUserInfo>().isDownloadedTasks();
+      download == null || download == false
+          ? TasksBackgroundService.downloadTasks(
+              ServicesBinding.rootIsolateToken)
+          : null;
+
+      /// if something go wrong while uploading tasks
+      var upload = inject<LocaleUserInfo>().isUploadedTasks();
+      upload == null || upload == false
+          ? TasksBackgroundService.uploadTasks(ServicesBinding.rootIsolateToken)
+          : null;
+    }
   }
 
   @override

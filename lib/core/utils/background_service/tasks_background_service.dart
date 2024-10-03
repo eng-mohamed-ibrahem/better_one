@@ -94,6 +94,7 @@ class TasksBackgroundService {
       await appCache.put(CacheKeys.downloadService, false);
       kDebugPrint("end loading tasks: error ${e.toString()}");
       (args['send_port'] as SendPort).send(false);
+      rethrow;
     }
   }
 
@@ -102,12 +103,12 @@ class TasksBackgroundService {
     kDebugPrint("begin download task");
     BackgroundIsolateBinaryMessenger.ensureInitialized(
         (args['token'] as RootIsolateToken));
-    
+
     await Firebase.initializeApp(
       options: DefaultFirebaseOptions.currentPlatform,
     );
     kDebugPrint("firebase init");
-    
+
     var appDir = await getApplicationDocumentsDirectory();
     Hive.init(appDir.path);
   }
