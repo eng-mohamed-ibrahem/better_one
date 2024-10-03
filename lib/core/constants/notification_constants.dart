@@ -1,5 +1,7 @@
 class NotificaitonConstants {
-  static const int scheduleNotificationId = 1;
-  static const int repeatNotificationId = 2;
-  static const int scheduleNotificationInHour = 9; // 9 AM
+  // this will be used as notification channel id
+  static const String notificationChannelId = 'my_foreground';
+  static const String notificationAction = 'action';
+  static const String notificationService = 'notification_service';
+  static const String stopService = 'stop_service';
 }

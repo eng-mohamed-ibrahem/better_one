@@ -55,9 +55,13 @@
 		<key>NSContactsUsageDescription</key>
 		<string>Better One needs access to your contacts.</string>
 		<!-- <key>NSCameraUsageDescription</key>
-<string>Your app needs access to the camera to pick images.</string> -->
+		<string>Your app needs access to the camera to pick images.</string> -->
 		<key>NSPhotoLibraryUsageDescription</key>
 		<string>Better One needs access to the photo library to pick images.</string>
-
+		<!-- for notifications service -->
+		<key>BGTaskSchedulerPermittedIdentifiers</key>
+		<array>
+			<string>dev.flutter.background.refresh</string>
+		</array>
 	</dict>
 </plist>

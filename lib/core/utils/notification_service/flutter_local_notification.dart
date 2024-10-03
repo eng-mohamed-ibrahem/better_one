@@ -1,7 +1,7 @@
 import 'dart:async';
-import 'dart:developer';
 import 'dart:io';
 
+import 'package:better_one/core/constants/notification_constants.dart';
 import 'package:better_one/core/enum/notification_interval.dart';
 import 'package:better_one/model/notification_model/notification_model.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
@@ -29,7 +29,20 @@ class FlutterLocalNotification {
       settings,
       onDidReceiveNotificationResponse: _onTapWhileAppRunning,
     );
+
+    /// used for notification background service
+    await _flutterNotificationsPlugin
+        .resolvePlatformSpecificImplementation<
+            AndroidFlutterLocalNotificationsPlugin>()
+        ?.createNotificationChannel(channel);
   }
+
+  AndroidNotificationChannel channel = const AndroidNotificationChannel(
+    NotificaitonConstants.notificationChannelId,
+    'MY FOREGROUND SERVICE',
+    description: 'This channel is used for important notifications.',
+    importance: Importance.high,
+  );
 
   final StreamController<String?> _ontTapNotificationStreamController =
       StreamController.broadcast();
@@ -48,18 +61,11 @@ class FlutterLocalNotification {
 
   NotificationDetails notificationDetails = const NotificationDetails(
     android: AndroidNotificationDetails(
-      'channel_id',
+      NotificaitonConstants.notificationChannelId,
       'channel_name',
+      channelDescription: 'This channel is used for important notifications.',
       priority: Priority.high,
       importance: Importance.max,
-      // ongoing: true,
-      // showProgress: true,
-      // progress: 23,
-      // maxProgress: 100,
-      // styleInformation: MediaStyleInformation(),
-      // sound: RawResourceAndroidNotificationSound(
-      //   'mixkit_bubble_pop_up_alert_notification.wav'.split('.').first,
-      // ),
     ),
     iOS: DarwinNotificationDetails(
       presentAlert: true,
@@ -71,25 +77,38 @@ class FlutterLocalNotification {
   Future<void> display({
     required NotificationModel notification,
   }) async {
-    await _requestPermissions().then((status) async {
-      log('request permission status: $status');
-      if (status == null || status == true) {
-        await _flutterNotificationsPlugin.show(
-          notification.comment.hashCode,
-          notification.userName,
-          notification.comment,
-          notificationDetails,
-          payload: notification.payload,
-        );
-      }
-    });
+    await _flutterNotificationsPlugin.show(
+      notification.comment.hashCode,
+      notification.userName,
+      notification.comment,
+      notificationDetails,
+      payload: notification.payload,
+    );
+
+    // _flutterNotificationsPlugin
+    //     .resolvePlatformSpecificImplementation<
+    //         AndroidFlutterLocalNotificationsPlugin>()
+    //     ?.areNotificationsEnabled();
+
+    // await requestPermissions().then((status) async {
+    //   log('request permission status: $status');
+    //   if (status == null || status == true) {
+    //     await _flutterNotificationsPlugin.show(
+    //       notification.comment.hashCode,
+    //       notification.userName,
+    //       notification.comment,
+    //       notificationDetails,
+    //       payload: notification.payload,
+    //     );
+    //   }
+    // });
   }
 
   Future<void> displayRepeated({
     required NotificationModel notification,
     required NotificaionInterval interval,
   }) async {
-    await _requestPermissions().then((status) async {
+    await requestPermissions().then((status) async {
       if (status == null || status == true) {
         await _flutterNotificationsPlugin.periodicallyShow(
           notification.comment.hashCode,
@@ -108,7 +127,7 @@ class FlutterLocalNotification {
     required DateTime scheduleTime,
     bool repeatDaysWithSameTime = false,
   }) async {
-    await _requestPermissions().then(
+    await requestPermissions().then(
       (status) async {
         if (status == null || status == true) {
           tz.initializeTimeZones();
@@ -148,7 +167,7 @@ class FlutterLocalNotification {
   }
 
   /// handle request permission for android[>13 || API 33] and ios
-  Future<bool?> _requestPermissions() async {
+  Future<bool?> requestPermissions() async {
     if (Platform.isAndroid) {
       return await _flutterNotificationsPlugin
           .resolvePlatformSpecificImplementation<
