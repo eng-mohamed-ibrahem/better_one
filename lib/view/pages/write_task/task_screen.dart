@@ -130,13 +130,12 @@ class _TaskScreenState extends State<TaskDetailsScreen>
                     duration: const Duration(seconds: 3, milliseconds: 500),
                   )..forward(),
                 );
-                _handleSendingNotification();
-
                 inject<FirebaseAnalytics>().logEvent(
                   name: 'complete_task',
                   parameters: {'task_id': task!.id},
                 );
               }
+              _handleSendingNotification();
             },
           );
         },
@@ -389,7 +388,8 @@ class _TaskScreenState extends State<TaskDetailsScreen>
   }
 
   void _handleSendingNotification() {
-    inject<SettingViewmodel>().notificationSetting!.sendOnComplete
+    task!.status == TaskStatus.done &&
+            inject<SettingViewmodel>().notificationSetting!.sendOnComplete
         ? () {
             var user = inject<LocaleUserInfo>().getUserData();
             inject<NotificationRepoInterface>().sendNotification(
@@ -405,8 +405,8 @@ class _TaskScreenState extends State<TaskDetailsScreen>
             );
           }()
         : null;
-    inject<SettingViewmodel>().notificationSetting!.sendOnUpdate &&
-            isTaskModified
+    isTaskModified &&
+            inject<SettingViewmodel>().notificationSetting!.sendOnUpdate
         ? () {
             var user = inject<LocaleUserInfo>().getUserData();
             inject<NotificationRepoInterface>().sendNotification(

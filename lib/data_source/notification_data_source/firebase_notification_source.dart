@@ -12,7 +12,7 @@ class FirebaseNotificationSource implements NotificationSourceInterface {
     try {
       var db = FirebaseFirestore.instance;
       await db
-          .collection(FirebaseConstants.completeNotifications)
+          .collection(FirebaseConstants.usersNotifications)
           .doc(notification.payload)
           .set(notification.toJson());
       return const ResultHandler.success(data: true);
@@ -27,7 +27,7 @@ class FirebaseNotificationSource implements NotificationSourceInterface {
     try {
       var db = FirebaseFirestore.instance;
       var stream = db
-          .collection(FirebaseConstants.completeNotifications)
+          .collection(FirebaseConstants.usersNotifications)
           .snapshots()
           .map(
         (event) {
@@ -50,7 +50,7 @@ class FirebaseNotificationSource implements NotificationSourceInterface {
     try {
       var db = FirebaseFirestore.instance;
       var query = db
-          .collection(FirebaseConstants.completeNotifications)
+          .collection(FirebaseConstants.usersNotifications)
           .orderBy('created_at', descending: true)
           .limit(limit);
 

@@ -2,6 +2,8 @@ import 'dart:ui';
 
 import 'package:better_one/core/constants/firebase_constants.dart';
 import 'package:better_one/core/constants/notification_constants.dart';
+import 'package:better_one/core/utils/cache_service/cach_interface/locale_user_info.dart';
+import 'package:better_one/core/utils/dependency_locator/inject.dart';
 import 'package:better_one/core/utils/methods/methods.dart';
 import 'package:better_one/core/utils/notification_service/flutter_local_notification.dart';
 import 'package:better_one/firebase_options.dart';
@@ -20,7 +22,7 @@ class NotificationBackgroundService {
     if (isRunning) {
       kDebugPrint("service is already running");
       return;
-    } else {
+    } else if (inject<LocaleUserInfo>().getUserData() != null) {
       await service.configure(
         iosConfiguration: IosConfiguration(
           autoStart: true,
@@ -60,11 +62,12 @@ class NotificationBackgroundService {
     kDebugPrint("listening to notification");
     var flutterLocalNotification = FlutterLocalNotification();
     FirebaseFirestore.instance
-        .collection(FirebaseConstants.completeNotifications)
+        .collection(FirebaseConstants.usersNotifications)
         .orderBy('created_at', descending: true)
         .snapshots()
         .listen(
       (event) {
+        kDebugPrint("notification: $firstTimeListening");
         if (firstTimeListening) {
           for (var element in event.docChanges) {
             if (element.type == DocumentChangeType.added ||
@@ -80,7 +83,8 @@ class NotificationBackgroundService {
       },
     );
     service.on(NotificaitonConstants.notificationService).listen((event) {
-      if (event?[NotificaitonConstants.notificationAction] == NotificaitonConstants.stopService) {
+      if (event?[NotificaitonConstants.notificationAction] ==
+          NotificaitonConstants.stopService) {
         service.stopSelf();
       }
     });

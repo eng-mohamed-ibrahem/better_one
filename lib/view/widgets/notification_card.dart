@@ -122,6 +122,7 @@ class _SwitchDateTimeState extends State<SwitchDateTime> {
 
   @override
   void didChangeDependencies() {
+    timeago.setLocaleMessages('en', timeago.EnMessages());
     timeago.setLocaleMessages(
         context.locale.languageCode, timeago.ArMessages());
     super.didChangeDependencies();
