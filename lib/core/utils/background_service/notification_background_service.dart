@@ -38,6 +38,8 @@ class NotificationBackgroundService {
           // this must match with notification channel you created in Flutter Locale Notificatiton.
           notificationChannelId: NotificaitonConstants.notificationChannelId,
           foregroundServiceNotificationId: 999,
+          initialNotificationTitle: "Better One",
+          initialNotificationContent: "Better One is running",
         ),
       );
     }

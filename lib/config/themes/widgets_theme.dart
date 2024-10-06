@@ -193,6 +193,28 @@ class _WidgetsTheme {
     );
   }
 
+  static SwitchThemeData switchTheme() {
+    return SwitchThemeData(
+      trackOutlineColor: const WidgetStatePropertyAll(AppColors.secondColor),
+      thumbColor: WidgetStateProperty.resolveWith(
+        (Set<WidgetState> states) {
+          if (states.contains(WidgetState.selected)) {
+            return AppColors.hightlightColor;
+          }
+          return AppColors.secondColor;
+        },
+      ),
+      trackColor: WidgetStateProperty.resolveWith(
+        (Set<WidgetState> states) {
+          if (states.contains(WidgetState.selected)) {
+            return AppColors.secondColor;
+          }
+          return AppColors.primaryColor;
+        },
+      ),
+    );
+  }
+
   /// light methods theme
   static ChipThemeData lightChipTheme() {
     return chipTheme().copyWith(

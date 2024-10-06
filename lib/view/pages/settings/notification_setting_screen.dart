@@ -109,7 +109,7 @@ class _NotificationScreenState extends State<NotificationSettingScreen> {
                     vertical: 5,
                   ),
                   children: [
-                    CheckboxListTile(
+                    SwitchListTile(
                       shape: RoundedRectangleBorder(
                         borderRadius:
                             BorderRadius.circular(AppMetrices.borderRadius1.r),
@@ -118,14 +118,14 @@ class _NotificationScreenState extends State<NotificationSettingScreen> {
                       contentPadding: EdgeInsets.zero,
                       value: inject<SettingViewmodel>()
                           .notificationSetting
-                          ?.sendOnAdd,
+                          .sendOnAdd,
                       onChanged: (isSelected) {
                         context
                             .read<SettingViewmodel>()
                             .setNotificationSettings(sendOnAdd: isSelected);
                       },
                     ),
-                    CheckboxListTile(
+                    SwitchListTile(
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(15.r),
                       ),
@@ -133,14 +133,14 @@ class _NotificationScreenState extends State<NotificationSettingScreen> {
                       contentPadding: EdgeInsets.zero,
                       value: inject<SettingViewmodel>()
                           .notificationSetting
-                          ?.sendOnUpdate,
+                          .sendOnUpdate,
                       onChanged: (isSelected) {
                         context
                             .read<SettingViewmodel>()
                             .setNotificationSettings(sendOnUpdate: isSelected);
                       },
                     ),
-                    CheckboxListTile(
+                    SwitchListTile(
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(15.r),
                       ),
@@ -148,7 +148,7 @@ class _NotificationScreenState extends State<NotificationSettingScreen> {
                       contentPadding: EdgeInsets.zero,
                       value: inject<SettingViewmodel>()
                           .notificationSetting
-                          ?.sendOnComplete,
+                          .sendOnComplete,
                       onChanged: (isSelected) {
                         context
                             .read<SettingViewmodel>()

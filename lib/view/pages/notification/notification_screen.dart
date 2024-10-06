@@ -60,6 +60,14 @@ class _NotificationScreenState extends State<NotificationScreen> {
               fit: BoxFit.scaleDown,
               child: BackButtonl10n(),
             ),
+            actions: [
+              IconButton(
+                onPressed: () {
+                  context.pushNamed(Routes.notificationSetting.name);
+                },
+                icon: const Icon(Icons.settings),
+              ),
+            ],
           ),
         ),
       ),

@@ -78,7 +78,7 @@ class CreateTaskScreen extends StatelessWidget {
                 listener: (context, state) {
                   state.whenOrNull(
                     createTaskCompleted: (createdTask) {
-                      inject<SettingViewmodel>().notificationSetting!.sendOnAdd
+                      inject<SettingViewmodel>().notificationSetting.sendOnAdd
                           ? () {
                               var user = inject<LocaleUserInfo>().getUserData();
                               inject<NotificationRepoInterface>()

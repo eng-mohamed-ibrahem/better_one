@@ -82,7 +82,7 @@ class SearchSettingScreen extends StatelessWidget {
                       contentPadding: EdgeInsets.zero,
                       value: inject<SettingViewmodel>()
                           .searchSetting
-                          ?.searchByTitle,
+                          .searchByTitle,
                       onChanged: (isSelected) {
                         context
                             .read<SettingViewmodel>()
@@ -95,9 +95,8 @@ class SearchSettingScreen extends StatelessWidget {
                       ),
                       title: Text('setting.search.on.body'.tr()),
                       contentPadding: EdgeInsets.zero,
-                      value: inject<SettingViewmodel>()
-                          .searchSetting
-                          ?.searchByBody,
+                      value:
+                          inject<SettingViewmodel>().searchSetting.searchByBody,
                       onChanged: (isSelected) {
                         context
                             .read<SettingViewmodel>()

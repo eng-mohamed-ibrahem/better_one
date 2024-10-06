@@ -389,7 +389,7 @@ class _TaskScreenState extends State<TaskDetailsScreen>
 
   void _handleSendingNotification() {
     task!.status == TaskStatus.done &&
-            inject<SettingViewmodel>().notificationSetting!.sendOnComplete
+            inject<SettingViewmodel>().notificationSetting.sendOnComplete
         ? () {
             var user = inject<LocaleUserInfo>().getUserData();
             inject<NotificationRepoInterface>().sendNotification(
@@ -406,7 +406,7 @@ class _TaskScreenState extends State<TaskDetailsScreen>
           }()
         : null;
     isTaskModified &&
-            inject<SettingViewmodel>().notificationSetting!.sendOnUpdate
+            inject<SettingViewmodel>().notificationSetting.sendOnUpdate
         ? () {
             var user = inject<LocaleUserInfo>().getUserData();
             inject<NotificationRepoInterface>().sendNotification(
