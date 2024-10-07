@@ -108,11 +108,13 @@ class SettingViewmodel extends Cubit<SettingViewmodelState> {
     bool? sendOnAdd,
     bool? sendOnUpdate,
     bool? sendOnComplete,
+    bool? muteNotification,
   }) async {
     var notification = NotificationSettingModel(
       sendOnAdd: sendOnAdd ?? notificationSetting.sendOnAdd,
       sendOnUpdate: sendOnUpdate ?? notificationSetting.sendOnUpdate,
       sendOnComplete: sendOnComplete ?? notificationSetting.sendOnComplete,
+      muteNotification: muteNotification ?? notificationSetting.muteNotification,
     );
     var result = await settingsRepo.setNotificationSettings(
       notificationSettings: notification,

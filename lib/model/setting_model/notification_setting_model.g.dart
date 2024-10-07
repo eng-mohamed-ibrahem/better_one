@@ -12,6 +12,7 @@ _$NotificationSettingModelImpl _$$NotificationSettingModelImplFromJson(
       sendOnAdd: json['send_on_add'] as bool? ?? true,
       sendOnUpdate: json['send_on_update'] as bool? ?? true,
       sendOnComplete: json['send_on_complete'] as bool? ?? true,
+      muteNotification: json['mute_notification'] as bool? ?? false,
     );
 
 Map<String, dynamic> _$$NotificationSettingModelImplToJson(
@@ -20,4 +21,5 @@ Map<String, dynamic> _$$NotificationSettingModelImplToJson(
       'send_on_add': instance.sendOnAdd,
       'send_on_update': instance.sendOnUpdate,
       'send_on_complete': instance.sendOnComplete,
+      'mute_notification': instance.muteNotification,
     };
