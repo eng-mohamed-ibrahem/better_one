@@ -11,9 +11,9 @@ export 'settings/search_setting_screen.dart';
 
 export 'splash/splash_screen.dart';
 
-export 'write_task/task_screen.dart';
+export 'task/task_details_screen.dart';
 
-export 'write_task/create_task.dart';
+export 'task/create_task.dart';
 
 export 'search/search_screen.dart';
 
@@ -23,3 +23,4 @@ export 'profile/change_password_screen.dart';
 export 'notification/notification_screen.dart';
 export 'feedback/feedback_screen.dart';
 export 'auth/forgot_password_page.dart';
+export 'task/shared_task_screen.dart';

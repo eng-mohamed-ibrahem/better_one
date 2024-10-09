@@ -49,4 +49,15 @@ class NotificationViewmodelState with _$NotificationViewmodelState {
   const factory NotificationViewmodelState.getNotificationSuccess({
     required List<QueryDocumentSnapshot<Object?>> list,
   }) = _GetNotificationSuccess;
+
+  const factory NotificationViewmodelState.getTaskFromNotificationLoading() =
+      _GetTaskFromNotificationLoading;
+
+  const factory NotificationViewmodelState.getTaskFromNotificationSuccess({
+    required TaskModel task,
+  }) = _GetTaskFromNotificationSuccess;
+
+  const factory NotificationViewmodelState.getTaskFromNotificationFailed({
+    required Failure failure,
+  }) = _GetTaskFromNotificationFailed;
 }

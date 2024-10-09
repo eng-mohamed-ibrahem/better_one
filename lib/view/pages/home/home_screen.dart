@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:better_one/config/navigation/routes_enum.dart';
 import 'package:better_one/core/enum/task_status.dart';
 import 'package:better_one/core/utils/dependency_locator/dependency_injection.dart';
@@ -43,8 +45,19 @@ class _HomeScreenState extends State<HomeScreen> with RouteAware {
     localNotification.onTapNotificationStream.listen(
       (payload) {
         if (payload!.isNotEmpty && mounted) {
-          context
-              .goNamed(Routes.taskDetail.name, pathParameters: {'id': payload});
+          kDebugPrint(
+            "payload: ${jsonDecode(payload)[NotificaitonConstants.taskId]}, ${jsonDecode(payload)[NotificaitonConstants.senderId]}",
+          );
+          context.goNamed(
+            Routes.sharedTask.name,
+            pathParameters: {
+              "id": jsonDecode(payload)[NotificaitonConstants.taskId]
+            },
+            queryParameters: {
+              NotificaitonConstants.senderId:
+                  jsonDecode(payload)[NotificaitonConstants.senderId],
+            },
+          );
         }
       },
     );
@@ -138,7 +151,7 @@ class _HomeScreenState extends State<HomeScreen> with RouteAware {
           ),
         ),
         onPressed: () {
-          context.goNamed(Routes.task.name);
+          context.goNamed(Routes.createTask.name);
         },
         icon: const Icon(Icons.add),
         label: Text(

@@ -35,6 +35,9 @@ mixin _$NotificationViewmodelState {
     required TResult Function(String message) getNewNotificationFailed,
     required TResult Function(List<QueryDocumentSnapshot<Object?>> list)
         getNotificationSuccess,
+    required TResult Function() getTaskFromNotificationLoading,
+    required TResult Function(TaskModel task) getTaskFromNotificationSuccess,
+    required TResult Function(Failure failure) getTaskFromNotificationFailed,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -54,6 +57,9 @@ mixin _$NotificationViewmodelState {
     TResult? Function(String message)? getNewNotificationFailed,
     TResult? Function(List<QueryDocumentSnapshot<Object?>> list)?
         getNotificationSuccess,
+    TResult? Function()? getTaskFromNotificationLoading,
+    TResult? Function(TaskModel task)? getTaskFromNotificationSuccess,
+    TResult? Function(Failure failure)? getTaskFromNotificationFailed,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -73,6 +79,9 @@ mixin _$NotificationViewmodelState {
     TResult Function(String message)? getNewNotificationFailed,
     TResult Function(List<QueryDocumentSnapshot<Object?>> list)?
         getNotificationSuccess,
+    TResult Function()? getTaskFromNotificationLoading,
+    TResult Function(TaskModel task)? getTaskFromNotificationSuccess,
+    TResult Function(Failure failure)? getTaskFromNotificationFailed,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -101,6 +110,12 @@ mixin _$NotificationViewmodelState {
         getNewNotificationFailed,
     required TResult Function(_GetNotificationSuccess value)
         getNotificationSuccess,
+    required TResult Function(_GetTaskFromNotificationLoading value)
+        getTaskFromNotificationLoading,
+    required TResult Function(_GetTaskFromNotificationSuccess value)
+        getTaskFromNotificationSuccess,
+    required TResult Function(_GetTaskFromNotificationFailed value)
+        getTaskFromNotificationFailed,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -122,6 +137,12 @@ mixin _$NotificationViewmodelState {
     TResult? Function(_GetNewNotificationFailed value)?
         getNewNotificationFailed,
     TResult? Function(_GetNotificationSuccess value)? getNotificationSuccess,
+    TResult? Function(_GetTaskFromNotificationLoading value)?
+        getTaskFromNotificationLoading,
+    TResult? Function(_GetTaskFromNotificationSuccess value)?
+        getTaskFromNotificationSuccess,
+    TResult? Function(_GetTaskFromNotificationFailed value)?
+        getTaskFromNotificationFailed,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -142,6 +163,12 @@ mixin _$NotificationViewmodelState {
     TResult Function(_GetNotificationFailed value)? getNotificationFailed,
     TResult Function(_GetNewNotificationFailed value)? getNewNotificationFailed,
     TResult Function(_GetNotificationSuccess value)? getNotificationSuccess,
+    TResult Function(_GetTaskFromNotificationLoading value)?
+        getTaskFromNotificationLoading,
+    TResult Function(_GetTaskFromNotificationSuccess value)?
+        getTaskFromNotificationSuccess,
+    TResult Function(_GetTaskFromNotificationFailed value)?
+        getTaskFromNotificationFailed,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -228,6 +255,9 @@ class _$InitialImpl implements _Initial {
     required TResult Function(String message) getNewNotificationFailed,
     required TResult Function(List<QueryDocumentSnapshot<Object?>> list)
         getNotificationSuccess,
+    required TResult Function() getTaskFromNotificationLoading,
+    required TResult Function(TaskModel task) getTaskFromNotificationSuccess,
+    required TResult Function(Failure failure) getTaskFromNotificationFailed,
   }) {
     return initial();
   }
@@ -250,6 +280,9 @@ class _$InitialImpl implements _Initial {
     TResult? Function(String message)? getNewNotificationFailed,
     TResult? Function(List<QueryDocumentSnapshot<Object?>> list)?
         getNotificationSuccess,
+    TResult? Function()? getTaskFromNotificationLoading,
+    TResult? Function(TaskModel task)? getTaskFromNotificationSuccess,
+    TResult? Function(Failure failure)? getTaskFromNotificationFailed,
   }) {
     return initial?.call();
   }
@@ -272,6 +305,9 @@ class _$InitialImpl implements _Initial {
     TResult Function(String message)? getNewNotificationFailed,
     TResult Function(List<QueryDocumentSnapshot<Object?>> list)?
         getNotificationSuccess,
+    TResult Function()? getTaskFromNotificationLoading,
+    TResult Function(TaskModel task)? getTaskFromNotificationSuccess,
+    TResult Function(Failure failure)? getTaskFromNotificationFailed,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -306,6 +342,12 @@ class _$InitialImpl implements _Initial {
         getNewNotificationFailed,
     required TResult Function(_GetNotificationSuccess value)
         getNotificationSuccess,
+    required TResult Function(_GetTaskFromNotificationLoading value)
+        getTaskFromNotificationLoading,
+    required TResult Function(_GetTaskFromNotificationSuccess value)
+        getTaskFromNotificationSuccess,
+    required TResult Function(_GetTaskFromNotificationFailed value)
+        getTaskFromNotificationFailed,
   }) {
     return initial(this);
   }
@@ -330,6 +372,12 @@ class _$InitialImpl implements _Initial {
     TResult? Function(_GetNewNotificationFailed value)?
         getNewNotificationFailed,
     TResult? Function(_GetNotificationSuccess value)? getNotificationSuccess,
+    TResult? Function(_GetTaskFromNotificationLoading value)?
+        getTaskFromNotificationLoading,
+    TResult? Function(_GetTaskFromNotificationSuccess value)?
+        getTaskFromNotificationSuccess,
+    TResult? Function(_GetTaskFromNotificationFailed value)?
+        getTaskFromNotificationFailed,
   }) {
     return initial?.call(this);
   }
@@ -353,6 +401,12 @@ class _$InitialImpl implements _Initial {
     TResult Function(_GetNotificationFailed value)? getNotificationFailed,
     TResult Function(_GetNewNotificationFailed value)? getNewNotificationFailed,
     TResult Function(_GetNotificationSuccess value)? getNotificationSuccess,
+    TResult Function(_GetTaskFromNotificationLoading value)?
+        getTaskFromNotificationLoading,
+    TResult Function(_GetTaskFromNotificationSuccess value)?
+        getTaskFromNotificationSuccess,
+    TResult Function(_GetTaskFromNotificationFailed value)?
+        getTaskFromNotificationFailed,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -428,6 +482,9 @@ class _$SendNotificationloadingImpl implements _SendNotificationloading {
     required TResult Function(String message) getNewNotificationFailed,
     required TResult Function(List<QueryDocumentSnapshot<Object?>> list)
         getNotificationSuccess,
+    required TResult Function() getTaskFromNotificationLoading,
+    required TResult Function(TaskModel task) getTaskFromNotificationSuccess,
+    required TResult Function(Failure failure) getTaskFromNotificationFailed,
   }) {
     return sendNotificationloading();
   }
@@ -450,6 +507,9 @@ class _$SendNotificationloadingImpl implements _SendNotificationloading {
     TResult? Function(String message)? getNewNotificationFailed,
     TResult? Function(List<QueryDocumentSnapshot<Object?>> list)?
         getNotificationSuccess,
+    TResult? Function()? getTaskFromNotificationLoading,
+    TResult? Function(TaskModel task)? getTaskFromNotificationSuccess,
+    TResult? Function(Failure failure)? getTaskFromNotificationFailed,
   }) {
     return sendNotificationloading?.call();
   }
@@ -472,6 +532,9 @@ class _$SendNotificationloadingImpl implements _SendNotificationloading {
     TResult Function(String message)? getNewNotificationFailed,
     TResult Function(List<QueryDocumentSnapshot<Object?>> list)?
         getNotificationSuccess,
+    TResult Function()? getTaskFromNotificationLoading,
+    TResult Function(TaskModel task)? getTaskFromNotificationSuccess,
+    TResult Function(Failure failure)? getTaskFromNotificationFailed,
     required TResult orElse(),
   }) {
     if (sendNotificationloading != null) {
@@ -506,6 +569,12 @@ class _$SendNotificationloadingImpl implements _SendNotificationloading {
         getNewNotificationFailed,
     required TResult Function(_GetNotificationSuccess value)
         getNotificationSuccess,
+    required TResult Function(_GetTaskFromNotificationLoading value)
+        getTaskFromNotificationLoading,
+    required TResult Function(_GetTaskFromNotificationSuccess value)
+        getTaskFromNotificationSuccess,
+    required TResult Function(_GetTaskFromNotificationFailed value)
+        getTaskFromNotificationFailed,
   }) {
     return sendNotificationloading(this);
   }
@@ -530,6 +599,12 @@ class _$SendNotificationloadingImpl implements _SendNotificationloading {
     TResult? Function(_GetNewNotificationFailed value)?
         getNewNotificationFailed,
     TResult? Function(_GetNotificationSuccess value)? getNotificationSuccess,
+    TResult? Function(_GetTaskFromNotificationLoading value)?
+        getTaskFromNotificationLoading,
+    TResult? Function(_GetTaskFromNotificationSuccess value)?
+        getTaskFromNotificationSuccess,
+    TResult? Function(_GetTaskFromNotificationFailed value)?
+        getTaskFromNotificationFailed,
   }) {
     return sendNotificationloading?.call(this);
   }
@@ -553,6 +628,12 @@ class _$SendNotificationloadingImpl implements _SendNotificationloading {
     TResult Function(_GetNotificationFailed value)? getNotificationFailed,
     TResult Function(_GetNewNotificationFailed value)? getNewNotificationFailed,
     TResult Function(_GetNotificationSuccess value)? getNotificationSuccess,
+    TResult Function(_GetTaskFromNotificationLoading value)?
+        getTaskFromNotificationLoading,
+    TResult Function(_GetTaskFromNotificationSuccess value)?
+        getTaskFromNotificationSuccess,
+    TResult Function(_GetTaskFromNotificationFailed value)?
+        getTaskFromNotificationFailed,
     required TResult orElse(),
   }) {
     if (sendNotificationloading != null) {
@@ -664,6 +745,9 @@ class _$SendNotificationFailedImpl implements _SendNotificationFailed {
     required TResult Function(String message) getNewNotificationFailed,
     required TResult Function(List<QueryDocumentSnapshot<Object?>> list)
         getNotificationSuccess,
+    required TResult Function() getTaskFromNotificationLoading,
+    required TResult Function(TaskModel task) getTaskFromNotificationSuccess,
+    required TResult Function(Failure failure) getTaskFromNotificationFailed,
   }) {
     return sendNotificationFailed(failure, message);
   }
@@ -686,6 +770,9 @@ class _$SendNotificationFailedImpl implements _SendNotificationFailed {
     TResult? Function(String message)? getNewNotificationFailed,
     TResult? Function(List<QueryDocumentSnapshot<Object?>> list)?
         getNotificationSuccess,
+    TResult? Function()? getTaskFromNotificationLoading,
+    TResult? Function(TaskModel task)? getTaskFromNotificationSuccess,
+    TResult? Function(Failure failure)? getTaskFromNotificationFailed,
   }) {
     return sendNotificationFailed?.call(failure, message);
   }
@@ -708,6 +795,9 @@ class _$SendNotificationFailedImpl implements _SendNotificationFailed {
     TResult Function(String message)? getNewNotificationFailed,
     TResult Function(List<QueryDocumentSnapshot<Object?>> list)?
         getNotificationSuccess,
+    TResult Function()? getTaskFromNotificationLoading,
+    TResult Function(TaskModel task)? getTaskFromNotificationSuccess,
+    TResult Function(Failure failure)? getTaskFromNotificationFailed,
     required TResult orElse(),
   }) {
     if (sendNotificationFailed != null) {
@@ -742,6 +832,12 @@ class _$SendNotificationFailedImpl implements _SendNotificationFailed {
         getNewNotificationFailed,
     required TResult Function(_GetNotificationSuccess value)
         getNotificationSuccess,
+    required TResult Function(_GetTaskFromNotificationLoading value)
+        getTaskFromNotificationLoading,
+    required TResult Function(_GetTaskFromNotificationSuccess value)
+        getTaskFromNotificationSuccess,
+    required TResult Function(_GetTaskFromNotificationFailed value)
+        getTaskFromNotificationFailed,
   }) {
     return sendNotificationFailed(this);
   }
@@ -766,6 +862,12 @@ class _$SendNotificationFailedImpl implements _SendNotificationFailed {
     TResult? Function(_GetNewNotificationFailed value)?
         getNewNotificationFailed,
     TResult? Function(_GetNotificationSuccess value)? getNotificationSuccess,
+    TResult? Function(_GetTaskFromNotificationLoading value)?
+        getTaskFromNotificationLoading,
+    TResult? Function(_GetTaskFromNotificationSuccess value)?
+        getTaskFromNotificationSuccess,
+    TResult? Function(_GetTaskFromNotificationFailed value)?
+        getTaskFromNotificationFailed,
   }) {
     return sendNotificationFailed?.call(this);
   }
@@ -789,6 +891,12 @@ class _$SendNotificationFailedImpl implements _SendNotificationFailed {
     TResult Function(_GetNotificationFailed value)? getNotificationFailed,
     TResult Function(_GetNewNotificationFailed value)? getNewNotificationFailed,
     TResult Function(_GetNotificationSuccess value)? getNotificationSuccess,
+    TResult Function(_GetTaskFromNotificationLoading value)?
+        getTaskFromNotificationLoading,
+    TResult Function(_GetTaskFromNotificationSuccess value)?
+        getTaskFromNotificationSuccess,
+    TResult Function(_GetTaskFromNotificationFailed value)?
+        getTaskFromNotificationFailed,
     required TResult orElse(),
   }) {
     if (sendNotificationFailed != null) {
@@ -875,6 +983,9 @@ class _$SendNotificationSuccessImpl implements _SendNotificationSuccess {
     required TResult Function(String message) getNewNotificationFailed,
     required TResult Function(List<QueryDocumentSnapshot<Object?>> list)
         getNotificationSuccess,
+    required TResult Function() getTaskFromNotificationLoading,
+    required TResult Function(TaskModel task) getTaskFromNotificationSuccess,
+    required TResult Function(Failure failure) getTaskFromNotificationFailed,
   }) {
     return sendNotificationSuccess();
   }
@@ -897,6 +1008,9 @@ class _$SendNotificationSuccessImpl implements _SendNotificationSuccess {
     TResult? Function(String message)? getNewNotificationFailed,
     TResult? Function(List<QueryDocumentSnapshot<Object?>> list)?
         getNotificationSuccess,
+    TResult? Function()? getTaskFromNotificationLoading,
+    TResult? Function(TaskModel task)? getTaskFromNotificationSuccess,
+    TResult? Function(Failure failure)? getTaskFromNotificationFailed,
   }) {
     return sendNotificationSuccess?.call();
   }
@@ -919,6 +1033,9 @@ class _$SendNotificationSuccessImpl implements _SendNotificationSuccess {
     TResult Function(String message)? getNewNotificationFailed,
     TResult Function(List<QueryDocumentSnapshot<Object?>> list)?
         getNotificationSuccess,
+    TResult Function()? getTaskFromNotificationLoading,
+    TResult Function(TaskModel task)? getTaskFromNotificationSuccess,
+    TResult Function(Failure failure)? getTaskFromNotificationFailed,
     required TResult orElse(),
   }) {
     if (sendNotificationSuccess != null) {
@@ -953,6 +1070,12 @@ class _$SendNotificationSuccessImpl implements _SendNotificationSuccess {
         getNewNotificationFailed,
     required TResult Function(_GetNotificationSuccess value)
         getNotificationSuccess,
+    required TResult Function(_GetTaskFromNotificationLoading value)
+        getTaskFromNotificationLoading,
+    required TResult Function(_GetTaskFromNotificationSuccess value)
+        getTaskFromNotificationSuccess,
+    required TResult Function(_GetTaskFromNotificationFailed value)
+        getTaskFromNotificationFailed,
   }) {
     return sendNotificationSuccess(this);
   }
@@ -977,6 +1100,12 @@ class _$SendNotificationSuccessImpl implements _SendNotificationSuccess {
     TResult? Function(_GetNewNotificationFailed value)?
         getNewNotificationFailed,
     TResult? Function(_GetNotificationSuccess value)? getNotificationSuccess,
+    TResult? Function(_GetTaskFromNotificationLoading value)?
+        getTaskFromNotificationLoading,
+    TResult? Function(_GetTaskFromNotificationSuccess value)?
+        getTaskFromNotificationSuccess,
+    TResult? Function(_GetTaskFromNotificationFailed value)?
+        getTaskFromNotificationFailed,
   }) {
     return sendNotificationSuccess?.call(this);
   }
@@ -1000,6 +1129,12 @@ class _$SendNotificationSuccessImpl implements _SendNotificationSuccess {
     TResult Function(_GetNotificationFailed value)? getNotificationFailed,
     TResult Function(_GetNewNotificationFailed value)? getNewNotificationFailed,
     TResult Function(_GetNotificationSuccess value)? getNotificationSuccess,
+    TResult Function(_GetTaskFromNotificationLoading value)?
+        getTaskFromNotificationLoading,
+    TResult Function(_GetTaskFromNotificationSuccess value)?
+        getTaskFromNotificationSuccess,
+    TResult Function(_GetTaskFromNotificationFailed value)?
+        getTaskFromNotificationFailed,
     required TResult orElse(),
   }) {
     if (sendNotificationSuccess != null) {
@@ -1076,6 +1211,9 @@ class _$GetNotificationStreamloadingImpl
     required TResult Function(String message) getNewNotificationFailed,
     required TResult Function(List<QueryDocumentSnapshot<Object?>> list)
         getNotificationSuccess,
+    required TResult Function() getTaskFromNotificationLoading,
+    required TResult Function(TaskModel task) getTaskFromNotificationSuccess,
+    required TResult Function(Failure failure) getTaskFromNotificationFailed,
   }) {
     return getNotificationStreamloading();
   }
@@ -1098,6 +1236,9 @@ class _$GetNotificationStreamloadingImpl
     TResult? Function(String message)? getNewNotificationFailed,
     TResult? Function(List<QueryDocumentSnapshot<Object?>> list)?
         getNotificationSuccess,
+    TResult? Function()? getTaskFromNotificationLoading,
+    TResult? Function(TaskModel task)? getTaskFromNotificationSuccess,
+    TResult? Function(Failure failure)? getTaskFromNotificationFailed,
   }) {
     return getNotificationStreamloading?.call();
   }
@@ -1120,6 +1261,9 @@ class _$GetNotificationStreamloadingImpl
     TResult Function(String message)? getNewNotificationFailed,
     TResult Function(List<QueryDocumentSnapshot<Object?>> list)?
         getNotificationSuccess,
+    TResult Function()? getTaskFromNotificationLoading,
+    TResult Function(TaskModel task)? getTaskFromNotificationSuccess,
+    TResult Function(Failure failure)? getTaskFromNotificationFailed,
     required TResult orElse(),
   }) {
     if (getNotificationStreamloading != null) {
@@ -1154,6 +1298,12 @@ class _$GetNotificationStreamloadingImpl
         getNewNotificationFailed,
     required TResult Function(_GetNotificationSuccess value)
         getNotificationSuccess,
+    required TResult Function(_GetTaskFromNotificationLoading value)
+        getTaskFromNotificationLoading,
+    required TResult Function(_GetTaskFromNotificationSuccess value)
+        getTaskFromNotificationSuccess,
+    required TResult Function(_GetTaskFromNotificationFailed value)
+        getTaskFromNotificationFailed,
   }) {
     return getNotificationStreamloading(this);
   }
@@ -1178,6 +1328,12 @@ class _$GetNotificationStreamloadingImpl
     TResult? Function(_GetNewNotificationFailed value)?
         getNewNotificationFailed,
     TResult? Function(_GetNotificationSuccess value)? getNotificationSuccess,
+    TResult? Function(_GetTaskFromNotificationLoading value)?
+        getTaskFromNotificationLoading,
+    TResult? Function(_GetTaskFromNotificationSuccess value)?
+        getTaskFromNotificationSuccess,
+    TResult? Function(_GetTaskFromNotificationFailed value)?
+        getTaskFromNotificationFailed,
   }) {
     return getNotificationStreamloading?.call(this);
   }
@@ -1201,6 +1357,12 @@ class _$GetNotificationStreamloadingImpl
     TResult Function(_GetNotificationFailed value)? getNotificationFailed,
     TResult Function(_GetNewNotificationFailed value)? getNewNotificationFailed,
     TResult Function(_GetNotificationSuccess value)? getNotificationSuccess,
+    TResult Function(_GetTaskFromNotificationLoading value)?
+        getTaskFromNotificationLoading,
+    TResult Function(_GetTaskFromNotificationSuccess value)?
+        getTaskFromNotificationSuccess,
+    TResult Function(_GetTaskFromNotificationFailed value)?
+        getTaskFromNotificationFailed,
     required TResult orElse(),
   }) {
     if (getNotificationStreamloading != null) {
@@ -1315,6 +1477,9 @@ class _$GetNotificationStreamFailedImpl
     required TResult Function(String message) getNewNotificationFailed,
     required TResult Function(List<QueryDocumentSnapshot<Object?>> list)
         getNotificationSuccess,
+    required TResult Function() getTaskFromNotificationLoading,
+    required TResult Function(TaskModel task) getTaskFromNotificationSuccess,
+    required TResult Function(Failure failure) getTaskFromNotificationFailed,
   }) {
     return getNotificationStreamFailed(failure, message);
   }
@@ -1337,6 +1502,9 @@ class _$GetNotificationStreamFailedImpl
     TResult? Function(String message)? getNewNotificationFailed,
     TResult? Function(List<QueryDocumentSnapshot<Object?>> list)?
         getNotificationSuccess,
+    TResult? Function()? getTaskFromNotificationLoading,
+    TResult? Function(TaskModel task)? getTaskFromNotificationSuccess,
+    TResult? Function(Failure failure)? getTaskFromNotificationFailed,
   }) {
     return getNotificationStreamFailed?.call(failure, message);
   }
@@ -1359,6 +1527,9 @@ class _$GetNotificationStreamFailedImpl
     TResult Function(String message)? getNewNotificationFailed,
     TResult Function(List<QueryDocumentSnapshot<Object?>> list)?
         getNotificationSuccess,
+    TResult Function()? getTaskFromNotificationLoading,
+    TResult Function(TaskModel task)? getTaskFromNotificationSuccess,
+    TResult Function(Failure failure)? getTaskFromNotificationFailed,
     required TResult orElse(),
   }) {
     if (getNotificationStreamFailed != null) {
@@ -1393,6 +1564,12 @@ class _$GetNotificationStreamFailedImpl
         getNewNotificationFailed,
     required TResult Function(_GetNotificationSuccess value)
         getNotificationSuccess,
+    required TResult Function(_GetTaskFromNotificationLoading value)
+        getTaskFromNotificationLoading,
+    required TResult Function(_GetTaskFromNotificationSuccess value)
+        getTaskFromNotificationSuccess,
+    required TResult Function(_GetTaskFromNotificationFailed value)
+        getTaskFromNotificationFailed,
   }) {
     return getNotificationStreamFailed(this);
   }
@@ -1417,6 +1594,12 @@ class _$GetNotificationStreamFailedImpl
     TResult? Function(_GetNewNotificationFailed value)?
         getNewNotificationFailed,
     TResult? Function(_GetNotificationSuccess value)? getNotificationSuccess,
+    TResult? Function(_GetTaskFromNotificationLoading value)?
+        getTaskFromNotificationLoading,
+    TResult? Function(_GetTaskFromNotificationSuccess value)?
+        getTaskFromNotificationSuccess,
+    TResult? Function(_GetTaskFromNotificationFailed value)?
+        getTaskFromNotificationFailed,
   }) {
     return getNotificationStreamFailed?.call(this);
   }
@@ -1440,6 +1623,12 @@ class _$GetNotificationStreamFailedImpl
     TResult Function(_GetNotificationFailed value)? getNotificationFailed,
     TResult Function(_GetNewNotificationFailed value)? getNewNotificationFailed,
     TResult Function(_GetNotificationSuccess value)? getNotificationSuccess,
+    TResult Function(_GetTaskFromNotificationLoading value)?
+        getTaskFromNotificationLoading,
+    TResult Function(_GetTaskFromNotificationSuccess value)?
+        getTaskFromNotificationSuccess,
+    TResult Function(_GetTaskFromNotificationFailed value)?
+        getTaskFromNotificationFailed,
     required TResult orElse(),
   }) {
     if (getNotificationStreamFailed != null) {
@@ -1556,6 +1745,9 @@ class _$GetNotificationStreamSuccessImpl
     required TResult Function(String message) getNewNotificationFailed,
     required TResult Function(List<QueryDocumentSnapshot<Object?>> list)
         getNotificationSuccess,
+    required TResult Function() getTaskFromNotificationLoading,
+    required TResult Function(TaskModel task) getTaskFromNotificationSuccess,
+    required TResult Function(Failure failure) getTaskFromNotificationFailed,
   }) {
     return getNotificationStreamSuccess(stream);
   }
@@ -1578,6 +1770,9 @@ class _$GetNotificationStreamSuccessImpl
     TResult? Function(String message)? getNewNotificationFailed,
     TResult? Function(List<QueryDocumentSnapshot<Object?>> list)?
         getNotificationSuccess,
+    TResult? Function()? getTaskFromNotificationLoading,
+    TResult? Function(TaskModel task)? getTaskFromNotificationSuccess,
+    TResult? Function(Failure failure)? getTaskFromNotificationFailed,
   }) {
     return getNotificationStreamSuccess?.call(stream);
   }
@@ -1600,6 +1795,9 @@ class _$GetNotificationStreamSuccessImpl
     TResult Function(String message)? getNewNotificationFailed,
     TResult Function(List<QueryDocumentSnapshot<Object?>> list)?
         getNotificationSuccess,
+    TResult Function()? getTaskFromNotificationLoading,
+    TResult Function(TaskModel task)? getTaskFromNotificationSuccess,
+    TResult Function(Failure failure)? getTaskFromNotificationFailed,
     required TResult orElse(),
   }) {
     if (getNotificationStreamSuccess != null) {
@@ -1634,6 +1832,12 @@ class _$GetNotificationStreamSuccessImpl
         getNewNotificationFailed,
     required TResult Function(_GetNotificationSuccess value)
         getNotificationSuccess,
+    required TResult Function(_GetTaskFromNotificationLoading value)
+        getTaskFromNotificationLoading,
+    required TResult Function(_GetTaskFromNotificationSuccess value)
+        getTaskFromNotificationSuccess,
+    required TResult Function(_GetTaskFromNotificationFailed value)
+        getTaskFromNotificationFailed,
   }) {
     return getNotificationStreamSuccess(this);
   }
@@ -1658,6 +1862,12 @@ class _$GetNotificationStreamSuccessImpl
     TResult? Function(_GetNewNotificationFailed value)?
         getNewNotificationFailed,
     TResult? Function(_GetNotificationSuccess value)? getNotificationSuccess,
+    TResult? Function(_GetTaskFromNotificationLoading value)?
+        getTaskFromNotificationLoading,
+    TResult? Function(_GetTaskFromNotificationSuccess value)?
+        getTaskFromNotificationSuccess,
+    TResult? Function(_GetTaskFromNotificationFailed value)?
+        getTaskFromNotificationFailed,
   }) {
     return getNotificationStreamSuccess?.call(this);
   }
@@ -1681,6 +1891,12 @@ class _$GetNotificationStreamSuccessImpl
     TResult Function(_GetNotificationFailed value)? getNotificationFailed,
     TResult Function(_GetNewNotificationFailed value)? getNewNotificationFailed,
     TResult Function(_GetNotificationSuccess value)? getNotificationSuccess,
+    TResult Function(_GetTaskFromNotificationLoading value)?
+        getTaskFromNotificationLoading,
+    TResult Function(_GetTaskFromNotificationSuccess value)?
+        getTaskFromNotificationSuccess,
+    TResult Function(_GetTaskFromNotificationFailed value)?
+        getTaskFromNotificationFailed,
     required TResult orElse(),
   }) {
     if (getNotificationStreamSuccess != null) {
@@ -1768,6 +1984,9 @@ class _$GetNotificationloadingImpl implements _GetNotificationloading {
     required TResult Function(String message) getNewNotificationFailed,
     required TResult Function(List<QueryDocumentSnapshot<Object?>> list)
         getNotificationSuccess,
+    required TResult Function() getTaskFromNotificationLoading,
+    required TResult Function(TaskModel task) getTaskFromNotificationSuccess,
+    required TResult Function(Failure failure) getTaskFromNotificationFailed,
   }) {
     return getNotificationloading();
   }
@@ -1790,6 +2009,9 @@ class _$GetNotificationloadingImpl implements _GetNotificationloading {
     TResult? Function(String message)? getNewNotificationFailed,
     TResult? Function(List<QueryDocumentSnapshot<Object?>> list)?
         getNotificationSuccess,
+    TResult? Function()? getTaskFromNotificationLoading,
+    TResult? Function(TaskModel task)? getTaskFromNotificationSuccess,
+    TResult? Function(Failure failure)? getTaskFromNotificationFailed,
   }) {
     return getNotificationloading?.call();
   }
@@ -1812,6 +2034,9 @@ class _$GetNotificationloadingImpl implements _GetNotificationloading {
     TResult Function(String message)? getNewNotificationFailed,
     TResult Function(List<QueryDocumentSnapshot<Object?>> list)?
         getNotificationSuccess,
+    TResult Function()? getTaskFromNotificationLoading,
+    TResult Function(TaskModel task)? getTaskFromNotificationSuccess,
+    TResult Function(Failure failure)? getTaskFromNotificationFailed,
     required TResult orElse(),
   }) {
     if (getNotificationloading != null) {
@@ -1846,6 +2071,12 @@ class _$GetNotificationloadingImpl implements _GetNotificationloading {
         getNewNotificationFailed,
     required TResult Function(_GetNotificationSuccess value)
         getNotificationSuccess,
+    required TResult Function(_GetTaskFromNotificationLoading value)
+        getTaskFromNotificationLoading,
+    required TResult Function(_GetTaskFromNotificationSuccess value)
+        getTaskFromNotificationSuccess,
+    required TResult Function(_GetTaskFromNotificationFailed value)
+        getTaskFromNotificationFailed,
   }) {
     return getNotificationloading(this);
   }
@@ -1870,6 +2101,12 @@ class _$GetNotificationloadingImpl implements _GetNotificationloading {
     TResult? Function(_GetNewNotificationFailed value)?
         getNewNotificationFailed,
     TResult? Function(_GetNotificationSuccess value)? getNotificationSuccess,
+    TResult? Function(_GetTaskFromNotificationLoading value)?
+        getTaskFromNotificationLoading,
+    TResult? Function(_GetTaskFromNotificationSuccess value)?
+        getTaskFromNotificationSuccess,
+    TResult? Function(_GetTaskFromNotificationFailed value)?
+        getTaskFromNotificationFailed,
   }) {
     return getNotificationloading?.call(this);
   }
@@ -1893,6 +2130,12 @@ class _$GetNotificationloadingImpl implements _GetNotificationloading {
     TResult Function(_GetNotificationFailed value)? getNotificationFailed,
     TResult Function(_GetNewNotificationFailed value)? getNewNotificationFailed,
     TResult Function(_GetNotificationSuccess value)? getNotificationSuccess,
+    TResult Function(_GetTaskFromNotificationLoading value)?
+        getTaskFromNotificationLoading,
+    TResult Function(_GetTaskFromNotificationSuccess value)?
+        getTaskFromNotificationSuccess,
+    TResult Function(_GetTaskFromNotificationFailed value)?
+        getTaskFromNotificationFailed,
     required TResult orElse(),
   }) {
     if (getNotificationloading != null) {
@@ -1968,6 +2211,9 @@ class _$GetNewNotificationloadingImpl implements _GetNewNotificationloading {
     required TResult Function(String message) getNewNotificationFailed,
     required TResult Function(List<QueryDocumentSnapshot<Object?>> list)
         getNotificationSuccess,
+    required TResult Function() getTaskFromNotificationLoading,
+    required TResult Function(TaskModel task) getTaskFromNotificationSuccess,
+    required TResult Function(Failure failure) getTaskFromNotificationFailed,
   }) {
     return getNewNotificationloading();
   }
@@ -1990,6 +2236,9 @@ class _$GetNewNotificationloadingImpl implements _GetNewNotificationloading {
     TResult? Function(String message)? getNewNotificationFailed,
     TResult? Function(List<QueryDocumentSnapshot<Object?>> list)?
         getNotificationSuccess,
+    TResult? Function()? getTaskFromNotificationLoading,
+    TResult? Function(TaskModel task)? getTaskFromNotificationSuccess,
+    TResult? Function(Failure failure)? getTaskFromNotificationFailed,
   }) {
     return getNewNotificationloading?.call();
   }
@@ -2012,6 +2261,9 @@ class _$GetNewNotificationloadingImpl implements _GetNewNotificationloading {
     TResult Function(String message)? getNewNotificationFailed,
     TResult Function(List<QueryDocumentSnapshot<Object?>> list)?
         getNotificationSuccess,
+    TResult Function()? getTaskFromNotificationLoading,
+    TResult Function(TaskModel task)? getTaskFromNotificationSuccess,
+    TResult Function(Failure failure)? getTaskFromNotificationFailed,
     required TResult orElse(),
   }) {
     if (getNewNotificationloading != null) {
@@ -2046,6 +2298,12 @@ class _$GetNewNotificationloadingImpl implements _GetNewNotificationloading {
         getNewNotificationFailed,
     required TResult Function(_GetNotificationSuccess value)
         getNotificationSuccess,
+    required TResult Function(_GetTaskFromNotificationLoading value)
+        getTaskFromNotificationLoading,
+    required TResult Function(_GetTaskFromNotificationSuccess value)
+        getTaskFromNotificationSuccess,
+    required TResult Function(_GetTaskFromNotificationFailed value)
+        getTaskFromNotificationFailed,
   }) {
     return getNewNotificationloading(this);
   }
@@ -2070,6 +2328,12 @@ class _$GetNewNotificationloadingImpl implements _GetNewNotificationloading {
     TResult? Function(_GetNewNotificationFailed value)?
         getNewNotificationFailed,
     TResult? Function(_GetNotificationSuccess value)? getNotificationSuccess,
+    TResult? Function(_GetTaskFromNotificationLoading value)?
+        getTaskFromNotificationLoading,
+    TResult? Function(_GetTaskFromNotificationSuccess value)?
+        getTaskFromNotificationSuccess,
+    TResult? Function(_GetTaskFromNotificationFailed value)?
+        getTaskFromNotificationFailed,
   }) {
     return getNewNotificationloading?.call(this);
   }
@@ -2093,6 +2357,12 @@ class _$GetNewNotificationloadingImpl implements _GetNewNotificationloading {
     TResult Function(_GetNotificationFailed value)? getNotificationFailed,
     TResult Function(_GetNewNotificationFailed value)? getNewNotificationFailed,
     TResult Function(_GetNotificationSuccess value)? getNotificationSuccess,
+    TResult Function(_GetTaskFromNotificationLoading value)?
+        getTaskFromNotificationLoading,
+    TResult Function(_GetTaskFromNotificationSuccess value)?
+        getTaskFromNotificationSuccess,
+    TResult Function(_GetTaskFromNotificationFailed value)?
+        getTaskFromNotificationFailed,
     required TResult orElse(),
   }) {
     if (getNewNotificationloading != null) {
@@ -2204,6 +2474,9 @@ class _$GetNotificationFailedImpl implements _GetNotificationFailed {
     required TResult Function(String message) getNewNotificationFailed,
     required TResult Function(List<QueryDocumentSnapshot<Object?>> list)
         getNotificationSuccess,
+    required TResult Function() getTaskFromNotificationLoading,
+    required TResult Function(TaskModel task) getTaskFromNotificationSuccess,
+    required TResult Function(Failure failure) getTaskFromNotificationFailed,
   }) {
     return getNotificationFailed(failure, message);
   }
@@ -2226,6 +2499,9 @@ class _$GetNotificationFailedImpl implements _GetNotificationFailed {
     TResult? Function(String message)? getNewNotificationFailed,
     TResult? Function(List<QueryDocumentSnapshot<Object?>> list)?
         getNotificationSuccess,
+    TResult? Function()? getTaskFromNotificationLoading,
+    TResult? Function(TaskModel task)? getTaskFromNotificationSuccess,
+    TResult? Function(Failure failure)? getTaskFromNotificationFailed,
   }) {
     return getNotificationFailed?.call(failure, message);
   }
@@ -2248,6 +2524,9 @@ class _$GetNotificationFailedImpl implements _GetNotificationFailed {
     TResult Function(String message)? getNewNotificationFailed,
     TResult Function(List<QueryDocumentSnapshot<Object?>> list)?
         getNotificationSuccess,
+    TResult Function()? getTaskFromNotificationLoading,
+    TResult Function(TaskModel task)? getTaskFromNotificationSuccess,
+    TResult Function(Failure failure)? getTaskFromNotificationFailed,
     required TResult orElse(),
   }) {
     if (getNotificationFailed != null) {
@@ -2282,6 +2561,12 @@ class _$GetNotificationFailedImpl implements _GetNotificationFailed {
         getNewNotificationFailed,
     required TResult Function(_GetNotificationSuccess value)
         getNotificationSuccess,
+    required TResult Function(_GetTaskFromNotificationLoading value)
+        getTaskFromNotificationLoading,
+    required TResult Function(_GetTaskFromNotificationSuccess value)
+        getTaskFromNotificationSuccess,
+    required TResult Function(_GetTaskFromNotificationFailed value)
+        getTaskFromNotificationFailed,
   }) {
     return getNotificationFailed(this);
   }
@@ -2306,6 +2591,12 @@ class _$GetNotificationFailedImpl implements _GetNotificationFailed {
     TResult? Function(_GetNewNotificationFailed value)?
         getNewNotificationFailed,
     TResult? Function(_GetNotificationSuccess value)? getNotificationSuccess,
+    TResult? Function(_GetTaskFromNotificationLoading value)?
+        getTaskFromNotificationLoading,
+    TResult? Function(_GetTaskFromNotificationSuccess value)?
+        getTaskFromNotificationSuccess,
+    TResult? Function(_GetTaskFromNotificationFailed value)?
+        getTaskFromNotificationFailed,
   }) {
     return getNotificationFailed?.call(this);
   }
@@ -2329,6 +2620,12 @@ class _$GetNotificationFailedImpl implements _GetNotificationFailed {
     TResult Function(_GetNotificationFailed value)? getNotificationFailed,
     TResult Function(_GetNewNotificationFailed value)? getNewNotificationFailed,
     TResult Function(_GetNotificationSuccess value)? getNotificationSuccess,
+    TResult Function(_GetTaskFromNotificationLoading value)?
+        getTaskFromNotificationLoading,
+    TResult Function(_GetTaskFromNotificationSuccess value)?
+        getTaskFromNotificationSuccess,
+    TResult Function(_GetTaskFromNotificationFailed value)?
+        getTaskFromNotificationFailed,
     required TResult orElse(),
   }) {
     if (getNotificationFailed != null) {
@@ -2442,6 +2739,9 @@ class _$GetNewNotificationFailedImpl implements _GetNewNotificationFailed {
     required TResult Function(String message) getNewNotificationFailed,
     required TResult Function(List<QueryDocumentSnapshot<Object?>> list)
         getNotificationSuccess,
+    required TResult Function() getTaskFromNotificationLoading,
+    required TResult Function(TaskModel task) getTaskFromNotificationSuccess,
+    required TResult Function(Failure failure) getTaskFromNotificationFailed,
   }) {
     return getNewNotificationFailed(message);
   }
@@ -2464,6 +2764,9 @@ class _$GetNewNotificationFailedImpl implements _GetNewNotificationFailed {
     TResult? Function(String message)? getNewNotificationFailed,
     TResult? Function(List<QueryDocumentSnapshot<Object?>> list)?
         getNotificationSuccess,
+    TResult? Function()? getTaskFromNotificationLoading,
+    TResult? Function(TaskModel task)? getTaskFromNotificationSuccess,
+    TResult? Function(Failure failure)? getTaskFromNotificationFailed,
   }) {
     return getNewNotificationFailed?.call(message);
   }
@@ -2486,6 +2789,9 @@ class _$GetNewNotificationFailedImpl implements _GetNewNotificationFailed {
     TResult Function(String message)? getNewNotificationFailed,
     TResult Function(List<QueryDocumentSnapshot<Object?>> list)?
         getNotificationSuccess,
+    TResult Function()? getTaskFromNotificationLoading,
+    TResult Function(TaskModel task)? getTaskFromNotificationSuccess,
+    TResult Function(Failure failure)? getTaskFromNotificationFailed,
     required TResult orElse(),
   }) {
     if (getNewNotificationFailed != null) {
@@ -2520,6 +2826,12 @@ class _$GetNewNotificationFailedImpl implements _GetNewNotificationFailed {
         getNewNotificationFailed,
     required TResult Function(_GetNotificationSuccess value)
         getNotificationSuccess,
+    required TResult Function(_GetTaskFromNotificationLoading value)
+        getTaskFromNotificationLoading,
+    required TResult Function(_GetTaskFromNotificationSuccess value)
+        getTaskFromNotificationSuccess,
+    required TResult Function(_GetTaskFromNotificationFailed value)
+        getTaskFromNotificationFailed,
   }) {
     return getNewNotificationFailed(this);
   }
@@ -2544,6 +2856,12 @@ class _$GetNewNotificationFailedImpl implements _GetNewNotificationFailed {
     TResult? Function(_GetNewNotificationFailed value)?
         getNewNotificationFailed,
     TResult? Function(_GetNotificationSuccess value)? getNotificationSuccess,
+    TResult? Function(_GetTaskFromNotificationLoading value)?
+        getTaskFromNotificationLoading,
+    TResult? Function(_GetTaskFromNotificationSuccess value)?
+        getTaskFromNotificationSuccess,
+    TResult? Function(_GetTaskFromNotificationFailed value)?
+        getTaskFromNotificationFailed,
   }) {
     return getNewNotificationFailed?.call(this);
   }
@@ -2567,6 +2885,12 @@ class _$GetNewNotificationFailedImpl implements _GetNewNotificationFailed {
     TResult Function(_GetNotificationFailed value)? getNotificationFailed,
     TResult Function(_GetNewNotificationFailed value)? getNewNotificationFailed,
     TResult Function(_GetNotificationSuccess value)? getNotificationSuccess,
+    TResult Function(_GetTaskFromNotificationLoading value)?
+        getTaskFromNotificationLoading,
+    TResult Function(_GetTaskFromNotificationSuccess value)?
+        getTaskFromNotificationSuccess,
+    TResult Function(_GetTaskFromNotificationFailed value)?
+        getTaskFromNotificationFailed,
     required TResult orElse(),
   }) {
     if (getNewNotificationFailed != null) {
@@ -2686,6 +3010,9 @@ class _$GetNotificationSuccessImpl implements _GetNotificationSuccess {
     required TResult Function(String message) getNewNotificationFailed,
     required TResult Function(List<QueryDocumentSnapshot<Object?>> list)
         getNotificationSuccess,
+    required TResult Function() getTaskFromNotificationLoading,
+    required TResult Function(TaskModel task) getTaskFromNotificationSuccess,
+    required TResult Function(Failure failure) getTaskFromNotificationFailed,
   }) {
     return getNotificationSuccess(list);
   }
@@ -2708,6 +3035,9 @@ class _$GetNotificationSuccessImpl implements _GetNotificationSuccess {
     TResult? Function(String message)? getNewNotificationFailed,
     TResult? Function(List<QueryDocumentSnapshot<Object?>> list)?
         getNotificationSuccess,
+    TResult? Function()? getTaskFromNotificationLoading,
+    TResult? Function(TaskModel task)? getTaskFromNotificationSuccess,
+    TResult? Function(Failure failure)? getTaskFromNotificationFailed,
   }) {
     return getNotificationSuccess?.call(list);
   }
@@ -2730,6 +3060,9 @@ class _$GetNotificationSuccessImpl implements _GetNotificationSuccess {
     TResult Function(String message)? getNewNotificationFailed,
     TResult Function(List<QueryDocumentSnapshot<Object?>> list)?
         getNotificationSuccess,
+    TResult Function()? getTaskFromNotificationLoading,
+    TResult Function(TaskModel task)? getTaskFromNotificationSuccess,
+    TResult Function(Failure failure)? getTaskFromNotificationFailed,
     required TResult orElse(),
   }) {
     if (getNotificationSuccess != null) {
@@ -2764,6 +3097,12 @@ class _$GetNotificationSuccessImpl implements _GetNotificationSuccess {
         getNewNotificationFailed,
     required TResult Function(_GetNotificationSuccess value)
         getNotificationSuccess,
+    required TResult Function(_GetTaskFromNotificationLoading value)
+        getTaskFromNotificationLoading,
+    required TResult Function(_GetTaskFromNotificationSuccess value)
+        getTaskFromNotificationSuccess,
+    required TResult Function(_GetTaskFromNotificationFailed value)
+        getTaskFromNotificationFailed,
   }) {
     return getNotificationSuccess(this);
   }
@@ -2788,6 +3127,12 @@ class _$GetNotificationSuccessImpl implements _GetNotificationSuccess {
     TResult? Function(_GetNewNotificationFailed value)?
         getNewNotificationFailed,
     TResult? Function(_GetNotificationSuccess value)? getNotificationSuccess,
+    TResult? Function(_GetTaskFromNotificationLoading value)?
+        getTaskFromNotificationLoading,
+    TResult? Function(_GetTaskFromNotificationSuccess value)?
+        getTaskFromNotificationSuccess,
+    TResult? Function(_GetTaskFromNotificationFailed value)?
+        getTaskFromNotificationFailed,
   }) {
     return getNotificationSuccess?.call(this);
   }
@@ -2811,6 +3156,12 @@ class _$GetNotificationSuccessImpl implements _GetNotificationSuccess {
     TResult Function(_GetNotificationFailed value)? getNotificationFailed,
     TResult Function(_GetNewNotificationFailed value)? getNewNotificationFailed,
     TResult Function(_GetNotificationSuccess value)? getNotificationSuccess,
+    TResult Function(_GetTaskFromNotificationLoading value)?
+        getTaskFromNotificationLoading,
+    TResult Function(_GetTaskFromNotificationSuccess value)?
+        getTaskFromNotificationSuccess,
+    TResult Function(_GetTaskFromNotificationFailed value)?
+        getTaskFromNotificationFailed,
     required TResult orElse(),
   }) {
     if (getNotificationSuccess != null) {
@@ -2831,5 +3182,781 @@ abstract class _GetNotificationSuccess implements NotificationViewmodelState {
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
   _$$GetNotificationSuccessImplCopyWith<_$GetNotificationSuccessImpl>
+      get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$GetTaskFromNotificationLoadingImplCopyWith<$Res> {
+  factory _$$GetTaskFromNotificationLoadingImplCopyWith(
+          _$GetTaskFromNotificationLoadingImpl value,
+          $Res Function(_$GetTaskFromNotificationLoadingImpl) then) =
+      __$$GetTaskFromNotificationLoadingImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$GetTaskFromNotificationLoadingImplCopyWithImpl<$Res>
+    extends _$NotificationViewmodelStateCopyWithImpl<$Res,
+        _$GetTaskFromNotificationLoadingImpl>
+    implements _$$GetTaskFromNotificationLoadingImplCopyWith<$Res> {
+  __$$GetTaskFromNotificationLoadingImplCopyWithImpl(
+      _$GetTaskFromNotificationLoadingImpl _value,
+      $Res Function(_$GetTaskFromNotificationLoadingImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of NotificationViewmodelState
+  /// with the given fields replaced by the non-null parameter values.
+}
+
+/// @nodoc
+
+class _$GetTaskFromNotificationLoadingImpl
+    implements _GetTaskFromNotificationLoading {
+  const _$GetTaskFromNotificationLoadingImpl();
+
+  @override
+  String toString() {
+    return 'NotificationViewmodelState.getTaskFromNotificationLoading()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$GetTaskFromNotificationLoadingImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() sendNotificationloading,
+    required TResult Function(Failure failure, String message)
+        sendNotificationFailed,
+    required TResult Function() sendNotificationSuccess,
+    required TResult Function() getNotificationStreamloading,
+    required TResult Function(Failure failure, String message)
+        getNotificationStreamFailed,
+    required TResult Function(Stream<List<NotificationModel>> stream)
+        getNotificationStreamSuccess,
+    required TResult Function() getNotificationloading,
+    required TResult Function() getNewNotificationloading,
+    required TResult Function(Failure failure, String message)
+        getNotificationFailed,
+    required TResult Function(String message) getNewNotificationFailed,
+    required TResult Function(List<QueryDocumentSnapshot<Object?>> list)
+        getNotificationSuccess,
+    required TResult Function() getTaskFromNotificationLoading,
+    required TResult Function(TaskModel task) getTaskFromNotificationSuccess,
+    required TResult Function(Failure failure) getTaskFromNotificationFailed,
+  }) {
+    return getTaskFromNotificationLoading();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? sendNotificationloading,
+    TResult? Function(Failure failure, String message)? sendNotificationFailed,
+    TResult? Function()? sendNotificationSuccess,
+    TResult? Function()? getNotificationStreamloading,
+    TResult? Function(Failure failure, String message)?
+        getNotificationStreamFailed,
+    TResult? Function(Stream<List<NotificationModel>> stream)?
+        getNotificationStreamSuccess,
+    TResult? Function()? getNotificationloading,
+    TResult? Function()? getNewNotificationloading,
+    TResult? Function(Failure failure, String message)? getNotificationFailed,
+    TResult? Function(String message)? getNewNotificationFailed,
+    TResult? Function(List<QueryDocumentSnapshot<Object?>> list)?
+        getNotificationSuccess,
+    TResult? Function()? getTaskFromNotificationLoading,
+    TResult? Function(TaskModel task)? getTaskFromNotificationSuccess,
+    TResult? Function(Failure failure)? getTaskFromNotificationFailed,
+  }) {
+    return getTaskFromNotificationLoading?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? sendNotificationloading,
+    TResult Function(Failure failure, String message)? sendNotificationFailed,
+    TResult Function()? sendNotificationSuccess,
+    TResult Function()? getNotificationStreamloading,
+    TResult Function(Failure failure, String message)?
+        getNotificationStreamFailed,
+    TResult Function(Stream<List<NotificationModel>> stream)?
+        getNotificationStreamSuccess,
+    TResult Function()? getNotificationloading,
+    TResult Function()? getNewNotificationloading,
+    TResult Function(Failure failure, String message)? getNotificationFailed,
+    TResult Function(String message)? getNewNotificationFailed,
+    TResult Function(List<QueryDocumentSnapshot<Object?>> list)?
+        getNotificationSuccess,
+    TResult Function()? getTaskFromNotificationLoading,
+    TResult Function(TaskModel task)? getTaskFromNotificationSuccess,
+    TResult Function(Failure failure)? getTaskFromNotificationFailed,
+    required TResult orElse(),
+  }) {
+    if (getTaskFromNotificationLoading != null) {
+      return getTaskFromNotificationLoading();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(_SendNotificationloading value)
+        sendNotificationloading,
+    required TResult Function(_SendNotificationFailed value)
+        sendNotificationFailed,
+    required TResult Function(_SendNotificationSuccess value)
+        sendNotificationSuccess,
+    required TResult Function(_GetNotificationStreamloading value)
+        getNotificationStreamloading,
+    required TResult Function(_GetNotificationStreamFailed value)
+        getNotificationStreamFailed,
+    required TResult Function(_GetNotificationStreamSuccess value)
+        getNotificationStreamSuccess,
+    required TResult Function(_GetNotificationloading value)
+        getNotificationloading,
+    required TResult Function(_GetNewNotificationloading value)
+        getNewNotificationloading,
+    required TResult Function(_GetNotificationFailed value)
+        getNotificationFailed,
+    required TResult Function(_GetNewNotificationFailed value)
+        getNewNotificationFailed,
+    required TResult Function(_GetNotificationSuccess value)
+        getNotificationSuccess,
+    required TResult Function(_GetTaskFromNotificationLoading value)
+        getTaskFromNotificationLoading,
+    required TResult Function(_GetTaskFromNotificationSuccess value)
+        getTaskFromNotificationSuccess,
+    required TResult Function(_GetTaskFromNotificationFailed value)
+        getTaskFromNotificationFailed,
+  }) {
+    return getTaskFromNotificationLoading(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_SendNotificationloading value)? sendNotificationloading,
+    TResult? Function(_SendNotificationFailed value)? sendNotificationFailed,
+    TResult? Function(_SendNotificationSuccess value)? sendNotificationSuccess,
+    TResult? Function(_GetNotificationStreamloading value)?
+        getNotificationStreamloading,
+    TResult? Function(_GetNotificationStreamFailed value)?
+        getNotificationStreamFailed,
+    TResult? Function(_GetNotificationStreamSuccess value)?
+        getNotificationStreamSuccess,
+    TResult? Function(_GetNotificationloading value)? getNotificationloading,
+    TResult? Function(_GetNewNotificationloading value)?
+        getNewNotificationloading,
+    TResult? Function(_GetNotificationFailed value)? getNotificationFailed,
+    TResult? Function(_GetNewNotificationFailed value)?
+        getNewNotificationFailed,
+    TResult? Function(_GetNotificationSuccess value)? getNotificationSuccess,
+    TResult? Function(_GetTaskFromNotificationLoading value)?
+        getTaskFromNotificationLoading,
+    TResult? Function(_GetTaskFromNotificationSuccess value)?
+        getTaskFromNotificationSuccess,
+    TResult? Function(_GetTaskFromNotificationFailed value)?
+        getTaskFromNotificationFailed,
+  }) {
+    return getTaskFromNotificationLoading?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_SendNotificationloading value)? sendNotificationloading,
+    TResult Function(_SendNotificationFailed value)? sendNotificationFailed,
+    TResult Function(_SendNotificationSuccess value)? sendNotificationSuccess,
+    TResult Function(_GetNotificationStreamloading value)?
+        getNotificationStreamloading,
+    TResult Function(_GetNotificationStreamFailed value)?
+        getNotificationStreamFailed,
+    TResult Function(_GetNotificationStreamSuccess value)?
+        getNotificationStreamSuccess,
+    TResult Function(_GetNotificationloading value)? getNotificationloading,
+    TResult Function(_GetNewNotificationloading value)?
+        getNewNotificationloading,
+    TResult Function(_GetNotificationFailed value)? getNotificationFailed,
+    TResult Function(_GetNewNotificationFailed value)? getNewNotificationFailed,
+    TResult Function(_GetNotificationSuccess value)? getNotificationSuccess,
+    TResult Function(_GetTaskFromNotificationLoading value)?
+        getTaskFromNotificationLoading,
+    TResult Function(_GetTaskFromNotificationSuccess value)?
+        getTaskFromNotificationSuccess,
+    TResult Function(_GetTaskFromNotificationFailed value)?
+        getTaskFromNotificationFailed,
+    required TResult orElse(),
+  }) {
+    if (getTaskFromNotificationLoading != null) {
+      return getTaskFromNotificationLoading(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _GetTaskFromNotificationLoading
+    implements NotificationViewmodelState {
+  const factory _GetTaskFromNotificationLoading() =
+      _$GetTaskFromNotificationLoadingImpl;
+}
+
+/// @nodoc
+abstract class _$$GetTaskFromNotificationSuccessImplCopyWith<$Res> {
+  factory _$$GetTaskFromNotificationSuccessImplCopyWith(
+          _$GetTaskFromNotificationSuccessImpl value,
+          $Res Function(_$GetTaskFromNotificationSuccessImpl) then) =
+      __$$GetTaskFromNotificationSuccessImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({TaskModel task});
+
+  $TaskModelCopyWith<$Res> get task;
+}
+
+/// @nodoc
+class __$$GetTaskFromNotificationSuccessImplCopyWithImpl<$Res>
+    extends _$NotificationViewmodelStateCopyWithImpl<$Res,
+        _$GetTaskFromNotificationSuccessImpl>
+    implements _$$GetTaskFromNotificationSuccessImplCopyWith<$Res> {
+  __$$GetTaskFromNotificationSuccessImplCopyWithImpl(
+      _$GetTaskFromNotificationSuccessImpl _value,
+      $Res Function(_$GetTaskFromNotificationSuccessImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of NotificationViewmodelState
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? task = null,
+  }) {
+    return _then(_$GetTaskFromNotificationSuccessImpl(
+      task: null == task
+          ? _value.task
+          : task // ignore: cast_nullable_to_non_nullable
+              as TaskModel,
+    ));
+  }
+
+  /// Create a copy of NotificationViewmodelState
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $TaskModelCopyWith<$Res> get task {
+    return $TaskModelCopyWith<$Res>(_value.task, (value) {
+      return _then(_value.copyWith(task: value));
+    });
+  }
+}
+
+/// @nodoc
+
+class _$GetTaskFromNotificationSuccessImpl
+    implements _GetTaskFromNotificationSuccess {
+  const _$GetTaskFromNotificationSuccessImpl({required this.task});
+
+  @override
+  final TaskModel task;
+
+  @override
+  String toString() {
+    return 'NotificationViewmodelState.getTaskFromNotificationSuccess(task: $task)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$GetTaskFromNotificationSuccessImpl &&
+            (identical(other.task, task) || other.task == task));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, task);
+
+  /// Create a copy of NotificationViewmodelState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$GetTaskFromNotificationSuccessImplCopyWith<
+          _$GetTaskFromNotificationSuccessImpl>
+      get copyWith => __$$GetTaskFromNotificationSuccessImplCopyWithImpl<
+          _$GetTaskFromNotificationSuccessImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() sendNotificationloading,
+    required TResult Function(Failure failure, String message)
+        sendNotificationFailed,
+    required TResult Function() sendNotificationSuccess,
+    required TResult Function() getNotificationStreamloading,
+    required TResult Function(Failure failure, String message)
+        getNotificationStreamFailed,
+    required TResult Function(Stream<List<NotificationModel>> stream)
+        getNotificationStreamSuccess,
+    required TResult Function() getNotificationloading,
+    required TResult Function() getNewNotificationloading,
+    required TResult Function(Failure failure, String message)
+        getNotificationFailed,
+    required TResult Function(String message) getNewNotificationFailed,
+    required TResult Function(List<QueryDocumentSnapshot<Object?>> list)
+        getNotificationSuccess,
+    required TResult Function() getTaskFromNotificationLoading,
+    required TResult Function(TaskModel task) getTaskFromNotificationSuccess,
+    required TResult Function(Failure failure) getTaskFromNotificationFailed,
+  }) {
+    return getTaskFromNotificationSuccess(task);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? sendNotificationloading,
+    TResult? Function(Failure failure, String message)? sendNotificationFailed,
+    TResult? Function()? sendNotificationSuccess,
+    TResult? Function()? getNotificationStreamloading,
+    TResult? Function(Failure failure, String message)?
+        getNotificationStreamFailed,
+    TResult? Function(Stream<List<NotificationModel>> stream)?
+        getNotificationStreamSuccess,
+    TResult? Function()? getNotificationloading,
+    TResult? Function()? getNewNotificationloading,
+    TResult? Function(Failure failure, String message)? getNotificationFailed,
+    TResult? Function(String message)? getNewNotificationFailed,
+    TResult? Function(List<QueryDocumentSnapshot<Object?>> list)?
+        getNotificationSuccess,
+    TResult? Function()? getTaskFromNotificationLoading,
+    TResult? Function(TaskModel task)? getTaskFromNotificationSuccess,
+    TResult? Function(Failure failure)? getTaskFromNotificationFailed,
+  }) {
+    return getTaskFromNotificationSuccess?.call(task);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? sendNotificationloading,
+    TResult Function(Failure failure, String message)? sendNotificationFailed,
+    TResult Function()? sendNotificationSuccess,
+    TResult Function()? getNotificationStreamloading,
+    TResult Function(Failure failure, String message)?
+        getNotificationStreamFailed,
+    TResult Function(Stream<List<NotificationModel>> stream)?
+        getNotificationStreamSuccess,
+    TResult Function()? getNotificationloading,
+    TResult Function()? getNewNotificationloading,
+    TResult Function(Failure failure, String message)? getNotificationFailed,
+    TResult Function(String message)? getNewNotificationFailed,
+    TResult Function(List<QueryDocumentSnapshot<Object?>> list)?
+        getNotificationSuccess,
+    TResult Function()? getTaskFromNotificationLoading,
+    TResult Function(TaskModel task)? getTaskFromNotificationSuccess,
+    TResult Function(Failure failure)? getTaskFromNotificationFailed,
+    required TResult orElse(),
+  }) {
+    if (getTaskFromNotificationSuccess != null) {
+      return getTaskFromNotificationSuccess(task);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(_SendNotificationloading value)
+        sendNotificationloading,
+    required TResult Function(_SendNotificationFailed value)
+        sendNotificationFailed,
+    required TResult Function(_SendNotificationSuccess value)
+        sendNotificationSuccess,
+    required TResult Function(_GetNotificationStreamloading value)
+        getNotificationStreamloading,
+    required TResult Function(_GetNotificationStreamFailed value)
+        getNotificationStreamFailed,
+    required TResult Function(_GetNotificationStreamSuccess value)
+        getNotificationStreamSuccess,
+    required TResult Function(_GetNotificationloading value)
+        getNotificationloading,
+    required TResult Function(_GetNewNotificationloading value)
+        getNewNotificationloading,
+    required TResult Function(_GetNotificationFailed value)
+        getNotificationFailed,
+    required TResult Function(_GetNewNotificationFailed value)
+        getNewNotificationFailed,
+    required TResult Function(_GetNotificationSuccess value)
+        getNotificationSuccess,
+    required TResult Function(_GetTaskFromNotificationLoading value)
+        getTaskFromNotificationLoading,
+    required TResult Function(_GetTaskFromNotificationSuccess value)
+        getTaskFromNotificationSuccess,
+    required TResult Function(_GetTaskFromNotificationFailed value)
+        getTaskFromNotificationFailed,
+  }) {
+    return getTaskFromNotificationSuccess(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_SendNotificationloading value)? sendNotificationloading,
+    TResult? Function(_SendNotificationFailed value)? sendNotificationFailed,
+    TResult? Function(_SendNotificationSuccess value)? sendNotificationSuccess,
+    TResult? Function(_GetNotificationStreamloading value)?
+        getNotificationStreamloading,
+    TResult? Function(_GetNotificationStreamFailed value)?
+        getNotificationStreamFailed,
+    TResult? Function(_GetNotificationStreamSuccess value)?
+        getNotificationStreamSuccess,
+    TResult? Function(_GetNotificationloading value)? getNotificationloading,
+    TResult? Function(_GetNewNotificationloading value)?
+        getNewNotificationloading,
+    TResult? Function(_GetNotificationFailed value)? getNotificationFailed,
+    TResult? Function(_GetNewNotificationFailed value)?
+        getNewNotificationFailed,
+    TResult? Function(_GetNotificationSuccess value)? getNotificationSuccess,
+    TResult? Function(_GetTaskFromNotificationLoading value)?
+        getTaskFromNotificationLoading,
+    TResult? Function(_GetTaskFromNotificationSuccess value)?
+        getTaskFromNotificationSuccess,
+    TResult? Function(_GetTaskFromNotificationFailed value)?
+        getTaskFromNotificationFailed,
+  }) {
+    return getTaskFromNotificationSuccess?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_SendNotificationloading value)? sendNotificationloading,
+    TResult Function(_SendNotificationFailed value)? sendNotificationFailed,
+    TResult Function(_SendNotificationSuccess value)? sendNotificationSuccess,
+    TResult Function(_GetNotificationStreamloading value)?
+        getNotificationStreamloading,
+    TResult Function(_GetNotificationStreamFailed value)?
+        getNotificationStreamFailed,
+    TResult Function(_GetNotificationStreamSuccess value)?
+        getNotificationStreamSuccess,
+    TResult Function(_GetNotificationloading value)? getNotificationloading,
+    TResult Function(_GetNewNotificationloading value)?
+        getNewNotificationloading,
+    TResult Function(_GetNotificationFailed value)? getNotificationFailed,
+    TResult Function(_GetNewNotificationFailed value)? getNewNotificationFailed,
+    TResult Function(_GetNotificationSuccess value)? getNotificationSuccess,
+    TResult Function(_GetTaskFromNotificationLoading value)?
+        getTaskFromNotificationLoading,
+    TResult Function(_GetTaskFromNotificationSuccess value)?
+        getTaskFromNotificationSuccess,
+    TResult Function(_GetTaskFromNotificationFailed value)?
+        getTaskFromNotificationFailed,
+    required TResult orElse(),
+  }) {
+    if (getTaskFromNotificationSuccess != null) {
+      return getTaskFromNotificationSuccess(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _GetTaskFromNotificationSuccess
+    implements NotificationViewmodelState {
+  const factory _GetTaskFromNotificationSuccess(
+      {required final TaskModel task}) = _$GetTaskFromNotificationSuccessImpl;
+
+  TaskModel get task;
+
+  /// Create a copy of NotificationViewmodelState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$GetTaskFromNotificationSuccessImplCopyWith<
+          _$GetTaskFromNotificationSuccessImpl>
+      get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$GetTaskFromNotificationFailedImplCopyWith<$Res> {
+  factory _$$GetTaskFromNotificationFailedImplCopyWith(
+          _$GetTaskFromNotificationFailedImpl value,
+          $Res Function(_$GetTaskFromNotificationFailedImpl) then) =
+      __$$GetTaskFromNotificationFailedImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({Failure failure});
+}
+
+/// @nodoc
+class __$$GetTaskFromNotificationFailedImplCopyWithImpl<$Res>
+    extends _$NotificationViewmodelStateCopyWithImpl<$Res,
+        _$GetTaskFromNotificationFailedImpl>
+    implements _$$GetTaskFromNotificationFailedImplCopyWith<$Res> {
+  __$$GetTaskFromNotificationFailedImplCopyWithImpl(
+      _$GetTaskFromNotificationFailedImpl _value,
+      $Res Function(_$GetTaskFromNotificationFailedImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of NotificationViewmodelState
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? failure = null,
+  }) {
+    return _then(_$GetTaskFromNotificationFailedImpl(
+      failure: null == failure
+          ? _value.failure
+          : failure // ignore: cast_nullable_to_non_nullable
+              as Failure,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$GetTaskFromNotificationFailedImpl
+    implements _GetTaskFromNotificationFailed {
+  const _$GetTaskFromNotificationFailedImpl({required this.failure});
+
+  @override
+  final Failure failure;
+
+  @override
+  String toString() {
+    return 'NotificationViewmodelState.getTaskFromNotificationFailed(failure: $failure)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$GetTaskFromNotificationFailedImpl &&
+            (identical(other.failure, failure) || other.failure == failure));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, failure);
+
+  /// Create a copy of NotificationViewmodelState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$GetTaskFromNotificationFailedImplCopyWith<
+          _$GetTaskFromNotificationFailedImpl>
+      get copyWith => __$$GetTaskFromNotificationFailedImplCopyWithImpl<
+          _$GetTaskFromNotificationFailedImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() sendNotificationloading,
+    required TResult Function(Failure failure, String message)
+        sendNotificationFailed,
+    required TResult Function() sendNotificationSuccess,
+    required TResult Function() getNotificationStreamloading,
+    required TResult Function(Failure failure, String message)
+        getNotificationStreamFailed,
+    required TResult Function(Stream<List<NotificationModel>> stream)
+        getNotificationStreamSuccess,
+    required TResult Function() getNotificationloading,
+    required TResult Function() getNewNotificationloading,
+    required TResult Function(Failure failure, String message)
+        getNotificationFailed,
+    required TResult Function(String message) getNewNotificationFailed,
+    required TResult Function(List<QueryDocumentSnapshot<Object?>> list)
+        getNotificationSuccess,
+    required TResult Function() getTaskFromNotificationLoading,
+    required TResult Function(TaskModel task) getTaskFromNotificationSuccess,
+    required TResult Function(Failure failure) getTaskFromNotificationFailed,
+  }) {
+    return getTaskFromNotificationFailed(failure);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? sendNotificationloading,
+    TResult? Function(Failure failure, String message)? sendNotificationFailed,
+    TResult? Function()? sendNotificationSuccess,
+    TResult? Function()? getNotificationStreamloading,
+    TResult? Function(Failure failure, String message)?
+        getNotificationStreamFailed,
+    TResult? Function(Stream<List<NotificationModel>> stream)?
+        getNotificationStreamSuccess,
+    TResult? Function()? getNotificationloading,
+    TResult? Function()? getNewNotificationloading,
+    TResult? Function(Failure failure, String message)? getNotificationFailed,
+    TResult? Function(String message)? getNewNotificationFailed,
+    TResult? Function(List<QueryDocumentSnapshot<Object?>> list)?
+        getNotificationSuccess,
+    TResult? Function()? getTaskFromNotificationLoading,
+    TResult? Function(TaskModel task)? getTaskFromNotificationSuccess,
+    TResult? Function(Failure failure)? getTaskFromNotificationFailed,
+  }) {
+    return getTaskFromNotificationFailed?.call(failure);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? sendNotificationloading,
+    TResult Function(Failure failure, String message)? sendNotificationFailed,
+    TResult Function()? sendNotificationSuccess,
+    TResult Function()? getNotificationStreamloading,
+    TResult Function(Failure failure, String message)?
+        getNotificationStreamFailed,
+    TResult Function(Stream<List<NotificationModel>> stream)?
+        getNotificationStreamSuccess,
+    TResult Function()? getNotificationloading,
+    TResult Function()? getNewNotificationloading,
+    TResult Function(Failure failure, String message)? getNotificationFailed,
+    TResult Function(String message)? getNewNotificationFailed,
+    TResult Function(List<QueryDocumentSnapshot<Object?>> list)?
+        getNotificationSuccess,
+    TResult Function()? getTaskFromNotificationLoading,
+    TResult Function(TaskModel task)? getTaskFromNotificationSuccess,
+    TResult Function(Failure failure)? getTaskFromNotificationFailed,
+    required TResult orElse(),
+  }) {
+    if (getTaskFromNotificationFailed != null) {
+      return getTaskFromNotificationFailed(failure);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(_SendNotificationloading value)
+        sendNotificationloading,
+    required TResult Function(_SendNotificationFailed value)
+        sendNotificationFailed,
+    required TResult Function(_SendNotificationSuccess value)
+        sendNotificationSuccess,
+    required TResult Function(_GetNotificationStreamloading value)
+        getNotificationStreamloading,
+    required TResult Function(_GetNotificationStreamFailed value)
+        getNotificationStreamFailed,
+    required TResult Function(_GetNotificationStreamSuccess value)
+        getNotificationStreamSuccess,
+    required TResult Function(_GetNotificationloading value)
+        getNotificationloading,
+    required TResult Function(_GetNewNotificationloading value)
+        getNewNotificationloading,
+    required TResult Function(_GetNotificationFailed value)
+        getNotificationFailed,
+    required TResult Function(_GetNewNotificationFailed value)
+        getNewNotificationFailed,
+    required TResult Function(_GetNotificationSuccess value)
+        getNotificationSuccess,
+    required TResult Function(_GetTaskFromNotificationLoading value)
+        getTaskFromNotificationLoading,
+    required TResult Function(_GetTaskFromNotificationSuccess value)
+        getTaskFromNotificationSuccess,
+    required TResult Function(_GetTaskFromNotificationFailed value)
+        getTaskFromNotificationFailed,
+  }) {
+    return getTaskFromNotificationFailed(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_SendNotificationloading value)? sendNotificationloading,
+    TResult? Function(_SendNotificationFailed value)? sendNotificationFailed,
+    TResult? Function(_SendNotificationSuccess value)? sendNotificationSuccess,
+    TResult? Function(_GetNotificationStreamloading value)?
+        getNotificationStreamloading,
+    TResult? Function(_GetNotificationStreamFailed value)?
+        getNotificationStreamFailed,
+    TResult? Function(_GetNotificationStreamSuccess value)?
+        getNotificationStreamSuccess,
+    TResult? Function(_GetNotificationloading value)? getNotificationloading,
+    TResult? Function(_GetNewNotificationloading value)?
+        getNewNotificationloading,
+    TResult? Function(_GetNotificationFailed value)? getNotificationFailed,
+    TResult? Function(_GetNewNotificationFailed value)?
+        getNewNotificationFailed,
+    TResult? Function(_GetNotificationSuccess value)? getNotificationSuccess,
+    TResult? Function(_GetTaskFromNotificationLoading value)?
+        getTaskFromNotificationLoading,
+    TResult? Function(_GetTaskFromNotificationSuccess value)?
+        getTaskFromNotificationSuccess,
+    TResult? Function(_GetTaskFromNotificationFailed value)?
+        getTaskFromNotificationFailed,
+  }) {
+    return getTaskFromNotificationFailed?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_SendNotificationloading value)? sendNotificationloading,
+    TResult Function(_SendNotificationFailed value)? sendNotificationFailed,
+    TResult Function(_SendNotificationSuccess value)? sendNotificationSuccess,
+    TResult Function(_GetNotificationStreamloading value)?
+        getNotificationStreamloading,
+    TResult Function(_GetNotificationStreamFailed value)?
+        getNotificationStreamFailed,
+    TResult Function(_GetNotificationStreamSuccess value)?
+        getNotificationStreamSuccess,
+    TResult Function(_GetNotificationloading value)? getNotificationloading,
+    TResult Function(_GetNewNotificationloading value)?
+        getNewNotificationloading,
+    TResult Function(_GetNotificationFailed value)? getNotificationFailed,
+    TResult Function(_GetNewNotificationFailed value)? getNewNotificationFailed,
+    TResult Function(_GetNotificationSuccess value)? getNotificationSuccess,
+    TResult Function(_GetTaskFromNotificationLoading value)?
+        getTaskFromNotificationLoading,
+    TResult Function(_GetTaskFromNotificationSuccess value)?
+        getTaskFromNotificationSuccess,
+    TResult Function(_GetTaskFromNotificationFailed value)?
+        getTaskFromNotificationFailed,
+    required TResult orElse(),
+  }) {
+    if (getTaskFromNotificationFailed != null) {
+      return getTaskFromNotificationFailed(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _GetTaskFromNotificationFailed
+    implements NotificationViewmodelState {
+  const factory _GetTaskFromNotificationFailed(
+      {required final Failure failure}) = _$GetTaskFromNotificationFailedImpl;
+
+  Failure get failure;
+
+  /// Create a copy of NotificationViewmodelState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$GetTaskFromNotificationFailedImplCopyWith<
+          _$GetTaskFromNotificationFailedImpl>
       get copyWith => throw _privateConstructorUsedError;
 }

@@ -123,6 +123,7 @@ class _TaskScreenState extends State<TaskDetailsScreen>
             updateTaskCompleted: (updatedTask) {
               task = updatedTask;
               if (task!.status == TaskStatus.done) {
+                periodicActionManager.stop();
                 showCompleteTaskDialog(
                   context,
                   AnimationController(
@@ -397,7 +398,7 @@ class _TaskScreenState extends State<TaskDetailsScreen>
                 senderId: user.id,
                 userImageUrl: user.photoUrl,
                 comment:
-                    "${'task.task_notification_action.complete'.tr()} ${task!.title}",
+                    "${'task.task_notification_action.complete'.tr()} \"${task!.title}\"",
                 payload: task!.id,
                 createdAt: DateTime.now(),
               ),
@@ -414,7 +415,7 @@ class _TaskScreenState extends State<TaskDetailsScreen>
                 senderId: user.id,
                 userImageUrl: user.photoUrl,
                 comment:
-                    "${'task.task_notification_action.update'.tr()} ${task!.title}",
+                    "${'task.task_notification_action.update'.tr()} \"${task!.title}\"",
                 payload: task!.id,
                 createdAt: DateTime.now(),
               ),

@@ -102,7 +102,7 @@ class CreateTaskScreen extends StatelessWidget {
                       saveAndLeavePage ?? false
                           ? null
                           : context.goNamed(
-                              Routes.taskDetail.name,
+                              Routes.taskDetails.name,
                               pathParameters: {
                                 'id': createdTask.id,
                               },

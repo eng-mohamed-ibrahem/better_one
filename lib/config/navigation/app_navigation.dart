@@ -1,4 +1,7 @@
+import 'dart:convert';
+
 import 'package:better_one/config/navigation/routes_enum.dart';
+import 'package:better_one/core/constants/notification_constants.dart';
 import 'package:better_one/core/utils/cache_service/cach_interface/locale_user_info.dart';
 import 'package:better_one/core/utils/dependency_locator/dependency_injection.dart';
 import 'package:better_one/core/utils/dependency_locator/inject.dart';
@@ -86,9 +89,16 @@ class AppNavigation {
               if (notification != null &&
                   notification.didNotificationLaunchApp) {
                 return state.namedLocation(
-                  Routes.taskDetail.name,
+                  Routes.sharedTask.name,
                   pathParameters: {
-                    'id': notification.notificationResponse!.payload!
+                    "id":
+                        jsonDecode(notification.notificationResponse!.payload!)[
+                            NotificaitonConstants.taskId]
+                  },
+                  queryParameters: {
+                    NotificaitonConstants.senderId:
+                        jsonDecode(notification.notificationResponse!.payload!)[
+                            NotificaitonConstants.senderId],
                   },
                 );
               }
@@ -98,10 +108,10 @@ class AppNavigation {
         },
         routes: [
           GoRoute(
-            path: Routes.task.path,
-            name: Routes.task.name,
+            path: Routes.createTask.path,
+            name: Routes.createTask.name,
             pageBuilder: (context, state) {
-              activeRoute = Routes.task.path;
+              activeRoute = Routes.createTask.path;
               return CustomTransitionPage(
                 child: BlocProvider.value(
                   value: inject<TaskViewmodel>(),
@@ -115,10 +125,10 @@ class AppNavigation {
             },
           ),
           GoRoute(
-            path: Routes.taskDetail.path,
-            name: Routes.taskDetail.name,
+            path: Routes.taskDetails.path,
+            name: Routes.taskDetails.name,
             pageBuilder: (context, state) {
-              activeRoute = Routes.taskDetail.path;
+              activeRoute = Routes.taskDetails.path;
               return CustomTransitionPage(
                 child: MultiBlocProvider(
                   providers: [
@@ -141,18 +151,38 @@ class AppNavigation {
             },
           ),
           GoRoute(
-            path: Routes.notification.path,
-            name: Routes.notification.name,
-            builder: (context, state) {
-              activeRoute = Routes.notification.path;
-              return BlocProvider(
-                create: (context) => NotificationViewmodel(
-                  notificationRepo: inject<NotificationRepoInterface>(),
+              path: Routes.notification.path,
+              name: Routes.notification.name,
+              builder: (context, state) {
+                activeRoute = Routes.notification.path;
+                return BlocProvider(
+                  lazy: false,
+                  create: (context) => NotificationViewmodel(
+                    notificationRepo: inject<NotificationRepoInterface>(),
+                  ),
+                  child: const NotificationScreen(),
+                );
+              },
+              routes: [
+                GoRoute(
+                  path: Routes.sharedTask.path,
+                  name: Routes.sharedTask.name,
+                  builder: (context, state) {
+                    activeRoute = Routes.sharedTask.path;
+                    return BlocProvider.value(
+                      value: inject<NotificationViewmodel>(),
+                      child: SharedTaskScreen(
+                        payload: {
+                          NotificaitonConstants.taskId:
+                              state.pathParameters["id"],
+                          NotificaitonConstants.senderId: state.uri
+                              .queryParameters[NotificaitonConstants.senderId]
+                        },
+                      ),
+                    );
+                  },
                 ),
-                child: const NotificationScreen(),
-              );
-            },
-          ),
+              ]),
           GoRoute(
             path: Routes.search.path,
             name: Routes.search.name,

@@ -20,7 +20,7 @@ class CardTask extends StatelessWidget {
     return InkWell(
       onTap: () {
         context
-            .goNamed(Routes.taskDetail.name, pathParameters: {'id': task.id});
+            .goNamed(Routes.taskDetails.name, pathParameters: {'id': task.id});
       },
       child: Container(
         padding: EdgeInsets.all(10.r),
