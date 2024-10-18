@@ -12,6 +12,10 @@ _$TaskModelImpl _$$TaskModelImplFromJson(Map<String, dynamic> json) =>
       subTasks: (json['sub_tasks'] as List<dynamic>)
           .map((e) => SubTask.fromJson(e as Map<String, dynamic>))
           .toList(),
+      comments: (json['comments'] as List<dynamic>?)
+              ?.map((e) => CommentModel.fromJson(e as Map<String, dynamic>))
+              .toList() ??
+          const <CommentModel>[],
       id: json['id'] as String,
       createdAt: DateTime.parse(json['created_at'] as String),
       updatedAt: json['updated_at'] == null
@@ -29,6 +33,7 @@ Map<String, dynamic> _$$TaskModelImplToJson(_$TaskModelImpl instance) =>
     <String, dynamic>{
       'title': instance.title,
       'sub_tasks': instance.subTasks.map((SubTask e) => e.toJson()).toList(),
+      'comments': instance.comments,
       'id': instance.id,
       'created_at': instance.createdAt.toIso8601String(),
       'updated_at': instance.updatedAt?.toIso8601String(),

@@ -23,6 +23,7 @@ mixin _$TaskModel {
   String get title => throw _privateConstructorUsedError;
   @JsonKey(name: 'sub_tasks')
   List<SubTask> get subTasks => throw _privateConstructorUsedError;
+  List<CommentModel> get comments => throw _privateConstructorUsedError;
   String get id => throw _privateConstructorUsedError;
   @JsonKey(name: 'created_at')
   DateTime get createdAt => throw _privateConstructorUsedError;
@@ -51,6 +52,7 @@ abstract class $TaskModelCopyWith<$Res> {
   $Res call(
       {String title,
       @JsonKey(name: 'sub_tasks') List<SubTask> subTasks,
+      List<CommentModel> comments,
       String id,
       @JsonKey(name: 'created_at') DateTime createdAt,
       @JsonKey(name: 'updated_at') DateTime? updatedAt,
@@ -76,6 +78,7 @@ class _$TaskModelCopyWithImpl<$Res, $Val extends TaskModel>
   $Res call({
     Object? title = null,
     Object? subTasks = null,
+    Object? comments = null,
     Object? id = null,
     Object? createdAt = null,
     Object? updatedAt = freezed,
@@ -92,6 +95,10 @@ class _$TaskModelCopyWithImpl<$Res, $Val extends TaskModel>
           ? _value.subTasks
           : subTasks // ignore: cast_nullable_to_non_nullable
               as List<SubTask>,
+      comments: null == comments
+          ? _value.comments
+          : comments // ignore: cast_nullable_to_non_nullable
+              as List<CommentModel>,
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
@@ -131,6 +138,7 @@ abstract class _$$TaskModelImplCopyWith<$Res>
   $Res call(
       {String title,
       @JsonKey(name: 'sub_tasks') List<SubTask> subTasks,
+      List<CommentModel> comments,
       String id,
       @JsonKey(name: 'created_at') DateTime createdAt,
       @JsonKey(name: 'updated_at') DateTime? updatedAt,
@@ -154,6 +162,7 @@ class __$$TaskModelImplCopyWithImpl<$Res>
   $Res call({
     Object? title = null,
     Object? subTasks = null,
+    Object? comments = null,
     Object? id = null,
     Object? createdAt = null,
     Object? updatedAt = freezed,
@@ -170,6 +179,10 @@ class __$$TaskModelImplCopyWithImpl<$Res>
           ? _value.subTasks
           : subTasks // ignore: cast_nullable_to_non_nullable
               as List<SubTask>,
+      comments: null == comments
+          ? _value.comments
+          : comments // ignore: cast_nullable_to_non_nullable
+              as List<CommentModel>,
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
@@ -204,6 +217,7 @@ class _$TaskModelImpl extends _TaskModel {
   const _$TaskModelImpl(
       {required this.title,
       @JsonKey(name: 'sub_tasks') required this.subTasks,
+      this.comments = const <CommentModel>[],
       required this.id,
       @JsonKey(name: 'created_at') required this.createdAt,
       @JsonKey(name: 'updated_at') this.updatedAt,
@@ -220,6 +234,9 @@ class _$TaskModelImpl extends _TaskModel {
   @override
   @JsonKey(name: 'sub_tasks')
   final List<SubTask> subTasks;
+  @override
+  @JsonKey()
+  final List<CommentModel> comments;
   @override
   final String id;
   @override
@@ -240,7 +257,7 @@ class _$TaskModelImpl extends _TaskModel {
 
   @override
   String toString() {
-    return 'TaskModel(title: $title, subTasks: $subTasks, id: $id, createdAt: $createdAt, updatedAt: $updatedAt, elapsedTime: $elapsedTime, status: $status, backup: $backup)';
+    return 'TaskModel(title: $title, subTasks: $subTasks, comments: $comments, id: $id, createdAt: $createdAt, updatedAt: $updatedAt, elapsedTime: $elapsedTime, status: $status, backup: $backup)';
   }
 
   @override
@@ -250,6 +267,7 @@ class _$TaskModelImpl extends _TaskModel {
             other is _$TaskModelImpl &&
             (identical(other.title, title) || other.title == title) &&
             const DeepCollectionEquality().equals(other.subTasks, subTasks) &&
+            const DeepCollectionEquality().equals(other.comments, comments) &&
             (identical(other.id, id) || other.id == id) &&
             (identical(other.createdAt, createdAt) ||
                 other.createdAt == createdAt) &&
@@ -267,6 +285,7 @@ class _$TaskModelImpl extends _TaskModel {
       runtimeType,
       title,
       const DeepCollectionEquality().hash(subTasks),
+      const DeepCollectionEquality().hash(comments),
       id,
       createdAt,
       updatedAt,
@@ -294,6 +313,7 @@ abstract class _TaskModel extends TaskModel {
   const factory _TaskModel(
       {required final String title,
       @JsonKey(name: 'sub_tasks') required final List<SubTask> subTasks,
+      final List<CommentModel> comments,
       required final String id,
       @JsonKey(name: 'created_at') required final DateTime createdAt,
       @JsonKey(name: 'updated_at') final DateTime? updatedAt,
@@ -310,6 +330,8 @@ abstract class _TaskModel extends TaskModel {
   @override
   @JsonKey(name: 'sub_tasks')
   List<SubTask> get subTasks;
+  @override
+  List<CommentModel> get comments;
   @override
   String get id;
   @override

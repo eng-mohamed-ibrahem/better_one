@@ -50,13 +50,6 @@ class SubtaskWidget extends StatelessWidget {
             child: TaskField(
               controller: controller,
               focusNode: focusNode,
-              style: checkValue
-                  ? Theme.of(context).textTheme.titleMedium!.copyWith(
-                        decoration: TextDecoration.lineThrough,
-                        decorationThickness: 2,
-                        decorationColor: Theme.of(context).secondaryHeaderColor,
-                      )
-                  : null,
               onChanged: onChange,
               hintText: 'task.description'.tr(),
               minLines: 1,

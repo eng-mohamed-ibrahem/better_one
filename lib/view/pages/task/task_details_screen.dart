@@ -123,6 +123,7 @@ class _TaskScreenState extends State<TaskDetailsScreen>
             updateTaskCompleted: (updatedTask) {
               task = updatedTask;
               if (task!.status == TaskStatus.done) {
+                periodicActionManager.stop();
                 showCompleteTaskDialog(
                   context,
                   AnimationController(
@@ -130,13 +131,12 @@ class _TaskScreenState extends State<TaskDetailsScreen>
                     duration: const Duration(seconds: 3, milliseconds: 500),
                   )..forward(),
                 );
-                _handleSendingNotification();
-
                 inject<FirebaseAnalytics>().logEvent(
                   name: 'complete_task',
                   parameters: {'task_id': task!.id},
                 );
               }
+              _handleSendingNotification();
             },
           );
         },
@@ -264,7 +264,6 @@ class _TaskScreenState extends State<TaskDetailsScreen>
                                       context
                                           .read<TaskViewmodel>()
                                           .updateTask(task!, newTask);
-                                      isTaskModified = false;
                                     } else {
                                       showSnackBar(
                                         context,
@@ -389,7 +388,8 @@ class _TaskScreenState extends State<TaskDetailsScreen>
   }
 
   void _handleSendingNotification() {
-    inject<SettingViewmodel>().notificationSetting!.sendOnComplete
+    task!.status == TaskStatus.done &&
+            inject<SettingViewmodel>().notificationSetting.sendOnComplete
         ? () {
             var user = inject<LocaleUserInfo>().getUserData();
             inject<NotificationRepoInterface>().sendNotification(
@@ -398,15 +398,15 @@ class _TaskScreenState extends State<TaskDetailsScreen>
                 senderId: user.id,
                 userImageUrl: user.photoUrl,
                 comment:
-                    "${'task.task_notification_action.complete'.tr()} ${task!.title}",
+                    "${'task.task_notification_action.complete'.tr()} \"${task!.title}\"",
                 payload: task!.id,
                 createdAt: DateTime.now(),
               ),
             );
           }()
         : null;
-    inject<SettingViewmodel>().notificationSetting!.sendOnUpdate &&
-            isTaskModified
+    isTaskModified &&
+            inject<SettingViewmodel>().notificationSetting.sendOnUpdate
         ? () {
             var user = inject<LocaleUserInfo>().getUserData();
             inject<NotificationRepoInterface>().sendNotification(
@@ -415,11 +415,12 @@ class _TaskScreenState extends State<TaskDetailsScreen>
                 senderId: user.id,
                 userImageUrl: user.photoUrl,
                 comment:
-                    "${'task.task_notification_action.update'.tr()} ${task!.title}",
+                    "${'task.task_notification_action.update'.tr()} \"${task!.title}\"",
                 payload: task!.id,
                 createdAt: DateTime.now(),
               ),
             );
+            isTaskModified = false;
           }()
         : null;
   }

@@ -12,6 +12,7 @@ class NotificationSettingModel with _$NotificationSettingModel {
     @JsonKey(name: "send_on_add") @Default(true) bool sendOnAdd,
     @JsonKey(name: "send_on_update") @Default(true) bool sendOnUpdate,
     @JsonKey(name: "send_on_complete") @Default(true) bool sendOnComplete,
+   @JsonKey(name: "mute_notification") @Default(false) bool muteNotification,
   }) = _NotificationSettingModel;
 
   factory NotificationSettingModel.fromJson(Map<String, dynamic> json) =>

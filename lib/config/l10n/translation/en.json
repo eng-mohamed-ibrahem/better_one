@@ -90,6 +90,7 @@
         "notification": {
             "title": "Notification",
             "subtitle": "Manage notification preferences",
+            "mute": "Mute Notifications",
             "on": {
                 "add": "Notify On Add",
                 "update": "Notify On Update",

@@ -30,6 +30,7 @@ class AppThemes {
     cardTheme: _WidgetsTheme.cardTheme(),
     bottomSheetTheme: _WidgetsTheme.bottomSheetTheme(),
     shadowColor: AppColors.white,
+    switchTheme: _WidgetsTheme.switchTheme(),
   );
 
   /// light theme
@@ -145,5 +146,25 @@ class AppThemes {
       backgroundColor: AppColors.lightPrimaryColor,
     ),
     shadowColor: AppColors.secondColor,
+    switchTheme: _WidgetsTheme.switchTheme().copyWith(
+      trackOutlineColor:
+          const WidgetStatePropertyAll(AppColors.lightSecondColor),
+      thumbColor: WidgetStateProperty.resolveWith(
+        (Set<WidgetState> states) {
+          if (states.contains(WidgetState.selected)) {
+            return AppColors.lightHightlightColor;
+          }
+          return AppColors.lightSecondColor;
+        },
+      ),
+      trackColor: WidgetStateProperty.resolveWith(
+        (Set<WidgetState> states) {
+          if (states.contains(WidgetState.selected)) {
+            return AppColors.lightSecondColor;
+          }
+          return AppColors.lightPrimaryColor;
+        },
+      ),
+    ),
   );
 }

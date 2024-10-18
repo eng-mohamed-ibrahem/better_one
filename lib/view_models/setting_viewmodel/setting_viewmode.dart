@@ -18,8 +18,8 @@ class SettingViewmodel extends Cubit<SettingViewmodelState> {
   final SettingsRepoInterface settingsRepo;
 
   Locale? currentLanguage;
-  SearchSettingModel? searchSetting;
-  NotificationSettingModel? notificationSetting;
+  late SearchSettingModel searchSetting;
+  late NotificationSettingModel notificationSetting;
 
   void changeLanguage(Locale language) async {
     var result = await settingsRepo.changeLanguage(language);
@@ -62,8 +62,8 @@ class SettingViewmodel extends Cubit<SettingViewmodelState> {
 
   void searchBy({bool? title, bool? body}) async {
     var search = SearchSettingModel(
-      searchByTitle: title ?? searchSetting!.searchByTitle,
-      searchByBody: body ?? searchSetting!.searchByBody,
+      searchByTitle: title ?? searchSetting.searchByTitle,
+      searchByBody: body ?? searchSetting.searchByBody,
     );
 
     var result = await settingsRepo.setSearchSettings(
@@ -108,11 +108,13 @@ class SettingViewmodel extends Cubit<SettingViewmodelState> {
     bool? sendOnAdd,
     bool? sendOnUpdate,
     bool? sendOnComplete,
+    bool? muteNotification,
   }) async {
     var notification = NotificationSettingModel(
-      sendOnAdd: sendOnAdd ?? notificationSetting!.sendOnAdd,
-      sendOnUpdate: sendOnUpdate ?? notificationSetting!.sendOnUpdate,
-      sendOnComplete: sendOnComplete ?? notificationSetting!.sendOnComplete,
+      sendOnAdd: sendOnAdd ?? notificationSetting.sendOnAdd,
+      sendOnUpdate: sendOnUpdate ?? notificationSetting.sendOnUpdate,
+      sendOnComplete: sendOnComplete ?? notificationSetting.sendOnComplete,
+      muteNotification: muteNotification ?? notificationSetting.muteNotification,
     );
     var result = await settingsRepo.setNotificationSettings(
       notificationSettings: notification,

@@ -27,6 +27,8 @@ mixin _$NotificationSettingModel {
   bool get sendOnUpdate => throw _privateConstructorUsedError;
   @JsonKey(name: "send_on_complete")
   bool get sendOnComplete => throw _privateConstructorUsedError;
+  @JsonKey(name: "mute_notification")
+  bool get muteNotification => throw _privateConstructorUsedError;
 
   /// Serializes this NotificationSettingModel to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -47,7 +49,8 @@ abstract class $NotificationSettingModelCopyWith<$Res> {
   $Res call(
       {@JsonKey(name: "send_on_add") bool sendOnAdd,
       @JsonKey(name: "send_on_update") bool sendOnUpdate,
-      @JsonKey(name: "send_on_complete") bool sendOnComplete});
+      @JsonKey(name: "send_on_complete") bool sendOnComplete,
+      @JsonKey(name: "mute_notification") bool muteNotification});
 }
 
 /// @nodoc
@@ -69,6 +72,7 @@ class _$NotificationSettingModelCopyWithImpl<$Res,
     Object? sendOnAdd = null,
     Object? sendOnUpdate = null,
     Object? sendOnComplete = null,
+    Object? muteNotification = null,
   }) {
     return _then(_value.copyWith(
       sendOnAdd: null == sendOnAdd
@@ -82,6 +86,10 @@ class _$NotificationSettingModelCopyWithImpl<$Res,
       sendOnComplete: null == sendOnComplete
           ? _value.sendOnComplete
           : sendOnComplete // ignore: cast_nullable_to_non_nullable
+              as bool,
+      muteNotification: null == muteNotification
+          ? _value.muteNotification
+          : muteNotification // ignore: cast_nullable_to_non_nullable
               as bool,
     ) as $Val);
   }
@@ -99,7 +107,8 @@ abstract class _$$NotificationSettingModelImplCopyWith<$Res>
   $Res call(
       {@JsonKey(name: "send_on_add") bool sendOnAdd,
       @JsonKey(name: "send_on_update") bool sendOnUpdate,
-      @JsonKey(name: "send_on_complete") bool sendOnComplete});
+      @JsonKey(name: "send_on_complete") bool sendOnComplete,
+      @JsonKey(name: "mute_notification") bool muteNotification});
 }
 
 /// @nodoc
@@ -120,6 +129,7 @@ class __$$NotificationSettingModelImplCopyWithImpl<$Res>
     Object? sendOnAdd = null,
     Object? sendOnUpdate = null,
     Object? sendOnComplete = null,
+    Object? muteNotification = null,
   }) {
     return _then(_$NotificationSettingModelImpl(
       sendOnAdd: null == sendOnAdd
@@ -134,6 +144,10 @@ class __$$NotificationSettingModelImplCopyWithImpl<$Res>
           ? _value.sendOnComplete
           : sendOnComplete // ignore: cast_nullable_to_non_nullable
               as bool,
+      muteNotification: null == muteNotification
+          ? _value.muteNotification
+          : muteNotification // ignore: cast_nullable_to_non_nullable
+              as bool,
     ));
   }
 }
@@ -144,7 +158,8 @@ class _$NotificationSettingModelImpl extends _NotificationSettingModel {
   const _$NotificationSettingModelImpl(
       {@JsonKey(name: "send_on_add") this.sendOnAdd = true,
       @JsonKey(name: "send_on_update") this.sendOnUpdate = true,
-      @JsonKey(name: "send_on_complete") this.sendOnComplete = true})
+      @JsonKey(name: "send_on_complete") this.sendOnComplete = true,
+      @JsonKey(name: "mute_notification") this.muteNotification = false})
       : super._();
 
   factory _$NotificationSettingModelImpl.fromJson(Map<String, dynamic> json) =>
@@ -159,10 +174,13 @@ class _$NotificationSettingModelImpl extends _NotificationSettingModel {
   @override
   @JsonKey(name: "send_on_complete")
   final bool sendOnComplete;
+  @override
+  @JsonKey(name: "mute_notification")
+  final bool muteNotification;
 
   @override
   String toString() {
-    return 'NotificationSettingModel(sendOnAdd: $sendOnAdd, sendOnUpdate: $sendOnUpdate, sendOnComplete: $sendOnComplete)';
+    return 'NotificationSettingModel(sendOnAdd: $sendOnAdd, sendOnUpdate: $sendOnUpdate, sendOnComplete: $sendOnComplete, muteNotification: $muteNotification)';
   }
 
   @override
@@ -175,13 +193,15 @@ class _$NotificationSettingModelImpl extends _NotificationSettingModel {
             (identical(other.sendOnUpdate, sendOnUpdate) ||
                 other.sendOnUpdate == sendOnUpdate) &&
             (identical(other.sendOnComplete, sendOnComplete) ||
-                other.sendOnComplete == sendOnComplete));
+                other.sendOnComplete == sendOnComplete) &&
+            (identical(other.muteNotification, muteNotification) ||
+                other.muteNotification == muteNotification));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, sendOnAdd, sendOnUpdate, sendOnComplete);
+  int get hashCode => Object.hash(
+      runtimeType, sendOnAdd, sendOnUpdate, sendOnComplete, muteNotification);
 
   /// Create a copy of NotificationSettingModel
   /// with the given fields replaced by the non-null parameter values.
@@ -204,7 +224,8 @@ abstract class _NotificationSettingModel extends NotificationSettingModel {
   const factory _NotificationSettingModel(
           {@JsonKey(name: "send_on_add") final bool sendOnAdd,
           @JsonKey(name: "send_on_update") final bool sendOnUpdate,
-          @JsonKey(name: "send_on_complete") final bool sendOnComplete}) =
+          @JsonKey(name: "send_on_complete") final bool sendOnComplete,
+          @JsonKey(name: "mute_notification") final bool muteNotification}) =
       _$NotificationSettingModelImpl;
   const _NotificationSettingModel._() : super._();
 
@@ -220,6 +241,9 @@ abstract class _NotificationSettingModel extends NotificationSettingModel {
   @override
   @JsonKey(name: "send_on_complete")
   bool get sendOnComplete;
+  @override
+  @JsonKey(name: "mute_notification")
+  bool get muteNotification;
 
   /// Create a copy of NotificationSettingModel
   /// with the given fields replaced by the non-null parameter values.

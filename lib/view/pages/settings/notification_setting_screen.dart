@@ -1,4 +1,5 @@
 import 'package:better_one/core/constants/constants.dart';
+import 'package:better_one/core/utils/background_service/notification_background_service.dart';
 import 'package:better_one/core/utils/cache_service/cach_interface/locale_user_info.dart';
 import 'package:better_one/core/utils/dependency_locator/dependency_injection.dart';
 import 'package:better_one/core/utils/dependency_locator/inject.dart';
@@ -109,7 +110,7 @@ class _NotificationScreenState extends State<NotificationSettingScreen> {
                     vertical: 5,
                   ),
                   children: [
-                    CheckboxListTile(
+                    SwitchListTile(
                       shape: RoundedRectangleBorder(
                         borderRadius:
                             BorderRadius.circular(AppMetrices.borderRadius1.r),
@@ -118,14 +119,14 @@ class _NotificationScreenState extends State<NotificationSettingScreen> {
                       contentPadding: EdgeInsets.zero,
                       value: inject<SettingViewmodel>()
                           .notificationSetting
-                          ?.sendOnAdd,
+                          .sendOnAdd,
                       onChanged: (isSelected) {
                         context
                             .read<SettingViewmodel>()
                             .setNotificationSettings(sendOnAdd: isSelected);
                       },
                     ),
-                    CheckboxListTile(
+                    SwitchListTile(
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(15.r),
                       ),
@@ -133,14 +134,14 @@ class _NotificationScreenState extends State<NotificationSettingScreen> {
                       contentPadding: EdgeInsets.zero,
                       value: inject<SettingViewmodel>()
                           .notificationSetting
-                          ?.sendOnUpdate,
+                          .sendOnUpdate,
                       onChanged: (isSelected) {
                         context
                             .read<SettingViewmodel>()
                             .setNotificationSettings(sendOnUpdate: isSelected);
                       },
                     ),
-                    CheckboxListTile(
+                    SwitchListTile(
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(15.r),
                       ),
@@ -148,7 +149,7 @@ class _NotificationScreenState extends State<NotificationSettingScreen> {
                       contentPadding: EdgeInsets.zero,
                       value: inject<SettingViewmodel>()
                           .notificationSetting
-                          ?.sendOnComplete,
+                          .sendOnComplete,
                       onChanged: (isSelected) {
                         context
                             .read<SettingViewmodel>()
@@ -156,18 +157,34 @@ class _NotificationScreenState extends State<NotificationSettingScreen> {
                                 sendOnComplete: isSelected);
                       },
                     ),
-                    // Divider(
-                    //   thickness: 1.5,
-                    //   color: AppColors.secondColor,
-                    //   height: 20.h,
-                    // ),
+                    SwitchListTile(
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(15.r),
+                      ),
+                      title: Text('setting.notification.mute'.tr()),
+                      contentPadding: EdgeInsets.zero,
+                      value: inject<SettingViewmodel>()
+                          .notificationSetting
+                          .muteNotification,
+                      onChanged: (isSelected) {
+                        context
+                            .read<SettingViewmodel>()
+                            .setNotificationSettings(
+                                muteNotification: isSelected);
+                        if (isSelected == false) {
+                          NotificationBackgroundService.muteNotification();
+                        } else {
+                          NotificationBackgroundService.unMuteNotification();
+                        }
+                      },
+                    ),
+                    SizedBox(height: 20.h),
                     TextButton(
                       onPressed: () {
                         createEvent(context);
                       },
                       child: Text('setting.notification.event.add_event'.tr()),
                     ),
-                    // todo mute notifications incomming
                   ],
                 );
               },

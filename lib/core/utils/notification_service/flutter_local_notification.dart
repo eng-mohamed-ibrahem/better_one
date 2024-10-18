@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'dart:convert';
 import 'dart:io';
 
 import 'package:better_one/core/constants/notification_constants.dart';
@@ -82,7 +83,10 @@ class FlutterLocalNotification {
       notification.userName,
       notification.comment,
       notificationDetails,
-      payload: notification.payload,
+      payload: jsonEncode({
+        NotificaitonConstants.taskId: notification.payload,
+        NotificaitonConstants.senderId: notification.senderId
+      }),
     );
 
     // _flutterNotificationsPlugin

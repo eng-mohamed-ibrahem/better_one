@@ -5,6 +5,7 @@ import 'package:better_one/core/utils/dependency_locator/inject.dart';
 import 'package:better_one/core/utils/network_connection/network_connection.dart';
 import 'package:better_one/data_source/notification_data_source/notification_source_interface.dart';
 import 'package:better_one/model/notification_model/notification_model.dart';
+import 'package:better_one/model/task_model/task_model.dart';
 import 'package:better_one/repositories/notification_repo/notification_repo_interface.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:easy_localization/easy_localization.dart';
@@ -58,6 +59,19 @@ class NotificationRepoImpl implements NotificationRepoInterface {
     if (connected) {
       return await _notificationSource.getNotifications(limit,
           startAfter: startAfter);
+    } else {
+      return ResultHandler.failure(
+          error: NoInternetFailure(message: 'core.no_intenet'.tr()));
+    }
+  }
+
+  @override
+  Future<ResultHandler<TaskModel, Failure>> getTaskFromNotification(
+      {required String taskId, required String senderId}) async {
+    var connected = await NetworkConnection.isConnected();
+    if (connected) {
+      return await _notificationSource.getTaskFromNotification(
+          taskId: taskId, senderId: senderId);
     } else {
       return ResultHandler.failure(
           error: NoInternetFailure(message: 'core.no_intenet'.tr()));

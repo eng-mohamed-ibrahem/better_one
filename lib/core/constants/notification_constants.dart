@@ -4,4 +4,6 @@ class NotificaitonConstants {
   static const String notificationAction = 'action';
   static const String notificationService = 'notification_service';
   static const String stopService = 'stop_service';
+  static const String taskId = 'task_id';
+  static const String senderId = 'sender';
 }
