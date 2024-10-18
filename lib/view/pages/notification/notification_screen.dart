@@ -1,9 +1,8 @@
-import 'dart:convert';
-
 import 'package:better_one/config/navigation/routes_enum.dart';
 import 'package:better_one/core/constants/lottie_assets.dart';
 import 'package:better_one/core/constants/notification_constants.dart';
 import 'package:better_one/core/errors/failure.dart';
+import 'package:better_one/core/utils/encryption/encryption_handler.dart';
 import 'package:better_one/core/utils/methods/methods.dart';
 import 'package:better_one/core/utils/shared_widgets/back_button_l10n.dart';
 import 'package:better_one/core/utils/shared_widgets/failed.dart';
@@ -143,19 +142,19 @@ class _NotificationScreenState extends State<NotificationScreen> {
                             notifications[index].data()
                                 as Map<String, dynamic>);
                         return InkWell(
-                          onTap: () {
-                            context.pushNamed(
-                              Routes.sharedTask.name,
-                              pathParameters: {
-                                "id": jsonDecode(notification.payload!)[
-                                    NotificaitonConstants.taskId]
-                              },
-                              queryParameters: {
-                                NotificaitonConstants.senderId:
-                                    jsonDecode(notification.payload!)[
-                                        NotificaitonConstants.senderId],
-                              },
-                            );
+                          onTap: () async {
+                            var encryptedSenderId = await EncryptionHandler()
+                                .encrypt(notification.senderId);
+                            if (context.mounted) {
+                              context.pushNamed(
+                                Routes.sharedTask.name,
+                                pathParameters: {"id": notification.payload!},
+                                queryParameters: {
+                                  NotificaitonConstants.senderId:
+                                      encryptedSenderId,
+                                },
+                              );
+                            }
                           },
                           borderRadius: BorderRadius.circular(10.r),
                           child: CardNotification(

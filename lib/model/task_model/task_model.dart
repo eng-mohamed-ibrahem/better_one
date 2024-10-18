@@ -1,6 +1,7 @@
 import 'dart:convert';
 
 import 'package:better_one/core/enum/task_status.dart';
+import 'package:better_one/model/comment_model/comment_model.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'task_model.freezed.dart';
@@ -12,6 +13,7 @@ class TaskModel with _$TaskModel {
   const factory TaskModel({
     required String title,
     @JsonKey(name: 'sub_tasks') required List<SubTask> subTasks,
+   @Default(<CommentModel>[]) List<CommentModel> comments,
     required String id,
     @JsonKey(name: 'created_at') required DateTime createdAt,
     @JsonKey(name: 'updated_at') DateTime? updatedAt,

@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'package:better_one/config/navigation/routes_enum.dart';
 import 'package:better_one/core/enum/task_status.dart';
 import 'package:better_one/core/utils/dependency_locator/dependency_injection.dart';
+import 'package:better_one/core/utils/encryption/encryption_handler.dart';
 import 'package:better_one/core/utils/methods/methods.dart';
 import 'package:better_one/core/utils/shared_widgets/failed.dart';
 import 'package:better_one/model/task_model/task_model.dart';
@@ -43,19 +44,21 @@ class _HomeScreenState extends State<HomeScreen> with RouteAware {
 
   void _interactWithNotification() {
     localNotification.onTapNotificationStream.listen(
-      (payload) {
+      (payload) async {
         if (payload!.isNotEmpty && mounted) {
           kDebugPrint(
             "payload: ${jsonDecode(payload)[NotificaitonConstants.taskId]}, ${jsonDecode(payload)[NotificaitonConstants.senderId]}",
           );
+          var encryptedSenderId = await EncryptionHandler()
+              .encrypt(jsonDecode(payload)[NotificaitonConstants.senderId]);
+          // ignore: use_build_context_synchronously
           context.goNamed(
             Routes.sharedTask.name,
             pathParameters: {
               "id": jsonDecode(payload)[NotificaitonConstants.taskId]
             },
             queryParameters: {
-              NotificaitonConstants.senderId:
-                  jsonDecode(payload)[NotificaitonConstants.senderId],
+              NotificaitonConstants.senderId: encryptedSenderId,
             },
           );
         }

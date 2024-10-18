@@ -15,7 +15,7 @@ class FirebaseNotificationSource implements NotificationSourceInterface {
       var db = FirebaseFirestore.instance;
       await db
           .collection(FirebaseConstants.usersNotifications)
-          .doc(notification.payload)
+          .doc()
           .set(notification.toJson());
       return const ResultHandler.success(data: true);
     } catch (e) {
@@ -83,8 +83,8 @@ class FirebaseNotificationSource implements NotificationSourceInterface {
     } on FormatException catch (e) {
       return ResultHandler.failure(error: ParserFailure(message: e.message));
     } catch (e) {
-      rethrow;
-      // return ResultHandler.failure(error: OtherFailure(message: e.toString()));
+      kDebugPrint("Task from Notification$e");
+      return ResultHandler.failure(error: OtherFailure(message: e.toString()));
     }
   }
 }

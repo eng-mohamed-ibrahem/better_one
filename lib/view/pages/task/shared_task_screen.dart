@@ -1,6 +1,7 @@
 import 'package:better_one/core/constants/constants.dart';
 import 'package:better_one/core/errors/failure.dart';
 import 'package:better_one/core/utils/methods/methods.dart';
+import 'package:better_one/core/utils/shared_widgets/back_button_l10n.dart';
 import 'package:better_one/core/utils/shared_widgets/failed.dart';
 import 'package:better_one/view_models/notification_viewmodel/notification_viewmodel.dart';
 import 'package:flutter/material.dart';
@@ -32,8 +33,16 @@ class _SharedTaskScreenState extends State<SharedTaskScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text("Share Task"),
+      appBar: PreferredSize(
+        preferredSize:
+            Size.fromHeight(MediaQuery.of(context).size.height * 0.07),
+        child: AppBar(
+          elevation: 0,
+          leading: const FittedBox(
+            fit: BoxFit.scaleDown,
+            child: BackButtonl10n(),
+          ),
+        ),
       ),
       body: BlocConsumer<NotificationViewmodel, NotificationViewmodelState>(
         listener: (context, state) {

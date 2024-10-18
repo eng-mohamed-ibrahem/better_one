@@ -5,6 +5,7 @@ import 'package:better_one/core/constants/notification_constants.dart';
 import 'package:better_one/core/utils/cache_service/cach_interface/locale_user_info.dart';
 import 'package:better_one/core/utils/dependency_locator/dependency_injection.dart';
 import 'package:better_one/core/utils/dependency_locator/inject.dart';
+import 'package:better_one/core/utils/encryption/encryption_handler.dart';
 import 'package:better_one/core/utils/methods/methods.dart';
 import 'package:better_one/core/utils/navigator_observer/app_navigator_observer.dart';
 import 'package:better_one/core/utils/notification_service/flutter_local_notification.dart';
@@ -49,6 +50,34 @@ class AppNavigation {
         builder: (context, state) {
           return const SplashScreen();
         },
+        redirect: (context, state) async {
+          return await inject<FlutterLocalNotification>()
+              .getNotificationAppLaunchDetails
+              .then(
+            (notification) async {
+              kDebugPrint("launched notification: $notification");
+
+              if (notification != null &&
+                  notification.didNotificationLaunchApp) {
+                var encryptedSenderId = await EncryptionHandler().encrypt(
+                    jsonDecode(notification.notificationResponse!.payload!)[
+                        NotificaitonConstants.senderId]);
+                return state.namedLocation(
+                  Routes.sharedTask.name,
+                  pathParameters: {
+                    "id":
+                        jsonDecode(notification.notificationResponse!.payload!)[
+                            NotificaitonConstants.taskId]
+                  },
+                  queryParameters: {
+                    NotificaitonConstants.senderId: encryptedSenderId,
+                  },
+                );
+              }
+              return null;
+            },
+          );
+        },
       ),
       GoRoute(
         path: Routes.onboarding.path,
@@ -80,32 +109,32 @@ class AppNavigation {
             child: const HomeScreen(),
           );
         },
-        redirect: (context, state) async {
-          return await inject<FlutterLocalNotification>()
-              .getNotificationAppLaunchDetails
-              .then(
-            (notification) {
-              kDebugPrint("launched notification: $notification");
-              if (notification != null &&
-                  notification.didNotificationLaunchApp) {
-                return state.namedLocation(
-                  Routes.sharedTask.name,
-                  pathParameters: {
-                    "id":
-                        jsonDecode(notification.notificationResponse!.payload!)[
-                            NotificaitonConstants.taskId]
-                  },
-                  queryParameters: {
-                    NotificaitonConstants.senderId:
-                        jsonDecode(notification.notificationResponse!.payload!)[
-                            NotificaitonConstants.senderId],
-                  },
-                );
-              }
-              return null;
-            },
-          );
-        },
+        // redirect: (context, state) async {
+        //   return await inject<FlutterLocalNotification>()
+        //       .getNotificationAppLaunchDetails
+        //       .then(
+        //     (notification) {
+        //       kDebugPrint("launched notification: $notification");
+        //       if (notification != null &&
+        //           notification.didNotificationLaunchApp) {
+        //         return state.namedLocation(
+        //           Routes.sharedTask.name,
+        //           pathParameters: {
+        //             "id":
+        //                 jsonDecode(notification.notificationResponse!.payload!)[
+        //                     NotificaitonConstants.taskId]
+        //           },
+        //           queryParameters: {
+        //             NotificaitonConstants.senderId:
+        //                 jsonDecode(notification.notificationResponse!.payload!)[
+        //                     NotificaitonConstants.senderId],
+        //           },
+        //         );
+        //       }
+        //       return null;
+        //     },
+        //   );
+        // },
         routes: [
           GoRoute(
             path: Routes.createTask.path,
@@ -151,38 +180,39 @@ class AppNavigation {
             },
           ),
           GoRoute(
-              path: Routes.notification.path,
-              name: Routes.notification.name,
-              builder: (context, state) {
-                activeRoute = Routes.notification.path;
-                return BlocProvider(
-                  lazy: false,
-                  create: (context) => NotificationViewmodel(
-                    notificationRepo: inject<NotificationRepoInterface>(),
-                  ),
-                  child: const NotificationScreen(),
-                );
-              },
-              routes: [
-                GoRoute(
-                  path: Routes.sharedTask.path,
-                  name: Routes.sharedTask.name,
-                  builder: (context, state) {
-                    activeRoute = Routes.sharedTask.path;
-                    return BlocProvider.value(
-                      value: inject<NotificationViewmodel>(),
-                      child: SharedTaskScreen(
-                        payload: {
-                          NotificaitonConstants.taskId:
-                              state.pathParameters["id"],
-                          NotificaitonConstants.senderId: state.uri
-                              .queryParameters[NotificaitonConstants.senderId]
-                        },
-                      ),
-                    );
-                  },
+            path: Routes.notification.path,
+            name: Routes.notification.name,
+            builder: (context, state) {
+              activeRoute = Routes.notification.path;
+              return BlocProvider(
+                lazy: false,
+                create: (context) => NotificationViewmodel(
+                  notificationRepo: inject<NotificationRepoInterface>(),
                 ),
-              ]),
+                child: const NotificationScreen(),
+              );
+            },
+            routes: [
+              GoRoute(
+                path: Routes.sharedTask.path,
+                name: Routes.sharedTask.name,
+                builder: (context, state) {
+                  activeRoute = Routes.sharedTask.path;
+                  return BlocProvider.value(
+                    value: inject<NotificationViewmodel>(),
+                    child: SharedTaskScreen(
+                      payload: {
+                        NotificaitonConstants.taskId:
+                            state.pathParameters["id"],
+                        NotificaitonConstants.senderId: state
+                            .uri.queryParameters[NotificaitonConstants.senderId]
+                      },
+                    ),
+                  );
+                },
+              ),
+            ],
+          ),
           GoRoute(
             path: Routes.search.path,
             name: Routes.search.name,
