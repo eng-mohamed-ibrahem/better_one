@@ -5,7 +5,6 @@ import 'package:better_one/core/constants/notification_constants.dart';
 import 'package:better_one/core/utils/cache_service/cach_interface/locale_user_info.dart';
 import 'package:better_one/core/utils/dependency_locator/dependency_injection.dart';
 import 'package:better_one/core/utils/dependency_locator/inject.dart';
-import 'package:better_one/core/utils/encryption/encryption_handler.dart';
 import 'package:better_one/core/utils/methods/methods.dart';
 import 'package:better_one/core/utils/navigator_observer/app_navigator_observer.dart';
 import 'package:better_one/core/utils/notification_service/flutter_local_notification.dart';
@@ -59,18 +58,16 @@ class AppNavigation {
 
               if (notification != null &&
                   notification.didNotificationLaunchApp) {
-                var encryptedSenderId = await EncryptionHandler().encrypt(
-                    jsonDecode(notification.notificationResponse!.payload!)[
-                        NotificaitonConstants.senderId]);
+                var payloadFromNotification =
+                    jsonDecode(notification.notificationResponse!.payload!);
                 return state.namedLocation(
                   Routes.sharedTask.name,
                   pathParameters: {
-                    "id":
-                        jsonDecode(notification.notificationResponse!.payload!)[
-                            NotificaitonConstants.taskId]
+                    "id": payloadFromNotification[NotificaitonConstants.taskId]
                   },
                   queryParameters: {
-                    NotificaitonConstants.senderId: encryptedSenderId,
+                    NotificaitonConstants.senderId:
+                        payloadFromNotification[NotificaitonConstants.senderId],
                   },
                 );
               }

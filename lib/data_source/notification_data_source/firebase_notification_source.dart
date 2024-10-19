@@ -83,7 +83,7 @@ class FirebaseNotificationSource implements NotificationSourceInterface {
     } on FormatException catch (e) {
       return ResultHandler.failure(error: ParserFailure(message: e.message));
     } catch (e) {
-      kDebugPrint("Task from Notification$e");
+      kDebugPrint("Task from Notification exception:$e");
       return ResultHandler.failure(error: OtherFailure(message: e.toString()));
     }
   }

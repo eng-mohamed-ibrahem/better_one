@@ -1,5 +1,4 @@
 import 'package:better_one/core/errors/failure.dart';
-import 'package:better_one/core/utils/encryption/encryption_handler.dart';
 import 'package:better_one/model/notification_model/notification_model.dart';
 import 'package:better_one/model/task_model/task_model.dart';
 import 'package:better_one/repositories/notification_repo/notification_repo_interface.dart';
@@ -82,10 +81,9 @@ class NotificationViewmodel extends Cubit<NotificationViewmodelState> {
     required String senderId,
   }) async {
     emit(const _GetTaskFromNotificationLoading());
-    var decryptedSenderId = await EncryptionHandler().decrypt(senderId);
     var result = await _notificationRepo.getTaskFromNotification(
       taskId: taskId,
-      senderId: decryptedSenderId,
+      senderId: senderId,
     );
     result.when(
       success: (task) {
