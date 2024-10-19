@@ -51,13 +51,12 @@ class FirebaseNotificationSource implements NotificationSourceInterface {
       var db = FirebaseFirestore.instance;
       var query = db
           .collection(FirebaseConstants.usersNotifications)
-          .orderBy('created_at', descending: true)
-          .limit(limit);
+          .orderBy('created_at', descending: true);
 
       if (startAfter != null) {
         query = query.startAfterDocument(startAfter);
       }
-      var querySnapshot = await query.get();
+      var querySnapshot = await query.limit(limit).get();
 
       return ResultHandler.success(data: querySnapshot.docs);
     } catch (e) {

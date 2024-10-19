@@ -2,6 +2,7 @@ import 'dart:convert';
 
 import 'package:better_one/config/navigation/routes_enum.dart';
 import 'package:better_one/core/constants/notification_constants.dart';
+import 'package:better_one/core/in_memory/in_memory.dart';
 import 'package:better_one/core/utils/cache_service/cach_interface/locale_user_info.dart';
 import 'package:better_one/core/utils/dependency_locator/dependency_injection.dart';
 import 'package:better_one/core/utils/dependency_locator/inject.dart';
@@ -40,6 +41,7 @@ class AppNavigation {
     observers: [
       routeObserver,
       AppNavigatorObserver(analytics),
+      InMemory(),
     ],
     debugLogDiagnostics: true,
     routes: [
@@ -55,7 +57,6 @@ class AppNavigation {
               .then(
             (notification) async {
               kDebugPrint("launched notification: $notification");
-
               if (notification != null &&
                   notification.didNotificationLaunchApp) {
                 var payloadFromNotification =
