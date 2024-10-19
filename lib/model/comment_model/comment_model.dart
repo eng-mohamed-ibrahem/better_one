@@ -6,6 +6,7 @@ part 'comment_model.g.dart';
 @freezed
 class CommentModel with _$CommentModel {
   const factory CommentModel({
+    required String id,
    @JsonKey(name: "user_name") required String userName,
    @JsonKey(name: "receiver_id") required String receiverId,
    @JsonKey(name: "user_image_url") String? userImageUrl,
