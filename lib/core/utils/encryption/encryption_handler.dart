@@ -3,6 +3,9 @@ import 'dart:async';
 import 'package:encrypt/encrypt.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 
+// ignore: deprecated_member_use
+/// This class doesn't work correctly, it's left for debugging purposes
+/// Encrypts and decrypts strings using the encrypt package and stores the key in flutter secure storage.
 class EncryptionHandler {
   factory EncryptionHandler() => _instance;
   static final EncryptionHandler _instance = EncryptionHandler._();
