@@ -54,7 +54,7 @@ class FirebaseCommentDataSource implements CommentDataSource {
       InMemory().addData<QueryDocumentSnapshot>(
           CommentConstants.lasDocument, querySnapshot.docs.last);
       InMemory().addData<bool>(
-          CommentConstants.hasMore, querySnapshot.docs.length > 10);
+          CommentConstants.hasMore, querySnapshot.docs.length == 10);
       return ResultHandler.success(
         data: querySnapshot.docs
             .map((e) => CommentModel.fromJson(e.data()))

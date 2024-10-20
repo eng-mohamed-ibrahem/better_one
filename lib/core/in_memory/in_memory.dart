@@ -1,4 +1,5 @@
 import 'package:better_one/config/navigation/routes_enum.dart';
+import 'package:better_one/core/constants/comment_constants.dart';
 import 'package:better_one/core/utils/methods/methods.dart';
 import 'package:flutter/material.dart';
 
@@ -47,8 +48,10 @@ class InMemory extends NavigatorObserver {
 
   @override
   void didPop(Route route, Route? previousRoute) {
-    if (route.settings.name == Routes.notification.name) {
-      kDebugPrint("pop route: ${route.settings.name}");
+    kDebugPrint("pop route: ${route.settings.name}");
+    if (route.settings.name == Routes.taskDetails.name) {
+      removeData(CommentConstants.hasMore);
+      removeData(CommentConstants.lasDocument);
     }
     super.didPop(route, previousRoute);
   }
