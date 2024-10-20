@@ -11,6 +11,7 @@ import 'package:better_one/core/utils/shared_widgets/failed.dart';
 import 'package:better_one/model/notification_model/notification_model.dart';
 import 'package:better_one/model/task_model/task_model.dart';
 import 'package:better_one/repositories/notification_repo/notification_repo_interface.dart';
+import 'package:better_one/view/widgets/comment/comment_section.dart';
 import 'package:better_one/view/widgets/duration_widget.dart';
 import 'package:better_one/view/widgets/write_task_area.dart';
 import 'package:better_one/view_models/quote_viewmodel/quote_viewmodel.dart';
@@ -225,7 +226,7 @@ class _TaskScreenState extends State<TaskDetailsScreen>
                       },
                     ),
                     SizedBox(height: AppMetrices.verticalGap2.h),
-                
+
                     /// task section
                     WriteTaskArea(
                       titleController: titleController,
@@ -259,7 +260,7 @@ class _TaskScreenState extends State<TaskDetailsScreen>
                                           ? TaskStatus.paused
                                           : task!.status,
                                     );
-                
+
                                     context
                                         .read<TaskViewmodel>()
                                         .updateTask(task!, newTask);
@@ -274,8 +275,7 @@ class _TaskScreenState extends State<TaskDetailsScreen>
                                 },
                                 child: Text(
                                   'task.update'.tr(),
-                                  style:
-                                      Theme.of(context).textTheme.titleSmall,
+                                  style: Theme.of(context).textTheme.titleSmall,
                                 ),
                               )
                             : const SizedBox(),
@@ -285,9 +285,7 @@ class _TaskScreenState extends State<TaskDetailsScreen>
                                 ? FilledButton.icon(
                                     label: Text('task.pause'.tr()),
                                     onPressed: () {
-                                      context
-                                          .read<TaskViewmodel>()
-                                          .updateTask(
+                                      context.read<TaskViewmodel>().updateTask(
                                             task!,
                                             task!.copyWith(
                                               status: TaskStatus.paused,
@@ -302,9 +300,7 @@ class _TaskScreenState extends State<TaskDetailsScreen>
                                 : FilledButton.icon(
                                     label: Text('task.start'.tr()),
                                     onPressed: () {
-                                      context
-                                          .read<TaskViewmodel>()
-                                          .updateTask(
+                                      context.read<TaskViewmodel>().updateTask(
                                             task!,
                                             task!.copyWith(
                                               status: TaskStatus.inprogress,
@@ -328,11 +324,9 @@ class _TaskScreenState extends State<TaskDetailsScreen>
                           selected: task!.status == TaskStatus.done,
                           onSelected: (value) {
                             if (value) {
-                              for (int i = 0;
-                                  i < task!.subTasks.length;
-                                  i++) {
-                                task!.subTasks[i] = task!.subTasks[i]
-                                    .copyWith(completed: true);
+                              for (int i = 0; i < task!.subTasks.length; i++) {
+                                task!.subTasks[i] =
+                                    task!.subTasks[i].copyWith(completed: true);
                               }
                             }
                             context.read<TaskViewmodel>().updateTask(
@@ -352,9 +346,7 @@ class _TaskScreenState extends State<TaskDetailsScreen>
                               context,
                               message: task!.title,
                               onConfirm: () {
-                                context
-                                    .read<TaskViewmodel>()
-                                    .deleteTask(task!);
+                                context.read<TaskViewmodel>().deleteTask(task!);
                                 showSnackBar(
                                   context,
                                   message: 'task.remove'.tr(),
@@ -375,10 +367,14 @@ class _TaskScreenState extends State<TaskDetailsScreen>
                         ),
                       ],
                     ),
-                
+
                     /// comments section
                     SizedBox(height: AppMetrices.verticalGap.h),
-                    ],
+
+                    CommentSection(
+                      taskId: widget.taskId,
+                    ),
+                  ],
                 ),
               );
             },

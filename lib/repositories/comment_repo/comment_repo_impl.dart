@@ -14,12 +14,13 @@ class CommentRepoImpl implements CommentRepo {
     required CommentDataSource commentDataSource,
   }) : _commentDataSource = commentDataSource;
   final CommentDataSource _commentDataSource;
+
   @override
   Future<ResultHandler<CommentModel, Failure>> addComment(
       CommentModel comment) async {
     if (inject<LocaleUserInfo>().getUserData() == null) {
       return ResultHandler.failure(
-          error: NoUserLogedInFailure(message: 'notification.login_req'.tr()));
+          error: NoUserLogedInFailure(message: 'comment.login_req'.tr()));
     }
     if (await NetworkConnection.isConnected()) {
       return await _commentDataSource.addComment(comment);
@@ -45,7 +46,7 @@ class CommentRepoImpl implements CommentRepo {
       {bool loadMore = false}) async {
     if (inject<LocaleUserInfo>().getUserData() == null) {
       return ResultHandler.failure(
-          error: NoUserLogedInFailure(message: 'notification.login_req'.tr()));
+          error: NoUserLogedInFailure(message: 'comment.login_req'.tr()));
     }
     if (await NetworkConnection.isConnected()) {
       return await _commentDataSource.getCommentsForTask(taskId, limit,

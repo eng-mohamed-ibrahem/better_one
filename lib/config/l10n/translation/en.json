@@ -75,6 +75,14 @@
         },
         "download_success": "Tasks Downloaded Successfully"
     },
+    "comment": {
+        "add": "Add Comment",
+        "title": "Comments",
+        "update": "Update Comment",
+        "delete": "Delete Comment",
+        "empty": "No comments found",
+        "login_req": "Login is required firstly, to see and add comments"
+    },
     "setting": {
         "name": "App Settings",
         "theme": {

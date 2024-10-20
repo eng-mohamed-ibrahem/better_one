@@ -22,6 +22,8 @@ mixin _$CommentViewModelState {
     required TResult Function() getCommentsLoading,
     required TResult Function(List<CommentModel> comments) getCommentsSuccess,
     required TResult Function(Failure failure) getCommentsFailed,
+    required TResult Function() loadMoreCommentsLoading,
+    required TResult Function(Failure failure) loadMoreCommentsFailed,
     required TResult Function() addCommentLoading,
     required TResult Function(CommentModel comment) addCommentSuccess,
     required TResult Function(Failure failure) addCommentFailed,
@@ -39,6 +41,8 @@ mixin _$CommentViewModelState {
     TResult? Function()? getCommentsLoading,
     TResult? Function(List<CommentModel> comments)? getCommentsSuccess,
     TResult? Function(Failure failure)? getCommentsFailed,
+    TResult? Function()? loadMoreCommentsLoading,
+    TResult? Function(Failure failure)? loadMoreCommentsFailed,
     TResult? Function()? addCommentLoading,
     TResult? Function(CommentModel comment)? addCommentSuccess,
     TResult? Function(Failure failure)? addCommentFailed,
@@ -56,6 +60,8 @@ mixin _$CommentViewModelState {
     TResult Function()? getCommentsLoading,
     TResult Function(List<CommentModel> comments)? getCommentsSuccess,
     TResult Function(Failure failure)? getCommentsFailed,
+    TResult Function()? loadMoreCommentsLoading,
+    TResult Function(Failure failure)? loadMoreCommentsFailed,
     TResult Function()? addCommentLoading,
     TResult Function(CommentModel comment)? addCommentSuccess,
     TResult Function(Failure failure)? addCommentFailed,
@@ -74,6 +80,10 @@ mixin _$CommentViewModelState {
     required TResult Function(_GetCommentsLoading value) getCommentsLoading,
     required TResult Function(_GetCommentsSuccess value) getCommentsSuccess,
     required TResult Function(_GetCommentsFailed value) getCommentsFailed,
+    required TResult Function(_LoadMoreCommentsLoading value)
+        loadMoreCommentsLoading,
+    required TResult Function(_LoadMoreCommentsFailed value)
+        loadMoreCommentsFailed,
     required TResult Function(_AddCommentLoading value) addCommentLoading,
     required TResult Function(_AddCommentSuccess value) addCommentSuccess,
     required TResult Function(_AddCommentFailed value) addCommentFailed,
@@ -91,6 +101,8 @@ mixin _$CommentViewModelState {
     TResult? Function(_GetCommentsLoading value)? getCommentsLoading,
     TResult? Function(_GetCommentsSuccess value)? getCommentsSuccess,
     TResult? Function(_GetCommentsFailed value)? getCommentsFailed,
+    TResult? Function(_LoadMoreCommentsLoading value)? loadMoreCommentsLoading,
+    TResult? Function(_LoadMoreCommentsFailed value)? loadMoreCommentsFailed,
     TResult? Function(_AddCommentLoading value)? addCommentLoading,
     TResult? Function(_AddCommentSuccess value)? addCommentSuccess,
     TResult? Function(_AddCommentFailed value)? addCommentFailed,
@@ -108,6 +120,8 @@ mixin _$CommentViewModelState {
     TResult Function(_GetCommentsLoading value)? getCommentsLoading,
     TResult Function(_GetCommentsSuccess value)? getCommentsSuccess,
     TResult Function(_GetCommentsFailed value)? getCommentsFailed,
+    TResult Function(_LoadMoreCommentsLoading value)? loadMoreCommentsLoading,
+    TResult Function(_LoadMoreCommentsFailed value)? loadMoreCommentsFailed,
     TResult Function(_AddCommentLoading value)? addCommentLoading,
     TResult Function(_AddCommentSuccess value)? addCommentSuccess,
     TResult Function(_AddCommentFailed value)? addCommentFailed,
@@ -189,6 +203,8 @@ class _$InitialImpl implements _Initial {
     required TResult Function() getCommentsLoading,
     required TResult Function(List<CommentModel> comments) getCommentsSuccess,
     required TResult Function(Failure failure) getCommentsFailed,
+    required TResult Function() loadMoreCommentsLoading,
+    required TResult Function(Failure failure) loadMoreCommentsFailed,
     required TResult Function() addCommentLoading,
     required TResult Function(CommentModel comment) addCommentSuccess,
     required TResult Function(Failure failure) addCommentFailed,
@@ -209,6 +225,8 @@ class _$InitialImpl implements _Initial {
     TResult? Function()? getCommentsLoading,
     TResult? Function(List<CommentModel> comments)? getCommentsSuccess,
     TResult? Function(Failure failure)? getCommentsFailed,
+    TResult? Function()? loadMoreCommentsLoading,
+    TResult? Function(Failure failure)? loadMoreCommentsFailed,
     TResult? Function()? addCommentLoading,
     TResult? Function(CommentModel comment)? addCommentSuccess,
     TResult? Function(Failure failure)? addCommentFailed,
@@ -229,6 +247,8 @@ class _$InitialImpl implements _Initial {
     TResult Function()? getCommentsLoading,
     TResult Function(List<CommentModel> comments)? getCommentsSuccess,
     TResult Function(Failure failure)? getCommentsFailed,
+    TResult Function()? loadMoreCommentsLoading,
+    TResult Function(Failure failure)? loadMoreCommentsFailed,
     TResult Function()? addCommentLoading,
     TResult Function(CommentModel comment)? addCommentSuccess,
     TResult Function(Failure failure)? addCommentFailed,
@@ -253,6 +273,10 @@ class _$InitialImpl implements _Initial {
     required TResult Function(_GetCommentsLoading value) getCommentsLoading,
     required TResult Function(_GetCommentsSuccess value) getCommentsSuccess,
     required TResult Function(_GetCommentsFailed value) getCommentsFailed,
+    required TResult Function(_LoadMoreCommentsLoading value)
+        loadMoreCommentsLoading,
+    required TResult Function(_LoadMoreCommentsFailed value)
+        loadMoreCommentsFailed,
     required TResult Function(_AddCommentLoading value) addCommentLoading,
     required TResult Function(_AddCommentSuccess value) addCommentSuccess,
     required TResult Function(_AddCommentFailed value) addCommentFailed,
@@ -273,6 +297,8 @@ class _$InitialImpl implements _Initial {
     TResult? Function(_GetCommentsLoading value)? getCommentsLoading,
     TResult? Function(_GetCommentsSuccess value)? getCommentsSuccess,
     TResult? Function(_GetCommentsFailed value)? getCommentsFailed,
+    TResult? Function(_LoadMoreCommentsLoading value)? loadMoreCommentsLoading,
+    TResult? Function(_LoadMoreCommentsFailed value)? loadMoreCommentsFailed,
     TResult? Function(_AddCommentLoading value)? addCommentLoading,
     TResult? Function(_AddCommentSuccess value)? addCommentSuccess,
     TResult? Function(_AddCommentFailed value)? addCommentFailed,
@@ -293,6 +319,8 @@ class _$InitialImpl implements _Initial {
     TResult Function(_GetCommentsLoading value)? getCommentsLoading,
     TResult Function(_GetCommentsSuccess value)? getCommentsSuccess,
     TResult Function(_GetCommentsFailed value)? getCommentsFailed,
+    TResult Function(_LoadMoreCommentsLoading value)? loadMoreCommentsLoading,
+    TResult Function(_LoadMoreCommentsFailed value)? loadMoreCommentsFailed,
     TResult Function(_AddCommentLoading value)? addCommentLoading,
     TResult Function(_AddCommentSuccess value)? addCommentSuccess,
     TResult Function(_AddCommentFailed value)? addCommentFailed,
@@ -360,6 +388,8 @@ class _$GetCommentsLoadingImpl implements _GetCommentsLoading {
     required TResult Function() getCommentsLoading,
     required TResult Function(List<CommentModel> comments) getCommentsSuccess,
     required TResult Function(Failure failure) getCommentsFailed,
+    required TResult Function() loadMoreCommentsLoading,
+    required TResult Function(Failure failure) loadMoreCommentsFailed,
     required TResult Function() addCommentLoading,
     required TResult Function(CommentModel comment) addCommentSuccess,
     required TResult Function(Failure failure) addCommentFailed,
@@ -380,6 +410,8 @@ class _$GetCommentsLoadingImpl implements _GetCommentsLoading {
     TResult? Function()? getCommentsLoading,
     TResult? Function(List<CommentModel> comments)? getCommentsSuccess,
     TResult? Function(Failure failure)? getCommentsFailed,
+    TResult? Function()? loadMoreCommentsLoading,
+    TResult? Function(Failure failure)? loadMoreCommentsFailed,
     TResult? Function()? addCommentLoading,
     TResult? Function(CommentModel comment)? addCommentSuccess,
     TResult? Function(Failure failure)? addCommentFailed,
@@ -400,6 +432,8 @@ class _$GetCommentsLoadingImpl implements _GetCommentsLoading {
     TResult Function()? getCommentsLoading,
     TResult Function(List<CommentModel> comments)? getCommentsSuccess,
     TResult Function(Failure failure)? getCommentsFailed,
+    TResult Function()? loadMoreCommentsLoading,
+    TResult Function(Failure failure)? loadMoreCommentsFailed,
     TResult Function()? addCommentLoading,
     TResult Function(CommentModel comment)? addCommentSuccess,
     TResult Function(Failure failure)? addCommentFailed,
@@ -424,6 +458,10 @@ class _$GetCommentsLoadingImpl implements _GetCommentsLoading {
     required TResult Function(_GetCommentsLoading value) getCommentsLoading,
     required TResult Function(_GetCommentsSuccess value) getCommentsSuccess,
     required TResult Function(_GetCommentsFailed value) getCommentsFailed,
+    required TResult Function(_LoadMoreCommentsLoading value)
+        loadMoreCommentsLoading,
+    required TResult Function(_LoadMoreCommentsFailed value)
+        loadMoreCommentsFailed,
     required TResult Function(_AddCommentLoading value) addCommentLoading,
     required TResult Function(_AddCommentSuccess value) addCommentSuccess,
     required TResult Function(_AddCommentFailed value) addCommentFailed,
@@ -444,6 +482,8 @@ class _$GetCommentsLoadingImpl implements _GetCommentsLoading {
     TResult? Function(_GetCommentsLoading value)? getCommentsLoading,
     TResult? Function(_GetCommentsSuccess value)? getCommentsSuccess,
     TResult? Function(_GetCommentsFailed value)? getCommentsFailed,
+    TResult? Function(_LoadMoreCommentsLoading value)? loadMoreCommentsLoading,
+    TResult? Function(_LoadMoreCommentsFailed value)? loadMoreCommentsFailed,
     TResult? Function(_AddCommentLoading value)? addCommentLoading,
     TResult? Function(_AddCommentSuccess value)? addCommentSuccess,
     TResult? Function(_AddCommentFailed value)? addCommentFailed,
@@ -464,6 +504,8 @@ class _$GetCommentsLoadingImpl implements _GetCommentsLoading {
     TResult Function(_GetCommentsLoading value)? getCommentsLoading,
     TResult Function(_GetCommentsSuccess value)? getCommentsSuccess,
     TResult Function(_GetCommentsFailed value)? getCommentsFailed,
+    TResult Function(_LoadMoreCommentsLoading value)? loadMoreCommentsLoading,
+    TResult Function(_LoadMoreCommentsFailed value)? loadMoreCommentsFailed,
     TResult Function(_AddCommentLoading value)? addCommentLoading,
     TResult Function(_AddCommentSuccess value)? addCommentSuccess,
     TResult Function(_AddCommentFailed value)? addCommentFailed,
@@ -566,6 +608,8 @@ class _$GetCommentsSuccessImpl implements _GetCommentsSuccess {
     required TResult Function() getCommentsLoading,
     required TResult Function(List<CommentModel> comments) getCommentsSuccess,
     required TResult Function(Failure failure) getCommentsFailed,
+    required TResult Function() loadMoreCommentsLoading,
+    required TResult Function(Failure failure) loadMoreCommentsFailed,
     required TResult Function() addCommentLoading,
     required TResult Function(CommentModel comment) addCommentSuccess,
     required TResult Function(Failure failure) addCommentFailed,
@@ -586,6 +630,8 @@ class _$GetCommentsSuccessImpl implements _GetCommentsSuccess {
     TResult? Function()? getCommentsLoading,
     TResult? Function(List<CommentModel> comments)? getCommentsSuccess,
     TResult? Function(Failure failure)? getCommentsFailed,
+    TResult? Function()? loadMoreCommentsLoading,
+    TResult? Function(Failure failure)? loadMoreCommentsFailed,
     TResult? Function()? addCommentLoading,
     TResult? Function(CommentModel comment)? addCommentSuccess,
     TResult? Function(Failure failure)? addCommentFailed,
@@ -606,6 +652,8 @@ class _$GetCommentsSuccessImpl implements _GetCommentsSuccess {
     TResult Function()? getCommentsLoading,
     TResult Function(List<CommentModel> comments)? getCommentsSuccess,
     TResult Function(Failure failure)? getCommentsFailed,
+    TResult Function()? loadMoreCommentsLoading,
+    TResult Function(Failure failure)? loadMoreCommentsFailed,
     TResult Function()? addCommentLoading,
     TResult Function(CommentModel comment)? addCommentSuccess,
     TResult Function(Failure failure)? addCommentFailed,
@@ -630,6 +678,10 @@ class _$GetCommentsSuccessImpl implements _GetCommentsSuccess {
     required TResult Function(_GetCommentsLoading value) getCommentsLoading,
     required TResult Function(_GetCommentsSuccess value) getCommentsSuccess,
     required TResult Function(_GetCommentsFailed value) getCommentsFailed,
+    required TResult Function(_LoadMoreCommentsLoading value)
+        loadMoreCommentsLoading,
+    required TResult Function(_LoadMoreCommentsFailed value)
+        loadMoreCommentsFailed,
     required TResult Function(_AddCommentLoading value) addCommentLoading,
     required TResult Function(_AddCommentSuccess value) addCommentSuccess,
     required TResult Function(_AddCommentFailed value) addCommentFailed,
@@ -650,6 +702,8 @@ class _$GetCommentsSuccessImpl implements _GetCommentsSuccess {
     TResult? Function(_GetCommentsLoading value)? getCommentsLoading,
     TResult? Function(_GetCommentsSuccess value)? getCommentsSuccess,
     TResult? Function(_GetCommentsFailed value)? getCommentsFailed,
+    TResult? Function(_LoadMoreCommentsLoading value)? loadMoreCommentsLoading,
+    TResult? Function(_LoadMoreCommentsFailed value)? loadMoreCommentsFailed,
     TResult? Function(_AddCommentLoading value)? addCommentLoading,
     TResult? Function(_AddCommentSuccess value)? addCommentSuccess,
     TResult? Function(_AddCommentFailed value)? addCommentFailed,
@@ -670,6 +724,8 @@ class _$GetCommentsSuccessImpl implements _GetCommentsSuccess {
     TResult Function(_GetCommentsLoading value)? getCommentsLoading,
     TResult Function(_GetCommentsSuccess value)? getCommentsSuccess,
     TResult Function(_GetCommentsFailed value)? getCommentsFailed,
+    TResult Function(_LoadMoreCommentsLoading value)? loadMoreCommentsLoading,
+    TResult Function(_LoadMoreCommentsFailed value)? loadMoreCommentsFailed,
     TResult Function(_AddCommentLoading value)? addCommentLoading,
     TResult Function(_AddCommentSuccess value)? addCommentSuccess,
     TResult Function(_AddCommentFailed value)? addCommentFailed,
@@ -774,6 +830,8 @@ class _$GetCommentsFailedImpl implements _GetCommentsFailed {
     required TResult Function() getCommentsLoading,
     required TResult Function(List<CommentModel> comments) getCommentsSuccess,
     required TResult Function(Failure failure) getCommentsFailed,
+    required TResult Function() loadMoreCommentsLoading,
+    required TResult Function(Failure failure) loadMoreCommentsFailed,
     required TResult Function() addCommentLoading,
     required TResult Function(CommentModel comment) addCommentSuccess,
     required TResult Function(Failure failure) addCommentFailed,
@@ -794,6 +852,8 @@ class _$GetCommentsFailedImpl implements _GetCommentsFailed {
     TResult? Function()? getCommentsLoading,
     TResult? Function(List<CommentModel> comments)? getCommentsSuccess,
     TResult? Function(Failure failure)? getCommentsFailed,
+    TResult? Function()? loadMoreCommentsLoading,
+    TResult? Function(Failure failure)? loadMoreCommentsFailed,
     TResult? Function()? addCommentLoading,
     TResult? Function(CommentModel comment)? addCommentSuccess,
     TResult? Function(Failure failure)? addCommentFailed,
@@ -814,6 +874,8 @@ class _$GetCommentsFailedImpl implements _GetCommentsFailed {
     TResult Function()? getCommentsLoading,
     TResult Function(List<CommentModel> comments)? getCommentsSuccess,
     TResult Function(Failure failure)? getCommentsFailed,
+    TResult Function()? loadMoreCommentsLoading,
+    TResult Function(Failure failure)? loadMoreCommentsFailed,
     TResult Function()? addCommentLoading,
     TResult Function(CommentModel comment)? addCommentSuccess,
     TResult Function(Failure failure)? addCommentFailed,
@@ -838,6 +900,10 @@ class _$GetCommentsFailedImpl implements _GetCommentsFailed {
     required TResult Function(_GetCommentsLoading value) getCommentsLoading,
     required TResult Function(_GetCommentsSuccess value) getCommentsSuccess,
     required TResult Function(_GetCommentsFailed value) getCommentsFailed,
+    required TResult Function(_LoadMoreCommentsLoading value)
+        loadMoreCommentsLoading,
+    required TResult Function(_LoadMoreCommentsFailed value)
+        loadMoreCommentsFailed,
     required TResult Function(_AddCommentLoading value) addCommentLoading,
     required TResult Function(_AddCommentSuccess value) addCommentSuccess,
     required TResult Function(_AddCommentFailed value) addCommentFailed,
@@ -858,6 +924,8 @@ class _$GetCommentsFailedImpl implements _GetCommentsFailed {
     TResult? Function(_GetCommentsLoading value)? getCommentsLoading,
     TResult? Function(_GetCommentsSuccess value)? getCommentsSuccess,
     TResult? Function(_GetCommentsFailed value)? getCommentsFailed,
+    TResult? Function(_LoadMoreCommentsLoading value)? loadMoreCommentsLoading,
+    TResult? Function(_LoadMoreCommentsFailed value)? loadMoreCommentsFailed,
     TResult? Function(_AddCommentLoading value)? addCommentLoading,
     TResult? Function(_AddCommentSuccess value)? addCommentSuccess,
     TResult? Function(_AddCommentFailed value)? addCommentFailed,
@@ -878,6 +946,8 @@ class _$GetCommentsFailedImpl implements _GetCommentsFailed {
     TResult Function(_GetCommentsLoading value)? getCommentsLoading,
     TResult Function(_GetCommentsSuccess value)? getCommentsSuccess,
     TResult Function(_GetCommentsFailed value)? getCommentsFailed,
+    TResult Function(_LoadMoreCommentsLoading value)? loadMoreCommentsLoading,
+    TResult Function(_LoadMoreCommentsFailed value)? loadMoreCommentsFailed,
     TResult Function(_AddCommentLoading value)? addCommentLoading,
     TResult Function(_AddCommentSuccess value)? addCommentSuccess,
     TResult Function(_AddCommentFailed value)? addCommentFailed,
@@ -907,6 +977,420 @@ abstract class _GetCommentsFailed implements CommentViewModelState {
   @JsonKey(includeFromJson: false, includeToJson: false)
   _$$GetCommentsFailedImplCopyWith<_$GetCommentsFailedImpl> get copyWith =>
       throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$LoadMoreCommentsLoadingImplCopyWith<$Res> {
+  factory _$$LoadMoreCommentsLoadingImplCopyWith(
+          _$LoadMoreCommentsLoadingImpl value,
+          $Res Function(_$LoadMoreCommentsLoadingImpl) then) =
+      __$$LoadMoreCommentsLoadingImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$LoadMoreCommentsLoadingImplCopyWithImpl<$Res>
+    extends _$CommentViewModelStateCopyWithImpl<$Res,
+        _$LoadMoreCommentsLoadingImpl>
+    implements _$$LoadMoreCommentsLoadingImplCopyWith<$Res> {
+  __$$LoadMoreCommentsLoadingImplCopyWithImpl(
+      _$LoadMoreCommentsLoadingImpl _value,
+      $Res Function(_$LoadMoreCommentsLoadingImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of CommentViewModelState
+  /// with the given fields replaced by the non-null parameter values.
+}
+
+/// @nodoc
+
+class _$LoadMoreCommentsLoadingImpl implements _LoadMoreCommentsLoading {
+  const _$LoadMoreCommentsLoadingImpl();
+
+  @override
+  String toString() {
+    return 'CommentViewModelState.loadMoreCommentsLoading()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$LoadMoreCommentsLoadingImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() getCommentsLoading,
+    required TResult Function(List<CommentModel> comments) getCommentsSuccess,
+    required TResult Function(Failure failure) getCommentsFailed,
+    required TResult Function() loadMoreCommentsLoading,
+    required TResult Function(Failure failure) loadMoreCommentsFailed,
+    required TResult Function() addCommentLoading,
+    required TResult Function(CommentModel comment) addCommentSuccess,
+    required TResult Function(Failure failure) addCommentFailed,
+    required TResult Function() deleteCommentLoading,
+    required TResult Function(CommentModel comment) deleteCommentSuccess,
+    required TResult Function(Failure failure) deleteCommentFailed,
+    required TResult Function() updateCommentLoading,
+    required TResult Function(CommentModel comment) updateCommentSuccess,
+    required TResult Function(Failure failure) updateCommentFailed,
+  }) {
+    return loadMoreCommentsLoading();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? getCommentsLoading,
+    TResult? Function(List<CommentModel> comments)? getCommentsSuccess,
+    TResult? Function(Failure failure)? getCommentsFailed,
+    TResult? Function()? loadMoreCommentsLoading,
+    TResult? Function(Failure failure)? loadMoreCommentsFailed,
+    TResult? Function()? addCommentLoading,
+    TResult? Function(CommentModel comment)? addCommentSuccess,
+    TResult? Function(Failure failure)? addCommentFailed,
+    TResult? Function()? deleteCommentLoading,
+    TResult? Function(CommentModel comment)? deleteCommentSuccess,
+    TResult? Function(Failure failure)? deleteCommentFailed,
+    TResult? Function()? updateCommentLoading,
+    TResult? Function(CommentModel comment)? updateCommentSuccess,
+    TResult? Function(Failure failure)? updateCommentFailed,
+  }) {
+    return loadMoreCommentsLoading?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? getCommentsLoading,
+    TResult Function(List<CommentModel> comments)? getCommentsSuccess,
+    TResult Function(Failure failure)? getCommentsFailed,
+    TResult Function()? loadMoreCommentsLoading,
+    TResult Function(Failure failure)? loadMoreCommentsFailed,
+    TResult Function()? addCommentLoading,
+    TResult Function(CommentModel comment)? addCommentSuccess,
+    TResult Function(Failure failure)? addCommentFailed,
+    TResult Function()? deleteCommentLoading,
+    TResult Function(CommentModel comment)? deleteCommentSuccess,
+    TResult Function(Failure failure)? deleteCommentFailed,
+    TResult Function()? updateCommentLoading,
+    TResult Function(CommentModel comment)? updateCommentSuccess,
+    TResult Function(Failure failure)? updateCommentFailed,
+    required TResult orElse(),
+  }) {
+    if (loadMoreCommentsLoading != null) {
+      return loadMoreCommentsLoading();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(_GetCommentsLoading value) getCommentsLoading,
+    required TResult Function(_GetCommentsSuccess value) getCommentsSuccess,
+    required TResult Function(_GetCommentsFailed value) getCommentsFailed,
+    required TResult Function(_LoadMoreCommentsLoading value)
+        loadMoreCommentsLoading,
+    required TResult Function(_LoadMoreCommentsFailed value)
+        loadMoreCommentsFailed,
+    required TResult Function(_AddCommentLoading value) addCommentLoading,
+    required TResult Function(_AddCommentSuccess value) addCommentSuccess,
+    required TResult Function(_AddCommentFailed value) addCommentFailed,
+    required TResult Function(_DeleteCommentLoading value) deleteCommentLoading,
+    required TResult Function(_DeleteCommentSuccess value) deleteCommentSuccess,
+    required TResult Function(_DeleteCommentFailed value) deleteCommentFailed,
+    required TResult Function(_UpdateCommentLoading value) updateCommentLoading,
+    required TResult Function(_UpdateCommentSuccess value) updateCommentSuccess,
+    required TResult Function(_UpdateCommentFailed value) updateCommentFailed,
+  }) {
+    return loadMoreCommentsLoading(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_GetCommentsLoading value)? getCommentsLoading,
+    TResult? Function(_GetCommentsSuccess value)? getCommentsSuccess,
+    TResult? Function(_GetCommentsFailed value)? getCommentsFailed,
+    TResult? Function(_LoadMoreCommentsLoading value)? loadMoreCommentsLoading,
+    TResult? Function(_LoadMoreCommentsFailed value)? loadMoreCommentsFailed,
+    TResult? Function(_AddCommentLoading value)? addCommentLoading,
+    TResult? Function(_AddCommentSuccess value)? addCommentSuccess,
+    TResult? Function(_AddCommentFailed value)? addCommentFailed,
+    TResult? Function(_DeleteCommentLoading value)? deleteCommentLoading,
+    TResult? Function(_DeleteCommentSuccess value)? deleteCommentSuccess,
+    TResult? Function(_DeleteCommentFailed value)? deleteCommentFailed,
+    TResult? Function(_UpdateCommentLoading value)? updateCommentLoading,
+    TResult? Function(_UpdateCommentSuccess value)? updateCommentSuccess,
+    TResult? Function(_UpdateCommentFailed value)? updateCommentFailed,
+  }) {
+    return loadMoreCommentsLoading?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_GetCommentsLoading value)? getCommentsLoading,
+    TResult Function(_GetCommentsSuccess value)? getCommentsSuccess,
+    TResult Function(_GetCommentsFailed value)? getCommentsFailed,
+    TResult Function(_LoadMoreCommentsLoading value)? loadMoreCommentsLoading,
+    TResult Function(_LoadMoreCommentsFailed value)? loadMoreCommentsFailed,
+    TResult Function(_AddCommentLoading value)? addCommentLoading,
+    TResult Function(_AddCommentSuccess value)? addCommentSuccess,
+    TResult Function(_AddCommentFailed value)? addCommentFailed,
+    TResult Function(_DeleteCommentLoading value)? deleteCommentLoading,
+    TResult Function(_DeleteCommentSuccess value)? deleteCommentSuccess,
+    TResult Function(_DeleteCommentFailed value)? deleteCommentFailed,
+    TResult Function(_UpdateCommentLoading value)? updateCommentLoading,
+    TResult Function(_UpdateCommentSuccess value)? updateCommentSuccess,
+    TResult Function(_UpdateCommentFailed value)? updateCommentFailed,
+    required TResult orElse(),
+  }) {
+    if (loadMoreCommentsLoading != null) {
+      return loadMoreCommentsLoading(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _LoadMoreCommentsLoading implements CommentViewModelState {
+  const factory _LoadMoreCommentsLoading() = _$LoadMoreCommentsLoadingImpl;
+}
+
+/// @nodoc
+abstract class _$$LoadMoreCommentsFailedImplCopyWith<$Res> {
+  factory _$$LoadMoreCommentsFailedImplCopyWith(
+          _$LoadMoreCommentsFailedImpl value,
+          $Res Function(_$LoadMoreCommentsFailedImpl) then) =
+      __$$LoadMoreCommentsFailedImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({Failure failure});
+}
+
+/// @nodoc
+class __$$LoadMoreCommentsFailedImplCopyWithImpl<$Res>
+    extends _$CommentViewModelStateCopyWithImpl<$Res,
+        _$LoadMoreCommentsFailedImpl>
+    implements _$$LoadMoreCommentsFailedImplCopyWith<$Res> {
+  __$$LoadMoreCommentsFailedImplCopyWithImpl(
+      _$LoadMoreCommentsFailedImpl _value,
+      $Res Function(_$LoadMoreCommentsFailedImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of CommentViewModelState
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? failure = null,
+  }) {
+    return _then(_$LoadMoreCommentsFailedImpl(
+      failure: null == failure
+          ? _value.failure
+          : failure // ignore: cast_nullable_to_non_nullable
+              as Failure,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$LoadMoreCommentsFailedImpl implements _LoadMoreCommentsFailed {
+  const _$LoadMoreCommentsFailedImpl({required this.failure});
+
+  @override
+  final Failure failure;
+
+  @override
+  String toString() {
+    return 'CommentViewModelState.loadMoreCommentsFailed(failure: $failure)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$LoadMoreCommentsFailedImpl &&
+            (identical(other.failure, failure) || other.failure == failure));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, failure);
+
+  /// Create a copy of CommentViewModelState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$LoadMoreCommentsFailedImplCopyWith<_$LoadMoreCommentsFailedImpl>
+      get copyWith => __$$LoadMoreCommentsFailedImplCopyWithImpl<
+          _$LoadMoreCommentsFailedImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() getCommentsLoading,
+    required TResult Function(List<CommentModel> comments) getCommentsSuccess,
+    required TResult Function(Failure failure) getCommentsFailed,
+    required TResult Function() loadMoreCommentsLoading,
+    required TResult Function(Failure failure) loadMoreCommentsFailed,
+    required TResult Function() addCommentLoading,
+    required TResult Function(CommentModel comment) addCommentSuccess,
+    required TResult Function(Failure failure) addCommentFailed,
+    required TResult Function() deleteCommentLoading,
+    required TResult Function(CommentModel comment) deleteCommentSuccess,
+    required TResult Function(Failure failure) deleteCommentFailed,
+    required TResult Function() updateCommentLoading,
+    required TResult Function(CommentModel comment) updateCommentSuccess,
+    required TResult Function(Failure failure) updateCommentFailed,
+  }) {
+    return loadMoreCommentsFailed(failure);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? getCommentsLoading,
+    TResult? Function(List<CommentModel> comments)? getCommentsSuccess,
+    TResult? Function(Failure failure)? getCommentsFailed,
+    TResult? Function()? loadMoreCommentsLoading,
+    TResult? Function(Failure failure)? loadMoreCommentsFailed,
+    TResult? Function()? addCommentLoading,
+    TResult? Function(CommentModel comment)? addCommentSuccess,
+    TResult? Function(Failure failure)? addCommentFailed,
+    TResult? Function()? deleteCommentLoading,
+    TResult? Function(CommentModel comment)? deleteCommentSuccess,
+    TResult? Function(Failure failure)? deleteCommentFailed,
+    TResult? Function()? updateCommentLoading,
+    TResult? Function(CommentModel comment)? updateCommentSuccess,
+    TResult? Function(Failure failure)? updateCommentFailed,
+  }) {
+    return loadMoreCommentsFailed?.call(failure);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? getCommentsLoading,
+    TResult Function(List<CommentModel> comments)? getCommentsSuccess,
+    TResult Function(Failure failure)? getCommentsFailed,
+    TResult Function()? loadMoreCommentsLoading,
+    TResult Function(Failure failure)? loadMoreCommentsFailed,
+    TResult Function()? addCommentLoading,
+    TResult Function(CommentModel comment)? addCommentSuccess,
+    TResult Function(Failure failure)? addCommentFailed,
+    TResult Function()? deleteCommentLoading,
+    TResult Function(CommentModel comment)? deleteCommentSuccess,
+    TResult Function(Failure failure)? deleteCommentFailed,
+    TResult Function()? updateCommentLoading,
+    TResult Function(CommentModel comment)? updateCommentSuccess,
+    TResult Function(Failure failure)? updateCommentFailed,
+    required TResult orElse(),
+  }) {
+    if (loadMoreCommentsFailed != null) {
+      return loadMoreCommentsFailed(failure);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(_GetCommentsLoading value) getCommentsLoading,
+    required TResult Function(_GetCommentsSuccess value) getCommentsSuccess,
+    required TResult Function(_GetCommentsFailed value) getCommentsFailed,
+    required TResult Function(_LoadMoreCommentsLoading value)
+        loadMoreCommentsLoading,
+    required TResult Function(_LoadMoreCommentsFailed value)
+        loadMoreCommentsFailed,
+    required TResult Function(_AddCommentLoading value) addCommentLoading,
+    required TResult Function(_AddCommentSuccess value) addCommentSuccess,
+    required TResult Function(_AddCommentFailed value) addCommentFailed,
+    required TResult Function(_DeleteCommentLoading value) deleteCommentLoading,
+    required TResult Function(_DeleteCommentSuccess value) deleteCommentSuccess,
+    required TResult Function(_DeleteCommentFailed value) deleteCommentFailed,
+    required TResult Function(_UpdateCommentLoading value) updateCommentLoading,
+    required TResult Function(_UpdateCommentSuccess value) updateCommentSuccess,
+    required TResult Function(_UpdateCommentFailed value) updateCommentFailed,
+  }) {
+    return loadMoreCommentsFailed(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_GetCommentsLoading value)? getCommentsLoading,
+    TResult? Function(_GetCommentsSuccess value)? getCommentsSuccess,
+    TResult? Function(_GetCommentsFailed value)? getCommentsFailed,
+    TResult? Function(_LoadMoreCommentsLoading value)? loadMoreCommentsLoading,
+    TResult? Function(_LoadMoreCommentsFailed value)? loadMoreCommentsFailed,
+    TResult? Function(_AddCommentLoading value)? addCommentLoading,
+    TResult? Function(_AddCommentSuccess value)? addCommentSuccess,
+    TResult? Function(_AddCommentFailed value)? addCommentFailed,
+    TResult? Function(_DeleteCommentLoading value)? deleteCommentLoading,
+    TResult? Function(_DeleteCommentSuccess value)? deleteCommentSuccess,
+    TResult? Function(_DeleteCommentFailed value)? deleteCommentFailed,
+    TResult? Function(_UpdateCommentLoading value)? updateCommentLoading,
+    TResult? Function(_UpdateCommentSuccess value)? updateCommentSuccess,
+    TResult? Function(_UpdateCommentFailed value)? updateCommentFailed,
+  }) {
+    return loadMoreCommentsFailed?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_GetCommentsLoading value)? getCommentsLoading,
+    TResult Function(_GetCommentsSuccess value)? getCommentsSuccess,
+    TResult Function(_GetCommentsFailed value)? getCommentsFailed,
+    TResult Function(_LoadMoreCommentsLoading value)? loadMoreCommentsLoading,
+    TResult Function(_LoadMoreCommentsFailed value)? loadMoreCommentsFailed,
+    TResult Function(_AddCommentLoading value)? addCommentLoading,
+    TResult Function(_AddCommentSuccess value)? addCommentSuccess,
+    TResult Function(_AddCommentFailed value)? addCommentFailed,
+    TResult Function(_DeleteCommentLoading value)? deleteCommentLoading,
+    TResult Function(_DeleteCommentSuccess value)? deleteCommentSuccess,
+    TResult Function(_DeleteCommentFailed value)? deleteCommentFailed,
+    TResult Function(_UpdateCommentLoading value)? updateCommentLoading,
+    TResult Function(_UpdateCommentSuccess value)? updateCommentSuccess,
+    TResult Function(_UpdateCommentFailed value)? updateCommentFailed,
+    required TResult orElse(),
+  }) {
+    if (loadMoreCommentsFailed != null) {
+      return loadMoreCommentsFailed(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _LoadMoreCommentsFailed implements CommentViewModelState {
+  const factory _LoadMoreCommentsFailed({required final Failure failure}) =
+      _$LoadMoreCommentsFailedImpl;
+
+  Failure get failure;
+
+  /// Create a copy of CommentViewModelState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$LoadMoreCommentsFailedImplCopyWith<_$LoadMoreCommentsFailedImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -954,6 +1438,8 @@ class _$AddCommentLoadingImpl implements _AddCommentLoading {
     required TResult Function() getCommentsLoading,
     required TResult Function(List<CommentModel> comments) getCommentsSuccess,
     required TResult Function(Failure failure) getCommentsFailed,
+    required TResult Function() loadMoreCommentsLoading,
+    required TResult Function(Failure failure) loadMoreCommentsFailed,
     required TResult Function() addCommentLoading,
     required TResult Function(CommentModel comment) addCommentSuccess,
     required TResult Function(Failure failure) addCommentFailed,
@@ -974,6 +1460,8 @@ class _$AddCommentLoadingImpl implements _AddCommentLoading {
     TResult? Function()? getCommentsLoading,
     TResult? Function(List<CommentModel> comments)? getCommentsSuccess,
     TResult? Function(Failure failure)? getCommentsFailed,
+    TResult? Function()? loadMoreCommentsLoading,
+    TResult? Function(Failure failure)? loadMoreCommentsFailed,
     TResult? Function()? addCommentLoading,
     TResult? Function(CommentModel comment)? addCommentSuccess,
     TResult? Function(Failure failure)? addCommentFailed,
@@ -994,6 +1482,8 @@ class _$AddCommentLoadingImpl implements _AddCommentLoading {
     TResult Function()? getCommentsLoading,
     TResult Function(List<CommentModel> comments)? getCommentsSuccess,
     TResult Function(Failure failure)? getCommentsFailed,
+    TResult Function()? loadMoreCommentsLoading,
+    TResult Function(Failure failure)? loadMoreCommentsFailed,
     TResult Function()? addCommentLoading,
     TResult Function(CommentModel comment)? addCommentSuccess,
     TResult Function(Failure failure)? addCommentFailed,
@@ -1018,6 +1508,10 @@ class _$AddCommentLoadingImpl implements _AddCommentLoading {
     required TResult Function(_GetCommentsLoading value) getCommentsLoading,
     required TResult Function(_GetCommentsSuccess value) getCommentsSuccess,
     required TResult Function(_GetCommentsFailed value) getCommentsFailed,
+    required TResult Function(_LoadMoreCommentsLoading value)
+        loadMoreCommentsLoading,
+    required TResult Function(_LoadMoreCommentsFailed value)
+        loadMoreCommentsFailed,
     required TResult Function(_AddCommentLoading value) addCommentLoading,
     required TResult Function(_AddCommentSuccess value) addCommentSuccess,
     required TResult Function(_AddCommentFailed value) addCommentFailed,
@@ -1038,6 +1532,8 @@ class _$AddCommentLoadingImpl implements _AddCommentLoading {
     TResult? Function(_GetCommentsLoading value)? getCommentsLoading,
     TResult? Function(_GetCommentsSuccess value)? getCommentsSuccess,
     TResult? Function(_GetCommentsFailed value)? getCommentsFailed,
+    TResult? Function(_LoadMoreCommentsLoading value)? loadMoreCommentsLoading,
+    TResult? Function(_LoadMoreCommentsFailed value)? loadMoreCommentsFailed,
     TResult? Function(_AddCommentLoading value)? addCommentLoading,
     TResult? Function(_AddCommentSuccess value)? addCommentSuccess,
     TResult? Function(_AddCommentFailed value)? addCommentFailed,
@@ -1058,6 +1554,8 @@ class _$AddCommentLoadingImpl implements _AddCommentLoading {
     TResult Function(_GetCommentsLoading value)? getCommentsLoading,
     TResult Function(_GetCommentsSuccess value)? getCommentsSuccess,
     TResult Function(_GetCommentsFailed value)? getCommentsFailed,
+    TResult Function(_LoadMoreCommentsLoading value)? loadMoreCommentsLoading,
+    TResult Function(_LoadMoreCommentsFailed value)? loadMoreCommentsFailed,
     TResult Function(_AddCommentLoading value)? addCommentLoading,
     TResult Function(_AddCommentSuccess value)? addCommentSuccess,
     TResult Function(_AddCommentFailed value)? addCommentFailed,
@@ -1165,6 +1663,8 @@ class _$AddCommentSuccessImpl implements _AddCommentSuccess {
     required TResult Function() getCommentsLoading,
     required TResult Function(List<CommentModel> comments) getCommentsSuccess,
     required TResult Function(Failure failure) getCommentsFailed,
+    required TResult Function() loadMoreCommentsLoading,
+    required TResult Function(Failure failure) loadMoreCommentsFailed,
     required TResult Function() addCommentLoading,
     required TResult Function(CommentModel comment) addCommentSuccess,
     required TResult Function(Failure failure) addCommentFailed,
@@ -1185,6 +1685,8 @@ class _$AddCommentSuccessImpl implements _AddCommentSuccess {
     TResult? Function()? getCommentsLoading,
     TResult? Function(List<CommentModel> comments)? getCommentsSuccess,
     TResult? Function(Failure failure)? getCommentsFailed,
+    TResult? Function()? loadMoreCommentsLoading,
+    TResult? Function(Failure failure)? loadMoreCommentsFailed,
     TResult? Function()? addCommentLoading,
     TResult? Function(CommentModel comment)? addCommentSuccess,
     TResult? Function(Failure failure)? addCommentFailed,
@@ -1205,6 +1707,8 @@ class _$AddCommentSuccessImpl implements _AddCommentSuccess {
     TResult Function()? getCommentsLoading,
     TResult Function(List<CommentModel> comments)? getCommentsSuccess,
     TResult Function(Failure failure)? getCommentsFailed,
+    TResult Function()? loadMoreCommentsLoading,
+    TResult Function(Failure failure)? loadMoreCommentsFailed,
     TResult Function()? addCommentLoading,
     TResult Function(CommentModel comment)? addCommentSuccess,
     TResult Function(Failure failure)? addCommentFailed,
@@ -1229,6 +1733,10 @@ class _$AddCommentSuccessImpl implements _AddCommentSuccess {
     required TResult Function(_GetCommentsLoading value) getCommentsLoading,
     required TResult Function(_GetCommentsSuccess value) getCommentsSuccess,
     required TResult Function(_GetCommentsFailed value) getCommentsFailed,
+    required TResult Function(_LoadMoreCommentsLoading value)
+        loadMoreCommentsLoading,
+    required TResult Function(_LoadMoreCommentsFailed value)
+        loadMoreCommentsFailed,
     required TResult Function(_AddCommentLoading value) addCommentLoading,
     required TResult Function(_AddCommentSuccess value) addCommentSuccess,
     required TResult Function(_AddCommentFailed value) addCommentFailed,
@@ -1249,6 +1757,8 @@ class _$AddCommentSuccessImpl implements _AddCommentSuccess {
     TResult? Function(_GetCommentsLoading value)? getCommentsLoading,
     TResult? Function(_GetCommentsSuccess value)? getCommentsSuccess,
     TResult? Function(_GetCommentsFailed value)? getCommentsFailed,
+    TResult? Function(_LoadMoreCommentsLoading value)? loadMoreCommentsLoading,
+    TResult? Function(_LoadMoreCommentsFailed value)? loadMoreCommentsFailed,
     TResult? Function(_AddCommentLoading value)? addCommentLoading,
     TResult? Function(_AddCommentSuccess value)? addCommentSuccess,
     TResult? Function(_AddCommentFailed value)? addCommentFailed,
@@ -1269,6 +1779,8 @@ class _$AddCommentSuccessImpl implements _AddCommentSuccess {
     TResult Function(_GetCommentsLoading value)? getCommentsLoading,
     TResult Function(_GetCommentsSuccess value)? getCommentsSuccess,
     TResult Function(_GetCommentsFailed value)? getCommentsFailed,
+    TResult Function(_LoadMoreCommentsLoading value)? loadMoreCommentsLoading,
+    TResult Function(_LoadMoreCommentsFailed value)? loadMoreCommentsFailed,
     TResult Function(_AddCommentLoading value)? addCommentLoading,
     TResult Function(_AddCommentSuccess value)? addCommentSuccess,
     TResult Function(_AddCommentFailed value)? addCommentFailed,
@@ -1373,6 +1885,8 @@ class _$AddCommentFailedImpl implements _AddCommentFailed {
     required TResult Function() getCommentsLoading,
     required TResult Function(List<CommentModel> comments) getCommentsSuccess,
     required TResult Function(Failure failure) getCommentsFailed,
+    required TResult Function() loadMoreCommentsLoading,
+    required TResult Function(Failure failure) loadMoreCommentsFailed,
     required TResult Function() addCommentLoading,
     required TResult Function(CommentModel comment) addCommentSuccess,
     required TResult Function(Failure failure) addCommentFailed,
@@ -1393,6 +1907,8 @@ class _$AddCommentFailedImpl implements _AddCommentFailed {
     TResult? Function()? getCommentsLoading,
     TResult? Function(List<CommentModel> comments)? getCommentsSuccess,
     TResult? Function(Failure failure)? getCommentsFailed,
+    TResult? Function()? loadMoreCommentsLoading,
+    TResult? Function(Failure failure)? loadMoreCommentsFailed,
     TResult? Function()? addCommentLoading,
     TResult? Function(CommentModel comment)? addCommentSuccess,
     TResult? Function(Failure failure)? addCommentFailed,
@@ -1413,6 +1929,8 @@ class _$AddCommentFailedImpl implements _AddCommentFailed {
     TResult Function()? getCommentsLoading,
     TResult Function(List<CommentModel> comments)? getCommentsSuccess,
     TResult Function(Failure failure)? getCommentsFailed,
+    TResult Function()? loadMoreCommentsLoading,
+    TResult Function(Failure failure)? loadMoreCommentsFailed,
     TResult Function()? addCommentLoading,
     TResult Function(CommentModel comment)? addCommentSuccess,
     TResult Function(Failure failure)? addCommentFailed,
@@ -1437,6 +1955,10 @@ class _$AddCommentFailedImpl implements _AddCommentFailed {
     required TResult Function(_GetCommentsLoading value) getCommentsLoading,
     required TResult Function(_GetCommentsSuccess value) getCommentsSuccess,
     required TResult Function(_GetCommentsFailed value) getCommentsFailed,
+    required TResult Function(_LoadMoreCommentsLoading value)
+        loadMoreCommentsLoading,
+    required TResult Function(_LoadMoreCommentsFailed value)
+        loadMoreCommentsFailed,
     required TResult Function(_AddCommentLoading value) addCommentLoading,
     required TResult Function(_AddCommentSuccess value) addCommentSuccess,
     required TResult Function(_AddCommentFailed value) addCommentFailed,
@@ -1457,6 +1979,8 @@ class _$AddCommentFailedImpl implements _AddCommentFailed {
     TResult? Function(_GetCommentsLoading value)? getCommentsLoading,
     TResult? Function(_GetCommentsSuccess value)? getCommentsSuccess,
     TResult? Function(_GetCommentsFailed value)? getCommentsFailed,
+    TResult? Function(_LoadMoreCommentsLoading value)? loadMoreCommentsLoading,
+    TResult? Function(_LoadMoreCommentsFailed value)? loadMoreCommentsFailed,
     TResult? Function(_AddCommentLoading value)? addCommentLoading,
     TResult? Function(_AddCommentSuccess value)? addCommentSuccess,
     TResult? Function(_AddCommentFailed value)? addCommentFailed,
@@ -1477,6 +2001,8 @@ class _$AddCommentFailedImpl implements _AddCommentFailed {
     TResult Function(_GetCommentsLoading value)? getCommentsLoading,
     TResult Function(_GetCommentsSuccess value)? getCommentsSuccess,
     TResult Function(_GetCommentsFailed value)? getCommentsFailed,
+    TResult Function(_LoadMoreCommentsLoading value)? loadMoreCommentsLoading,
+    TResult Function(_LoadMoreCommentsFailed value)? loadMoreCommentsFailed,
     TResult Function(_AddCommentLoading value)? addCommentLoading,
     TResult Function(_AddCommentSuccess value)? addCommentSuccess,
     TResult Function(_AddCommentFailed value)? addCommentFailed,
@@ -1555,6 +2081,8 @@ class _$DeleteCommentLoadingImpl implements _DeleteCommentLoading {
     required TResult Function() getCommentsLoading,
     required TResult Function(List<CommentModel> comments) getCommentsSuccess,
     required TResult Function(Failure failure) getCommentsFailed,
+    required TResult Function() loadMoreCommentsLoading,
+    required TResult Function(Failure failure) loadMoreCommentsFailed,
     required TResult Function() addCommentLoading,
     required TResult Function(CommentModel comment) addCommentSuccess,
     required TResult Function(Failure failure) addCommentFailed,
@@ -1575,6 +2103,8 @@ class _$DeleteCommentLoadingImpl implements _DeleteCommentLoading {
     TResult? Function()? getCommentsLoading,
     TResult? Function(List<CommentModel> comments)? getCommentsSuccess,
     TResult? Function(Failure failure)? getCommentsFailed,
+    TResult? Function()? loadMoreCommentsLoading,
+    TResult? Function(Failure failure)? loadMoreCommentsFailed,
     TResult? Function()? addCommentLoading,
     TResult? Function(CommentModel comment)? addCommentSuccess,
     TResult? Function(Failure failure)? addCommentFailed,
@@ -1595,6 +2125,8 @@ class _$DeleteCommentLoadingImpl implements _DeleteCommentLoading {
     TResult Function()? getCommentsLoading,
     TResult Function(List<CommentModel> comments)? getCommentsSuccess,
     TResult Function(Failure failure)? getCommentsFailed,
+    TResult Function()? loadMoreCommentsLoading,
+    TResult Function(Failure failure)? loadMoreCommentsFailed,
     TResult Function()? addCommentLoading,
     TResult Function(CommentModel comment)? addCommentSuccess,
     TResult Function(Failure failure)? addCommentFailed,
@@ -1619,6 +2151,10 @@ class _$DeleteCommentLoadingImpl implements _DeleteCommentLoading {
     required TResult Function(_GetCommentsLoading value) getCommentsLoading,
     required TResult Function(_GetCommentsSuccess value) getCommentsSuccess,
     required TResult Function(_GetCommentsFailed value) getCommentsFailed,
+    required TResult Function(_LoadMoreCommentsLoading value)
+        loadMoreCommentsLoading,
+    required TResult Function(_LoadMoreCommentsFailed value)
+        loadMoreCommentsFailed,
     required TResult Function(_AddCommentLoading value) addCommentLoading,
     required TResult Function(_AddCommentSuccess value) addCommentSuccess,
     required TResult Function(_AddCommentFailed value) addCommentFailed,
@@ -1639,6 +2175,8 @@ class _$DeleteCommentLoadingImpl implements _DeleteCommentLoading {
     TResult? Function(_GetCommentsLoading value)? getCommentsLoading,
     TResult? Function(_GetCommentsSuccess value)? getCommentsSuccess,
     TResult? Function(_GetCommentsFailed value)? getCommentsFailed,
+    TResult? Function(_LoadMoreCommentsLoading value)? loadMoreCommentsLoading,
+    TResult? Function(_LoadMoreCommentsFailed value)? loadMoreCommentsFailed,
     TResult? Function(_AddCommentLoading value)? addCommentLoading,
     TResult? Function(_AddCommentSuccess value)? addCommentSuccess,
     TResult? Function(_AddCommentFailed value)? addCommentFailed,
@@ -1659,6 +2197,8 @@ class _$DeleteCommentLoadingImpl implements _DeleteCommentLoading {
     TResult Function(_GetCommentsLoading value)? getCommentsLoading,
     TResult Function(_GetCommentsSuccess value)? getCommentsSuccess,
     TResult Function(_GetCommentsFailed value)? getCommentsFailed,
+    TResult Function(_LoadMoreCommentsLoading value)? loadMoreCommentsLoading,
+    TResult Function(_LoadMoreCommentsFailed value)? loadMoreCommentsFailed,
     TResult Function(_AddCommentLoading value)? addCommentLoading,
     TResult Function(_AddCommentSuccess value)? addCommentSuccess,
     TResult Function(_AddCommentFailed value)? addCommentFailed,
@@ -1768,6 +2308,8 @@ class _$DeleteCommentSuccessImpl implements _DeleteCommentSuccess {
     required TResult Function() getCommentsLoading,
     required TResult Function(List<CommentModel> comments) getCommentsSuccess,
     required TResult Function(Failure failure) getCommentsFailed,
+    required TResult Function() loadMoreCommentsLoading,
+    required TResult Function(Failure failure) loadMoreCommentsFailed,
     required TResult Function() addCommentLoading,
     required TResult Function(CommentModel comment) addCommentSuccess,
     required TResult Function(Failure failure) addCommentFailed,
@@ -1788,6 +2330,8 @@ class _$DeleteCommentSuccessImpl implements _DeleteCommentSuccess {
     TResult? Function()? getCommentsLoading,
     TResult? Function(List<CommentModel> comments)? getCommentsSuccess,
     TResult? Function(Failure failure)? getCommentsFailed,
+    TResult? Function()? loadMoreCommentsLoading,
+    TResult? Function(Failure failure)? loadMoreCommentsFailed,
     TResult? Function()? addCommentLoading,
     TResult? Function(CommentModel comment)? addCommentSuccess,
     TResult? Function(Failure failure)? addCommentFailed,
@@ -1808,6 +2352,8 @@ class _$DeleteCommentSuccessImpl implements _DeleteCommentSuccess {
     TResult Function()? getCommentsLoading,
     TResult Function(List<CommentModel> comments)? getCommentsSuccess,
     TResult Function(Failure failure)? getCommentsFailed,
+    TResult Function()? loadMoreCommentsLoading,
+    TResult Function(Failure failure)? loadMoreCommentsFailed,
     TResult Function()? addCommentLoading,
     TResult Function(CommentModel comment)? addCommentSuccess,
     TResult Function(Failure failure)? addCommentFailed,
@@ -1832,6 +2378,10 @@ class _$DeleteCommentSuccessImpl implements _DeleteCommentSuccess {
     required TResult Function(_GetCommentsLoading value) getCommentsLoading,
     required TResult Function(_GetCommentsSuccess value) getCommentsSuccess,
     required TResult Function(_GetCommentsFailed value) getCommentsFailed,
+    required TResult Function(_LoadMoreCommentsLoading value)
+        loadMoreCommentsLoading,
+    required TResult Function(_LoadMoreCommentsFailed value)
+        loadMoreCommentsFailed,
     required TResult Function(_AddCommentLoading value) addCommentLoading,
     required TResult Function(_AddCommentSuccess value) addCommentSuccess,
     required TResult Function(_AddCommentFailed value) addCommentFailed,
@@ -1852,6 +2402,8 @@ class _$DeleteCommentSuccessImpl implements _DeleteCommentSuccess {
     TResult? Function(_GetCommentsLoading value)? getCommentsLoading,
     TResult? Function(_GetCommentsSuccess value)? getCommentsSuccess,
     TResult? Function(_GetCommentsFailed value)? getCommentsFailed,
+    TResult? Function(_LoadMoreCommentsLoading value)? loadMoreCommentsLoading,
+    TResult? Function(_LoadMoreCommentsFailed value)? loadMoreCommentsFailed,
     TResult? Function(_AddCommentLoading value)? addCommentLoading,
     TResult? Function(_AddCommentSuccess value)? addCommentSuccess,
     TResult? Function(_AddCommentFailed value)? addCommentFailed,
@@ -1872,6 +2424,8 @@ class _$DeleteCommentSuccessImpl implements _DeleteCommentSuccess {
     TResult Function(_GetCommentsLoading value)? getCommentsLoading,
     TResult Function(_GetCommentsSuccess value)? getCommentsSuccess,
     TResult Function(_GetCommentsFailed value)? getCommentsFailed,
+    TResult Function(_LoadMoreCommentsLoading value)? loadMoreCommentsLoading,
+    TResult Function(_LoadMoreCommentsFailed value)? loadMoreCommentsFailed,
     TResult Function(_AddCommentLoading value)? addCommentLoading,
     TResult Function(_AddCommentSuccess value)? addCommentSuccess,
     TResult Function(_AddCommentFailed value)? addCommentFailed,
@@ -1976,6 +2530,8 @@ class _$DeleteCommentFailedImpl implements _DeleteCommentFailed {
     required TResult Function() getCommentsLoading,
     required TResult Function(List<CommentModel> comments) getCommentsSuccess,
     required TResult Function(Failure failure) getCommentsFailed,
+    required TResult Function() loadMoreCommentsLoading,
+    required TResult Function(Failure failure) loadMoreCommentsFailed,
     required TResult Function() addCommentLoading,
     required TResult Function(CommentModel comment) addCommentSuccess,
     required TResult Function(Failure failure) addCommentFailed,
@@ -1996,6 +2552,8 @@ class _$DeleteCommentFailedImpl implements _DeleteCommentFailed {
     TResult? Function()? getCommentsLoading,
     TResult? Function(List<CommentModel> comments)? getCommentsSuccess,
     TResult? Function(Failure failure)? getCommentsFailed,
+    TResult? Function()? loadMoreCommentsLoading,
+    TResult? Function(Failure failure)? loadMoreCommentsFailed,
     TResult? Function()? addCommentLoading,
     TResult? Function(CommentModel comment)? addCommentSuccess,
     TResult? Function(Failure failure)? addCommentFailed,
@@ -2016,6 +2574,8 @@ class _$DeleteCommentFailedImpl implements _DeleteCommentFailed {
     TResult Function()? getCommentsLoading,
     TResult Function(List<CommentModel> comments)? getCommentsSuccess,
     TResult Function(Failure failure)? getCommentsFailed,
+    TResult Function()? loadMoreCommentsLoading,
+    TResult Function(Failure failure)? loadMoreCommentsFailed,
     TResult Function()? addCommentLoading,
     TResult Function(CommentModel comment)? addCommentSuccess,
     TResult Function(Failure failure)? addCommentFailed,
@@ -2040,6 +2600,10 @@ class _$DeleteCommentFailedImpl implements _DeleteCommentFailed {
     required TResult Function(_GetCommentsLoading value) getCommentsLoading,
     required TResult Function(_GetCommentsSuccess value) getCommentsSuccess,
     required TResult Function(_GetCommentsFailed value) getCommentsFailed,
+    required TResult Function(_LoadMoreCommentsLoading value)
+        loadMoreCommentsLoading,
+    required TResult Function(_LoadMoreCommentsFailed value)
+        loadMoreCommentsFailed,
     required TResult Function(_AddCommentLoading value) addCommentLoading,
     required TResult Function(_AddCommentSuccess value) addCommentSuccess,
     required TResult Function(_AddCommentFailed value) addCommentFailed,
@@ -2060,6 +2624,8 @@ class _$DeleteCommentFailedImpl implements _DeleteCommentFailed {
     TResult? Function(_GetCommentsLoading value)? getCommentsLoading,
     TResult? Function(_GetCommentsSuccess value)? getCommentsSuccess,
     TResult? Function(_GetCommentsFailed value)? getCommentsFailed,
+    TResult? Function(_LoadMoreCommentsLoading value)? loadMoreCommentsLoading,
+    TResult? Function(_LoadMoreCommentsFailed value)? loadMoreCommentsFailed,
     TResult? Function(_AddCommentLoading value)? addCommentLoading,
     TResult? Function(_AddCommentSuccess value)? addCommentSuccess,
     TResult? Function(_AddCommentFailed value)? addCommentFailed,
@@ -2080,6 +2646,8 @@ class _$DeleteCommentFailedImpl implements _DeleteCommentFailed {
     TResult Function(_GetCommentsLoading value)? getCommentsLoading,
     TResult Function(_GetCommentsSuccess value)? getCommentsSuccess,
     TResult Function(_GetCommentsFailed value)? getCommentsFailed,
+    TResult Function(_LoadMoreCommentsLoading value)? loadMoreCommentsLoading,
+    TResult Function(_LoadMoreCommentsFailed value)? loadMoreCommentsFailed,
     TResult Function(_AddCommentLoading value)? addCommentLoading,
     TResult Function(_AddCommentSuccess value)? addCommentSuccess,
     TResult Function(_AddCommentFailed value)? addCommentFailed,
@@ -2158,6 +2726,8 @@ class _$UpdateCommentLoadingImpl implements _UpdateCommentLoading {
     required TResult Function() getCommentsLoading,
     required TResult Function(List<CommentModel> comments) getCommentsSuccess,
     required TResult Function(Failure failure) getCommentsFailed,
+    required TResult Function() loadMoreCommentsLoading,
+    required TResult Function(Failure failure) loadMoreCommentsFailed,
     required TResult Function() addCommentLoading,
     required TResult Function(CommentModel comment) addCommentSuccess,
     required TResult Function(Failure failure) addCommentFailed,
@@ -2178,6 +2748,8 @@ class _$UpdateCommentLoadingImpl implements _UpdateCommentLoading {
     TResult? Function()? getCommentsLoading,
     TResult? Function(List<CommentModel> comments)? getCommentsSuccess,
     TResult? Function(Failure failure)? getCommentsFailed,
+    TResult? Function()? loadMoreCommentsLoading,
+    TResult? Function(Failure failure)? loadMoreCommentsFailed,
     TResult? Function()? addCommentLoading,
     TResult? Function(CommentModel comment)? addCommentSuccess,
     TResult? Function(Failure failure)? addCommentFailed,
@@ -2198,6 +2770,8 @@ class _$UpdateCommentLoadingImpl implements _UpdateCommentLoading {
     TResult Function()? getCommentsLoading,
     TResult Function(List<CommentModel> comments)? getCommentsSuccess,
     TResult Function(Failure failure)? getCommentsFailed,
+    TResult Function()? loadMoreCommentsLoading,
+    TResult Function(Failure failure)? loadMoreCommentsFailed,
     TResult Function()? addCommentLoading,
     TResult Function(CommentModel comment)? addCommentSuccess,
     TResult Function(Failure failure)? addCommentFailed,
@@ -2222,6 +2796,10 @@ class _$UpdateCommentLoadingImpl implements _UpdateCommentLoading {
     required TResult Function(_GetCommentsLoading value) getCommentsLoading,
     required TResult Function(_GetCommentsSuccess value) getCommentsSuccess,
     required TResult Function(_GetCommentsFailed value) getCommentsFailed,
+    required TResult Function(_LoadMoreCommentsLoading value)
+        loadMoreCommentsLoading,
+    required TResult Function(_LoadMoreCommentsFailed value)
+        loadMoreCommentsFailed,
     required TResult Function(_AddCommentLoading value) addCommentLoading,
     required TResult Function(_AddCommentSuccess value) addCommentSuccess,
     required TResult Function(_AddCommentFailed value) addCommentFailed,
@@ -2242,6 +2820,8 @@ class _$UpdateCommentLoadingImpl implements _UpdateCommentLoading {
     TResult? Function(_GetCommentsLoading value)? getCommentsLoading,
     TResult? Function(_GetCommentsSuccess value)? getCommentsSuccess,
     TResult? Function(_GetCommentsFailed value)? getCommentsFailed,
+    TResult? Function(_LoadMoreCommentsLoading value)? loadMoreCommentsLoading,
+    TResult? Function(_LoadMoreCommentsFailed value)? loadMoreCommentsFailed,
     TResult? Function(_AddCommentLoading value)? addCommentLoading,
     TResult? Function(_AddCommentSuccess value)? addCommentSuccess,
     TResult? Function(_AddCommentFailed value)? addCommentFailed,
@@ -2262,6 +2842,8 @@ class _$UpdateCommentLoadingImpl implements _UpdateCommentLoading {
     TResult Function(_GetCommentsLoading value)? getCommentsLoading,
     TResult Function(_GetCommentsSuccess value)? getCommentsSuccess,
     TResult Function(_GetCommentsFailed value)? getCommentsFailed,
+    TResult Function(_LoadMoreCommentsLoading value)? loadMoreCommentsLoading,
+    TResult Function(_LoadMoreCommentsFailed value)? loadMoreCommentsFailed,
     TResult Function(_AddCommentLoading value)? addCommentLoading,
     TResult Function(_AddCommentSuccess value)? addCommentSuccess,
     TResult Function(_AddCommentFailed value)? addCommentFailed,
@@ -2371,6 +2953,8 @@ class _$UpdateCommentSuccessImpl implements _UpdateCommentSuccess {
     required TResult Function() getCommentsLoading,
     required TResult Function(List<CommentModel> comments) getCommentsSuccess,
     required TResult Function(Failure failure) getCommentsFailed,
+    required TResult Function() loadMoreCommentsLoading,
+    required TResult Function(Failure failure) loadMoreCommentsFailed,
     required TResult Function() addCommentLoading,
     required TResult Function(CommentModel comment) addCommentSuccess,
     required TResult Function(Failure failure) addCommentFailed,
@@ -2391,6 +2975,8 @@ class _$UpdateCommentSuccessImpl implements _UpdateCommentSuccess {
     TResult? Function()? getCommentsLoading,
     TResult? Function(List<CommentModel> comments)? getCommentsSuccess,
     TResult? Function(Failure failure)? getCommentsFailed,
+    TResult? Function()? loadMoreCommentsLoading,
+    TResult? Function(Failure failure)? loadMoreCommentsFailed,
     TResult? Function()? addCommentLoading,
     TResult? Function(CommentModel comment)? addCommentSuccess,
     TResult? Function(Failure failure)? addCommentFailed,
@@ -2411,6 +2997,8 @@ class _$UpdateCommentSuccessImpl implements _UpdateCommentSuccess {
     TResult Function()? getCommentsLoading,
     TResult Function(List<CommentModel> comments)? getCommentsSuccess,
     TResult Function(Failure failure)? getCommentsFailed,
+    TResult Function()? loadMoreCommentsLoading,
+    TResult Function(Failure failure)? loadMoreCommentsFailed,
     TResult Function()? addCommentLoading,
     TResult Function(CommentModel comment)? addCommentSuccess,
     TResult Function(Failure failure)? addCommentFailed,
@@ -2435,6 +3023,10 @@ class _$UpdateCommentSuccessImpl implements _UpdateCommentSuccess {
     required TResult Function(_GetCommentsLoading value) getCommentsLoading,
     required TResult Function(_GetCommentsSuccess value) getCommentsSuccess,
     required TResult Function(_GetCommentsFailed value) getCommentsFailed,
+    required TResult Function(_LoadMoreCommentsLoading value)
+        loadMoreCommentsLoading,
+    required TResult Function(_LoadMoreCommentsFailed value)
+        loadMoreCommentsFailed,
     required TResult Function(_AddCommentLoading value) addCommentLoading,
     required TResult Function(_AddCommentSuccess value) addCommentSuccess,
     required TResult Function(_AddCommentFailed value) addCommentFailed,
@@ -2455,6 +3047,8 @@ class _$UpdateCommentSuccessImpl implements _UpdateCommentSuccess {
     TResult? Function(_GetCommentsLoading value)? getCommentsLoading,
     TResult? Function(_GetCommentsSuccess value)? getCommentsSuccess,
     TResult? Function(_GetCommentsFailed value)? getCommentsFailed,
+    TResult? Function(_LoadMoreCommentsLoading value)? loadMoreCommentsLoading,
+    TResult? Function(_LoadMoreCommentsFailed value)? loadMoreCommentsFailed,
     TResult? Function(_AddCommentLoading value)? addCommentLoading,
     TResult? Function(_AddCommentSuccess value)? addCommentSuccess,
     TResult? Function(_AddCommentFailed value)? addCommentFailed,
@@ -2475,6 +3069,8 @@ class _$UpdateCommentSuccessImpl implements _UpdateCommentSuccess {
     TResult Function(_GetCommentsLoading value)? getCommentsLoading,
     TResult Function(_GetCommentsSuccess value)? getCommentsSuccess,
     TResult Function(_GetCommentsFailed value)? getCommentsFailed,
+    TResult Function(_LoadMoreCommentsLoading value)? loadMoreCommentsLoading,
+    TResult Function(_LoadMoreCommentsFailed value)? loadMoreCommentsFailed,
     TResult Function(_AddCommentLoading value)? addCommentLoading,
     TResult Function(_AddCommentSuccess value)? addCommentSuccess,
     TResult Function(_AddCommentFailed value)? addCommentFailed,
@@ -2579,6 +3175,8 @@ class _$UpdateCommentFailedImpl implements _UpdateCommentFailed {
     required TResult Function() getCommentsLoading,
     required TResult Function(List<CommentModel> comments) getCommentsSuccess,
     required TResult Function(Failure failure) getCommentsFailed,
+    required TResult Function() loadMoreCommentsLoading,
+    required TResult Function(Failure failure) loadMoreCommentsFailed,
     required TResult Function() addCommentLoading,
     required TResult Function(CommentModel comment) addCommentSuccess,
     required TResult Function(Failure failure) addCommentFailed,
@@ -2599,6 +3197,8 @@ class _$UpdateCommentFailedImpl implements _UpdateCommentFailed {
     TResult? Function()? getCommentsLoading,
     TResult? Function(List<CommentModel> comments)? getCommentsSuccess,
     TResult? Function(Failure failure)? getCommentsFailed,
+    TResult? Function()? loadMoreCommentsLoading,
+    TResult? Function(Failure failure)? loadMoreCommentsFailed,
     TResult? Function()? addCommentLoading,
     TResult? Function(CommentModel comment)? addCommentSuccess,
     TResult? Function(Failure failure)? addCommentFailed,
@@ -2619,6 +3219,8 @@ class _$UpdateCommentFailedImpl implements _UpdateCommentFailed {
     TResult Function()? getCommentsLoading,
     TResult Function(List<CommentModel> comments)? getCommentsSuccess,
     TResult Function(Failure failure)? getCommentsFailed,
+    TResult Function()? loadMoreCommentsLoading,
+    TResult Function(Failure failure)? loadMoreCommentsFailed,
     TResult Function()? addCommentLoading,
     TResult Function(CommentModel comment)? addCommentSuccess,
     TResult Function(Failure failure)? addCommentFailed,
@@ -2643,6 +3245,10 @@ class _$UpdateCommentFailedImpl implements _UpdateCommentFailed {
     required TResult Function(_GetCommentsLoading value) getCommentsLoading,
     required TResult Function(_GetCommentsSuccess value) getCommentsSuccess,
     required TResult Function(_GetCommentsFailed value) getCommentsFailed,
+    required TResult Function(_LoadMoreCommentsLoading value)
+        loadMoreCommentsLoading,
+    required TResult Function(_LoadMoreCommentsFailed value)
+        loadMoreCommentsFailed,
     required TResult Function(_AddCommentLoading value) addCommentLoading,
     required TResult Function(_AddCommentSuccess value) addCommentSuccess,
     required TResult Function(_AddCommentFailed value) addCommentFailed,
@@ -2663,6 +3269,8 @@ class _$UpdateCommentFailedImpl implements _UpdateCommentFailed {
     TResult? Function(_GetCommentsLoading value)? getCommentsLoading,
     TResult? Function(_GetCommentsSuccess value)? getCommentsSuccess,
     TResult? Function(_GetCommentsFailed value)? getCommentsFailed,
+    TResult? Function(_LoadMoreCommentsLoading value)? loadMoreCommentsLoading,
+    TResult? Function(_LoadMoreCommentsFailed value)? loadMoreCommentsFailed,
     TResult? Function(_AddCommentLoading value)? addCommentLoading,
     TResult? Function(_AddCommentSuccess value)? addCommentSuccess,
     TResult? Function(_AddCommentFailed value)? addCommentFailed,
@@ -2683,6 +3291,8 @@ class _$UpdateCommentFailedImpl implements _UpdateCommentFailed {
     TResult Function(_GetCommentsLoading value)? getCommentsLoading,
     TResult Function(_GetCommentsSuccess value)? getCommentsSuccess,
     TResult Function(_GetCommentsFailed value)? getCommentsFailed,
+    TResult Function(_LoadMoreCommentsLoading value)? loadMoreCommentsLoading,
+    TResult Function(_LoadMoreCommentsFailed value)? loadMoreCommentsFailed,
     TResult Function(_AddCommentLoading value)? addCommentLoading,
     TResult Function(_AddCommentSuccess value)? addCommentSuccess,
     TResult Function(_AddCommentFailed value)? addCommentFailed,

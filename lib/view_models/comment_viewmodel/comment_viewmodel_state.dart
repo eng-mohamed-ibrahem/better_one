@@ -12,6 +12,12 @@ class CommentViewModelState with _$CommentViewModelState {
   const factory CommentViewModelState.getCommentsFailed(
       {required Failure failure}) = _GetCommentsFailed;
 
+  /// load more comments
+  const factory CommentViewModelState.loadMoreCommentsLoading() =
+      _LoadMoreCommentsLoading;
+  const factory CommentViewModelState.loadMoreCommentsFailed(
+      {required Failure failure}) = _LoadMoreCommentsFailed;
+
   /// Add Comment
   const factory CommentViewModelState.addCommentLoading() = _AddCommentLoading;
   const factory CommentViewModelState.addCommentSuccess(

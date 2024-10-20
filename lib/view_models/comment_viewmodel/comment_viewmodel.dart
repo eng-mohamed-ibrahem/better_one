@@ -13,11 +13,15 @@ class CommentViewModel extends Cubit<CommentViewModelState> {
   })  : _commentRepo = commentRepo,
         super(const _Initial());
   final CommentRepo _commentRepo;
+
+  final List<CommentModel> comments = [];
+
   void addComment(CommentModel comment) async {
     emit(const _AddCommentLoading());
     final result = await _commentRepo.addComment(comment);
     result.when(
       success: (comment) {
+        comments.insert(0, comment);
         emit(_AddCommentSuccess(comment: comment));
       },
       failure: (failure) {
@@ -31,6 +35,7 @@ class CommentViewModel extends Cubit<CommentViewModelState> {
     final result = await _commentRepo.updateComment(comment);
     result.when(
       success: (comment) {
+        comments[comments.indexWhere((c) => c.id == comment.id)] = comment;
         emit(_UpdateCommentSuccess(comment: comment));
       },
       failure: (failure) {
@@ -44,6 +49,7 @@ class CommentViewModel extends Cubit<CommentViewModelState> {
     final result = await _commentRepo.deleteComment(comment.id);
     result.when(
       success: (_) {
+        comments.removeWhere((c) => c.id == comment.id);
         emit(_DeleteCommentSuccess(comment: comment));
       },
       failure: (failure) {
@@ -52,16 +58,24 @@ class CommentViewModel extends Cubit<CommentViewModelState> {
     );
   }
 
-  void getComments(String taskId) async {
-    emit(const _GetCommentsLoading());
+  void getComments(String taskId, {bool loadMore = false}) async {
+    if (state is _LoadMoreCommentsLoading) {
+      return;
+    }
+    loadMore
+        ? emit(const _LoadMoreCommentsLoading())
+        : emit(const _GetCommentsLoading());
     final result =
-        await _commentRepo.getCommentsForTask(taskId, 10, loadMore: false);
+        await _commentRepo.getCommentsForTask(taskId, 10, loadMore: loadMore);
     result.when(
       success: (comments) {
+        comments.addAll(comments);
         emit(_GetCommentsSuccess(comments: comments));
       },
       failure: (failure) {
-        emit(_GetCommentsFailed(failure: failure));
+        loadMore
+            ? emit(_LoadMoreCommentsFailed(failure: failure))
+            : emit(_GetCommentsFailed(failure: failure));
       },
     );
   }
