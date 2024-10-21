@@ -370,7 +370,6 @@ class _TaskScreenState extends State<TaskDetailsScreen>
 
                     /// comments section
                     SizedBox(height: AppMetrices.verticalGap.h),
-
                     CommentSection(
                       taskId: widget.taskId,
                     ),

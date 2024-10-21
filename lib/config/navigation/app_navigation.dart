@@ -10,12 +10,15 @@ import 'package:better_one/core/utils/methods/methods.dart';
 import 'package:better_one/core/utils/navigator_observer/app_navigator_observer.dart';
 import 'package:better_one/core/utils/notification_service/flutter_local_notification.dart';
 import 'package:better_one/data_source/auth_data_source/firebase_auth_impl.dart';
+import 'package:better_one/data_source/comment_data_source/firebase_comment_data_source.dart';
 import 'package:better_one/data_source/feedback_data_source/firebase_feedback_source.dart';
 import 'package:better_one/repositories/auth_repo/auth_repo_impl.dart';
+import 'package:better_one/repositories/comment_repo/comment_repo_impl.dart';
 import 'package:better_one/repositories/feedback_repo/feedback_repo_impl.dart';
 import 'package:better_one/repositories/notification_repo/notification_repo_interface.dart';
 import 'package:better_one/view/pages/pages.dart';
 import 'package:better_one/view_models/auth_viewmodel/auth_viewmodel.dart';
+import 'package:better_one/view_models/comment_viewmodel/comment_viewmodel.dart';
 import 'package:better_one/view_models/feedback_viewmodel/feedback_viewmodel.dart';
 import 'package:better_one/view_models/notification_viewmodel/notification_viewmodel.dart';
 import 'package:better_one/view_models/quote_viewmodel/quote_viewmodel.dart';
@@ -164,6 +167,13 @@ class AppNavigation {
                     ),
                     BlocProvider.value(
                       value: inject<TaskViewmodel>(),
+                    ),
+                    BlocProvider<CommentViewModel>(
+                      create: (context) => CommentViewModel(
+                        commentRepo: CommentRepoImpl(
+                          commentDataSource: FirebaseCommentDataSource(),
+                        ),
+                      ),
                     ),
                   ],
                   child: TaskDetailsScreen(

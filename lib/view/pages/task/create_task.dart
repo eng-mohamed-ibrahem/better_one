@@ -133,7 +133,7 @@ class CreateTaskScreen extends StatelessWidget {
                             ),
                           ),
                         ),
-                        onPressed: () {
+                        onPressed: () async {
                           if (titleController.text.isNotEmpty &&
                               subTasks.isNotEmpty) {
                             var newTask = TaskModel(
@@ -142,7 +142,9 @@ class CreateTaskScreen extends StatelessWidget {
                               subTasks: subTasks,
                               createdAt: DateTime.now(),
                             );
-                            context.read<TaskViewmodel>().createTask(newTask);
+                            await context
+                                .read<TaskViewmodel>()
+                                .createTask(newTask);
                           } else {
                             showSnackBar(
                               context,

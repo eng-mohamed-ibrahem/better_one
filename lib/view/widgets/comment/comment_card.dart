@@ -9,12 +9,12 @@ class CommentCard extends StatelessWidget {
 
   factory CommentCard.skeleton() => CommentCard(
         comment: CommentModel(
-          receiverId: "",
-          id: "",
-          taskId: "",
-          userName: "",
-          userImageUrl: "",
-          comment: "",
+          receiverId: "receiverId",
+          id: "id",
+          taskId: "taskId",
+          userName: "userName",
+          userImageUrl: "userImageUrl",
+          comment: "comment",
           createdAt: DateTime.now(),
         ),
         isSkeleton: true,
@@ -30,14 +30,11 @@ class CommentCard extends StatelessWidget {
         borderRadius: BorderRadius.circular(10.r),
       ),
       child: Container(
-        padding: EdgeInsets.all(10.r),
-        clipBehavior: Clip.antiAlias,
+        padding: EdgeInsets.symmetric(horizontal: 15.w, vertical: 15.h),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Row(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              mainAxisSize: MainAxisSize.min,
               children: [
                 () {
                   if (isSkeleton) {

@@ -56,6 +56,7 @@ class _CommentSectionState extends State<CommentSection> {
       padding: EdgeInsets.all(10.r),
       margin: EdgeInsets.only(top: 10.h),
       child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(
             'comment.title'.tr(),
@@ -78,6 +79,7 @@ class _CommentSectionState extends State<CommentSection> {
                 getCommentsLoading: () {
                   return Skeletonizer(
                     child: ListView.separated(
+                      shrinkWrap: true,
                       itemBuilder: (context, index) => CommentCard.skeleton(),
                       separatorBuilder: (context, index) =>
                           SizedBox(height: 10.h),
@@ -87,22 +89,28 @@ class _CommentSectionState extends State<CommentSection> {
                 },
                 getCommentsFailed: (failure) {
                   if (failure is NoUserLogedInFailure) {
-                    return Center(
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Text(failure.message,
-                              style: Theme.of(context).textTheme.bodyMedium),
-                          MaterialButton(
-                            onPressed: () {
-                              context.goNamed(Routes.login.name);
-                            },
-                            child: Text(
-                              'auth.login'.tr(),
-                            ),
+                    return Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text(
+                          failure.message,
+                          textAlign: TextAlign.center,
+                          style: Theme.of(context).textTheme.bodyMedium,
+                        ),
+                        ElevatedButton(
+                          style: ElevatedButton.styleFrom(
+                            backgroundColor:
+                                Theme.of(context).secondaryHeaderColor,
                           ),
-                        ],
-                      ),
+                          onPressed: () {
+                            context.goNamed(Routes.login.name);
+                          },
+                          child: Text(
+                            'auth.login'.tr(),
+                            style: Theme.of(context).textTheme.bodyMedium,
+                          ),
+                        ),
+                      ],
                     );
                   }
                   return Column(
@@ -124,31 +132,37 @@ class _CommentSectionState extends State<CommentSection> {
                 },
                 orElse: () {
                   var comments = context.read<CommentViewModel>().comments;
-                  return Column(
+                  return Stack(
                     children: [
-                      Expanded(
-                        child: ListView.separated(
-                          itemBuilder: (context, index) {
-                            if (index == comments.length) {
-                              return Center(
-                                child: SizedBox(
-                                  width: 15.w,
-                                  height: 15.h,
-                                  child: const CircularProgressIndicator(),
-                                ),
-                              );
-                            }
-                            return CommentCard(
-                              comment: comments[index],
-                            );
-                          },
-                          separatorBuilder: (context, index) =>
-                              SizedBox(height: 10.h),
-                          itemCount: comments.length + (hasMore ? 1 : 0),
-                          controller: _scrollController,
-                        ),
-                      ),
-                      // write comment field
+                      comments.isEmpty
+                          ? Center(
+                              child: Text(
+                                "comment.empty".tr(),
+                                style: Theme.of(context).textTheme.bodyMedium,
+                              ),
+                            )
+                          : ListView.separated(
+                              shrinkWrap: true,
+                              itemBuilder: (context, index) {
+                                if (index == comments.length) {
+                                  return Center(
+                                    child: SizedBox(
+                                      width: 15.w,
+                                      height: 15.h,
+                                      child: const CircularProgressIndicator(),
+                                    ),
+                                  );
+                                }
+                                return CommentCard(
+                                  comment: comments[index],
+                                );
+                              },
+                              separatorBuilder: (context, index) =>
+                                  SizedBox(height: 10.h),
+                              itemCount: comments.length + (hasMore ? 1 : 0),
+                              controller: _scrollController,
+                            ),
+                      // comment input
                     ],
                   );
                 },

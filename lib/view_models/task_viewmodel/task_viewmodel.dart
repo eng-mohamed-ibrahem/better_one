@@ -50,7 +50,7 @@ class TaskViewmodel extends Cubit<TaskViewmodelState> {
     );
   }
 
-  void createTask(TaskModel task) async {
+  Future<void> createTask(TaskModel task) async {
     emit(const _CreateTaskLoading());
     var result = await userRepo.addTask(task);
     result.when(
