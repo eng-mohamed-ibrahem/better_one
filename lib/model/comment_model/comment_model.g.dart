@@ -10,7 +10,6 @@ _$CommentModelImpl _$$CommentModelImplFromJson(Map<String, dynamic> json) =>
     _$CommentModelImpl(
       id: json['id'] as String,
       userName: json['user_name'] as String,
-      receiverId: json['receiver_id'] as String,
       userImageUrl: json['user_image_url'] as String?,
       comment: json['comment'] as String,
       taskId: json['task_id'] as String,
@@ -21,7 +20,6 @@ Map<String, dynamic> _$$CommentModelImplToJson(_$CommentModelImpl instance) =>
     <String, dynamic>{
       'id': instance.id,
       'user_name': instance.userName,
-      'receiver_id': instance.receiverId,
       'user_image_url': instance.userImageUrl,
       'comment': instance.comment,
       'task_id': instance.taskId,

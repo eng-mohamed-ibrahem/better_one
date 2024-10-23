@@ -3,8 +3,8 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../core/constants/constants.dart';
 
-class TaskField extends StatelessWidget {
-  const TaskField({
+class TaskInputField extends StatelessWidget {
+  const TaskInputField({
     super.key,
     this.controller,
     this.minLines,

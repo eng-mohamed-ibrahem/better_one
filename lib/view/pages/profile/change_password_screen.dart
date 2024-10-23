@@ -2,7 +2,7 @@ import 'package:better_one/config/navigation/routes_enum.dart';
 import 'package:better_one/core/constants/constants.dart';
 import 'package:better_one/core/utils/methods/methods.dart';
 import 'package:better_one/core/utils/shared_widgets/back_button_l10n.dart';
-import 'package:better_one/view/widgets/input_field/auth_field.dart';
+import 'package:better_one/view/widgets/input_field/auth_input_field.dart';
 import 'package:better_one/view_models/user_viewmodel/user_viewmodel.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
@@ -103,7 +103,7 @@ class _ChangePasswordScreenState extends State<ChangePasswordScreen> {
                         SizedBox(
                           height: AppMetrices.verticalGap.h,
                         ),
-                        AuthField(
+                        AuthInputField(
                           controller: newPasswordController,
                           validator: Validators.validatePassword,
                           textInputAction: TextInputAction.next,
@@ -118,7 +118,7 @@ class _ChangePasswordScreenState extends State<ChangePasswordScreen> {
                         SizedBox(
                           height: AppMetrices.verticalGap.h,
                         ),
-                        AuthField(
+                        AuthInputField(
                           controller: confirmNewPasswordController,
                           validator: (value) {
                             if (value != newPasswordController.text.trim()) {

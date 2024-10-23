@@ -4,6 +4,7 @@ import 'package:better_one/core/errors/failure.dart';
 import 'package:better_one/core/in_memory/in_memory.dart';
 import 'package:better_one/core/utils/methods/methods.dart';
 import 'package:better_one/view/widgets/comment/comment_card.dart';
+import 'package:better_one/view/widgets/input_field/comment_input_field.dart';
 import 'package:better_one/view_models/comment_viewmodel/comment_viewmodel.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
@@ -22,7 +23,7 @@ class CommentSection extends StatefulWidget {
 
 class _CommentSectionState extends State<CommentSection> {
   final ScrollController _scrollController = ScrollController();
-
+  final TextEditingController _commentController = TextEditingController();
   bool hasMore = false;
   @override
   void initState() {
@@ -47,6 +48,7 @@ class _CommentSectionState extends State<CommentSection> {
   @override
   void dispose() {
     _scrollController.dispose();
+    _commentController.dispose();
     super.dispose();
   }
 
@@ -163,6 +165,23 @@ class _CommentSectionState extends State<CommentSection> {
                               controller: _scrollController,
                             ),
                       // comment input
+                      Align(
+                        alignment: Alignment.bottomCenter,
+                        child: Padding(
+                          padding: EdgeInsets.only(
+                            bottom: MediaQuery.of(context).viewInsets.bottom,
+                          ),
+                          child: CommentInputField(
+                            commentController: _commentController,
+                            onSend: (comment) {
+                              context.read<CommentViewModel>().addComment(
+                                    comment: comment,
+                                    taskId: widget.taskId,
+                                  );
+                            },
+                          ),
+                        ),
+                      ),
                     ],
                   );
                 },

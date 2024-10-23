@@ -23,8 +23,6 @@ mixin _$CommentModel {
   String get id => throw _privateConstructorUsedError;
   @JsonKey(name: "user_name")
   String get userName => throw _privateConstructorUsedError;
-  @JsonKey(name: "receiver_id")
-  String get receiverId => throw _privateConstructorUsedError;
   @JsonKey(name: "user_image_url")
   String? get userImageUrl => throw _privateConstructorUsedError;
   String get comment => throw _privateConstructorUsedError;
@@ -52,7 +50,6 @@ abstract class $CommentModelCopyWith<$Res> {
   $Res call(
       {String id,
       @JsonKey(name: "user_name") String userName,
-      @JsonKey(name: "receiver_id") String receiverId,
       @JsonKey(name: "user_image_url") String? userImageUrl,
       String comment,
       @JsonKey(name: "task_id") String taskId,
@@ -76,7 +73,6 @@ class _$CommentModelCopyWithImpl<$Res, $Val extends CommentModel>
   $Res call({
     Object? id = null,
     Object? userName = null,
-    Object? receiverId = null,
     Object? userImageUrl = freezed,
     Object? comment = null,
     Object? taskId = null,
@@ -90,10 +86,6 @@ class _$CommentModelCopyWithImpl<$Res, $Val extends CommentModel>
       userName: null == userName
           ? _value.userName
           : userName // ignore: cast_nullable_to_non_nullable
-              as String,
-      receiverId: null == receiverId
-          ? _value.receiverId
-          : receiverId // ignore: cast_nullable_to_non_nullable
               as String,
       userImageUrl: freezed == userImageUrl
           ? _value.userImageUrl
@@ -126,7 +118,6 @@ abstract class _$$CommentModelImplCopyWith<$Res>
   $Res call(
       {String id,
       @JsonKey(name: "user_name") String userName,
-      @JsonKey(name: "receiver_id") String receiverId,
       @JsonKey(name: "user_image_url") String? userImageUrl,
       String comment,
       @JsonKey(name: "task_id") String taskId,
@@ -148,7 +139,6 @@ class __$$CommentModelImplCopyWithImpl<$Res>
   $Res call({
     Object? id = null,
     Object? userName = null,
-    Object? receiverId = null,
     Object? userImageUrl = freezed,
     Object? comment = null,
     Object? taskId = null,
@@ -162,10 +152,6 @@ class __$$CommentModelImplCopyWithImpl<$Res>
       userName: null == userName
           ? _value.userName
           : userName // ignore: cast_nullable_to_non_nullable
-              as String,
-      receiverId: null == receiverId
-          ? _value.receiverId
-          : receiverId // ignore: cast_nullable_to_non_nullable
               as String,
       userImageUrl: freezed == userImageUrl
           ? _value.userImageUrl
@@ -193,7 +179,6 @@ class _$CommentModelImpl implements _CommentModel {
   const _$CommentModelImpl(
       {required this.id,
       @JsonKey(name: "user_name") required this.userName,
-      @JsonKey(name: "receiver_id") required this.receiverId,
       @JsonKey(name: "user_image_url") this.userImageUrl,
       required this.comment,
       @JsonKey(name: "task_id") required this.taskId,
@@ -208,9 +193,6 @@ class _$CommentModelImpl implements _CommentModel {
   @JsonKey(name: "user_name")
   final String userName;
   @override
-  @JsonKey(name: "receiver_id")
-  final String receiverId;
-  @override
   @JsonKey(name: "user_image_url")
   final String? userImageUrl;
   @override
@@ -224,7 +206,7 @@ class _$CommentModelImpl implements _CommentModel {
 
   @override
   String toString() {
-    return 'CommentModel(id: $id, userName: $userName, receiverId: $receiverId, userImageUrl: $userImageUrl, comment: $comment, taskId: $taskId, createdAt: $createdAt)';
+    return 'CommentModel(id: $id, userName: $userName, userImageUrl: $userImageUrl, comment: $comment, taskId: $taskId, createdAt: $createdAt)';
   }
 
   @override
@@ -235,8 +217,6 @@ class _$CommentModelImpl implements _CommentModel {
             (identical(other.id, id) || other.id == id) &&
             (identical(other.userName, userName) ||
                 other.userName == userName) &&
-            (identical(other.receiverId, receiverId) ||
-                other.receiverId == receiverId) &&
             (identical(other.userImageUrl, userImageUrl) ||
                 other.userImageUrl == userImageUrl) &&
             (identical(other.comment, comment) || other.comment == comment) &&
@@ -247,8 +227,8 @@ class _$CommentModelImpl implements _CommentModel {
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  int get hashCode => Object.hash(runtimeType, id, userName, receiverId,
-      userImageUrl, comment, taskId, createdAt);
+  int get hashCode => Object.hash(
+      runtimeType, id, userName, userImageUrl, comment, taskId, createdAt);
 
   /// Create a copy of CommentModel
   /// with the given fields replaced by the non-null parameter values.
@@ -270,7 +250,6 @@ abstract class _CommentModel implements CommentModel {
   const factory _CommentModel(
           {required final String id,
           @JsonKey(name: "user_name") required final String userName,
-          @JsonKey(name: "receiver_id") required final String receiverId,
           @JsonKey(name: "user_image_url") final String? userImageUrl,
           required final String comment,
           @JsonKey(name: "task_id") required final String taskId,
@@ -285,9 +264,6 @@ abstract class _CommentModel implements CommentModel {
   @override
   @JsonKey(name: "user_name")
   String get userName;
-  @override
-  @JsonKey(name: "receiver_id")
-  String get receiverId;
   @override
   @JsonKey(name: "user_image_url")
   String? get userImageUrl;

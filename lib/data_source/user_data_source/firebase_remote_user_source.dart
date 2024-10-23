@@ -47,7 +47,6 @@ class FirebaseRemoteUserSource implements RemoteUserSource {
         taskId: newTask.id,
         comment: "comment.better_one_comment".tr(),
         createdAt: DateTime.now(),
-        receiverId: "",
         userName: "BetterOne",
         userImageUrl: await profileRef.getDownloadURL(),
       );

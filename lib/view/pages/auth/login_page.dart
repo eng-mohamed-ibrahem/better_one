@@ -6,7 +6,7 @@ import 'package:better_one/core/utils/cache_service/cach_interface/locale_user_i
 import 'package:better_one/core/utils/dependency_locator/inject.dart';
 import 'package:better_one/core/utils/methods/methods.dart';
 import 'package:better_one/core/utils/shared_widgets/back_button_l10n.dart';
-import 'package:better_one/view/widgets/input_field/auth_field.dart';
+import 'package:better_one/view/widgets/input_field/auth_input_field.dart';
 import 'package:better_one/view_models/auth_viewmodel/auth_viewmodel.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
@@ -63,7 +63,7 @@ class _LoginState extends State<LogIn> {
                       const SizedBox(
                         height: AppMetrices.verticalGap,
                       ),
-                      AuthField(
+                      AuthInputField(
                         controller: email,
                         textInputAction: TextInputAction.next,
                         prefixIcon: Icon(Icons.email_rounded,
@@ -75,7 +75,7 @@ class _LoginState extends State<LogIn> {
                       SizedBox(
                         height: AppMetrices.verticalGap2.h,
                       ),
-                      AuthField(
+                      AuthInputField(
                         controller: password,
                         isItPassword: true,
                         textInputAction: TextInputAction.done,

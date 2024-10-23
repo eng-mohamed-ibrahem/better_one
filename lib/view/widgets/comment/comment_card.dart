@@ -9,7 +9,6 @@ class CommentCard extends StatelessWidget {
 
   factory CommentCard.skeleton() => CommentCard(
         comment: CommentModel(
-          receiverId: "receiverId",
           id: "id",
           taskId: "taskId",
           userName: "userName",

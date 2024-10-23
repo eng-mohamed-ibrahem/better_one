@@ -8,7 +8,7 @@ import 'package:better_one/core/utils/shared_widgets/back_button_l10n.dart';
 import 'package:better_one/core/utils/shared_widgets/failed.dart';
 import 'package:better_one/core/utils/shared_widgets/lottie_indicator.dart';
 import 'package:better_one/model/user_model/user_model.dart';
-import 'package:better_one/view/widgets/input_field/auth_field.dart';
+import 'package:better_one/view/widgets/input_field/auth_input_field.dart';
 import 'package:better_one/view_models/user_viewmodel/user_viewmodel.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
@@ -253,7 +253,7 @@ class _ProfileSettingScreenState extends State<ProfileScreen> {
                           Row(
                             children: [
                               Expanded(
-                                child: AuthField(
+                                child: AuthInputField(
                                   readOnly: true,
                                   controller: nameController,
                                   labelText: 'auth.u_name'.tr(),
@@ -275,7 +275,7 @@ class _ProfileSettingScreenState extends State<ProfileScreen> {
                           Row(
                             children: [
                               Expanded(
-                                child: AuthField(
+                                child: AuthInputField(
                                   readOnly: true,
                                   controller: emailController,
                                   labelText: 'auth.u_email'.tr(),
@@ -298,7 +298,7 @@ class _ProfileSettingScreenState extends State<ProfileScreen> {
                             children: [
                               Expanded(
                                 child: AbsorbPointer(
-                                  child: AuthField(
+                                  child: AuthInputField(
                                     readOnly: true,
                                     isItPassword: true,
                                     controller: passwordController

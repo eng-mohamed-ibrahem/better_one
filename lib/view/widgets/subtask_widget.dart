@@ -1,5 +1,5 @@
 import 'package:better_one/core/constants/ui_dimentions.dart';
-import 'package:better_one/view/widgets/input_field/task_field.dart';
+import 'package:better_one/view/widgets/input_field/task_input_field.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -47,7 +47,7 @@ class SubtaskWidget extends StatelessWidget {
             ],
           ),
           Expanded(
-            child: TaskField(
+            child: TaskInputField(
               controller: controller,
               focusNode: focusNode,
               onChanged: onChange,
