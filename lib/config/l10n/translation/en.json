@@ -82,6 +82,7 @@
         "delete": "Delete Comment",
         "empty": "No comments found",
         "retry": "Try again",
+        "hint": "Comment",
         "better_one_comment": "Hi, I am Better One. I am always here for you. 😊",
         "login_req": "Login is required firstly, to see and add comments"
     },

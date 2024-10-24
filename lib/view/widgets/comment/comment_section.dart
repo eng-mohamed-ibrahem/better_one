@@ -2,8 +2,8 @@ import 'package:better_one/config/navigation/routes_enum.dart';
 import 'package:better_one/core/constants/comment_constants.dart';
 import 'package:better_one/core/errors/failure.dart';
 import 'package:better_one/core/in_memory/in_memory.dart';
-import 'package:better_one/core/utils/methods/methods.dart';
 import 'package:better_one/view/widgets/comment/comment_card.dart';
+import 'package:better_one/view/widgets/comment/comment_input_header_delegete.dart';
 import 'package:better_one/view/widgets/input_field/comment_input_field.dart';
 import 'package:better_one/view_models/comment_viewmodel/comment_viewmodel.dart';
 import 'package:easy_localization/easy_localization.dart';
@@ -16,7 +16,6 @@ import 'package:skeletonizer/skeletonizer.dart';
 class CommentSection extends StatefulWidget {
   const CommentSection({super.key, required this.taskId});
   final String taskId;
-
   @override
   State<CommentSection> createState() => _CommentSectionState();
 }
@@ -32,7 +31,6 @@ class _CommentSectionState extends State<CommentSection> {
     WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
       _scrollController.addListener(() {
         hasMore = InMemory().getData<bool>(CommentConstants.hasMore);
-        kDebugPrint("hasMore: $hasMore");
         if (hasMore &&
             _scrollController.offset >=
                 _scrollController.position.maxScrollExtent) {
@@ -135,17 +133,44 @@ class _CommentSectionState extends State<CommentSection> {
                 },
                 orElse: () {
                   var comments = context.read<CommentViewModel>().comments;
-                  return Stack(
-                    children: [
-                      comments.isEmpty
-                          ? Center(
-                              child: Text(
-                                "comment.empty".tr(),
-                                style: Theme.of(context).textTheme.bodyMedium,
+                  return comments.isEmpty
+                      ? Center(
+                          child: Text(
+                            "comment.empty".tr(),
+                            style: Theme.of(context).textTheme.bodyMedium,
+                          ),
+                        )
+                      : CustomScrollView(
+                          shrinkWrap: true,
+                          controller: _scrollController,
+                          slivers: [
+                            SliverPersistentHeader(
+                              // pinned: true,
+                              floating: true,
+                              delegate: CommentInputHeaderDelegate(
+                                child: Padding(
+                                  padding: EdgeInsets.only(
+                                    bottom: MediaQuery.of(context)
+                                        .viewInsets
+                                        .bottom,
+                                  ),
+                                  child: CommentInputField(
+                                    commentController: _commentController,
+                                    onSend: (comment) {
+                                      context
+                                          .read<CommentViewModel>()
+                                          .addComment(
+                                            comment: comment,
+                                            taskId: widget.taskId,
+                                          );
+                                    },
+                                  ),
+                                ),
+                                maxHeight: 60.h,
+                                minHeight: 40.h,
                               ),
-                            )
-                          : ListView.separated(
-                              shrinkWrap: true,
+                            ),
+                            SliverList.separated(
                               itemBuilder: (context, index) {
                                 if (index == comments.length) {
                                   return Center(
@@ -163,32 +188,32 @@ class _CommentSectionState extends State<CommentSection> {
                               separatorBuilder: (context, index) =>
                                   SizedBox(height: 10.h),
                               itemCount: comments.length + (hasMore ? 1 : 0),
-                              controller: _scrollController,
                             ),
-                      // comment input
-                      Align(
-                        alignment: Alignment.bottomCenter,
-                        child: Padding(
-                          padding: EdgeInsets.only(
-                            bottom: MediaQuery.of(context).viewInsets.bottom,
-                          ),
-                          child: CommentInputField(
-                            commentController: _commentController,
-                            onSend: (comment) {
-                              context.read<CommentViewModel>().addComment(
-                                    comment: comment,
-                                    taskId: widget.taskId,
-                                  );
-                            },
-                          ),
-                        ),
-                      ),
-                    ],
-                  );
+                          ],
+                        );
                 },
               );
             },
           ),
+
+          // comment input
+          // Align(
+          //   alignment: Alignment.bottomCenter,
+          //   child: Padding(
+          //     padding: EdgeInsets.only(
+          //       bottom: MediaQuery.of(context).viewInsets.bottom,
+          //     ),
+          //     child: CommentInputField(
+          //       commentController: _commentController,
+          //       onSend: (comment) {
+          //         context.read<CommentViewModel>().addComment(
+          //               comment: comment,
+          //               taskId: widget.taskId,
+          //             );
+          //       },
+          //     ),
+          //   ),
+          // ),
         ],
       ),
     );

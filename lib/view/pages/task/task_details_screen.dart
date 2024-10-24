@@ -55,6 +55,8 @@ class _TaskScreenState extends State<TaskDetailsScreen>
   /// before pop the screen
   bool isTaskDeleted = false;
 
+  final ScrollController _scrollController = ScrollController();
+
   @override
   void initState() {
     WidgetsBinding.instance.addObserver(this);
@@ -70,9 +72,14 @@ class _TaskScreenState extends State<TaskDetailsScreen>
 
   @override
   void didChangeAppLifecycleState(AppLifecycleState state) {
-    if (state == AppLifecycleState.detached) {
-      /// using [Isolate] to avoid memory leaks
-    }
+    context.read<TaskViewmodel>().updateTask(
+          task!,
+          task!.copyWith(
+            elapsedTime: periodicActionManager.elapsed + task!.elapsedTime,
+          ),
+        );
+    periodicActionManager.reset();
+    super.didChangeAppLifecycleState(state);
   }
 
   @override
@@ -193,6 +200,7 @@ class _TaskScreenState extends State<TaskDetailsScreen>
                   ),
                 ),
                 body: ListView(
+                  controller: _scrollController,
                   children: [
                     SizedBox(height: AppMetrices.verticalGap.h),
                     BlocBuilder<QuoteViewmodel, QuoteViewmodelState>(
