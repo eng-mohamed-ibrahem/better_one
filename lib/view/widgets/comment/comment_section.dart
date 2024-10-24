@@ -68,6 +68,7 @@ class _CommentSectionState extends State<CommentSection> {
             listener: (context, state) {
               state.whenOrNull(
                 addCommentSuccess: (comment) {
+                  _commentController.clear();
                   _scrollController.animateTo(
                     _scrollController.position.minScrollExtent,
                     duration: const Duration(milliseconds: 300),

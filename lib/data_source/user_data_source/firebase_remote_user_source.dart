@@ -37,28 +37,24 @@ class FirebaseRemoteUserSource implements RemoteUserSource {
 
   Future<void> _addBetterOneComment(
       TaskModel newTask, FirebaseFirestore db) async {
-    try {
-      FirebaseStorage storage = FirebaseStorage.instance;
-      var profileRef = storage
-          .ref('${FirebaseConstants.users}/better_one')
-          .child("${FirebaseConstants.userPhoto}.jpg");
-      CommentModel betterOneComment = CommentModel(
-        id: '1',
-        taskId: newTask.id,
-        comment: "comment.better_one_comment".tr(),
-        createdAt: DateTime.now(),
-        userName: "BetterOne",
-        userImageUrl: await profileRef.getDownloadURL(),
-      );
-      await db
-          .collection(FirebaseConstants.comments)
-          .doc(newTask.id)
-          .collection(FirebaseConstants.taskComments)
-          .doc(betterOneComment.id)
-          .set(betterOneComment.toJson());
-    } catch (e) {
-      rethrow;
-    }
+    FirebaseStorage storage = FirebaseStorage.instance;
+    var profileRef = storage
+        .ref('${FirebaseConstants.users}/better_one')
+        .child("${FirebaseConstants.userPhoto}.jpg");
+    CommentModel betterOneComment = CommentModel(
+      id: '1',
+      taskId: newTask.id,
+      comment: "comment.better_one_comment".tr(),
+      createdAt: DateTime.now(),
+      userName: "BetterOne",
+      userImageUrl: await profileRef.getDownloadURL(),
+    );
+    await db
+        .collection(FirebaseConstants.comments)
+        .doc(newTask.id)
+        .collection(FirebaseConstants.taskComments)
+        .doc(betterOneComment.id)
+        .set(betterOneComment.toJson());
   }
 
   @override
