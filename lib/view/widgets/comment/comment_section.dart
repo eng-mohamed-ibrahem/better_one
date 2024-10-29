@@ -2,9 +2,8 @@ import 'package:better_one/config/navigation/routes_enum.dart';
 import 'package:better_one/core/constants/comment_constants.dart';
 import 'package:better_one/core/errors/failure.dart';
 import 'package:better_one/core/in_memory/in_memory.dart';
+import 'package:better_one/core/utils/methods/methods.dart';
 import 'package:better_one/view/widgets/comment/comment_card.dart';
-import 'package:better_one/view/widgets/comment/comment_input_header_delegete.dart';
-import 'package:better_one/view/widgets/input_field/comment_input_field.dart';
 import 'package:better_one/view_models/comment_viewmodel/comment_viewmodel.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
@@ -14,39 +13,43 @@ import 'package:go_router/go_router.dart';
 import 'package:skeletonizer/skeletonizer.dart';
 
 class CommentSection extends StatefulWidget {
-  const CommentSection({super.key, required this.taskId});
+  const CommentSection({
+    super.key,
+    required this.taskId,
+  });
   final String taskId;
   @override
   State<CommentSection> createState() => _CommentSectionState();
 }
 
 class _CommentSectionState extends State<CommentSection> {
-  final ScrollController _scrollController = ScrollController();
-  final TextEditingController _commentController = TextEditingController();
+  late final ScrollController _scrollController;
+  // final TextEditingController _commentController = TextEditingController();
   bool hasMore = false;
   @override
   void initState() {
     context.read<CommentViewModel>().getComments(widget.taskId);
-
-    WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
-      _scrollController.addListener(() {
-        hasMore = InMemory().getData<bool>(CommentConstants.hasMore);
-        if (hasMore &&
-            _scrollController.offset >=
-                _scrollController.position.maxScrollExtent) {
-          context
-              .read<CommentViewModel>()
-              .getComments(widget.taskId, loadMore: hasMore);
-        }
-      });
-    });
+    _scrollController = ScrollController();
     super.initState();
+  }
+
+  void _handleListener() {
+    _scrollController.addListener(() {
+      hasMore = InMemory().getData<bool>(CommentConstants.hasMore);
+      kDebugPrint("hasMore: $hasMore");
+      if (hasMore &&
+          _scrollController.offset >=
+              _scrollController.position.maxScrollExtent) {
+        context
+            .read<CommentViewModel>()
+            .getComments(widget.taskId, loadMore: hasMore);
+      }
+    });
   }
 
   @override
   void dispose() {
     _scrollController.dispose();
-    _commentController.dispose();
     super.dispose();
   }
 
@@ -66,9 +69,8 @@ class _CommentSectionState extends State<CommentSection> {
             listener: (context, state) {
               state.whenOrNull(
                 addCommentSuccess: (comment) {
-                  _commentController.clear();
                   _scrollController.animateTo(
-                    _scrollController.position.minScrollExtent,
+                    0.0,
                     duration: const Duration(milliseconds: 300),
                     curve: Curves.easeInOut,
                   );
@@ -132,6 +134,7 @@ class _CommentSectionState extends State<CommentSection> {
                   );
                 },
                 orElse: () {
+                  hasMore = InMemory().getData<bool>(CommentConstants.hasMore);
                   var comments = context.read<CommentViewModel>().comments;
                   return comments.isEmpty
                       ? Center(
@@ -140,80 +143,31 @@ class _CommentSectionState extends State<CommentSection> {
                             style: Theme.of(context).textTheme.bodyMedium,
                           ),
                         )
-                      : CustomScrollView(
+                      : ListView.separated(
                           shrinkWrap: true,
                           controller: _scrollController,
-                          slivers: [
-                            SliverPersistentHeader(
-                              // pinned: true,
-                              floating: true,
-                              delegate: CommentInputHeaderDelegate(
-                                child: Padding(
-                                  padding: EdgeInsets.only(
-                                    bottom: MediaQuery.of(context)
-                                        .viewInsets
-                                        .bottom,
-                                  ),
-                                  child: CommentInputField(
-                                    commentController: _commentController,
-                                    onSend: (comment) {
-                                      context
-                                          .read<CommentViewModel>()
-                                          .addComment(
-                                            comment: comment,
-                                            taskId: widget.taskId,
-                                          );
-                                    },
-                                  ),
+                          itemBuilder: (context, index) {
+                            if (index == comments.length) {
+                              return Center(
+                                child: SizedBox(
+                                  width: 15.w,
+                                  height: 15.h,
+                                  child: const CircularProgressIndicator(),
                                 ),
-                                maxHeight: 60.h,
-                                minHeight: 40.h,
-                              ),
-                            ),
-                            SliverList.separated(
-                              itemBuilder: (context, index) {
-                                if (index == comments.length) {
-                                  return Center(
-                                    child: SizedBox(
-                                      width: 15.w,
-                                      height: 15.h,
-                                      child: const CircularProgressIndicator(),
-                                    ),
-                                  );
-                                }
-                                return CommentCard(
-                                  comment: comments[index],
-                                );
-                              },
-                              separatorBuilder: (context, index) =>
-                                  SizedBox(height: 10.h),
-                              itemCount: comments.length + (hasMore ? 1 : 0),
-                            ),
-                          ],
+                              );
+                            }
+                            return CommentCard(
+                              comment: comments[index],
+                            );
+                          },
+                          separatorBuilder: (context, index) =>
+                              SizedBox(height: 10.h),
+                          itemCount: comments.length + (hasMore ? 1 : 0),
                         );
                 },
               );
             },
           ),
-
-          // comment input
-          // Align(
-          //   alignment: Alignment.bottomCenter,
-          //   child: Padding(
-          //     padding: EdgeInsets.only(
-          //       bottom: MediaQuery.of(context).viewInsets.bottom,
-          //     ),
-          //     child: CommentInputField(
-          //       commentController: _commentController,
-          //       onSend: (comment) {
-          //         context.read<CommentViewModel>().addComment(
-          //               comment: comment,
-          //               taskId: widget.taskId,
-          //             );
-          //       },
-          //     ),
-          //   ),
-          // ),
         ],
       ),
     );

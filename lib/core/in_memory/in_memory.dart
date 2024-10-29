@@ -48,17 +48,19 @@ class InMemory extends NavigatorObserver {
 
   @override
   void didPop(Route route, Route? previousRoute) {
-    kDebugPrint("pop route: ${route.settings.name}");
+    kDebugPrint("pop route: ${route.settings.name}, previous route: ${previousRoute?.settings.name}");
     if (route.settings.name == Routes.taskDetails.name) {
       removeData(CommentConstants.hasMore);
       removeData(CommentConstants.lasDocument);
+      kDebugPrint("removed data when pop route: ${route.settings.name}");
     }
     super.didPop(route, previousRoute);
   }
 
   @override
   void didPush(Route route, Route? previousRoute) {
-    kDebugPrint("push route: ${route.settings.name}");
+    kDebugPrint(
+        "push route: ${route.settings.name}, previous route: ${previousRoute?.settings.name}");
     super.didPush(route, previousRoute);
   }
 }

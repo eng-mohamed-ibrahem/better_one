@@ -52,6 +52,7 @@ class _CommentInputFieldState extends State<CommentInputField> {
                   borderSide: BorderSide.none,
                 ),
               ),
+              maxLines: null,
               textInputAction: TextInputAction.send,
               onSubmitted: (text) {
                 isTyped
