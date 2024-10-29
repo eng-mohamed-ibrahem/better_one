@@ -1,4 +1,4 @@
-part of 'app_thems.dart';
+part of 'app_themes.dart';
 
 class _WidgetsTheme {
   static BottomSheetThemeData bottomSheetTheme() {

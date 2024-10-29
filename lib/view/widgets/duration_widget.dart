@@ -22,15 +22,6 @@ class DurationTime extends StatelessWidget {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    // Text(duration.inMinutes.remainder(60).toString(),
-                    //     style: style),
-                    Text(
-                        NumberFormat.decimalPattern(context.locale.countryCode)
-                            .format(duration.inMinutes.remainder(60)),
-                        style: style),
-                    SizedBox(width: 4.w),
-                    Text('time.minute'.tr(), style: style),
-                    SizedBox(width: 10.w),
                     duration.inHours == 0
                         ? const SizedBox.shrink()
                         : Row(
@@ -41,6 +32,13 @@ class DurationTime extends StatelessWidget {
                               Text('time.hour'.tr(), style: style),
                             ],
                           ),
+                    SizedBox(width: 10.w),
+                    Text(
+                        NumberFormat.decimalPattern(context.locale.countryCode)
+                            .format(duration.inMinutes.remainder(60)),
+                        style: style),
+                    SizedBox(width: 4.w),
+                    Text('time.minute'.tr(), style: style),
                   ],
                 ),
               ),

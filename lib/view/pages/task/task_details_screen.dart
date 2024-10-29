@@ -420,6 +420,9 @@ class _TaskScreenState extends State<TaskDetailsScreen>
                       addCommentSuccess: (comment) {
                         _commentController.clear();
                       },
+                      addCommentFailed: (failure) {
+                        showSnackBar(context, message: failure.message);
+                      },
                     );
                   },
                   builder: (context, state) {

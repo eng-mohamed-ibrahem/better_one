@@ -2,7 +2,6 @@ import 'package:better_one/config/navigation/routes_enum.dart';
 import 'package:better_one/core/constants/comment_constants.dart';
 import 'package:better_one/core/errors/failure.dart';
 import 'package:better_one/core/in_memory/in_memory.dart';
-import 'package:better_one/core/utils/methods/methods.dart';
 import 'package:better_one/view/widgets/comment/comment_card.dart';
 import 'package:better_one/view_models/comment_viewmodel/comment_viewmodel.dart';
 import 'package:easy_localization/easy_localization.dart';
@@ -31,20 +30,6 @@ class _CommentSectionState extends State<CommentSection> {
     context.read<CommentViewModel>().getComments(widget.taskId);
     _scrollController = ScrollController();
     super.initState();
-  }
-
-  void _handleListener() {
-    _scrollController.addListener(() {
-      hasMore = InMemory().getData<bool>(CommentConstants.hasMore);
-      kDebugPrint("hasMore: $hasMore");
-      if (hasMore &&
-          _scrollController.offset >=
-              _scrollController.position.maxScrollExtent) {
-        context
-            .read<CommentViewModel>()
-            .getComments(widget.taskId, loadMore: hasMore);
-      }
-    });
   }
 
   @override
@@ -148,12 +133,8 @@ class _CommentSectionState extends State<CommentSection> {
                           controller: _scrollController,
                           itemBuilder: (context, index) {
                             if (index == comments.length) {
-                              return Center(
-                                child: SizedBox(
-                                  width: 15.w,
-                                  height: 15.h,
-                                  child: const CircularProgressIndicator(),
-                                ),
+                              return Skeletonizer(
+                                child: CommentCard.skeleton(),
                               );
                             }
                             return CommentCard(
