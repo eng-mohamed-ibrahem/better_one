@@ -1,8 +1,11 @@
 import 'package:better_one/core/errors/failure.dart';
+import 'package:better_one/core/utils/cache_service/cach_interface/locale_user_info.dart';
+import 'package:better_one/core/utils/dependency_locator/inject.dart';
 import 'package:better_one/model/comment_model/comment_model.dart';
 import 'package:better_one/repositories/comment_repo/comment_repo.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:uuid/uuid.dart';
 
 part 'comment_viewmodel.freezed.dart';
 part 'comment_viewmodel_state.dart';
@@ -16,9 +19,21 @@ class CommentViewModel extends Cubit<CommentViewModelState> {
 
   final List<CommentModel> comments = [];
 
-  void addComment(CommentModel comment) async {
+  void addComment({
+    required String comment,
+    required String taskId,
+  }) async {
     emit(const _AddCommentLoading());
-    final result = await _commentRepo.addComment(comment);
+    var user = inject<LocaleUserInfo>().getUserData();
+    CommentModel userComment = CommentModel(
+      id: const Uuid().v4(),
+      taskId: taskId,
+      comment: comment,
+      userName: user?.name ?? "user name",
+      userImageUrl: user?.photoUrl,
+      createdAt: DateTime.now(),
+    );
+    final result = await _commentRepo.addComment(userComment);
     result.when(
       success: (comment) {
         comments.insert(0, comment);
@@ -68,9 +83,9 @@ class CommentViewModel extends Cubit<CommentViewModelState> {
     final result =
         await _commentRepo.getCommentsForTask(taskId, 10, loadMore: loadMore);
     result.when(
-      success: (comments) {
-        comments.addAll(comments);
-        emit(_GetCommentsSuccess(comments: comments));
+      success: (newComments) {
+        comments.addAll(newComments);
+        emit(_GetCommentsSuccess(comments: newComments));
       },
       failure: (failure) {
         loadMore

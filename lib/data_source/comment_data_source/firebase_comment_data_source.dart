@@ -39,6 +39,14 @@ class FirebaseCommentDataSource implements CommentDataSource {
   }) async {
     try {
       var db = FirebaseFirestore.instance;
+      var queryData = await db
+          .collection(FirebaseConstants.comments)
+          .doc(taskId)
+          .collection(FirebaseConstants.taskComments)
+          .get();
+      if (queryData.docs.isEmpty) {
+        return const ResultHandler.success(data: []);
+      }
       var query = db
           .collection(FirebaseConstants.comments)
           .doc(taskId)
@@ -50,7 +58,6 @@ class FirebaseCommentDataSource implements CommentDataSource {
         query = query.startAfterDocument(lastDocument);
       }
       var querySnapshot = await query.limit(limit).get();
-
       InMemory().addData<QueryDocumentSnapshot>(
           CommentConstants.lasDocument, querySnapshot.docs.last);
       InMemory().addData<bool>(

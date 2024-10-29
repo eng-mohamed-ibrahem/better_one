@@ -1,7 +1,7 @@
 import 'package:better_one/core/constants/constants.dart';
 import 'package:better_one/core/utils/methods/methods.dart';
 import 'package:better_one/core/utils/shared_widgets/back_button_l10n.dart';
-import 'package:better_one/view/widgets/input_field/auth_field.dart';
+import 'package:better_one/view/widgets/input_field/auth_input_field.dart';
 import 'package:better_one/view_models/user_viewmodel/user_viewmodel.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
@@ -110,7 +110,7 @@ class _ChangeEmailScreenState extends State<ChangeEmailScreen> {
                         SizedBox(
                           height: AppMetrices.verticalGap.h,
                         ),
-                        AuthField(
+                        AuthInputField(
                           readOnly: true,
                           controller: oldEmailController,
                         ),
@@ -124,7 +124,7 @@ class _ChangeEmailScreenState extends State<ChangeEmailScreen> {
                         SizedBox(
                           height: AppMetrices.verticalGap.h,
                         ),
-                        AuthField(
+                        AuthInputField(
                           controller: newEmailController,
                           validator: Validators.validateEmail,
                           textInputAction: TextInputAction.next,
@@ -139,7 +139,7 @@ class _ChangeEmailScreenState extends State<ChangeEmailScreen> {
                         SizedBox(
                           height: AppMetrices.verticalGap.h,
                         ),
-                        AuthField(
+                        AuthInputField(
                           controller: confirmNewEmailController,
                           validator: (value) {
                             if (value != newEmailController.text) {

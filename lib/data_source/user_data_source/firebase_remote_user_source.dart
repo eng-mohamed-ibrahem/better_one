@@ -6,9 +6,11 @@ import 'package:better_one/core/result_handler/result_handler.dart';
 import 'package:better_one/core/utils/cache_service/cach_interface/locale_user_info.dart';
 import 'package:better_one/core/utils/dependency_locator/inject.dart';
 import 'package:better_one/data_source/user_data_source/remote_user_source.dart';
+import 'package:better_one/model/comment_model/comment_model.dart';
 import 'package:better_one/model/task_model/task_model.dart';
 import 'package:better_one/model/user_model/user_model.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 
@@ -24,10 +26,35 @@ class FirebaseRemoteUserSource implements RemoteUserSource {
           .collection(FirebaseConstants.tasks)
           .doc(newTask.id)
           .set(newTask.copyWith(backup: true).toJson());
+
+      /// add better one comment
+      await _addBetterOneComment(newTask, db);
       return ResultHandler.success(data: newTask);
     } catch (e) {
       return ResultHandler.failure(error: OtherFailure(message: e.toString()));
     }
+  }
+
+  Future<void> _addBetterOneComment(
+      TaskModel newTask, FirebaseFirestore db) async {
+    FirebaseStorage storage = FirebaseStorage.instance;
+    var profileRef = storage
+        .ref('${FirebaseConstants.users}/better_one')
+        .child("${FirebaseConstants.userPhoto}.jpg");
+    CommentModel betterOneComment = CommentModel(
+      id: '1',
+      taskId: newTask.id,
+      comment: "comment.better_one_comment".tr(),
+      createdAt: DateTime.now(),
+      userName: "BetterOne",
+      userImageUrl: await profileRef.getDownloadURL(),
+    );
+    await db
+        .collection(FirebaseConstants.comments)
+        .doc(newTask.id)
+        .collection(FirebaseConstants.taskComments)
+        .doc(betterOneComment.id)
+        .set(betterOneComment.toJson());
   }
 
   @override

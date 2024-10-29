@@ -1,6 +1,6 @@
 import 'package:better_one/core/constants/constants.dart';
 import 'package:better_one/model/task_model/task_model.dart';
-import 'package:better_one/view/widgets/input_field/task_field.dart';
+import 'package:better_one/view/widgets/input_field/task_input_field.dart';
 import 'package:better_one/view/widgets/subtask_widget.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
@@ -69,7 +69,7 @@ class _WriteTaskAreaState extends State<WriteTaskArea>
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              TaskField(
+              TaskInputField(
                 controller: widget.titleController,
                 onChanged: widget.onChanged,
                 labelText: 'task.title'.tr(),

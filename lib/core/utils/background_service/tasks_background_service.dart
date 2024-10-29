@@ -124,18 +124,7 @@ class TasksBackgroundService {
   }
 
   static void _uploadEntryPoint(Map<String, dynamic> args) async {
-    DartPluginRegistrant.ensureInitialized();
-    kDebugPrint("begin uploading tasks");
-    BackgroundIsolateBinaryMessenger.ensureInitialized(
-        (args['token'] as RootIsolateToken));
-
-    await Firebase.initializeApp(
-      options: DefaultFirebaseOptions.currentPlatform,
-    );
-    kDebugPrint("firebase init");
-
-    var appDir = await getApplicationDocumentsDirectory();
-    Hive.init(appDir.path);
+    await _initialize(args);
     var appCache = await Hive.openBox(CacheKeys.userData);
     kDebugPrint("hive init");
     try {

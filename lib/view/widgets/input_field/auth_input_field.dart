@@ -2,8 +2,8 @@ import 'package:better_one/core/constants/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-class AuthField extends StatefulWidget {
-  const AuthField({
+class AuthInputField extends StatefulWidget {
+  const AuthInputField({
     super.key,
     required this.controller,
     this.hintText,
@@ -30,10 +30,10 @@ class AuthField extends StatefulWidget {
   final TextInputType? keyboardType;
 
   @override
-  State<AuthField> createState() => _AuthFieldState();
+  State<AuthInputField> createState() => _AuthInputFieldState();
 }
 
-class _AuthFieldState extends State<AuthField> {
+class _AuthInputFieldState extends State<AuthInputField> {
   bool isPasswordObsucred = true;
   @override
   Widget build(BuildContext context) {

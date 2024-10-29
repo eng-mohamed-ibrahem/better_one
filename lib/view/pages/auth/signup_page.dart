@@ -2,7 +2,7 @@ import 'package:better_one/config/navigation/routes_enum.dart';
 import 'package:better_one/core/constants/constants.dart';
 import 'package:better_one/core/utils/methods/methods.dart';
 import 'package:better_one/core/utils/shared_widgets/back_button_l10n.dart';
-import 'package:better_one/view/widgets/input_field/auth_field.dart';
+import 'package:better_one/view/widgets/input_field/auth_input_field.dart';
 import 'package:better_one/view_models/auth_viewmodel/auth_viewmodel.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
@@ -62,7 +62,7 @@ class _SignUpState extends State<SignUp> {
                       const SizedBox(
                         height: AppMetrices.verticalGap,
                       ),
-                      AuthField(
+                      AuthInputField(
                         textInputAction: TextInputAction.next,
                         controller: userName,
                         prefixIcon: Icon(Icons.person_rounded,
@@ -78,7 +78,7 @@ class _SignUpState extends State<SignUp> {
                       const SizedBox(
                         height: AppMetrices.verticalGap2,
                       ),
-                      AuthField(
+                      AuthInputField(
                         textInputAction: TextInputAction.next,
                         controller: email,
                         prefixIcon: Icon(Icons.email_rounded,
@@ -89,7 +89,7 @@ class _SignUpState extends State<SignUp> {
                       const SizedBox(
                         height: AppMetrices.verticalGap2,
                       ),
-                      AuthField(
+                      AuthInputField(
                         textInputAction: TextInputAction.next,
                         controller: password,
                         isItPassword: true,
@@ -101,7 +101,7 @@ class _SignUpState extends State<SignUp> {
                       const SizedBox(
                         height: AppMetrices.verticalGap2,
                       ),
-                      AuthField(
+                      AuthInputField(
                         textInputAction: TextInputAction.done,
                         controller: confirmPassword,
                         isItPassword: true,

@@ -13,35 +13,38 @@ import 'package:go_router/go_router.dart';
 import 'package:skeletonizer/skeletonizer.dart';
 
 class CommentSection extends StatefulWidget {
-  const CommentSection({super.key, required this.taskId});
+  const CommentSection({
+    super.key,
+    required this.taskId,
+  });
   final String taskId;
-
   @override
   State<CommentSection> createState() => _CommentSectionState();
 }
 
 class _CommentSectionState extends State<CommentSection> {
-  final ScrollController _scrollController = ScrollController();
-
+  late final ScrollController _scrollController;
+  // final TextEditingController _commentController = TextEditingController();
   bool hasMore = false;
   @override
   void initState() {
     context.read<CommentViewModel>().getComments(widget.taskId);
-
-    WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
-      _scrollController.addListener(() {
-        hasMore = InMemory().getData<bool>(CommentConstants.hasMore);
-        kDebugPrint("hasMore: $hasMore");
-        if (hasMore &&
-            _scrollController.offset >=
-                _scrollController.position.maxScrollExtent) {
-          context
-              .read<CommentViewModel>()
-              .getComments(widget.taskId, loadMore: hasMore);
-        }
-      });
-    });
+    _scrollController = ScrollController();
     super.initState();
+  }
+
+  void _handleListener() {
+    _scrollController.addListener(() {
+      hasMore = InMemory().getData<bool>(CommentConstants.hasMore);
+      kDebugPrint("hasMore: $hasMore");
+      if (hasMore &&
+          _scrollController.offset >=
+              _scrollController.position.maxScrollExtent) {
+        context
+            .read<CommentViewModel>()
+            .getComments(widget.taskId, loadMore: hasMore);
+      }
+    });
   }
 
   @override
@@ -56,6 +59,7 @@ class _CommentSectionState extends State<CommentSection> {
       padding: EdgeInsets.all(10.r),
       margin: EdgeInsets.only(top: 10.h),
       child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(
             'comment.title'.tr(),
@@ -66,7 +70,7 @@ class _CommentSectionState extends State<CommentSection> {
               state.whenOrNull(
                 addCommentSuccess: (comment) {
                   _scrollController.animateTo(
-                    _scrollController.position.minScrollExtent,
+                    0.0,
                     duration: const Duration(milliseconds: 300),
                     curve: Curves.easeInOut,
                   );
@@ -78,6 +82,7 @@ class _CommentSectionState extends State<CommentSection> {
                 getCommentsLoading: () {
                   return Skeletonizer(
                     child: ListView.separated(
+                      shrinkWrap: true,
                       itemBuilder: (context, index) => CommentCard.skeleton(),
                       separatorBuilder: (context, index) =>
                           SizedBox(height: 10.h),
@@ -87,22 +92,28 @@ class _CommentSectionState extends State<CommentSection> {
                 },
                 getCommentsFailed: (failure) {
                   if (failure is NoUserLogedInFailure) {
-                    return Center(
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Text(failure.message,
-                              style: Theme.of(context).textTheme.bodyMedium),
-                          MaterialButton(
-                            onPressed: () {
-                              context.goNamed(Routes.login.name);
-                            },
-                            child: Text(
-                              'auth.login'.tr(),
-                            ),
+                    return Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text(
+                          failure.message,
+                          textAlign: TextAlign.center,
+                          style: Theme.of(context).textTheme.bodyMedium,
+                        ),
+                        ElevatedButton(
+                          style: ElevatedButton.styleFrom(
+                            backgroundColor:
+                                Theme.of(context).secondaryHeaderColor,
                           ),
-                        ],
-                      ),
+                          onPressed: () {
+                            context.goNamed(Routes.login.name);
+                          },
+                          child: Text(
+                            'auth.login'.tr(),
+                            style: Theme.of(context).textTheme.bodyMedium,
+                          ),
+                        ),
+                      ],
                     );
                   }
                   return Column(
@@ -123,11 +134,18 @@ class _CommentSectionState extends State<CommentSection> {
                   );
                 },
                 orElse: () {
+                  hasMore = InMemory().getData<bool>(CommentConstants.hasMore);
                   var comments = context.read<CommentViewModel>().comments;
-                  return Column(
-                    children: [
-                      Expanded(
-                        child: ListView.separated(
+                  return comments.isEmpty
+                      ? Center(
+                          child: Text(
+                            "comment.empty".tr(),
+                            style: Theme.of(context).textTheme.bodyMedium,
+                          ),
+                        )
+                      : ListView.separated(
+                          shrinkWrap: true,
+                          controller: _scrollController,
                           itemBuilder: (context, index) {
                             if (index == comments.length) {
                               return Center(
@@ -145,12 +163,7 @@ class _CommentSectionState extends State<CommentSection> {
                           separatorBuilder: (context, index) =>
                               SizedBox(height: 10.h),
                           itemCount: comments.length + (hasMore ? 1 : 0),
-                          controller: _scrollController,
-                        ),
-                      ),
-                      // write comment field
-                    ],
-                  );
+                        );
                 },
               );
             },
