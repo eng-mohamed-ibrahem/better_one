@@ -46,17 +46,17 @@ class _HomeScreenState extends State<HomeScreen> with RouteAware {
       (payload) async {
         if (payload!.isNotEmpty && mounted) {
           kDebugPrint(
-            "payload: ${jsonDecode(payload)[NotificaitonConstants.taskId]}, ${jsonDecode(payload)[NotificaitonConstants.senderId]}",
+            "payload: ${jsonDecode(payload)[NotificationConstants.taskId]}, ${jsonDecode(payload)[NotificationConstants.senderId]}",
           );
           // ignore: use_build_context_synchronously
           context.goNamed(
             Routes.sharedTask.name,
             pathParameters: {
-              "id": jsonDecode(payload)[NotificaitonConstants.taskId]
+              "id": jsonDecode(payload)[NotificationConstants.taskId]
             },
             queryParameters: {
-              NotificaitonConstants.senderId:
-                  jsonDecode(payload)[NotificaitonConstants.senderId],
+              NotificationConstants.senderId:
+                  jsonDecode(payload)[NotificationConstants.senderId],
             },
           );
         }

@@ -67,11 +67,11 @@ class AppNavigation {
                 return state.namedLocation(
                   Routes.sharedTask.name,
                   pathParameters: {
-                    "id": payloadFromNotification[NotificaitonConstants.taskId]
+                    "id": payloadFromNotification[NotificationConstants.taskId]
                   },
                   queryParameters: {
-                    NotificaitonConstants.senderId:
-                        payloadFromNotification[NotificaitonConstants.senderId],
+                    NotificationConstants.senderId:
+                        payloadFromNotification[NotificationConstants.senderId],
                   },
                 );
               }
@@ -123,12 +123,12 @@ class AppNavigation {
         //           pathParameters: {
         //             "id":
         //                 jsonDecode(notification.notificationResponse!.payload!)[
-        //                     NotificaitonConstants.taskId]
+        //                     NotificationConstants.taskId]
         //           },
         //           queryParameters: {
-        //             NotificaitonConstants.senderId:
+        //             NotificationConstants.senderId:
         //                 jsonDecode(notification.notificationResponse!.payload!)[
-        //                     NotificaitonConstants.senderId],
+        //                     NotificationConstants.senderId],
         //           },
         //         );
         //       }
@@ -210,10 +210,10 @@ class AppNavigation {
                     value: inject<NotificationViewmodel>(),
                     child: SharedTaskScreen(
                       payload: {
-                        NotificaitonConstants.taskId:
+                        NotificationConstants.taskId:
                             state.pathParameters["id"],
-                        NotificaitonConstants.senderId: state
-                            .uri.queryParameters[NotificaitonConstants.senderId]
+                        NotificationConstants.senderId: state
+                            .uri.queryParameters[NotificationConstants.senderId]
                       },
                     ),
                   );

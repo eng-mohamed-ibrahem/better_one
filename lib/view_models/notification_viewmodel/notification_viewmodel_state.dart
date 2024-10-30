@@ -6,12 +6,11 @@ class NotificationViewmodelState with _$NotificationViewmodelState {
   const factory NotificationViewmodelState.initial() = _Initial;
 
   /// send notification
-  const factory NotificationViewmodelState.sendNotificationloading() =
-      _SendNotificationloading;
+  const factory NotificationViewmodelState.sendNotificationLoading() =
+      _SendNotificationLoading;
 
   const factory NotificationViewmodelState.sendNotificationFailed({
     required Failure failure,
-    required String message,
   }) = _SendNotificationFailed;
 
   const factory NotificationViewmodelState.sendNotificationSuccess() =
@@ -23,7 +22,6 @@ class NotificationViewmodelState with _$NotificationViewmodelState {
 
   const factory NotificationViewmodelState.getNotificationStreamFailed({
     required Failure failure,
-    required String message,
   }) = _GetNotificationStreamFailed;
 
   const factory NotificationViewmodelState.getNotificationStreamSuccess({
@@ -31,24 +29,23 @@ class NotificationViewmodelState with _$NotificationViewmodelState {
   }) = _GetNotificationStreamSuccess;
 
   /// get notification
-  const factory NotificationViewmodelState.getNotificationloading() =
-      _GetNotificationloading;
+  const factory NotificationViewmodelState.getNotificationsLoading() =
+      _GetNotificationsLoading;
 
-  const factory NotificationViewmodelState.getNewNotificationloading() =
-      _GetNewNotificationloading;
+  const factory NotificationViewmodelState.getNewNotificationsLoading() =
+      _GetNewNotificationsLoading;
 
-  const factory NotificationViewmodelState.getNotificationFailed({
+  const factory NotificationViewmodelState.getNotificationsFailed({
     required Failure failure,
-    required String message,
-  }) = _GetNotificationFailed;
+  }) = _GetNotificationsFailed;
 
-  const factory NotificationViewmodelState.getNewNotificationFailed({
-    required String message,
-  }) = _GetNewNotificationFailed;
+  const factory NotificationViewmodelState.getNewNotificationsFailed({
+    required Failure failure,
+  }) = _GetNewNotificationsFailed;
 
-  const factory NotificationViewmodelState.getNotificationSuccess({
-    required List<QueryDocumentSnapshot<Object?>> list,
-  }) = _GetNotificationSuccess;
+  const factory NotificationViewmodelState.getNotificationsSuccess({
+    required List<NotificationModel> list,
+  }) = _GetNotificationsSuccess;
 
   const factory NotificationViewmodelState.getTaskFromNotificationLoading() =
       _GetTaskFromNotificationLoading;

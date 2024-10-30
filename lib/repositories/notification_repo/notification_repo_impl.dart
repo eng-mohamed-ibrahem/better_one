@@ -7,7 +7,6 @@ import 'package:better_one/data_source/notification_data_source/notification_sou
 import 'package:better_one/model/notification_model/notification_model.dart';
 import 'package:better_one/model/task_model/task_model.dart';
 import 'package:better_one/repositories/notification_repo/notification_repo_interface.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:easy_localization/easy_localization.dart';
 
 class NotificationRepoImpl implements NotificationRepoInterface {
@@ -48,9 +47,9 @@ class NotificationRepoImpl implements NotificationRepoInterface {
   }
 
   @override
-  Future<ResultHandler<List<QueryDocumentSnapshot>, Failure>> getNotifications(
+  Future<ResultHandler<List<NotificationModel>, Failure>> getNotifications(
       int limit,
-      {QueryDocumentSnapshot? startAfter}) async {
+      {bool loadMore = false}) async {
     if (inject<LocaleUserInfo>().getUserData() == null) {
       return ResultHandler.failure(
           error: NoUserLogedInFailure(message: 'notification.login_req'.tr()));
@@ -58,7 +57,7 @@ class NotificationRepoImpl implements NotificationRepoInterface {
     var connected = await NetworkConnection.isConnected();
     if (connected) {
       return await _notificationSource.getNotifications(limit,
-          startAfter: startAfter);
+          loadMore: loadMore);
     } else {
       return ResultHandler.failure(
           error: NoInternetFailure(message: 'core.no_intenet'.tr()));
