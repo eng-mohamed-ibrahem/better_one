@@ -10,9 +10,11 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class ModifyCommentCard extends StatefulWidget {
-  const ModifyCommentCard({super.key, required this.comment, this.onDelete});
+  const ModifyCommentCard(
+      {super.key, required this.comment, this.onDelete, this.onEdit});
   final CommentModel comment;
   final Function(CommentModel comment)? onDelete;
+  final VoidCallback? onEdit;
 
   @override
   State<ModifyCommentCard> createState() => _ModifyCommentCardState();
@@ -21,7 +23,7 @@ class ModifyCommentCard extends StatefulWidget {
 class _ModifyCommentCardState extends State<ModifyCommentCard>
     with TickerProviderStateMixin {
   AnimationController? _animationController;
-
+  bool isEditing = false;
   @override
   void initState() {
     super.initState();
@@ -35,35 +37,42 @@ class _ModifyCommentCardState extends State<ModifyCommentCard>
         BlocConsumer<CommentViewModel, CommentViewModelState>(
           listener: (context, state) {
             state.whenOrNull(
-              updateCommentLoading: (_) {
-                _animationController = AnimationController(
-                  vsync: this,
-                  value: 0.3,
-                  duration: const Duration(seconds: 4),
-                  reverseDuration: const Duration(seconds: 4),
-                );
-                _animationController?.repeat(reverse: true);
-              },
-              updateCommentSuccess: (updatedComment) {
+              updateCommentSuccess: (_) {
                 _animationController?.stop();
               },
+              notifyUpdateComment: (oldComment) {
+                if (oldComment.id == widget.comment.id) {
+                  isEditing = true;
+                } else {
+                  isEditing = false;
+                }
+              },
             );
-          },
-          buildWhen: (previous, current) {
-            return previous != current;
           },
           builder: (context, state) {
             return state.maybeWhen(
               updateCommentLoading: (updatedComment) {
-                return FadeTransition(
-                  opacity: _animationController!.drive(
-                    Tween(begin: 0.3, end: 1.0).chain(
-                      CurveTween(curve: Curves.easeInOut),
+                if (isEditing) {
+                  _animationController = AnimationController(
+                    vsync: this,
+                    value: 0.3,
+                    duration: const Duration(seconds: 1),
+                    reverseDuration: const Duration(seconds: 1),
+                  );
+                  _animationController?.repeat(reverse: true);
+                  return FadeTransition(
+                    opacity: _animationController!.drive(
+                      Tween(begin: 0.3, end: 1.0).chain(
+                        CurveTween(curve: Curves.easeInOut),
+                      ),
                     ),
-                  ),
-                  child: CommentCard(
-                    comment: updatedComment,
-                  ),
+                    child: CommentCard(
+                      comment: updatedComment,
+                    ),
+                  );
+                }
+                return CommentCard(
+                  comment: widget.comment,
                 );
               },
               orElse: () {
@@ -90,9 +99,7 @@ class _ModifyCommentCardState extends State<ModifyCommentCard>
                       TextButton.icon(
                         onPressed: () {
                           Navigator.pop(context);
-                          context
-                              .read<CommentViewModel>()
-                              .notifyOfUpdate(oldComment: widget.comment);
+                          widget.onEdit?.call();
                         },
                         icon: const Icon(Icons.edit, color: Colors.white),
                         label: Text(

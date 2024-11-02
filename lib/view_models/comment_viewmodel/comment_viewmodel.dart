@@ -52,16 +52,16 @@ class CommentViewModel extends Cubit<CommentViewModelState> {
 
   void updateComment(CommentModel comment) async {
     emit(_UpdateCommentLoading(updatedComment: comment));
-    // final result = await _commentRepo.updateComment(comment);
-    // result.when(
-    //   success: (comment) {
-    //     comments[comments.indexWhere((c) => c.id == comment.id)] = comment;
-    //     emit(_UpdateCommentSuccess(comment: comment));
-    //   },
-    //   failure: (failure) {
-    //     emit(_UpdateCommentFailed(failure: failure));
-    //   },
-    // );
+    final result = await _commentRepo.updateComment(comment);
+    result.when(
+      success: (comment) {
+        comments[comments.indexWhere((c) => c.id == comment.id)] = comment;
+        emit(_UpdateCommentSuccess(comment: comment));
+      },
+      failure: (failure) {
+        emit(_UpdateCommentFailed(failure: failure));
+      },
+    );
   }
 
   void deleteComment(CommentModel comment, String taskId) async {

@@ -147,6 +147,11 @@ class _CommentSectionState extends State<CommentSection> {
                                     .read<CommentViewModel>()
                                     .deleteComment(comment, widget.taskId);
                               },
+                              onEdit: () {
+                                context.read<CommentViewModel>().notifyOfUpdate(
+                                      oldComment: comments[index],
+                                    );
+                              },
                             );
                           },
                           separatorBuilder: (context, index) =>

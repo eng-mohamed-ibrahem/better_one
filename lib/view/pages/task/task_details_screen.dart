@@ -439,6 +439,13 @@ class _TaskScreenState extends State<TaskDetailsScreen>
                       },
                     );
                   },
+                  buildWhen: (previous, current) {
+                    return current.maybeWhen(
+                      loadMoreCommentsFailed: (failure) => false,
+                      loadMoreCommentsLoading: () => false,
+                      orElse: () => true,
+                    );
+                  },
                   builder: (context, state) {
                     return state.maybeWhen(
                       initial: () => const SizedBox.shrink(),
@@ -484,7 +491,7 @@ class _TaskScreenState extends State<TaskDetailsScreen>
       ),
     );
   }
-
+bool isAboutToUpdate = false;
   void _handleSendingNotification() {
     task!.status == TaskStatus.done &&
             inject<SettingViewmodel>().notificationSetting.sendOnComplete
