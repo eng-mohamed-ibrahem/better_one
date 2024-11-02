@@ -286,3 +286,39 @@ Future<bool?> showLeavePageDialog(BuildContext context,
     },
   );
 }
+
+showDeleteCommentDialog(BuildContext context, {VoidCallback? onConfirm}) {
+  showDialog(
+    context: context,
+    builder: (context) {
+      return AlertDialog(
+        title: Text('comment.delete_comment'.tr(),
+            style: Theme.of(context).textTheme.titleLarge),
+        content: Text(
+          'comment.delete_msg'.tr(),
+          style: Theme.of(context).textTheme.bodyMedium,
+        ),
+        actions: [
+          TextButton(
+            onPressed: () {
+              context.pop();
+            },
+            child: Text('core.cancel'.tr()),
+          ),
+          TextButton(
+            onPressed: () {
+              onConfirm?.call();
+              context.pop();
+            },
+            child: Text(
+              'core.delete'.tr(),
+              style: Theme.of(context).textTheme.titleSmall!.copyWith(
+                    color: AppColors.hightlightColor,
+                  ),
+            ),
+          ),
+        ],
+      );
+    },
+  );
+}

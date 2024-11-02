@@ -21,6 +21,7 @@ class AppThemes {
     iconTheme: _WidgetsTheme.iconTheme(),
     iconButtonTheme: _WidgetsTheme.iconButtonTheme(),
     filledButtonTheme: _WidgetsTheme.filledButtonTheme(),
+    elevatedButtonTheme: _WidgetsTheme.elevatedButtonTheme(),
     dialogTheme: _WidgetsTheme.dialogTheme(),
     listTileTheme: _WidgetsTheme.listTileTheme(),
     dropdownMenuTheme: _WidgetsTheme.dropdownMenuTheme(),
@@ -57,25 +58,42 @@ class AppThemes {
     iconTheme: _WidgetsTheme.iconTheme().copyWith(
       color: AppColors.lightTextButtonColor,
     ),
-    iconButtonTheme: const IconButtonThemeData(
+    iconButtonTheme: IconButtonThemeData(
       style: ButtonStyle(
-        iconSize: WidgetStatePropertyAll(25.0),
-        iconColor: WidgetStatePropertyAll(AppColors.lightWhite),
-        backgroundColor: WidgetStatePropertyAll(AppColors.lightSecondColor),
-        padding: WidgetStatePropertyAll(
+        textStyle: WidgetStatePropertyAll<TextStyle>(
+          _WidgetsTheme.lightTextTheme().bodyMedium!,
+        ),
+        iconSize: const WidgetStatePropertyAll(25.0),
+        iconColor: const WidgetStatePropertyAll(AppColors.lightWhite),
+        backgroundColor:
+            const WidgetStatePropertyAll(AppColors.lightSecondColor),
+        padding: const WidgetStatePropertyAll(
           EdgeInsets.zero,
         ),
       ),
     ),
-    filledButtonTheme: const FilledButtonThemeData(
+    filledButtonTheme: FilledButtonThemeData(
       style: ButtonStyle(
-        backgroundColor: WidgetStatePropertyAll(AppColors.lightSecondColor),
-        foregroundColor: WidgetStatePropertyAll(AppColors.lightWhite),
         textStyle: WidgetStatePropertyAll<TextStyle>(
-          TextStyle(
-            color: AppColors.lightTextButtonColor,
-          ),
+          _WidgetsTheme.lightTextTheme().bodyMedium!.copyWith(
+                color: AppColors.lightTextButtonColor,
+              ),
         ),
+        backgroundColor:
+            const WidgetStatePropertyAll(AppColors.lightSecondColor),
+        foregroundColor: const WidgetStatePropertyAll(AppColors.lightWhite),
+      ),
+    ),
+    elevatedButtonTheme: ElevatedButtonThemeData(
+      style: ButtonStyle(
+        textStyle: WidgetStatePropertyAll<TextStyle>(
+          _WidgetsTheme.lightTextTheme().bodyMedium!.copyWith(
+                color: AppColors.lightTextButtonColor,
+              ),
+        ),
+        backgroundColor:
+            const WidgetStatePropertyAll(AppColors.lightSecondColor),
+        foregroundColor: const WidgetStatePropertyAll(AppColors.lightWhite),
       ),
     ),
     dialogTheme: _WidgetsTheme.dialogTheme().copyWith(

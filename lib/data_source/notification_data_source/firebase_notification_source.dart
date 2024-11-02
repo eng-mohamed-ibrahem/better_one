@@ -51,6 +51,12 @@ class FirebaseNotificationSource implements NotificationSourceInterface {
   }) async {
     try {
       var db = FirebaseFirestore.instance;
+      var queryData =
+          await db.collection(FirebaseConstants.usersNotifications).get();
+
+      if (queryData.docs.isEmpty) {
+        return const ResultHandler.success(data: []);
+      }
       var query = db
           .collection(FirebaseConstants.usersNotifications)
           .orderBy('created_at', descending: true);

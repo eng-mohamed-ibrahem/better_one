@@ -5,10 +5,15 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class CommentInputField extends StatefulWidget {
-  const CommentInputField(
-      {super.key, required this.commentController, required this.onSend});
+  const CommentInputField({
+    super.key,
+    required this.commentController,
+    required this.onSend,
+    this.focusNode,
+  });
   final TextEditingController commentController;
   final Function(String comment) onSend;
+  final FocusNode? focusNode;
 
   @override
   State<CommentInputField> createState() => _CommentInputFieldState();
@@ -45,6 +50,7 @@ class _CommentInputFieldState extends State<CommentInputField> {
         children: [
           Expanded(
             child: TextField(
+              focusNode: widget.focusNode,
               style: Theme.of(context).textTheme.bodyMedium,
               controller: widget.commentController,
               decoration: InputDecoration(
@@ -62,10 +68,7 @@ class _CommentInputFieldState extends State<CommentInputField> {
               ),
               minLines: 1,
               maxLines: 5,
-              textInputAction: TextInputAction.send,
-              onSubmitted: (text) {
-                isEmpty ? null : _sendComment(text);
-              },
+              textInputAction: TextInputAction.newline,
             ),
           ),
           if (!isEmpty)

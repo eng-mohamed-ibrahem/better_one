@@ -43,6 +43,7 @@ class FirebaseRemoteUserSource implements RemoteUserSource {
         .child("${FirebaseConstants.userPhoto}.jpg");
     CommentModel betterOneComment = CommentModel(
       id: '1',
+      senderId: "1",
       taskId: newTask.id,
       comment: "comment.better_one_comment".tr(),
       createdAt: DateTime.now(),

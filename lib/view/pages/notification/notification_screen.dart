@@ -133,7 +133,9 @@ class _NotificationScreenState extends State<NotificationScreen> {
               );
             },
             orElse: () {
-              hasMore = InMemory().getData<bool>(NotificationConstants.hasMore);
+              hasMore =
+                  InMemory().getData<bool?>(NotificationConstants.hasMore) ??
+                      false;
               var notifications = context.read<NotificationViewmodel>().list;
               return notifications.isNotEmpty
                   ? ListView.separated(
@@ -149,7 +151,9 @@ class _NotificationScreenState extends State<NotificationScreen> {
                           );
                         }
                         return InkWell(
-                          onTap: () async {
+                          // for web
+                          mouseCursor: SystemMouseCursors.click,
+                          onTap: () {
                             if (context.mounted) {
                               context.pushNamed(
                                 Routes.sharedTask.name,

@@ -12,5 +12,5 @@ abstract class CommentDataSource {
   Future<ResultHandler<CommentModel, Failure>> updateComment(
       CommentModel comment);
 
-  Future<ResultHandler<bool, Failure>> deleteComment(String commentId);
+  Future<ResultHandler<bool, Failure>> deleteComment(String commentId, String taskId);
 }

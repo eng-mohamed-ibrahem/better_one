@@ -27,10 +27,11 @@ class CommentViewModel extends Cubit<CommentViewModelState> {
     var user = inject<LocaleUserInfo>().getUserData();
     CommentModel userComment = CommentModel(
       id: const Uuid().v4(),
+      senderId: user!.id,
       taskId: taskId,
       comment: comment,
-      userName: user?.name ?? "user name",
-      userImageUrl: user?.photoUrl,
+      userName: user.name,
+      userImageUrl: user.photoUrl,
       createdAt: DateTime.now(),
     );
     final result = await _commentRepo.addComment(userComment);
@@ -45,23 +46,27 @@ class CommentViewModel extends Cubit<CommentViewModelState> {
     );
   }
 
-  void updateComment(CommentModel comment) async {
-    emit(const _UpdateCommentLoading());
-    final result = await _commentRepo.updateComment(comment);
-    result.when(
-      success: (comment) {
-        comments[comments.indexWhere((c) => c.id == comment.id)] = comment;
-        emit(_UpdateCommentSuccess(comment: comment));
-      },
-      failure: (failure) {
-        emit(_UpdateCommentFailed(failure: failure));
-      },
-    );
+  void notifyOfUpdate({required CommentModel oldComment}) {
+    emit(_NotifyUpdateComment(oldComment: oldComment));
   }
 
-  void deleteComment(CommentModel comment) async {
+  void updateComment(CommentModel comment) async {
+    emit(_UpdateCommentLoading(updatedComment: comment));
+    // final result = await _commentRepo.updateComment(comment);
+    // result.when(
+    //   success: (comment) {
+    //     comments[comments.indexWhere((c) => c.id == comment.id)] = comment;
+    //     emit(_UpdateCommentSuccess(comment: comment));
+    //   },
+    //   failure: (failure) {
+    //     emit(_UpdateCommentFailed(failure: failure));
+    //   },
+    // );
+  }
+
+  void deleteComment(CommentModel comment, String taskId) async {
     emit(const _DeleteCommentLoading());
-    final result = await _commentRepo.deleteComment(comment.id);
+    final result = await _commentRepo.deleteComment(comment.id, taskId);
     result.when(
       success: (_) {
         comments.removeWhere((c) => c.id == comment.id);

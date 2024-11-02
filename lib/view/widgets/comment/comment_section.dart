@@ -3,6 +3,7 @@ import 'package:better_one/core/constants/comment_constants.dart';
 import 'package:better_one/core/errors/failure.dart';
 import 'package:better_one/core/in_memory/in_memory.dart';
 import 'package:better_one/view/widgets/comment/comment_card.dart';
+import 'package:better_one/view/widgets/comment/modify_comment_card.dart';
 import 'package:better_one/view_models/comment_viewmodel/comment_viewmodel.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
@@ -23,7 +24,6 @@ class CommentSection extends StatefulWidget {
 
 class _CommentSectionState extends State<CommentSection> {
   late final ScrollController _scrollController;
-  // final TextEditingController _commentController = TextEditingController();
   bool hasMore = false;
   @override
   void initState() {
@@ -119,7 +119,9 @@ class _CommentSectionState extends State<CommentSection> {
                   );
                 },
                 orElse: () {
-                  hasMore = InMemory().getData<bool>(CommentConstants.hasMore);
+                  hasMore =
+                      InMemory().getData<bool?>(CommentConstants.hasMore) ??
+                          false;
                   var comments = context.read<CommentViewModel>().comments;
                   return comments.isEmpty
                       ? Center(
@@ -137,8 +139,14 @@ class _CommentSectionState extends State<CommentSection> {
                                 child: CommentCard.skeleton(),
                               );
                             }
-                            return CommentCard(
+                            return ModifyCommentCard(
+                              key: ValueKey(comments[index].id),
                               comment: comments[index],
+                              onDelete: (comment) {
+                                context
+                                    .read<CommentViewModel>()
+                                    .deleteComment(comment, widget.taskId);
+                              },
                             );
                           },
                           separatorBuilder: (context, index) =>

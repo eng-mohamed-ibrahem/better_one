@@ -34,10 +34,18 @@ class CommentViewModelState with _$CommentViewModelState {
       {required Failure failure}) = _DeleteCommentFailed;
 
   /// Update Comment
-  const factory CommentViewModelState.updateCommentLoading() =
+  const factory CommentViewModelState.updateCommentLoading({
+    required CommentModel updatedComment
+  }) =
       _UpdateCommentLoading;
   const factory CommentViewModelState.updateCommentSuccess(
       {required CommentModel comment}) = _UpdateCommentSuccess;
   const factory CommentViewModelState.updateCommentFailed(
       {required Failure failure}) = _UpdateCommentFailed;
+
+
+  /// notify by update comment
+  const factory CommentViewModelState.notifyUpdateComment(
+      {required CommentModel oldComment}
+  ) = _NotifyUpdateComment;
 }

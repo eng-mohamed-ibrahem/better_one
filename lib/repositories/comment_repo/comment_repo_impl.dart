@@ -31,13 +31,14 @@ class CommentRepoImpl implements CommentRepo {
   }
 
   @override
-  Future<ResultHandler<bool, Failure>> deleteComment(String commentId) async {
+  Future<ResultHandler<bool, Failure>> deleteComment(
+      String commentId, String taskId) async {
     if (await NetworkConnection.isConnected()) {
+      return await _commentDataSource.deleteComment(commentId, taskId);
     } else {
       return ResultHandler.failure(
           error: NoInternetFailure(message: 'core.no_intenet'.tr()));
     }
-    throw UnimplementedError();
   }
 
   @override
@@ -61,10 +62,10 @@ class CommentRepoImpl implements CommentRepo {
   Future<ResultHandler<CommentModel, Failure>> updateComment(
       CommentModel comment) async {
     if (await NetworkConnection.isConnected()) {
+      return await _commentDataSource.updateComment(comment);
     } else {
       return ResultHandler.failure(
           error: NoInternetFailure(message: 'core.no_intenet'.tr()));
     }
-    throw UnimplementedError();
   }
 }

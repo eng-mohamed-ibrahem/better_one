@@ -62,6 +62,7 @@ class _TaskScreenState extends State<TaskDetailsScreen>
   /// [_commentController] is the comment controller for comment input
   final TextEditingController _commentController = TextEditingController();
 
+  final FocusNode _commentFocusNode = FocusNode();
   @override
   void initState() {
     WidgetsBinding.instance.addObserver(this);
@@ -419,9 +420,22 @@ class _TaskScreenState extends State<TaskDetailsScreen>
                     state.whenOrNull(
                       addCommentSuccess: (comment) {
                         _commentController.clear();
+                        _commentFocusNode.unfocus();
                       },
                       addCommentFailed: (failure) {
                         showSnackBar(context, message: failure.message);
+                      },
+                      updateCommentLoading: (_) {
+                        _commentFocusNode.unfocus();
+                      },
+                      updateCommentSuccess: (comment) {
+                        _commentController.clear();
+                        showSnackBar(context,
+                            message: "comment.comment_updated".tr());
+                      },
+                      notifyUpdateComment: (oldComment) {
+                        _commentFocusNode.requestFocus();
+                        _commentController.text = oldComment.comment;
                       },
                     );
                   },
@@ -437,11 +451,25 @@ class _TaskScreenState extends State<TaskDetailsScreen>
                           ),
                           child: CommentInputField(
                             commentController: _commentController,
+                            focusNode: _commentFocusNode,
                             onSend: (comment) {
-                              context.read<CommentViewModel>().addComment(
-                                    comment: comment,
-                                    taskId: widget.taskId,
-                                  );
+                              state.maybeWhen(
+                                notifyUpdateComment: (oldComment) {
+                                  context
+                                      .read<CommentViewModel>()
+                                      .updateComment(
+                                        oldComment.copyWith(
+                                          comment: comment,
+                                        ),
+                                      );
+                                },
+                                orElse: () {
+                                  context.read<CommentViewModel>().addComment(
+                                        comment: comment,
+                                        taskId: widget.taskId,
+                                      );
+                                },
+                              );
                             },
                           ),
                         );
