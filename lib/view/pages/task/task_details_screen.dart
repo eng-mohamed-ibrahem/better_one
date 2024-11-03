@@ -410,6 +410,7 @@ class _TaskScreenState extends State<TaskDetailsScreen>
                       SizedBox(height: AppMetrices.verticalGap.h),
                       CommentSection(
                         taskId: widget.taskId,
+                        commentController: _commentController,
                       ),
                     ],
                   ),
@@ -439,6 +440,7 @@ class _TaskScreenState extends State<TaskDetailsScreen>
                       },
                     );
                   },
+                  //? todo delete it and use dialog to make update typing
                   buildWhen: (previous, current) {
                     return current.maybeWhen(
                       loadMoreCommentsFailed: (failure) => false,
@@ -491,7 +493,8 @@ class _TaskScreenState extends State<TaskDetailsScreen>
       ),
     );
   }
-bool isAboutToUpdate = false;
+
+  bool isAboutToUpdate = false;
   void _handleSendingNotification() {
     task!.status == TaskStatus.done &&
             inject<SettingViewmodel>().notificationSetting.sendOnComplete

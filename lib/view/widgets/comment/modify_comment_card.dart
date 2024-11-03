@@ -23,7 +23,7 @@ class ModifyCommentCard extends StatefulWidget {
 class _ModifyCommentCardState extends State<ModifyCommentCard>
     with TickerProviderStateMixin {
   AnimationController? _animationController;
-  bool isEditing = false;
+  bool isAboutToEdit = false;
   @override
   void initState() {
     super.initState();
@@ -42,9 +42,9 @@ class _ModifyCommentCardState extends State<ModifyCommentCard>
               },
               notifyUpdateComment: (oldComment) {
                 if (oldComment.id == widget.comment.id) {
-                  isEditing = true;
+                  isAboutToEdit = true;
                 } else {
-                  isEditing = false;
+                  isAboutToEdit = false;
                 }
               },
             );
@@ -52,7 +52,7 @@ class _ModifyCommentCardState extends State<ModifyCommentCard>
           builder: (context, state) {
             return state.maybeWhen(
               updateCommentLoading: (updatedComment) {
-                if (isEditing) {
+                if (isAboutToEdit) {
                   _animationController = AnimationController(
                     vsync: this,
                     value: 0.3,
@@ -83,54 +83,76 @@ class _ModifyCommentCardState extends State<ModifyCommentCard>
             );
           },
         ),
-        if (widget.comment.senderId ==
-            inject<LocaleUserInfo>().getUserData()!.id)
+        if (isAboutToEdit == false &&
+            widget.comment.senderId ==
+                inject<LocaleUserInfo>().getUserData()!.id)
           Align(
             alignment: AlignmentDirectional.topEnd,
             child: IconButton(
               onPressed: () {
                 showSheet(
                   context,
-                  content: Column(
+                  content: Row(
                     mainAxisAlignment: MainAxisAlignment.start,
-                    mainAxisSize: MainAxisSize.min,
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      TextButton.icon(
-                        onPressed: () {
-                          Navigator.pop(context);
-                          widget.onEdit?.call();
-                        },
-                        icon: const Icon(Icons.edit, color: Colors.white),
-                        label: Text(
-                          "comment.edit_comment".tr(),
-                          style: Theme.of(context).textTheme.bodyMedium,
-                        ),
-                      ),
-                      SizedBox(
-                        height: 10.h,
-                      ),
-                      TextButton.icon(
-                        onPressed: () {
-                          Navigator.pop(context);
-                          showDeleteCommentDialog(
-                            context,
-                            onConfirm: () {
-                              widget.onDelete?.call(widget.comment);
+                      Column(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        mainAxisSize: MainAxisSize.min,
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          TextButton.icon(
+                            onPressed: () {
+                              Navigator.pop(context);
+                              widget.onEdit?.call();
+                              isAboutToEdit = true;
                             },
-                          );
-                        },
-                        icon: const Icon(Icons.delete, color: Colors.red),
-                        label: Text(
-                          "comment.delete_comment".tr(),
-                          style: Theme.of(context).textTheme.bodyMedium,
-                        ),
+                            icon: const Icon(Icons.edit, color: Colors.white),
+                            label: Text(
+                              "comment.edit_comment".tr(),
+                              style: Theme.of(context).textTheme.bodyMedium,
+                            ),
+                          ),
+                          SizedBox(
+                            height: 10.h,
+                          ),
+                          TextButton.icon(
+                            onPressed: () {
+                              Navigator.pop(context);
+                              showDeleteCommentDialog(
+                                context,
+                                onConfirm: () {
+                                  widget.onDelete?.call(widget.comment);
+                                },
+                              );
+                            },
+                            icon: const Icon(Icons.delete, color: Colors.red),
+                            label: Text(
+                              "comment.delete_comment".tr(),
+                              style: Theme.of(context).textTheme.bodyMedium,
+                            ),
+                          ),
+                        ],
                       ),
                     ],
                   ),
                 );
               },
               icon: const Icon(Icons.more_vert_rounded),
+            ),
+          ),
+        if (isAboutToEdit)
+          Align(
+            alignment: AlignmentDirectional.bottomEnd,
+            child: FilledButton(
+              onPressed: () {
+                isAboutToEdit = false;
+                context.read<CommentViewModel>().cancelUpdate();
+              },
+              child: Text(
+                "core.cancel".tr(),
+                style: Theme.of(context).textTheme.bodySmall,
+              ),
             ),
           ),
       ],

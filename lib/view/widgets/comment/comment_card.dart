@@ -9,6 +9,7 @@ class CommentCard extends StatelessWidget {
     super.key,
     required this.comment,
     this.isSkeleton = false,
+    this.backgroundColor,
   });
 
   factory CommentCard.skeleton() => CommentCard(
@@ -25,10 +26,12 @@ class CommentCard extends StatelessWidget {
       );
   final CommentModel comment;
   final bool isSkeleton;
+  final Color? backgroundColor;
 
   @override
   Widget build(BuildContext context) {
     return Card(
+      color: backgroundColor,
       clipBehavior: Clip.antiAlias,
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(10.r),
@@ -73,8 +76,10 @@ class CommentCard extends StatelessWidget {
                           Text(comment.userName,
                               style: Theme.of(context).textTheme.bodyLarge),
                           SizedBox(height: 10.h),
-                          Text(comment.comment,
-                              style: Theme.of(context).textTheme.bodySmall),
+                          Text(
+                            comment.comment,
+                            style: Theme.of(context).textTheme.bodySmall,
+                          ),
                         ],
                       ),
                     ),

@@ -16,8 +16,10 @@ class CommentSection extends StatefulWidget {
   const CommentSection({
     super.key,
     required this.taskId,
+    required this.commentController,
   });
   final String taskId;
+  final TextEditingController commentController;
   @override
   State<CommentSection> createState() => _CommentSectionState();
 }

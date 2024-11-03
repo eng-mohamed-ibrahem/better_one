@@ -50,6 +50,10 @@ class CommentViewModel extends Cubit<CommentViewModelState> {
     emit(_NotifyUpdateComment(oldComment: oldComment));
   }
 
+  void cancelUpdate() {
+    emit(const _Initial());
+  }
+
   void updateComment(CommentModel comment) async {
     emit(_UpdateCommentLoading(updatedComment: comment));
     final result = await _commentRepo.updateComment(comment);
