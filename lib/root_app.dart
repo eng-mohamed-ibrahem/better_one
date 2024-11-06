@@ -1,5 +1,5 @@
 import 'package:better_one/config/navigation/app_navigation.dart';
-import 'package:better_one/config/themes/app_thems.dart';
+import 'package:better_one/config/themes/app_themes.dart';
 import 'package:better_one/core/utils/background_service/tasks_background_service.dart';
 import 'package:better_one/core/utils/cache_service/cach_interface/locale_user_info.dart';
 import 'package:better_one/core/utils/cache_service/hive_method/hive_init.dart';

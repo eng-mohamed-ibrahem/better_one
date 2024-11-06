@@ -1,5 +1,7 @@
 import 'package:better_one/core/constants/firebase_constants.dart';
+import 'package:better_one/core/constants/notification_constants.dart';
 import 'package:better_one/core/errors/failure.dart';
+import 'package:better_one/core/in_memory/in_memory.dart';
 import 'package:better_one/core/result_handler/result_handler.dart';
 import 'package:better_one/core/utils/methods/methods.dart';
 import 'package:better_one/data_source/notification_data_source/notification_source_interface.dart';
@@ -43,22 +45,40 @@ class FirebaseNotificationSource implements NotificationSourceInterface {
   }
 
   @override
-  Future<ResultHandler<List<QueryDocumentSnapshot>, Failure>> getNotifications(
+  Future<ResultHandler<List<NotificationModel>, Failure>> getNotifications(
     int limit, {
-    QueryDocumentSnapshot? startAfter,
+    bool loadMore = false,
   }) async {
     try {
       var db = FirebaseFirestore.instance;
+      var queryData =
+          await db.collection(FirebaseConstants.usersNotifications).get();
+
+      if (queryData.docs.isEmpty) {
+        return const ResultHandler.success(data: []);
+      }
       var query = db
           .collection(FirebaseConstants.usersNotifications)
           .orderBy('created_at', descending: true);
 
-      if (startAfter != null) {
-        query = query.startAfterDocument(startAfter);
+      if (loadMore) {
+        var lastDocument = InMemory()
+            .getData<QueryDocumentSnapshot>(NotificationConstants.lasDocument);
+        query = query.startAfterDocument(lastDocument);
       }
       var querySnapshot = await query.limit(limit).get();
+      InMemory().addData<QueryDocumentSnapshot>(
+          NotificationConstants.lasDocument, querySnapshot.docs.last);
+      InMemory().addData<bool>(
+          NotificationConstants.hasMore, querySnapshot.docs.length == limit);
 
-      return ResultHandler.success(data: querySnapshot.docs);
+      return ResultHandler.success(
+        data: querySnapshot.docs
+            .map(
+              (e) => NotificationModel.fromJson(e.data()),
+            )
+            .toList(),
+      );
     } catch (e) {
       return ResultHandler.failure(error: OtherFailure(message: e.toString()));
     }

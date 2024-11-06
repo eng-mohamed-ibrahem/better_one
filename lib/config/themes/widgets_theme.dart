@@ -1,4 +1,4 @@
-part of 'app_thems.dart';
+part of 'app_themes.dart';
 
 class _WidgetsTheme {
   static BottomSheetThemeData bottomSheetTheme() {
@@ -65,14 +65,23 @@ class _WidgetsTheme {
       const IconThemeData(color: AppColors.textButtonColor, size: 25);
 
   static FilledButtonThemeData filledButtonTheme() {
-    return const FilledButtonThemeData(
+    return FilledButtonThemeData(
       style: ButtonStyle(
-        backgroundColor: WidgetStatePropertyAll(AppColors.secondColor),
+        backgroundColor: const WidgetStatePropertyAll(AppColors.secondColor),
         textStyle: WidgetStatePropertyAll<TextStyle>(
-          TextStyle(
-            color: AppColors.textButtonColor,
-          ),
+          textTheme().bodyMedium!,
         ),
+      ),
+    );
+  }
+
+  static ElevatedButtonThemeData elevatedButtonTheme() {
+    return ElevatedButtonThemeData(
+      style: ButtonStyle(
+        textStyle: WidgetStatePropertyAll<TextStyle>(
+          textTheme().bodyMedium!,
+        ),
+        backgroundColor: const WidgetStatePropertyAll(AppColors.secondColor),
       ),
     );
   }

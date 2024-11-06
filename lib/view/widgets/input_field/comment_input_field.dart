@@ -1,27 +1,39 @@
+import 'package:better_one/view_models/comment_viewmodel/comment_viewmodel.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class CommentInputField extends StatefulWidget {
-  const CommentInputField(
-      {super.key, required this.commentController, required this.onSend});
+  const CommentInputField({
+    super.key,
+    required this.commentController,
+    required this.onSend,
+    this.focusNode,
+  });
   final TextEditingController commentController;
   final Function(String comment) onSend;
+  final FocusNode? focusNode;
 
   @override
   State<CommentInputField> createState() => _CommentInputFieldState();
 }
 
 class _CommentInputFieldState extends State<CommentInputField> {
-  bool isTyped = false;
+  bool isEmpty = true;
   @override
   void initState() {
     widget.commentController.addListener(() {
-      isTyped
-          ? null
-          : setState(() {
-              isTyped = true;
-            });
+      widget.commentController.text.isNotEmpty && isEmpty
+          ? setState(() {
+              isEmpty = false;
+            })
+          : null;
+      if (widget.commentController.text.isEmpty) {
+        setState(() {
+          isEmpty = true;
+        });
+      }
     });
     super.initState();
   }
@@ -31,13 +43,15 @@ class _CommentInputFieldState extends State<CommentInputField> {
     return Container(
       padding: EdgeInsets.symmetric(horizontal: 10.w, vertical: 5.h),
       decoration: BoxDecoration(
-        color: Theme.of(context).primaryColorLight,
+        color: Theme.of(context).secondaryHeaderColor,
         borderRadius: BorderRadius.circular(10.r),
       ),
       child: Row(
         children: [
           Expanded(
             child: TextField(
+              focusNode: widget.focusNode,
+              style: Theme.of(context).textTheme.bodyMedium,
               controller: widget.commentController,
               decoration: InputDecoration(
                 hintText: 'comment.hint'.tr(),
@@ -45,40 +59,47 @@ class _CommentInputFieldState extends State<CommentInputField> {
                       color: Theme.of(context).disabledColor,
                     ),
                 filled: true,
-                fillColor: Theme.of(context).primaryColorLight,
+                fillColor: Theme.of(context).primaryColor,
                 contentPadding: EdgeInsets.all(10.h),
                 border: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(12.0),
                   borderSide: BorderSide.none,
                 ),
               ),
-              maxLines: null,
-              textInputAction: TextInputAction.send,
-              onSubmitted: (text) {
-                isTyped
-                    ? () {
-                        if (widget.commentController.text.isEmpty) {
-                          return;
-                        }
-                        widget.onSend(text);
-                      }()
-                    : null;
-              },
+              minLines: 1,
+              maxLines: 5,
+              textInputAction: TextInputAction.newline,
             ),
           ),
-          IconButton(
-            onPressed: isTyped
-                ? () {
-                    if (widget.commentController.text.isEmpty) {
-                      return;
-                    }
-                    widget.onSend(widget.commentController.text);
-                  }
-                : null,
-            icon: const Icon(Icons.send),
-          ),
+          if (!isEmpty)
+            BlocBuilder<CommentViewModel, CommentViewModelState>(
+              builder: (context, state) {
+                return state.maybeWhen(
+                  addCommentLoading: () => CircleAvatar(
+                    radius: 12.r,
+                    backgroundColor: Colors.transparent,
+                    child: const CircularProgressIndicator(),
+                  ),
+                  orElse: () {
+                    return IconButton(
+                      onPressed: () {
+                        _sendComment(widget.commentController.text);
+                      },
+                      icon: const Icon(Icons.send),
+                    );
+                  },
+                );
+              },
+            ),
         ],
       ),
     );
+  }
+
+  void _sendComment(String text) {
+    if (widget.commentController.text.isEmpty) {
+      return;
+    }
+    widget.onSend(text);
   }
 }

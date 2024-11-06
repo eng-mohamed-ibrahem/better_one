@@ -4,12 +4,17 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class CommentCard extends StatelessWidget {
-  const CommentCard(
-      {super.key, required this.comment, this.isSkeleton = false});
+  const CommentCard({
+    super.key,
+    required this.comment,
+    this.isSkeleton = false,
+    this.backgroundColor,
+  });
 
   factory CommentCard.skeleton() => CommentCard(
         comment: CommentModel(
           id: "id",
+          senderId: "senderId",
           taskId: "taskId",
           userName: "userName",
           userImageUrl: "userImageUrl",
@@ -20,10 +25,12 @@ class CommentCard extends StatelessWidget {
       );
   final CommentModel comment;
   final bool isSkeleton;
+  final Color? backgroundColor;
 
   @override
   Widget build(BuildContext context) {
     return Card(
+      color: backgroundColor ?? Theme.of(context).secondaryHeaderColor,
       clipBehavior: Clip.antiAlias,
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(10.r),
@@ -66,8 +73,10 @@ class CommentCard extends StatelessWidget {
                       Text(comment.userName,
                           style: Theme.of(context).textTheme.bodyLarge),
                       SizedBox(height: 10.h),
-                      Text(comment.comment,
-                          style: Theme.of(context).textTheme.bodySmall),
+                      Text(
+                        comment.comment,
+                        style: Theme.of(context).textTheme.bodySmall,
+                      ),
                     ],
                   ),
                 ),
@@ -75,7 +84,8 @@ class CommentCard extends StatelessWidget {
             ),
             SizedBox(height: 10.h),
             if (isSkeleton) const Text("createdAt"),
-            if (!isSkeleton) SwitchDateTime(dateTime: comment.createdAt),
+            if (isSkeleton == false)
+              SwitchDateTime(dateTime: comment.createdAt),
           ],
         ),
       ),

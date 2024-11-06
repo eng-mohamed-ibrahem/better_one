@@ -1,6 +1,7 @@
+import 'package:better_one/config/navigation/app_navigation.dart';
 import 'package:better_one/config/navigation/routes_enum.dart';
 import 'package:better_one/core/constants/comment_constants.dart';
-import 'package:better_one/core/utils/methods/methods.dart';
+import 'package:better_one/core/constants/notification_constants.dart';
 import 'package:flutter/material.dart';
 
 /// In-memory storage for application data.
@@ -47,20 +48,15 @@ class InMemory extends NavigatorObserver {
   }
 
   @override
-  void didPop(Route route, Route? previousRoute) {
-    kDebugPrint("pop route: ${route.settings.name}, previous route: ${previousRoute?.settings.name}");
-    if (route.settings.name == Routes.taskDetails.name) {
+  void didPush(Route route, Route? previousRoute) {
+    if (AppNavigation.activeRoute.contains(Routes.taskDetails.path)) {
       removeData(CommentConstants.hasMore);
       removeData(CommentConstants.lasDocument);
-      kDebugPrint("removed data when pop route: ${route.settings.name}");
     }
-    super.didPop(route, previousRoute);
-  }
-
-  @override
-  void didPush(Route route, Route? previousRoute) {
-    kDebugPrint(
-        "push route: ${route.settings.name}, previous route: ${previousRoute?.settings.name}");
+    if (AppNavigation.activeRoute.contains(Routes.notification.path)) {
+      removeData(NotificationConstants.hasMore);
+      removeData(NotificationConstants.lasDocument);
+    }
     super.didPush(route, previousRoute);
   }
 }

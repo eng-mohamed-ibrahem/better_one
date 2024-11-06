@@ -27,8 +27,20 @@ class FirebaseCommentDataSource implements CommentDataSource {
   }
 
   @override
-  Future<ResultHandler<bool, Failure>> deleteComment(String commentId) async {
-    throw UnimplementedError();
+  Future<ResultHandler<bool, Failure>> deleteComment(
+      String commentId, String taskId) async {
+    try {
+      var db = FirebaseFirestore.instance;
+      await db
+          .collection(FirebaseConstants.comments)
+          .doc(taskId)
+          .collection(FirebaseConstants.taskComments)
+          .doc(commentId)
+          .delete();
+      return const ResultHandler.success(data: true);
+    } catch (e) {
+      return ResultHandler.failure(error: OtherFailure(message: e.toString()));
+    }
   }
 
   @override
@@ -61,7 +73,7 @@ class FirebaseCommentDataSource implements CommentDataSource {
       InMemory().addData<QueryDocumentSnapshot>(
           CommentConstants.lasDocument, querySnapshot.docs.last);
       InMemory().addData<bool>(
-          CommentConstants.hasMore, querySnapshot.docs.length == 10);
+          CommentConstants.hasMore, querySnapshot.docs.length == limit);
       return ResultHandler.success(
         data: querySnapshot.docs
             .map((e) => CommentModel.fromJson(e.data()))
@@ -75,6 +87,17 @@ class FirebaseCommentDataSource implements CommentDataSource {
   @override
   Future<ResultHandler<CommentModel, Failure>> updateComment(
       CommentModel comment) async {
-    throw UnimplementedError();
+    try {
+      var db = FirebaseFirestore.instance;
+      await db
+          .collection(FirebaseConstants.comments)
+          .doc(comment.taskId)
+          .collection(FirebaseConstants.taskComments)
+          .doc(comment.id)
+          .set(comment.toJson());
+      return ResultHandler.success(data: comment);
+    } catch (e) {
+      return ResultHandler.failure(error: OtherFailure(message: e.toString()));
+    }
   }
 }

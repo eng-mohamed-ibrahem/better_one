@@ -2,7 +2,6 @@ import 'package:better_one/core/errors/failure.dart';
 import 'package:better_one/model/notification_model/notification_model.dart';
 import 'package:better_one/model/task_model/task_model.dart';
 import 'package:better_one/repositories/notification_repo/notification_repo_interface.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
@@ -15,17 +14,16 @@ class NotificationViewmodel extends Cubit<NotificationViewmodelState> {
         super(const NotificationViewmodelState.initial());
   final NotificationRepoInterface _notificationRepo;
   late final Stream<List<NotificationModel>> tasksStream;
-  final List<QueryDocumentSnapshot<Object?>> list = [];
+  final List<NotificationModel> list = [];
 
   void sendNotification(NotificationModel notification) async {
-    emit(const _SendNotificationloading());
+    emit(const _SendNotificationLoading());
     var result = await _notificationRepo.sendNotification(notification);
     result.when(
       success: (_) => emit(const _SendNotificationSuccess()),
       failure: (failure) => emit(
         _SendNotificationFailed(
           failure: failure,
-          message: failure.message,
         ),
       ),
     );
@@ -44,34 +42,37 @@ class NotificationViewmodel extends Cubit<NotificationViewmodelState> {
       failure: (failure) => emit(
         _GetNotificationStreamFailed(
           failure: failure,
-          message: failure.message,
         ),
       ),
     );
   }
 
-  QueryDocumentSnapshot<Object?>? lastDocument;
-  void getNotifications() async {
+  void getNotifications({bool loadMore = false}) async {
+    if (state is _GetNewNotificationsLoading) {
+      return;
+    }
     emit(
-      lastDocument == null
-          ? const _GetNotificationloading()
-          : const _GetNewNotificationloading(),
+      loadMore
+          ? const _GetNewNotificationsLoading()
+          : const _GetNotificationsLoading(),
     );
     var result =
-        await _notificationRepo.getNotifications(10, startAfter: lastDocument);
+        await _notificationRepo.getNotifications(10, loadMore: loadMore);
     result.when(
-      success: (docs) {
-        docs.isNotEmpty ? lastDocument = docs.last : null;
-        list.addAll(docs);
+      success: (notifications) {
+        list.addAll(notifications);
         emit(
-          _GetNotificationSuccess(list: list),
+          _GetNotificationsSuccess(list: notifications),
         );
       },
       failure: (failure) => emit(
-        _GetNotificationFailed(
-          failure: failure,
-          message: failure.message,
-        ),
+        loadMore
+            ? _GetNewNotificationsFailed(
+                failure: failure,
+              )
+            : _GetNotificationsFailed(
+                failure: failure,
+              ),
       ),
     );
   }

@@ -78,13 +78,19 @@
     "comment": {
         "add": "Add Comment",
         "title": "Comments",
-        "update": "Update Comment",
-        "delete": "Delete Comment",
         "empty": "No comments found",
         "retry": "Try again",
         "hint": "Comment",
         "better_one_comment": "Hi, I am Better One. I am always here for you. 😊",
-        "login_req": "Login is required firstly, to see and add comments"
+        "login_req": "Login is required firstly, to see and add comments",
+        "edit": "Edit",
+        "delete": "Delete",
+        "like": "Like",
+        "delete_comment": "Delete Comment",
+        "delete_msg":"Deleting the comment will remove it from the conversation.",
+        "edit_comment": "Edit Comment",
+        "comment_updated": "Comment updated successfully",
+        "comment_removed": "Comment removed successfully"
     },
     "setting": {
         "name": "App Settings",

@@ -34,7 +34,7 @@ class NotificationBackgroundService {
           autoStart: true,
           isForegroundMode: true,
           // this must match with notification channel you created in Flutter Locale Notificatiton.
-          notificationChannelId: NotificaitonConstants.notificationChannelId,
+          notificationChannelId: NotificationConstants.notificationChannelId,
           foregroundServiceNotificationId: 999,
           initialNotificationTitle: "Better One",
           initialNotificationContent: "Better One is running",
@@ -46,10 +46,10 @@ class NotificationBackgroundService {
   static void muteNotification() async {
     final service = FlutterBackgroundService();
     service.invoke(
-      NotificaitonConstants.notificationService,
+      NotificationConstants.notificationService,
       {
-        NotificaitonConstants.notificationAction:
-            NotificaitonConstants.stopService,
+        NotificationConstants.notificationAction:
+            NotificationConstants.stopService,
       },
     );
   }
@@ -104,10 +104,10 @@ class NotificationBackgroundService {
         firstTimeListening = true;
       },
     );
-    service.on(NotificaitonConstants.notificationService).listen((event) {
+    service.on(NotificationConstants.notificationService).listen((event) {
       kDebugPrint("notification: $event");
-      if (event?[NotificaitonConstants.notificationAction] ==
-          NotificaitonConstants.stopService) {
+      if (event?[NotificationConstants.notificationAction] ==
+          NotificationConstants.stopService) {
         kDebugPrint("notification service stopped");
         service.stopSelf();
       }

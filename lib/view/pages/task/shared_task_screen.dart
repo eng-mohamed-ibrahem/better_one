@@ -22,8 +22,8 @@ class _SharedTaskScreenState extends State<SharedTaskScreen> {
 
   @override
   void initState() {
-    taskId = widget.payload[NotificaitonConstants.taskId];
-    senderId = widget.payload[NotificaitonConstants.senderId];
+    taskId = widget.payload[NotificationConstants.taskId];
+    senderId = widget.payload[NotificationConstants.senderId];
     context
         .read<NotificationViewmodel>()
         .getTaskFromNotification(taskId: taskId, senderId: senderId);

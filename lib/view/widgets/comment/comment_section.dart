@@ -2,8 +2,8 @@ import 'package:better_one/config/navigation/routes_enum.dart';
 import 'package:better_one/core/constants/comment_constants.dart';
 import 'package:better_one/core/errors/failure.dart';
 import 'package:better_one/core/in_memory/in_memory.dart';
-import 'package:better_one/core/utils/methods/methods.dart';
 import 'package:better_one/view/widgets/comment/comment_card.dart';
+import 'package:better_one/view/widgets/comment/modify_comment_card.dart';
 import 'package:better_one/view_models/comment_viewmodel/comment_viewmodel.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
@@ -16,35 +16,22 @@ class CommentSection extends StatefulWidget {
   const CommentSection({
     super.key,
     required this.taskId,
+    required this.commentController,
   });
   final String taskId;
+  final TextEditingController commentController;
   @override
   State<CommentSection> createState() => _CommentSectionState();
 }
 
 class _CommentSectionState extends State<CommentSection> {
   late final ScrollController _scrollController;
-  // final TextEditingController _commentController = TextEditingController();
   bool hasMore = false;
   @override
   void initState() {
     context.read<CommentViewModel>().getComments(widget.taskId);
     _scrollController = ScrollController();
     super.initState();
-  }
-
-  void _handleListener() {
-    _scrollController.addListener(() {
-      hasMore = InMemory().getData<bool>(CommentConstants.hasMore);
-      kDebugPrint("hasMore: $hasMore");
-      if (hasMore &&
-          _scrollController.offset >=
-              _scrollController.position.maxScrollExtent) {
-        context
-            .read<CommentViewModel>()
-            .getComments(widget.taskId, loadMore: hasMore);
-      }
-    });
   }
 
   @override
@@ -134,7 +121,9 @@ class _CommentSectionState extends State<CommentSection> {
                   );
                 },
                 orElse: () {
-                  hasMore = InMemory().getData<bool>(CommentConstants.hasMore);
+                  hasMore =
+                      InMemory().getData<bool?>(CommentConstants.hasMore) ??
+                          false;
                   var comments = context.read<CommentViewModel>().comments;
                   return comments.isEmpty
                       ? Center(
@@ -148,16 +137,23 @@ class _CommentSectionState extends State<CommentSection> {
                           controller: _scrollController,
                           itemBuilder: (context, index) {
                             if (index == comments.length) {
-                              return Center(
-                                child: SizedBox(
-                                  width: 15.w,
-                                  height: 15.h,
-                                  child: const CircularProgressIndicator(),
-                                ),
+                              return Skeletonizer(
+                                child: CommentCard.skeleton(),
                               );
                             }
-                            return CommentCard(
+                            return ModifyCommentCard(
+                              key: ValueKey(comments[index].id),
                               comment: comments[index],
+                              onDelete: (comment) {
+                                context
+                                    .read<CommentViewModel>()
+                                    .deleteComment(comment, widget.taskId);
+                              },
+                              onEdit: () {
+                                context.read<CommentViewModel>().notifyOfUpdate(
+                                      oldComment: comments[index],
+                                    );
+                              },
                             );
                           },
                           separatorBuilder: (context, index) =>

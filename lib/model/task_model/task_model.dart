@@ -18,6 +18,7 @@ class TaskModel with _$TaskModel {
     @JsonKey(name: 'elapsed_time') @Default(Duration.zero) Duration elapsedTime,
     @Default(TaskStatus.created) TaskStatus status,
     @Default(false) bool backup,
+    @Default(0) int likes,
   }) = _TaskModel;
 
   factory TaskModel.fromJson(Map<String, dynamic> json) =>

@@ -3,15 +3,15 @@ import 'package:better_one/view/widgets/switch_date_time_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-class CardNotification extends StatelessWidget {
-  const CardNotification(
+class NotificationCard extends StatelessWidget {
+  const NotificationCard(
       {super.key, required this.notification, this.isSkeleton = false});
   final NotificationModel notification;
   final bool isSkeleton;
-  factory CardNotification.skeleton({
+  factory NotificationCard.skeleton({
     bool isSkeleton = true,
   }) {
-    return CardNotification(
+    return NotificationCard(
       notification: NotificationModel(
         userName: "userName",
         senderId: "senderId",

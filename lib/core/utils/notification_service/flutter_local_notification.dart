@@ -39,7 +39,7 @@ class FlutterLocalNotification {
   }
 
   AndroidNotificationChannel channel = const AndroidNotificationChannel(
-    NotificaitonConstants.notificationChannelId,
+    NotificationConstants.notificationChannelId,
     'MY FOREGROUND SERVICE',
     description: 'This channel is used for important notifications.',
     importance: Importance.high,
@@ -62,7 +62,7 @@ class FlutterLocalNotification {
 
   NotificationDetails notificationDetails = const NotificationDetails(
     android: AndroidNotificationDetails(
-      NotificaitonConstants.notificationChannelId,
+      NotificationConstants.notificationChannelId,
       'channel_name',
       channelDescription: 'This channel is used for important notifications.',
       priority: Priority.high,
@@ -84,8 +84,8 @@ class FlutterLocalNotification {
       notification.comment,
       notificationDetails,
       payload: jsonEncode({
-        NotificaitonConstants.taskId: notification.payload,
-        NotificaitonConstants.senderId: notification.senderId
+        NotificationConstants.taskId: notification.payload,
+        NotificationConstants.senderId: notification.senderId
       }),
     );
 

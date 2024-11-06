@@ -27,10 +27,11 @@ class CommentViewModel extends Cubit<CommentViewModelState> {
     var user = inject<LocaleUserInfo>().getUserData();
     CommentModel userComment = CommentModel(
       id: const Uuid().v4(),
+      senderId: user!.id,
       taskId: taskId,
       comment: comment,
-      userName: user?.name ?? "user name",
-      userImageUrl: user?.photoUrl,
+      userName: user.name,
+      userImageUrl: user.photoUrl,
       createdAt: DateTime.now(),
     );
     final result = await _commentRepo.addComment(userComment);
@@ -45,8 +46,16 @@ class CommentViewModel extends Cubit<CommentViewModelState> {
     );
   }
 
+  void notifyOfUpdate({required CommentModel oldComment}) {
+    emit(_NotifyUpdateComment(oldComment: oldComment));
+  }
+
+  void cancelUpdate() {
+    emit(const _CancelUpdate());
+  }
+
   void updateComment(CommentModel comment) async {
-    emit(const _UpdateCommentLoading());
+    emit(_UpdateCommentLoading(updatedComment: comment));
     final result = await _commentRepo.updateComment(comment);
     result.when(
       success: (comment) {
@@ -59,9 +68,48 @@ class CommentViewModel extends Cubit<CommentViewModelState> {
     );
   }
 
-  void deleteComment(CommentModel comment) async {
+  void reactOnComment(CommentModel comment, ReactionStatus reaction) async {
+    emit(const _ReactOnCommentLoading());
+    var user = inject<LocaleUserInfo>().getUserData();
+    if (reaction == ReactionStatus.none) {
+      var newMap = Map.from(comment.usersReactions);
+      comment = comment.copyWith(
+        usersReactions: {
+          ...newMap..remove(user!.id),
+        },
+      );
+    } else {
+      comment = comment.copyWith(
+        usersReactions: {
+          ...comment.usersReactions,
+          user!.id: reaction,
+        },
+      );
+    }
+    final result = await _commentRepo.updateComment(comment);
+    result.when(
+      success: (comment) {
+        comments[comments.indexWhere((c) => c.id == comment.id)] = comment;
+        emit(_ReactOnCommentSuccess(comment: comment));
+      },
+      failure: (failure) {
+        emit(_ReactOnCommentFailed(failure: failure));
+      },
+    );
+  }
+
+  void toogleCommentLike(CommentModel comment) async {
+    reactOnComment(
+        comment,
+        comment.usersReactions
+                .containsKey(inject<LocaleUserInfo>().getUserData()!.id)
+            ? ReactionStatus.none
+            : ReactionStatus.like);
+  }
+
+  void deleteComment(CommentModel comment, String taskId) async {
     emit(const _DeleteCommentLoading());
-    final result = await _commentRepo.deleteComment(comment.id);
+    final result = await _commentRepo.deleteComment(comment.id, taskId);
     result.when(
       success: (_) {
         comments.removeWhere((c) => c.id == comment.id);
