@@ -51,7 +51,7 @@ class CommentViewModel extends Cubit<CommentViewModelState> {
   }
 
   void cancelUpdate() {
-    emit(const _Initial());
+    emit(const _CancelUpdate());
   }
 
   void updateComment(CommentModel comment) async {
@@ -66,6 +66,45 @@ class CommentViewModel extends Cubit<CommentViewModelState> {
         emit(_UpdateCommentFailed(failure: failure));
       },
     );
+  }
+
+  void reactOnComment(CommentModel comment, ReactionStatus reaction) async {
+    emit(const _ReactOnCommentLoading());
+    var user = inject<LocaleUserInfo>().getUserData();
+    if (reaction == ReactionStatus.none) {
+      var newMap = Map.from(comment.usersReactions);
+      comment = comment.copyWith(
+        usersReactions: {
+          ...newMap..remove(user!.id),
+        },
+      );
+    } else {
+      comment = comment.copyWith(
+        usersReactions: {
+          ...comment.usersReactions,
+          user!.id: reaction,
+        },
+      );
+    }
+    final result = await _commentRepo.updateComment(comment);
+    result.when(
+      success: (comment) {
+        comments[comments.indexWhere((c) => c.id == comment.id)] = comment;
+        emit(_ReactOnCommentSuccess(comment: comment));
+      },
+      failure: (failure) {
+        emit(_ReactOnCommentFailed(failure: failure));
+      },
+    );
+  }
+
+  void toogleCommentLike(CommentModel comment) async {
+    reactOnComment(
+        comment,
+        comment.usersReactions
+                .containsKey(inject<LocaleUserInfo>().getUserData()!.id)
+            ? ReactionStatus.none
+            : ReactionStatus.like);
   }
 
   void deleteComment(CommentModel comment, String taskId) async {

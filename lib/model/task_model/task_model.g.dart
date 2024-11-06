@@ -23,6 +23,7 @@ _$TaskModelImpl _$$TaskModelImplFromJson(Map<String, dynamic> json) =>
       status: $enumDecodeNullable(_$TaskStatusEnumMap, json['status']) ??
           TaskStatus.created,
       backup: json['backup'] as bool? ?? false,
+      likes: (json['likes'] as num?)?.toInt() ?? 0,
     );
 
 Map<String, dynamic> _$$TaskModelImplToJson(_$TaskModelImpl instance) =>
@@ -35,6 +36,7 @@ Map<String, dynamic> _$$TaskModelImplToJson(_$TaskModelImpl instance) =>
       'elapsed_time': instance.elapsedTime.inMicroseconds,
       'status': _$TaskStatusEnumMap[instance.status]!,
       'backup': instance.backup,
+      'likes': instance.likes,
     };
 
 const _$TaskStatusEnumMap = {

@@ -34,6 +34,10 @@ mixin _$CommentViewModelState {
     required TResult Function(CommentModel comment) updateCommentSuccess,
     required TResult Function(Failure failure) updateCommentFailed,
     required TResult Function(CommentModel oldComment) notifyUpdateComment,
+    required TResult Function() reactOnCommentLoading,
+    required TResult Function(CommentModel comment) reactOnCommentSuccess,
+    required TResult Function(Failure failure) reactOnCommentFailed,
+    required TResult Function() cancelUpdate,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -54,6 +58,10 @@ mixin _$CommentViewModelState {
     TResult? Function(CommentModel comment)? updateCommentSuccess,
     TResult? Function(Failure failure)? updateCommentFailed,
     TResult? Function(CommentModel oldComment)? notifyUpdateComment,
+    TResult? Function()? reactOnCommentLoading,
+    TResult? Function(CommentModel comment)? reactOnCommentSuccess,
+    TResult? Function(Failure failure)? reactOnCommentFailed,
+    TResult? Function()? cancelUpdate,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -74,6 +82,10 @@ mixin _$CommentViewModelState {
     TResult Function(CommentModel comment)? updateCommentSuccess,
     TResult Function(Failure failure)? updateCommentFailed,
     TResult Function(CommentModel oldComment)? notifyUpdateComment,
+    TResult Function()? reactOnCommentLoading,
+    TResult Function(CommentModel comment)? reactOnCommentSuccess,
+    TResult Function(Failure failure)? reactOnCommentFailed,
+    TResult Function()? cancelUpdate,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -97,6 +109,12 @@ mixin _$CommentViewModelState {
     required TResult Function(_UpdateCommentSuccess value) updateCommentSuccess,
     required TResult Function(_UpdateCommentFailed value) updateCommentFailed,
     required TResult Function(_NotifyUpdateComment value) notifyUpdateComment,
+    required TResult Function(_ReactOnCommentLoading value)
+        reactOnCommentLoading,
+    required TResult Function(_ReactOnCommentSuccess value)
+        reactOnCommentSuccess,
+    required TResult Function(_ReactOnCommentFailed value) reactOnCommentFailed,
+    required TResult Function(_CancelUpdate value) cancelUpdate,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -117,6 +135,10 @@ mixin _$CommentViewModelState {
     TResult? Function(_UpdateCommentSuccess value)? updateCommentSuccess,
     TResult? Function(_UpdateCommentFailed value)? updateCommentFailed,
     TResult? Function(_NotifyUpdateComment value)? notifyUpdateComment,
+    TResult? Function(_ReactOnCommentLoading value)? reactOnCommentLoading,
+    TResult? Function(_ReactOnCommentSuccess value)? reactOnCommentSuccess,
+    TResult? Function(_ReactOnCommentFailed value)? reactOnCommentFailed,
+    TResult? Function(_CancelUpdate value)? cancelUpdate,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -137,6 +159,10 @@ mixin _$CommentViewModelState {
     TResult Function(_UpdateCommentSuccess value)? updateCommentSuccess,
     TResult Function(_UpdateCommentFailed value)? updateCommentFailed,
     TResult Function(_NotifyUpdateComment value)? notifyUpdateComment,
+    TResult Function(_ReactOnCommentLoading value)? reactOnCommentLoading,
+    TResult Function(_ReactOnCommentSuccess value)? reactOnCommentSuccess,
+    TResult Function(_ReactOnCommentFailed value)? reactOnCommentFailed,
+    TResult Function(_CancelUpdate value)? cancelUpdate,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -221,6 +247,10 @@ class _$InitialImpl implements _Initial {
     required TResult Function(CommentModel comment) updateCommentSuccess,
     required TResult Function(Failure failure) updateCommentFailed,
     required TResult Function(CommentModel oldComment) notifyUpdateComment,
+    required TResult Function() reactOnCommentLoading,
+    required TResult Function(CommentModel comment) reactOnCommentSuccess,
+    required TResult Function(Failure failure) reactOnCommentFailed,
+    required TResult Function() cancelUpdate,
   }) {
     return initial();
   }
@@ -244,6 +274,10 @@ class _$InitialImpl implements _Initial {
     TResult? Function(CommentModel comment)? updateCommentSuccess,
     TResult? Function(Failure failure)? updateCommentFailed,
     TResult? Function(CommentModel oldComment)? notifyUpdateComment,
+    TResult? Function()? reactOnCommentLoading,
+    TResult? Function(CommentModel comment)? reactOnCommentSuccess,
+    TResult? Function(Failure failure)? reactOnCommentFailed,
+    TResult? Function()? cancelUpdate,
   }) {
     return initial?.call();
   }
@@ -267,6 +301,10 @@ class _$InitialImpl implements _Initial {
     TResult Function(CommentModel comment)? updateCommentSuccess,
     TResult Function(Failure failure)? updateCommentFailed,
     TResult Function(CommentModel oldComment)? notifyUpdateComment,
+    TResult Function()? reactOnCommentLoading,
+    TResult Function(CommentModel comment)? reactOnCommentSuccess,
+    TResult Function(Failure failure)? reactOnCommentFailed,
+    TResult Function()? cancelUpdate,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -296,6 +334,12 @@ class _$InitialImpl implements _Initial {
     required TResult Function(_UpdateCommentSuccess value) updateCommentSuccess,
     required TResult Function(_UpdateCommentFailed value) updateCommentFailed,
     required TResult Function(_NotifyUpdateComment value) notifyUpdateComment,
+    required TResult Function(_ReactOnCommentLoading value)
+        reactOnCommentLoading,
+    required TResult Function(_ReactOnCommentSuccess value)
+        reactOnCommentSuccess,
+    required TResult Function(_ReactOnCommentFailed value) reactOnCommentFailed,
+    required TResult Function(_CancelUpdate value) cancelUpdate,
   }) {
     return initial(this);
   }
@@ -319,6 +363,10 @@ class _$InitialImpl implements _Initial {
     TResult? Function(_UpdateCommentSuccess value)? updateCommentSuccess,
     TResult? Function(_UpdateCommentFailed value)? updateCommentFailed,
     TResult? Function(_NotifyUpdateComment value)? notifyUpdateComment,
+    TResult? Function(_ReactOnCommentLoading value)? reactOnCommentLoading,
+    TResult? Function(_ReactOnCommentSuccess value)? reactOnCommentSuccess,
+    TResult? Function(_ReactOnCommentFailed value)? reactOnCommentFailed,
+    TResult? Function(_CancelUpdate value)? cancelUpdate,
   }) {
     return initial?.call(this);
   }
@@ -342,6 +390,10 @@ class _$InitialImpl implements _Initial {
     TResult Function(_UpdateCommentSuccess value)? updateCommentSuccess,
     TResult Function(_UpdateCommentFailed value)? updateCommentFailed,
     TResult Function(_NotifyUpdateComment value)? notifyUpdateComment,
+    TResult Function(_ReactOnCommentLoading value)? reactOnCommentLoading,
+    TResult Function(_ReactOnCommentSuccess value)? reactOnCommentSuccess,
+    TResult Function(_ReactOnCommentFailed value)? reactOnCommentFailed,
+    TResult Function(_CancelUpdate value)? cancelUpdate,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -412,6 +464,10 @@ class _$GetCommentsLoadingImpl implements _GetCommentsLoading {
     required TResult Function(CommentModel comment) updateCommentSuccess,
     required TResult Function(Failure failure) updateCommentFailed,
     required TResult Function(CommentModel oldComment) notifyUpdateComment,
+    required TResult Function() reactOnCommentLoading,
+    required TResult Function(CommentModel comment) reactOnCommentSuccess,
+    required TResult Function(Failure failure) reactOnCommentFailed,
+    required TResult Function() cancelUpdate,
   }) {
     return getCommentsLoading();
   }
@@ -435,6 +491,10 @@ class _$GetCommentsLoadingImpl implements _GetCommentsLoading {
     TResult? Function(CommentModel comment)? updateCommentSuccess,
     TResult? Function(Failure failure)? updateCommentFailed,
     TResult? Function(CommentModel oldComment)? notifyUpdateComment,
+    TResult? Function()? reactOnCommentLoading,
+    TResult? Function(CommentModel comment)? reactOnCommentSuccess,
+    TResult? Function(Failure failure)? reactOnCommentFailed,
+    TResult? Function()? cancelUpdate,
   }) {
     return getCommentsLoading?.call();
   }
@@ -458,6 +518,10 @@ class _$GetCommentsLoadingImpl implements _GetCommentsLoading {
     TResult Function(CommentModel comment)? updateCommentSuccess,
     TResult Function(Failure failure)? updateCommentFailed,
     TResult Function(CommentModel oldComment)? notifyUpdateComment,
+    TResult Function()? reactOnCommentLoading,
+    TResult Function(CommentModel comment)? reactOnCommentSuccess,
+    TResult Function(Failure failure)? reactOnCommentFailed,
+    TResult Function()? cancelUpdate,
     required TResult orElse(),
   }) {
     if (getCommentsLoading != null) {
@@ -487,6 +551,12 @@ class _$GetCommentsLoadingImpl implements _GetCommentsLoading {
     required TResult Function(_UpdateCommentSuccess value) updateCommentSuccess,
     required TResult Function(_UpdateCommentFailed value) updateCommentFailed,
     required TResult Function(_NotifyUpdateComment value) notifyUpdateComment,
+    required TResult Function(_ReactOnCommentLoading value)
+        reactOnCommentLoading,
+    required TResult Function(_ReactOnCommentSuccess value)
+        reactOnCommentSuccess,
+    required TResult Function(_ReactOnCommentFailed value) reactOnCommentFailed,
+    required TResult Function(_CancelUpdate value) cancelUpdate,
   }) {
     return getCommentsLoading(this);
   }
@@ -510,6 +580,10 @@ class _$GetCommentsLoadingImpl implements _GetCommentsLoading {
     TResult? Function(_UpdateCommentSuccess value)? updateCommentSuccess,
     TResult? Function(_UpdateCommentFailed value)? updateCommentFailed,
     TResult? Function(_NotifyUpdateComment value)? notifyUpdateComment,
+    TResult? Function(_ReactOnCommentLoading value)? reactOnCommentLoading,
+    TResult? Function(_ReactOnCommentSuccess value)? reactOnCommentSuccess,
+    TResult? Function(_ReactOnCommentFailed value)? reactOnCommentFailed,
+    TResult? Function(_CancelUpdate value)? cancelUpdate,
   }) {
     return getCommentsLoading?.call(this);
   }
@@ -533,6 +607,10 @@ class _$GetCommentsLoadingImpl implements _GetCommentsLoading {
     TResult Function(_UpdateCommentSuccess value)? updateCommentSuccess,
     TResult Function(_UpdateCommentFailed value)? updateCommentFailed,
     TResult Function(_NotifyUpdateComment value)? notifyUpdateComment,
+    TResult Function(_ReactOnCommentLoading value)? reactOnCommentLoading,
+    TResult Function(_ReactOnCommentSuccess value)? reactOnCommentSuccess,
+    TResult Function(_ReactOnCommentFailed value)? reactOnCommentFailed,
+    TResult Function(_CancelUpdate value)? cancelUpdate,
     required TResult orElse(),
   }) {
     if (getCommentsLoading != null) {
@@ -638,6 +716,10 @@ class _$GetCommentsSuccessImpl implements _GetCommentsSuccess {
     required TResult Function(CommentModel comment) updateCommentSuccess,
     required TResult Function(Failure failure) updateCommentFailed,
     required TResult Function(CommentModel oldComment) notifyUpdateComment,
+    required TResult Function() reactOnCommentLoading,
+    required TResult Function(CommentModel comment) reactOnCommentSuccess,
+    required TResult Function(Failure failure) reactOnCommentFailed,
+    required TResult Function() cancelUpdate,
   }) {
     return getCommentsSuccess(comments);
   }
@@ -661,6 +743,10 @@ class _$GetCommentsSuccessImpl implements _GetCommentsSuccess {
     TResult? Function(CommentModel comment)? updateCommentSuccess,
     TResult? Function(Failure failure)? updateCommentFailed,
     TResult? Function(CommentModel oldComment)? notifyUpdateComment,
+    TResult? Function()? reactOnCommentLoading,
+    TResult? Function(CommentModel comment)? reactOnCommentSuccess,
+    TResult? Function(Failure failure)? reactOnCommentFailed,
+    TResult? Function()? cancelUpdate,
   }) {
     return getCommentsSuccess?.call(comments);
   }
@@ -684,6 +770,10 @@ class _$GetCommentsSuccessImpl implements _GetCommentsSuccess {
     TResult Function(CommentModel comment)? updateCommentSuccess,
     TResult Function(Failure failure)? updateCommentFailed,
     TResult Function(CommentModel oldComment)? notifyUpdateComment,
+    TResult Function()? reactOnCommentLoading,
+    TResult Function(CommentModel comment)? reactOnCommentSuccess,
+    TResult Function(Failure failure)? reactOnCommentFailed,
+    TResult Function()? cancelUpdate,
     required TResult orElse(),
   }) {
     if (getCommentsSuccess != null) {
@@ -713,6 +803,12 @@ class _$GetCommentsSuccessImpl implements _GetCommentsSuccess {
     required TResult Function(_UpdateCommentSuccess value) updateCommentSuccess,
     required TResult Function(_UpdateCommentFailed value) updateCommentFailed,
     required TResult Function(_NotifyUpdateComment value) notifyUpdateComment,
+    required TResult Function(_ReactOnCommentLoading value)
+        reactOnCommentLoading,
+    required TResult Function(_ReactOnCommentSuccess value)
+        reactOnCommentSuccess,
+    required TResult Function(_ReactOnCommentFailed value) reactOnCommentFailed,
+    required TResult Function(_CancelUpdate value) cancelUpdate,
   }) {
     return getCommentsSuccess(this);
   }
@@ -736,6 +832,10 @@ class _$GetCommentsSuccessImpl implements _GetCommentsSuccess {
     TResult? Function(_UpdateCommentSuccess value)? updateCommentSuccess,
     TResult? Function(_UpdateCommentFailed value)? updateCommentFailed,
     TResult? Function(_NotifyUpdateComment value)? notifyUpdateComment,
+    TResult? Function(_ReactOnCommentLoading value)? reactOnCommentLoading,
+    TResult? Function(_ReactOnCommentSuccess value)? reactOnCommentSuccess,
+    TResult? Function(_ReactOnCommentFailed value)? reactOnCommentFailed,
+    TResult? Function(_CancelUpdate value)? cancelUpdate,
   }) {
     return getCommentsSuccess?.call(this);
   }
@@ -759,6 +859,10 @@ class _$GetCommentsSuccessImpl implements _GetCommentsSuccess {
     TResult Function(_UpdateCommentSuccess value)? updateCommentSuccess,
     TResult Function(_UpdateCommentFailed value)? updateCommentFailed,
     TResult Function(_NotifyUpdateComment value)? notifyUpdateComment,
+    TResult Function(_ReactOnCommentLoading value)? reactOnCommentLoading,
+    TResult Function(_ReactOnCommentSuccess value)? reactOnCommentSuccess,
+    TResult Function(_ReactOnCommentFailed value)? reactOnCommentFailed,
+    TResult Function(_CancelUpdate value)? cancelUpdate,
     required TResult orElse(),
   }) {
     if (getCommentsSuccess != null) {
@@ -866,6 +970,10 @@ class _$GetCommentsFailedImpl implements _GetCommentsFailed {
     required TResult Function(CommentModel comment) updateCommentSuccess,
     required TResult Function(Failure failure) updateCommentFailed,
     required TResult Function(CommentModel oldComment) notifyUpdateComment,
+    required TResult Function() reactOnCommentLoading,
+    required TResult Function(CommentModel comment) reactOnCommentSuccess,
+    required TResult Function(Failure failure) reactOnCommentFailed,
+    required TResult Function() cancelUpdate,
   }) {
     return getCommentsFailed(failure);
   }
@@ -889,6 +997,10 @@ class _$GetCommentsFailedImpl implements _GetCommentsFailed {
     TResult? Function(CommentModel comment)? updateCommentSuccess,
     TResult? Function(Failure failure)? updateCommentFailed,
     TResult? Function(CommentModel oldComment)? notifyUpdateComment,
+    TResult? Function()? reactOnCommentLoading,
+    TResult? Function(CommentModel comment)? reactOnCommentSuccess,
+    TResult? Function(Failure failure)? reactOnCommentFailed,
+    TResult? Function()? cancelUpdate,
   }) {
     return getCommentsFailed?.call(failure);
   }
@@ -912,6 +1024,10 @@ class _$GetCommentsFailedImpl implements _GetCommentsFailed {
     TResult Function(CommentModel comment)? updateCommentSuccess,
     TResult Function(Failure failure)? updateCommentFailed,
     TResult Function(CommentModel oldComment)? notifyUpdateComment,
+    TResult Function()? reactOnCommentLoading,
+    TResult Function(CommentModel comment)? reactOnCommentSuccess,
+    TResult Function(Failure failure)? reactOnCommentFailed,
+    TResult Function()? cancelUpdate,
     required TResult orElse(),
   }) {
     if (getCommentsFailed != null) {
@@ -941,6 +1057,12 @@ class _$GetCommentsFailedImpl implements _GetCommentsFailed {
     required TResult Function(_UpdateCommentSuccess value) updateCommentSuccess,
     required TResult Function(_UpdateCommentFailed value) updateCommentFailed,
     required TResult Function(_NotifyUpdateComment value) notifyUpdateComment,
+    required TResult Function(_ReactOnCommentLoading value)
+        reactOnCommentLoading,
+    required TResult Function(_ReactOnCommentSuccess value)
+        reactOnCommentSuccess,
+    required TResult Function(_ReactOnCommentFailed value) reactOnCommentFailed,
+    required TResult Function(_CancelUpdate value) cancelUpdate,
   }) {
     return getCommentsFailed(this);
   }
@@ -964,6 +1086,10 @@ class _$GetCommentsFailedImpl implements _GetCommentsFailed {
     TResult? Function(_UpdateCommentSuccess value)? updateCommentSuccess,
     TResult? Function(_UpdateCommentFailed value)? updateCommentFailed,
     TResult? Function(_NotifyUpdateComment value)? notifyUpdateComment,
+    TResult? Function(_ReactOnCommentLoading value)? reactOnCommentLoading,
+    TResult? Function(_ReactOnCommentSuccess value)? reactOnCommentSuccess,
+    TResult? Function(_ReactOnCommentFailed value)? reactOnCommentFailed,
+    TResult? Function(_CancelUpdate value)? cancelUpdate,
   }) {
     return getCommentsFailed?.call(this);
   }
@@ -987,6 +1113,10 @@ class _$GetCommentsFailedImpl implements _GetCommentsFailed {
     TResult Function(_UpdateCommentSuccess value)? updateCommentSuccess,
     TResult Function(_UpdateCommentFailed value)? updateCommentFailed,
     TResult Function(_NotifyUpdateComment value)? notifyUpdateComment,
+    TResult Function(_ReactOnCommentLoading value)? reactOnCommentLoading,
+    TResult Function(_ReactOnCommentSuccess value)? reactOnCommentSuccess,
+    TResult Function(_ReactOnCommentFailed value)? reactOnCommentFailed,
+    TResult Function(_CancelUpdate value)? cancelUpdate,
     required TResult orElse(),
   }) {
     if (getCommentsFailed != null) {
@@ -1070,6 +1200,10 @@ class _$LoadMoreCommentsLoadingImpl implements _LoadMoreCommentsLoading {
     required TResult Function(CommentModel comment) updateCommentSuccess,
     required TResult Function(Failure failure) updateCommentFailed,
     required TResult Function(CommentModel oldComment) notifyUpdateComment,
+    required TResult Function() reactOnCommentLoading,
+    required TResult Function(CommentModel comment) reactOnCommentSuccess,
+    required TResult Function(Failure failure) reactOnCommentFailed,
+    required TResult Function() cancelUpdate,
   }) {
     return loadMoreCommentsLoading();
   }
@@ -1093,6 +1227,10 @@ class _$LoadMoreCommentsLoadingImpl implements _LoadMoreCommentsLoading {
     TResult? Function(CommentModel comment)? updateCommentSuccess,
     TResult? Function(Failure failure)? updateCommentFailed,
     TResult? Function(CommentModel oldComment)? notifyUpdateComment,
+    TResult? Function()? reactOnCommentLoading,
+    TResult? Function(CommentModel comment)? reactOnCommentSuccess,
+    TResult? Function(Failure failure)? reactOnCommentFailed,
+    TResult? Function()? cancelUpdate,
   }) {
     return loadMoreCommentsLoading?.call();
   }
@@ -1116,6 +1254,10 @@ class _$LoadMoreCommentsLoadingImpl implements _LoadMoreCommentsLoading {
     TResult Function(CommentModel comment)? updateCommentSuccess,
     TResult Function(Failure failure)? updateCommentFailed,
     TResult Function(CommentModel oldComment)? notifyUpdateComment,
+    TResult Function()? reactOnCommentLoading,
+    TResult Function(CommentModel comment)? reactOnCommentSuccess,
+    TResult Function(Failure failure)? reactOnCommentFailed,
+    TResult Function()? cancelUpdate,
     required TResult orElse(),
   }) {
     if (loadMoreCommentsLoading != null) {
@@ -1145,6 +1287,12 @@ class _$LoadMoreCommentsLoadingImpl implements _LoadMoreCommentsLoading {
     required TResult Function(_UpdateCommentSuccess value) updateCommentSuccess,
     required TResult Function(_UpdateCommentFailed value) updateCommentFailed,
     required TResult Function(_NotifyUpdateComment value) notifyUpdateComment,
+    required TResult Function(_ReactOnCommentLoading value)
+        reactOnCommentLoading,
+    required TResult Function(_ReactOnCommentSuccess value)
+        reactOnCommentSuccess,
+    required TResult Function(_ReactOnCommentFailed value) reactOnCommentFailed,
+    required TResult Function(_CancelUpdate value) cancelUpdate,
   }) {
     return loadMoreCommentsLoading(this);
   }
@@ -1168,6 +1316,10 @@ class _$LoadMoreCommentsLoadingImpl implements _LoadMoreCommentsLoading {
     TResult? Function(_UpdateCommentSuccess value)? updateCommentSuccess,
     TResult? Function(_UpdateCommentFailed value)? updateCommentFailed,
     TResult? Function(_NotifyUpdateComment value)? notifyUpdateComment,
+    TResult? Function(_ReactOnCommentLoading value)? reactOnCommentLoading,
+    TResult? Function(_ReactOnCommentSuccess value)? reactOnCommentSuccess,
+    TResult? Function(_ReactOnCommentFailed value)? reactOnCommentFailed,
+    TResult? Function(_CancelUpdate value)? cancelUpdate,
   }) {
     return loadMoreCommentsLoading?.call(this);
   }
@@ -1191,6 +1343,10 @@ class _$LoadMoreCommentsLoadingImpl implements _LoadMoreCommentsLoading {
     TResult Function(_UpdateCommentSuccess value)? updateCommentSuccess,
     TResult Function(_UpdateCommentFailed value)? updateCommentFailed,
     TResult Function(_NotifyUpdateComment value)? notifyUpdateComment,
+    TResult Function(_ReactOnCommentLoading value)? reactOnCommentLoading,
+    TResult Function(_ReactOnCommentSuccess value)? reactOnCommentSuccess,
+    TResult Function(_ReactOnCommentFailed value)? reactOnCommentFailed,
+    TResult Function(_CancelUpdate value)? cancelUpdate,
     required TResult orElse(),
   }) {
     if (loadMoreCommentsLoading != null) {
@@ -1292,6 +1448,10 @@ class _$LoadMoreCommentsFailedImpl implements _LoadMoreCommentsFailed {
     required TResult Function(CommentModel comment) updateCommentSuccess,
     required TResult Function(Failure failure) updateCommentFailed,
     required TResult Function(CommentModel oldComment) notifyUpdateComment,
+    required TResult Function() reactOnCommentLoading,
+    required TResult Function(CommentModel comment) reactOnCommentSuccess,
+    required TResult Function(Failure failure) reactOnCommentFailed,
+    required TResult Function() cancelUpdate,
   }) {
     return loadMoreCommentsFailed(failure);
   }
@@ -1315,6 +1475,10 @@ class _$LoadMoreCommentsFailedImpl implements _LoadMoreCommentsFailed {
     TResult? Function(CommentModel comment)? updateCommentSuccess,
     TResult? Function(Failure failure)? updateCommentFailed,
     TResult? Function(CommentModel oldComment)? notifyUpdateComment,
+    TResult? Function()? reactOnCommentLoading,
+    TResult? Function(CommentModel comment)? reactOnCommentSuccess,
+    TResult? Function(Failure failure)? reactOnCommentFailed,
+    TResult? Function()? cancelUpdate,
   }) {
     return loadMoreCommentsFailed?.call(failure);
   }
@@ -1338,6 +1502,10 @@ class _$LoadMoreCommentsFailedImpl implements _LoadMoreCommentsFailed {
     TResult Function(CommentModel comment)? updateCommentSuccess,
     TResult Function(Failure failure)? updateCommentFailed,
     TResult Function(CommentModel oldComment)? notifyUpdateComment,
+    TResult Function()? reactOnCommentLoading,
+    TResult Function(CommentModel comment)? reactOnCommentSuccess,
+    TResult Function(Failure failure)? reactOnCommentFailed,
+    TResult Function()? cancelUpdate,
     required TResult orElse(),
   }) {
     if (loadMoreCommentsFailed != null) {
@@ -1367,6 +1535,12 @@ class _$LoadMoreCommentsFailedImpl implements _LoadMoreCommentsFailed {
     required TResult Function(_UpdateCommentSuccess value) updateCommentSuccess,
     required TResult Function(_UpdateCommentFailed value) updateCommentFailed,
     required TResult Function(_NotifyUpdateComment value) notifyUpdateComment,
+    required TResult Function(_ReactOnCommentLoading value)
+        reactOnCommentLoading,
+    required TResult Function(_ReactOnCommentSuccess value)
+        reactOnCommentSuccess,
+    required TResult Function(_ReactOnCommentFailed value) reactOnCommentFailed,
+    required TResult Function(_CancelUpdate value) cancelUpdate,
   }) {
     return loadMoreCommentsFailed(this);
   }
@@ -1390,6 +1564,10 @@ class _$LoadMoreCommentsFailedImpl implements _LoadMoreCommentsFailed {
     TResult? Function(_UpdateCommentSuccess value)? updateCommentSuccess,
     TResult? Function(_UpdateCommentFailed value)? updateCommentFailed,
     TResult? Function(_NotifyUpdateComment value)? notifyUpdateComment,
+    TResult? Function(_ReactOnCommentLoading value)? reactOnCommentLoading,
+    TResult? Function(_ReactOnCommentSuccess value)? reactOnCommentSuccess,
+    TResult? Function(_ReactOnCommentFailed value)? reactOnCommentFailed,
+    TResult? Function(_CancelUpdate value)? cancelUpdate,
   }) {
     return loadMoreCommentsFailed?.call(this);
   }
@@ -1413,6 +1591,10 @@ class _$LoadMoreCommentsFailedImpl implements _LoadMoreCommentsFailed {
     TResult Function(_UpdateCommentSuccess value)? updateCommentSuccess,
     TResult Function(_UpdateCommentFailed value)? updateCommentFailed,
     TResult Function(_NotifyUpdateComment value)? notifyUpdateComment,
+    TResult Function(_ReactOnCommentLoading value)? reactOnCommentLoading,
+    TResult Function(_ReactOnCommentSuccess value)? reactOnCommentSuccess,
+    TResult Function(_ReactOnCommentFailed value)? reactOnCommentFailed,
+    TResult Function(_CancelUpdate value)? cancelUpdate,
     required TResult orElse(),
   }) {
     if (loadMoreCommentsFailed != null) {
@@ -1492,6 +1674,10 @@ class _$AddCommentLoadingImpl implements _AddCommentLoading {
     required TResult Function(CommentModel comment) updateCommentSuccess,
     required TResult Function(Failure failure) updateCommentFailed,
     required TResult Function(CommentModel oldComment) notifyUpdateComment,
+    required TResult Function() reactOnCommentLoading,
+    required TResult Function(CommentModel comment) reactOnCommentSuccess,
+    required TResult Function(Failure failure) reactOnCommentFailed,
+    required TResult Function() cancelUpdate,
   }) {
     return addCommentLoading();
   }
@@ -1515,6 +1701,10 @@ class _$AddCommentLoadingImpl implements _AddCommentLoading {
     TResult? Function(CommentModel comment)? updateCommentSuccess,
     TResult? Function(Failure failure)? updateCommentFailed,
     TResult? Function(CommentModel oldComment)? notifyUpdateComment,
+    TResult? Function()? reactOnCommentLoading,
+    TResult? Function(CommentModel comment)? reactOnCommentSuccess,
+    TResult? Function(Failure failure)? reactOnCommentFailed,
+    TResult? Function()? cancelUpdate,
   }) {
     return addCommentLoading?.call();
   }
@@ -1538,6 +1728,10 @@ class _$AddCommentLoadingImpl implements _AddCommentLoading {
     TResult Function(CommentModel comment)? updateCommentSuccess,
     TResult Function(Failure failure)? updateCommentFailed,
     TResult Function(CommentModel oldComment)? notifyUpdateComment,
+    TResult Function()? reactOnCommentLoading,
+    TResult Function(CommentModel comment)? reactOnCommentSuccess,
+    TResult Function(Failure failure)? reactOnCommentFailed,
+    TResult Function()? cancelUpdate,
     required TResult orElse(),
   }) {
     if (addCommentLoading != null) {
@@ -1567,6 +1761,12 @@ class _$AddCommentLoadingImpl implements _AddCommentLoading {
     required TResult Function(_UpdateCommentSuccess value) updateCommentSuccess,
     required TResult Function(_UpdateCommentFailed value) updateCommentFailed,
     required TResult Function(_NotifyUpdateComment value) notifyUpdateComment,
+    required TResult Function(_ReactOnCommentLoading value)
+        reactOnCommentLoading,
+    required TResult Function(_ReactOnCommentSuccess value)
+        reactOnCommentSuccess,
+    required TResult Function(_ReactOnCommentFailed value) reactOnCommentFailed,
+    required TResult Function(_CancelUpdate value) cancelUpdate,
   }) {
     return addCommentLoading(this);
   }
@@ -1590,6 +1790,10 @@ class _$AddCommentLoadingImpl implements _AddCommentLoading {
     TResult? Function(_UpdateCommentSuccess value)? updateCommentSuccess,
     TResult? Function(_UpdateCommentFailed value)? updateCommentFailed,
     TResult? Function(_NotifyUpdateComment value)? notifyUpdateComment,
+    TResult? Function(_ReactOnCommentLoading value)? reactOnCommentLoading,
+    TResult? Function(_ReactOnCommentSuccess value)? reactOnCommentSuccess,
+    TResult? Function(_ReactOnCommentFailed value)? reactOnCommentFailed,
+    TResult? Function(_CancelUpdate value)? cancelUpdate,
   }) {
     return addCommentLoading?.call(this);
   }
@@ -1613,6 +1817,10 @@ class _$AddCommentLoadingImpl implements _AddCommentLoading {
     TResult Function(_UpdateCommentSuccess value)? updateCommentSuccess,
     TResult Function(_UpdateCommentFailed value)? updateCommentFailed,
     TResult Function(_NotifyUpdateComment value)? notifyUpdateComment,
+    TResult Function(_ReactOnCommentLoading value)? reactOnCommentLoading,
+    TResult Function(_ReactOnCommentSuccess value)? reactOnCommentSuccess,
+    TResult Function(_ReactOnCommentFailed value)? reactOnCommentFailed,
+    TResult Function(_CancelUpdate value)? cancelUpdate,
     required TResult orElse(),
   }) {
     if (addCommentLoading != null) {
@@ -1723,6 +1931,10 @@ class _$AddCommentSuccessImpl implements _AddCommentSuccess {
     required TResult Function(CommentModel comment) updateCommentSuccess,
     required TResult Function(Failure failure) updateCommentFailed,
     required TResult Function(CommentModel oldComment) notifyUpdateComment,
+    required TResult Function() reactOnCommentLoading,
+    required TResult Function(CommentModel comment) reactOnCommentSuccess,
+    required TResult Function(Failure failure) reactOnCommentFailed,
+    required TResult Function() cancelUpdate,
   }) {
     return addCommentSuccess(comment);
   }
@@ -1746,6 +1958,10 @@ class _$AddCommentSuccessImpl implements _AddCommentSuccess {
     TResult? Function(CommentModel comment)? updateCommentSuccess,
     TResult? Function(Failure failure)? updateCommentFailed,
     TResult? Function(CommentModel oldComment)? notifyUpdateComment,
+    TResult? Function()? reactOnCommentLoading,
+    TResult? Function(CommentModel comment)? reactOnCommentSuccess,
+    TResult? Function(Failure failure)? reactOnCommentFailed,
+    TResult? Function()? cancelUpdate,
   }) {
     return addCommentSuccess?.call(comment);
   }
@@ -1769,6 +1985,10 @@ class _$AddCommentSuccessImpl implements _AddCommentSuccess {
     TResult Function(CommentModel comment)? updateCommentSuccess,
     TResult Function(Failure failure)? updateCommentFailed,
     TResult Function(CommentModel oldComment)? notifyUpdateComment,
+    TResult Function()? reactOnCommentLoading,
+    TResult Function(CommentModel comment)? reactOnCommentSuccess,
+    TResult Function(Failure failure)? reactOnCommentFailed,
+    TResult Function()? cancelUpdate,
     required TResult orElse(),
   }) {
     if (addCommentSuccess != null) {
@@ -1798,6 +2018,12 @@ class _$AddCommentSuccessImpl implements _AddCommentSuccess {
     required TResult Function(_UpdateCommentSuccess value) updateCommentSuccess,
     required TResult Function(_UpdateCommentFailed value) updateCommentFailed,
     required TResult Function(_NotifyUpdateComment value) notifyUpdateComment,
+    required TResult Function(_ReactOnCommentLoading value)
+        reactOnCommentLoading,
+    required TResult Function(_ReactOnCommentSuccess value)
+        reactOnCommentSuccess,
+    required TResult Function(_ReactOnCommentFailed value) reactOnCommentFailed,
+    required TResult Function(_CancelUpdate value) cancelUpdate,
   }) {
     return addCommentSuccess(this);
   }
@@ -1821,6 +2047,10 @@ class _$AddCommentSuccessImpl implements _AddCommentSuccess {
     TResult? Function(_UpdateCommentSuccess value)? updateCommentSuccess,
     TResult? Function(_UpdateCommentFailed value)? updateCommentFailed,
     TResult? Function(_NotifyUpdateComment value)? notifyUpdateComment,
+    TResult? Function(_ReactOnCommentLoading value)? reactOnCommentLoading,
+    TResult? Function(_ReactOnCommentSuccess value)? reactOnCommentSuccess,
+    TResult? Function(_ReactOnCommentFailed value)? reactOnCommentFailed,
+    TResult? Function(_CancelUpdate value)? cancelUpdate,
   }) {
     return addCommentSuccess?.call(this);
   }
@@ -1844,6 +2074,10 @@ class _$AddCommentSuccessImpl implements _AddCommentSuccess {
     TResult Function(_UpdateCommentSuccess value)? updateCommentSuccess,
     TResult Function(_UpdateCommentFailed value)? updateCommentFailed,
     TResult Function(_NotifyUpdateComment value)? notifyUpdateComment,
+    TResult Function(_ReactOnCommentLoading value)? reactOnCommentLoading,
+    TResult Function(_ReactOnCommentSuccess value)? reactOnCommentSuccess,
+    TResult Function(_ReactOnCommentFailed value)? reactOnCommentFailed,
+    TResult Function(_CancelUpdate value)? cancelUpdate,
     required TResult orElse(),
   }) {
     if (addCommentSuccess != null) {
@@ -1951,6 +2185,10 @@ class _$AddCommentFailedImpl implements _AddCommentFailed {
     required TResult Function(CommentModel comment) updateCommentSuccess,
     required TResult Function(Failure failure) updateCommentFailed,
     required TResult Function(CommentModel oldComment) notifyUpdateComment,
+    required TResult Function() reactOnCommentLoading,
+    required TResult Function(CommentModel comment) reactOnCommentSuccess,
+    required TResult Function(Failure failure) reactOnCommentFailed,
+    required TResult Function() cancelUpdate,
   }) {
     return addCommentFailed(failure);
   }
@@ -1974,6 +2212,10 @@ class _$AddCommentFailedImpl implements _AddCommentFailed {
     TResult? Function(CommentModel comment)? updateCommentSuccess,
     TResult? Function(Failure failure)? updateCommentFailed,
     TResult? Function(CommentModel oldComment)? notifyUpdateComment,
+    TResult? Function()? reactOnCommentLoading,
+    TResult? Function(CommentModel comment)? reactOnCommentSuccess,
+    TResult? Function(Failure failure)? reactOnCommentFailed,
+    TResult? Function()? cancelUpdate,
   }) {
     return addCommentFailed?.call(failure);
   }
@@ -1997,6 +2239,10 @@ class _$AddCommentFailedImpl implements _AddCommentFailed {
     TResult Function(CommentModel comment)? updateCommentSuccess,
     TResult Function(Failure failure)? updateCommentFailed,
     TResult Function(CommentModel oldComment)? notifyUpdateComment,
+    TResult Function()? reactOnCommentLoading,
+    TResult Function(CommentModel comment)? reactOnCommentSuccess,
+    TResult Function(Failure failure)? reactOnCommentFailed,
+    TResult Function()? cancelUpdate,
     required TResult orElse(),
   }) {
     if (addCommentFailed != null) {
@@ -2026,6 +2272,12 @@ class _$AddCommentFailedImpl implements _AddCommentFailed {
     required TResult Function(_UpdateCommentSuccess value) updateCommentSuccess,
     required TResult Function(_UpdateCommentFailed value) updateCommentFailed,
     required TResult Function(_NotifyUpdateComment value) notifyUpdateComment,
+    required TResult Function(_ReactOnCommentLoading value)
+        reactOnCommentLoading,
+    required TResult Function(_ReactOnCommentSuccess value)
+        reactOnCommentSuccess,
+    required TResult Function(_ReactOnCommentFailed value) reactOnCommentFailed,
+    required TResult Function(_CancelUpdate value) cancelUpdate,
   }) {
     return addCommentFailed(this);
   }
@@ -2049,6 +2301,10 @@ class _$AddCommentFailedImpl implements _AddCommentFailed {
     TResult? Function(_UpdateCommentSuccess value)? updateCommentSuccess,
     TResult? Function(_UpdateCommentFailed value)? updateCommentFailed,
     TResult? Function(_NotifyUpdateComment value)? notifyUpdateComment,
+    TResult? Function(_ReactOnCommentLoading value)? reactOnCommentLoading,
+    TResult? Function(_ReactOnCommentSuccess value)? reactOnCommentSuccess,
+    TResult? Function(_ReactOnCommentFailed value)? reactOnCommentFailed,
+    TResult? Function(_CancelUpdate value)? cancelUpdate,
   }) {
     return addCommentFailed?.call(this);
   }
@@ -2072,6 +2328,10 @@ class _$AddCommentFailedImpl implements _AddCommentFailed {
     TResult Function(_UpdateCommentSuccess value)? updateCommentSuccess,
     TResult Function(_UpdateCommentFailed value)? updateCommentFailed,
     TResult Function(_NotifyUpdateComment value)? notifyUpdateComment,
+    TResult Function(_ReactOnCommentLoading value)? reactOnCommentLoading,
+    TResult Function(_ReactOnCommentSuccess value)? reactOnCommentSuccess,
+    TResult Function(_ReactOnCommentFailed value)? reactOnCommentFailed,
+    TResult Function(_CancelUpdate value)? cancelUpdate,
     required TResult orElse(),
   }) {
     if (addCommentFailed != null) {
@@ -2153,6 +2413,10 @@ class _$DeleteCommentLoadingImpl implements _DeleteCommentLoading {
     required TResult Function(CommentModel comment) updateCommentSuccess,
     required TResult Function(Failure failure) updateCommentFailed,
     required TResult Function(CommentModel oldComment) notifyUpdateComment,
+    required TResult Function() reactOnCommentLoading,
+    required TResult Function(CommentModel comment) reactOnCommentSuccess,
+    required TResult Function(Failure failure) reactOnCommentFailed,
+    required TResult Function() cancelUpdate,
   }) {
     return deleteCommentLoading();
   }
@@ -2176,6 +2440,10 @@ class _$DeleteCommentLoadingImpl implements _DeleteCommentLoading {
     TResult? Function(CommentModel comment)? updateCommentSuccess,
     TResult? Function(Failure failure)? updateCommentFailed,
     TResult? Function(CommentModel oldComment)? notifyUpdateComment,
+    TResult? Function()? reactOnCommentLoading,
+    TResult? Function(CommentModel comment)? reactOnCommentSuccess,
+    TResult? Function(Failure failure)? reactOnCommentFailed,
+    TResult? Function()? cancelUpdate,
   }) {
     return deleteCommentLoading?.call();
   }
@@ -2199,6 +2467,10 @@ class _$DeleteCommentLoadingImpl implements _DeleteCommentLoading {
     TResult Function(CommentModel comment)? updateCommentSuccess,
     TResult Function(Failure failure)? updateCommentFailed,
     TResult Function(CommentModel oldComment)? notifyUpdateComment,
+    TResult Function()? reactOnCommentLoading,
+    TResult Function(CommentModel comment)? reactOnCommentSuccess,
+    TResult Function(Failure failure)? reactOnCommentFailed,
+    TResult Function()? cancelUpdate,
     required TResult orElse(),
   }) {
     if (deleteCommentLoading != null) {
@@ -2228,6 +2500,12 @@ class _$DeleteCommentLoadingImpl implements _DeleteCommentLoading {
     required TResult Function(_UpdateCommentSuccess value) updateCommentSuccess,
     required TResult Function(_UpdateCommentFailed value) updateCommentFailed,
     required TResult Function(_NotifyUpdateComment value) notifyUpdateComment,
+    required TResult Function(_ReactOnCommentLoading value)
+        reactOnCommentLoading,
+    required TResult Function(_ReactOnCommentSuccess value)
+        reactOnCommentSuccess,
+    required TResult Function(_ReactOnCommentFailed value) reactOnCommentFailed,
+    required TResult Function(_CancelUpdate value) cancelUpdate,
   }) {
     return deleteCommentLoading(this);
   }
@@ -2251,6 +2529,10 @@ class _$DeleteCommentLoadingImpl implements _DeleteCommentLoading {
     TResult? Function(_UpdateCommentSuccess value)? updateCommentSuccess,
     TResult? Function(_UpdateCommentFailed value)? updateCommentFailed,
     TResult? Function(_NotifyUpdateComment value)? notifyUpdateComment,
+    TResult? Function(_ReactOnCommentLoading value)? reactOnCommentLoading,
+    TResult? Function(_ReactOnCommentSuccess value)? reactOnCommentSuccess,
+    TResult? Function(_ReactOnCommentFailed value)? reactOnCommentFailed,
+    TResult? Function(_CancelUpdate value)? cancelUpdate,
   }) {
     return deleteCommentLoading?.call(this);
   }
@@ -2274,6 +2556,10 @@ class _$DeleteCommentLoadingImpl implements _DeleteCommentLoading {
     TResult Function(_UpdateCommentSuccess value)? updateCommentSuccess,
     TResult Function(_UpdateCommentFailed value)? updateCommentFailed,
     TResult Function(_NotifyUpdateComment value)? notifyUpdateComment,
+    TResult Function(_ReactOnCommentLoading value)? reactOnCommentLoading,
+    TResult Function(_ReactOnCommentSuccess value)? reactOnCommentSuccess,
+    TResult Function(_ReactOnCommentFailed value)? reactOnCommentFailed,
+    TResult Function(_CancelUpdate value)? cancelUpdate,
     required TResult orElse(),
   }) {
     if (deleteCommentLoading != null) {
@@ -2386,6 +2672,10 @@ class _$DeleteCommentSuccessImpl implements _DeleteCommentSuccess {
     required TResult Function(CommentModel comment) updateCommentSuccess,
     required TResult Function(Failure failure) updateCommentFailed,
     required TResult Function(CommentModel oldComment) notifyUpdateComment,
+    required TResult Function() reactOnCommentLoading,
+    required TResult Function(CommentModel comment) reactOnCommentSuccess,
+    required TResult Function(Failure failure) reactOnCommentFailed,
+    required TResult Function() cancelUpdate,
   }) {
     return deleteCommentSuccess(comment);
   }
@@ -2409,6 +2699,10 @@ class _$DeleteCommentSuccessImpl implements _DeleteCommentSuccess {
     TResult? Function(CommentModel comment)? updateCommentSuccess,
     TResult? Function(Failure failure)? updateCommentFailed,
     TResult? Function(CommentModel oldComment)? notifyUpdateComment,
+    TResult? Function()? reactOnCommentLoading,
+    TResult? Function(CommentModel comment)? reactOnCommentSuccess,
+    TResult? Function(Failure failure)? reactOnCommentFailed,
+    TResult? Function()? cancelUpdate,
   }) {
     return deleteCommentSuccess?.call(comment);
   }
@@ -2432,6 +2726,10 @@ class _$DeleteCommentSuccessImpl implements _DeleteCommentSuccess {
     TResult Function(CommentModel comment)? updateCommentSuccess,
     TResult Function(Failure failure)? updateCommentFailed,
     TResult Function(CommentModel oldComment)? notifyUpdateComment,
+    TResult Function()? reactOnCommentLoading,
+    TResult Function(CommentModel comment)? reactOnCommentSuccess,
+    TResult Function(Failure failure)? reactOnCommentFailed,
+    TResult Function()? cancelUpdate,
     required TResult orElse(),
   }) {
     if (deleteCommentSuccess != null) {
@@ -2461,6 +2759,12 @@ class _$DeleteCommentSuccessImpl implements _DeleteCommentSuccess {
     required TResult Function(_UpdateCommentSuccess value) updateCommentSuccess,
     required TResult Function(_UpdateCommentFailed value) updateCommentFailed,
     required TResult Function(_NotifyUpdateComment value) notifyUpdateComment,
+    required TResult Function(_ReactOnCommentLoading value)
+        reactOnCommentLoading,
+    required TResult Function(_ReactOnCommentSuccess value)
+        reactOnCommentSuccess,
+    required TResult Function(_ReactOnCommentFailed value) reactOnCommentFailed,
+    required TResult Function(_CancelUpdate value) cancelUpdate,
   }) {
     return deleteCommentSuccess(this);
   }
@@ -2484,6 +2788,10 @@ class _$DeleteCommentSuccessImpl implements _DeleteCommentSuccess {
     TResult? Function(_UpdateCommentSuccess value)? updateCommentSuccess,
     TResult? Function(_UpdateCommentFailed value)? updateCommentFailed,
     TResult? Function(_NotifyUpdateComment value)? notifyUpdateComment,
+    TResult? Function(_ReactOnCommentLoading value)? reactOnCommentLoading,
+    TResult? Function(_ReactOnCommentSuccess value)? reactOnCommentSuccess,
+    TResult? Function(_ReactOnCommentFailed value)? reactOnCommentFailed,
+    TResult? Function(_CancelUpdate value)? cancelUpdate,
   }) {
     return deleteCommentSuccess?.call(this);
   }
@@ -2507,6 +2815,10 @@ class _$DeleteCommentSuccessImpl implements _DeleteCommentSuccess {
     TResult Function(_UpdateCommentSuccess value)? updateCommentSuccess,
     TResult Function(_UpdateCommentFailed value)? updateCommentFailed,
     TResult Function(_NotifyUpdateComment value)? notifyUpdateComment,
+    TResult Function(_ReactOnCommentLoading value)? reactOnCommentLoading,
+    TResult Function(_ReactOnCommentSuccess value)? reactOnCommentSuccess,
+    TResult Function(_ReactOnCommentFailed value)? reactOnCommentFailed,
+    TResult Function(_CancelUpdate value)? cancelUpdate,
     required TResult orElse(),
   }) {
     if (deleteCommentSuccess != null) {
@@ -2614,6 +2926,10 @@ class _$DeleteCommentFailedImpl implements _DeleteCommentFailed {
     required TResult Function(CommentModel comment) updateCommentSuccess,
     required TResult Function(Failure failure) updateCommentFailed,
     required TResult Function(CommentModel oldComment) notifyUpdateComment,
+    required TResult Function() reactOnCommentLoading,
+    required TResult Function(CommentModel comment) reactOnCommentSuccess,
+    required TResult Function(Failure failure) reactOnCommentFailed,
+    required TResult Function() cancelUpdate,
   }) {
     return deleteCommentFailed(failure);
   }
@@ -2637,6 +2953,10 @@ class _$DeleteCommentFailedImpl implements _DeleteCommentFailed {
     TResult? Function(CommentModel comment)? updateCommentSuccess,
     TResult? Function(Failure failure)? updateCommentFailed,
     TResult? Function(CommentModel oldComment)? notifyUpdateComment,
+    TResult? Function()? reactOnCommentLoading,
+    TResult? Function(CommentModel comment)? reactOnCommentSuccess,
+    TResult? Function(Failure failure)? reactOnCommentFailed,
+    TResult? Function()? cancelUpdate,
   }) {
     return deleteCommentFailed?.call(failure);
   }
@@ -2660,6 +2980,10 @@ class _$DeleteCommentFailedImpl implements _DeleteCommentFailed {
     TResult Function(CommentModel comment)? updateCommentSuccess,
     TResult Function(Failure failure)? updateCommentFailed,
     TResult Function(CommentModel oldComment)? notifyUpdateComment,
+    TResult Function()? reactOnCommentLoading,
+    TResult Function(CommentModel comment)? reactOnCommentSuccess,
+    TResult Function(Failure failure)? reactOnCommentFailed,
+    TResult Function()? cancelUpdate,
     required TResult orElse(),
   }) {
     if (deleteCommentFailed != null) {
@@ -2689,6 +3013,12 @@ class _$DeleteCommentFailedImpl implements _DeleteCommentFailed {
     required TResult Function(_UpdateCommentSuccess value) updateCommentSuccess,
     required TResult Function(_UpdateCommentFailed value) updateCommentFailed,
     required TResult Function(_NotifyUpdateComment value) notifyUpdateComment,
+    required TResult Function(_ReactOnCommentLoading value)
+        reactOnCommentLoading,
+    required TResult Function(_ReactOnCommentSuccess value)
+        reactOnCommentSuccess,
+    required TResult Function(_ReactOnCommentFailed value) reactOnCommentFailed,
+    required TResult Function(_CancelUpdate value) cancelUpdate,
   }) {
     return deleteCommentFailed(this);
   }
@@ -2712,6 +3042,10 @@ class _$DeleteCommentFailedImpl implements _DeleteCommentFailed {
     TResult? Function(_UpdateCommentSuccess value)? updateCommentSuccess,
     TResult? Function(_UpdateCommentFailed value)? updateCommentFailed,
     TResult? Function(_NotifyUpdateComment value)? notifyUpdateComment,
+    TResult? Function(_ReactOnCommentLoading value)? reactOnCommentLoading,
+    TResult? Function(_ReactOnCommentSuccess value)? reactOnCommentSuccess,
+    TResult? Function(_ReactOnCommentFailed value)? reactOnCommentFailed,
+    TResult? Function(_CancelUpdate value)? cancelUpdate,
   }) {
     return deleteCommentFailed?.call(this);
   }
@@ -2735,6 +3069,10 @@ class _$DeleteCommentFailedImpl implements _DeleteCommentFailed {
     TResult Function(_UpdateCommentSuccess value)? updateCommentSuccess,
     TResult Function(_UpdateCommentFailed value)? updateCommentFailed,
     TResult Function(_NotifyUpdateComment value)? notifyUpdateComment,
+    TResult Function(_ReactOnCommentLoading value)? reactOnCommentLoading,
+    TResult Function(_ReactOnCommentSuccess value)? reactOnCommentSuccess,
+    TResult Function(_ReactOnCommentFailed value)? reactOnCommentFailed,
+    TResult Function(_CancelUpdate value)? cancelUpdate,
     required TResult orElse(),
   }) {
     if (deleteCommentFailed != null) {
@@ -2857,6 +3195,10 @@ class _$UpdateCommentLoadingImpl implements _UpdateCommentLoading {
     required TResult Function(CommentModel comment) updateCommentSuccess,
     required TResult Function(Failure failure) updateCommentFailed,
     required TResult Function(CommentModel oldComment) notifyUpdateComment,
+    required TResult Function() reactOnCommentLoading,
+    required TResult Function(CommentModel comment) reactOnCommentSuccess,
+    required TResult Function(Failure failure) reactOnCommentFailed,
+    required TResult Function() cancelUpdate,
   }) {
     return updateCommentLoading(updatedComment);
   }
@@ -2880,6 +3222,10 @@ class _$UpdateCommentLoadingImpl implements _UpdateCommentLoading {
     TResult? Function(CommentModel comment)? updateCommentSuccess,
     TResult? Function(Failure failure)? updateCommentFailed,
     TResult? Function(CommentModel oldComment)? notifyUpdateComment,
+    TResult? Function()? reactOnCommentLoading,
+    TResult? Function(CommentModel comment)? reactOnCommentSuccess,
+    TResult? Function(Failure failure)? reactOnCommentFailed,
+    TResult? Function()? cancelUpdate,
   }) {
     return updateCommentLoading?.call(updatedComment);
   }
@@ -2903,6 +3249,10 @@ class _$UpdateCommentLoadingImpl implements _UpdateCommentLoading {
     TResult Function(CommentModel comment)? updateCommentSuccess,
     TResult Function(Failure failure)? updateCommentFailed,
     TResult Function(CommentModel oldComment)? notifyUpdateComment,
+    TResult Function()? reactOnCommentLoading,
+    TResult Function(CommentModel comment)? reactOnCommentSuccess,
+    TResult Function(Failure failure)? reactOnCommentFailed,
+    TResult Function()? cancelUpdate,
     required TResult orElse(),
   }) {
     if (updateCommentLoading != null) {
@@ -2932,6 +3282,12 @@ class _$UpdateCommentLoadingImpl implements _UpdateCommentLoading {
     required TResult Function(_UpdateCommentSuccess value) updateCommentSuccess,
     required TResult Function(_UpdateCommentFailed value) updateCommentFailed,
     required TResult Function(_NotifyUpdateComment value) notifyUpdateComment,
+    required TResult Function(_ReactOnCommentLoading value)
+        reactOnCommentLoading,
+    required TResult Function(_ReactOnCommentSuccess value)
+        reactOnCommentSuccess,
+    required TResult Function(_ReactOnCommentFailed value) reactOnCommentFailed,
+    required TResult Function(_CancelUpdate value) cancelUpdate,
   }) {
     return updateCommentLoading(this);
   }
@@ -2955,6 +3311,10 @@ class _$UpdateCommentLoadingImpl implements _UpdateCommentLoading {
     TResult? Function(_UpdateCommentSuccess value)? updateCommentSuccess,
     TResult? Function(_UpdateCommentFailed value)? updateCommentFailed,
     TResult? Function(_NotifyUpdateComment value)? notifyUpdateComment,
+    TResult? Function(_ReactOnCommentLoading value)? reactOnCommentLoading,
+    TResult? Function(_ReactOnCommentSuccess value)? reactOnCommentSuccess,
+    TResult? Function(_ReactOnCommentFailed value)? reactOnCommentFailed,
+    TResult? Function(_CancelUpdate value)? cancelUpdate,
   }) {
     return updateCommentLoading?.call(this);
   }
@@ -2978,6 +3338,10 @@ class _$UpdateCommentLoadingImpl implements _UpdateCommentLoading {
     TResult Function(_UpdateCommentSuccess value)? updateCommentSuccess,
     TResult Function(_UpdateCommentFailed value)? updateCommentFailed,
     TResult Function(_NotifyUpdateComment value)? notifyUpdateComment,
+    TResult Function(_ReactOnCommentLoading value)? reactOnCommentLoading,
+    TResult Function(_ReactOnCommentSuccess value)? reactOnCommentSuccess,
+    TResult Function(_ReactOnCommentFailed value)? reactOnCommentFailed,
+    TResult Function(_CancelUpdate value)? cancelUpdate,
     required TResult orElse(),
   }) {
     if (updateCommentLoading != null) {
@@ -3100,6 +3464,10 @@ class _$UpdateCommentSuccessImpl implements _UpdateCommentSuccess {
     required TResult Function(CommentModel comment) updateCommentSuccess,
     required TResult Function(Failure failure) updateCommentFailed,
     required TResult Function(CommentModel oldComment) notifyUpdateComment,
+    required TResult Function() reactOnCommentLoading,
+    required TResult Function(CommentModel comment) reactOnCommentSuccess,
+    required TResult Function(Failure failure) reactOnCommentFailed,
+    required TResult Function() cancelUpdate,
   }) {
     return updateCommentSuccess(comment);
   }
@@ -3123,6 +3491,10 @@ class _$UpdateCommentSuccessImpl implements _UpdateCommentSuccess {
     TResult? Function(CommentModel comment)? updateCommentSuccess,
     TResult? Function(Failure failure)? updateCommentFailed,
     TResult? Function(CommentModel oldComment)? notifyUpdateComment,
+    TResult? Function()? reactOnCommentLoading,
+    TResult? Function(CommentModel comment)? reactOnCommentSuccess,
+    TResult? Function(Failure failure)? reactOnCommentFailed,
+    TResult? Function()? cancelUpdate,
   }) {
     return updateCommentSuccess?.call(comment);
   }
@@ -3146,6 +3518,10 @@ class _$UpdateCommentSuccessImpl implements _UpdateCommentSuccess {
     TResult Function(CommentModel comment)? updateCommentSuccess,
     TResult Function(Failure failure)? updateCommentFailed,
     TResult Function(CommentModel oldComment)? notifyUpdateComment,
+    TResult Function()? reactOnCommentLoading,
+    TResult Function(CommentModel comment)? reactOnCommentSuccess,
+    TResult Function(Failure failure)? reactOnCommentFailed,
+    TResult Function()? cancelUpdate,
     required TResult orElse(),
   }) {
     if (updateCommentSuccess != null) {
@@ -3175,6 +3551,12 @@ class _$UpdateCommentSuccessImpl implements _UpdateCommentSuccess {
     required TResult Function(_UpdateCommentSuccess value) updateCommentSuccess,
     required TResult Function(_UpdateCommentFailed value) updateCommentFailed,
     required TResult Function(_NotifyUpdateComment value) notifyUpdateComment,
+    required TResult Function(_ReactOnCommentLoading value)
+        reactOnCommentLoading,
+    required TResult Function(_ReactOnCommentSuccess value)
+        reactOnCommentSuccess,
+    required TResult Function(_ReactOnCommentFailed value) reactOnCommentFailed,
+    required TResult Function(_CancelUpdate value) cancelUpdate,
   }) {
     return updateCommentSuccess(this);
   }
@@ -3198,6 +3580,10 @@ class _$UpdateCommentSuccessImpl implements _UpdateCommentSuccess {
     TResult? Function(_UpdateCommentSuccess value)? updateCommentSuccess,
     TResult? Function(_UpdateCommentFailed value)? updateCommentFailed,
     TResult? Function(_NotifyUpdateComment value)? notifyUpdateComment,
+    TResult? Function(_ReactOnCommentLoading value)? reactOnCommentLoading,
+    TResult? Function(_ReactOnCommentSuccess value)? reactOnCommentSuccess,
+    TResult? Function(_ReactOnCommentFailed value)? reactOnCommentFailed,
+    TResult? Function(_CancelUpdate value)? cancelUpdate,
   }) {
     return updateCommentSuccess?.call(this);
   }
@@ -3221,6 +3607,10 @@ class _$UpdateCommentSuccessImpl implements _UpdateCommentSuccess {
     TResult Function(_UpdateCommentSuccess value)? updateCommentSuccess,
     TResult Function(_UpdateCommentFailed value)? updateCommentFailed,
     TResult Function(_NotifyUpdateComment value)? notifyUpdateComment,
+    TResult Function(_ReactOnCommentLoading value)? reactOnCommentLoading,
+    TResult Function(_ReactOnCommentSuccess value)? reactOnCommentSuccess,
+    TResult Function(_ReactOnCommentFailed value)? reactOnCommentFailed,
+    TResult Function(_CancelUpdate value)? cancelUpdate,
     required TResult orElse(),
   }) {
     if (updateCommentSuccess != null) {
@@ -3328,6 +3718,10 @@ class _$UpdateCommentFailedImpl implements _UpdateCommentFailed {
     required TResult Function(CommentModel comment) updateCommentSuccess,
     required TResult Function(Failure failure) updateCommentFailed,
     required TResult Function(CommentModel oldComment) notifyUpdateComment,
+    required TResult Function() reactOnCommentLoading,
+    required TResult Function(CommentModel comment) reactOnCommentSuccess,
+    required TResult Function(Failure failure) reactOnCommentFailed,
+    required TResult Function() cancelUpdate,
   }) {
     return updateCommentFailed(failure);
   }
@@ -3351,6 +3745,10 @@ class _$UpdateCommentFailedImpl implements _UpdateCommentFailed {
     TResult? Function(CommentModel comment)? updateCommentSuccess,
     TResult? Function(Failure failure)? updateCommentFailed,
     TResult? Function(CommentModel oldComment)? notifyUpdateComment,
+    TResult? Function()? reactOnCommentLoading,
+    TResult? Function(CommentModel comment)? reactOnCommentSuccess,
+    TResult? Function(Failure failure)? reactOnCommentFailed,
+    TResult? Function()? cancelUpdate,
   }) {
     return updateCommentFailed?.call(failure);
   }
@@ -3374,6 +3772,10 @@ class _$UpdateCommentFailedImpl implements _UpdateCommentFailed {
     TResult Function(CommentModel comment)? updateCommentSuccess,
     TResult Function(Failure failure)? updateCommentFailed,
     TResult Function(CommentModel oldComment)? notifyUpdateComment,
+    TResult Function()? reactOnCommentLoading,
+    TResult Function(CommentModel comment)? reactOnCommentSuccess,
+    TResult Function(Failure failure)? reactOnCommentFailed,
+    TResult Function()? cancelUpdate,
     required TResult orElse(),
   }) {
     if (updateCommentFailed != null) {
@@ -3403,6 +3805,12 @@ class _$UpdateCommentFailedImpl implements _UpdateCommentFailed {
     required TResult Function(_UpdateCommentSuccess value) updateCommentSuccess,
     required TResult Function(_UpdateCommentFailed value) updateCommentFailed,
     required TResult Function(_NotifyUpdateComment value) notifyUpdateComment,
+    required TResult Function(_ReactOnCommentLoading value)
+        reactOnCommentLoading,
+    required TResult Function(_ReactOnCommentSuccess value)
+        reactOnCommentSuccess,
+    required TResult Function(_ReactOnCommentFailed value) reactOnCommentFailed,
+    required TResult Function(_CancelUpdate value) cancelUpdate,
   }) {
     return updateCommentFailed(this);
   }
@@ -3426,6 +3834,10 @@ class _$UpdateCommentFailedImpl implements _UpdateCommentFailed {
     TResult? Function(_UpdateCommentSuccess value)? updateCommentSuccess,
     TResult? Function(_UpdateCommentFailed value)? updateCommentFailed,
     TResult? Function(_NotifyUpdateComment value)? notifyUpdateComment,
+    TResult? Function(_ReactOnCommentLoading value)? reactOnCommentLoading,
+    TResult? Function(_ReactOnCommentSuccess value)? reactOnCommentSuccess,
+    TResult? Function(_ReactOnCommentFailed value)? reactOnCommentFailed,
+    TResult? Function(_CancelUpdate value)? cancelUpdate,
   }) {
     return updateCommentFailed?.call(this);
   }
@@ -3449,6 +3861,10 @@ class _$UpdateCommentFailedImpl implements _UpdateCommentFailed {
     TResult Function(_UpdateCommentSuccess value)? updateCommentSuccess,
     TResult Function(_UpdateCommentFailed value)? updateCommentFailed,
     TResult Function(_NotifyUpdateComment value)? notifyUpdateComment,
+    TResult Function(_ReactOnCommentLoading value)? reactOnCommentLoading,
+    TResult Function(_ReactOnCommentSuccess value)? reactOnCommentSuccess,
+    TResult Function(_ReactOnCommentFailed value)? reactOnCommentFailed,
+    TResult Function(_CancelUpdate value)? cancelUpdate,
     required TResult orElse(),
   }) {
     if (updateCommentFailed != null) {
@@ -3569,6 +3985,10 @@ class _$NotifyUpdateCommentImpl implements _NotifyUpdateComment {
     required TResult Function(CommentModel comment) updateCommentSuccess,
     required TResult Function(Failure failure) updateCommentFailed,
     required TResult Function(CommentModel oldComment) notifyUpdateComment,
+    required TResult Function() reactOnCommentLoading,
+    required TResult Function(CommentModel comment) reactOnCommentSuccess,
+    required TResult Function(Failure failure) reactOnCommentFailed,
+    required TResult Function() cancelUpdate,
   }) {
     return notifyUpdateComment(oldComment);
   }
@@ -3592,6 +4012,10 @@ class _$NotifyUpdateCommentImpl implements _NotifyUpdateComment {
     TResult? Function(CommentModel comment)? updateCommentSuccess,
     TResult? Function(Failure failure)? updateCommentFailed,
     TResult? Function(CommentModel oldComment)? notifyUpdateComment,
+    TResult? Function()? reactOnCommentLoading,
+    TResult? Function(CommentModel comment)? reactOnCommentSuccess,
+    TResult? Function(Failure failure)? reactOnCommentFailed,
+    TResult? Function()? cancelUpdate,
   }) {
     return notifyUpdateComment?.call(oldComment);
   }
@@ -3615,6 +4039,10 @@ class _$NotifyUpdateCommentImpl implements _NotifyUpdateComment {
     TResult Function(CommentModel comment)? updateCommentSuccess,
     TResult Function(Failure failure)? updateCommentFailed,
     TResult Function(CommentModel oldComment)? notifyUpdateComment,
+    TResult Function()? reactOnCommentLoading,
+    TResult Function(CommentModel comment)? reactOnCommentSuccess,
+    TResult Function(Failure failure)? reactOnCommentFailed,
+    TResult Function()? cancelUpdate,
     required TResult orElse(),
   }) {
     if (notifyUpdateComment != null) {
@@ -3644,6 +4072,12 @@ class _$NotifyUpdateCommentImpl implements _NotifyUpdateComment {
     required TResult Function(_UpdateCommentSuccess value) updateCommentSuccess,
     required TResult Function(_UpdateCommentFailed value) updateCommentFailed,
     required TResult Function(_NotifyUpdateComment value) notifyUpdateComment,
+    required TResult Function(_ReactOnCommentLoading value)
+        reactOnCommentLoading,
+    required TResult Function(_ReactOnCommentSuccess value)
+        reactOnCommentSuccess,
+    required TResult Function(_ReactOnCommentFailed value) reactOnCommentFailed,
+    required TResult Function(_CancelUpdate value) cancelUpdate,
   }) {
     return notifyUpdateComment(this);
   }
@@ -3667,6 +4101,10 @@ class _$NotifyUpdateCommentImpl implements _NotifyUpdateComment {
     TResult? Function(_UpdateCommentSuccess value)? updateCommentSuccess,
     TResult? Function(_UpdateCommentFailed value)? updateCommentFailed,
     TResult? Function(_NotifyUpdateComment value)? notifyUpdateComment,
+    TResult? Function(_ReactOnCommentLoading value)? reactOnCommentLoading,
+    TResult? Function(_ReactOnCommentSuccess value)? reactOnCommentSuccess,
+    TResult? Function(_ReactOnCommentFailed value)? reactOnCommentFailed,
+    TResult? Function(_CancelUpdate value)? cancelUpdate,
   }) {
     return notifyUpdateComment?.call(this);
   }
@@ -3690,6 +4128,10 @@ class _$NotifyUpdateCommentImpl implements _NotifyUpdateComment {
     TResult Function(_UpdateCommentSuccess value)? updateCommentSuccess,
     TResult Function(_UpdateCommentFailed value)? updateCommentFailed,
     TResult Function(_NotifyUpdateComment value)? notifyUpdateComment,
+    TResult Function(_ReactOnCommentLoading value)? reactOnCommentLoading,
+    TResult Function(_ReactOnCommentSuccess value)? reactOnCommentSuccess,
+    TResult Function(_ReactOnCommentFailed value)? reactOnCommentFailed,
+    TResult Function(_CancelUpdate value)? cancelUpdate,
     required TResult orElse(),
   }) {
     if (notifyUpdateComment != null) {
@@ -3710,4 +4152,965 @@ abstract class _NotifyUpdateComment implements CommentViewModelState {
   @JsonKey(includeFromJson: false, includeToJson: false)
   _$$NotifyUpdateCommentImplCopyWith<_$NotifyUpdateCommentImpl> get copyWith =>
       throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$ReactOnCommentLoadingImplCopyWith<$Res> {
+  factory _$$ReactOnCommentLoadingImplCopyWith(
+          _$ReactOnCommentLoadingImpl value,
+          $Res Function(_$ReactOnCommentLoadingImpl) then) =
+      __$$ReactOnCommentLoadingImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$ReactOnCommentLoadingImplCopyWithImpl<$Res>
+    extends _$CommentViewModelStateCopyWithImpl<$Res,
+        _$ReactOnCommentLoadingImpl>
+    implements _$$ReactOnCommentLoadingImplCopyWith<$Res> {
+  __$$ReactOnCommentLoadingImplCopyWithImpl(_$ReactOnCommentLoadingImpl _value,
+      $Res Function(_$ReactOnCommentLoadingImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of CommentViewModelState
+  /// with the given fields replaced by the non-null parameter values.
+}
+
+/// @nodoc
+
+class _$ReactOnCommentLoadingImpl implements _ReactOnCommentLoading {
+  const _$ReactOnCommentLoadingImpl();
+
+  @override
+  String toString() {
+    return 'CommentViewModelState.reactOnCommentLoading()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$ReactOnCommentLoadingImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() getCommentsLoading,
+    required TResult Function(List<CommentModel> comments) getCommentsSuccess,
+    required TResult Function(Failure failure) getCommentsFailed,
+    required TResult Function() loadMoreCommentsLoading,
+    required TResult Function(Failure failure) loadMoreCommentsFailed,
+    required TResult Function() addCommentLoading,
+    required TResult Function(CommentModel comment) addCommentSuccess,
+    required TResult Function(Failure failure) addCommentFailed,
+    required TResult Function() deleteCommentLoading,
+    required TResult Function(CommentModel comment) deleteCommentSuccess,
+    required TResult Function(Failure failure) deleteCommentFailed,
+    required TResult Function(CommentModel updatedComment) updateCommentLoading,
+    required TResult Function(CommentModel comment) updateCommentSuccess,
+    required TResult Function(Failure failure) updateCommentFailed,
+    required TResult Function(CommentModel oldComment) notifyUpdateComment,
+    required TResult Function() reactOnCommentLoading,
+    required TResult Function(CommentModel comment) reactOnCommentSuccess,
+    required TResult Function(Failure failure) reactOnCommentFailed,
+    required TResult Function() cancelUpdate,
+  }) {
+    return reactOnCommentLoading();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? getCommentsLoading,
+    TResult? Function(List<CommentModel> comments)? getCommentsSuccess,
+    TResult? Function(Failure failure)? getCommentsFailed,
+    TResult? Function()? loadMoreCommentsLoading,
+    TResult? Function(Failure failure)? loadMoreCommentsFailed,
+    TResult? Function()? addCommentLoading,
+    TResult? Function(CommentModel comment)? addCommentSuccess,
+    TResult? Function(Failure failure)? addCommentFailed,
+    TResult? Function()? deleteCommentLoading,
+    TResult? Function(CommentModel comment)? deleteCommentSuccess,
+    TResult? Function(Failure failure)? deleteCommentFailed,
+    TResult? Function(CommentModel updatedComment)? updateCommentLoading,
+    TResult? Function(CommentModel comment)? updateCommentSuccess,
+    TResult? Function(Failure failure)? updateCommentFailed,
+    TResult? Function(CommentModel oldComment)? notifyUpdateComment,
+    TResult? Function()? reactOnCommentLoading,
+    TResult? Function(CommentModel comment)? reactOnCommentSuccess,
+    TResult? Function(Failure failure)? reactOnCommentFailed,
+    TResult? Function()? cancelUpdate,
+  }) {
+    return reactOnCommentLoading?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? getCommentsLoading,
+    TResult Function(List<CommentModel> comments)? getCommentsSuccess,
+    TResult Function(Failure failure)? getCommentsFailed,
+    TResult Function()? loadMoreCommentsLoading,
+    TResult Function(Failure failure)? loadMoreCommentsFailed,
+    TResult Function()? addCommentLoading,
+    TResult Function(CommentModel comment)? addCommentSuccess,
+    TResult Function(Failure failure)? addCommentFailed,
+    TResult Function()? deleteCommentLoading,
+    TResult Function(CommentModel comment)? deleteCommentSuccess,
+    TResult Function(Failure failure)? deleteCommentFailed,
+    TResult Function(CommentModel updatedComment)? updateCommentLoading,
+    TResult Function(CommentModel comment)? updateCommentSuccess,
+    TResult Function(Failure failure)? updateCommentFailed,
+    TResult Function(CommentModel oldComment)? notifyUpdateComment,
+    TResult Function()? reactOnCommentLoading,
+    TResult Function(CommentModel comment)? reactOnCommentSuccess,
+    TResult Function(Failure failure)? reactOnCommentFailed,
+    TResult Function()? cancelUpdate,
+    required TResult orElse(),
+  }) {
+    if (reactOnCommentLoading != null) {
+      return reactOnCommentLoading();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(_GetCommentsLoading value) getCommentsLoading,
+    required TResult Function(_GetCommentsSuccess value) getCommentsSuccess,
+    required TResult Function(_GetCommentsFailed value) getCommentsFailed,
+    required TResult Function(_LoadMoreCommentsLoading value)
+        loadMoreCommentsLoading,
+    required TResult Function(_LoadMoreCommentsFailed value)
+        loadMoreCommentsFailed,
+    required TResult Function(_AddCommentLoading value) addCommentLoading,
+    required TResult Function(_AddCommentSuccess value) addCommentSuccess,
+    required TResult Function(_AddCommentFailed value) addCommentFailed,
+    required TResult Function(_DeleteCommentLoading value) deleteCommentLoading,
+    required TResult Function(_DeleteCommentSuccess value) deleteCommentSuccess,
+    required TResult Function(_DeleteCommentFailed value) deleteCommentFailed,
+    required TResult Function(_UpdateCommentLoading value) updateCommentLoading,
+    required TResult Function(_UpdateCommentSuccess value) updateCommentSuccess,
+    required TResult Function(_UpdateCommentFailed value) updateCommentFailed,
+    required TResult Function(_NotifyUpdateComment value) notifyUpdateComment,
+    required TResult Function(_ReactOnCommentLoading value)
+        reactOnCommentLoading,
+    required TResult Function(_ReactOnCommentSuccess value)
+        reactOnCommentSuccess,
+    required TResult Function(_ReactOnCommentFailed value) reactOnCommentFailed,
+    required TResult Function(_CancelUpdate value) cancelUpdate,
+  }) {
+    return reactOnCommentLoading(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_GetCommentsLoading value)? getCommentsLoading,
+    TResult? Function(_GetCommentsSuccess value)? getCommentsSuccess,
+    TResult? Function(_GetCommentsFailed value)? getCommentsFailed,
+    TResult? Function(_LoadMoreCommentsLoading value)? loadMoreCommentsLoading,
+    TResult? Function(_LoadMoreCommentsFailed value)? loadMoreCommentsFailed,
+    TResult? Function(_AddCommentLoading value)? addCommentLoading,
+    TResult? Function(_AddCommentSuccess value)? addCommentSuccess,
+    TResult? Function(_AddCommentFailed value)? addCommentFailed,
+    TResult? Function(_DeleteCommentLoading value)? deleteCommentLoading,
+    TResult? Function(_DeleteCommentSuccess value)? deleteCommentSuccess,
+    TResult? Function(_DeleteCommentFailed value)? deleteCommentFailed,
+    TResult? Function(_UpdateCommentLoading value)? updateCommentLoading,
+    TResult? Function(_UpdateCommentSuccess value)? updateCommentSuccess,
+    TResult? Function(_UpdateCommentFailed value)? updateCommentFailed,
+    TResult? Function(_NotifyUpdateComment value)? notifyUpdateComment,
+    TResult? Function(_ReactOnCommentLoading value)? reactOnCommentLoading,
+    TResult? Function(_ReactOnCommentSuccess value)? reactOnCommentSuccess,
+    TResult? Function(_ReactOnCommentFailed value)? reactOnCommentFailed,
+    TResult? Function(_CancelUpdate value)? cancelUpdate,
+  }) {
+    return reactOnCommentLoading?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_GetCommentsLoading value)? getCommentsLoading,
+    TResult Function(_GetCommentsSuccess value)? getCommentsSuccess,
+    TResult Function(_GetCommentsFailed value)? getCommentsFailed,
+    TResult Function(_LoadMoreCommentsLoading value)? loadMoreCommentsLoading,
+    TResult Function(_LoadMoreCommentsFailed value)? loadMoreCommentsFailed,
+    TResult Function(_AddCommentLoading value)? addCommentLoading,
+    TResult Function(_AddCommentSuccess value)? addCommentSuccess,
+    TResult Function(_AddCommentFailed value)? addCommentFailed,
+    TResult Function(_DeleteCommentLoading value)? deleteCommentLoading,
+    TResult Function(_DeleteCommentSuccess value)? deleteCommentSuccess,
+    TResult Function(_DeleteCommentFailed value)? deleteCommentFailed,
+    TResult Function(_UpdateCommentLoading value)? updateCommentLoading,
+    TResult Function(_UpdateCommentSuccess value)? updateCommentSuccess,
+    TResult Function(_UpdateCommentFailed value)? updateCommentFailed,
+    TResult Function(_NotifyUpdateComment value)? notifyUpdateComment,
+    TResult Function(_ReactOnCommentLoading value)? reactOnCommentLoading,
+    TResult Function(_ReactOnCommentSuccess value)? reactOnCommentSuccess,
+    TResult Function(_ReactOnCommentFailed value)? reactOnCommentFailed,
+    TResult Function(_CancelUpdate value)? cancelUpdate,
+    required TResult orElse(),
+  }) {
+    if (reactOnCommentLoading != null) {
+      return reactOnCommentLoading(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _ReactOnCommentLoading implements CommentViewModelState {
+  const factory _ReactOnCommentLoading() = _$ReactOnCommentLoadingImpl;
+}
+
+/// @nodoc
+abstract class _$$ReactOnCommentSuccessImplCopyWith<$Res> {
+  factory _$$ReactOnCommentSuccessImplCopyWith(
+          _$ReactOnCommentSuccessImpl value,
+          $Res Function(_$ReactOnCommentSuccessImpl) then) =
+      __$$ReactOnCommentSuccessImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({CommentModel comment});
+
+  $CommentModelCopyWith<$Res> get comment;
+}
+
+/// @nodoc
+class __$$ReactOnCommentSuccessImplCopyWithImpl<$Res>
+    extends _$CommentViewModelStateCopyWithImpl<$Res,
+        _$ReactOnCommentSuccessImpl>
+    implements _$$ReactOnCommentSuccessImplCopyWith<$Res> {
+  __$$ReactOnCommentSuccessImplCopyWithImpl(_$ReactOnCommentSuccessImpl _value,
+      $Res Function(_$ReactOnCommentSuccessImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of CommentViewModelState
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? comment = null,
+  }) {
+    return _then(_$ReactOnCommentSuccessImpl(
+      comment: null == comment
+          ? _value.comment
+          : comment // ignore: cast_nullable_to_non_nullable
+              as CommentModel,
+    ));
+  }
+
+  /// Create a copy of CommentViewModelState
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $CommentModelCopyWith<$Res> get comment {
+    return $CommentModelCopyWith<$Res>(_value.comment, (value) {
+      return _then(_value.copyWith(comment: value));
+    });
+  }
+}
+
+/// @nodoc
+
+class _$ReactOnCommentSuccessImpl implements _ReactOnCommentSuccess {
+  const _$ReactOnCommentSuccessImpl({required this.comment});
+
+  @override
+  final CommentModel comment;
+
+  @override
+  String toString() {
+    return 'CommentViewModelState.reactOnCommentSuccess(comment: $comment)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$ReactOnCommentSuccessImpl &&
+            (identical(other.comment, comment) || other.comment == comment));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, comment);
+
+  /// Create a copy of CommentViewModelState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$ReactOnCommentSuccessImplCopyWith<_$ReactOnCommentSuccessImpl>
+      get copyWith => __$$ReactOnCommentSuccessImplCopyWithImpl<
+          _$ReactOnCommentSuccessImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() getCommentsLoading,
+    required TResult Function(List<CommentModel> comments) getCommentsSuccess,
+    required TResult Function(Failure failure) getCommentsFailed,
+    required TResult Function() loadMoreCommentsLoading,
+    required TResult Function(Failure failure) loadMoreCommentsFailed,
+    required TResult Function() addCommentLoading,
+    required TResult Function(CommentModel comment) addCommentSuccess,
+    required TResult Function(Failure failure) addCommentFailed,
+    required TResult Function() deleteCommentLoading,
+    required TResult Function(CommentModel comment) deleteCommentSuccess,
+    required TResult Function(Failure failure) deleteCommentFailed,
+    required TResult Function(CommentModel updatedComment) updateCommentLoading,
+    required TResult Function(CommentModel comment) updateCommentSuccess,
+    required TResult Function(Failure failure) updateCommentFailed,
+    required TResult Function(CommentModel oldComment) notifyUpdateComment,
+    required TResult Function() reactOnCommentLoading,
+    required TResult Function(CommentModel comment) reactOnCommentSuccess,
+    required TResult Function(Failure failure) reactOnCommentFailed,
+    required TResult Function() cancelUpdate,
+  }) {
+    return reactOnCommentSuccess(comment);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? getCommentsLoading,
+    TResult? Function(List<CommentModel> comments)? getCommentsSuccess,
+    TResult? Function(Failure failure)? getCommentsFailed,
+    TResult? Function()? loadMoreCommentsLoading,
+    TResult? Function(Failure failure)? loadMoreCommentsFailed,
+    TResult? Function()? addCommentLoading,
+    TResult? Function(CommentModel comment)? addCommentSuccess,
+    TResult? Function(Failure failure)? addCommentFailed,
+    TResult? Function()? deleteCommentLoading,
+    TResult? Function(CommentModel comment)? deleteCommentSuccess,
+    TResult? Function(Failure failure)? deleteCommentFailed,
+    TResult? Function(CommentModel updatedComment)? updateCommentLoading,
+    TResult? Function(CommentModel comment)? updateCommentSuccess,
+    TResult? Function(Failure failure)? updateCommentFailed,
+    TResult? Function(CommentModel oldComment)? notifyUpdateComment,
+    TResult? Function()? reactOnCommentLoading,
+    TResult? Function(CommentModel comment)? reactOnCommentSuccess,
+    TResult? Function(Failure failure)? reactOnCommentFailed,
+    TResult? Function()? cancelUpdate,
+  }) {
+    return reactOnCommentSuccess?.call(comment);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? getCommentsLoading,
+    TResult Function(List<CommentModel> comments)? getCommentsSuccess,
+    TResult Function(Failure failure)? getCommentsFailed,
+    TResult Function()? loadMoreCommentsLoading,
+    TResult Function(Failure failure)? loadMoreCommentsFailed,
+    TResult Function()? addCommentLoading,
+    TResult Function(CommentModel comment)? addCommentSuccess,
+    TResult Function(Failure failure)? addCommentFailed,
+    TResult Function()? deleteCommentLoading,
+    TResult Function(CommentModel comment)? deleteCommentSuccess,
+    TResult Function(Failure failure)? deleteCommentFailed,
+    TResult Function(CommentModel updatedComment)? updateCommentLoading,
+    TResult Function(CommentModel comment)? updateCommentSuccess,
+    TResult Function(Failure failure)? updateCommentFailed,
+    TResult Function(CommentModel oldComment)? notifyUpdateComment,
+    TResult Function()? reactOnCommentLoading,
+    TResult Function(CommentModel comment)? reactOnCommentSuccess,
+    TResult Function(Failure failure)? reactOnCommentFailed,
+    TResult Function()? cancelUpdate,
+    required TResult orElse(),
+  }) {
+    if (reactOnCommentSuccess != null) {
+      return reactOnCommentSuccess(comment);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(_GetCommentsLoading value) getCommentsLoading,
+    required TResult Function(_GetCommentsSuccess value) getCommentsSuccess,
+    required TResult Function(_GetCommentsFailed value) getCommentsFailed,
+    required TResult Function(_LoadMoreCommentsLoading value)
+        loadMoreCommentsLoading,
+    required TResult Function(_LoadMoreCommentsFailed value)
+        loadMoreCommentsFailed,
+    required TResult Function(_AddCommentLoading value) addCommentLoading,
+    required TResult Function(_AddCommentSuccess value) addCommentSuccess,
+    required TResult Function(_AddCommentFailed value) addCommentFailed,
+    required TResult Function(_DeleteCommentLoading value) deleteCommentLoading,
+    required TResult Function(_DeleteCommentSuccess value) deleteCommentSuccess,
+    required TResult Function(_DeleteCommentFailed value) deleteCommentFailed,
+    required TResult Function(_UpdateCommentLoading value) updateCommentLoading,
+    required TResult Function(_UpdateCommentSuccess value) updateCommentSuccess,
+    required TResult Function(_UpdateCommentFailed value) updateCommentFailed,
+    required TResult Function(_NotifyUpdateComment value) notifyUpdateComment,
+    required TResult Function(_ReactOnCommentLoading value)
+        reactOnCommentLoading,
+    required TResult Function(_ReactOnCommentSuccess value)
+        reactOnCommentSuccess,
+    required TResult Function(_ReactOnCommentFailed value) reactOnCommentFailed,
+    required TResult Function(_CancelUpdate value) cancelUpdate,
+  }) {
+    return reactOnCommentSuccess(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_GetCommentsLoading value)? getCommentsLoading,
+    TResult? Function(_GetCommentsSuccess value)? getCommentsSuccess,
+    TResult? Function(_GetCommentsFailed value)? getCommentsFailed,
+    TResult? Function(_LoadMoreCommentsLoading value)? loadMoreCommentsLoading,
+    TResult? Function(_LoadMoreCommentsFailed value)? loadMoreCommentsFailed,
+    TResult? Function(_AddCommentLoading value)? addCommentLoading,
+    TResult? Function(_AddCommentSuccess value)? addCommentSuccess,
+    TResult? Function(_AddCommentFailed value)? addCommentFailed,
+    TResult? Function(_DeleteCommentLoading value)? deleteCommentLoading,
+    TResult? Function(_DeleteCommentSuccess value)? deleteCommentSuccess,
+    TResult? Function(_DeleteCommentFailed value)? deleteCommentFailed,
+    TResult? Function(_UpdateCommentLoading value)? updateCommentLoading,
+    TResult? Function(_UpdateCommentSuccess value)? updateCommentSuccess,
+    TResult? Function(_UpdateCommentFailed value)? updateCommentFailed,
+    TResult? Function(_NotifyUpdateComment value)? notifyUpdateComment,
+    TResult? Function(_ReactOnCommentLoading value)? reactOnCommentLoading,
+    TResult? Function(_ReactOnCommentSuccess value)? reactOnCommentSuccess,
+    TResult? Function(_ReactOnCommentFailed value)? reactOnCommentFailed,
+    TResult? Function(_CancelUpdate value)? cancelUpdate,
+  }) {
+    return reactOnCommentSuccess?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_GetCommentsLoading value)? getCommentsLoading,
+    TResult Function(_GetCommentsSuccess value)? getCommentsSuccess,
+    TResult Function(_GetCommentsFailed value)? getCommentsFailed,
+    TResult Function(_LoadMoreCommentsLoading value)? loadMoreCommentsLoading,
+    TResult Function(_LoadMoreCommentsFailed value)? loadMoreCommentsFailed,
+    TResult Function(_AddCommentLoading value)? addCommentLoading,
+    TResult Function(_AddCommentSuccess value)? addCommentSuccess,
+    TResult Function(_AddCommentFailed value)? addCommentFailed,
+    TResult Function(_DeleteCommentLoading value)? deleteCommentLoading,
+    TResult Function(_DeleteCommentSuccess value)? deleteCommentSuccess,
+    TResult Function(_DeleteCommentFailed value)? deleteCommentFailed,
+    TResult Function(_UpdateCommentLoading value)? updateCommentLoading,
+    TResult Function(_UpdateCommentSuccess value)? updateCommentSuccess,
+    TResult Function(_UpdateCommentFailed value)? updateCommentFailed,
+    TResult Function(_NotifyUpdateComment value)? notifyUpdateComment,
+    TResult Function(_ReactOnCommentLoading value)? reactOnCommentLoading,
+    TResult Function(_ReactOnCommentSuccess value)? reactOnCommentSuccess,
+    TResult Function(_ReactOnCommentFailed value)? reactOnCommentFailed,
+    TResult Function(_CancelUpdate value)? cancelUpdate,
+    required TResult orElse(),
+  }) {
+    if (reactOnCommentSuccess != null) {
+      return reactOnCommentSuccess(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _ReactOnCommentSuccess implements CommentViewModelState {
+  const factory _ReactOnCommentSuccess({required final CommentModel comment}) =
+      _$ReactOnCommentSuccessImpl;
+
+  CommentModel get comment;
+
+  /// Create a copy of CommentViewModelState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$ReactOnCommentSuccessImplCopyWith<_$ReactOnCommentSuccessImpl>
+      get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$ReactOnCommentFailedImplCopyWith<$Res> {
+  factory _$$ReactOnCommentFailedImplCopyWith(_$ReactOnCommentFailedImpl value,
+          $Res Function(_$ReactOnCommentFailedImpl) then) =
+      __$$ReactOnCommentFailedImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({Failure failure});
+}
+
+/// @nodoc
+class __$$ReactOnCommentFailedImplCopyWithImpl<$Res>
+    extends _$CommentViewModelStateCopyWithImpl<$Res,
+        _$ReactOnCommentFailedImpl>
+    implements _$$ReactOnCommentFailedImplCopyWith<$Res> {
+  __$$ReactOnCommentFailedImplCopyWithImpl(_$ReactOnCommentFailedImpl _value,
+      $Res Function(_$ReactOnCommentFailedImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of CommentViewModelState
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? failure = null,
+  }) {
+    return _then(_$ReactOnCommentFailedImpl(
+      failure: null == failure
+          ? _value.failure
+          : failure // ignore: cast_nullable_to_non_nullable
+              as Failure,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$ReactOnCommentFailedImpl implements _ReactOnCommentFailed {
+  const _$ReactOnCommentFailedImpl({required this.failure});
+
+  @override
+  final Failure failure;
+
+  @override
+  String toString() {
+    return 'CommentViewModelState.reactOnCommentFailed(failure: $failure)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$ReactOnCommentFailedImpl &&
+            (identical(other.failure, failure) || other.failure == failure));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, failure);
+
+  /// Create a copy of CommentViewModelState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$ReactOnCommentFailedImplCopyWith<_$ReactOnCommentFailedImpl>
+      get copyWith =>
+          __$$ReactOnCommentFailedImplCopyWithImpl<_$ReactOnCommentFailedImpl>(
+              this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() getCommentsLoading,
+    required TResult Function(List<CommentModel> comments) getCommentsSuccess,
+    required TResult Function(Failure failure) getCommentsFailed,
+    required TResult Function() loadMoreCommentsLoading,
+    required TResult Function(Failure failure) loadMoreCommentsFailed,
+    required TResult Function() addCommentLoading,
+    required TResult Function(CommentModel comment) addCommentSuccess,
+    required TResult Function(Failure failure) addCommentFailed,
+    required TResult Function() deleteCommentLoading,
+    required TResult Function(CommentModel comment) deleteCommentSuccess,
+    required TResult Function(Failure failure) deleteCommentFailed,
+    required TResult Function(CommentModel updatedComment) updateCommentLoading,
+    required TResult Function(CommentModel comment) updateCommentSuccess,
+    required TResult Function(Failure failure) updateCommentFailed,
+    required TResult Function(CommentModel oldComment) notifyUpdateComment,
+    required TResult Function() reactOnCommentLoading,
+    required TResult Function(CommentModel comment) reactOnCommentSuccess,
+    required TResult Function(Failure failure) reactOnCommentFailed,
+    required TResult Function() cancelUpdate,
+  }) {
+    return reactOnCommentFailed(failure);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? getCommentsLoading,
+    TResult? Function(List<CommentModel> comments)? getCommentsSuccess,
+    TResult? Function(Failure failure)? getCommentsFailed,
+    TResult? Function()? loadMoreCommentsLoading,
+    TResult? Function(Failure failure)? loadMoreCommentsFailed,
+    TResult? Function()? addCommentLoading,
+    TResult? Function(CommentModel comment)? addCommentSuccess,
+    TResult? Function(Failure failure)? addCommentFailed,
+    TResult? Function()? deleteCommentLoading,
+    TResult? Function(CommentModel comment)? deleteCommentSuccess,
+    TResult? Function(Failure failure)? deleteCommentFailed,
+    TResult? Function(CommentModel updatedComment)? updateCommentLoading,
+    TResult? Function(CommentModel comment)? updateCommentSuccess,
+    TResult? Function(Failure failure)? updateCommentFailed,
+    TResult? Function(CommentModel oldComment)? notifyUpdateComment,
+    TResult? Function()? reactOnCommentLoading,
+    TResult? Function(CommentModel comment)? reactOnCommentSuccess,
+    TResult? Function(Failure failure)? reactOnCommentFailed,
+    TResult? Function()? cancelUpdate,
+  }) {
+    return reactOnCommentFailed?.call(failure);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? getCommentsLoading,
+    TResult Function(List<CommentModel> comments)? getCommentsSuccess,
+    TResult Function(Failure failure)? getCommentsFailed,
+    TResult Function()? loadMoreCommentsLoading,
+    TResult Function(Failure failure)? loadMoreCommentsFailed,
+    TResult Function()? addCommentLoading,
+    TResult Function(CommentModel comment)? addCommentSuccess,
+    TResult Function(Failure failure)? addCommentFailed,
+    TResult Function()? deleteCommentLoading,
+    TResult Function(CommentModel comment)? deleteCommentSuccess,
+    TResult Function(Failure failure)? deleteCommentFailed,
+    TResult Function(CommentModel updatedComment)? updateCommentLoading,
+    TResult Function(CommentModel comment)? updateCommentSuccess,
+    TResult Function(Failure failure)? updateCommentFailed,
+    TResult Function(CommentModel oldComment)? notifyUpdateComment,
+    TResult Function()? reactOnCommentLoading,
+    TResult Function(CommentModel comment)? reactOnCommentSuccess,
+    TResult Function(Failure failure)? reactOnCommentFailed,
+    TResult Function()? cancelUpdate,
+    required TResult orElse(),
+  }) {
+    if (reactOnCommentFailed != null) {
+      return reactOnCommentFailed(failure);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(_GetCommentsLoading value) getCommentsLoading,
+    required TResult Function(_GetCommentsSuccess value) getCommentsSuccess,
+    required TResult Function(_GetCommentsFailed value) getCommentsFailed,
+    required TResult Function(_LoadMoreCommentsLoading value)
+        loadMoreCommentsLoading,
+    required TResult Function(_LoadMoreCommentsFailed value)
+        loadMoreCommentsFailed,
+    required TResult Function(_AddCommentLoading value) addCommentLoading,
+    required TResult Function(_AddCommentSuccess value) addCommentSuccess,
+    required TResult Function(_AddCommentFailed value) addCommentFailed,
+    required TResult Function(_DeleteCommentLoading value) deleteCommentLoading,
+    required TResult Function(_DeleteCommentSuccess value) deleteCommentSuccess,
+    required TResult Function(_DeleteCommentFailed value) deleteCommentFailed,
+    required TResult Function(_UpdateCommentLoading value) updateCommentLoading,
+    required TResult Function(_UpdateCommentSuccess value) updateCommentSuccess,
+    required TResult Function(_UpdateCommentFailed value) updateCommentFailed,
+    required TResult Function(_NotifyUpdateComment value) notifyUpdateComment,
+    required TResult Function(_ReactOnCommentLoading value)
+        reactOnCommentLoading,
+    required TResult Function(_ReactOnCommentSuccess value)
+        reactOnCommentSuccess,
+    required TResult Function(_ReactOnCommentFailed value) reactOnCommentFailed,
+    required TResult Function(_CancelUpdate value) cancelUpdate,
+  }) {
+    return reactOnCommentFailed(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_GetCommentsLoading value)? getCommentsLoading,
+    TResult? Function(_GetCommentsSuccess value)? getCommentsSuccess,
+    TResult? Function(_GetCommentsFailed value)? getCommentsFailed,
+    TResult? Function(_LoadMoreCommentsLoading value)? loadMoreCommentsLoading,
+    TResult? Function(_LoadMoreCommentsFailed value)? loadMoreCommentsFailed,
+    TResult? Function(_AddCommentLoading value)? addCommentLoading,
+    TResult? Function(_AddCommentSuccess value)? addCommentSuccess,
+    TResult? Function(_AddCommentFailed value)? addCommentFailed,
+    TResult? Function(_DeleteCommentLoading value)? deleteCommentLoading,
+    TResult? Function(_DeleteCommentSuccess value)? deleteCommentSuccess,
+    TResult? Function(_DeleteCommentFailed value)? deleteCommentFailed,
+    TResult? Function(_UpdateCommentLoading value)? updateCommentLoading,
+    TResult? Function(_UpdateCommentSuccess value)? updateCommentSuccess,
+    TResult? Function(_UpdateCommentFailed value)? updateCommentFailed,
+    TResult? Function(_NotifyUpdateComment value)? notifyUpdateComment,
+    TResult? Function(_ReactOnCommentLoading value)? reactOnCommentLoading,
+    TResult? Function(_ReactOnCommentSuccess value)? reactOnCommentSuccess,
+    TResult? Function(_ReactOnCommentFailed value)? reactOnCommentFailed,
+    TResult? Function(_CancelUpdate value)? cancelUpdate,
+  }) {
+    return reactOnCommentFailed?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_GetCommentsLoading value)? getCommentsLoading,
+    TResult Function(_GetCommentsSuccess value)? getCommentsSuccess,
+    TResult Function(_GetCommentsFailed value)? getCommentsFailed,
+    TResult Function(_LoadMoreCommentsLoading value)? loadMoreCommentsLoading,
+    TResult Function(_LoadMoreCommentsFailed value)? loadMoreCommentsFailed,
+    TResult Function(_AddCommentLoading value)? addCommentLoading,
+    TResult Function(_AddCommentSuccess value)? addCommentSuccess,
+    TResult Function(_AddCommentFailed value)? addCommentFailed,
+    TResult Function(_DeleteCommentLoading value)? deleteCommentLoading,
+    TResult Function(_DeleteCommentSuccess value)? deleteCommentSuccess,
+    TResult Function(_DeleteCommentFailed value)? deleteCommentFailed,
+    TResult Function(_UpdateCommentLoading value)? updateCommentLoading,
+    TResult Function(_UpdateCommentSuccess value)? updateCommentSuccess,
+    TResult Function(_UpdateCommentFailed value)? updateCommentFailed,
+    TResult Function(_NotifyUpdateComment value)? notifyUpdateComment,
+    TResult Function(_ReactOnCommentLoading value)? reactOnCommentLoading,
+    TResult Function(_ReactOnCommentSuccess value)? reactOnCommentSuccess,
+    TResult Function(_ReactOnCommentFailed value)? reactOnCommentFailed,
+    TResult Function(_CancelUpdate value)? cancelUpdate,
+    required TResult orElse(),
+  }) {
+    if (reactOnCommentFailed != null) {
+      return reactOnCommentFailed(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _ReactOnCommentFailed implements CommentViewModelState {
+  const factory _ReactOnCommentFailed({required final Failure failure}) =
+      _$ReactOnCommentFailedImpl;
+
+  Failure get failure;
+
+  /// Create a copy of CommentViewModelState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$ReactOnCommentFailedImplCopyWith<_$ReactOnCommentFailedImpl>
+      get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$CancelUpdateImplCopyWith<$Res> {
+  factory _$$CancelUpdateImplCopyWith(
+          _$CancelUpdateImpl value, $Res Function(_$CancelUpdateImpl) then) =
+      __$$CancelUpdateImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$CancelUpdateImplCopyWithImpl<$Res>
+    extends _$CommentViewModelStateCopyWithImpl<$Res, _$CancelUpdateImpl>
+    implements _$$CancelUpdateImplCopyWith<$Res> {
+  __$$CancelUpdateImplCopyWithImpl(
+      _$CancelUpdateImpl _value, $Res Function(_$CancelUpdateImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of CommentViewModelState
+  /// with the given fields replaced by the non-null parameter values.
+}
+
+/// @nodoc
+
+class _$CancelUpdateImpl implements _CancelUpdate {
+  const _$CancelUpdateImpl();
+
+  @override
+  String toString() {
+    return 'CommentViewModelState.cancelUpdate()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$CancelUpdateImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() getCommentsLoading,
+    required TResult Function(List<CommentModel> comments) getCommentsSuccess,
+    required TResult Function(Failure failure) getCommentsFailed,
+    required TResult Function() loadMoreCommentsLoading,
+    required TResult Function(Failure failure) loadMoreCommentsFailed,
+    required TResult Function() addCommentLoading,
+    required TResult Function(CommentModel comment) addCommentSuccess,
+    required TResult Function(Failure failure) addCommentFailed,
+    required TResult Function() deleteCommentLoading,
+    required TResult Function(CommentModel comment) deleteCommentSuccess,
+    required TResult Function(Failure failure) deleteCommentFailed,
+    required TResult Function(CommentModel updatedComment) updateCommentLoading,
+    required TResult Function(CommentModel comment) updateCommentSuccess,
+    required TResult Function(Failure failure) updateCommentFailed,
+    required TResult Function(CommentModel oldComment) notifyUpdateComment,
+    required TResult Function() reactOnCommentLoading,
+    required TResult Function(CommentModel comment) reactOnCommentSuccess,
+    required TResult Function(Failure failure) reactOnCommentFailed,
+    required TResult Function() cancelUpdate,
+  }) {
+    return cancelUpdate();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? getCommentsLoading,
+    TResult? Function(List<CommentModel> comments)? getCommentsSuccess,
+    TResult? Function(Failure failure)? getCommentsFailed,
+    TResult? Function()? loadMoreCommentsLoading,
+    TResult? Function(Failure failure)? loadMoreCommentsFailed,
+    TResult? Function()? addCommentLoading,
+    TResult? Function(CommentModel comment)? addCommentSuccess,
+    TResult? Function(Failure failure)? addCommentFailed,
+    TResult? Function()? deleteCommentLoading,
+    TResult? Function(CommentModel comment)? deleteCommentSuccess,
+    TResult? Function(Failure failure)? deleteCommentFailed,
+    TResult? Function(CommentModel updatedComment)? updateCommentLoading,
+    TResult? Function(CommentModel comment)? updateCommentSuccess,
+    TResult? Function(Failure failure)? updateCommentFailed,
+    TResult? Function(CommentModel oldComment)? notifyUpdateComment,
+    TResult? Function()? reactOnCommentLoading,
+    TResult? Function(CommentModel comment)? reactOnCommentSuccess,
+    TResult? Function(Failure failure)? reactOnCommentFailed,
+    TResult? Function()? cancelUpdate,
+  }) {
+    return cancelUpdate?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? getCommentsLoading,
+    TResult Function(List<CommentModel> comments)? getCommentsSuccess,
+    TResult Function(Failure failure)? getCommentsFailed,
+    TResult Function()? loadMoreCommentsLoading,
+    TResult Function(Failure failure)? loadMoreCommentsFailed,
+    TResult Function()? addCommentLoading,
+    TResult Function(CommentModel comment)? addCommentSuccess,
+    TResult Function(Failure failure)? addCommentFailed,
+    TResult Function()? deleteCommentLoading,
+    TResult Function(CommentModel comment)? deleteCommentSuccess,
+    TResult Function(Failure failure)? deleteCommentFailed,
+    TResult Function(CommentModel updatedComment)? updateCommentLoading,
+    TResult Function(CommentModel comment)? updateCommentSuccess,
+    TResult Function(Failure failure)? updateCommentFailed,
+    TResult Function(CommentModel oldComment)? notifyUpdateComment,
+    TResult Function()? reactOnCommentLoading,
+    TResult Function(CommentModel comment)? reactOnCommentSuccess,
+    TResult Function(Failure failure)? reactOnCommentFailed,
+    TResult Function()? cancelUpdate,
+    required TResult orElse(),
+  }) {
+    if (cancelUpdate != null) {
+      return cancelUpdate();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(_GetCommentsLoading value) getCommentsLoading,
+    required TResult Function(_GetCommentsSuccess value) getCommentsSuccess,
+    required TResult Function(_GetCommentsFailed value) getCommentsFailed,
+    required TResult Function(_LoadMoreCommentsLoading value)
+        loadMoreCommentsLoading,
+    required TResult Function(_LoadMoreCommentsFailed value)
+        loadMoreCommentsFailed,
+    required TResult Function(_AddCommentLoading value) addCommentLoading,
+    required TResult Function(_AddCommentSuccess value) addCommentSuccess,
+    required TResult Function(_AddCommentFailed value) addCommentFailed,
+    required TResult Function(_DeleteCommentLoading value) deleteCommentLoading,
+    required TResult Function(_DeleteCommentSuccess value) deleteCommentSuccess,
+    required TResult Function(_DeleteCommentFailed value) deleteCommentFailed,
+    required TResult Function(_UpdateCommentLoading value) updateCommentLoading,
+    required TResult Function(_UpdateCommentSuccess value) updateCommentSuccess,
+    required TResult Function(_UpdateCommentFailed value) updateCommentFailed,
+    required TResult Function(_NotifyUpdateComment value) notifyUpdateComment,
+    required TResult Function(_ReactOnCommentLoading value)
+        reactOnCommentLoading,
+    required TResult Function(_ReactOnCommentSuccess value)
+        reactOnCommentSuccess,
+    required TResult Function(_ReactOnCommentFailed value) reactOnCommentFailed,
+    required TResult Function(_CancelUpdate value) cancelUpdate,
+  }) {
+    return cancelUpdate(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_GetCommentsLoading value)? getCommentsLoading,
+    TResult? Function(_GetCommentsSuccess value)? getCommentsSuccess,
+    TResult? Function(_GetCommentsFailed value)? getCommentsFailed,
+    TResult? Function(_LoadMoreCommentsLoading value)? loadMoreCommentsLoading,
+    TResult? Function(_LoadMoreCommentsFailed value)? loadMoreCommentsFailed,
+    TResult? Function(_AddCommentLoading value)? addCommentLoading,
+    TResult? Function(_AddCommentSuccess value)? addCommentSuccess,
+    TResult? Function(_AddCommentFailed value)? addCommentFailed,
+    TResult? Function(_DeleteCommentLoading value)? deleteCommentLoading,
+    TResult? Function(_DeleteCommentSuccess value)? deleteCommentSuccess,
+    TResult? Function(_DeleteCommentFailed value)? deleteCommentFailed,
+    TResult? Function(_UpdateCommentLoading value)? updateCommentLoading,
+    TResult? Function(_UpdateCommentSuccess value)? updateCommentSuccess,
+    TResult? Function(_UpdateCommentFailed value)? updateCommentFailed,
+    TResult? Function(_NotifyUpdateComment value)? notifyUpdateComment,
+    TResult? Function(_ReactOnCommentLoading value)? reactOnCommentLoading,
+    TResult? Function(_ReactOnCommentSuccess value)? reactOnCommentSuccess,
+    TResult? Function(_ReactOnCommentFailed value)? reactOnCommentFailed,
+    TResult? Function(_CancelUpdate value)? cancelUpdate,
+  }) {
+    return cancelUpdate?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_GetCommentsLoading value)? getCommentsLoading,
+    TResult Function(_GetCommentsSuccess value)? getCommentsSuccess,
+    TResult Function(_GetCommentsFailed value)? getCommentsFailed,
+    TResult Function(_LoadMoreCommentsLoading value)? loadMoreCommentsLoading,
+    TResult Function(_LoadMoreCommentsFailed value)? loadMoreCommentsFailed,
+    TResult Function(_AddCommentLoading value)? addCommentLoading,
+    TResult Function(_AddCommentSuccess value)? addCommentSuccess,
+    TResult Function(_AddCommentFailed value)? addCommentFailed,
+    TResult Function(_DeleteCommentLoading value)? deleteCommentLoading,
+    TResult Function(_DeleteCommentSuccess value)? deleteCommentSuccess,
+    TResult Function(_DeleteCommentFailed value)? deleteCommentFailed,
+    TResult Function(_UpdateCommentLoading value)? updateCommentLoading,
+    TResult Function(_UpdateCommentSuccess value)? updateCommentSuccess,
+    TResult Function(_UpdateCommentFailed value)? updateCommentFailed,
+    TResult Function(_NotifyUpdateComment value)? notifyUpdateComment,
+    TResult Function(_ReactOnCommentLoading value)? reactOnCommentLoading,
+    TResult Function(_ReactOnCommentSuccess value)? reactOnCommentSuccess,
+    TResult Function(_ReactOnCommentFailed value)? reactOnCommentFailed,
+    TResult Function(_CancelUpdate value)? cancelUpdate,
+    required TResult orElse(),
+  }) {
+    if (cancelUpdate != null) {
+      return cancelUpdate(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _CancelUpdate implements CommentViewModelState {
+  const factory _CancelUpdate() = _$CancelUpdateImpl;
 }

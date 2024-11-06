@@ -23,7 +23,9 @@ class ModifyCommentCard extends StatefulWidget {
 class _ModifyCommentCardState extends State<ModifyCommentCard>
     with TickerProviderStateMixin {
   AnimationController? _animationController;
-  bool isAboutToEdit = false;
+
+  /// true if the comment is about to be edited
+  bool isAboutToUpdate = false;
   @override
   void initState() {
     super.initState();
@@ -39,51 +41,117 @@ class _ModifyCommentCardState extends State<ModifyCommentCard>
             state.whenOrNull(
               updateCommentSuccess: (_) {
                 _animationController?.stop();
+                isAboutToUpdate = false;
               },
               notifyUpdateComment: (oldComment) {
                 if (oldComment.id == widget.comment.id) {
-                  isAboutToEdit = true;
-                } else {
-                  isAboutToEdit = false;
+                  isAboutToUpdate = true;
                 }
+              },
+              deleteCommentSuccess: (_) {
+                showSnackBar(context, message: "comment.comment_removed".tr());
+              },
+              reactOnCommentFailed: (failure) {
+                isAboutToUpdate = false;
+                showSnackBar(context, message: failure.message);
+              },
+              reactOnCommentSuccess: (_) {
+                isAboutToUpdate = false;
               },
             );
           },
           builder: (context, state) {
             return state.maybeWhen(
-              updateCommentLoading: (updatedComment) {
-                if (isAboutToEdit) {
-                  _animationController = AnimationController(
-                    vsync: this,
-                    value: 0.3,
-                    duration: const Duration(seconds: 1),
-                    reverseDuration: const Duration(seconds: 1),
-                  );
-                  _animationController?.repeat(reverse: true);
-                  return FadeTransition(
-                    opacity: _animationController!.drive(
-                      Tween(begin: 0.3, end: 1.0).chain(
-                        CurveTween(curve: Curves.easeInOut),
-                      ),
-                    ),
-                    child: CommentCard(
-                      comment: updatedComment,
-                    ),
-                  );
-                }
-                return CommentCard(
-                  comment: widget.comment,
-                );
-              },
+              updateCommentLoading: isAboutToUpdate
+                  ? (updatedComment) {
+                      _animationController = AnimationController(
+                        vsync: this,
+                        value: 0.3,
+                        duration: const Duration(seconds: 1),
+                        reverseDuration: const Duration(seconds: 1),
+                      );
+                      _animationController?.repeat(reverse: true);
+                      return FadeTransition(
+                        opacity: _animationController!.drive(
+                          Tween(begin: 0.3, end: 1.0).chain(
+                            CurveTween(curve: Curves.easeInOut),
+                          ),
+                        ),
+                        child: CommentCard(
+                          comment: updatedComment,
+                        ),
+                      );
+                    }
+                  : null,
               orElse: () {
-                return CommentCard(
-                  comment: widget.comment,
+                return Column(
+                  children: [
+                    CommentCard(
+                      comment: widget.comment,
+                    ),
+                    Row(
+                      children: [
+                        Builder(
+                          builder: (context) {
+                            ReactionStatus reactionStatus =
+                                widget.comment.usersReactions[
+                                        inject<LocaleUserInfo>()
+                                            .getUserData()!
+                                            .id] ??
+                                    ReactionStatus.none;
+
+                            return TextButton(
+                              onPressed: () {
+                                isAboutToUpdate = true;
+                                ReactionStatus toogleReaction =
+                                    reactionStatus == ReactionStatus.like
+                                        ? ReactionStatus.none
+                                        : ReactionStatus.like;
+
+                                context.read<CommentViewModel>().reactOnComment(
+                                    widget.comment, toogleReaction);
+                              },
+                              child: reactionStatus.icon,
+                            );
+                          },
+                        ),
+                        // likes count
+                        Container(
+                          padding: EdgeInsets.symmetric(horizontal: 10.w),
+                          decoration: BoxDecoration(
+                            border: BorderDirectional(
+                              start: BorderSide(
+                                color: Colors.grey.shade300,
+                              ),
+                            ),
+                          ),
+                          child: state.maybeWhen(
+                            reactOnCommentLoading: isAboutToUpdate
+                                ? () {
+                                    return CircleAvatar(
+                                      radius: 8.r,
+                                      backgroundColor: Colors.transparent,
+                                      child: const CircularProgressIndicator(),
+                                    );
+                                  }
+                                : null,
+                            orElse: () {
+                              var likes = widget.comment.usersReactions.length;
+                              return Text(
+                                likes == 0 ? "" : likes.toString(),
+                              );
+                            },
+                          ),
+                        ),
+                      ],
+                    ),
+                  ],
                 );
               },
             );
           },
         ),
-        if (isAboutToEdit == false &&
+        if (isAboutToUpdate == false &&
             widget.comment.senderId ==
                 inject<LocaleUserInfo>().getUserData()!.id)
           Align(
@@ -105,9 +173,12 @@ class _ModifyCommentCardState extends State<ModifyCommentCard>
                             onPressed: () {
                               Navigator.pop(context);
                               widget.onEdit?.call();
-                              isAboutToEdit = true;
+                              isAboutToUpdate = true;
                             },
-                            icon: const Icon(Icons.edit, color: Colors.white),
+                            icon: Icon(
+                              Icons.edit,
+                              color: Theme.of(context).secondaryHeaderColor,
+                            ),
                             label: Text(
                               "comment.edit_comment".tr(),
                               style: Theme.of(context).textTheme.bodyMedium,
@@ -141,12 +212,12 @@ class _ModifyCommentCardState extends State<ModifyCommentCard>
               icon: const Icon(Icons.more_vert_rounded),
             ),
           ),
-        if (isAboutToEdit)
+        if (isAboutToUpdate)
           Align(
             alignment: AlignmentDirectional.bottomEnd,
             child: FilledButton(
               onPressed: () {
-                isAboutToEdit = false;
+                isAboutToUpdate = false;
                 context.read<CommentViewModel>().cancelUpdate();
               },
               child: Text(

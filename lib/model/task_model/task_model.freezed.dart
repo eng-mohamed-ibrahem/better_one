@@ -32,6 +32,7 @@ mixin _$TaskModel {
   Duration get elapsedTime => throw _privateConstructorUsedError;
   TaskStatus get status => throw _privateConstructorUsedError;
   bool get backup => throw _privateConstructorUsedError;
+  int get likes => throw _privateConstructorUsedError;
 
   /// Serializes this TaskModel to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -56,7 +57,8 @@ abstract class $TaskModelCopyWith<$Res> {
       @JsonKey(name: 'updated_at') DateTime? updatedAt,
       @JsonKey(name: 'elapsed_time') Duration elapsedTime,
       TaskStatus status,
-      bool backup});
+      bool backup,
+      int likes});
 }
 
 /// @nodoc
@@ -82,6 +84,7 @@ class _$TaskModelCopyWithImpl<$Res, $Val extends TaskModel>
     Object? elapsedTime = null,
     Object? status = null,
     Object? backup = null,
+    Object? likes = null,
   }) {
     return _then(_value.copyWith(
       title: null == title
@@ -116,6 +119,10 @@ class _$TaskModelCopyWithImpl<$Res, $Val extends TaskModel>
           ? _value.backup
           : backup // ignore: cast_nullable_to_non_nullable
               as bool,
+      likes: null == likes
+          ? _value.likes
+          : likes // ignore: cast_nullable_to_non_nullable
+              as int,
     ) as $Val);
   }
 }
@@ -136,7 +143,8 @@ abstract class _$$TaskModelImplCopyWith<$Res>
       @JsonKey(name: 'updated_at') DateTime? updatedAt,
       @JsonKey(name: 'elapsed_time') Duration elapsedTime,
       TaskStatus status,
-      bool backup});
+      bool backup,
+      int likes});
 }
 
 /// @nodoc
@@ -160,6 +168,7 @@ class __$$TaskModelImplCopyWithImpl<$Res>
     Object? elapsedTime = null,
     Object? status = null,
     Object? backup = null,
+    Object? likes = null,
   }) {
     return _then(_$TaskModelImpl(
       title: null == title
@@ -194,6 +203,10 @@ class __$$TaskModelImplCopyWithImpl<$Res>
           ? _value.backup
           : backup // ignore: cast_nullable_to_non_nullable
               as bool,
+      likes: null == likes
+          ? _value.likes
+          : likes // ignore: cast_nullable_to_non_nullable
+              as int,
     ));
   }
 }
@@ -209,7 +222,8 @@ class _$TaskModelImpl extends _TaskModel {
       @JsonKey(name: 'updated_at') this.updatedAt,
       @JsonKey(name: 'elapsed_time') this.elapsedTime = Duration.zero,
       this.status = TaskStatus.created,
-      this.backup = false})
+      this.backup = false,
+      this.likes = 0})
       : super._();
 
   factory _$TaskModelImpl.fromJson(Map<String, dynamic> json) =>
@@ -237,10 +251,13 @@ class _$TaskModelImpl extends _TaskModel {
   @override
   @JsonKey()
   final bool backup;
+  @override
+  @JsonKey()
+  final int likes;
 
   @override
   String toString() {
-    return 'TaskModel(title: $title, subTasks: $subTasks, id: $id, createdAt: $createdAt, updatedAt: $updatedAt, elapsedTime: $elapsedTime, status: $status, backup: $backup)';
+    return 'TaskModel(title: $title, subTasks: $subTasks, id: $id, createdAt: $createdAt, updatedAt: $updatedAt, elapsedTime: $elapsedTime, status: $status, backup: $backup, likes: $likes)';
   }
 
   @override
@@ -258,7 +275,8 @@ class _$TaskModelImpl extends _TaskModel {
             (identical(other.elapsedTime, elapsedTime) ||
                 other.elapsedTime == elapsedTime) &&
             (identical(other.status, status) || other.status == status) &&
-            (identical(other.backup, backup) || other.backup == backup));
+            (identical(other.backup, backup) || other.backup == backup) &&
+            (identical(other.likes, likes) || other.likes == likes));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
@@ -272,7 +290,8 @@ class _$TaskModelImpl extends _TaskModel {
       updatedAt,
       elapsedTime,
       status,
-      backup);
+      backup,
+      likes);
 
   /// Create a copy of TaskModel
   /// with the given fields replaced by the non-null parameter values.
@@ -299,7 +318,8 @@ abstract class _TaskModel extends TaskModel {
       @JsonKey(name: 'updated_at') final DateTime? updatedAt,
       @JsonKey(name: 'elapsed_time') final Duration elapsedTime,
       final TaskStatus status,
-      final bool backup}) = _$TaskModelImpl;
+      final bool backup,
+      final int likes}) = _$TaskModelImpl;
   const _TaskModel._() : super._();
 
   factory _TaskModel.fromJson(Map<String, dynamic> json) =
@@ -325,6 +345,8 @@ abstract class _TaskModel extends TaskModel {
   TaskStatus get status;
   @override
   bool get backup;
+  @override
+  int get likes;
 
   /// Create a copy of TaskModel
   /// with the given fields replaced by the non-null parameter values.

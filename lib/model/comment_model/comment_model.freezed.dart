@@ -32,6 +32,9 @@ mixin _$CommentModel {
   String get taskId => throw _privateConstructorUsedError;
   @JsonKey(name: "created_at")
   DateTime get createdAt => throw _privateConstructorUsedError;
+  @JsonKey(name: "users_reactions")
+  Map<String, ReactionStatus> get usersReactions =>
+      throw _privateConstructorUsedError;
 
   /// Serializes this CommentModel to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -56,7 +59,9 @@ abstract class $CommentModelCopyWith<$Res> {
       @JsonKey(name: "user_image_url") String? userImageUrl,
       String comment,
       @JsonKey(name: "task_id") String taskId,
-      @JsonKey(name: "created_at") DateTime createdAt});
+      @JsonKey(name: "created_at") DateTime createdAt,
+      @JsonKey(name: "users_reactions")
+      Map<String, ReactionStatus> usersReactions});
 }
 
 /// @nodoc
@@ -81,6 +86,7 @@ class _$CommentModelCopyWithImpl<$Res, $Val extends CommentModel>
     Object? comment = null,
     Object? taskId = null,
     Object? createdAt = null,
+    Object? usersReactions = null,
   }) {
     return _then(_value.copyWith(
       id: null == id
@@ -111,6 +117,10 @@ class _$CommentModelCopyWithImpl<$Res, $Val extends CommentModel>
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
               as DateTime,
+      usersReactions: null == usersReactions
+          ? _value.usersReactions
+          : usersReactions // ignore: cast_nullable_to_non_nullable
+              as Map<String, ReactionStatus>,
     ) as $Val);
   }
 }
@@ -130,7 +140,9 @@ abstract class _$$CommentModelImplCopyWith<$Res>
       @JsonKey(name: "user_image_url") String? userImageUrl,
       String comment,
       @JsonKey(name: "task_id") String taskId,
-      @JsonKey(name: "created_at") DateTime createdAt});
+      @JsonKey(name: "created_at") DateTime createdAt,
+      @JsonKey(name: "users_reactions")
+      Map<String, ReactionStatus> usersReactions});
 }
 
 /// @nodoc
@@ -153,6 +165,7 @@ class __$$CommentModelImplCopyWithImpl<$Res>
     Object? comment = null,
     Object? taskId = null,
     Object? createdAt = null,
+    Object? usersReactions = null,
   }) {
     return _then(_$CommentModelImpl(
       id: null == id
@@ -183,6 +196,10 @@ class __$$CommentModelImplCopyWithImpl<$Res>
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
               as DateTime,
+      usersReactions: null == usersReactions
+          ? _value.usersReactions
+          : usersReactions // ignore: cast_nullable_to_non_nullable
+              as Map<String, ReactionStatus>,
     ));
   }
 }
@@ -197,7 +214,8 @@ class _$CommentModelImpl implements _CommentModel {
       @JsonKey(name: "user_image_url") this.userImageUrl,
       required this.comment,
       @JsonKey(name: "task_id") required this.taskId,
-      @JsonKey(name: "created_at") required this.createdAt});
+      @JsonKey(name: "created_at") required this.createdAt,
+      @JsonKey(name: "users_reactions") this.usersReactions = const {}});
 
   factory _$CommentModelImpl.fromJson(Map<String, dynamic> json) =>
       _$$CommentModelImplFromJson(json);
@@ -221,10 +239,13 @@ class _$CommentModelImpl implements _CommentModel {
   @override
   @JsonKey(name: "created_at")
   final DateTime createdAt;
+  @override
+  @JsonKey(name: "users_reactions")
+  final Map<String, ReactionStatus> usersReactions;
 
   @override
   String toString() {
-    return 'CommentModel(id: $id, userName: $userName, senderId: $senderId, userImageUrl: $userImageUrl, comment: $comment, taskId: $taskId, createdAt: $createdAt)';
+    return 'CommentModel(id: $id, userName: $userName, senderId: $senderId, userImageUrl: $userImageUrl, comment: $comment, taskId: $taskId, createdAt: $createdAt, usersReactions: $usersReactions)';
   }
 
   @override
@@ -242,13 +263,23 @@ class _$CommentModelImpl implements _CommentModel {
             (identical(other.comment, comment) || other.comment == comment) &&
             (identical(other.taskId, taskId) || other.taskId == taskId) &&
             (identical(other.createdAt, createdAt) ||
-                other.createdAt == createdAt));
+                other.createdAt == createdAt) &&
+            const DeepCollectionEquality()
+                .equals(other.usersReactions, usersReactions));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  int get hashCode => Object.hash(runtimeType, id, userName, senderId,
-      userImageUrl, comment, taskId, createdAt);
+  int get hashCode => Object.hash(
+      runtimeType,
+      id,
+      userName,
+      senderId,
+      userImageUrl,
+      comment,
+      taskId,
+      createdAt,
+      const DeepCollectionEquality().hash(usersReactions));
 
   /// Create a copy of CommentModel
   /// with the given fields replaced by the non-null parameter values.
@@ -268,14 +299,15 @@ class _$CommentModelImpl implements _CommentModel {
 
 abstract class _CommentModel implements CommentModel {
   const factory _CommentModel(
-          {required final String id,
-          @JsonKey(name: "user_name") required final String userName,
-          @JsonKey(name: "sender_id") required final String senderId,
-          @JsonKey(name: "user_image_url") final String? userImageUrl,
-          required final String comment,
-          @JsonKey(name: "task_id") required final String taskId,
-          @JsonKey(name: "created_at") required final DateTime createdAt}) =
-      _$CommentModelImpl;
+      {required final String id,
+      @JsonKey(name: "user_name") required final String userName,
+      @JsonKey(name: "sender_id") required final String senderId,
+      @JsonKey(name: "user_image_url") final String? userImageUrl,
+      required final String comment,
+      @JsonKey(name: "task_id") required final String taskId,
+      @JsonKey(name: "created_at") required final DateTime createdAt,
+      @JsonKey(name: "users_reactions")
+      final Map<String, ReactionStatus> usersReactions}) = _$CommentModelImpl;
 
   factory _CommentModel.fromJson(Map<String, dynamic> json) =
       _$CommentModelImpl.fromJson;
@@ -299,6 +331,9 @@ abstract class _CommentModel implements CommentModel {
   @override
   @JsonKey(name: "created_at")
   DateTime get createdAt;
+  @override
+  @JsonKey(name: "users_reactions")
+  Map<String, ReactionStatus> get usersReactions;
 
   /// Create a copy of CommentModel
   /// with the given fields replaced by the non-null parameter values.
