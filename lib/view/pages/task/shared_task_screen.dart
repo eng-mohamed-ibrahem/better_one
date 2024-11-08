@@ -1,12 +1,15 @@
 import 'package:better_one/core/constants/constants.dart';
 import 'package:better_one/core/errors/failure.dart';
-import 'package:better_one/core/utils/methods/methods.dart';
 import 'package:better_one/core/utils/shared_widgets/back_button_l10n.dart';
 import 'package:better_one/core/utils/shared_widgets/failed.dart';
+import 'package:better_one/view/widgets/comment/comment_input_handler.dart';
+import 'package:better_one/view/widgets/comment/comment_section.dart';
 import 'package:better_one/view_models/notification_viewmodel/notification_viewmodel.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:skeletonizer/skeletonizer.dart';
+
+import '../../widgets/task/write_task_area.dart';
 
 class SharedTaskScreen extends StatefulWidget {
   const SharedTaskScreen({super.key, required this.payload});
@@ -20,6 +23,11 @@ class _SharedTaskScreenState extends State<SharedTaskScreen> {
   late String taskId;
   late String senderId;
 
+  /// [_commentController] is the comment controller for comment input
+  final TextEditingController _commentController = TextEditingController();
+
+  /// [_commentFocusNode] is the focus node for comment input
+  final FocusNode _commentFocusNode = FocusNode();
   @override
   void initState() {
     taskId = widget.payload[NotificationConstants.taskId];
@@ -28,6 +36,13 @@ class _SharedTaskScreenState extends State<SharedTaskScreen> {
         .read<NotificationViewmodel>()
         .getTaskFromNotification(taskId: taskId, senderId: senderId);
     super.initState();
+  }
+
+  @override
+  void dispose() {
+    _commentController.dispose();
+    _commentFocusNode.dispose();
+    super.dispose();
   }
 
   @override
@@ -46,19 +61,13 @@ class _SharedTaskScreenState extends State<SharedTaskScreen> {
       ),
       body: BlocConsumer<NotificationViewmodel, NotificationViewmodelState>(
         listener: (context, state) {
-          state.whenOrNull(
-            getTaskFromNotificationSuccess: (task) {
-              kDebugPrint("task from notification: $task");
-            },
-          );
+          state.whenOrNull();
         },
         builder: (context, state) {
           return state.maybeWhen(
             getTaskFromNotificationLoading: () {
-              return const Skeletonizer(
-                child: Column(
-                  children: [],
-                ),
+              return Skeletonizer(
+                child: WriteTaskArea.skelton(),
               );
             },
             getTaskFromNotificationFailed: (failure) {
@@ -79,33 +88,29 @@ class _SharedTaskScreenState extends State<SharedTaskScreen> {
                 ),
               );
             },
-            getTaskFromNotificationSuccess: (task) {
-              return Center(
-                child: Column(
-                  children: [
-                    Text(task.title),
-                    Text(task.subTasks.toString()),
-                  ],
-                ),
-              );
-            },
             orElse: () {
               return Column(
                 children: [
+                  
                   const Divider(
                     thickness: 1,
                     height: 1,
                     color: Colors.grey,
                   ),
-                  ElevatedButton(
-                    onPressed: () {},
-                    child: const Text("Share"),
+                  CommentSection(
+                    taskId: taskId,
+                    commentController: _commentController,
                   ),
                 ],
               );
             },
           );
         },
+      ),
+      bottomNavigationBar: CommentInputHandler(
+        commentController: _commentController,
+        commentFocusNode: _commentFocusNode,
+        taskId: taskId,
       ),
     );
   }

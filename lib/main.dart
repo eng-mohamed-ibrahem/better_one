@@ -9,6 +9,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:intl/date_symbol_data_local.dart';
+import 'package:sentry_flutter/sentry_flutter.dart';
 
 import 'core/utils/background_service/notification_background_service.dart';
 
@@ -46,16 +47,40 @@ void main() async {
 
   NotificationBackgroundService().initializeService();
 
-  runApp(
-    EasyLocalization(
-      path: 'lib/config/l10n/translation',
-      supportedLocales: const [
-        Locale('en'),
-        Locale('ar'),
-      ],
-      fallbackLocale: const Locale('en'),
-      saveLocale: true,
-      child: const RootApp(),
+  // if (kReleaseMode) {
+  await SentryFlutter.init(
+    (options) {
+      options.dsn =
+          'https://fc3b9144ea20727176bf1c73bce9d6a4@o4508256906379264.ingest.de.sentry.io/4508256973619280';
+      // Set tracesSampleRate to 1.0 to capture 100% of transactions for tracing.
+      // We recommend adjusting this value in production.
+      options.tracesSampleRate = 0.1;
+    },
+    appRunner: () => runApp(
+      EasyLocalization(
+        path: 'lib/config/l10n/translation',
+        supportedLocales: const [
+          Locale('en'),
+          Locale('ar'),
+        ],
+        fallbackLocale: const Locale('en'),
+        saveLocale: true,
+        child: const RootApp(),
+      ),
     ),
   );
+  // } else {
+  //   runApp(
+  //     EasyLocalization(
+  //       path: 'lib/config/l10n/translation',
+  //       supportedLocales: const [
+  //         Locale('en'),
+  //         Locale('ar'),
+  //       ],
+  //       fallbackLocale: const Locale('en'),
+  //       saveLocale: true,
+  //       child: const RootApp(),
+  //     ),
+  //   );
+  // }
 }

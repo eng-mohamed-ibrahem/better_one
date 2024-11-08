@@ -50,6 +50,7 @@ dependencies:
   flutter_background_service: ^5.0.10
   encrypt: ^5.0.3
   flutter_secure_storage: ^4.2.1
+  sentry_flutter: ^8.9.0
 
 dev_dependencies:
   flutter_test:
