@@ -1,6 +1,7 @@
 import 'dart:developer';
 
 import 'package:better_one/view_models/auth_viewmodel/auth_viewmodel.dart';
+import 'package:better_one/view_models/comment_viewmodel/comment_viewmodel.dart';
 import 'package:better_one/view_models/notification_viewmodel/notification_viewmodel.dart';
 import 'package:better_one/view_models/setting_viewmodel/setting_viewmode.dart';
 import 'package:better_one/view_models/task_viewmodel/task_viewmodel.dart';
@@ -27,6 +28,15 @@ class CubitObserver extends BlocObserver {
     if (bloc is AuthViewmodel) {
       GetIt.I.unregister<AuthViewmodel>();
     }
+    if (bloc is UserViewmodel) {
+      GetIt.I.unregister<UserViewmodel>();
+    }
+    if (bloc is NotificationViewmodel) {
+      GetIt.I.unregister<NotificationViewmodel>();
+    }
+    if(bloc is CommentViewModel){
+      GetIt.I.unregister<CommentViewModel>();
+    }
 
     super.onClose(bloc);
   }
@@ -49,6 +59,9 @@ class CubitObserver extends BlocObserver {
     }
     if (bloc is NotificationViewmodel) {
       GetIt.I.registerSingleton<NotificationViewmodel>(bloc);
+    }
+    if(bloc is CommentViewModel){
+      GetIt.I.registerSingleton<CommentViewModel>(bloc);
     }
     super.onCreate(bloc);
   }

@@ -206,8 +206,19 @@ class AppNavigation {
                 name: Routes.sharedTask.name,
                 builder: (context, state) {
                   activeRoute = Routes.sharedTask.path;
-                  return BlocProvider.value(
-                    value: inject<NotificationViewmodel>(),
+                  return MultiBlocProvider(
+                    providers: [
+                      BlocProvider.value(
+                        value: inject<NotificationViewmodel>(),
+                      ),
+                      BlocProvider<CommentViewModel>(
+                        create: (context) => CommentViewModel(
+                          commentRepo: CommentRepoImpl(
+                            commentDataSource: FirebaseCommentDataSource(),
+                          ),
+                        ),
+                      ),
+                    ],
                     child: SharedTaskScreen(
                       payload: {
                         NotificationConstants.taskId:
