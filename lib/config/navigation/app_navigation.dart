@@ -229,6 +229,19 @@ class AppNavigation {
                     ),
                   );
                 },
+                redirect: (context, state) {
+                  var senderId =
+                      state.uri.queryParameters[NotificationConstants.senderId];
+                  if (senderId == inject<LocaleUserInfo>().getUserData()!.id) {
+                    return state.namedLocation(
+                      Routes.taskDetails.name,
+                      pathParameters: {
+                        "id": state.pathParameters["id"]!,
+                      },
+                    );
+                  }
+                  return null;
+                },
               ),
             ],
           ),

@@ -1,11 +1,15 @@
+import 'package:better_one/core/constants/comment_constants.dart';
 import 'package:better_one/core/constants/constants.dart';
 import 'package:better_one/core/errors/failure.dart';
+import 'package:better_one/core/in_memory/in_memory.dart';
+import 'package:better_one/core/utils/methods/methods.dart';
 import 'package:better_one/core/utils/shared_widgets/back_button_l10n.dart';
 import 'package:better_one/core/utils/shared_widgets/failed.dart';
 import 'package:better_one/model/task_model/task_model.dart';
 import 'package:better_one/view/widgets/comment/comment_input_handler.dart';
 import 'package:better_one/view/widgets/comment/comment_section.dart';
 import 'package:better_one/view/widgets/task/shared_task_area.dart';
+import 'package:better_one/view_models/comment_viewmodel/comment_viewmodel.dart';
 import 'package:better_one/view_models/notification_viewmodel/notification_viewmodel.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -31,7 +35,8 @@ class _SharedTaskScreenState extends State<SharedTaskScreen> {
   /// [_commentFocusNode] is the focus node for comment input
   final FocusNode _commentFocusNode = FocusNode();
 
-  late final TaskModel task;
+  /// [task] is the task model that is shared
+  late TaskModel task;
 
   @override
   void initState() {
@@ -67,6 +72,7 @@ class _SharedTaskScreenState extends State<SharedTaskScreen> {
       body: BlocConsumer<NotificationViewmodel, NotificationViewmodelState>(
         listener: (context, state) {
           state.whenOrNull(getTaskFromNotificationSuccess: (task) {
+            kDebugPrint("listen to task");
             this.task = task;
           });
         },
@@ -96,21 +102,43 @@ class _SharedTaskScreenState extends State<SharedTaskScreen> {
               );
             },
             orElse: () {
-              return ListView(
-                children: [
-                  SharedTaskArea(
-                    task: task,
+              kDebugPrint("rebuild to task");
+              return NotificationListener<Notification>(
+                onNotification: (notification) {
+                  if (notification is ScrollEndNotification) {
+                    var hasMore =
+                        InMemory().getData<bool?>(CommentConstants.hasMore) ??
+                            false;
+                    if (notification.metrics.pixels ==
+                            notification.metrics.maxScrollExtent &&
+                        hasMore) {
+                      context
+                          .read<CommentViewModel>()
+                          .getComments(taskId, loadMore: hasMore);
+                    }
+                  }
+                  return true;
+                },
+                child: RefreshIndicator(
+                  onRefresh: () async {
+                    context
+                        .read<NotificationViewmodel>()
+                        .getTaskFromNotification(
+                            taskId: taskId, senderId: senderId);
+                    context.read<CommentViewModel>().getComments(taskId);
+                  },
+                  child: ListView(
+                    children: [
+                      SharedTaskArea(
+                        task: task,
+                      ),
+                      CommentSection(
+                        taskId: taskId,
+                        commentController: _commentController,
+                      ),
+                    ],
                   ),
-                  const Divider(
-                    thickness: 1,
-                    height: 1,
-                    color: Colors.grey,
-                  ),
-                  CommentSection(
-                    taskId: taskId,
-                    commentController: _commentController,
-                  ),
-                ],
+                ),
               );
             },
           );

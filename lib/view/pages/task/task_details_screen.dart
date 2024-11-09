@@ -191,8 +191,8 @@ class _TaskScreenState extends State<TaskDetailsScreen>
                       initialData: task!.elapsedTime,
                       builder: (context, snapshot) {
                         return Padding(
-                          padding:
-                              EdgeInsetsDirectional.only(top: 5.h, end: 15.w),
+                          padding: EdgeInsetsDirectional.only(
+                              bottom: 5.h, end: 15.w),
                           child: DurationTime(
                             duration: snapshot.data!,
                             style: Theme.of(context).textTheme.titleLarge,

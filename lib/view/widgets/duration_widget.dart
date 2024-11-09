@@ -29,7 +29,7 @@ class DurationTime extends StatelessWidget {
                             children: [
                               Text(duration.inHours.toString(), style: style),
                               SizedBox(width: 4.w),
-                              Text('time.hour'.tr(), style: style),
+                              Text('time.hours'.tr(), style: style),
                             ],
                           ),
                     SizedBox(width: 10.w),
@@ -38,7 +38,7 @@ class DurationTime extends StatelessWidget {
                             .format(duration.inMinutes.remainder(60)),
                         style: style),
                     SizedBox(width: 4.w),
-                    Text('time.minute'.tr(), style: style),
+                    Text('time.minutes'.tr(), style: style),
                   ],
                 ),
               ),
@@ -49,7 +49,7 @@ class DurationTime extends StatelessWidget {
             children: [
               Text(duration.inSeconds.remainder(60).toString(), style: style),
               SizedBox(width: 4.w),
-              Text('time.second'.tr(), style: style),
+              Text('time.seconds'.tr(), style: style),
             ],
           ),
         ),
