@@ -2,8 +2,10 @@ import 'package:better_one/core/constants/constants.dart';
 import 'package:better_one/core/errors/failure.dart';
 import 'package:better_one/core/utils/shared_widgets/back_button_l10n.dart';
 import 'package:better_one/core/utils/shared_widgets/failed.dart';
+import 'package:better_one/model/task_model/task_model.dart';
 import 'package:better_one/view/widgets/comment/comment_input_handler.dart';
 import 'package:better_one/view/widgets/comment/comment_section.dart';
+import 'package:better_one/view/widgets/task/shared_task_area.dart';
 import 'package:better_one/view_models/notification_viewmodel/notification_viewmodel.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -28,6 +30,9 @@ class _SharedTaskScreenState extends State<SharedTaskScreen> {
 
   /// [_commentFocusNode] is the focus node for comment input
   final FocusNode _commentFocusNode = FocusNode();
+
+  late final TaskModel task;
+
   @override
   void initState() {
     taskId = widget.payload[NotificationConstants.taskId];
@@ -61,7 +66,9 @@ class _SharedTaskScreenState extends State<SharedTaskScreen> {
       ),
       body: BlocConsumer<NotificationViewmodel, NotificationViewmodelState>(
         listener: (context, state) {
-          state.whenOrNull();
+          state.whenOrNull(getTaskFromNotificationSuccess: (task) {
+            this.task = task;
+          });
         },
         builder: (context, state) {
           return state.maybeWhen(
@@ -89,9 +96,11 @@ class _SharedTaskScreenState extends State<SharedTaskScreen> {
               );
             },
             orElse: () {
-              return Column(
+              return ListView(
                 children: [
-                  
+                  SharedTaskArea(
+                    task: task,
+                  ),
                   const Divider(
                     thickness: 1,
                     height: 1,

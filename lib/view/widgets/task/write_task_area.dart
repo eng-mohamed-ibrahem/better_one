@@ -20,7 +20,7 @@ class WriteTaskArea extends StatefulWidget {
       titleController: TextEditingController(),
       subTasks: List.filled(
         5,
-        const SubTask(title: ""),
+        const SubTask(title: "subtask_title"),
       ),
     );
   }

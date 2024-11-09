@@ -15,6 +15,7 @@ class NotificationViewmodel extends Cubit<NotificationViewmodelState> {
   final NotificationRepoInterface _notificationRepo;
   late final Stream<List<NotificationModel>> tasksStream;
   final List<NotificationModel> list = [];
+  late TaskModel? sharedTask;
 
   void sendNotification(NotificationModel notification) async {
     emit(const _SendNotificationLoading());
@@ -88,6 +89,7 @@ class NotificationViewmodel extends Cubit<NotificationViewmodelState> {
     );
     result.when(
       success: (task) {
+        sharedTask = task;
         emit(
           _GetTaskFromNotificationSuccess(task: task),
         );
