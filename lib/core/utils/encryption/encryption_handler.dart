@@ -10,7 +10,12 @@ class EncryptionHandler {
   factory EncryptionHandler() => _instance;
   static final EncryptionHandler _instance = EncryptionHandler._();
   EncryptionHandler._() {
-    _storage = const FlutterSecureStorage();
+    _storage = const FlutterSecureStorage(
+      aOptions: AndroidOptions(
+        encryptedSharedPreferences: true,
+      ),
+      iOptions: IOSOptions(accessibility: KeychainAccessibility.first_unlock),
+    );
     _encryptionKey();
   }
 
@@ -33,7 +38,6 @@ class EncryptionHandler {
   Future<String?> readKey(String key) async {
     return await _storage.read(
       key: key,
-      iOptions: const IOSOptions(accessibility: IOSAccessibility.first_unlock),
     );
   }
 
@@ -42,7 +46,6 @@ class EncryptionHandler {
     await _storage.write(
       key: key,
       value: value,
-      iOptions: const IOSOptions(accessibility: IOSAccessibility.first_unlock),
     );
   }
 

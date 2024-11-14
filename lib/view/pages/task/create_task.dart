@@ -78,27 +78,36 @@ class CreateTaskScreen extends StatelessWidget {
                 listener: (context, state) {
                   state.whenOrNull(
                     createTaskCompleted: (createdTask) {
-                      inject<SettingViewmodel>().notificationSetting.sendOnAdd
+                      var user = inject<LocaleUserInfo>().getUserData();
+                      user != null
                           ? () {
-                              var user = inject<LocaleUserInfo>().getUserData();
-                              inject<NotificationRepoInterface>()
-                                  .sendNotification(
-                                NotificationModel(
-                                  userName: user!.name,
-                                  senderId: user.id,
-                                  userImageUrl: user.photoUrl,
-                                  comment:
-                                      "${'task.task_notification_action.add'.tr()} ${createdTask.title}",
-                                  payload: createdTask.id,
-                                  createdAt: createdTask.createdAt,
-                                ),
-                              );
+                              inject<SettingViewmodel>()
+                                      .notificationSetting
+                                      .sendOnAdd
+                                  ? inject<NotificationRepoInterface>()
+                                      .sendNotification(
+                                      NotificationModel(
+                                        userName: user.name,
+                                        senderId: user.id,
+                                        userImageUrl: user.photoUrl,
+                                        comment:
+                                            "${'task.task_notification_action.add'.tr()} ${createdTask.title}",
+                                        payload: createdTask.id,
+                                        createdAt: createdTask.createdAt,
+                                      ),
+                                    )
+                                  : null;
                             }()
                           : null;
                       inject<FirebaseAnalytics>().logEvent(
                         name: 'create_task',
                         parameters: {'task_id': createdTask.id},
                       );
+
+                      /// when user press back button and he type some data
+                      /// and leave the page
+                      /// if leave with saving, navigate back
+                      /// if not leaving, navigate to task_details screen
                       saveAndLeavePage ?? false
                           ? null
                           : context.goNamed(
