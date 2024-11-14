@@ -132,7 +132,12 @@ class CommentViewModel extends Cubit<CommentViewModelState> {
         await _commentRepo.getCommentsForTask(taskId, 10, loadMore: loadMore);
     result.when(
       success: (newComments) {
-        comments.addAll(newComments);
+        loadMore
+            ? comments.addAll(newComments)
+            : () {
+                comments.clear();
+                comments.addAll(newComments);
+              }();
         emit(_GetCommentsSuccess(comments: newComments));
       },
       failure: (failure) {

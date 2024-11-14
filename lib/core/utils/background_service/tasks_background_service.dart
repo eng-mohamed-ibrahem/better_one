@@ -50,6 +50,7 @@ class TasksBackgroundService {
           .collection(FirebaseConstants.users)
           .doc(user.id)
           .collection(FirebaseConstants.tasks)
+          .orderBy("created_at", descending: true)
           .get();
       downloadedTasks = collection.docs.map(
         (element) {

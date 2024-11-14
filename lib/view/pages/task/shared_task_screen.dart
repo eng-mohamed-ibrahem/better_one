@@ -2,7 +2,6 @@ import 'package:better_one/core/constants/comment_constants.dart';
 import 'package:better_one/core/constants/constants.dart';
 import 'package:better_one/core/errors/failure.dart';
 import 'package:better_one/core/in_memory/in_memory.dart';
-import 'package:better_one/core/utils/methods/methods.dart';
 import 'package:better_one/core/utils/shared_widgets/back_button_l10n.dart';
 import 'package:better_one/core/utils/shared_widgets/failed.dart';
 import 'package:better_one/model/task_model/task_model.dart';
@@ -72,7 +71,6 @@ class _SharedTaskScreenState extends State<SharedTaskScreen> {
       body: BlocConsumer<NotificationViewmodel, NotificationViewmodelState>(
         listener: (context, state) {
           state.whenOrNull(getTaskFromNotificationSuccess: (task) {
-            kDebugPrint("listen to task");
             this.task = task;
           });
         },
@@ -102,7 +100,6 @@ class _SharedTaskScreenState extends State<SharedTaskScreen> {
               );
             },
             orElse: () {
-              kDebugPrint("rebuild to task");
               return NotificationListener<Notification>(
                 onNotification: (notification) {
                   if (notification is ScrollEndNotification) {
@@ -127,6 +124,8 @@ class _SharedTaskScreenState extends State<SharedTaskScreen> {
                             taskId: taskId, senderId: senderId);
                     context.read<CommentViewModel>().getComments(taskId);
                   },
+                  color: Theme.of(context).primaryColor,
+                  backgroundColor: Theme.of(context).secondaryHeaderColor,
                   child: ListView(
                     children: [
                       SharedTaskArea(

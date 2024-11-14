@@ -58,16 +58,12 @@ class AppThemes {
     iconTheme: _WidgetsTheme.iconTheme().copyWith(
       color: AppColors.lightTextButtonColor,
     ),
-    iconButtonTheme: IconButtonThemeData(
+    iconButtonTheme: const IconButtonThemeData(
       style: ButtonStyle(
-        textStyle: WidgetStatePropertyAll<TextStyle>(
-          _WidgetsTheme.lightTextTheme().bodyMedium!,
-        ),
-        iconSize: const WidgetStatePropertyAll(25.0),
-        iconColor: const WidgetStatePropertyAll(AppColors.lightWhite),
-        backgroundColor:
-            const WidgetStatePropertyAll(AppColors.lightSecondColor),
-        padding: const WidgetStatePropertyAll(
+        iconSize: WidgetStatePropertyAll(25.0),
+        iconColor: WidgetStatePropertyAll(AppColors.lightWhite),
+        backgroundColor: WidgetStatePropertyAll(AppColors.lightSecondColor),
+        padding: WidgetStatePropertyAll(
           EdgeInsets.zero,
         ),
       ),

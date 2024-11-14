@@ -1,5 +1,4 @@
 import 'dart:async';
-import 'dart:ui' as ui;
 
 import 'package:better_one/core/constants/comment_constants.dart';
 import 'package:better_one/core/enum/task_status.dart';
@@ -227,41 +226,10 @@ class _TaskScreenState extends State<TaskDetailsScreen>
                           .read<CommentViewModel>()
                           .getComments(widget.taskId);
                     },
+                    color: Theme.of(context).primaryColor,
+                    backgroundColor: Theme.of(context).secondaryHeaderColor,
                     child: ListView(
                       children: [
-                        SizedBox(height: AppMetrices.verticalGap.h),
-                        BlocBuilder<QuoteViewmodel, QuoteViewmodelState>(
-                          builder: (context, state) {
-                            if (state.quote == null) {
-                              return const SizedBox();
-                            }
-                            return AnimatedSize(
-                              duration: const Duration(milliseconds: 300),
-                              child: Container(
-                                color: Theme.of(context).secondaryHeaderColor,
-                                padding: EdgeInsets.all(
-                                    MediaQuery.of(context).padding.top),
-                                width: double.infinity,
-                                child: Directionality(
-                                  textDirection: ui.TextDirection.ltr,
-                                  child: Text(
-                                    state.quote!.content!,
-                                    textAlign: TextAlign.center,
-                                    style: Theme.of(context)
-                                        .textTheme
-                                        .titleMedium!
-                                        .copyWith(
-                                          fontWeight: FontWeight.w300,
-                                          fontStyle: FontStyle.italic,
-                                        ),
-                                  ),
-                                ),
-                              ),
-                            );
-                          },
-                        ),
-                        SizedBox(height: AppMetrices.verticalGap2.h),
-
                         /// task section
                         WriteTaskArea(
                           titleController: titleController,
