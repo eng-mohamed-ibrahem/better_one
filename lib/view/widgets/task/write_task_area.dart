@@ -1,7 +1,8 @@
 import 'package:better_one/core/constants/constants.dart';
+import 'package:better_one/core/utils/methods/methods.dart';
 import 'package:better_one/model/task_model/task_model.dart';
 import 'package:better_one/view/widgets/input_field/task_input_field.dart';
-import 'package:better_one/view/widgets/subtask_widget.dart';
+import 'package:better_one/view/widgets/task/subtask_widget.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -13,6 +14,16 @@ class WriteTaskArea extends StatefulWidget {
     required this.subTasks,
     this.onChanged,
   });
+
+  factory WriteTaskArea.skelton() {
+    return WriteTaskArea(
+      titleController: TextEditingController(),
+      subTasks: List.filled(
+        5,
+        const SubTask(title: "subtask_title"),
+      ),
+    );
+  }
 
   final TextEditingController titleController;
   final dynamic Function(String)? onChanged;
@@ -48,6 +59,7 @@ class _WriteTaskAreaState extends State<WriteTaskArea>
       element.controller.dispose();
       element.focusNode.dispose();
     }
+    kDebugPrint("dispose from write task area");
     super.dispose();
   }
 

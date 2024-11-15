@@ -1,5 +1,4 @@
 import 'dart:async';
-import 'dart:ui' as ui;
 
 import 'package:better_one/core/constants/comment_constants.dart';
 import 'package:better_one/core/enum/task_status.dart';
@@ -13,10 +12,10 @@ import 'package:better_one/core/utils/shared_widgets/failed.dart';
 import 'package:better_one/model/notification_model/notification_model.dart';
 import 'package:better_one/model/task_model/task_model.dart';
 import 'package:better_one/repositories/notification_repo/notification_repo_interface.dart';
+import 'package:better_one/view/widgets/comment/comment_input_handler.dart';
 import 'package:better_one/view/widgets/comment/comment_section.dart';
 import 'package:better_one/view/widgets/duration_widget.dart';
-import 'package:better_one/view/widgets/input_field/comment_input_field.dart';
-import 'package:better_one/view/widgets/write_task_area.dart';
+import 'package:better_one/view/widgets/task/write_task_area.dart';
 import 'package:better_one/view_models/comment_viewmodel/comment_viewmodel.dart';
 import 'package:better_one/view_models/quote_viewmodel/quote_viewmodel.dart';
 import 'package:better_one/view_models/setting_viewmodel/setting_viewmode.dart';
@@ -102,6 +101,7 @@ class _TaskScreenState extends State<TaskDetailsScreen>
     streamController.close();
     WidgetsBinding.instance.removeObserver(this);
     _commentController.dispose();
+    _commentFocusNode.dispose();
     super.dispose();
   }
 
@@ -190,8 +190,8 @@ class _TaskScreenState extends State<TaskDetailsScreen>
                       initialData: task!.elapsedTime,
                       builder: (context, snapshot) {
                         return Padding(
-                          padding:
-                              EdgeInsetsDirectional.only(top: 5.h, end: 15.w),
+                          padding: EdgeInsetsDirectional.only(
+                              bottom: 5.h, end: 15.w),
                           child: DurationTime(
                             duration: snapshot.data!,
                             style: Theme.of(context).textTheme.titleLarge,
@@ -205,7 +205,8 @@ class _TaskScreenState extends State<TaskDetailsScreen>
                   onNotification: (notification) {
                     if (notification is ScrollEndNotification) {
                       var hasMore =
-                          InMemory().getData<bool>(CommentConstants.hasMore);
+                          InMemory().getData<bool?>(CommentConstants.hasMore) ??
+                              false;
                       if (notification.metrics.pixels ==
                               notification.metrics.maxScrollExtent &&
                           hasMore) {
@@ -225,41 +226,10 @@ class _TaskScreenState extends State<TaskDetailsScreen>
                           .read<CommentViewModel>()
                           .getComments(widget.taskId);
                     },
+                    color: Theme.of(context).primaryColor,
+                    backgroundColor: Theme.of(context).secondaryHeaderColor,
                     child: ListView(
                       children: [
-                        SizedBox(height: AppMetrices.verticalGap.h),
-                        BlocBuilder<QuoteViewmodel, QuoteViewmodelState>(
-                          builder: (context, state) {
-                            if (state.quote == null) {
-                              return const SizedBox();
-                            }
-                            return AnimatedSize(
-                              duration: const Duration(milliseconds: 300),
-                              child: Container(
-                                color: Theme.of(context).secondaryHeaderColor,
-                                padding: EdgeInsets.all(
-                                    MediaQuery.of(context).padding.top),
-                                width: double.infinity,
-                                child: Directionality(
-                                  textDirection: ui.TextDirection.ltr,
-                                  child: Text(
-                                    state.quote!.content!,
-                                    textAlign: TextAlign.center,
-                                    style: Theme.of(context)
-                                        .textTheme
-                                        .titleMedium!
-                                        .copyWith(
-                                          fontWeight: FontWeight.w300,
-                                          fontStyle: FontStyle.italic,
-                                        ),
-                                  ),
-                                ),
-                              ),
-                            );
-                          },
-                        ),
-                        SizedBox(height: AppMetrices.verticalGap2.h),
-
                         /// task section
                         WriteTaskArea(
                           titleController: titleController,
@@ -422,76 +392,10 @@ class _TaskScreenState extends State<TaskDetailsScreen>
                     ),
                   ),
                 ),
-                bottomNavigationBar:
-                    BlocConsumer<CommentViewModel, CommentViewModelState>(
-                  listener: (context, state) {
-                    state.whenOrNull(
-                      addCommentSuccess: (comment) {
-                        _commentController.clear();
-                        _commentFocusNode.unfocus();
-                      },
-                      addCommentFailed: (failure) {
-                        showSnackBar(context, message: failure.message);
-                      },
-                      updateCommentLoading: (_) {
-                        _commentFocusNode.unfocus();
-                      },
-                      updateCommentSuccess: (comment) {
-                        _commentController.clear();
-                        showSnackBar(context,
-                            message: "comment.comment_updated".tr());
-                      },
-                      notifyUpdateComment: (oldComment) {
-                        _commentFocusNode.requestFocus();
-                        _commentController.text = oldComment.comment;
-                      },
-                    );
-                  },
-                  //? todo delete it and use dialog to make update typing
-                  buildWhen: (previous, current) {
-                    return current.maybeWhen(
-                      loadMoreCommentsFailed: (failure) => false,
-                      loadMoreCommentsLoading: () => false,
-                      orElse: () => true,
-                    );
-                  },
-                  builder: (context, state) {
-                    return state.maybeWhen(
-                      initial: () => const SizedBox.shrink(),
-                      getCommentsFailed: (failure) => const SizedBox.shrink(),
-                      getCommentsLoading: () => const SizedBox.shrink(),
-                      orElse: () {
-                        return Padding(
-                          padding: EdgeInsets.only(
-                            bottom: MediaQuery.of(context).viewInsets.bottom,
-                          ),
-                          child: CommentInputField(
-                            commentController: _commentController,
-                            focusNode: _commentFocusNode,
-                            onSend: (comment) {
-                              state.maybeWhen(
-                                notifyUpdateComment: (oldComment) {
-                                  context
-                                      .read<CommentViewModel>()
-                                      .updateComment(
-                                        oldComment.copyWith(
-                                          comment: comment,
-                                        ),
-                                      );
-                                },
-                                orElse: () {
-                                  context.read<CommentViewModel>().addComment(
-                                        comment: comment,
-                                        taskId: widget.taskId,
-                                      );
-                                },
-                              );
-                            },
-                          ),
-                        );
-                      },
-                    );
-                  },
+                bottomNavigationBar: CommentInputHandler(
+                  commentController: _commentController,
+                  commentFocusNode: _commentFocusNode,
+                  taskId: widget.taskId,
                 ),
               );
             },

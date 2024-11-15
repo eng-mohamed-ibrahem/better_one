@@ -4,6 +4,7 @@ The app is designed to motivate users to work by notifying them about their prog
 Users can create, edit, delete, and complete tasks, receive notifications, and view motivational quotes while working.
 The app also tracks elapsed time for tasks and total elapsed time across all tasks, saving everything in local storage.
 Send notifications to other users when tasks are completed.
+Interact with task comments.
 
 ## Documentation
 
@@ -18,10 +19,6 @@ The app is a simple task management app. It helps users to stay motivated and fo
 
 * Users receive notifications when tasks are created.
 * Users can receive notifications when tasks are completed.
-
-### Motivation
-
-* The app integrated random quotes for tasks to help users focus and improve motivation.
 
 ### Tracking
 
@@ -46,7 +43,7 @@ The app is a simple task management app. It helps users to stay motivated and fo
 ### User Authentication
 
 * Users can login using their E-mail and password.
-* User data is saved in Supabase Cloud.
+* User data is saved in Firebase Cloud.
 
 ### Search Functionality
 
@@ -54,7 +51,7 @@ The app is a simple task management app. It helps users to stay motivated and fo
 
 ### Upload Functionality
 
-* Users can upload tasks to Supabase Cloud.
+* Users can upload tasks to Firebase Cloud.
 
 ## Key Features of the App
 
@@ -70,37 +67,10 @@ The app is a simple task management app. It helps users to stay motivated and fo
 * Settings for notification, search, theme, and language.
 * handle app while no internet connection
 * Login with Google account.
-* Save user data in Cloud Supabase.
-* Supported Supabase Cloud Authentication.
+* Save user data in Cloud Firebase.
+* Supported Firebase Cloud Authentication.
 * Integrated search functionality to help users find tasks by status, date, title, or description.
-* Login using Supabase Cloud.
-
-## Completed Steps
-
-* Implemented functionalities to create, edit, delete, and complete tasks.
-* Set up notifications to be sent when tasks are created.
-* Integrated random quotes for tasks to help users focus and improve motivation.
-* Implemented tracking of elapsed time for each task and total elapsed time across all tasks.
-* Implemented Animation for completed tasks.
-* Implemented local storage functionality to save tasks.
-* Supported multiple languages[English, Arabic].
-* Added support for Dark Mode.
-* Handled splash screen.
-* OnBoarding screen.
-* Settings for Search:
-  * Search for tasks by status
-  * Search for tasks by date
-  * Search for tasks by description
-  * Search for tasks by title
-* Settings for notification:
-  * Turn on/off notifications when tasks are created
-  * Customize the notification schedule for your tasks
-* Settings for theme:
-  * Change to light, dark theme
-* Login using Supabase Cloud:
-  * Login with E-mail and password
-  * Save user data in Cloud Supabase
-* Handle app while no internet connection
+* Login using Firebase Cloud.
 
 ## Video
 
@@ -110,32 +80,35 @@ The app is a simple task management app. It helps users to stay motivated and fo
 
 ![app_structure](https://github.com/eng-mohamed-ibrahem/better_one/assets/83507142/765e7249-70cf-40a6-ba37-a499b1464002)
 
-## Next steps
+## Structure Pattern
 
-* Apply Feedback submit
-* Apply Search functionality to search for tasks by status, date, title, or description
-* Apply Upload functionality to upload tasks to Supabase Cloud
-* Send notifications to *other users* when tasks are completed.
+The structure pattern of this project is the Model-View-ViewModel (MVVM) pattern.
 
-## Dependencies
+The MVVM pattern is a software architectural pattern that allows developers to separate the development of the user interface (UI) from the business logic of an application. It is based on the Model-View-Presenter (MVP) pattern but uses a ViewModel to bind the View to the Model.
 
-```bash
-  flutter_bloc: ^8.1.4
-  go_router: ^14.2.1
-  flutter_local_notifications: ^16.3.2
-  flutter_screenutil: ^5.9.0
-  feedback: ^3.0.1
-  device_info_plus: ^9.1.2
-  package_info_plus: ^5.0.1
-  supabase_flutter: ^2.5.1
-  flutter_svg: ^2.0.10+1
-  flutter_timezone: ^1.0.8
-  font_awesome_flutter: ^10.7.0
-  freezed_annotation: ^2.4.1
-  get_it: ^7.6.7
-  hive_flutter: ^1.1.0
-  intl: ^0.18.1
-  json_annotation: ^4.8.1
-  smooth_page_indicator: ^1.1.0
-  timezone: ^0.9.2
-```
+The main components of the MVVM pattern are:
+
+* **Model**: This component represents the data and business logic of the application. It provides the data and operations that the application needs to perform its tasks.
+* **View**: This component represents the user interface of the application. It renders the data provided by the ViewModel and provides the user with a way to interact with the application.
+* **ViewModel**: This component acts as an intermediary between the View and the Model. It exposes the data and operations of the Model in a form that is easily consumable by the View. It also provides data-binding, commands, and other features that are necessary to handle user input and other events.
+
+better_one/
+|-- lib/
+|   |-- config/
+|   |   |-- l10n/
+|   |   |-- navigation/
+|   |   |-- theme/
+|   |-- core/
+|   |-- data_source/
+|   |-- model/
+|   |-- repositories/
+|   |-- view/
+|   |   |-- pages/
+|   |   |-- widgets/
+|   |-- view_models/
+|   |-- main.dart
+|   |-- root_app.dart
+|   |-- assets/
+        |-- images/
+        |-- lottie/
+        |-- fonts/

@@ -296,8 +296,8 @@
         }
     },
     "time": {
-        "hour": "hour",
-        "minute": "minute",
-        "second": "second"
+        "hours": "hrs",
+        "minutes": "mins",
+        "seconds": "secs"
     }
 }

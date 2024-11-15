@@ -89,11 +89,12 @@ class _WidgetsTheme {
   static IconButtonThemeData iconButtonTheme() {
     return const IconButtonThemeData(
       style: ButtonStyle(
-          iconColor: WidgetStatePropertyAll(AppColors.white),
-          backgroundColor: WidgetStatePropertyAll(AppColors.secondColor),
-          padding: WidgetStatePropertyAll(
-            EdgeInsets.zero,
-          )),
+        iconColor: WidgetStatePropertyAll(AppColors.white),
+        backgroundColor: WidgetStatePropertyAll(AppColors.secondColor),
+        padding: WidgetStatePropertyAll(
+          EdgeInsets.zero,
+        ),
+      ),
     );
   }
 
