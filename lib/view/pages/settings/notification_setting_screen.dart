@@ -60,7 +60,7 @@ class _NotificationScreenState extends State<NotificationSettingScreen> {
                   // this is special for display locale notification
                   notification: NotificationModel(
                     senderId: inject<LocaleUserInfo>().getUserData()!.id,
-                    userName: "setting.notification.event_added".tr(),
+                    userName: "setting.notification.event.event_added".tr(),
                     comment: event.title,
                     createdAt: DateTime.now(),
                   ),
