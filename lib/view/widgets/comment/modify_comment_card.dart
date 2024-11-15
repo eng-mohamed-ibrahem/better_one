@@ -89,62 +89,7 @@ class _ModifyCommentCardState extends State<ModifyCommentCard>
                     CommentCard(
                       comment: widget.comment,
                     ),
-                    Row(
-                      children: [
-                        Builder(
-                          builder: (context) {
-                            ReactionStatus reactionStatus =
-                                widget.comment.usersReactions[
-                                        inject<LocaleUserInfo>()
-                                            .getUserData()!
-                                            .id] ??
-                                    ReactionStatus.none;
-
-                            return TextButton(
-                              onPressed: () {
-                                isAboutToUpdate = true;
-                                ReactionStatus toogleReaction =
-                                    reactionStatus == ReactionStatus.like
-                                        ? ReactionStatus.none
-                                        : ReactionStatus.like;
-
-                                context.read<CommentViewModel>().reactOnComment(
-                                    widget.comment, toogleReaction);
-                              },
-                              child: reactionStatus.icon,
-                            );
-                          },
-                        ),
-                        // likes count
-                        Container(
-                          padding: EdgeInsets.symmetric(horizontal: 10.w),
-                          decoration: BoxDecoration(
-                            border: BorderDirectional(
-                              start: BorderSide(
-                                color: Colors.grey.shade300,
-                              ),
-                            ),
-                          ),
-                          child: state.maybeWhen(
-                            reactOnCommentLoading: isAboutToUpdate
-                                ? () {
-                                    return CircleAvatar(
-                                      radius: 8.r,
-                                      backgroundColor: Colors.transparent,
-                                      child: const CircularProgressIndicator(),
-                                    );
-                                  }
-                                : null,
-                            orElse: () {
-                              var likes = widget.comment.usersReactions.length;
-                              return Text(
-                                likes == 0 ? "" : likes.toString(),
-                              );
-                            },
-                          ),
-                        ),
-                      ],
-                    ),
+                    _buildReactionOnComment(state),
                   ],
                 );
               },
@@ -226,6 +171,63 @@ class _ModifyCommentCardState extends State<ModifyCommentCard>
               ),
             ),
           ),
+      ],
+    );
+  }
+
+  Row _buildReactionOnComment(CommentViewModelState state) {
+    return Row(
+      children: [
+        Builder(
+          builder: (context) {
+            ReactionStatus reactionStatus = widget.comment.usersReactions[
+                    inject<LocaleUserInfo>().getUserData()!.id] ??
+                ReactionStatus.none;
+
+            return TextButton(
+              onPressed: () {
+                isAboutToUpdate = true;
+                ReactionStatus toogleReaction =
+                    reactionStatus == ReactionStatus.like
+                        ? ReactionStatus.none
+                        : ReactionStatus.like;
+
+                context
+                    .read<CommentViewModel>()
+                    .reactOnComment(widget.comment, toogleReaction);
+              },
+              child: reactionStatus.icon,
+            );
+          },
+        ),
+        // likes count
+        Container(
+          padding: EdgeInsets.symmetric(horizontal: 10.w),
+          decoration: BoxDecoration(
+            border: BorderDirectional(
+              start: BorderSide(
+                color: Colors.grey.shade300,
+              ),
+            ),
+          ),
+          child: state.maybeWhen(
+            reactOnCommentLoading: isAboutToUpdate
+                ? () {
+                    return CircleAvatar(
+                      radius: 8.r,
+                      backgroundColor: Colors.transparent,
+                      child: const CircularProgressIndicator(),
+                    );
+                  }
+                : null,
+            orElse: () {
+              var likes = widget.comment.usersReactions.length;
+              return Text(
+                likes == 0 ? "" : likes.toString(),
+              );
+            },
+          ),
+        ),
       ],
     );
   }

@@ -32,7 +32,8 @@ class _NotificationScreenState extends State<NotificationScreen> {
     WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
       _scrollController.addListener(
         () {
-          hasMore = InMemory().getData<bool>(NotificationConstants.hasMore);
+          hasMore =
+              InMemory().getData<bool?>(NotificationConstants.hasMore) ?? false;
           if (_scrollController.offset >=
                   _scrollController.position.maxScrollExtent &&
               hasMore) {

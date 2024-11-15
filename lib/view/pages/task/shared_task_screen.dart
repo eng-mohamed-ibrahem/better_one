@@ -134,6 +134,7 @@ class _SharedTaskScreenState extends State<SharedTaskScreen> {
                       CommentSection(
                         taskId: taskId,
                         commentController: _commentController,
+                        focusNode: _commentFocusNode,
                       ),
                     ],
                   ),

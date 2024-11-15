@@ -17,9 +17,11 @@ class CommentSection extends StatefulWidget {
     super.key,
     required this.taskId,
     required this.commentController,
+    required this.focusNode,
   });
   final String taskId;
   final TextEditingController commentController;
+  final FocusNode focusNode;
   @override
   State<CommentSection> createState() => _CommentSectionState();
 }
@@ -125,41 +127,67 @@ class _CommentSectionState extends State<CommentSection> {
                       InMemory().getData<bool?>(CommentConstants.hasMore) ??
                           false;
                   var comments = context.read<CommentViewModel>().comments;
-                  return comments.isEmpty
-                      ? Center(
-                          child: Text(
-                            "comment.empty".tr(),
-                            style: Theme.of(context).textTheme.bodyMedium,
-                          ),
-                        )
-                      : ListView.separated(
-                          shrinkWrap: true,
-                          controller: _scrollController,
-                          itemBuilder: (context, index) {
-                            if (index == comments.length) {
-                              return Skeletonizer(
-                                child: CommentCard.skeleton(),
-                              );
-                            }
-                            return ModifyCommentCard(
-                              key: ValueKey(comments[index].id),
-                              comment: comments[index],
-                              onDelete: (comment) {
-                                context
-                                    .read<CommentViewModel>()
-                                    .deleteComment(comment, widget.taskId);
+                  return Column(
+                    children: [
+                      // Container(
+                      //   margin: EdgeInsets.only(bottom: 10.h),
+                      //   padding: EdgeInsets.all(10.r),
+                      //   decoration: BoxDecoration(
+                      //     color: Theme.of(context).secondaryHeaderColor,
+                      //     borderRadius: BorderRadius.circular(10.r),
+                      //   ),
+                      //   child: Row(
+                      //     children: [
+                      //       TextButton(
+                      //         child: Text("comment.react".tr()),
+                      //         onPressed: () {},
+                      //       ),
+                      //       TextButton(
+                      //         child: Text("comment.add".tr()),
+                      //         onPressed: () => widget.focusNode.requestFocus(),
+                      //       ),
+                      //     ],
+                      //   ),
+                      // ),
+                      comments.isEmpty
+                          ? Center(
+                              child: Text(
+                                "comment.empty".tr(),
+                                style: Theme.of(context).textTheme.bodyMedium,
+                              ),
+                            )
+                          : ListView.separated(
+                              shrinkWrap: true,
+                              controller: _scrollController,
+                              itemBuilder: (context, index) {
+                                if (index == comments.length) {
+                                  return Skeletonizer(
+                                    child: CommentCard.skeleton(),
+                                  );
+                                }
+                                return ModifyCommentCard(
+                                  key: ValueKey(comments[index].id),
+                                  comment: comments[index],
+                                  onDelete: (comment) {
+                                    context
+                                        .read<CommentViewModel>()
+                                        .deleteComment(comment, widget.taskId);
+                                  },
+                                  onEdit: () {
+                                    context
+                                        .read<CommentViewModel>()
+                                        .notifyOfUpdate(
+                                          oldComment: comments[index],
+                                        );
+                                  },
+                                );
                               },
-                              onEdit: () {
-                                context.read<CommentViewModel>().notifyOfUpdate(
-                                      oldComment: comments[index],
-                                    );
-                              },
-                            );
-                          },
-                          separatorBuilder: (context, index) =>
-                              SizedBox(height: 10.h),
-                          itemCount: comments.length + (hasMore ? 1 : 0),
-                        );
+                              separatorBuilder: (context, index) =>
+                                  SizedBox(height: 10.h),
+                              itemCount: comments.length + (hasMore ? 1 : 0),
+                            ),
+                    ],
+                  );
                 },
               );
             },

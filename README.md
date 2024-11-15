@@ -92,6 +92,7 @@ The main components of the MVVM pattern are:
 * **View**: This component represents the user interface of the application. It renders the data provided by the ViewModel and provides the user with a way to interact with the application.
 * **ViewModel**: This component acts as an intermediary between the View and the Model. It exposes the data and operations of the Model in a form that is easily consumable by the View. It also provides data-binding, commands, and other features that are necessary to handle user input and other events.
 
+```bash
 better_one/
 |-- lib/
 |   |-- config/
@@ -112,3 +113,4 @@ better_one/
         |-- images/
         |-- lottie/
         |-- fonts/
+```
