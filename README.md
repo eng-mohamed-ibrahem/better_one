@@ -76,10 +76,6 @@ The app is a simple task management app. It helps users to stay motivated and fo
 
 [video demo](https://drive.google.com/file/d/1Ultt5Jo3H5440-eYnXFc0jMSwbJlbedy/view?usp=drivesdk)
 
-## App Structure
-
-![app_structure](https://github.com/eng-mohamed-ibrahem/better_one/assets/83507142/765e7249-70cf-40a6-ba37-a499b1464002)
-
 ## Structure Pattern
 
 The structure pattern of this project is the Model-View-ViewModel (MVVM) pattern.
@@ -92,6 +88,7 @@ The main components of the MVVM pattern are:
 * **View**: This component represents the user interface of the application. It renders the data provided by the ViewModel and provides the user with a way to interact with the application.
 * **ViewModel**: This component acts as an intermediary between the View and the Model. It exposes the data and operations of the Model in a form that is easily consumable by the View. It also provides data-binding, commands, and other features that are necessary to handle user input and other events.
 
+```bash
 better_one/
 |-- lib/
 |   |-- config/
@@ -112,3 +109,4 @@ better_one/
         |-- images/
         |-- lottie/
         |-- fonts/
+```

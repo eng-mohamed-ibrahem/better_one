@@ -387,6 +387,7 @@ class _TaskScreenState extends State<TaskDetailsScreen>
                         CommentSection(
                           taskId: widget.taskId,
                           commentController: _commentController,
+                          focusNode: _commentFocusNode,
                         ),
                       ],
                     ),
