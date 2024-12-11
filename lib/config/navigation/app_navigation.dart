@@ -385,28 +385,29 @@ class AppNavigation {
                 ],
               ),
               GoRoute(
-                  path: Routes.login.path,
-                  name: Routes.login.name,
-                  builder: (context, state) {
-                    activeRoute = Routes.login.path;
-                    return BlocProvider.value(
-                      value: inject<AuthViewmodel>(),
-                      child: const LogIn(),
-                    );
-                  },
-                  routes: [
-                    GoRoute(
-                      path: Routes.forgotPassword.path,
-                      name: Routes.forgotPassword.name,
-                      builder: (context, state) {
-                        activeRoute = Routes.forgotPassword.path;
-                        return BlocProvider.value(
-                          value: inject<AuthViewmodel>(),
-                          child: const ForgotPassword(),
-                        );
-                      },
-                    ),
-                  ]),
+                path: Routes.login.path,
+                name: Routes.login.name,
+                builder: (context, state) {
+                  activeRoute = Routes.login.path;
+                  return BlocProvider.value(
+                    value: inject<AuthViewmodel>(),
+                    child: const LogIn(),
+                  );
+                },
+                routes: [
+                  GoRoute(
+                    path: Routes.forgotPassword.path,
+                    name: Routes.forgotPassword.name,
+                    builder: (context, state) {
+                      activeRoute = Routes.forgotPassword.path;
+                      return BlocProvider.value(
+                        value: inject<AuthViewmodel>(),
+                        child: const ForgotPassword(),
+                      );
+                    },
+                  ),
+                ],
+              ),
               GoRoute(
                 path: Routes.signup.path,
                 name: Routes.signup.name,

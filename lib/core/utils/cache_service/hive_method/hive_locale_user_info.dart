@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:better_one/core/constants/constants.dart';
 import 'package:better_one/core/utils/cache_service/cache_service.dart';
 import 'package:better_one/core/utils/dependency_locator/inject.dart';
@@ -9,6 +11,7 @@ class HiveLocaleUserInfo implements LocaleUserInfo {
     await inject<HiveCache>().appCache.delete(CacheKeys.userData);
     await inject<HiveCache>().appCache.delete(CacheKeys.isVerified);
     await deleteService(download: true, upload: true);
+    log("user deleted");
     return true;
   }
 

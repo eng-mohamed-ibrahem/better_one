@@ -12,8 +12,25 @@ import 'package:get_it/get_it.dart';
 class CubitObserver extends BlocObserver {
   @override
   void onChange(BlocBase bloc, Change change) {
-    log("${bloc.runtimeType}:\n ${change.currentState} \n=> ${change.nextState}");
+    // Get stack trace and location
+    final location = _extractLocation(StackTrace.current);
+    log("\n${bloc.runtimeType}: Triggered by $location\n ${change.currentState} \n>> ${change.nextState}");
     super.onChange(bloc, change);
+  }
+
+  String _extractLocation(StackTrace stackTrace) {
+    final stackLines = stackTrace.toString().trim().split('\n');
+    stackLines.retainWhere(
+      (element) {
+        // to filter the Stacktrace lines to be triggered by Your code
+        return element.contains('package:better_one');
+      },
+    );
+    log(stackLines.join('\n'));
+    if (stackLines.length > 1) {
+      return stackLines.last.trim();
+    }
+    return 'Unknown Location';
   }
 
   @override
@@ -34,7 +51,7 @@ class CubitObserver extends BlocObserver {
     if (bloc is NotificationViewmodel) {
       GetIt.I.unregister<NotificationViewmodel>();
     }
-    if(bloc is CommentViewModel){
+    if (bloc is CommentViewModel) {
       GetIt.I.unregister<CommentViewModel>();
     }
 
@@ -60,7 +77,7 @@ class CubitObserver extends BlocObserver {
     if (bloc is NotificationViewmodel) {
       GetIt.I.registerSingleton<NotificationViewmodel>(bloc);
     }
-    if(bloc is CommentViewModel){
+    if (bloc is CommentViewModel) {
       GetIt.I.registerSingleton<CommentViewModel>(bloc);
     }
     super.onCreate(bloc);

@@ -35,10 +35,10 @@ class TaskDetailsScreen extends StatefulWidget {
   final String taskId;
 
   @override
-  State<TaskDetailsScreen> createState() => _TaskScreenState();
+  State<TaskDetailsScreen> createState() => _TaskDetailsScreenState();
 }
 
-class _TaskScreenState extends State<TaskDetailsScreen>
+class _TaskDetailsScreenState extends State<TaskDetailsScreen>
     with TickerProviderStateMixin, WidgetsBindingObserver {
   final TextEditingController titleController = TextEditingController();
 

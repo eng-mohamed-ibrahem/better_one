@@ -32,7 +32,7 @@ class NotificationBackgroundService {
           onStart: onStart,
           // auto start service, once service configured
           autoStart: true,
-          isForegroundMode: true,
+          isForegroundMode: false,
           // this must match with notification channel you created in Flutter Locale Notificatiton.
           notificationChannelId: NotificationConstants.notificationChannelId,
           foregroundServiceNotificationId: 999,
