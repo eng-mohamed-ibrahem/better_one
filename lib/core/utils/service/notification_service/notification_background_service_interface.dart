@@ -1,5 +1,5 @@
 abstract class NotificationBackgroundService {
-  void initializeService();
+  void initializeAndStartService();
   void muteNotification();
   void unMuteNotification();
   void stopService();

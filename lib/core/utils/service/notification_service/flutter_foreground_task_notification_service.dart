@@ -3,8 +3,9 @@ import 'dart:ui';
 
 import 'package:better_one/core/constants/firebase_constants.dart';
 import 'package:better_one/core/constants/notification_constants.dart';
-import 'package:better_one/core/utils/background_service/notification_background_service_interface.dart';
-import 'package:better_one/core/utils/cache_service/cach_interface/locale_user_info.dart';
+import 'package:better_one/core/utils/service/notification_service/notification_background_service_interface.dart';
+import 'package:better_one/core/utils/service/cache_service/cach_interface/locale_user_info.dart';
+import 'package:better_one/core/utils/dependency_locator/dependency_injection.dart';
 import 'package:better_one/core/utils/dependency_locator/inject.dart';
 import 'package:better_one/core/utils/methods/methods.dart';
 import 'package:better_one/core/utils/notification_service/flutter_local_notification.dart';
@@ -24,14 +25,30 @@ void startCallback() {
 class ForegroundTaskNotificationService
     implements NotificationBackgroundService {
   @override
-  void initializeService() async {
+  void initializeAndStartService() async {
     // Initialize port for communication between TaskHandler and UI.
     FlutterForegroundTask.initCommunicationPort();
-
     _requestPermissions();
     _initService();
 
-    if (inject<LocaleUserInfo>().getUserData() != null) _startService();
+    if (inject<LocaleUserInfo>().getUserData() != null) {
+      settingRepo.getNotificationSettings().then(
+        (notificationSettings) {
+          notificationSettings.when(
+            success: (data) {
+              if (data.muteNotification) {
+                _stopService();
+              } else {
+                _startService();
+              }
+            },
+            failure: (failure) {
+              _startService();
+            },
+          );
+        },
+      );
+    }
   }
 
   Future<void> _requestPermissions() async {

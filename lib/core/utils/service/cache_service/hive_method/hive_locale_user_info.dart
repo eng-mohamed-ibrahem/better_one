@@ -1,7 +1,7 @@
 import 'dart:developer';
 
 import 'package:better_one/core/constants/constants.dart';
-import 'package:better_one/core/utils/cache_service/cache_service.dart';
+import 'package:better_one/core/utils/service/cache_service/cache_service.dart';
 import 'package:better_one/core/utils/dependency_locator/inject.dart';
 import 'package:better_one/model/user_model/user_model.dart';
 

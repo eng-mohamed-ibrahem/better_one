@@ -3,7 +3,7 @@ import 'dart:io';
 import 'package:better_one/core/constants/constants.dart';
 import 'package:better_one/core/errors/failure.dart';
 import 'package:better_one/core/result_handler/result_handler.dart';
-import 'package:better_one/core/utils/cache_service/cache_service.dart';
+import 'package:better_one/core/utils/service/cache_service/cache_service.dart';
 import 'package:better_one/core/utils/dependency_locator/inject.dart';
 import 'package:better_one/data_source/settings_data_source/settings_source_interface.dart';
 import 'package:better_one/model/setting_model/notification_setting_model.dart';
