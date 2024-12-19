@@ -2,6 +2,7 @@ import 'dart:ui';
 
 import 'package:better_one/core/constants/firebase_constants.dart';
 import 'package:better_one/core/constants/notification_constants.dart';
+import 'package:better_one/core/utils/background_service/notification_background_service_interface.dart';
 import 'package:better_one/core/utils/cache_service/cach_interface/locale_user_info.dart';
 import 'package:better_one/core/utils/dependency_locator/inject.dart';
 import 'package:better_one/core/utils/methods/methods.dart';
@@ -13,7 +14,9 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_background_service/flutter_background_service.dart';
 
-class NotificationBackgroundService {
+class FlutterBackgroundServiceNotification
+    implements NotificationBackgroundService {
+  @override
   void initializeService() async {
     final service = FlutterBackgroundService();
     var isRunning = await service.isRunning();
@@ -43,7 +46,8 @@ class NotificationBackgroundService {
     }
   }
 
-  static void muteNotification() async {
+  @override
+  void muteNotification() async {
     final service = FlutterBackgroundService();
     service.invoke(
       NotificationConstants.notificationService,
@@ -54,8 +58,21 @@ class NotificationBackgroundService {
     );
   }
 
-  static void unMuteNotification() {
-    NotificationBackgroundService().initializeService();
+  @override
+  void stopService() async{
+     final service = FlutterBackgroundService();
+    service.invoke(
+      NotificationConstants.notificationService,
+      {
+        NotificationConstants.notificationAction:
+            NotificationConstants.stopService,
+      },
+    );
+  }
+
+  @override
+  void unMuteNotification() {
+    initializeService();
   }
 
   @pragma('vm:entry-point')

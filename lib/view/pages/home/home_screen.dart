@@ -11,6 +11,7 @@ import 'package:better_one/view_models/task_viewmodel/task_viewmodel.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_foreground_task/ui/with_foreground_task.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:go_router/go_router.dart';
@@ -73,91 +74,93 @@ class _HomeScreenState extends State<HomeScreen> with RouteAware {
   @override
   Widget build(BuildContext context) {
     var taskViewmodel = context.read<TaskViewmodel>();
-    return Scaffold(
-      body: Container(
-        padding: EdgeInsets.only(
-            top: MediaQuery.of(context).padding.top, bottom: 5.h),
-        child: Stack(
-          alignment: AlignmentDirectional.bottomCenter,
-          children: [
-            BlocConsumer<TaskViewmodel, TaskViewmodelState>(
-              listener: (context, state) {
-                state.whenOrNull(
-                  filterTasksFailed: (message) {
-                    showSnackBar(message: message, context);
-                  },
-                );
-              },
-              builder: (context, state) {
-                return state.maybeWhen(
-                  allTasksLoading: () {
-                    return Skeletonizer(
-                      child: ListView.builder(
-                        itemCount: 5,
-                        itemBuilder: (context, index) {
-                          return CardTask(
-                            task: TaskModel(
-                              title: "title",
-                              subTasks:
-                                  List.filled(3, const SubTask(title: "title")),
-                              id: "id",
-                              createdAt: DateTime.now(),
-                            ),
-                          );
-                        },
-                      ),
-                    );
-                  },
-                  allTasksFailed: (message) {
-                    return Center(
-                      child: Failed(
-                        failedAsset: LottieAssets.error,
-                        errorMessage: message,
-                        retry: () {
-                          context.read<TaskViewmodel>().getTasks();
-                        },
-                      ),
-                    );
-                  },
-                  filterTasksLoading: () {
-                    return const Center(
-                      child: CircularProgressIndicator(),
-                    );
-                  },
-                  filterTasksCompleted: (filteredTasks) {
-                    return displayTasks(
-                        filteredTasks, context, state, taskViewmodel);
-                  },
-                  orElse: () {
-                    var allTasks = taskViewmodel.tasks.values.toList();
-                    return displayTasks(
-                        allTasks, context, state, taskViewmodel);
-                  },
-                );
-              },
-            ),
-            _buildSettingsIcons(context),
-          ],
-        ),
-      ),
-      floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
-      floatingActionButton: FilledButton.icon(
-        style: FilledButton.styleFrom(
-          textStyle: Theme.of(context).textTheme.titleMedium,
-          minimumSize: Size(MediaQuery.sizeOf(context).width * .5, 50.h),
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadiusDirectional.all(
-              Radius.circular(15.r),
-            ),
+    return WithForegroundTask(
+      child: Scaffold(
+        body: Container(
+          padding: EdgeInsets.only(
+              top: MediaQuery.of(context).padding.top, bottom: 5.h),
+          child: Stack(
+            alignment: AlignmentDirectional.bottomCenter,
+            children: [
+              BlocConsumer<TaskViewmodel, TaskViewmodelState>(
+                listener: (context, state) {
+                  state.whenOrNull(
+                    filterTasksFailed: (message) {
+                      showSnackBar(message: message, context);
+                    },
+                  );
+                },
+                builder: (context, state) {
+                  return state.maybeWhen(
+                    allTasksLoading: () {
+                      return Skeletonizer(
+                        child: ListView.builder(
+                          itemCount: 5,
+                          itemBuilder: (context, index) {
+                            return CardTask(
+                              task: TaskModel(
+                                title: "title",
+                                subTasks:
+                                    List.filled(3, const SubTask(title: "title")),
+                                id: "id",
+                                createdAt: DateTime.now(),
+                              ),
+                            );
+                          },
+                        ),
+                      );
+                    },
+                    allTasksFailed: (message) {
+                      return Center(
+                        child: Failed(
+                          failedAsset: LottieAssets.error,
+                          errorMessage: message,
+                          retry: () {
+                            context.read<TaskViewmodel>().getTasks();
+                          },
+                        ),
+                      );
+                    },
+                    filterTasksLoading: () {
+                      return const Center(
+                        child: CircularProgressIndicator(),
+                      );
+                    },
+                    filterTasksCompleted: (filteredTasks) {
+                      return displayTasks(
+                          filteredTasks, context, state, taskViewmodel);
+                    },
+                    orElse: () {
+                      var allTasks = taskViewmodel.tasks.values.toList();
+                      return displayTasks(
+                          allTasks, context, state, taskViewmodel);
+                    },
+                  );
+                },
+              ),
+              _buildSettingsIcons(context),
+            ],
           ),
         ),
-        onPressed: () {
-          context.goNamed(Routes.createTask.name);
-        },
-        icon: const Icon(Icons.add),
-        label: Text(
-          'task.create'.tr(),
-          textAlign: TextAlign.center,
+        floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
+        floatingActionButton: FilledButton.icon(
+          style: FilledButton.styleFrom(
+            textStyle: Theme.of(context).textTheme.titleMedium,
+            minimumSize: Size(MediaQuery.sizeOf(context).width * .5, 50.h),
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadiusDirectional.all(
+                Radius.circular(15.r),
+              ),
+            ),
+          ),
+          onPressed: () {
+            context.goNamed(Routes.createTask.name);
+          },
+          icon: const Icon(Icons.add),
+          label: Text(
+            'task.create'.tr(),
+            textAlign: TextAlign.center,
+          ),
         ),
       ),
     );

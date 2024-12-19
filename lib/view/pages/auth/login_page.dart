@@ -1,6 +1,6 @@
 import 'package:better_one/config/navigation/routes_enum.dart';
 import 'package:better_one/core/constants/constants.dart';
-import 'package:better_one/core/utils/background_service/notification_background_service.dart';
+import 'package:better_one/core/utils/background_service/notification_background_service_interface.dart';
 import 'package:better_one/core/utils/background_service/tasks_background_service.dart';
 import 'package:better_one/core/utils/cache_service/cach_interface/locale_user_info.dart';
 import 'package:better_one/core/utils/dependency_locator/inject.dart';
@@ -113,7 +113,8 @@ class _LoginState extends State<LogIn> {
                       showSnackBar(context, message: 'auth.login_succ'.tr());
                       TasksBackgroundService.syncTasks(
                           ServicesBinding.rootIsolateToken);
-                      NotificationBackgroundService().initializeService();
+                      inject<NotificationBackgroundService>()
+                          .initializeService();
                       context.goNamed(Routes.profile.name);
                     }
                   },
