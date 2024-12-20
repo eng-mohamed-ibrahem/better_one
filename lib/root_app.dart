@@ -1,8 +1,8 @@
 import 'package:better_one/config/navigation/app_navigation.dart';
 import 'package:better_one/config/themes/app_themes.dart';
-import 'package:better_one/core/utils/background_service/tasks_background_service.dart';
-import 'package:better_one/core/utils/cache_service/cach_interface/locale_user_info.dart';
-import 'package:better_one/core/utils/cache_service/hive_method/hive_init.dart';
+import 'package:better_one/core/utils/service/task_background_service/tasks_background_service.dart';
+import 'package:better_one/core/utils/service/cache_service/cach_interface/locale_user_info.dart';
+import 'package:better_one/core/utils/service/cache_service/hive_method/hive_init.dart';
 import 'package:better_one/core/utils/dependency_locator/dependency_injection.dart';
 import 'package:better_one/core/utils/dependency_locator/inject.dart';
 import 'package:better_one/core/utils/methods/methods.dart';

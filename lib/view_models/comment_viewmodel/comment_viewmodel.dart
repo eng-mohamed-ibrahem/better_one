@@ -1,5 +1,5 @@
 import 'package:better_one/core/errors/failure.dart';
-import 'package:better_one/core/utils/cache_service/cach_interface/locale_user_info.dart';
+import 'package:better_one/core/utils/service/cache_service/cach_interface/locale_user_info.dart';
 import 'package:better_one/core/utils/dependency_locator/inject.dart';
 import 'package:better_one/model/comment_model/comment_model.dart';
 import 'package:better_one/repositories/comment_repo/comment_repo.dart';

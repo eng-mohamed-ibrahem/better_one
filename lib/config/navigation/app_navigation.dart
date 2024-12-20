@@ -3,7 +3,7 @@ import 'dart:convert';
 import 'package:better_one/config/navigation/routes_enum.dart';
 import 'package:better_one/core/constants/notification_constants.dart';
 import 'package:better_one/core/in_memory/in_memory.dart';
-import 'package:better_one/core/utils/cache_service/cach_interface/locale_user_info.dart';
+import 'package:better_one/core/utils/service/cache_service/cach_interface/locale_user_info.dart';
 import 'package:better_one/core/utils/dependency_locator/dependency_injection.dart';
 import 'package:better_one/core/utils/dependency_locator/inject.dart';
 import 'package:better_one/core/utils/methods/methods.dart';
@@ -385,28 +385,29 @@ class AppNavigation {
                 ],
               ),
               GoRoute(
-                  path: Routes.login.path,
-                  name: Routes.login.name,
-                  builder: (context, state) {
-                    activeRoute = Routes.login.path;
-                    return BlocProvider.value(
-                      value: inject<AuthViewmodel>(),
-                      child: const LogIn(),
-                    );
-                  },
-                  routes: [
-                    GoRoute(
-                      path: Routes.forgotPassword.path,
-                      name: Routes.forgotPassword.name,
-                      builder: (context, state) {
-                        activeRoute = Routes.forgotPassword.path;
-                        return BlocProvider.value(
-                          value: inject<AuthViewmodel>(),
-                          child: const ForgotPassword(),
-                        );
-                      },
-                    ),
-                  ]),
+                path: Routes.login.path,
+                name: Routes.login.name,
+                builder: (context, state) {
+                  activeRoute = Routes.login.path;
+                  return BlocProvider.value(
+                    value: inject<AuthViewmodel>(),
+                    child: const LogIn(),
+                  );
+                },
+                routes: [
+                  GoRoute(
+                    path: Routes.forgotPassword.path,
+                    name: Routes.forgotPassword.name,
+                    builder: (context, state) {
+                      activeRoute = Routes.forgotPassword.path;
+                      return BlocProvider.value(
+                        value: inject<AuthViewmodel>(),
+                        child: const ForgotPassword(),
+                      );
+                    },
+                  ),
+                ],
+              ),
               GoRoute(
                 path: Routes.signup.path,
                 name: Routes.signup.name,

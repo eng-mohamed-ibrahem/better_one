@@ -4,7 +4,7 @@ import 'package:better_one/data_source/feedback_data_source/feedback_source_inte
 import 'package:better_one/model/feedback_model/feedback_model.dart';
 import 'package:better_one/repositories/feedback_repo/feedback_repo_interface.dart';
 
-import 'package:better_one/core/utils/cache_service/cach_interface/locale_user_info.dart';
+import 'package:better_one/core/utils/service/cache_service/cach_interface/locale_user_info.dart';
 import 'package:better_one/core/utils/dependency_locator/inject.dart';
 import 'package:better_one/core/utils/network_connection/network_connection.dart';
 import 'package:easy_localization/easy_localization.dart';

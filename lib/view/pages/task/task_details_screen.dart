@@ -4,9 +4,9 @@ import 'package:better_one/core/constants/comment_constants.dart';
 import 'package:better_one/core/enum/task_status.dart';
 import 'package:better_one/core/in_memory/in_memory.dart';
 import 'package:better_one/core/timer/timer_action.dart';
-import 'package:better_one/core/utils/cache_service/cach_interface/locale_user_info.dart';
 import 'package:better_one/core/utils/dependency_locator/inject.dart';
 import 'package:better_one/core/utils/methods/methods.dart';
+import 'package:better_one/core/utils/service/cache_service/cach_interface/locale_user_info.dart';
 import 'package:better_one/core/utils/shared_widgets/back_button_l10n.dart';
 import 'package:better_one/core/utils/shared_widgets/failed.dart';
 import 'package:better_one/model/notification_model/notification_model.dart';
@@ -35,10 +35,10 @@ class TaskDetailsScreen extends StatefulWidget {
   final String taskId;
 
   @override
-  State<TaskDetailsScreen> createState() => _TaskScreenState();
+  State<TaskDetailsScreen> createState() => _TaskDetailsScreenState();
 }
 
-class _TaskScreenState extends State<TaskDetailsScreen>
+class _TaskDetailsScreenState extends State<TaskDetailsScreen>
     with TickerProviderStateMixin, WidgetsBindingObserver {
   final TextEditingController titleController = TextEditingController();
 
@@ -301,8 +301,9 @@ class _TaskScreenState extends State<TaskDetailsScreen>
                                               );
                                           periodicActionManager.stop();
                                         },
-                                        icon: const Icon(
+                                        icon: Icon(
                                           Icons.pause_circle_outline,
+                                          size: 24.sp,
                                         ),
                                       )
                                     : FilledButton.icon(
@@ -318,8 +319,9 @@ class _TaskScreenState extends State<TaskDetailsScreen>
                                               );
                                           periodicActionManager.start();
                                         },
-                                        icon: const Icon(
+                                        icon: Icon(
                                           Icons.play_circle_outlined,
+                                          size: 24.sp,
                                         ),
                                       )
                                 : const SizedBox(),

@@ -1,3 +1,5 @@
+import 'package:better_one/core/utils/service/notification_service/flutter_foreground_task_notification_service.dart';
+import 'package:better_one/core/utils/service/notification_service/notification_background_service_interface.dart';
 import 'package:better_one/core/utils/remote_service/api_consumer/api_consumer.dart';
 import 'package:better_one/core/utils/remote_service/api_consumer/dio_consumer.dart';
 import 'package:better_one/data_source/notification_data_source/firebase_notification_source.dart';
@@ -21,7 +23,7 @@ import 'package:get_it/get_it.dart';
 
 import '../../../repositories/setting_repo/setting_repo.dart';
 import '../../../repositories/setting_repo/settings_repo_interface.dart';
-import '../cache_service/cache_service.dart';
+import '../service/cache_service/cache_service.dart';
 import '../notification_service/flutter_local_notification.dart';
 
 GetIt _getIt = GetIt.instance;
@@ -38,6 +40,12 @@ Future<void> initDependency() async {
   settingsDependency();
   userDependency();
   _getIt.registerSingleton(FirebaseAnalytics.instance);
+  // register flutter background service
+  _getIt
+      .registerSingleton<NotificationBackgroundService>(
+        ForegroundTaskNotificationService(),
+      )
+      .initializeAndStartService();
 }
 
 void userDependency() {

@@ -1,6 +1,6 @@
 import 'package:better_one/core/errors/failure.dart';
 import 'package:better_one/core/result_handler/result_handler.dart';
-import 'package:better_one/core/utils/cache_service/cach_interface/locale_user_info.dart';
+import 'package:better_one/core/utils/service/cache_service/cach_interface/locale_user_info.dart';
 import 'package:better_one/core/utils/network_connection/network_connection.dart';
 import 'package:better_one/data_source/comment_data_source/comment_data_source.dart';
 import 'package:better_one/model/comment_model/comment_model.dart';
