@@ -100,8 +100,8 @@ class _HomeScreenState extends State<HomeScreen> with RouteAware {
                             return CardTask(
                               task: TaskModel(
                                 title: "title",
-                                subTasks:
-                                    List.filled(3, const SubTask(title: "title")),
+                                subTasks: List.filled(
+                                    3, const SubTask(title: "title")),
                                 id: "id",
                                 createdAt: DateTime.now(),
                               ),
@@ -156,7 +156,7 @@ class _HomeScreenState extends State<HomeScreen> with RouteAware {
           onPressed: () {
             context.goNamed(Routes.createTask.name);
           },
-          icon: const Icon(Icons.add),
+          icon: Icon(Icons.add, size: 24.sp),
           label: Text(
             'task.create'.tr(),
             textAlign: TextAlign.center,

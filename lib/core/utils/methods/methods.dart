@@ -35,30 +35,34 @@ List<SettingItemModel> generateSettingItems() {
     SettingItemModel(
       title: 'setting.language.title'.tr(),
       subTitle: 'setting.language.subtitle'.tr(),
-      leadingIcon: const Icon(
+      leadingIcon: Icon(
         Icons.language,
+        size: 24.sp,
       ),
     ),
     SettingItemModel(
       title: 'setting.theme.title'.tr(),
       subTitle: 'setting.theme.subtitle'.tr(),
-      leadingIcon: const Icon(
+      leadingIcon: Icon(
         Icons.brightness_6,
+        size: 24.sp,
       ),
     ),
     SettingItemModel(
       title: 'setting.notification.title'.tr(),
       subTitle: 'setting.notification.subtitle'.tr(),
-      leadingIcon: const Icon(
+      leadingIcon: Icon(
         Icons.notifications,
+        size: 24.sp,
       ),
       path: Routes.notificationSetting.name,
     ),
     SettingItemModel(
       title: 'setting.search.title'.tr(),
       subTitle: 'setting.search.subtitle'.tr(),
-      leadingIcon: const Icon(
+      leadingIcon: Icon(
         Icons.search,
+        size: 24.sp,
       ),
       path: Routes.searchSetting.name,
     ),
@@ -73,8 +77,9 @@ List<SettingItemModel> generateSettingItems() {
     SettingItemModel(
       title: 'setting.account.title'.tr(),
       subTitle: 'setting.account.subtitle'.tr(),
-      leadingIcon: const Icon(
+      leadingIcon: Icon(
         Icons.person,
+        size: 24.sp,
       ),
       path: Routes.profile.name,
     ),

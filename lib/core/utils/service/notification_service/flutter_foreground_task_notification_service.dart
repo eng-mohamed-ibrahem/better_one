@@ -3,12 +3,12 @@ import 'dart:ui';
 
 import 'package:better_one/core/constants/firebase_constants.dart';
 import 'package:better_one/core/constants/notification_constants.dart';
-import 'package:better_one/core/utils/service/notification_service/notification_background_service_interface.dart';
-import 'package:better_one/core/utils/service/cache_service/cach_interface/locale_user_info.dart';
 import 'package:better_one/core/utils/dependency_locator/dependency_injection.dart';
 import 'package:better_one/core/utils/dependency_locator/inject.dart';
 import 'package:better_one/core/utils/methods/methods.dart';
 import 'package:better_one/core/utils/notification_service/flutter_local_notification.dart';
+import 'package:better_one/core/utils/service/cache_service/cach_interface/locale_user_info.dart';
+import 'package:better_one/core/utils/service/notification_service/notification_background_service_interface.dart';
 import 'package:better_one/firebase_options.dart';
 import 'package:better_one/model/notification_model/notification_model.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
@@ -97,7 +97,7 @@ class ForegroundTaskNotificationService
         playSound: false,
       ),
       foregroundTaskOptions: ForegroundTaskOptions(
-        eventAction: ForegroundTaskEventAction.once(),
+        eventAction: ForegroundTaskEventAction.nothing(),
         autoRunOnBoot: true,
         autoRunOnMyPackageReplaced: true,
         allowWakeLock: true,
@@ -146,23 +146,6 @@ class ForegroundTaskNotificationService
 }
 
 class NotificationHandler extends TaskHandler {
-  static const String incrementCountCommand = 'incrementCount';
-
-  int _count = 0;
-
-  void _incrementCount() {
-    _count++;
-
-    // Update notification content.
-    FlutterForegroundTask.updateService(
-      notificationTitle: 'Hello NotificationHandler :)',
-      notificationText: 'count: $_count',
-    );
-
-    // Send data to main isolate.
-    FlutterForegroundTask.sendDataToMain(_count);
-  }
-
   // Called when the task is started.
   @override
   Future<void> onStart(DateTime timestamp, TaskStarter starter) async {
@@ -208,12 +191,11 @@ class NotificationHandler extends TaskHandler {
   // Called based on the eventAction set in ForegroundTaskOptions.
   @override
   void onRepeatEvent(DateTime timestamp) {
-    // _incrementCount();
     // Update notification content.
-    FlutterForegroundTask.updateService(
-      notificationTitle: 'Hello NotificationHandler :)',
-      notificationText: 'count: $_count',
-    );
+    // FlutterForegroundTask.updateService(
+    //   notificationTitle: 'Hello NotificationHandler :)',
+    //   notificationText: 'count data',
+    // );
     kDebugPrint("on Repeat Event");
   }
 
@@ -226,9 +208,10 @@ class NotificationHandler extends TaskHandler {
   // Called when data is sent using `FlutterForegroundTask.sendDataToTask`.
   @override
   void onReceiveData(Object data) {
+    // data as String
     kDebugPrint('onReceiveData: $data');
-    if (data == incrementCountCommand) {
-      _incrementCount();
+    if (data == "increment") {
+      // _incrementCount();
     }
   }
 
