@@ -1,4 +1,4 @@
-package com.example.better_one
+package com.mohamedibrahem.better_one
 
 import io.flutter.embedding.android.FlutterActivity
 

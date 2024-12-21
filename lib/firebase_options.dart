@@ -51,7 +51,7 @@ class DefaultFirebaseOptions {
 
   static const FirebaseOptions android = FirebaseOptions(
     apiKey: 'AIzaSyD7Vpb4rS2YtZq5BvM8XS72rEYiTetrKHU',
-    appId: '1:1000880324526:android:a4668267c52977b659123f',
+    appId: '1:1000880324526:android:c76ec03a51b371f659123f',
     messagingSenderId: '1000880324526',
     projectId: 'better-one-5913d',
     storageBucket: 'better-one-5913d.appspot.com',
@@ -59,10 +59,11 @@ class DefaultFirebaseOptions {
 
   static const FirebaseOptions ios = FirebaseOptions(
     apiKey: 'AIzaSyAwqruM9INg8s3PhZORlB-CJxzXxxgWIWs',
-    appId: '1:1000880324526:ios:11376956e32eda9a59123f',
+    appId: '1:1000880324526:ios:ab80a0a05f6f347459123f',
     messagingSenderId: '1000880324526',
     projectId: 'better-one-5913d',
     storageBucket: 'better-one-5913d.appspot.com',
-    iosBundleId: 'com.example.betterOne',
+    iosBundleId: 'com.mohamedibrahem.betterOne',
   );
+
 }
