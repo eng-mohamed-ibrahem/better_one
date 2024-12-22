@@ -7,9 +7,9 @@
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:1000880324526:android:a4668267c52977b659123f",
+        "mobilesdk_app_id": "1:1000880324526:android:c76ec03a51b371f659123f",
         "android_client_info": {
-          "package_name": "com.example.better_one"
+          "package_name": "com.mohamedibrahem.better_one"
         }
       },
       "oauth_client": [],

@@ -332,6 +332,7 @@ class _TaskDetailsScreenState extends State<TaskDetailsScreen>
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             ChoiceChip(
+                              clipBehavior: Clip.antiAlias,
                               label: Text('task.status.done'.tr()),
                               selected: task!.status == TaskStatus.done,
                               onSelected: (value) {
@@ -373,9 +374,10 @@ class _TaskDetailsScreenState extends State<TaskDetailsScreen>
                                   },
                                 );
                               },
-                              icon: const Icon(
+                              icon: Icon(
                                 Icons.delete_forever,
                                 color: AppColors.hightlightColor,
+                                size: 24.sp,
                               ),
                               label: Text(
                                 'core.delete'.tr(),

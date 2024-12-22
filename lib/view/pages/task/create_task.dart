@@ -162,7 +162,10 @@ class CreateTaskScreen extends StatelessWidget {
                             );
                           }
                         },
-                        icon: const Icon(Icons.add),
+                        icon: Icon(
+                          Icons.add,
+                          size: 24.sp,
+                        ),
                         label: Text('task.add'.tr()),
                       );
                     },
