@@ -1,4 +1,6 @@
-# The Idea Behind Better One
+# Try it [https://www.amazon.com/dp/B0DR69JTFZ/ref=apps_sf_sta]
+
+## The Idea Behind Better One
 
 The app is designed to motivate users to work by notifying them about their progress and allowing others to encourage them.
 Users can create, edit, delete, and complete tasks, receive notifications, and view motivational quotes while working.
